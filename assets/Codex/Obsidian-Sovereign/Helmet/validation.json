@@ -1,0 +1,118 @@
+{
+  "status": "work_in_progress_not_AAA_approved",
+  "low_poly": {
+    "vertices": 9358,
+    "triangles": 18720,
+    "connected_components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "non_contiguous_edges": 0,
+    "ngons": 0,
+    "signed_volume_m3": 0.000758715317979909,
+    "dimensions_mm": [
+      236.839,
+      290.351,
+      359.0
+    ],
+    "watertight": true
+  },
+  "high_poly": {
+    "vertices": 146893,
+    "triangles": 293790,
+    "connected_components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "non_contiguous_edges": 0,
+    "ngons": 0,
+    "signed_volume_m3": 0.0007600445013522108,
+    "dimensions_mm": [
+      237.097,
+      290.464,
+      359.0
+    ],
+    "watertight": true
+  },
+  "limitations": [
+    "Silhouette and ornament remain a procedural interpretation and do not reproduce the supplied design sheet at AAA fidelity.",
+    "High-poly micro relief includes shader bump; it is not all sculpted mesh detail.",
+    "UV density and overlaps are sampled; inspect at target mip levels before approval.",
+    "Fit uses an ellipsoid proxy, not the actual ShadowknightUE_SK section and gorget; animation and donning clearance unverified.",
+    "The export is static and is not yet bound to the required head/neck_01 skeleton.",
+    "Unreal Engine 5.3 import, material HelmW visibility, and section-3 replacement have not been tested.",
+    "No claim of final production readiness or AAA artistic quality.",
+    "Interior render is dark; inspect the lining directly in Blender. Brow and eye-rim surface finishing still need an artistic pass."
+  ],
+  "baking": {
+    "resolution": 4096,
+    "UV_method": "Blender angle-based Smart UV Project, average island scale, packed atlas",
+    "BaseColor": "Actual selected high-to-low EMIT bake",
+    "Roughness": "Actual selected high-to-low EMIT bake",
+    "MaterialID": "Actual selected high-to-low EMIT bake",
+    "Normal": "Actual selected high-to-low tangent NORMAL bake, OpenGL and green-inverted DirectX",
+    "AO": "Actual Cycles low mesh AO bake",
+    "game_textures": "Use *_Baked.png plus uniform T_Helmet_Metallic.png; unsuffixed maps are source atlas / earlier revisions",
+    "visual_review": "Final three-quarter and underside renders inspected. Exterior materials and the open lower passage are visible; the interior lighting is insufficient for detailed lining review. Artistic fidelity and brow surface finishing remain unapproved."
+  },
+  "additional_checks": {
+    "aperture_wall_faces_reparameterized": {
+      "SM_ObsidianSovereign_Helmet_LOD0": 131,
+      "HP_ObsidianSovereign_Helmet": 525
+    },
+    "nonadjacent_BVH_overlap_candidates": 0,
+    "BVH_limit": "Bounding-volume candidates require exact intersection review if nonzero.",
+    "uv_out_of_bounds_loops": 0,
+    "degenerate_triangles": 0
+  },
+  "fbx_roundtrip": {
+    "mesh_objects": 1,
+    "dimensions_mm": [
+      [
+        236.839,
+        290.351,
+        359.0
+      ]
+    ],
+    "note": "Blender FBX round-trip only; Unreal not tested."
+  },
+  "uv_raster_audit": {
+    "resolution": 1024,
+    "covered_pixels": 602475,
+    "overlapping_pixels": 0,
+    "max_layers": 1,
+    "degenerate_uv_triangles": 0,
+    "density_px_per_meter_percentiles_5_50_95": [
+      3947.750188520604,
+      4450.771406113763,
+      4732.864824469714
+    ],
+    "limit": "Raster sampled evidence; does not rule out subpixel overlaps."
+  },
+  "normal_map_sampled_audit": {
+    "sampled_black_texels_on_uvs": 0,
+    "covered_samples": 602475,
+    "limit": "Black-texel check detects some missed projections; it does not establish full normal-map quality."
+  },
+  "integration_target": {
+    "source": "User supplied, not verified against project files",
+    "asset": "/Game/ShadowKight/Mesh/ShadowknightUE_SK",
+    "component": "KnightMesh",
+    "component_scale": 1.0,
+    "material_slots": [
+      "arms",
+      "chest",
+      "cloth",
+      "helmet",
+      "pants"
+    ],
+    "helmet_slot_index": 3,
+    "material": "M_KnightHelmet_NoHorns",
+    "skeleton_family": "UE4 Mannequin; actual asset reference and bind pose required",
+    "required_bones": [
+      "head",
+      "neck_01"
+    ],
+    "visibility_parameter": "HelmW",
+    "status": "Project is on another PC. Awaiting full ShadowknightUE_SK FBX with skeleton and preferably HeroHead. Current export remains unskinned static geometry.",
+    "requirements_file": "../ShadowKnight_Integration_Target.md"
+  }
+}
