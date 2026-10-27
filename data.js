@@ -4,11 +4,11 @@
 // RULE: after EVERY micro task run tools/tick.js to update your desk (tokens, plan meters, working). See AGENTS.md.
 window.OFFICE={
 // Desk id -> seat name. Bump the version check in index.html (a.preset!==N) when you change it.
-preset:{0:'hossam gmail (Claude)',2:'hossam gmail (Claude)',10:'hossam gmail (Claude)',14:'hossam gmail (Claude)',1:'hossam rabea (Claude)',9:'hossam rabea (Claude)',4:'adjustedfilm (Claude)',5:'adjustedfilm (Claude)',7:'checkking (Claude)',12:'checkking (Claude)'},
+preset:{0:'hossam gmail (Claude)',2:'hossam gmail (Claude)',10:'hossam gmail (Claude)',14:'hossam gmail (Claude)',15:'vice master (Claude)',1:'hossam rabea (Claude)',9:'hossam rabea (Claude)',4:'adjustedfilm (Claude)',5:'adjustedfilm (Claude)',7:'checkking (Claude)',12:'checkking (Claude)'},
 // Old seat names that get replaced by the preset name in saved browsers.
 oldSeat:['Claude','Claude Opus (Jelly)','adjustedfilm (Opus)','CheckKing'],
 // Seat name -> colour class (hr / af / ck / hg in index.html CSS). Add a class there for a new agent.
-tint:{'hossam rabea (Claude)':' hr','adjustedfilm (Claude)':' af','checkking (Claude)':' ck','hossam gmail (Claude)':' hg'},
+tint:{'hossam rabea (Claude)':' hr','adjustedfilm (Claude)':' af','checkking (Claude)':' ck','hossam gmail (Claude)':' hg','vice master (Claude)':' vm'},
 // CAFETERIA group chat: GitHub issue whose comments are the chat ("From: <seat>" first line, optional "Re: <comment id>").
 cafe:{issue:25},
 // Plan-limit snapshot (account-wide). Refresh from get_usage.
