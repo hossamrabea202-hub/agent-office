@@ -1,0 +1,89 @@
+{
+  "part": "Gauntlets",
+  "status": "WIP_UNSKINNED_NOT_CHARACTER_FITTED",
+  "low_poly": {
+    "vertices": 7588,
+    "triangles": 15172,
+    "components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "ngons": 0,
+    "zero_area_triangles": 0,
+    "nonadjacent_intersection_candidates": 0,
+    "signed_volume_m3": 4.899553558845199e-05
+  },
+  "high_poly": {
+    "vertices": 56940,
+    "triangles": 113876,
+    "components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "ngons": 0,
+    "zero_area_triangles": 0,
+    "nonadjacent_intersection_candidates": 0,
+    "signed_volume_m3": 5.070857618923319e-05
+  },
+  "paired": true,
+  "source_skeleton": "Not supplied; no invented bind transforms",
+  "limitations": [
+    "Procedural interpretation of the reference, not AAA artistic approval.",
+    "Character fit, skinning, animation, collision and Unreal import unverified.",
+    "Fine ornamental relief includes source shader bump."
+  ],
+  "uv_audit": {
+    "sample_resolution": 1024,
+    "overlapping_pixels": 0,
+    "covered_pixels": 534153,
+    "degenerate_uv_triangles": 0,
+    "out_of_bounds_loops": 0,
+    "note": "Mirrored pair intentionally reuses one atlas; overlap checked per equipment mesh, not across separate objects."
+  },
+  "baking": {
+    "resolution": 4096,
+    "color_roughness_metallic_ID": "Cycles selected high-to-low emission bake",
+    "normals": "Cycles selected high-to-low tangent normal, OpenGL and DirectX",
+    "AO": "Cycles AO on low mesh",
+    "fine_relief": "High-source shader bump plus refined geometry",
+    "ORM": "R=AO G=roughness B=metallic"
+  },
+  "objects": [
+    "SM_ObsidianSovereign_Gauntlets_L",
+    "SM_ObsidianSovereign_Gauntlets_R"
+  ],
+  "mirror_note": "Right geometry is an exact reflected copy, with consistent outward winding. The pair stays two separate equipment objects.",
+  "fbx_roundtrip": {
+    "scope": "Blender geometry round-trip only, not Unreal import",
+    "files": [
+      {
+        "file": "SM_ObsidianSovereign_Gauntlets_L.fbx",
+        "mesh_objects": 1,
+        "geometry": [
+          {
+            "triangles": 15172,
+            "non_manifold_edges": 0,
+            "dimensions_mm": [
+              142.142,
+              38.0,
+              229.916
+            ]
+          }
+        ]
+      },
+      {
+        "file": "SM_ObsidianSovereign_Gauntlets_R.fbx",
+        "mesh_objects": 1,
+        "geometry": [
+          {
+            "triangles": 15172,
+            "non_manifold_edges": 0,
+            "dimensions_mm": [
+              142.142,
+              38.0,
+              229.916
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

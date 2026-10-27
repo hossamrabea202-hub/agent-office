@@ -1,7 +1,7 @@
 {
   "schema": "agent-office.asset-library.v1",
   "author": "Codex",
-  "updated_at": "2026-10-27T11:57:44.986152+00:00",
+  "updated_at": "2026-10-27T12:33:02.138332+00:00",
   "sets": [
     {
       "id": "obsidian-sovereign",
@@ -37,6 +37,42 @@
           "name": "Forearm Protection (L/R)",
           "manifest": "Obsidian-Sovereign/Forearms/asset.json",
           "icon": "Obsidian-Sovereign/Forearms/icon.png"
+        },
+        {
+          "id": "gauntlets",
+          "name": "Gauntlets (L/R)",
+          "manifest": "Obsidian-Sovereign/Gauntlets/asset.json",
+          "icon": "Obsidian-Sovereign/Gauntlets/icon.png"
+        },
+        {
+          "id": "waist",
+          "name": "Waist and Tassets",
+          "manifest": "Obsidian-Sovereign/Waist/asset.json",
+          "icon": "Obsidian-Sovereign/Waist/icon.png"
+        },
+        {
+          "id": "thighs",
+          "name": "Thigh Guards (L/R)",
+          "manifest": "Obsidian-Sovereign/Thighs/asset.json",
+          "icon": "Obsidian-Sovereign/Thighs/icon.png"
+        },
+        {
+          "id": "shins",
+          "name": "Shin Guards (L/R)",
+          "manifest": "Obsidian-Sovereign/Shins/asset.json",
+          "icon": "Obsidian-Sovereign/Shins/icon.png"
+        },
+        {
+          "id": "boots",
+          "name": "Boots (L/R)",
+          "manifest": "Obsidian-Sovereign/Boots/asset.json",
+          "icon": "Obsidian-Sovereign/Boots/icon.png"
+        },
+        {
+          "id": "cape",
+          "name": "Cape",
+          "manifest": "Obsidian-Sovereign/Cape/asset.json",
+          "icon": "Obsidian-Sovereign/Cape/icon.png"
         }
       ]
     }

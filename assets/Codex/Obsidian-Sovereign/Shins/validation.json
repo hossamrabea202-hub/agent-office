@@ -1,0 +1,89 @@
+{
+  "part": "Shins",
+  "status": "WIP_UNSKINNED_NOT_CHARACTER_FITTED",
+  "low_poly": {
+    "vertices": 3584,
+    "triangles": 7168,
+    "components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "ngons": 0,
+    "zero_area_triangles": 0,
+    "nonadjacent_intersection_candidates": 0,
+    "signed_volume_m3": 0.0003682767705296786
+  },
+  "high_poly": {
+    "vertices": 32256,
+    "triangles": 64512,
+    "components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "ngons": 0,
+    "zero_area_triangles": 0,
+    "nonadjacent_intersection_candidates": 0,
+    "signed_volume_m3": 0.00036843641767988166
+  },
+  "paired": true,
+  "source_skeleton": "Not supplied; no invented bind transforms",
+  "limitations": [
+    "Procedural interpretation of the reference, not AAA artistic approval.",
+    "Character fit, skinning, animation, collision and Unreal import unverified.",
+    "Fine ornamental relief includes source shader bump."
+  ],
+  "uv_audit": {
+    "sample_resolution": 1024,
+    "overlapping_pixels": 0,
+    "covered_pixels": 495346,
+    "degenerate_uv_triangles": 0,
+    "out_of_bounds_loops": 0,
+    "note": "Mirrored pair intentionally reuses one atlas; overlap checked per equipment mesh, not across separate objects."
+  },
+  "baking": {
+    "resolution": 4096,
+    "color_roughness_metallic_ID": "Cycles selected high-to-low emission bake",
+    "normals": "Cycles selected high-to-low tangent normal, OpenGL and DirectX",
+    "AO": "Cycles AO on low mesh",
+    "fine_relief": "High-source shader bump plus refined geometry",
+    "ORM": "R=AO G=roughness B=metallic"
+  },
+  "objects": [
+    "SM_ObsidianSovereign_Shins_L",
+    "SM_ObsidianSovereign_Shins_R"
+  ],
+  "mirror_note": "Right geometry is an exact reflected copy, with consistent outward winding. The pair stays two separate equipment objects.",
+  "fbx_roundtrip": {
+    "scope": "Blender geometry round-trip only, not Unreal import",
+    "files": [
+      {
+        "file": "SM_ObsidianSovereign_Shins_L.fbx",
+        "mesh_objects": 1,
+        "geometry": [
+          {
+            "triangles": 7168,
+            "non_manifold_edges": 0,
+            "dimensions_mm": [
+              134.0,
+              162.036,
+              393.0
+            ]
+          }
+        ]
+      },
+      {
+        "file": "SM_ObsidianSovereign_Shins_R.fbx",
+        "mesh_objects": 1,
+        "geometry": [
+          {
+            "triangles": 7168,
+            "non_manifold_edges": 0,
+            "dimensions_mm": [
+              134.0,
+              162.036,
+              393.0
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

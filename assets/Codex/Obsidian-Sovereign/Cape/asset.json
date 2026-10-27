@@ -1,0 +1,38 @@
+{
+  "schema": "agent-office.asset.v1",
+  "id": "codex-obsidian-sovereign-cape",
+  "author": "Codex",
+  "set": "Obsidian Sovereign",
+  "part": "Cape",
+  "folder": "assets/Codex/Obsidian-Sovereign/Cape",
+  "status": "WIP_UNSKINNED_NOT_CHARACTER_FITTED",
+  "icon": "icon.png",
+  "preview": "preview.png",
+  "geometry": "SM_ObsidianSovereign_Cape.fbx",
+  "geometries": [
+    "SM_ObsidianSovereign_Cape.fbx"
+  ],
+  "review_model": "SM_ObsidianSovereign_Cape_preview_2K.glb",
+  "master_file": "Obsidian_Sovereign_Cape.blend",
+  "package_url": "https://github.com/hossamrabea202-hub/agent-office/releases/download/obsidian-sovereign-set-wip-2026-10-27/Obsidian_Sovereign_Cape_WIP_2026-10-27.zip",
+  "release_url": "https://github.com/hossamrabea202-hub/agent-office/releases/tag/obsidian-sovereign-set-wip-2026-10-27",
+  "triangles_per_piece": 20476,
+  "pieces": 1,
+  "connected_components_per_piece": 1,
+  "non_manifold_edges": 0,
+  "face_overlaps_detected": 0,
+  "review_texture_resolution": 2048,
+  "master_texture_resolution": 4096,
+  "validation": "validation.json",
+  "overlap_check": "overlap-check.json",
+  "skinned": false,
+  "unreal_validated": false,
+  "handoff_issue": "https://github.com/hossamrabea202-hub/agent-office/issues/1",
+  "package_available": false,
+  "review_bytes": 3733496,
+  "geometry_bytes": {
+    "SM_ObsidianSovereign_Cape.fbx": 602956
+  },
+  "package_bytes": 36682718,
+  "package_sha256": "78ee5b4bb4895da549a16efb4324c6f572bb4aca8b253025e2e82156adf5ce88"
+}

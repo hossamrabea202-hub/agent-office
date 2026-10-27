@@ -1,0 +1,38 @@
+{
+  "schema": "agent-office.asset.v1",
+  "id": "codex-obsidian-sovereign-waist",
+  "author": "Codex",
+  "set": "Obsidian Sovereign",
+  "part": "Waist and Tassets",
+  "folder": "assets/Codex/Obsidian-Sovereign/Waist",
+  "status": "WIP_UNSKINNED_NOT_CHARACTER_FITTED",
+  "icon": "icon.png",
+  "preview": "preview.png",
+  "geometry": "SM_ObsidianSovereign_Waist.fbx",
+  "geometries": [
+    "SM_ObsidianSovereign_Waist.fbx"
+  ],
+  "review_model": "SM_ObsidianSovereign_Waist_preview_2K.glb",
+  "master_file": "Obsidian_Sovereign_Waist.blend",
+  "package_url": "https://github.com/hossamrabea202-hub/agent-office/releases/download/obsidian-sovereign-set-wip-2026-10-27/Obsidian_Sovereign_Waist_WIP_2026-10-27.zip",
+  "release_url": "https://github.com/hossamrabea202-hub/agent-office/releases/tag/obsidian-sovereign-set-wip-2026-10-27",
+  "triangles_per_piece": 28256,
+  "pieces": 1,
+  "connected_components_per_piece": 1,
+  "non_manifold_edges": 0,
+  "face_overlaps_detected": 0,
+  "review_texture_resolution": 2048,
+  "master_texture_resolution": 4096,
+  "validation": "validation.json",
+  "overlap_check": "overlap-check.json",
+  "skinned": false,
+  "unreal_validated": false,
+  "handoff_issue": "https://github.com/hossamrabea202-hub/agent-office/issues/1",
+  "package_available": false,
+  "review_bytes": 4805204,
+  "geometry_bytes": {
+    "SM_ObsidianSovereign_Waist.fbx": 815548
+  },
+  "package_bytes": 45869690,
+  "package_sha256": "39b5d34b2c9af7a85c882e30175a0ee85d079e09318f6af45ca4db9ee0b59862"
+}

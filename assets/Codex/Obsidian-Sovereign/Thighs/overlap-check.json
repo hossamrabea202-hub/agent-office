@@ -1,0 +1,16 @@
+{
+  "object": "SM_ObsidianSovereign_Thighs_L",
+  "duplicate_geometric_faces": 0,
+  "nonadjacent_BVH_candidates": 0,
+  "adjacent_pairs_checked": 43044,
+  "face_overlaps_detected": 0,
+  "overlap_examples": [],
+  "non_manifold_edges": 0,
+  "zero_area_triangles": 0,
+  "tolerances": {
+    "plane_distance_m": 1e-08,
+    "intersection_segment_m": 1e-07,
+    "projected_overlap_area_m2": 1e-12
+  },
+  "scope": "Saved low-poly authoring mesh; intended shared edges/vertices and the non-coincident inner lining are not overlaps. Floating-point test, not a formal mathematical proof."
+}

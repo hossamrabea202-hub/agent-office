@@ -1,0 +1,40 @@
+{
+  "schema": "agent-office.asset.v1",
+  "id": "codex-obsidian-sovereign-gauntlets",
+  "author": "Codex",
+  "set": "Obsidian Sovereign",
+  "part": "Gauntlets (L/R)",
+  "folder": "assets/Codex/Obsidian-Sovereign/Gauntlets",
+  "status": "WIP_UNSKINNED_NOT_CHARACTER_FITTED",
+  "icon": "icon.png",
+  "preview": "preview.png",
+  "geometry": "SM_ObsidianSovereign_Gauntlets_L.fbx",
+  "geometries": [
+    "SM_ObsidianSovereign_Gauntlets_L.fbx",
+    "SM_ObsidianSovereign_Gauntlets_R.fbx"
+  ],
+  "review_model": "SM_ObsidianSovereign_Gauntlets_preview_2K.glb",
+  "master_file": "Obsidian_Sovereign_Gauntlets.blend",
+  "package_url": "https://github.com/hossamrabea202-hub/agent-office/releases/download/obsidian-sovereign-set-wip-2026-10-27/Obsidian_Sovereign_Gauntlets_WIP_2026-10-27.zip",
+  "release_url": "https://github.com/hossamrabea202-hub/agent-office/releases/tag/obsidian-sovereign-set-wip-2026-10-27",
+  "triangles_per_piece": 15172,
+  "pieces": 2,
+  "connected_components_per_piece": 1,
+  "non_manifold_edges": 0,
+  "face_overlaps_detected": 0,
+  "review_texture_resolution": 2048,
+  "master_texture_resolution": 4096,
+  "validation": "validation.json",
+  "overlap_check": "overlap-check.json",
+  "skinned": false,
+  "unreal_validated": false,
+  "handoff_issue": "https://github.com/hossamrabea202-hub/agent-office/issues/1",
+  "package_available": false,
+  "review_bytes": 5192100,
+  "geometry_bytes": {
+    "SM_ObsidianSovereign_Gauntlets_L.fbx": 467068,
+    "SM_ObsidianSovereign_Gauntlets_R.fbx": 467724
+  },
+  "package_bytes": 41926627,
+  "package_sha256": "623d7af668a5a769e8d3149dea6c01aa0b3b73dd65004aef1092e0cf859e7204"
+}
