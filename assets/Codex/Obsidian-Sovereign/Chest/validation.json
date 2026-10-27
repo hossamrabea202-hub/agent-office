@@ -1,0 +1,77 @@
+{
+  "status": "WIP_UNSKINNED_NOT_CHARACTER_FITTED",
+  "part": "Chest and torso",
+  "low_poly": {
+    "vertices": 10484,
+    "triangles": 20976,
+    "connected_components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "ngons": 0,
+    "degenerate_triangles": 0,
+    "nonadjacent_BVH_candidates": 0,
+    "signed_volume_m3": 0.0013385991097277427,
+    "dimensions_mm": [
+      363.172,
+      328.175,
+      476.0
+    ]
+  },
+  "high_poly": {
+    "vertices": 83280,
+    "triangles": 166568,
+    "connected_components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "ngons": 0,
+    "degenerate_triangles": 0,
+    "nonadjacent_BVH_candidates": 0,
+    "signed_volume_m3": 0.00133908421645377,
+    "dimensions_mm": [
+      363.172,
+      328.209,
+      476.0
+    ]
+  },
+  "units": "meters, Z up; provisional component-space placement",
+  "fit": "Dimensioned procedural torso only; ShadowknightUE_SK and its skeleton not supplied",
+  "nominal_plate_thickness_mm": 3.5,
+  "limitations": [
+    "Artistic fidelity needs visual review.",
+    "Fine high-poly relief includes a shader bump source.",
+    "No target-character fit, skinning, animation or Unreal import has been verified."
+  ],
+  "uv_audit": {
+    "resolution": 1024,
+    "covered_pixels": 576554,
+    "overlapping_pixels": 0,
+    "degenerate_uv_triangles": 0,
+    "out_of_bounds_loops": 0,
+    "density_px_per_meter_5_50_95": [
+      3044.8217666882815,
+      3404.342428163586,
+      3618.5721166638878
+    ],
+    "scope": "Pixel-centre sample; not an exact subpixel overlap proof"
+  },
+  "baking": {
+    "resolution": 4096,
+    "BaseColor": "Cycles selected high-to-low EMIT",
+    "Roughness": "Cycles selected high-to-low EMIT",
+    "MaterialID": "Cycles selected high-to-low EMIT",
+    "Normal": "Cycles selected high-to-low tangent NORMAL, OpenGL and green-inverted DirectX",
+    "AO": "Cycles low mesh AO",
+    "ORM": "R=AO G=roughness B=metallic"
+  },
+  "fbx_roundtrip": {
+    "mesh_objects": 1,
+    "dimensions_mm": [
+      [
+        363.172,
+        328.175,
+        476.0
+      ]
+    ],
+    "scope": "Blender FBX round-trip, not Unreal import"
+  }
+}

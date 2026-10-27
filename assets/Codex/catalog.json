@@ -1,6 +1,7 @@
 {
   "schema": "agent-office.asset-library.v1",
   "author": "Codex",
+  "updated_at": "2026-10-27T11:57:44.986152+00:00",
   "sets": [
     {
       "id": "obsidian-sovereign",
@@ -12,6 +13,30 @@
           "name": "Helmet",
           "manifest": "Obsidian-Sovereign/Helmet/asset.json",
           "icon": "Obsidian-Sovereign/Helmet/icon.png"
+        },
+        {
+          "id": "chest",
+          "name": "Chest and Torso",
+          "manifest": "Obsidian-Sovereign/Chest/asset.json",
+          "icon": "Obsidian-Sovereign/Chest/icon.png"
+        },
+        {
+          "id": "shoulders",
+          "name": "Shoulders (L/R)",
+          "manifest": "Obsidian-Sovereign/Shoulders/asset.json",
+          "icon": "Obsidian-Sovereign/Shoulders/icon.png"
+        },
+        {
+          "id": "upperarms",
+          "name": "Upper-arm Protection (L/R)",
+          "manifest": "Obsidian-Sovereign/UpperArms/asset.json",
+          "icon": "Obsidian-Sovereign/UpperArms/icon.png"
+        },
+        {
+          "id": "forearms",
+          "name": "Forearm Protection (L/R)",
+          "manifest": "Obsidian-Sovereign/Forearms/asset.json",
+          "icon": "Obsidian-Sovereign/Forearms/icon.png"
         }
       ]
     }

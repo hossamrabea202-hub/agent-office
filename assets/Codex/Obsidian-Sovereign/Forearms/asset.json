@@ -1,0 +1,40 @@
+{
+  "schema": "agent-office.asset.v1",
+  "id": "codex-obsidian-sovereign-forearms",
+  "author": "Codex",
+  "set": "Obsidian Sovereign",
+  "part": "Forearm Protection (L/R)",
+  "folder": "assets/Codex/Obsidian-Sovereign/Forearms",
+  "status": "WIP_UNSKINNED_NOT_CHARACTER_FITTED",
+  "icon": "icon.png",
+  "preview": "preview.png",
+  "geometry": "SM_ObsidianSovereign_Forearms_L.fbx",
+  "geometries": [
+    "SM_ObsidianSovereign_Forearms_L.fbx",
+    "SM_ObsidianSovereign_Forearms_R.fbx"
+  ],
+  "review_model": "SM_ObsidianSovereign_Forearms_preview_2K.glb",
+  "master_file": "Obsidian_Sovereign_Forearms.blend",
+  "package_url": "https://github.com/hossamrabea202-hub/agent-office/releases/download/obsidian-sovereign-set-wip-2026-10-27/Obsidian_Sovereign_Forearms_WIP_2026-10-27.zip",
+  "release_url": "https://github.com/hossamrabea202-hub/agent-office/releases/tag/obsidian-sovereign-set-wip-2026-10-27",
+  "triangles_per_piece": 7168,
+  "pieces": 2,
+  "connected_components_per_piece": 1,
+  "non_manifold_edges": 0,
+  "face_overlaps_detected": 0,
+  "review_texture_resolution": 2048,
+  "master_texture_resolution": 4096,
+  "validation": "validation.json",
+  "overlap_check": "overlap-check.json",
+  "skinned": false,
+  "unreal_validated": false,
+  "handoff_issue": "https://github.com/hossamrabea202-hub/agent-office/issues/1",
+  "package_bytes": 24841463,
+  "package_sha256": "41bd9ac17c446172c1f91c4da95e622c5aaeb36c678ae01eccd1b5b08719a7b0",
+  "package_available": false,
+  "review_bytes": 2278956,
+  "geometry_bytes": {
+    "SM_ObsidianSovereign_Forearms_L.fbx": 228492,
+    "SM_ObsidianSovereign_Forearms_R.fbx": 228316
+  }
+}

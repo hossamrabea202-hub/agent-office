@@ -33,25 +33,37 @@ style.textContent=`
 @media(max-width:580px){#codex-assets{padding:15px}#codex-assets .ca-hero{grid-template-columns:1fr}#codex-assets .ca-preview{max-width:270px;justify-self:center}}
 `;
 document.head.append(style);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const launch=document.createElement('button');launch.type='button';launch.className='codex-asset-folder';launch.setAttribute('aria-label','Open Codex asset folder');
-launch.innerHTML='<img src="'+new URL('icon.png',part).href+'" alt="Black and gold Obsidian Sovereign helmet"><span><b>Codex</b><small>1 set · 1 part · WIP</small></span>';
+launch.innerHTML='<img src="'+new URL('icon.png',part).href+'" alt="Black and gold Obsidian Sovereign helmet"><span><b>Codex</b><small id="codex-count">Shared WIP assets</small></span>';
 grid.prepend(launch);
 const dialog=document.createElement('dialog');dialog.id='codex-assets';dialog.setAttribute('aria-labelledby','ca-title');document.body.append(dialog);
-const crumb=(name,level)=>'<button type="button" data-ca="'+level+'">'+name+'</button>';
-function render(level){
- let title='Codex',body='',trail=crumb('3D Assets','close')+'<span>/</span>';
- if(level===0){
-  trail+='<span>Codex</span>';
-  body='<p class="ca-muted">Shared model files and editable handoffs created by Codex.</p><button type="button" class="ca-folder" data-ca="1"><span class="ca-folder-glyph" aria-hidden="true">▰</span><span class="ca-label"><strong>Obsidian Sovereign</strong><span class="ca-muted">Modular black-and-gold armour set · 1 part uploaded</span></span></button>';
- }else if(level===1){
-  title='Obsidian Sovereign';trail+=crumb('Codex','0')+'<span>/</span><span>Obsidian Sovereign</span>';
-  body='<p class="ca-muted">The armour set is in progress. Helmet is the first uploaded part; the remaining equipment has not been delivered.</p><button type="button" class="ca-folder" data-ca="2"><img src="'+new URL('icon.png',part).href+'" alt="Helmet preview"><span class="ca-label"><strong>Helmet</strong><span class="ca-muted">FBX + textured GLB + complete Blender/4K package</span><span class="ca-muted">18,720 triangles · static, unskinned WIP</span></span></button>';
- }else{
-  title='Helmet';trail+=crumb('Codex','0')+'<span>/</span>'+crumb('Obsidian Sovereign','1')+'<span>/</span><span>Helmet</span>';
-  body='<div class="ca-hero"><img class="ca-preview" src="'+new URL('preview.png',part).href+'" alt="Rendered black and gold helmet, three-quarter view"><div><span class="ca-badge">WORK IN PROGRESS · UNSKINNED</span><h3>Obsidian Sovereign Helmet</h3><p class="ca-muted">One connected hollow shell with eye apertures and inner lining. 18,720 triangles. The game master has 4K baked maps; the lightweight GLB uses 2K maps.</p><div class="ca-files"><a href="'+new URL('SM_ObsidianSovereign_Helmet.fbx',part).href+'" download>Download FBX geometry · 0.67 MB</a><a href="'+new URL('Obsidian_Sovereign_Helmet_preview_2K.glb',part).href+'" download>Download textured GLB preview · 8.2 MB</a><a href="'+archive+'">Download Blender + high-poly + 4K master · 177 MB</a><a href="'+repo+'/blob/main/assets/Codex/Obsidian-Sovereign/Helmet/README.md" target="_blank" rel="noopener">Read takeover instructions and file inventory ↗</a><a href="'+repo+'/blob/main/assets/Codex/Obsidian-Sovereign/Helmet/validation.json" target="_blank" rel="noopener">Read technical validation ↗</a><a href="'+repo+'/issues/1" target="_blank" rel="noopener">Open project-PC reference-export task ↗</a></div></div></div><div class="ca-note">Not AAA-approved or character-fitted. Artistic refinement, head/neck skinning, gorget clearance, HelmW visibility, and Unreal Engine 5.3 import remain outstanding. Keep the full Blender folder and textures together when another agent takes over.</div>';
+const crumb=(name,route)=>'<button type="button" data-ca="'+esc(route)+'">'+esc(name)+'</button>';
+const safe=(value,parent)=>{const u=new URL(value,parent);if(!['https:','http:'].includes(u.protocol))throw new Error('Unsupported asset URL');return esc(u.href)};
+const bytes=n=>Number.isFinite(n)?' · '+(n/1e6).toFixed(n<1e6?2:1)+' MB':'';
+let sets=[],serial=0;
+async function json(url){const u=new URL(url);u.searchParams.set('v',String(Date.now()));const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('Asset information is temporarily unavailable. Please try again.');return r.json()}
+async function catalogue(){const data=await json(new URL('catalog.json',base));sets=data.sets||[];document.getElementById('codex-count').textContent=sets.length+' set · '+sets.reduce((n,s)=>n+s.parts.length,0)+' groups · WIP'}
+function frame(title,trail,body){dialog.innerHTML='<div class="ca-head"><div><nav class="ca-breadcrumb" aria-label="Asset folders">'+trail+'</nav><h2 id="ca-title">'+esc(title)+'</h2></div><button type="button" data-ca="close" aria-label="Close Codex assets">Close</button></div>'+body}
+async function render(route){
+ const ticket=++serial;const segments=route.split(':');const si=Number(segments[1]||0),pi=Number(segments[2]||0);let trail=crumb('3D Assets','close')+'<span>/</span>';
+ if(route==='root'){
+  trail+='<span>Codex</span>';frame('Codex',trail,'<p class="ca-muted">Shared model files and editable handoffs created by Codex.</p>'+sets.map((s,i)=>'<button type="button" class="ca-folder" data-ca="set:'+i+'"><span class="ca-folder-glyph" aria-hidden="true">📁</span><span class="ca-label"><strong>'+esc(s.name)+'</strong><span class="ca-muted">'+s.parts.length+' uploaded equipment groups · work in progress</span></span></button>').join(''));return;
  }
- dialog.innerHTML='<div class="ca-head"><div><nav class="ca-breadcrumb" aria-label="Asset folders">'+trail+'</nav><h2 id="ca-title">'+title+'</h2></div><button type="button" data-ca="close" aria-label="Close Codex assets">Close</button></div>'+body;
+ const set=sets[si];if(!set)return;
+ if(segments[0]==='set'){
+  trail+=crumb('Codex','root')+'<span>/</span><span>'+esc(set.name)+'</span>';
+  frame(set.name,trail,'<p class="ca-muted">Each folder contains actual model files, preview images and takeover notes. Left/right pieces remain separate equipment objects. Final character fit and skinning are pending.</p>'+set.parts.map((p,i)=>'<button type="button" class="ca-folder" data-ca="part:'+si+':'+i+'"><img loading="lazy" src="'+safe(p.icon,base)+'" alt="'+esc(p.name)+' preview"><span class="ca-label"><strong>'+esc(p.name)+'</strong><span class="ca-muted">FBX · textured GLB · authoring handoff</span><span class="ca-muted">Geometry checked · unskinned WIP</span></span></button>').join(''));return;
+ }
+ const entry=set.parts[pi];if(!entry)return;const manifest=new URL(entry.manifest,base);const folder=new URL('./',manifest);
+ trail+=crumb('Codex','root')+'<span>/</span>'+crumb(set.name,'set:'+si)+'<span>/</span><span>'+esc(entry.name)+'</span>';frame(entry.name,trail,'<p class="ca-muted">Loading model information…</p>');
+ const m=await json(manifest);if(ticket!==serial)return;
+ const files=m.geometries||[m.geometry];const triangles=m.triangles_per_piece||m.triangles;
+ const actions=files.map((file,i)=>'<a href="'+safe(file,folder)+'" download>Download '+(files.length===2?(i===0?'left':'right')+' FBX':'FBX geometry')+bytes(m.geometry_bytes?.[file])+'</a>').join('')+'<a href="'+safe(m.review_model,folder)+'" download>Download textured GLB preview'+bytes(m.review_bytes)+'</a>'+(m.package_available!==false?'<a href="'+safe(m.package_url,folder)+'">Download editable Blender / 4K master'+bytes(m.package_bytes)+'</a>':'<p class="ca-muted">Editable master archive upload is in progress. The FBX and GLB files above are available now.</p>')+'<a href="'+repo+'/blob/main/'+esc(m.folder)+'/README.md" target="_blank" rel="noopener">Read takeover instructions ↗</a><a href="'+repo+'/blob/main/'+esc(m.folder)+'/'+esc(m.validation||'validation.json')+'" target="_blank" rel="noopener">Read geometry and bake validation ↗</a><a href="'+repo+'/issues/1" target="_blank" rel="noopener">Project-PC reference-export task ↗</a>';
+ frame(entry.name,trail,'<div class="ca-hero"><img class="ca-preview" src="'+safe(m.preview,folder)+'" alt="Rendered '+esc(entry.name)+'"><div><span class="ca-badge">WORK IN PROGRESS · UNSKINNED</span><h3>'+esc(set.name+' — '+entry.name)+'</h3><p class="ca-muted">'+Number(triangles).toLocaleString()+' triangles per piece · one connected material shell per piece. '+(m.master_texture_resolution||4096)/1024+'K master maps; '+(m.review_texture_resolution||2048)/1024+'K preview maps.</p><div class="ca-files">'+actions+'</div></div></div><div class="ca-note">Reference fidelity, final fit, skinning, articulation or cloth behavior, and Unreal Engine import remain unapproved. Keep the extracted Blender project and textures together when another agent takes over.</div>');
 }
-launch.addEventListener('click',()=>{render(0);dialog.showModal()});
-dialog.addEventListener('click',ev=>{if(ev.target===dialog){dialog.close();return}const b=ev.target.closest('[data-ca]');if(!b)return;if(b.dataset.ca==='close')dialog.close();else render(Number(b.dataset.ca))});
+function fail(e){frame('Codex',crumb('3D Assets','close'),'<p class="ca-muted">'+esc(e.message)+'</p><p><a href="'+repo+'/tree/main/assets/Codex" target="_blank" rel="noopener">Open the shared files on GitHub ↗</a></p>')}
+launch.addEventListener('click',async()=>{frame('Codex',crumb('3D Assets','close'),'<p class="ca-muted">Loading shared folders…</p>');dialog.showModal();try{await catalogue();await render('root')}catch(e){fail(e)}});
+dialog.addEventListener('click',ev=>{if(ev.target===dialog){dialog.close();return}const b=ev.target.closest('[data-ca]');if(!b)return;if(b.dataset.ca==='close'){serial++;dialog.close()}else render(b.dataset.ca).catch(fail)});
+catalogue().catch(()=>{});
 })();

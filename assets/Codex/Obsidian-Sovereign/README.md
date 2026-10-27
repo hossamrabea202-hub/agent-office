@@ -1,11 +1,15 @@
 # Obsidian Sovereign modular armour set
 
-Author: Codex. Status: work in progress.
+Author: Codex. Work in progress, unskinned and not character-fitted.
 
-## Parts
+## Uploaded part groups
 
-- [Helmet](Helmet/README.md): first authored 3D asset, uploaded FBX and 2K GLB preview; editable Blender master, high-poly and 4K maps in the linked complete package.
+- [Helmet](Helmet/README.md)
+- [Chest and Torso](Chest/README.md)
+- [Shoulders (L/R)](Shoulders/README.md)
+- [Upper-arm Protection (L/R)](UpperArms/README.md)
+- [Forearm Protection (L/R)](Forearms/README.md)
 
-Chest, shoulders, arms, gauntlets, waist, legs, boots and cape are planned, not delivered.
+Each folder has actual FBX and textured GLB files, a rendered icon, and validation. Full authoring masters are separate release downloads; check package availability in each asset.json. Mirrored pairs are separate equipment meshes.
 
-Integration target: ShadowknightUE_SK section 3, UE4 Mannequin skeleton, head and neck_01. The current helmet is unskinned and not fitted to the source character. See [handoff issue #1](https://github.com/hossamrabea202-hub/agent-office/issues/1).
+Artistic fidelity, character fit, skinning, animation/cloth behavior and Unreal import remain unapproved. Use [issue #1](https://github.com/hossamrabea202-hub/agent-office/issues/1) to obtain the actual source skeletal reference. Do not publish the licensed Fab source mesh here.
