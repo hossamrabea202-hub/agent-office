@@ -1,0 +1,35 @@
+{
+  "scope": "Actual staging FBX reimports. Topology evaluated after 1e-7m seam weld on temporary data. No Unreal import or character-fit assertion.",
+  "objects": [
+    {
+      "part": "Shoulders/Round1",
+      "file": "SM_ObsidianSovereign_Shoulders_L.fbx",
+      "triangles": 19196,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.2083795815706253,
+        0.29005786776542664,
+        0.2689932584762573
+      ]
+    },
+    {
+      "part": "Shoulders/Round1",
+      "file": "SM_ObsidianSovereign_Shoulders_R.fbx",
+      "triangles": 19196,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.2083795815706253,
+        0.29005786776542664,
+        0.2689932584762573
+      ]
+    }
+  ]
+}

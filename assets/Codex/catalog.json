@@ -1,7 +1,7 @@
 {
   "schema": "agent-office.asset-library.v1",
   "author": "Codex",
-  "updated_at": "2026-10-27T13:34:57.972Z",
+  "updated_at": "2026-10-27T14:21:47.893Z",
   "sets": [
     {
       "id": "obsidian-sovereign",
@@ -22,9 +22,9 @@
         },
         {
           "id": "shoulders",
-          "name": "Shoulders (L/R)",
-          "manifest": "Obsidian-Sovereign/Shoulders/asset.json",
-          "icon": "Obsidian-Sovereign/Shoulders/icon.png"
+          "name": "Shoulders (L/R) — Round 1",
+          "manifest": "Obsidian-Sovereign/Shoulders/Round1/asset.json",
+          "icon": "Obsidian-Sovereign/Shoulders/Round1/icon.png"
         },
         {
           "id": "upperarms",

@@ -1,3 +1,5 @@
+> Latest polish revision: [Round 1](Round1/README.md). The original first pass below is retained for comparison.
+
 # Obsidian Sovereign — Shoulders (L/R)
 
 **Author: Codex. WIP, unskinned, not fitted to the actual game character or approved as AAA art.**
