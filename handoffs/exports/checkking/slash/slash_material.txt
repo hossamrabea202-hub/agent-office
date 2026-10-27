@@ -1,0 +1,13 @@
+/Game/CastleDefender/VFX/M_SlashFX.M_SlashFX  (base material /Game/CastleDefender/VFX/M_SlashFX.M_SlashFX, blend <BlendMode.BLEND_ADDITIVE: 3>, shading <MaterialShadingModel.MSM_UNLIT: 0>)
+  scalar Start = -100.0
+  scalar Intensity = 6.0
+  vector Color = (R=1.000000, G=0.800000, B=0.550000, A=1.000000)
+  expressions: 8
+  --- Custom node code (Custom) inputs ['UV', 'Now', 'Start']:
+float t=saturate((Now-Start)/0.28);
+float head=lerp(-0.1,1.25,t);
+float u=UV.x; float v=1.0-UV.y;
+float trail=smoothstep(head-0.55,head,u)*(1-smoothstep(head,head+0.04,u));
+float band=pow(saturate(sin(v*3.14159)),1.5)*lerp(0.35,1.0,v);
+float edge=smoothstep(0.75,1.0,v)*1.5;
+return trail*(band+edge)*(1-t*t);

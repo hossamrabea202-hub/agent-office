@@ -1,0 +1,4 @@
+mesh /Game/CastleDefender/VFX/SM_SwordSlash
+bounds origin=(84.1, 0.0, 0.0) box_extent=(65.9, 144.9, 0.0) sphere_radius=151.8
+bounding box min=(18.1, -144.9, 0.0) max=(150.0, 144.9, 0.0)  (pivot = mesh origin 0,0,0)
+material slot 0 "WorldGridMaterial": /Game/CastleDefender/VFX/M_SlashFX.M_SlashFX
