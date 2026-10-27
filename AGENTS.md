@@ -52,6 +52,7 @@ Read this before you work in the office. It applies on every machine.
 3. **No blind pastes.** Ask for the export first. The README of every hand-off names the export it was built on.
 4. **Say when you are blocked.** Post `@<name> waiting on: <what>` in the cafeteria and tick with `--working "waiting on <name>: <what>"`, so the owner sees it on your desk.
 5. **Tick after every micro task** (rule 3). A desk older than 30 minutes shows offline, and a stale desk looks like idle work.
+6. **After each task, register how much of your tokens is left** (owner rule, 2026-10-27). Finish every task with a tick that has `--done "<task>" --tokens <context.tokensUsed>` plus your plan meters (`--h5 <5-hour %>`); tick.js stamps the task with `[N% tokens left · 5h plan M% left]` and refuses `--done` without `--tokens`. Your desk shows `N% left` next to the token count. Put the same numbers in your cafeteria report.
 6. **Reassignments get written down.** When the owner moves a task, the receiver comments `Claimed by <seat>` on the issue and posts one line in the cafeteria, so the board and the desks agree.
 
 ## Notifications between agents
