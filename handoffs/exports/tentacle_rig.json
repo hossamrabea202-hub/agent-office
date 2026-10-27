@@ -1,0 +1,331 @@
+{
+ "exported": "2026-10-27 by hossam gmail (Claude), Master Agent, from the live editor (read-only)",
+ "mesh": "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01.SK_CorruptedTentacle_01",
+ "skeleton_bones": [
+  "TentacleRig",
+  "seg_00",
+  "seg_01",
+  "seg_02",
+  "seg_03",
+  "seg_04",
+  "seg_05",
+  "seg_06",
+  "seg_07",
+  "seg_08",
+  "seg_09",
+  "seg_10",
+  "seg_11",
+  "seg_12",
+  "seg_13"
+ ],
+ "bone_parents": {
+  "TentacleRig": "None",
+  "seg_00": "TentacleRig",
+  "seg_01": "seg_00",
+  "seg_02": "seg_01",
+  "seg_03": "seg_02",
+  "seg_04": "seg_03",
+  "seg_05": "seg_04",
+  "seg_06": "seg_05",
+  "seg_07": "seg_06",
+  "seg_08": "seg_07",
+  "seg_09": "seg_08",
+  "seg_10": "seg_09",
+  "seg_11": "seg_10",
+  "seg_12": "seg_11",
+  "seg_13": "seg_12"
+ },
+ "segment_lengths_world": [
+  {
+   "bone": "seg_00",
+   "parent": "TentacleRig",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1867
+  },
+  {
+   "bone": "seg_01",
+   "parent": "seg_00",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 2329
+  },
+  {
+   "bone": "seg_02",
+   "parent": "seg_01",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1238
+  },
+  {
+   "bone": "seg_03",
+   "parent": "seg_02",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1567
+  },
+  {
+   "bone": "seg_04",
+   "parent": "seg_03",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1859
+  },
+  {
+   "bone": "seg_05",
+   "parent": "seg_04",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1682
+  },
+  {
+   "bone": "seg_06",
+   "parent": "seg_05",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1743
+  },
+  {
+   "bone": "seg_07",
+   "parent": "seg_06",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1734
+  },
+  {
+   "bone": "seg_08",
+   "parent": "seg_07",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1744
+  },
+  {
+   "bone": "seg_09",
+   "parent": "seg_08",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1939
+  },
+  {
+   "bone": "seg_10",
+   "parent": "seg_09",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1958
+  },
+  {
+   "bone": "seg_11",
+   "parent": "seg_10",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1745
+  },
+  {
+   "bone": "seg_12",
+   "parent": "seg_11",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 2186
+  },
+  {
+   "bone": "seg_13",
+   "parent": "seg_12",
+   "world_len_cm_in_Env_CorruptedTentacle_02": 1800
+  }
+ ],
+ "chain_length_world_cm": 25391,
+ "chain_measured_on": "Env_CorruptedTentacle_02",
+ "idle_animation": "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01_Anim_Ripple_Sway030 (looping, AnimationSingleNode, no AnimBP)",
+ "material": "/Game/CastleDefender/Environment/Tentacles/M_CorruptedTentacle_Ripple2 (WorldPosition x2, ObjectPositionWS x1, 14 Custom HLSL nodes, no PreSkinnedPosition)",
+ "attached_to_bones": "per tentacle: JellyShell (second SkeletalMeshComponent, same mesh, leader pose), 15 StaticMeshComponents on seg_00..seg_12 sockets (jelly sacs), 130 TentacleHit_* hitbox actors attached to seg_* sockets",
+ "tentacles": [
+  {
+   "label": "Env_CorruptedTentacle_02",
+   "vitals": "TentacleVitals_02",
+   "base": [
+    15255,
+    -18634,
+    -4185
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    173.0
+   ],
+   "scale": [
+    -2.3,
+    2.3,
+    2.3
+   ],
+   "nearest_cannon": "Cannon_old_field_cannon_bailey",
+   "nearest_cannon_cm": 22262
+  },
+  {
+   "label": "Env_CorruptedTentacle_4",
+   "vitals": "TentacleVitals_4",
+   "base": [
+    -143400,
+    -39847,
+    1527
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    122.0
+   ],
+   "scale": [
+    -3.5,
+    4.0,
+    3.5
+   ],
+   "nearest_cannon": "Cannon_front_field_N",
+   "nearest_cannon_cm": 148220
+  },
+  {
+   "label": "Env_CorruptedTentacle_5",
+   "vitals": "TentacleVitals_5",
+   "base": [
+    -17619,
+    10728,
+    -4130
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -68.0
+   ],
+   "scale": [
+    -2.25,
+    2.75,
+    2.25
+   ],
+   "nearest_cannon": "Cannon_front_field_S",
+   "nearest_cannon_cm": 19015
+  },
+  {
+   "label": "Env_CorruptedTentacle_Fog2",
+   "vitals": "TentacleVitals_Fog2_11",
+   "base": [
+    11500,
+    7250,
+    -2076
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    80.1
+   ],
+   "scale": [
+    3.0,
+    3.0,
+    3.0
+   ],
+   "nearest_cannon": "Cannon_old_field_cannon_bailey",
+   "nearest_cannon_cm": 8618
+  },
+  {
+   "label": "Env_CorruptedTentacle_01",
+   "vitals": "TentacleVitals_01",
+   "base": [
+    -28498,
+    -17794,
+    -6291
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    68.0
+   ],
+   "scale": [
+    -2.7,
+    2.7,
+    2.7
+   ],
+   "nearest_cannon": "Cannon_front_field_N",
+   "nearest_cannon_cm": 33899
+  },
+  {
+   "label": "Env_CorruptedTentacle_Fog1",
+   "vitals": "TentacleVitals_Fog1_11",
+   "base": [
+    2000,
+    -10744,
+    -7402
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -70.0
+   ],
+   "scale": [
+    3.0,
+    3.0,
+    3.0
+   ],
+   "nearest_cannon": "Cannon_old_field_cannon3",
+   "nearest_cannon_cm": 13771
+  },
+  {
+   "label": "Env_CorruptedTentacle_04",
+   "vitals": "TentacleVitals_04",
+   "base": [
+    5915,
+    24666,
+    -3074
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    155.0
+   ],
+   "scale": [
+    2.5,
+    2.5,
+    2.5
+   ],
+   "nearest_cannon": "Cannon_old_field_cannon_bailey",
+   "nearest_cannon_cm": 21744
+  },
+  {
+   "label": "Env_CorruptedTentacle_05",
+   "vitals": "TentacleVitals_05",
+   "base": [
+    19238,
+    -708,
+    -1664
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    128.0
+   ],
+   "scale": [
+    2.4,
+    2.4,
+    2.4
+   ],
+   "nearest_cannon": "Cannon_old_field_cannon_bailey",
+   "nearest_cannon_cm": 15005
+  },
+  {
+   "label": "Env_CorruptedTentacle_03",
+   "vitals": "TentacleVitals_03",
+   "base": [
+    -17088,
+    14671,
+    -5437
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    32.0
+   ],
+   "scale": [
+    -2.9,
+    2.9,
+    2.9
+   ],
+   "nearest_cannon": "Cannon_front_field_S",
+   "nearest_cannon_cm": 20878
+  },
+  {
+   "label": "Env_CorruptedTentacle_Fog3",
+   "vitals": "TentacleVitals_Fog3_11",
+   "base": [
+    2000,
+    15250,
+    -2680
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    160.0
+   ],
+   "scale": [
+    3.0,
+    3.0,
+    3.0
+   ],
+   "nearest_cannon": "Cannon_old_field_cannon2",
+   "nearest_cannon_cm": 12538
+  }
+ ],
+ "notes": [
+  "Bases sit 17-74 m below ground (z -1664..-7402); several tentacles are mirrored (negative X scale).",
+  "Fog1/2/3 are background fog tentacles."
+ ]
+}
