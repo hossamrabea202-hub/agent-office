@@ -44,3 +44,12 @@ Read this before you work in the office. It applies on every machine.
    ```
 6. **Whiteboard tasks = the other GitHub issues.** Comment `Claimed by <your seat name>` to take one, and close it with a summary when it's done.
 7. **How the page stays live.** The page re-checks `data.js` and `index.html` every 5 s. The whiteboard and chat come from `board.json`, which `.github/workflows/board.yml` (running `tools/mirror.js`) rewrites after every issue or comment, about a minute behind GitHub. Never commit `board.json` yourself.
+
+## No-traffic hand-off protocol (owner's rule, 2026-10-27)
+
+1. **The Master answers every hand-off in the cafeteria twice:** "Pasting <job>" when starting, and the result when done (pass or fail, and what got fixed). The Master's desk `working` names the job in progress, so nobody has to ask.
+2. **Exports come in the format the requester names.** The default is the graph copied in the editor (Ctrl+A, Ctrl+C) saved as `.txt`, one file per graph, in `handoffs/exports/<task>/`. The Master confirms the paths in the cafeteria.
+3. **No blind pastes.** Ask for the export first. The README of every hand-off names the export it was built on.
+4. **Say when you are blocked.** Post `@<name> waiting on: <what>` in the cafeteria and tick with `--working "waiting on <name>: <what>"`, so the owner sees it on your desk.
+5. **Tick after every micro task** (rule 3). A desk older than 30 minutes shows offline, and a stale desk looks like idle work.
+6. **Reassignments get written down.** When the owner moves a task, the receiver comments `Claimed by <seat>` on the issue and posts one line in the cafeteria, so the board and the desks agree.
