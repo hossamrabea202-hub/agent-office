@@ -1,0 +1,8 @@
+BP_SoldierLevelUpFX components (class defaults, relative transforms)
+Orb (StaticMeshComponent) loc=(0, 0, 230) rot=(p 0, y 0, r 0) scale=(0.150000, 0.150000, 0.150000) mesh=/Engine/BasicShapes/Sphere.Sphere mats=['M_LvlUp_Orb']
+Pillar (StaticMeshComponent) loc=(0, 0, 225) rot=(p 0, y 0, r 0) scale=(5.200000, 5.200000, 4.500000) mesh=/Engine/BasicShapes/Cylinder.Cylinder mats=['MI_SoldierLvl_WallInner']
+Ring (StaticMeshComponent) loc=(0, 0, 6) rot=(p 0, y 0, r 0) scale=(6, 6, 1) mesh=/Engine/BasicShapes/Plane.Plane mats=['M_LvlUp_Ring']
+Glow (PointLightComponent) loc=(0, 0, 160) rot=(p 0, y 0, r 0) scale=(1, 1, 1) intensity=0.0 color=rgb(150,190,255) radius=420.0
+Aura (StaticMeshComponent) loc=(0, 0, 230) rot=(p 0, y 0, r 0) scale=(0.600000, 0.600000, 0.600000) mesh=/Engine/BasicShapes/Sphere.Sphere mats=['M_LvlUp_Aura']
+Pillar2 (StaticMeshComponent) loc=(0, 0, 225) rot=(p 0, y 0, r 0) scale=(7, 7, 4.200000) mesh=/Engine/BasicShapes/Cylinder.Cylinder mats=['MI_SoldierLvl_WallOuter']
+DefaultSceneRoot (SceneComponent) loc=(0, 0, 0) rot=(p 0, y 0, r 0) scale=(1, 1, 1)

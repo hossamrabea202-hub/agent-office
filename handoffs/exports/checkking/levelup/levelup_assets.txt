@@ -1,0 +1,21 @@
+Assets in /Game/CastleDefender/VFX/LevelUp (recursive)
+BP_CannonLevelUpFX	Blueprint
+BP_HeroLevelUpWatcher	Blueprint
+BP_SoldierLevelUpFX	Blueprint
+C_LvlUp_AuraScale	CurveFloat
+C_LvlUp_Light	CurveFloat
+C_LvlUp_OrbScale	CurveFloat
+C_LvlUp_RingScale	CurveFloat
+MI_LvlUp_WallInner	MaterialInstanceConstant
+MI_LvlUp_WallOuter	MaterialInstanceConstant
+MI_SoldierLvl_WallInner	MaterialInstanceConstant
+MI_SoldierLvl_WallOuter	MaterialInstanceConstant
+M_LU_Orb	Material
+M_LU_Pillar	Material
+M_LU_Ring	Material
+M_LU_Spark	Material
+M_LvlUp_Aura	Material
+M_LvlUp_Orb	Material
+M_LvlUp_Pillar	Material
+M_LvlUp_Ring	Material
+NS_LevelUp_None	NiagaraSystem

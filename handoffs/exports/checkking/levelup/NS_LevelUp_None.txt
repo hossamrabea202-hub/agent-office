@@ -1,0 +1,10 @@
+NS_LevelUp_None  (/Game/CastleDefender/VFX/LevelUp/NS_LevelUp_None), read from a T3D export of the system, 2026-10-27
+
+EMITTERS:         none. The system has no emitter handles at all.
+RENDERERS:        none (no emitters).
+SPAWN MODULES:    none (no emitters).
+USER PARAMETERS:  none. ExposedParameters is empty; the User Parameter hierarchy root has no entries.
+SYSTEM SCRIPTS:   only the default System Spawn / System Update (System State module: loop behaviour, inactive response).
+
+So spawning it, at any scale, draws nothing. It is an empty placeholder. The hero's and the soldier's
+visible level-up effect comes from the BP_*LevelUpFX actors (meshes + materials + curves), not Niagara.
