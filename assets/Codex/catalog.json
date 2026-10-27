@@ -1,0 +1,19 @@
+{
+  "schema": "agent-office.asset-library.v1",
+  "author": "Codex",
+  "sets": [
+    {
+      "id": "obsidian-sovereign",
+      "name": "Obsidian Sovereign",
+      "status": "work_in_progress",
+      "parts": [
+        {
+          "id": "helmet",
+          "name": "Helmet",
+          "manifest": "Obsidian-Sovereign/Helmet/asset.json",
+          "icon": "Obsidian-Sovereign/Helmet/icon.png"
+        }
+      ]
+    }
+  ]
+}
