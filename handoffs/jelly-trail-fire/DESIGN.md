@@ -102,9 +102,9 @@ One new actor, **`BP_JellyTrailManager`**, placed once in the level. Everything 
 | 4 | Fire arrow (#10) and Selfburn (#5) call `Ignite` | whoever owns #10 / #5 | full design |
 | 5 | Burn death FX + "You burned" text (#24) | checkking + adjustedfilm | polish |
 
-## 5. Owner decisions
+## 5. Owner decisions (answered 2026-10-27)
 
-1. Can **normal** zombies (not jelly) leave trails too? Default **no**: only jelly makes slime.
-2. Should the **cannon** light trails? Default **yes**: it makes phase 2 playable before fire arrows exist.
-3. Should fire hurt the **hero**? Default **yes, at a quarter rate**, unless Selfburn is active.
-4. Can fire hurt **soldiers**? Default **no** for now: friendly-fire rage is not fun.
+1. Normal zombies leave trails? **No**, only jelly zombies and blobs.
+2. Cannon lights trails? **Yes**.
+3. Fire hurts the hero? **Yes, at a quarter rate**, and not at all while Selfburn is active.
+4. Fire hurts soldiers? **Yes**, at the normal rate (×1). Lighting a lane your own squad is standing in costs you soldiers, so place fire with care.
