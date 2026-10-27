@@ -2,8 +2,17 @@
 
 Read this before you work in the office. It applies on every machine.
 
-1. **`git pull` first.** Office content lives in `data.js`. Only touch `index.html` for layout or code.
-2. **Tick your desk after EVERY micro task.** Your desk shows your token count, plan meters, duty clock and what you're working on. Keep them current:
+1. **Only the Master Agent touches the Unreal editor.** The Castle Defender project is open on the owner's PC with the latest work saved, and only the Master Agent (desk #0, now `hossam gmail (Claude)`) drives it. Everyone else works in the background and produces things the Master can apply: T3D graph pastes, editor Python scripts, assets to import, written steps. Don't paste, run editor scripts, save assets or start PIE yourself. Hand the work over instead:
+
+   ```
+   node tools/office.js handoff --seat "<seat>" --target "BP_X · EventGraph" --file "handoffs/<task>/<file>" --checks "<what to verify>" "<title>" "<details>"
+   ```
+
+   - Put your files in this repo under `handoffs/<task>/`, so the Master's PC can reach them.
+   - It shows up in the READY TO PASTE room and in the cafeteria. The Master pastes, compiles, saves, checks and closes it, or answers in the cafeteria if something needs fixing.
+   - Blueprints keep changing, so build graph pastes on a fresh export. Ask the Master in the cafeteria for one; it goes to `handoffs/exports/`.
+2. **`git pull` first.** Office content lives in `data.js`. Only touch `index.html` for layout or code.
+3. **Tick your desk after EVERY micro task.** Your desk shows your token count, plan meters, duty clock and what you're working on. Keep them current:
 
    ```
    node tools/tick.js --seat "<your seat name>" --tokens <context tokens used> --working "<what you are doing now>"
@@ -15,7 +24,7 @@ Read this before you work in the office. It applies on every machine.
    - The tool pulls, edits only your own line in `data.js`, commits and pushes, and retries if another agent pushed first.
    - A desk with no tick for 30 minutes shows **offline · last seen …**.
    - **Blocked on the owner** (a Blueprint paste, an approval, a decision)? Add `--ask "<what you need>"`. A bell rings on your desk and in the header. Clear it with `--ask-clear` once it's done.
-3. **Start every session with your briefing.** It shows chat lines for you (`>>`), your claimed and routed tasks, and who is waiting on the owner:
+4. **Start every session with your briefing.** It shows chat lines for you (`>>`), your claimed and routed tasks, and who is waiting on the owner:
 
    ```
    node tools/office.js inbox --seat "<your seat name>"
@@ -25,7 +34,7 @@ Read this before you work in the office. It applies on every machine.
    ```
 
    `claim` and `close` also post one line in the cafeteria.
-4. **Cafeteria chat = GitHub issue #25.** Read it when you start, and post there when you claim, finish or need someone. The first line is `From: <your seat name>`. Answer a message with `Re: <its comment id>`.
+5. **Cafeteria chat = GitHub issue #25.** Read it when you start, and post there when you claim, finish or need someone. The first line is `From: <your seat name>`. Answer a message with `Re: <its comment id>`.
 
    ```
    gh issue comment 25 --repo hossamrabea202-hub/agent-office --body "From: <seat>
@@ -33,5 +42,5 @@ Read this before you work in the office. It applies on every machine.
 
    <message>"
    ```
-5. **Whiteboard tasks = the other GitHub issues.** Comment `Claimed by <your seat name>` to take one, and close it with a summary when it's done.
-6. **How the page stays live.** The page re-checks `data.js` and `index.html` every 5 s. The whiteboard and chat come from `board.json`, which `.github/workflows/board.yml` (running `tools/mirror.js`) rewrites after every issue or comment, about a minute behind GitHub. Never commit `board.json` yourself.
+6. **Whiteboard tasks = the other GitHub issues.** Comment `Claimed by <your seat name>` to take one, and close it with a summary when it's done.
+7. **How the page stays live.** The page re-checks `data.js` and `index.html` every 5 s. The whiteboard and chat come from `board.json`, which `.github/workflows/board.yml` (running `tools/mirror.js`) rewrites after every issue or comment, about a minute behind GitHub. Never commit `board.json` yourself.

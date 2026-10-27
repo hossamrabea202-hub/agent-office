@@ -5,7 +5,11 @@
 //   node tools/office.js say   --seat "<seat>" [--re <comment id>] "message"     post in the cafeteria chat
 //   node tools/office.js claim <issue> --seat "<seat>" [--note "..."]            take a whiteboard task
 //   node tools/office.js close <issue> --seat "<seat>" "what you did"            finish it and close the issue
-// claim and close also post one line in the cafeteria so everyone stays updated (add --quiet to skip).
+//   node tools/office.js handoff --seat "<seat>" --target "BP_X · EventGraph" --file "<path>" [--kind paste|python|asset|manual]
+//        [--checks "what to verify after"] "title" ["details"]     hand Unreal editor work to the Master Agent
+// Only the Master Agent drives the Unreal editor. Everyone else hands editor work over with "handoff"; it shows up in the
+// READY TO PASTE room and the Master closes it once it is pasted and checked.
+// claim, close and handoff also post one line in the cafeteria so everyone stays updated (add --quiet to skip).
 'use strict';
 const fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
 const root = path.join(__dirname, '..');
@@ -18,7 +22,7 @@ for (let a = process.argv.slice(2), i = 0; i < a.length; i++) {
 }
 const die = m => { console.error('office: ' + m); process.exit(1); };
 const cmd = pos.shift();
-if (!cmd || !['inbox', 'say', 'claim', 'close'].includes(cmd)) die('usage: inbox | say | claim <n> | close <n>   (see the top of tools/office.js)');
+if (!cmd || !['inbox', 'say', 'claim', 'close', 'handoff'].includes(cmd)) die('usage: inbox | say | claim <n> | close <n> | handoff   (see the top of tools/office.js)');
 if (typeof opt.seat !== 'string') die('--seat "<your seat name>" is required');
 const seat = opt.seat;
 const gh = (args, input) => execFileSync('gh', args, { cwd: root, encoding: 'utf8', input, stdio: [input === undefined ? 'ignore' : 'pipe', 'pipe', 'pipe'], maxBuffer: 64 << 20 });
@@ -36,9 +40,21 @@ const parse = c => {
   return { id: String(c.id), who: who || (c.user && c.user.login) || '?', re, text: b.trim(), at: c.created_at };
 };
 
+const master = () => Object.entries((office().preset || {})).find(([d]) => d === '0')?.[1] || 'the Master Agent';
 if (cmd === 'say') {
   const text = pos.join(' ').trim(); if (!text) die('say needs a message');
   console.log(say(text, typeof opt.re === 'string' ? opt.re : ''));
+} else if (cmd === 'handoff') {
+  const title = (pos.shift() || '').trim(); if (!title) die('handoff needs a title');
+  if (typeof opt.target !== 'string') die('--target "<Blueprint / asset / level the Master works in>" is required');
+  const kind = typeof opt.kind === 'string' ? opt.kind : 'paste';
+  if (kind === 'paste' && typeof opt.file !== 'string') die('--file "<path to the paste text>" is required for a paste');
+  const body = 'From: ' + seat + '\nTarget: ' + opt.target + '\nKind: ' + kind + '\nFile: ' + (typeof opt.file === 'string' ? opt.file : '-')
+    + '\nChecks: ' + (typeof opt.checks === 'string' ? opt.checks : '-') + '\n\n' + (pos.join(' ').trim() || '(no details)')
+    + '\n\n---\nHand-off for the Master Agent (the only seat that drives the Unreal editor). The Master closes this once it is pasted and checked.';
+  const url = gh(['issue', 'create', '--repo', repo, '--label', 'handoff', '--title', title, '--body-file', '-'], body).trim();
+  console.log(url);
+  if (!opt.quiet) console.log(say('Hand-off for ' + master() + ': ' + title + ' (' + opt.target + ') ' + url));
 } else if (cmd === 'claim' || cmd === 'close') {
   const n = +pos.shift(); if (!n) die(cmd + ' needs an issue number');
   const issue = ghJson('repos/' + repo + '/issues/' + n);
@@ -64,10 +80,22 @@ if (cmd === 'say') {
     const r = m.re && byId[m.re];
     console.log((forMe(m) ? '>> ' : '   ') + '[' + m.id + '] ' + ago(m.at) + ' ' + m.who + (r ? ' ↪ ' + r.who : '') + ': ' + m.text.replace(/\s+/g, ' ').slice(0, 220));
   }
+  console.log('');
+  const hand =issues.filter(i => (i.labels || []).some(l => l.name === 'handoff')).sort((a, b) => a.number - b.number);
+  const isMaster = master().toLowerCase() === me, from = i => ((String(i.body || '').match(/^From:[ \t]*(.+)$/m) || [])[1] || '').trim();
+  const target = i => ((String(i.body || '').match(/^Target:[ \t]*(.+)$/m) || [])[1] || '').trim();
+  const mineH = isMaster ? hand : hand.filter(i => from(i).toLowerCase() === me);
+  console.log(isMaster ? '== Hand-offs waiting for you in the editor' : '== Your hand-offs waiting for the Master (' + master() + ')');
+  console.log(mineH.length ? mineH.map(i => '  #' + i.number + ' ' + i.title + '  · ' + target(i) + (isMaster ? '  · from ' + from(i) : '') + '  · ' + ago(i.created_at) + ' ago').join('\n') : '  none');
+  if (isMaster) {
+    const ready = (O.pasteJobs || []).filter(j => j.s === 'ready');
+    console.log('== Ready in the paste queue (data.js pasteJobs)');
+    console.log(ready.length ? ready.map(j => '  ' + j.t + '  · ' + j.bp + '  · ' + j.file).join('\n') : '  none');
+  }
   console.log('\n== Your whiteboard tasks');
   let any = false;
   for (const i of issues.sort((a, b) => a.number - b.number)) {
-    if ((i.labels || []).some(l => l.name === 'cafeteria')) continue;
+    if ((i.labels || []).some(l => l.name === 'cafeteria' || l.name === 'handoff')) continue;
     const cs = all.filter(c => +String(c.issue_url).split('/').pop() === i.number);
     let claimed = '', routed = '';
     for (const c of cs) {

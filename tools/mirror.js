@@ -13,7 +13,7 @@ const api = async p => {
 (async () => {
   const issues = (await api('/issues?state=all&per_page=100&sort=updated')).filter(i => !i.pull_request).map(i => ({
     number: i.number, state: i.state, title: i.title, body: String(i.body || '').slice(0, 1500), html_url: i.html_url,
-    updated_at: i.updated_at, comments: i.comments, labels: (i.labels || []).map(l => ({ name: l.name }))
+    created_at: i.created_at, updated_at: i.updated_at, comments: i.comments, labels: (i.labels || []).map(l => ({ name: l.name }))
   }));
   const cafe = new Set(issues.filter(i => i.labels.some(l => l.name === 'cafeteria')).map(i => i.number));
   let all = [];
