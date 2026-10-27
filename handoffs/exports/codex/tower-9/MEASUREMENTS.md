@@ -1,0 +1,25 @@
+# Tower #9 reference measurements (Master, read-only, 2026-10-27). cm, world space.
+- Castle_CornerTower: center (2950, 50, 510), size 430 x 430 x 1020, base z 0, top z 1020, yaw 0.0
+- Castle_CornerTower: center (50, 50, 510), size 430 x 430 x 1020, base z 0, top z 1020, yaw 0.0
+- Castle_CornerTower: center (2950, 3450, 510), size 430 x 430 x 1020, base z 0, top z 1020, yaw 0.0
+- Castle_CornerTower: center (50, 3450, 510), size 430 x 430 x 1020, base z 0, top z 1020, yaw 0.0
+- Castle_BaileyTower: center (4600, 50, 510), size 430 x 430 x 1020, base z 0, top z 1020, yaw 0.0
+- Castle_BaileyTower: center (4590, 3450, 510), size 430 x 430 x 1020, base z 0, top z 1020, yaw 0.0
+- Castle_GateTowerLeft: center (40, 1310, 430), size 360 x 360 x 860, base z -0, top z 860, yaw 0.0
+- Castle_KeepTurret: center (2530, 2240, 590), size 230 x 230 x 1180, base z 0, top z 1180, yaw 0.0
+- Castle_KeepTurret: center (2530, 1310, 590), size 230 x 230 x 1180, base z 0, top z 1180, yaw 0.0
+- Wall-walk (SM_WalkSlab x106) top z: median 680, min 680, max 1070; slab widths (min extent x2) median 200
+- WallBlocks_57: size 32 x 222 x 2, top z 2
+- WallBlocks_132: size 32 x 222 x 20, top z 20
+- WallBlocks_133: size 32 x 222 x 40, top z 40
+- WallBlocks_131: size 32 x 222 x 2, top z 2
+- WallBlocks_60: size 32 x 222 x 60, top z 60
+- WallBlocks_58: size 32 x 222 x 20, top z 20
+- WallBlocks_59: size 32 x 222 x 40, top z 40
+- WallBlocks_134: size 32 x 222 x 60, top z 60
+- BP_SoldierSword_C capsule: radius 34, half height 88
+- BP_ThirdPersonCharacter_C capsule: radius 35, half height 90
+- BP_Cannon: actor bounds (2020 cm) include gameplay volumes, not the gun; use the mesh entries in the JSON for the real cannon size (8 placed, tag Cannon).
+- Nav: default RecastNavMesh agent (see project settings); soldiers path on the wall-walk via nav, stairs tagged "Stairs".
+- Equal-area round tower from 4 corner-tower footprints (2x2 of 430 cm): side 860 cm -> D = 2.257 x 430 = ~970 cm. Existing tower top 1020, wall-walk top 680.
+- Screenshots not included (Master out of credits); JSON lists 211 selected actors (towers, wall-walk slabs, wall blocks, stairs, ramps, 8 cannons).
