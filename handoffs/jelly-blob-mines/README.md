@@ -22,13 +22,13 @@ So every blob hatches 1.55 s after it lands, whether or not anyone is near.
 | Melt | 0 → 0.5 s after the trigger | squashes flat and spreads: scale XY 1 → 1.8, Z 1 → 0.25 |
 | Re-form | 0.5 → 1.5 s | pulls up into a wobbling slimy column: XY 1.8 → 0.6, Z 0.25 → 2.2, jiggle fading out |
 | Hatch | 1.5 s | the existing hatch chain fires (zombie + coat + shield, blob LifeSpan 1.3) |
-| Timeout | armed for **30 s** with no trigger | hatches anyway, so cannon blobs still feed the wave (change `ArmedMax` to 0 to make them wait forever) |
+| No timeout | armed, nobody steps on it | **waits forever** (owner's call, 2026-10-27). `ArmedMax` stays in as a switch: set it above 0 to hatch untouched blobs after that many seconds |
 
 All of the deforming is `SetRelativeScale3D` on the `Blob` mesh, so there's no material change and no new asset.
 
 ## Steps (BP_JellyBlob)
 
-**Variables** (new): `TrigT` float, default **-1**. `ArmedMax` float, default **30**. `TriggerRadius` float, default **110**.
+**Variables** (new): `TrigT` float, default **-1**. `ArmedMax` float, default **0** (0 = never hatch on its own). `TriggerRadius` float, default **110**.
 
 **BeginPlay:** SetLifeSpan 25 → **0** (the hatch chain's own SetLifeSpan 1.3 still cleans up; an armed blob must not vanish at 25 s).
 
@@ -56,6 +56,6 @@ All of the deforming is `SetRelativeScale3D` on the `Blob` mesh, so there's no m
 
 1. Fire the cannon at the tentacle so blobs fall. They land and **stay**, breathing gently. No zombie at 1.55 s.
 2. Walk the hero onto one: it flattens and spreads (about 0.5 s), rises into a wobbling column (about 1 s), and the jelly zombie hatches from it with its coat and shield, same as today.
-3. Leave one alone: it hatches by itself at 30 s.
+3. Leave one alone for a minute: it is still armed and never hatches on its own.
 4. Soldiers walking over a blob do **not** trigger it (hero only). Say in the cafeteria if the owner wants soldiers to trigger it too: swap `GetPlayerCharacter` for a sphere overlap.
 5. Many blobs at once: no frame-time spike (Tick work per blob is one distance check and one scale set).
