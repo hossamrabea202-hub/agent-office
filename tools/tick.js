@@ -44,7 +44,10 @@ function edit() {
   if (opt.since !== undefined) c.since = iso('since');
   if (typeof opt.working === 'string') c.working = opt.working;
   if (opt.idle) c.working = '';
-  if (typeof opt.done === 'string') c.done = [opt.done, ...(c.done || []).filter(t => t !== opt.done)].slice(0, 10);
+  // RULE 6 (owner, 2026-10-27): every finished task registers how much of your token budget is left.
+  if (typeof opt.done === 'string' && opt.tokens === undefined) die('--done needs --tokens (rule 6: register % tokens left after each task)');
+  const leftPct = () => Math.max(0, 100 - Math.round(100 * c.tokens / c.ctx)), h5 = opt.h5 !== undefined ? ' · 5h plan ' + Math.max(0, 100 - num('h5', 0, 100)) + '% left' : '';
+  if (typeof opt.done === 'string') { const d = opt.done + ' [' + leftPct() + '% tokens left' + h5 + ']'; c.done = [d, ...(c.done || []).filter(t => t !== d)].slice(0, 10); }
   if (typeof opt.todo === 'string' && !(c.todo || []).includes(opt.todo)) c.todo = [...(c.todo || []), opt.todo];
   if (typeof opt['todo-done'] === 'string') c.todo = (c.todo || []).filter(t => t !== opt['todo-done']);
   if (typeof opt.ask === 'string') c.ask = { text: opt.ask, at: now };
@@ -69,7 +72,7 @@ function edit() {
 
 try { git('pull', '--rebase', '--autostash', '-q'); } catch (e) { die('git pull failed, fix the repo first:\n' + e.stderr); }
 const c = edit();
-console.log('tick: ' + opt.seat + ' · ' + c.tokens + ' tok · ' + (c.working || 'idle'));
+console.log('tick: ' + opt.seat + ' · ' + c.tokens + ' tok (' + Math.max(0, 100 - Math.round(100 * c.tokens / c.ctx)) + '% left) · ' + (c.working || 'idle'));
 if (opt['no-push']) process.exit(0);
 const msg = 'tick: ' + opt.seat + ' · ' + Math.round(c.tokens / 1000) + 'k tok · ' + (c.working || 'idle').slice(0, 60)
   + (typeof opt.trailer === 'string' ? '\n\n' + opt.trailer : '');
