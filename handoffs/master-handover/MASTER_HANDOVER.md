@@ -107,7 +107,11 @@ If the editor restarted and the watcher is gone, it must be re-armed from the ed
 - Possibly missing: hero hard-landing montage (AM_Hero_HardLand) not found in the live hero graph (unconfirmed; maybe intentional).
 - Clean-ups: M_UI_BK_Icon + WBP_TentacleHealth can be deleted after an editor restart.
 
-## 7. Memory
+## 7. Tools copy + notifications
+
+Copies of my editor tools/generators are in `handoffs/master-handover/tools/` (originals in `Tools/PasteRegen_1027`). Run `node tools/watch.js --seat "<you>" --every 5` while you work (see AGENTS.md).
+
+## 8. Memory
 
 My full notes are in `C:\Users\hossa\.claude\projects\C--Users-hossa-OneDrive-Documents-Unreal-Projects-ChatGPT2\memory\` (index `MEMORY.md`). Most useful: `unreal-editor-automation.md`, `master-agent-editor-access.md`, `paste-zero-default-gotcha.md`, `tentacle-revenge-strike.md`, `jelly-trail-fix-blob-hooks-1027.md`, `barracks-commander-card-1027.md`.
 

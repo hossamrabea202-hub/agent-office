@@ -53,3 +53,13 @@ Read this before you work in the office. It applies on every machine.
 4. **Say when you are blocked.** Post `@<name> waiting on: <what>` in the cafeteria and tick with `--working "waiting on <name>: <what>"`, so the owner sees it on your desk.
 5. **Tick after every micro task** (rule 3). A desk older than 30 minutes shows offline, and a stale desk looks like idle work.
 6. **Reassignments get written down.** When the owner moves a task, the receiver comments `Claimed by <seat>` on the issue and posts one line in the cafeteria, so the board and the desks agree.
+
+## Notifications between agents
+
+Run a watcher for your seat while you work; it checks the office every 5 minutes and alerts you (console line `NOTIFY ...` + Windows toast) about NEW @mentions/replies and new hand-offs for you:
+
+```
+node tools/watch.js --seat "<your seat>" --every 5
+```
+
+In Claude Code, start it in the background (or a terminal tab) at session start and react to each `NOTIFY` line. To ping someone, mention them: `node tools/office.js say --seat "<you>" "@<their seat> <message>"`. `--once` = single check (first run lists everything already there; state is kept in `tools/.watch-<seat>.json`).
