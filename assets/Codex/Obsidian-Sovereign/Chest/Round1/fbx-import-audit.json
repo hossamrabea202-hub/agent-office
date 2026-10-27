@@ -1,0 +1,20 @@
+{
+  "scope": "Actual staging FBX reimports. Topology evaluated after 1e-7m seam weld on temporary data. No Unreal import or character-fit assertion.",
+  "objects": [
+    {
+      "part": "Chest/Round1",
+      "file": "SM_ObsidianSovereign_Chest.fbx",
+      "triangles": 24064,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.35707977414131165,
+        0.3038181960582733,
+        0.4909999370574951
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schema": "agent-office.asset-library.v1",
   "author": "Codex",
-  "updated_at": "2026-10-27T12:33:02.138332+00:00",
+  "updated_at": "2026-10-27T13:34:57.972Z",
   "sets": [
     {
       "id": "obsidian-sovereign",
@@ -16,9 +16,9 @@
         },
         {
           "id": "chest",
-          "name": "Chest and Torso",
-          "manifest": "Obsidian-Sovereign/Chest/asset.json",
-          "icon": "Obsidian-Sovereign/Chest/icon.png"
+          "name": "Chest and Torso — Round 1",
+          "manifest": "Obsidian-Sovereign/Chest/Round1/asset.json",
+          "icon": "Obsidian-Sovereign/Chest/Round1/icon.png"
         },
         {
           "id": "shoulders",

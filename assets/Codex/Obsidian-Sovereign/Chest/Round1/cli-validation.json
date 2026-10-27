@@ -1,0 +1,30 @@
+{
+  "schema": "game_dev.result.v1",
+  "operation": "asset.validate",
+  "ok": true,
+  "data": {
+    "schema": "org.gamedebug.asset_validation.v1",
+    "modelPath": "C:\\Users\\hossam.rabea\\Documents\\Codex\\2026-10-27\\you-are-aaa-senio\\outputs\\Obsidian_Sovereign_Chest_Round1\\meshes\\SM_ObsidianSovereign_Chest_4K.glb",
+    "passed": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "summary": {
+      "triangles": 24064,
+      "materials": 1,
+      "textures": 3,
+      "hasUVs": true,
+      "hasNormals": true,
+      "hasTangents": true,
+      "sizeMeters": [
+        0.35707977414131165,
+        0.4909999370574951,
+        0.3038181960582733
+      ]
+    },
+    "failures": [],
+    "checksRun": 12,
+    "inspectorWarnings": [],
+    "nextStep": "Passes cleanly."
+  }
+}
+

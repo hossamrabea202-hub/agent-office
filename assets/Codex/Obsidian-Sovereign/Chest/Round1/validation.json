@@ -1,0 +1,86 @@
+{
+  "status": "WIP_UNSKINNED_NOT_CHARACTER_FITTED",
+  "part": "Chest and torso",
+  "low_poly": {
+    "vertices": 12028,
+    "triangles": 24064,
+    "connected_components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "ngons": 0,
+    "degenerate_triangles": 0,
+    "nonadjacent_BVH_candidates": 0,
+    "signed_volume_m3": 0.0010654639910074393,
+    "dimensions_mm": [
+      357.08,
+      303.818,
+      491.0
+    ]
+  },
+  "high_poly": {
+    "vertices": 87128,
+    "triangles": 174264,
+    "connected_components": 1,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "ngons": 0,
+    "degenerate_triangles": 0,
+    "nonadjacent_BVH_candidates": 0,
+    "signed_volume_m3": 0.0010658560130978613,
+    "dimensions_mm": [
+      357.08,
+      303.816,
+      491.0
+    ]
+  },
+  "units": "meters, Z up; provisional component-space placement",
+  "fit": "Dimensioned procedural torso only; ShadowknightUE_SK and its skeleton not supplied",
+  "nominal_plate_thickness_mm": 3.5,
+  "back_plate_thickness_mm": 2.24,
+  "revision": "polish-round-1",
+  "changes": [
+    "Reshaped pectorals, waist and medial keel",
+    "Integral rounded arm and collar rims",
+    "Integral breastplate V transitions",
+    "New curved acanthus and spiral inlay",
+    "Darker satin steel and restrained gold"
+  ],
+  "limitations": [
+    "Artistic fidelity needs visual review.",
+    "Fine high-poly relief includes a shader bump source.",
+    "No target-character fit, skinning, animation or Unreal import has been verified."
+  ],
+  "uv_audit": {
+    "resolution": 1024,
+    "covered_pixels": 646512,
+    "overlapping_pixels": 0,
+    "degenerate_uv_triangles": 0,
+    "out_of_bounds_loops": 0,
+    "density_px_per_meter_5_50_95": [
+      3269.6027449045177,
+      3647.920741002734,
+      3911.4524892108852
+    ],
+    "scope": "Pixel-centre sample; not an exact subpixel overlap proof"
+  },
+  "baking": {
+    "resolution": 4096,
+    "BaseColor": "Cycles selected high-to-low EMIT",
+    "Roughness": "Cycles selected high-to-low EMIT",
+    "MaterialID": "Cycles selected high-to-low EMIT",
+    "Normal": "Cycles selected high-to-low tangent NORMAL, OpenGL and green-inverted DirectX",
+    "AO": "Cycles low mesh AO",
+    "ORM": "R=AO G=roughness B=metallic"
+  },
+  "fbx_roundtrip": {
+    "mesh_objects": 1,
+    "dimensions_mm": [
+      [
+        357.08,
+        303.818,
+        491.0
+      ]
+    ],
+    "scope": "Blender FBX round-trip, not Unreal import"
+  }
+}
