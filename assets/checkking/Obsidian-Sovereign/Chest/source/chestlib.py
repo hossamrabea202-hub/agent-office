@@ -9,6 +9,7 @@ H = 0.476
 import os
 LOW = os.environ.get('CHEST_RES', '1') == '1'
 DU, DV, DT, DS = (0.62, 0.42, 0.5, 0.8) if LOW else (1, 1, 1, 1)
+PATCH_CENTER = False   # set True by shoulderlib (see patch())
 
 # ---------- smooth profile tables (Catmull-Rom) ----------
 def catmull(zs, vs, z):
@@ -92,7 +93,14 @@ def patch(name, phi0, phi1, zb, zt, off, nu, nv, mat=None, coll=None, thick=0.00
     # true-length unroll: u = arc length along each row, v = arc length up each column (from the plate's lowest point)
     du = np.linalg.norm(np.diff(V, axis=0), axis=-1); dv = np.linalg.norm(np.diff(V, axis=1), axis=-1)
     U = np.concatenate([np.zeros((1, nv)), np.cumsum(du, axis=0)], 0)
-    W = np.concatenate([np.zeros((nu, 1)), np.cumsum(dv, axis=1)], 1) + (V[:, :1, 2] - V[:, 0, 2].min())
+    if PATCH_CENTER:
+        # dome-like plates: centre each row on the middle column and offset columns by the outline's parameter height
+        # (left-aligned rows plus a world-Z offset shear and fold on a cap)
+        U = U - U[nu // 2]
+        zb0 = np.array([float(zb(p)) for p in ph])
+        W = np.concatenate([np.zeros((nu, 1)), np.cumsum(dv, axis=1)], 1) + (zb0 - zb0.min())[:, None]
+    else:
+        W = np.concatenate([np.zeros((nu, 1)), np.cumsum(dv, axis=1)], 1) + (V[:, :1, 2] - V[:, 0, 2].min())
     uv = np.stack([U, W], -1).reshape(-1, 2)
     ob = mesh_obj(name, V.reshape(-1, 3), grid_faces(nu, nv), mat, coll, uv)
     if thick:
@@ -104,30 +112,43 @@ def tube(name, pts, r, mat=None, coll=None, seg=12, closed=False, flat=1.0, up=N
     """Sweep a circle (or flattened ellipse) of radius r along pts (N,3)."""
     pts = np.asarray(pts, float)
     if DT < 1 and len(pts) > 16:
-        pts = pts[np.unique(np.linspace(0, len(pts) - 1, max(8, int(len(pts) * DT))).astype(int))]
-    N = len(pts); seg = max(6, int(seg * DS))
-    T = np.gradient(pts, axis=0); T /= np.linalg.norm(T, axis=1, keepdims=True) + 1e-12
-    if up is None: up = np.tile([0, 0, 1.0], (N, 1))
+        keep = np.unique(np.linspace(0, len(pts) - 1, max(8, int(len(pts) * DT))).astype(int))
+        pts = pts[keep]
+        if up is not None: up = np.asarray(up, float)[keep]
+    seg = max(6, int(seg * DS))
+    if up is None: up = np.tile([0, 0, 1.0], (len(pts), 1))
     up = np.asarray(up, float)
+    loop = closed
+    if loop:   # repeat the first ring at the end so the length UV runs 0..L without wrapping back; welded below
+        pts = np.vstack([pts, pts[:1]]); up = np.vstack([up, up[:1]]); closed = False
+    N = len(pts)
+    T = np.gradient(pts, axis=0); T /= np.linalg.norm(T, axis=1, keepdims=True) + 1e-12
+    if loop: T[0] = T[-1] = (pts[1] - pts[-2]) / (np.linalg.norm(pts[1] - pts[-2]) + 1e-12)
     B = np.cross(T, up); B /= np.linalg.norm(B, axis=1, keepdims=True) + 1e-12
     Nn = np.cross(B, T)
+    # each ring carries a duplicate of its first vertex so the strip unrolls flat (a real UV seam, no folded halves)
+    R = seg + 1
     V = []
     for k in range(N):
-        for s in range(seg):
+        for s in range(R):
             a = 2 * math.pi * s / seg
             V.append(pts[k] + r * (math.cos(a) * B[k] + flat * math.sin(a) * Nn[k]))
     F = []
     for k in range(N - (0 if closed else 1)):
         k2 = (k + 1) % N
         for s in range(seg):
-            s2 = (s + 1) % seg
-            F.append((k * seg + s, k * seg + s2, k2 * seg + s2, k2 * seg + s))
+            F.append((k * R + s, k * R + s + 1, k2 * R + s + 1, k2 * R + s))
     L = np.concatenate([[0], np.cumsum(np.linalg.norm(np.diff(pts, axis=0), axis=1))])
-    # seam handled by duplicating nothing: around-coordinate wraps, so give the strip a half-turn ramp (small stretch on one edge)
-    uv = np.array([(L[k], 2 * math.pi * r * min(s, seg - s) / seg * 2) for k in range(N) for s in range(seg)])
-    if not closed:
-        F.append(tuple(range(seg))[::-1]); F.append(tuple((N - 1) * seg + s for s in range(seg)))
-    return mesh_obj(name, V, F, mat, coll, uv)
+    uv = np.array([(L[k], 2 * math.pi * r * s / seg) for k in range(N) for s in range(R)])
+    if not loop:
+        F.append(tuple(range(seg))[::-1]); F.append(tuple((N - 1) * R + s for s in range(seg)))
+    ob = mesh_obj(name, V, F, mat, coll, uv)
+    # weld the seam for shading (UVs stay split because the loops keep their own UVs)
+    import bmesh
+    bm = bmesh.new(); bm.from_mesh(ob.data)
+    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-7)
+    bm.to_mesh(ob.data); bm.free()
+    return ob
 
 def ribbon(name, pts, nrm, w, mat=None, coll=None, thick=0.0004):
     pts = np.asarray(pts, float); nrm = np.asarray(nrm, float)
@@ -136,7 +157,9 @@ def ribbon(name, pts, nrm, w, mat=None, coll=None, thick=0.0004):
     V = np.concatenate([pts - S * w / 2, pts + S * w / 2])
     N = len(pts)
     F = [(k, k + 1, N + k + 1, N + k) for k in range(N - 1)]
-    ob = mesh_obj(name, V, F, mat, coll)
+    L = np.concatenate([[0], np.cumsum(np.linalg.norm(np.diff(pts, axis=0), axis=1))])
+    uv = np.concatenate([np.stack([L, np.zeros(N)], 1), np.stack([L, np.full(N, w)], 1)])
+    ob = mesh_obj(name, V, F, mat, coll, uv)
     if thick:
         m = ob.modifiers.new('Solidify', 'SOLIDIFY'); m.thickness = thick; m.offset = 1
     return ob
