@@ -9,6 +9,8 @@
 //   --done "text"         finished micro task, added to your last-10 list
 //   --todo "text"         add to your still-to-do list            --todo-done "text"  remove it from the list
 //   --plan Max --h5 PCT --h5reset ISO --wk PCT --wkreset ISO      plan meters (account-wide)
+//   --ask "text"          you are blocked on the owner (paste, approval): rings a bell on your desk
+//   --ask-clear           the owner did it, clear the bell
 //   --since ISO           duty start (once per session)           --no-push      edit data.js only
 //   --trailer "..."       extra commit trailer line (e.g. a Co-Authored-By line)
 // Each agent has its own line in the crew block, so ticks from different agents merge cleanly.
@@ -45,6 +47,8 @@ function edit() {
   if (typeof opt.done === 'string') c.done = [opt.done, ...(c.done || []).filter(t => t !== opt.done)].slice(0, 10);
   if (typeof opt.todo === 'string' && !(c.todo || []).includes(opt.todo)) c.todo = [...(c.todo || []), opt.todo];
   if (typeof opt['todo-done'] === 'string') c.todo = (c.todo || []).filter(t => t !== opt['todo-done']);
+  if (typeof opt.ask === 'string') c.ask = { text: opt.ask, at: now };
+  if (opt['ask-clear']) delete c.ask;
   if (opt.h5 !== undefined || opt.wk !== undefined) {
     const old = c.usage || w.OFFICE.usage || { meters: [] }, m = k => (old.meters || []).find(x => x.k === k) || {};
     c.usage = { who: opt.seat, plan: typeof opt.plan === 'string' ? opt.plan : old.plan || '', asOf: now, meters: [
