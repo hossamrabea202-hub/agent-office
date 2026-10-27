@@ -1,0 +1,203 @@
+{
+  "scope": "Independent import of published 2K GLBs; provisional assembly, no actual body or skinning. Inter-piece clearance has not been approved.",
+  "objects": [
+    {
+      "part": "Helmet",
+      "object": "Helmet_SM_ObsidianSovereign_Helmet_LOD0",
+      "raw_import_vertices": 10878,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 18720,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Chest",
+      "object": "Chest_SM_ObsidianSovereign_Chest_LOD0",
+      "raw_import_vertices": 11777,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 20976,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Shoulders",
+      "object": "Shoulders_SM_ObsidianSovereign_Shoulders_L",
+      "raw_import_vertices": 4071,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Shoulders",
+      "object": "Shoulders_SM_ObsidianSovereign_Shoulders_R",
+      "raw_import_vertices": 4071,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "UpperArms",
+      "object": "UpperArms_SM_ObsidianSovereign_UpperArms_L",
+      "raw_import_vertices": 4064,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "UpperArms",
+      "object": "UpperArms_SM_ObsidianSovereign_UpperArms_R",
+      "raw_import_vertices": 4064,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Forearms",
+      "object": "Forearms_SM_ObsidianSovereign_Forearms_L",
+      "raw_import_vertices": 4068,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Forearms",
+      "object": "Forearms_SM_ObsidianSovereign_Forearms_R",
+      "raw_import_vertices": 4068,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Gauntlets",
+      "object": "Gauntlets_SM_ObsidianSovereign_Gauntlets_L",
+      "raw_import_vertices": 10589,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 15172,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Gauntlets",
+      "object": "Gauntlets_SM_ObsidianSovereign_Gauntlets_R",
+      "raw_import_vertices": 10589,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 15172,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Waist",
+      "object": "Waist_SM_ObsidianSovereign_Waist",
+      "raw_import_vertices": 16323,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 28256,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Thighs",
+      "object": "Thighs_SM_ObsidianSovereign_Thighs_L",
+      "raw_import_vertices": 4070,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Thighs",
+      "object": "Thighs_SM_ObsidianSovereign_Thighs_R",
+      "raw_import_vertices": 4070,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Shins",
+      "object": "Shins_SM_ObsidianSovereign_Shins_L",
+      "raw_import_vertices": 4072,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Shins",
+      "object": "Shins_SM_ObsidianSovereign_Shins_R",
+      "raw_import_vertices": 4072,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Boots",
+      "object": "Boots_SM_ObsidianSovereign_Boots_L",
+      "raw_import_vertices": 4170,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Boots",
+      "object": "Boots_SM_ObsidianSovereign_Boots_R",
+      "raw_import_vertices": 4170,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 7168,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "part": "Cape",
+      "object": "Cape_SM_ObsidianSovereign_Cape",
+      "raw_import_vertices": 10656,
+      "topology_weld_tolerance_m": 1e-07,
+      "note": "GLB duplicates vertices at UV and shading seams; topology audit welds coincident vertices on a temporary BMesh only.",
+      "components": 1,
+      "triangles": 20476,
+      "non_manifold_edges": 0,
+      "degenerate_faces": 0
+    }
+  ]
+}

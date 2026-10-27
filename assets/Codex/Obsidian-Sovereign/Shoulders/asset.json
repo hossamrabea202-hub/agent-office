@@ -31,7 +31,7 @@
   "handoff_issue": "https://github.com/hossamrabea202-hub/agent-office/issues/1",
   "package_bytes": 28185980,
   "package_sha256": "ad31cfbd36890bb364e8bb98dc1d63694e3e074a2ccf4b9d9efbfd5899c37280",
-  "package_available": false,
+  "package_available": true,
   "review_bytes": 2822680,
   "geometry_bytes": {
     "SM_ObsidianSovereign_Shoulders_L.fbx": 211148,

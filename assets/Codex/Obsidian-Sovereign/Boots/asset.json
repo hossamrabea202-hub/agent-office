@@ -29,7 +29,7 @@
   "skinned": false,
   "unreal_validated": false,
   "handoff_issue": "https://github.com/hossamrabea202-hub/agent-office/issues/1",
-  "package_available": false,
+  "package_available": true,
   "review_bytes": 2458740,
   "geometry_bytes": {
     "SM_ObsidianSovereign_Boots_L.fbx": 219468,

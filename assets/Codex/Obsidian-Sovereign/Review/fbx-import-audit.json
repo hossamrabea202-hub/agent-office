@@ -1,0 +1,275 @@
+{
+  "scope": "Actual downloaded-staging FBX reimports. Topology evaluated after 1e-7m seam weld on temporary data. No Unreal import or character-fit assertion.",
+  "objects": [
+    {
+      "part": "Boots",
+      "file": "SM_ObsidianSovereign_Boots_L.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.14486610889434814,
+        0.33194389939308167,
+        0.22330541908740997
+      ]
+    },
+    {
+      "part": "Boots",
+      "file": "SM_ObsidianSovereign_Boots_R.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.14486610889434814,
+        0.33194389939308167,
+        0.22330541908740997
+      ]
+    },
+    {
+      "part": "Cape",
+      "file": "SM_ObsidianSovereign_Cape.fbx",
+      "triangles": 20476,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.9004077911376953,
+        0.1222396194934845,
+        1.2889631986618042
+      ]
+    },
+    {
+      "part": "Chest",
+      "file": "SM_ObsidianSovereign_Chest.fbx",
+      "triangles": 20976,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.3631715476512909,
+        0.328174889087677,
+        0.47599995136260986
+      ]
+    },
+    {
+      "part": "Forearms",
+      "file": "SM_ObsidianSovereign_Forearms_L.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.16606473922729492,
+        0.1381363719701767,
+        0.2989744544029236
+      ]
+    },
+    {
+      "part": "Forearms",
+      "file": "SM_ObsidianSovereign_Forearms_R.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.16606473922729492,
+        0.1381363719701767,
+        0.2989744544029236
+      ]
+    },
+    {
+      "part": "Gauntlets",
+      "file": "SM_ObsidianSovereign_Gauntlets_L.fbx",
+      "triangles": 15172,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.14214187860488892,
+        0.03800000250339508,
+        0.2299157977104187
+      ]
+    },
+    {
+      "part": "Gauntlets",
+      "file": "SM_ObsidianSovereign_Gauntlets_R.fbx",
+      "triangles": 15172,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.14214187860488892,
+        0.03800000250339508,
+        0.2299157977104187
+      ]
+    },
+    {
+      "part": "Helmet",
+      "file": "SM_ObsidianSovereign_Helmet.fbx",
+      "triangles": 18720,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.2368386834859848,
+        0.2903512716293335,
+        0.35899999737739563
+      ]
+    },
+    {
+      "part": "Shins",
+      "file": "SM_ObsidianSovereign_Shins_L.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.1340000033378601,
+        0.16203556954860687,
+        0.3930000066757202
+      ]
+    },
+    {
+      "part": "Shins",
+      "file": "SM_ObsidianSovereign_Shins_R.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.1340000033378601,
+        0.16203556954860687,
+        0.3930000066757202
+      ]
+    },
+    {
+      "part": "Shoulders",
+      "file": "SM_ObsidianSovereign_Shoulders_L.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.2800048589706421,
+        0.24400489032268524,
+        0.1710282564163208
+      ]
+    },
+    {
+      "part": "Shoulders",
+      "file": "SM_ObsidianSovereign_Shoulders_R.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.2800048589706421,
+        0.24400489032268524,
+        0.1710282564163208
+      ]
+    },
+    {
+      "part": "Thighs",
+      "file": "SM_ObsidianSovereign_Thighs_L.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.19599999487400055,
+        0.20999999344348907,
+        0.364185631275177
+      ]
+    },
+    {
+      "part": "Thighs",
+      "file": "SM_ObsidianSovereign_Thighs_R.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.19599999487400055,
+        0.20999999344348907,
+        0.364185631275177
+      ]
+    },
+    {
+      "part": "UpperArms",
+      "file": "SM_ObsidianSovereign_UpperArms_L.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.19264434278011322,
+        0.15033674240112305,
+        0.2713848352432251
+      ]
+    },
+    {
+      "part": "UpperArms",
+      "file": "SM_ObsidianSovereign_UpperArms_R.fbx",
+      "triangles": 7168,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.19264434278011322,
+        0.15033674240112305,
+        0.2713848352432251
+      ]
+    },
+    {
+      "part": "Waist",
+      "file": "SM_ObsidianSovereign_Waist.fbx",
+      "triangles": 28256,
+      "components_after_seam_weld": 1,
+      "non_manifold_edges": 0,
+      "ngons": 0,
+      "degenerate_faces": 0,
+      "positive_volume": true,
+      "dimensions_m": [
+        0.4440000057220459,
+        0.36399999260902405,
+        0.38242143392562866
+      ]
+    }
+  ]
+}
