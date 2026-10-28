@@ -35,6 +35,17 @@ for step in range(1296):
         if loc is None:misses.append({'step':step,'width':width})
         else:deltas.append(abs(loc.z-expected))
 report['route_probes']={'samples':1296*3,'misses':misses[:30],'miss_count':len(misses),'max_floor_error_m':max(deltas) if deltas else None,'nominal_width_m':3,'rise_m':198/1296,'actual_capsule_sweeps':False,'soldier_navigation_tested':False}
+allverts=[];allfaces=[]
+for ob in assembly.objects:
+    offset=len(allverts);allverts.extend([ob.matrix_world@v.co for v in ob.data.vertices]);allfaces.extend([tuple(offset+i for i in p.vertices) for p in ob.data.polygons])
+fulltree=BVHTree.FromPolygons(allverts,allfaces,all_triangles=False);head_hits=[]
+for step in range(1296):
+    t=(step+.5)/1296;angle=t*18*math.pi;z=(step+1)*198/1296;r=13-2.5*min(1,(step+.5)*198/1296/11)
+    for width in [.5,1.5,2.5]:
+        rr=r+width;origin=Vector((rr*math.cos(angle),rr*math.sin(angle),z+.02))
+        hit=fulltree.ray_cast(origin,Vector((0,0,1)),2.0)
+        if hit[0] is not None:head_hits.append({'step':step,'width':width,'distance_m':hit[3]})
+report['headroom_probes']={'samples':3888,'vertical_clearance_m':2.0,'hit_count':len(head_hits),'hits':head_hits[:40],'capsule_sweep':False}
 report['dimensions']={'above_ground_height_m':report['lod0']['max'][2],'roof_m':198,'below_grade_extent_m':-min(0,report['lod0']['min'][2]),'note':'Datum Z=0 is ground; first consoles/bed extend below grade as foundations.'}
 report['engine_status']='not imported or Play-tested'
 report['evidence_limits']=['No blanket intersection-free claim; intentional masonry joints overlap.','No dynamic gameplay, wind, enemies or weather implemented.','Static geometry and sampled route probes do not prove capsule clearance or engine performance.']
