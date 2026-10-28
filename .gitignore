@@ -1,1 +1,4 @@
 tools/.watch-*.json
+
+tools/.session-*.json
+tools/.inbox-*.json

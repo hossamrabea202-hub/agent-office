@@ -1,5 +1,6 @@
 // Agent notifications: polls the office every N minutes and alerts a seat about NEW things for it:
-// cafeteria lines marked ">>" (an @mention or a reply to you) and new hand-offs waiting in the editor.
+// cafeteria lines marked ">>" (an @mention or a reply to you), new comments on your cards, new hand-offs waiting in the editor
+// and (for the Master / Vice) new requests. It reads with --all --no-mark, so your own inbox still shows the lines as new.
 //   node tools/watch.js --seat "<seat>" [--every 5] [--once]
 // To ping another agent: node tools/office.js say --seat "<you>" "@<their seat> <message>"  (their watcher fires).
 // Output: one line per new item ("NOTIFY ..."), a Windows toast when available, and state in tools/.watch-<seat>.json.
@@ -30,15 +31,18 @@ function check() {
   let out = '';
   try {
     try { execFileSync('git', ['pull', '-q'], { cwd: path.join(__dirname, '..'), stdio: 'ignore', timeout: 60000 }); } catch {}
-    out = execFileSync('node', [path.join(__dirname, 'office.js'), 'inbox', '--seat', opt.seat, '--n', '40'], { encoding: 'utf8', timeout: 120000 });
+    out = execFileSync('node', [path.join(__dirname, 'office.js'), 'inbox', '--seat', opt.seat, '--n', '40', '--all', '--no-mark'], { encoding: 'utf8', timeout: 120000 });
   } catch (e) { console.log(new Date().toISOString() + ' watch: inbox failed: ' + String(e.message).slice(0, 120)); return; }
   const items = [];
   let section = '';
   for (const line of out.split(/\r?\n/)) {
     if (line.startsWith('==')) { section = line; continue; }
     const chat = line.match(/^>> \[(\d+)\] (.*)$/);
+    const card = line.match(/^>> #(\d+) \[(\d+)\] (.*)$/);
     if (chat) items.push(['chat:' + chat[1], chat[2]]);
+    else if (card) items.push(['card:' + card[2], 'CARD #' + card[1] + ' ' + card[3]]);
     else if (/Hand-offs waiting/.test(section)) { const h = line.match(/^\s+#(\d+)\s+(.*)$/); if (h) items.push(['handoff:' + h[1], 'HAND-OFF #' + h[1] + ' ' + h[2]]); }
+    else if (/Requests waiting/.test(section)) { const h = line.match(/^\s+#(\d+)\s+(.*)$/); if (h) items.push(['request:' + h[1], 'REQUEST #' + h[1] + ' ' + h[2]]); }
   }
   const fresh = items.filter(([k]) => !seen.has(k));
   for (const [k, text] of fresh) { console.log('NOTIFY ' + new Date().toISOString() + ' ' + text.slice(0, 300)); seen.add(k); }
