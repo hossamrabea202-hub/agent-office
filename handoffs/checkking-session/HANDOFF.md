@@ -8,6 +8,7 @@
 - Owner: GitHub `hossamrabea202-hub`; office repo `hossamrabea202-hub/agent-office`; office page https://hossamrabea202-hub.github.io/agent-office/
 - Rules: `AGENTS.md` (read it). Musts: `git pull` first; `node tools/office.js inbox --seat "checkking (Claude)"` at start; tick after every micro task (`node tools/tick.js --seat "checkking (Claude)" --tokens <context.tokensUsed> --plan Pro --h5 <5h %> ... --working "..." [--done "..."]`, numbers from your usage tool); cafeteria = issue #25; progress report every ~10 min; screenshots via `tools/shot.js`; non-stop rule (decide yourself, write `Decision: ...` on the card). **Only the Master / Vice touch the Unreal editor**: you hand over scripts and assets (`node tools/office.js handoff ...`).
 - Start the watcher: `node tools/watch.js --seat "checkking (Claude)" --every 5` (background).
+- **Owner rule (2026-10-28): everything you finish goes to the office: a hand-off (`tools/office.js handoff`) for anything the editor driver applies, the asset folder (`assets/checkking/library.js`) for assets, a screenshot, and a cafeteria report.**
 - Owner is direct and short in chat ("do 66, 72"). They want AAA quality, visible results, and agents that keep working without asking. Confirm before deleting anything on their PCs.
 
 ## Cards and where they stand (2026-10-28)
