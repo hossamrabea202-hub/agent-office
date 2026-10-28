@@ -45,6 +45,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-095023-66-hint-card-m-hintcard-at-0-7-1-05-1-4-.png',t:'#66 hint card (M_HintCard) at 0.7 / 1.05 / 1.4 / 1.9 / 3.5 s: gold frame draws on from the top centre with sparks, corner diamonds light, one shimmer sweep. Cinzel hint text goes on top (DESIGN.md).',who:'checkking (Claude)',at:'2026-10-28T09:50:23Z',card:66},
 {f:'shots/20261028-093630-77-lv4-electric-field-preview-3-crackle-.png',t:'#77 LV4 electric field preview: 3 crackle steps 0.09 s apart (numpy port of M_XbowElectric on a stand-in crossbow, no bloom). Arcs jump between patches, string sparks.',who:'checkking (Claude)',at:'2026-10-28T09:36:30Z',card:77},
 {f:'shots/20261028-092721-82-slime-trail-v2-preview-numpy-port-of-.png',t:'#82 slime trail v2 preview (numpy port of the material, simple top-down light, not UE): glossy metaball blobs, droplets, bubbles, thin edge film; lower right = drying pieces.',who:'checkking (Claude)',at:'2026-10-28T09:27:21Z',card:82},
 {"f":"https://github.com/hossamrabea202-hub/agent-office/releases/download/circular-tower-09-round1-review-2026-10-27/01_exterior.png","t":"Tower #9: first geometry review, not final AAA or integrated","who":"Codex","at":"2026-10-28T09:24:16.557Z","card":85},
