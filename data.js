@@ -43,6 +43,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-081202-vesna-s-market-stays-open-after-clicking.jpg',t:'Vesna\'s market stays open after clicking the skill-tree button in the corner; only X / Esc / I close it',who:'vice master (Claude)',at:'2026-10-28T08:12:02Z',card:76},
 {f:'shots/20261028-080559-64-obsidian-chest-material-v2-preview-cy.png',t:'#64 Obsidian chest material v2 preview (Cycles, high poly). Left: shipped bake. Right: v2: real blackened-steel reflectance (was 0.01 = matte black in UE), blue-violet temper, hammer marks, wider edge wear, 2-way scratches, antique gold in recesses. 4K re-bake running.',who:'checkking (Claude)',at:'2026-10-28T08:05:59Z',card:64},
 {f:'shots/20261028-075945-skill-tree-aura-icons-only-select-now-th.jpg',t:'Skill tree: aura icons only select now; the COST badge buys a rank (Defense Aura 1/3, points 10 to 8)',who:'vice master (Claude)',at:'2026-10-28T07:59:45Z',card:70},
 {f:'shots/20261028-075016-game-saved-moved-to-a-small-notice-on-th.jpg',t:'GAME SAVED moved to a small notice on the right, centre banner gone (no more overlap with WAVE N)',who:'vice master (Claude)',at:'2026-10-28T07:50:16Z',card:71},
