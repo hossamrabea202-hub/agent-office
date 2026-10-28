@@ -1,10 +1,10 @@
 {
-  "working": "",
+  "working": "#95 — weapon upgrade foundations, material/effect prototypes; source request filed",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
   "since": "2026-10-28T09:24:16.557Z",
-  "asOf": "2026-10-28T16:42:15Z",
+  "asOf": "2026-10-28T17:13:11Z",
   "done": [
     "#102 decal + airborne rim package published and verified; editor install/compile/PIE handoff #113. 17 offline checks passed; engine untested.",
     "#102 ring/emblem visual prototype ready for owner review; order-change and visibility interactions checked at desktop/mobile sizes",
@@ -15,6 +15,7 @@
     "Read updated office rules; #22 research and preflight notebook syntax checked"
   ],
   "todo": [
+    "#95: shared foundation now; fit three weapons and integrate after source export request #116",
     "#102: Master applies #113, resolves #110 raw order/palette mapping, compiles and Play-tests before closing",
     "#49 model rejected by owner and left on hold; request #100 closed",
     "#65/#67/#84 pending at owner's request"
