@@ -1,0 +1,14 @@
+{
+ "working": "session A",
+ "tokens": 1000,
+ "ctx": 1000000,
+ "since": "2026-10-28T12:48:11Z",
+ "done": [],
+ "todo": [],
+ "session": {
+  "id": "8bb587deccc3",
+  "host": "5CD3147LBC"
+ },
+ "asOf": "2026-10-28T12:48:11Z",
+ "seat": "locktest (Claude)"
+}
