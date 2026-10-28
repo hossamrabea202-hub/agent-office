@@ -15,7 +15,7 @@
 | Card | State | Next step |
 |---|---|---|
 | **#64** Obsidian chest AAA+ | Part 1 done: v2 textures (real steel reflectance, temper, wear, scratches, antique gold) + strap fix, **applied in game by the Vice** (hand-off #91). | Parts 2-3 (old collar/pauldrons poking through, belt tuck) need the knight FBX: steps for the Vice in `handoffs/obsidian-sovereign/CHEST_V2_TEXTURES_HANDOFF.md`. |
-| **Obsidian set (owner wants all 11 pieces AAA)** | AAA: chest, shoulders L/R, gauntlets L/R. **New, modelled 10-28**: boots (sabatons, 14k tris/boot) and shins (greaves). Codex has WIP versions of all 11 in `assets/Codex/Obsidian-Sovereign`. | See "Bakes" below. Then build: thighs (cuisses + poleyn), waist (fauld/tassets), forearms (vambraces), upper arms (rerebraces + couters), helmet, cape. Use Codex's bounds as the envelope (`Boots/source/bounds_codex.py`). |
+| **Obsidian set (owner wants all 11 pieces AAA)** | AAA: chest, shoulders L/R, gauntlets L/R. **New, modelled 10-28, not baked yet**: boots (sabatons, 14k tris/boot) and shins (greaves). Codex has WIP versions of all 11 in `assets/Codex/Obsidian-Sovereign`. | **First:** the bakes below. Then build: thighs (cuisses + poleyn), waist (fauld/tassets), forearms (vambraces), upper arms (rerebraces + couters), helmet, cape. Use Codex's bounds as the envelope (`Boots/source/bounds_codex.py`). |
 | **#82** slime trails | M_JellyTrail_v2 built by the Vice; **BP_JellyTrailManager (ISM_Trail = v2) set but NOT SAVED** (owner was in Play). | Ask the editor driver to save + Play-check (see #92). |
 | **#77** crossbow upgrade visuals | Phase 1: LV4 electric overlay material (hand-off filed). | Phase 2 (LV2 steel bands, LV3 gold parts, white-hot reveal, shot flare) waits on the **crossbow FBX export** asked from the Vice. |
 | **#66** bag / skill-book pickup reveals | Phase 1: `handoffs/pickup-reveals-66/DESIGN.md` (sequence, hint copy, once-only) + `M_HintCard` UI material. | Phase 2 HUD wiring paste waits on the **BP_MinimapHUD export** (asked). |
@@ -38,11 +38,15 @@ Exports go to `handoffs/exports/checkking/` (pickup66/, zvariety72/, xbow/, cann
 - **Paths are hard-coded to `C:\Users\hossam.rabea\checkking-work\<piece>`** (the old PC). On a new machine: copy each `source/` folder to a work folder, fix `D = r'...'` in `bake_staged.py`, `Set-Location` in `run_bake.ps1`, and the `sys.path` lines that point at `...\chest` and `...\gauntlets`. Blender: `C:\Program Files\Blender Foundation\Blender 4.5\blender.exe`.
 - `assets/checkking/tools/`: `remat_v2.py` (swap v2 materials into an existing bake_ready.blend, geometry/UVs untouched), `fix_straps.py` (paint leather + flat normal into texels sampled by zero-area-UV faces, UVs unchanged), `uvcmp.py`, `texstat.py`, `sbs.py` (before/after), numpy previews of the slime / electric / hint-card shaders.
 
-## Bakes running on the old PC when this was written
+## Bakes: NOT done yet, do them on your machine (first job)
 
-A detached job (`assets/checkking/tools/bake_chain_detached.ps1`) runs on the old PC: it waits for the shoulders + gauntlets v2 re-bake, then builds + bakes **boots** and **shins**, and **commits + pushes the results by itself** into `assets/checkking/Obsidian-Sovereign/{Shoulders,Gauntlets,Boots,Shins}/` (textures, L/R FBX, renders) with commit messages starting `checkking (auto-bake):`. Its log is `C:\Users\hossam.rabea\checkking-work\bake_chain.log` on that PC. Each piece takes ~1 h. So: **`git pull` and check `git log --grep "auto-bake"`** to see what has landed. If something never lands, rebuild it from `source/` on your machine.
+The old PC ran out of disk (C: at 0 MB) twice, so **nothing below has been baked**; all jobs there are stopped. Bake on the main laptop (needs Blender 4.5 and **~1.5 GB free per piece** for the raw EXR quarters; delete `tex/raw_*.exr` after each finish):
 
-After a piece lands: look at its renders, check UVs (`Boots/source/uvcheck.py`), write its README + UE import script (copy `Gauntlets/import_gauntlets_ue.py`), add it to `library.js`, hand it off, post a screenshot.
+1. **Boots** (`Boots/source`, modelled + checked: 14k tris/boot, UVs OK) and **Shins** (`Shins/source`, greave, checked against the boot): copy `source/` to a short work path, fix the hard-coded paths (see above), run `run_bake.ps1` (builds r1 + r3, prep, bakes, finish -> textures + L/R FBX), render with `render_boot.py` / `render_shin.py` (`-- <prefix> 64 1400 keep`).
+2. **Shoulders + gauntlets v2 textures** (match the chest's v2 look): their `bake_ready.blend` isn't in the repo, so rebuild from `source/` with the v2 `materials.py` (run_bake.ps1 does build + prep + bake). **Check the UVs match the shipped FBX** (`tools/uvcmp.py`, max diff 0.0); if they don't, ship the new FBX too (they're not fitted in game yet, so that's allowed).
+3. Copy textures (BaseColor, ORM, Normal_DirectX) + FBX + renders into `assets/checkking/Obsidian-Sovereign/<Piece>/`, write README + UE import script (copy the gauntlets' one), add the piece to `assets/checkking/library.js`, hand it off, post screenshots.
+
+`tools/bake_chain_detached.ps1` automates 1-3 but has the old PC's paths baked in; adapt it or run the steps by hand. (Starting it detached from a Claude session is blocked as persistence: run it as a normal background task, or ask the owner to start it in a terminal.)
 
 ## Lessons (save yourself the trouble)
 
