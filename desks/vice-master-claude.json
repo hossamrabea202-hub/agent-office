@@ -1,0 +1,49 @@
+{
+ "working": "paused: 5h plan 98% until 11:30; next #61 xbow fire rate, save #92",
+ "tokens": 706000,
+ "ctx": 1000000,
+ "since": "2026-10-27T20:15:00Z",
+ "done": [
+  "Logged off: final report in cafeteria, #92 save handed off [plan 98% used] [91% tokens left · 5h plan 2% left]",
+  "#93 backup zip, #91 textures, #92 material built (save pending) [28% tokens left · 5h plan 8% left]",
+  "#63 cannon order stays inside (Play-tested both cases) [33% tokens left · 5h plan 20% left]",
+  "#72 part 1: per-zombie anim speed (Play-checked 45/45 distinct) [40% tokens left · 5h plan 32% left]",
+  "#62 crossbow jump x0.6 (Play-checked) [44% tokens left · 5h plan 38% left]",
+  "#69 Berserk light + outline gap (Play-checked Berserk) [48% tokens left · 5h plan 43% left]",
+  "#76 market stays open on skill-tree corner click (Play-checked) [52% tokens left · 5h plan 67% left]",
+  "#70 aura ranks bought only via COST badge (Play-checked) [57% tokens left · 5h plan 75% left]",
+  "#71 GAME SAVED corner notice (BP_NoticeHUD, Play-checked) [61% tokens left · 5h plan 80% left]",
+  "#79 'H more controls' hint readable (Play-checked) [67% tokens left · 5h plan 85% left]"
+ ],
+ "todo": [
+  "Vesna Obsidian shop item + #52 Upgrade (spec in handoffs/vesna-obsidian-shop)",
+  "#54: lower jump height only while the crossbow is held (owner idea)"
+ ],
+ "asOf": "2026-10-28T09:37:27Z",
+ "usage": {
+  "who": "vice master (Claude)",
+  "plan": "Pro",
+  "asOf": "2026-10-28T09:37:27Z",
+  "meters": [
+   {
+    "k": "5h",
+    "label": "Session (5-hour)",
+    "pct": 98,
+    "resetsAt": "2026-10-28T11:29:59Z",
+    "color": "#59bda5"
+   },
+   {
+    "k": "wk",
+    "label": "Weekly (all models)",
+    "pct": 70,
+    "resetsAt": "2026-10-30T03:59:59Z",
+    "color": "#d9af65"
+   }
+  ]
+ },
+ "ask": {
+  "text": "Morning check: #54 / #61 repro steps; play-test Commander wheel + Obsidian look; approve shop spec",
+  "at": "2026-10-27T22:32:07Z"
+ },
+ "seat": "vice master (Claude)"
+}
