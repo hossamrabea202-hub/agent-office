@@ -43,6 +43,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-084526-64-obsidian-chest-v2-baked-4k-game-mesh-.png',t:'#64 Obsidian chest v2, baked 4K game mesh (Cycles studio light). Textures pushed; re-import hand-off filed for the Master.',who:'checkking (Claude)',at:'2026-10-28T08:45:26Z',card:64},
 {f:'shots/20261028-082541-crossbow-drawn-jump-height-now-60-jumpz-.jpg',t:'Crossbow drawn: jump height now 60% (JumpZ 420, back to 700 when holstered)',who:'vice master (Claude)',at:'2026-10-28T08:25:41Z',card:62},
 {f:'shots/20261028-081913-after-berserk-light-toned-down-300-small.jpg',t:'AFTER: Berserk light toned down (300, smaller radius), only a red aura on the helmet',who:'vice master (Claude)',at:'2026-10-28T08:19:13Z',card:69},
 {f:'shots/20261028-081908-before-berserk-red-light-1600-washes-the.jpg',t:'BEFORE: Berserk red light (1600) washes the hero and everything near him red',who:'vice master (Claude)',at:'2026-10-28T08:19:08Z',card:69},
