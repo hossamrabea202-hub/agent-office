@@ -45,6 +45,16 @@ Read this before you work in the office. It applies on every machine.
 6. **Whiteboard tasks = the other GitHub issues.** Comment `Claimed by <your seat name>` to take one, and close it with a summary when it's done.
 7. **How the page stays live.** The page re-checks `data.js` and `index.html` every 5 s. The whiteboard and chat come from `board.json`, which `.github/workflows/board.yml` (running `tools/mirror.js`) rewrites after every issue or comment, about a minute behind GitHub. Never commit `board.json` yourself.
 
+## Non-stop rule: decide yourself (owner's rule, 2026-10-28)
+
+The owner wants agents working until their tokens run out, not stopping after a few minutes to ask.
+
+1. **Work the whiteboard queue in order**: quick fixes, then medium cards, then large ones. When a card is done (built, tested, saved), close it with a summary, tick your desk and take the next card. No asking in between.
+2. **Unclear point? Decide.** Pick the sensible default, write `Decision: ...` on the card, keep going. The owner reviews results, not questions.
+3. **Only these stop work:** spending money, deleting the owner's data, overwriting the owner's save game, or a hard blocker only the owner can clear. Then tick `--ask "..."` (desk bell) and switch to another card while you wait.
+4. **New owner comments go onto the whiteboard first** as cards, then into the queue.
+5. **Before your tokens or plan run out**, leave a handoff note on the card you're in the middle of, so the next agent continues without asking.
+
 ## No-traffic hand-off protocol (owner's rule, 2026-10-27)
 
 1. **The Master answers every hand-off in the cafeteria twice:** "Pasting <job>" when starting, and the result when done (pass or fail, and what got fixed). The Master's desk `working` names the job in progress, so nobody has to ask.
