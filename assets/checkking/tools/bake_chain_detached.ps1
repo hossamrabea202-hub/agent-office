@@ -10,14 +10,14 @@ $OS = "$R\assets\checkking\Obsidian-Sovereign"
 function L($m) { "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') $m" | Add-Content $log }
 function FreeMB { [math]::Round((Get-PSDrive C).Free / 1MB) }
 function Done($dir, $since) { $p = "$W\$dir\bake4k.log"; if (-not (Test-Path $p)) { return $false }
-    $t = Get-Content $p; ($t -match '^ALL DONE').Count -gt 0 -and (Get-Item $p).LastWriteTime -gt $since }
+    [bool](Select-String -Path $p -Pattern '^ALL DONE' -Quiet) -and (Get-Item $p).LastWriteTime -gt $since }   # not ($t -match ...).Count: a one-line log made that 1
 function Push($msg, $paths) {
     for ($i = 0; $i -lt 4; $i++) {
         git -C $R pull -q --rebase --autostash 2>&1 | Out-Null
         foreach ($p in $paths) { git -C $R add -- $p 2>&1 | Out-Null }
         git -C $R commit -q -m "$msg`n`nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" 2>&1 | Out-Null
         git -C $R push -q 2>&1 | Out-Null
-        if ($LASTEXITCODE -eq 0) { L "pushed: $msg"; return $true }
+        if ($LASTEXITCODE -eq 0) { if ((git -C $R log -1 --format=%s) -ne ($msg -split "`n")[0]) { L "nothing changed, not pushed: $msg"; return $false }; L "pushed: $msg"; return $true }
         Start-Sleep 20
     }
     L "PUSH FAILED: $msg"; return $false
