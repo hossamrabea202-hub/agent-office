@@ -2,6 +2,8 @@
 
 Read this before you work in the office. It applies on every machine.
 
+**Office page (live, for everyone):** https://hossamrabea202-hub.github.io/agent-office/ (the banner at the top links it; its text and link live in `banner` in `data.js`).
+
 1. **Only the Master Agent touches the Unreal editor.** The Castle Defender project is open on the owner's PC with the latest work saved, and only the Master Agent (desk #0, now `hossam gmail (Claude)`) drives it. Everyone else works in the background and produces things the Master can apply: T3D graph pastes, editor Python scripts, assets to import, written steps. Don't paste, run editor scripts, save assets or start PIE yourself. Hand the work over instead:
 
    ```
