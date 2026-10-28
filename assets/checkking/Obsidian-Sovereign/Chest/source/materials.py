@@ -1,4 +1,4 @@
-﻿# Procedural PBR layers for the high poly. Each material computes BC / RG / MT; set_output() routes one of them
+# Procedural PBR layers for the high poly. Each material computes BC / RG / MT; set_output() routes one of them
 # (or the full BSDF) to the Material Output so the same tree serves preview renders and EMIT bakes.
 import bpy
 LEATHER_TONE = 1.0
@@ -58,36 +58,54 @@ def build(m, kind):
     wear_n = _noise(nt, 55, 10, 0.65, co).outputs['Fac']
     smudge = _noise(nt, 4.0, 4, 0.5, co).outputs['Fac']
     if kind in ('steel', 'buckle', 'etch'):
-        base = (0.011, 0.011, 0.014) if kind == 'steel' else (0.11, 0.11, 0.115) if kind == 'buckle' else (0.009, 0.009, 0.010)
-        temper = _noise(nt, 2.2, 3, 0.5, co).outputs['Fac']
-        tint = _mix_col(nt, temper, (0.016, 0.019, 0.034), (0.032, 0.020, 0.036))
-        col = _mix_col(nt, 0.45 if kind == 'steel' else 0.15, base, tint)
+        # v2 (#64): blackened steel is a dark oxide over metal, not black paint: reflectance ~0.06-0.10, not 0.01,
+        # or UE renders it as matte black plastic. Temper shifts blue -> violet -> faint straw over the plate.
+        base = (0.026, 0.027, 0.032) if kind == 'steel' else (0.30, 0.30, 0.31) if kind == 'buckle' else (0.020, 0.020, 0.022)
+        temper = _noise(nt, 1.6, 4, 0.55, co, 0.4).outputs['Fac']
+        tint = _mix_col(nt, _maprange(nt, temper, 0.35, 0.55), (0.018, 0.024, 0.056), (0.046, 0.024, 0.054))
+        tint = _mix_col(nt, _maprange(nt, temper, 0.62, 0.75, 0, 0.6), tint, (0.060, 0.044, 0.030))
+        col = _mix_col(nt, 0.6 if kind == 'steel' else 0.12, base, tint)
+        col = _mix_col(nt, _maprange(nt, _noise(nt, 14, 6, 0.6, co).outputs['Fac'], 0.3, 0.7, 0, 0.35), col, (0.014, 0.014, 0.017))
         hammer = _n(nt, 'ShaderNodeTexVoronoi', feature='SMOOTH_F1', in_Scale=160.0)
         nt.links.new(co, hammer.inputs['Vector'])
-        col = _mix_col(nt, _maprange(nt, hammer.outputs['Distance'], 0.0, 0.6, 0.0, 0.18), col, (0.045, 0.045, 0.05))
-        # exposed bright steel on worn edges, broken up by noise
-        chip = _maprange(nt, _math(nt, 'MULTIPLY', edge, _maprange(nt, wear_n, 0.50, 0.64)), 0.05, 0.13)
-        exposed = (0.36, 0.36, 0.38) if kind != 'etch' else (0.08, 0.08, 0.085)
+        hm = _maprange(nt, hammer.outputs['Distance'], 0.0, 0.6)
+        col = _mix_col(nt, _math(nt, 'MULTIPLY', hm, 0.12), col, (0.06, 0.06, 0.066))
+        # polishing streaks: long thin bands, mostly a roughness break-up
+        pol = _n(nt, 'ShaderNodeTexWave', wave_type='BANDS', bands_direction='Z', in_Scale=160.0, in_Distortion=2.0, in_Detail=6.0)
+        nt.links.new(co, pol.inputs['Vector'])
+        polm = _maprange(nt, pol.outputs['Fac'], 0.35, 0.9)
+        # exposed bright steel on worn edges and high points, broken up by noise
+        chip = _maprange(nt, _math(nt, 'MULTIPLY', edge, _maprange(nt, wear_n, 0.42, 0.62)), 0.03, 0.10)
+        exposed = (0.56, 0.56, 0.58) if kind != 'etch' else (0.10, 0.10, 0.105)
         col = _mix_col(nt, chip, col, exposed)
-        # fine scratches
+        # scratches in two directions, only in patches
         scr = _n(nt, 'ShaderNodeTexWave', wave_type='BANDS', bands_direction='DIAGONAL', in_Scale=420.0, in_Distortion=14.0, in_Detail=4.0)
         nt.links.new(co, scr.inputs['Vector'])
-        scr_m = _math(nt, 'MULTIPLY', _maprange(nt, scr.outputs['Fac'], 0.93, 1.0), _maprange(nt, _noise(nt, 9, 2, 0.5, co).outputs['Fac'], 0.55, 0.7))
-        col = _mix_col(nt, _math(nt, 'MULTIPLY', scr_m, 0.5), col, (0.16, 0.16, 0.17))
-        # grime in cavities
-        grime = _math(nt, 'MULTIPLY', _maprange(nt, cav, 0.35, 0.85), _maprange(nt, smudge, 0.3, 0.7, 0.3, 0.9))
-        col = _mix_col(nt, grime, col, (0.018, 0.013, 0.009))
-        rg = _mix_f(nt, smudge, 0.22, 0.38) if kind != 'etch' else _mix_f(nt, smudge, 0.62, 0.8)
-        rg = _mix_f(nt, chip, rg, 0.2)
-        rg = _mix_f(nt, scr_m, rg, 0.18)
-        rg = _mix_f(nt, grime, rg, 0.85)
-        mt = _mix_f(nt, grime, 1.0, 0.55)
+        scr2 = _n(nt, 'ShaderNodeTexWave', wave_type='BANDS', bands_direction='X', in_Scale=300.0, in_Distortion=22.0, in_Detail=5.0)
+        nt.links.new(co, scr2.inputs['Vector'])
+        patch = _maprange(nt, _noise(nt, 9, 2, 0.5, co).outputs['Fac'], 0.5, 0.68)
+        scr_m = _math(nt, 'MULTIPLY', _math(nt, 'MAXIMUM', _maprange(nt, scr.outputs['Fac'], 0.92, 1.0), _maprange(nt, scr2.outputs['Fac'], 0.95, 1.0)), patch)
+        col = _mix_col(nt, _math(nt, 'MULTIPLY', scr_m, 0.7), col, (0.30, 0.30, 0.32))
+        # grime and old oil in cavities and around rivets
+        grime = _math(nt, 'MULTIPLY', _maprange(nt, cav, 0.25, 0.8), _maprange(nt, smudge, 0.25, 0.7, 0.4, 1.0))
+        col = _mix_col(nt, grime, col, (0.014, 0.010, 0.007))
+        rg = _mix_f(nt, smudge, 0.20, 0.36) if kind != 'etch' else _mix_f(nt, smudge, 0.62, 0.8)
+        rg = _mix_f(nt, _math(nt, 'MULTIPLY', polm, 0.25), rg, 0.16)
+        rg = _mix_f(nt, _math(nt, 'MULTIPLY', hm, 0.3), rg, 0.34)
+        rg = _mix_f(nt, chip, rg, 0.14)
+        rg = _mix_f(nt, scr_m, rg, 0.30)
+        rg = _mix_f(nt, grime, rg, 0.88)
+        mt = _mix_f(nt, chip, 0.85 if kind != 'etch' else 0.6, 1.0)
+        mt = _mix_f(nt, grime, mt, 0.3)
     elif kind == 'gold':
+        # v2 (#64): inlaid gold: polished on the high points, antique (dark, rough) down in the recess walls
         n2 = _noise(nt, 30, 6, 0.6, co).outputs['Fac']
-        col = _mix_col(nt, n2, (0.86, 0.60, 0.28), (1.0, 0.76, 0.40))
-        col = _mix_col(nt, _maprange(nt, cav, 0.1, 0.6, 0, 0.7), col, (0.25, 0.15, 0.06))
-        rg = _mix_f(nt, n2, 0.20, 0.34)
-        rg = _mix_f(nt, _maprange(nt, cav, 0.1, 0.6), rg, 0.6)
+        col = _mix_col(nt, n2, (0.80, 0.56, 0.25), (1.0, 0.77, 0.37))
+        col = _mix_col(nt, _maprange(nt, cav, 0.05, 0.5, 0, 0.85), col, (0.20, 0.11, 0.04))
+        col = _mix_col(nt, _maprange(nt, edge, 0.02, 0.10, 0, 0.6), col, (1.0, 0.86, 0.58))
+        rg = _mix_f(nt, n2, 0.16, 0.30)
+        rg = _mix_f(nt, _maprange(nt, cav, 0.05, 0.5), rg, 0.65)
+        rg = _mix_f(nt, _maprange(nt, edge, 0.02, 0.10), rg, 0.10)
         mt = 1.0
     else:  # leather (LEATHER_TONE < 1 darkens it, e.g. the gauntlet glove)
         t = LEATHER_TONE
