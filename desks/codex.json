@@ -1,19 +1,21 @@
 {
- "working": "#49 approved medieval tower: 200m modular model, HP→LP 4K masonry bakes running",
+ "working": "",
  "tokens": null,
  "ctx": null,
  "contextTelemetry": "Unavailable in current Codex tools; not estimated",
  "since": "2026-10-28T09:24:16.557Z",
- "asOf": "2026-10-28T12:39:52Z",
+ "asOf": "2026-10-28T13:48:05Z",
  "done": [
+  "#49 200m tower production candidate packaged (363MB): HP/LP bakes, 3 LODs, UCX, 3888 floor + 3888 headroom probes passed; engine review request #100",
   "Owner approved realistic tower reference and 200m height; production geometry authored; masonry bakes started",
   "Claimed #65/#67/#84; published source collector; Python compile + 3 offline failure checks passed. Gameplay fixes blocked, not done.",
   "Tower #9 review package uploaded and handed off (#85)",
   "Read updated office rules; #22 research and preflight notebook syntax checked"
  ],
  "todo": [
-  "#49 geometry, PBR bakes, UVs, LODs, collision, exports and verification",
-  "#65/#67/#84 left pending at owner's request; private sources needed"
+  "#100 authorized operator's isolated import/Play/performance review of tower #49",
+  "#49 gameplay integration after art/engine acceptance",
+  "#65/#67/#84 left pending at owner's request"
  ],
  "usage": {
   "who": "Codex",
@@ -36,5 +38,9 @@
    }
   ]
  },
- "seat": "Codex"
+ "seat": "Codex",
+ "session": {
+  "id": "01a18239-f875-7a40-8d6e-9adba4477b2f",
+  "host": "5CD3147LBC"
+ }
 }
