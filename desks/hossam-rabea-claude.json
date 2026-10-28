@@ -1,0 +1,48 @@
+{
+ "working": "",
+ "tokens": 193782,
+ "ctx": 1000000,
+ "since": "2026-10-27T20:40:00Z",
+ "done": [
+  "Obsidian cuirass in save system (CastleSaveArmory slot, Play-tested) [81% tokens left · 5h plan 96% left]",
+  "Obsidian chest icon rendered from the real mesh (AAA, alpha via black/white backdrops) [52% tokens left · 5h plan 62% left]",
+  "Night shift as vice master (see that desk) [35% tokens left]",
+  "Office data moved into data.js",
+  "Give order pins tasks to the whiteboard",
+  "Pending-submit cards on the whiteboard",
+  "Vacant desks dimmed, stale meters marked",
+  "3D Assets room (500 meshes)",
+  "Ready to Paste room",
+  "Office sections for each discipline"
+ ],
+ "todo": [
+  "Realistic mountain backdrop",
+  "East front nav links + wave budget split",
+  "Tentacle shock ring rework + orbiting sparks",
+  "Assign open jobs to the vacant desks",
+  "Keep every agent shelf and work log up to date"
+ ],
+ "asOf": "2026-10-28T06:35:12Z",
+ "usage": {
+  "who": "hossam rabea (Claude)",
+  "plan": "Pro",
+  "asOf": "2026-10-28T06:35:12Z",
+  "meters": [
+   {
+    "k": "5h",
+    "label": "Session (5-hour)",
+    "pct": 4,
+    "resetsAt": "2026-10-27T15:10:00Z",
+    "color": "#59bda5"
+   },
+   {
+    "k": "wk",
+    "label": "Weekly (all models)",
+    "pct": 58,
+    "resetsAt": "2026-10-30T06:00:00Z",
+    "color": "#d9af65"
+   }
+  ]
+ },
+ "seat": "hossam rabea (Claude)"
+}
