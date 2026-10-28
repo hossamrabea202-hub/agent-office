@@ -1,0 +1,55 @@
+{
+ "working": "",
+ "tokens": 173153,
+ "ctx": 1000000,
+ "since": "2026-10-27T10:40:00Z",
+ "done": [
+  "Tower #9 round-1 fit test + report [83% tokens left · 5h plan 81% left]",
+  "#12 Commander + #15 death report: built on exports, pasted and active",
+  "#3 v2 tentacle curl strike: pasted and verified",
+  "#3 Tentacle cannon strike + 3-stage cannon break, handed to Master Agent",
+  "Hover work log on my desks",
+  "Token count + live duty timer",
+  "Draggable rooms and archive shelf",
+  "Studio logo + smaller Art Director office",
+  "Archive shelf with 68 finished jobs",
+  "Agent Office live on GitHub Pages"
+ ],
+ "todo": [
+  "#24 Death text by cause (waiting on death-screen export)",
+  "#11 Survivors (next)",
+  "Project Vault room (waiting for Drive link)",
+  "Realistic mountain backdrop",
+  "Tame tentacle shock ring + orbiting sparks",
+  "East front nav links + wave budget split",
+  "Hero sword slash VFX offset",
+  "Decode Fab audio packs (Oodle)",
+  "Swap skill book to Fab mesh",
+  "Vesna CC-BY credit",
+  "Soldier HUD declutter",
+  "Crossbow Charged Shot skill"
+ ],
+ "asOf": "2026-10-28T11:09:48Z",
+ "usage": {
+  "who": "adjustedfilm (Claude)",
+  "plan": "Pro",
+  "asOf": "2026-10-28T11:09:48Z",
+  "meters": [
+   {
+    "k": "5h",
+    "label": "Session (5-hour)",
+    "pct": 19,
+    "resetsAt": "2026-10-28T14:49:59Z",
+    "color": "#59bda5"
+   },
+   {
+    "k": "wk",
+    "label": "Weekly (all models)",
+    "pct": 96,
+    "resetsAt": "2026-10-31T08:59:59Z",
+    "color": "#d9af65"
+   }
+  ]
+ },
+ "seat": "adjustedfilm (Claude)"
+}
