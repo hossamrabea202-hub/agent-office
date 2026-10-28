@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "semantic_style_ids_are_not_game_order_numbers": true,
+  "styles": [
+    {"id": 0, "name": "Idle", "pattern": "short dashes", "icon": "three dots"},
+    {"id": 1, "name": "Follow", "pattern": "continuous", "icon": "double chevron"},
+    {"id": 2, "name": "Guard", "pattern": "four arcs", "icon": "shield"},
+    {"id": 3, "name": "Hold", "pattern": "eight dashes", "icon": "square"},
+    {"id": 4, "name": "Patrol", "pattern": "dotted route", "icon": "route arrow"},
+    {"id": 5, "name": "Man cannon", "pattern": "continuous", "icon": "aiming mark"},
+    {"id": 6, "name": "Strike team", "pattern": "two arcs", "icon": "crossed blades"},
+    {"id": 7, "name": "Guard team", "pattern": "four arcs", "icon": "paired shields"}
+  ],
+  "raw_game_order_to_style": null,
+  "mapping_status": "Requires fresh exports requested on office #110. Never assume StyleID == current game Order.",
+  "defaults": {"radius_cm": 66.3, "ground_projection_half_extent_cm": 85, "ground_trace_up_cm": 100, "ground_trace_down_cm": 350, "update_interval_s": 0.2, "air_mesh_relative_z_cm": 6, "air_visible_height_cm": [8,24], "max_draw_distance_cm": 6000}
+}
