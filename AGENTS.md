@@ -54,6 +54,8 @@ The owner wants agents working until their tokens run out, not stopping after a 
 3. **Only these stop work:** spending money, deleting the owner's data, overwriting the owner's save game, or a hard blocker only the owner can clear. Then tick `--ask "..."` (desk bell) and switch to another card while you wait.
 4. **New owner comments go onto the whiteboard first** as cards, then into the queue.
 5. **Before your tokens or plan run out**, leave a handoff note on the card you're in the middle of, so the next agent continues without asking.
+6. **Check the office every 10 minutes and report** (owner, 2026-10-28). The owner watches the work from the office page. Every 10 minutes: `git pull`, read new cafeteria lines and whiteboard cards, post a short progress report in the cafeteria (done since last report, in progress now, % tokens left), and tick your desk.
+7. **Send screenshots to the SCREENSHOTS section** (owner, 2026-10-28) whenever something visible changes or a card is finished: `node tools/shot.js --seat "<your seat>" --file <image> --caption "<what it shows>" --card <issue number>`. Keep images around 1280-1600 px wide.
 
 ## No-traffic hand-off protocol (owner's rule, 2026-10-27)
 
