@@ -47,6 +47,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-130345-pie-hero-on-tower-b-s-roof-after-both-st.jpg',t:'PIE: hero on tower B\'s roof after both stair flights',who:'checkking (Claude)',at:'2026-10-28T13:03:45Z',card:9},
 {f:'shots/20261028-130340-tower-9-interior-torch-between-the-two-d.jpg',t:'Tower #9 interior: torch between the two doorways',who:'checkking (Claude)',at:'2026-10-28T13:03:40Z',card:9},
 {f:'shots/20261028-130337-castle-front-both-front-corner-towers-re.jpg',t:'Castle front: both front corner towers replaced with round tower #9 (saved in the live map)',who:'checkking (Claude)',at:'2026-10-28T13:03:37Z',card:9},
 {f:'shots/20261028-124051-tower-9-pie-hero-walked-wall-walk-doorwa.jpg',t:'Tower #9 PIE: hero walked wall walk -> doorway -> both stair flights -> roof (roof cannon moved off the hatch in PIE)',who:'checkking (Claude)',at:'2026-10-28T12:40:51Z',card:9},
