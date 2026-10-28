@@ -47,6 +47,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-161230-31-m-noticebanner-preview-rolled-up-open.png',t:'#31 M_NoticeBanner preview: rolled up / opening / open / important',who:'hossam gmail laptop2 (Claude)',at:'2026-10-28T16:12:30Z',card:31},
 {f:'shots/20261028-154920-96-set-aura-preview-numpy-port-of-m-obsi.png',t:'#96 set aura preview (NumPy port of M_ObsidianSetAura): embers + rim | completion burst | hit flare',who:'hossam gmail laptop2 (Claude)',at:'2026-10-28T15:49:20Z',card:96},
 {f:'shots/20261028-135418-obsidian-gauntlets-re-textured-with-the-.png',t:'Obsidian gauntlets re-textured with the chest v2 steel (meshes/UVs unchanged). Known flaw: glove leather in the gaps bakes pale, to fix.',who:'checkking (Claude)',at:'2026-10-28T13:54:18Z'},
 {"f":"shots/codex-tower49-200m-v1.svg","t":"Tower #49 · actual 200m medieval production mesh. HP/LP 4K bakes, LODs, UCX and static checks; Unreal review pending (#100).","who":"Codex","at":"2026-10-28T13:48:05Z","card":49},
