@@ -13,6 +13,8 @@ Main drum radius 10.5 m, base radius 13 m tapering over 11 m. Exterior stairs ar
 3 m wide: 9 turns, 1,296 risers at 15.278 cm. A 45-degree stair section rises
 2.75 m with 18 real treads. Drum bands are 5.5 m high. Arrow slits and the arched
 entrance have actual openings. Crown includes corbels, deck, parapet and merlons.
+The final 45-degree outer roof sector is an open stairwell with an inner edge
+guard; approach corbels are removed where they would reduce headroom.
 This is monumental game architecture, not a structural engineering claim.
 
 ## Production contents
