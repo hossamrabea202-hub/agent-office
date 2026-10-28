@@ -1,6 +1,7 @@
 ﻿# Procedural PBR layers for the high poly. Each material computes BC / RG / MT; set_output() routes one of them
 # (or the full BSDF) to the Material Output so the same tree serves preview renders and EMIT bakes.
 import bpy
+LEATHER_TONE = 1.0
 
 def _n(nt, t, loc=(0, 0), **kw):
     n = nt.nodes.new(t); n.location = loc
@@ -88,13 +89,15 @@ def build(m, kind):
         rg = _mix_f(nt, n2, 0.20, 0.34)
         rg = _mix_f(nt, _maprange(nt, cav, 0.1, 0.6), rg, 0.6)
         mt = 1.0
-    else:  # leather
+    else:  # leather (LEATHER_TONE < 1 darkens it, e.g. the gauntlet glove)
+        t = LEATHER_TONE
+        sc3 = lambda c: tuple(v * t for v in c)
         grain = _n(nt, 'ShaderNodeTexVoronoi', in_Scale=900.0); nt.links.new(co, grain.inputs['Vector'])
         g = _maprange(nt, grain.outputs['Distance'], 0.0, 0.5)
-        col = _mix_col(nt, _noise(nt, 18, 6, 0.6, co).outputs['Fac'], (0.022, 0.011, 0.006), (0.042, 0.021, 0.010))
-        col = _mix_col(nt, _math(nt, 'MULTIPLY', g, 0.25), col, (0.018, 0.009, 0.005))
-        col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, edge, 0.03, 0.14), 0.6), col, (0.075, 0.042, 0.022))
-        col = _mix_col(nt, _maprange(nt, cav, 0.15, 0.6), col, (0.012, 0.007, 0.004))
+        col = _mix_col(nt, _noise(nt, 18, 6, 0.6, co).outputs['Fac'], sc3((0.022, 0.011, 0.006)), sc3((0.042, 0.021, 0.010)))
+        col = _mix_col(nt, _math(nt, 'MULTIPLY', g, 0.25), col, sc3((0.018, 0.009, 0.005)))
+        col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, edge, 0.03, 0.14), 0.6), col, sc3((0.075, 0.042, 0.022)))
+        col = _mix_col(nt, _maprange(nt, cav, 0.15, 0.6), col, sc3((0.012, 0.007, 0.004)))
         rg = _mix_f(nt, g, 0.52, 0.70)
         rg = _mix_f(nt, _maprange(nt, edge, 0.02, 0.12), rg, 0.42)
         mt = 0.0
