@@ -1,0 +1,31 @@
+{
+  "target": "NEW /Game/Codex/AssignmentMarkers102_v1/BP_AssignmentMarker102 EventGraph",
+  "nodes": 46,
+  "pins": 186,
+  "variables": [
+    {
+      "name": "GroundMID",
+      "type": "MaterialInstanceDynamic object reference"
+    },
+    {
+      "name": "AirMID",
+      "type": "MaterialInstanceDynamic object reference"
+    },
+    {
+      "name": "MarkerAlive",
+      "type": "Boolean",
+      "default": true
+    }
+  ],
+  "components": [
+    "GroundDecal: DecalComponent",
+    "AirRim: StaticMeshComponent"
+  ],
+  "events": [
+    "SetAssignment102(SemanticStyle int)",
+    "SetMarkerAlive102(Alive bool)"
+  ],
+  "structural_pin_validation": true,
+  "engine_paste_or_compile_tested": false,
+  "basis": "UE5.3 native node serialization pattern from handoffs/exports/checkking/levelup/BP_SoldierLevelUpFX.t3d; new actor only; not an existing Blueprint patch"
+}
