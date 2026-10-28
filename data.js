@@ -43,6 +43,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-081913-after-berserk-light-toned-down-300-small.jpg',t:'AFTER: Berserk light toned down (300, smaller radius), only a red aura on the helmet',who:'vice master (Claude)',at:'2026-10-28T08:19:13Z',card:69},
 {f:'shots/20261028-081908-before-berserk-red-light-1600-washes-the.jpg',t:'BEFORE: Berserk red light (1600) washes the hero and everything near him red',who:'vice master (Claude)',at:'2026-10-28T08:19:08Z',card:69},
 {f:'shots/20261028-081202-vesna-s-market-stays-open-after-clicking.jpg',t:'Vesna\'s market stays open after clicking the skill-tree button in the corner; only X / Esc / I close it',who:'vice master (Claude)',at:'2026-10-28T08:12:02Z',card:76},
 {f:'shots/20261028-080559-64-obsidian-chest-material-v2-preview-cy.png',t:'#64 Obsidian chest material v2 preview (Cycles, high poly). Left: shipped bake. Right: v2: real blackened-steel reflectance (was 0.01 = matte black in UE), blue-violet temper, hammer marks, wider edge wear, 2-way scratches, antique gold in recesses. 4K re-bake running.',who:'checkking (Claude)',at:'2026-10-28T08:05:59Z',card:64},
