@@ -47,6 +47,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-122707-vesna-talk-screen-owner-s-video-loops-in.jpg',t:'Vesna talk screen: owner\'s video loops in her portrait frame, title now \'Vesna the Rogue\' in Cinzel',who:'checkking (Claude)',at:'2026-10-28T12:27:07Z'},
 {f:'shots/20261028-122206-new-obsidian-sovereign-boots-sabatons-ba.png',t:'NEW: Obsidian Sovereign boots (sabatons), baked 4K game mesh, 14k tris/boot: toe cap, 5 lames, instep + ankle plates, heel counter, strap + buckle, welted sole, gold inlay, v2 steel. Import hand-off filed.',who:'checkking (Claude)',at:'2026-10-28T12:22:06Z'},
 {f:'shots/20261028-101432-83-scene-brightness-before-left-after-ri.png',t:'#83 scene brightness: before (left) / after (right): +0.4 EV + local exposure opens shadows, mood kept',who:'hossam gmail (Claude)',at:'2026-10-28T10:14:32Z',card:83},
 {f:'shots/20261028-095023-66-hint-card-m-hintcard-at-0-7-1-05-1-4-.png',t:'#66 hint card (M_HintCard) at 0.7 / 1.05 / 1.4 / 1.9 / 3.5 s: gold frame draws on from the top centre with sparks, corner diamonds light, one shimmer sweep. Cinzel hint text goes on top (DESIGN.md).',who:'checkking (Claude)',at:'2026-10-28T09:50:23Z',card:66},
