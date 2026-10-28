@@ -1,9 +1,9 @@
 {
   "lod0": {
-    "objects": 568,
-    "triangles_instanced": 239972,
-    "unique_meshes": 18,
-    "unique_triangles": 11860,
+    "objects": 567,
+    "triangles_instanced": 239676,
+    "unique_meshes": 20,
+    "unique_triangles": 12188,
     "degenerate_faces": 0,
     "nonmanifold_edges": 0,
     "missing_uv0": 0,
@@ -20,10 +20,10 @@
     ]
   },
   "lod1": {
-    "objects": 568,
-    "triangles_instanced": 137516,
-    "unique_meshes": 18,
-    "unique_triangles": 6658,
+    "objects": 567,
+    "triangles_instanced": 137504,
+    "unique_meshes": 20,
+    "unique_triangles": 6986,
     "degenerate_faces": 0,
     "nonmanifold_edges": 0,
     "missing_uv0": 0,
@@ -40,10 +40,10 @@
     ]
   },
   "lod2": {
-    "objects": 568,
-    "triangles_instanced": 69414,
-    "unique_meshes": 18,
-    "unique_triangles": 3194,
+    "objects": 567,
+    "triangles_instanced": 69590,
+    "unique_meshes": 20,
+    "unique_triangles": 3522,
     "degenerate_faces": 0,
     "nonmanifold_edges": 0,
     "missing_uv0": 0,
@@ -68,6 +68,13 @@
     "rise_m": 0.1527777777777778,
     "actual_capsule_sweeps": false,
     "soldier_navigation_tested": false
+  },
+  "headroom_probes": {
+    "samples": 3888,
+    "vertical_clearance_m": 2.0,
+    "hit_count": 0,
+    "hits": [],
+    "capsule_sweep": false
   },
   "dimensions": {
     "above_ground_height_m": 200.0,
