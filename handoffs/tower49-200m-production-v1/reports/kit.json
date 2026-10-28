@@ -91,7 +91,7 @@
   },
   {
     "mesh": "SM_T49_BaseEntrance_45",
-    "triangles": 252,
+    "triangles": 248,
     "ucx_hulls": 6,
     "uv_layers": 2
   },
@@ -99,6 +99,24 @@
     "mesh": "SM_T49_GroundFloor_45",
     "triangles": 132,
     "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_RoofDeckInner_45",
+    "triangles": 132,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_StairwellGuard_45",
+    "triangles": 196,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_OakDoor_Module",
+    "triangles": 256,
+    "ucx_hulls": 1,
     "uv_layers": 2
   }
 ]
