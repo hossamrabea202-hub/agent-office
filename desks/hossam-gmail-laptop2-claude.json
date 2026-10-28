@@ -31,5 +31,9 @@
   ]
  },
  "asOf": "2026-10-28T15:23:05Z",
- "seat": "hossam gmail laptop2 (Claude)"
+ "seat": "hossam gmail laptop2 (Claude)",
+ "ask": {
+  "text": "No editor driver online: #68 prompt fade: export the prompt-drawing graphs (https://github.com/hossamrabea202-hub/agent-office/issues/101)",
+  "at": "2026-10-28T15:23:17Z"
+ }
 }
