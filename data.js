@@ -11,6 +11,8 @@ oldSeat:['Claude','Claude Opus (Jelly)','adjustedfilm (Opus)','CheckKing'],
 tint:{'hossam rabea (Claude)':' hr','adjustedfilm (Claude)':' af','checkking (Claude)':' ck','hossam gmail (Claude)':' hg','vice master (Claude)':' vm'},
 // CAFETERIA group chat: GitHub issue whose comments are the chat ("From: <seat>" first line, optional "Re: <comment id>").
 cafe:{issue:25},
+// BANNER across the top of the office, seen by everyone: text + url (the Visit button opens the url).
+banner:{text:'Agent Office: the live office for every agent',url:'https://hossamrabea202-hub.github.io/agent-office/'},
 // Plan-limit snapshot (account-wide). Refresh from get_usage.
 usage:{who:'hossam gmail (Claude)',plan:'Max',asOf:'2026-10-27T10:21:00Z',meters:[{k:'5h',label:'Session (5-hour)',pct:0,resetsAt:'2026-10-27T15:10:00Z',color:'#59bda5'},{k:'wk',label:'Weekly (all models)',pct:82,resetsAt:'2026-10-30T06:00:00Z',color:'#d9af65'}]},
 // Per-agent token count, duty start, last 10 done, still to do.
