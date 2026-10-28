@@ -1,0 +1,1215 @@
+{
+ "captured_utc": "2026-10-28T17:13:54.335065Z",
+ "files": {
+  "BP_Crossbow.t3d": {
+   "asset": "/Game/CastleDefender/Gameplay/Crossbow/BP_Crossbow",
+   "ok": true,
+   "bytes": 2337842
+  },
+  "BP_ThirdPersonCharacter.t3d": {
+   "asset": "/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter",
+   "ok": true,
+   "bytes": 1354661
+  },
+  "BP_TradeShowcase.t3d": {
+   "asset": "/Game/CastleDefender/UI/Trade/BP_TradeShowcase",
+   "ok": true,
+   "bytes": 303440
+  },
+  "BP_SkillTreeHUD.t3d": {
+   "asset": "/Game/CastleDefender/Gameplay/Castle/BP_SkillTreeHUD",
+   "ok": true,
+   "bytes": 22891456
+  },
+  "BP_ZombieHUD.t3d": {
+   "asset": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD",
+   "ok": true,
+   "bytes": 19204056
+  },
+  "BP_ArmoryHUD.t3d": {
+   "asset": "/Game/CastleDefender/Gameplay/Castle/BP_ArmoryHUD",
+   "ok": true,
+   "bytes": 9876351
+  },
+  "BP_QueueHUD.t3d": {
+   "asset": "/Game/CastleDefender/Gameplay/Castle/BP_QueueHUD",
+   "ok": true,
+   "bytes": 1701657
+  }
+ },
+ "missing": [],
+ "blueprints": {
+  "BP_Crossbow": {
+   "components": [
+    {
+     "name": "Default__BP_Crossbow_C",
+     "class": "BP_Crossbow_C"
+    },
+    {
+     "name": "DefaultSceneRoot_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF409E4960) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF409E4978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF409E4990) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Weapon_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF40A87960) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF40A87978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF40A87990) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly.Noble_Crossbow_LowPoly",
+     "materials": [
+      "/Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "Muzzle_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF409E4C60) {x: 0.000000, y: 46.000000, z: 12.400000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF409E4C78) {pitch: 0.000000, yaw: 90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF409E4C90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Muzzle_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF409E4C60) {x: 0.000000, y: 46.000000, z: 12.400000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF409E4C78) {pitch: 0.000000, yaw: 90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF409E4C90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "LoadedBolt_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF40A87160) {x: 0.000000, y: 31.000000, z: 12.400000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF40A87178) {pitch: 0.000000, yaw: 90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF40A87190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Gameplay/Crossbow/Meshes/SM_XbowBolt.SM_XbowBolt",
+     "materials": [
+      "/Game/CastleDefender/Gameplay/Crossbow/Materials/M_Bolt_Wood.M_Bolt_Wood",
+      "/Game/CastleDefender/Gameplay/Crossbow/Materials/M_Bolt_Steel.M_Bolt_Steel",
+      "/Game/CastleDefender/Gameplay/Crossbow/Materials/M_Bolt_Fletch.M_Bolt_Fletch"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "LoadedBolt_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF40A87160) {x: 0.000000, y: 31.000000, z: 12.400000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF40A87178) {pitch: 0.000000, yaw: 90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF40A87190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Gameplay/Crossbow/Meshes/SM_XbowBolt.SM_XbowBolt",
+     "materials": [
+      "/Game/CastleDefender/Gameplay/Crossbow/Materials/M_Bolt_Wood.M_Bolt_Wood",
+      "/Game/CastleDefender/Gameplay/Crossbow/Materials/M_Bolt_Steel.M_Bolt_Steel",
+      "/Game/CastleDefender/Gameplay/Crossbow/Materials/M_Bolt_Fletch.M_Bolt_Fletch"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "Weapon_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF40A87960) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF40A87978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF40A87990) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly.Noble_Crossbow_LowPoly",
+     "materials": [
+      "/Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K"
+     ],
+     "sockets": []
+    }
+   ],
+   "cdo_sample": {},
+   "parent": null
+  },
+  "BP_ThirdPersonCharacter": {
+   "components": [
+    {
+     "name": "Default__BP_ThirdPersonCharacter_C",
+     "class": "BP_ThirdPersonCharacter_C"
+    },
+    {
+     "name": "GorgetNeck_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22347960) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22347978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22347990) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Neck.SM_Gorget_Neck",
+     "materials": [
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "GorgetNeck_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22347960) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22347978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22347990) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Neck.SM_Gorget_Neck",
+     "materials": [
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "GorgetSpine_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22347160) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22347178) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22347190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Spine.SM_Gorget_Spine",
+     "materials": [
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "HeroHead_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22346960) {x: 0.000000, y: 130.524972, z: 0.606218}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22346978) {pitch: 0.000000, yaw: 0.000000, roll: -90.000037}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22346990) {x: 0.007200, y: 0.007200, z: 0.007200}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Knight/SM_HeroHead.SM_HeroHead",
+     "materials": [
+      "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_Greystone_Flesh_head.M_Greystone_Flesh_head",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/MIC_GreystoneHair.MIC_GreystoneHair",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Global/Eyelash/M_EyelashMaster_Inst.M_EyelashMaster_Inst",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/Dragonlord/Materials/M_Greystone_Dragonlord_EyeRefractive_Inst.M_Greystone_Dragonlord_EyeRefractive_Inst",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_Eye_Occlusion.M_Eye_Occlusion",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_TearLine_Inst2.M_TearLine_Inst2"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "GorgetSpine_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22347160) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22347178) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22347190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Spine.SM_Gorget_Spine",
+     "materials": [
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "HeroHead_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22346960) {x: 0.000000, y: 130.524972, z: 0.606218}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22346978) {pitch: 0.000000, yaw: 0.000000, roll: -90.000037}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22346990) {x: 0.007200, y: 0.007200, z: 0.007200}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Knight/SM_HeroHead.SM_HeroHead",
+     "materials": [
+      "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_Greystone_Flesh_head.M_Greystone_Flesh_head",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/MIC_GreystoneHair.MIC_GreystoneHair",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Global/Eyelash/M_EyelashMaster_Inst.M_EyelashMaster_Inst",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/Dragonlord/Materials/M_Greystone_Dragonlord_EyeRefractive_Inst.M_Greystone_Dragonlord_EyeRefractive_Inst",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_Eye_Occlusion.M_Eye_Occlusion",
+      "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_TearLine_Inst2.M_TearLine_Inst2"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "ObsidianChest_GEN_VARIABLE",
+     "class": "SkeletalMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF222CA160) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF222CA178) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF222CA190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SK_ObsidianSovereign_Chest.SK_ObsidianSovereign_Chest",
+     "materials": [
+      "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_ObsidianSovereign_Chest_Hero.MI_ObsidianSovereign_Chest_Hero"
+     ],
+     "sockets": [
+      "root",
+      "pelvis",
+      "spine_01",
+      "spine_02",
+      "spine_03",
+      "neck_01",
+      "head",
+      "clavicle_l",
+      "upperarm_l",
+      "lowerarm_l",
+      "hand_l",
+      "index_01_l",
+      "index_02_l",
+      "index_03_l",
+      "thumb_01_l",
+      "thumb_02_l",
+      "thumb_03_l",
+      "middle_01_l",
+      "middle_02_l",
+      "middle_03_l",
+      "ring_01_l",
+      "ring_02_l",
+      "ring_03_l",
+      "pinky_01_l",
+      "pinky_02_l",
+      "pinky_03_l",
+      "lowerarm_twist_01_l",
+      "upperarm_twist_01_l",
+      "clavicle_r",
+      "upperarm_r",
+      "lowerarm_r",
+      "hand_r",
+      "index_01_r",
+      "index_02_r",
+      "index_03_r",
+      "thumb_01_r",
+      "thumb_02_r",
+      "thumb_03_r",
+      "middle_01_r",
+      "middle_02_r",
+      "middle_03_r",
+      "ring_01_r",
+      "ring_02_r",
+      "ring_03_r",
+      "pinky_01_r",
+      "pinky_02_r",
+      "pinky_03_r",
+      "lowerarm_twist_01_r",
+      "upperarm_twist_01_r",
+      "thigh_l",
+      "calf_l",
+      "foot_l",
+      "ball_l",
+      "calf_twist_01_l",
+      "thigh_twist_01_l",
+      "thigh_r",
+      "calf_r",
+      "foot_r",
+      "ball_r",
+      "calf_twist_01_r"
+     ]
+    },
+    {
+     "name": "ChestRemnant_GEN_VARIABLE",
+     "class": "SkeletalMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF222CB560) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF222CB578) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF222CB590) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SK_Knight_ChestRemnant.SK_Knight_ChestRemnant",
+     "materials": [
+      "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_Knight_ChestRemnant.MI_Knight_ChestRemnant"
+     ],
+     "sockets": [
+      "root",
+      "pelvis",
+      "spine_01",
+      "spine_02",
+      "spine_03",
+      "neck_01",
+      "head",
+      "clavicle_l",
+      "upperarm_l",
+      "lowerarm_l",
+      "hand_l",
+      "index_01_l",
+      "index_02_l",
+      "index_03_l",
+      "thumb_01_l",
+      "thumb_02_l",
+      "thumb_03_l",
+      "middle_01_l",
+      "middle_02_l",
+      "middle_03_l",
+      "ring_01_l",
+      "ring_02_l",
+      "ring_03_l",
+      "pinky_01_l",
+      "pinky_02_l",
+      "pinky_03_l",
+      "lowerarm_twist_01_l",
+      "upperarm_twist_01_l",
+      "clavicle_r",
+      "upperarm_r",
+      "lowerarm_r",
+      "hand_r",
+      "index_01_r",
+      "index_02_r",
+      "index_03_r",
+      "thumb_01_r",
+      "thumb_02_r",
+      "thumb_03_r",
+      "middle_01_r",
+      "middle_02_r",
+      "middle_03_r",
+      "ring_01_r",
+      "ring_02_r",
+      "ring_03_r",
+      "pinky_01_r",
+      "pinky_02_r",
+      "pinky_03_r",
+      "lowerarm_twist_01_r",
+      "upperarm_twist_01_r",
+      "thigh_l",
+      "calf_l",
+      "foot_l",
+      "ball_l",
+      "calf_twist_01_l",
+      "thigh_twist_01_l",
+      "thigh_r",
+      "calf_r",
+      "foot_r",
+      "ball_r",
+      "calf_twist_01_r"
+     ]
+    },
+    {
+     "name": "Shield_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22346160) {x: -13.173915, y: -23.059707, z: -0.108795}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22346178) {pitch: -7.856962, yaw: 185.047505, roll: -90.691738}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22346190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Equipment/Weapons/Shield/SM_Shield.SM_Shield",
+     "materials": [
+      "/Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Paint_AAA.M_Shield_Paint_AAA",
+      "/Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Iron_AAA.M_Shield_Iron_AAA",
+      "/Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Gold_AAA.M_Shield_Gold_AAA",
+      "/Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Wood_AAA.M_Shield_Wood_AAA"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "KnightMesh_GEN_VARIABLE",
+     "class": "SkeletalMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF222C8D60) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF222C8D78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF222C8D90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/ShadowKight/Mesh/ShadowknightUE_SK.ShadowknightUE_SK",
+     "materials": [
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Arms.MI_Hero_Arms",
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold",
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Cloth_Royal.MI_Hero_Cloth_Royal",
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Helmet.MI_Hero_Helmet",
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Pants.MI_Hero_Pants"
+     ],
+     "sockets": [
+      "root",
+      "pelvis",
+      "spine_01",
+      "spine_02",
+      "spine_03",
+      "neck_01",
+      "head",
+      "clavicle_l",
+      "upperarm_l",
+      "lowerarm_l",
+      "hand_l",
+      "index_01_l",
+      "index_02_l",
+      "index_03_l",
+      "thumb_01_l",
+      "thumb_02_l",
+      "thumb_03_l",
+      "middle_01_l",
+      "middle_02_l",
+      "middle_03_l",
+      "ring_01_l",
+      "ring_02_l",
+      "ring_03_l",
+      "pinky_01_l",
+      "pinky_02_l",
+      "pinky_03_l",
+      "lowerarm_twist_01_l",
+      "upperarm_twist_01_l",
+      "clavicle_r",
+      "upperarm_r",
+      "lowerarm_r",
+      "hand_r",
+      "index_01_r",
+      "index_02_r",
+      "index_03_r",
+      "thumb_01_r",
+      "thumb_02_r",
+      "thumb_03_r",
+      "middle_01_r",
+      "middle_02_r",
+      "middle_03_r",
+      "ring_01_r",
+      "ring_02_r",
+      "ring_03_r",
+      "pinky_01_r",
+      "pinky_02_r",
+      "pinky_03_r",
+      "lowerarm_twist_01_r",
+      "upperarm_twist_01_r",
+      "thigh_l",
+      "calf_l",
+      "foot_l",
+      "ball_l",
+      "calf_twist_01_l",
+      "thigh_twist_01_l",
+      "thigh_r",
+      "calf_r",
+      "foot_r",
+      "ball_r",
+      "calf_twist_01_r"
+     ]
+    },
+    {
+     "name": "Sword_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22345160) {x: -4.310709, y: -14.147068, z: 2.029470}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22345178) {pitch: -47.355094, yaw: 253.801372, roll: 9.492323}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22345190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Equipment/Weapons/Longsword/SM_Longsword_LP.SM_Longsword_LP",
+     "materials": [
+      "/Game/CastleDefender/Equipment/Weapons/Longsword/M_Longsword.M_Longsword"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "CameraComponent_0__CCE3C0B4",
+     "class": "CameraComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF15619D60) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF15619D78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF15619D90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "CameraComponent_0__CCE3C0B4",
+     "class": "CameraComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF15619D60) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF15619D78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF15619D90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "SpringArmComponent_0__A9892D03",
+     "class": "SpringArmComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDEAF0BD560) {x: 0.000000, y: 0.000000, z: 8.492264}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDEAF0BD578) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDEAF0BD590) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "CharacterMesh0",
+     "class": "SkeletalMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF31E50160) {x: 0.000000, y: 0.000000, z: -89.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF31E50178) {pitch: 0.000000, yaw: 270.000000, roll: -0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF31E50190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": "CollisionCylinder",
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Quinn_Simple.SKM_Quinn_Simple",
+     "materials": [
+      "/Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01",
+      "/Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.MI_Quinn_02"
+     ],
+     "sockets": [
+      "weapon_r_muzzle",
+      "foot_r_Socket",
+      "foot_l_Socket",
+      "sword_r",
+      "root",
+      "pelvis",
+      "spine_01",
+      "spine_02",
+      "spine_03",
+      "spine_04",
+      "spine_05",
+      "neck_01",
+      "neck_02",
+      "head",
+      "clavicle_l",
+      "upperarm_l",
+      "lowerarm_l",
+      "lowerarm_twist_02_l",
+      "lowerarm_twist_01_l",
+      "hand_l",
+      "middle_metacarpal_l",
+      "middle_01_l",
+      "middle_02_l",
+      "middle_03_l",
+      "pinky_metacarpal_l",
+      "pinky_01_l",
+      "pinky_02_l",
+      "pinky_03_l",
+      "ring_metacarpal_l",
+      "ring_01_l",
+      "ring_02_l",
+      "ring_03_l",
+      "thumb_01_l",
+      "thumb_02_l",
+      "thumb_03_l",
+      "index_metacarpal_l",
+      "index_01_l",
+      "index_02_l",
+      "index_03_l",
+      "upperarm_twist_01_l",
+      "upperarm_twist_02_l",
+      "clavicle_r",
+      "upperarm_r",
+      "lowerarm_r",
+      "lowerarm_twist_02_r",
+      "lowerarm_twist_01_r",
+      "hand_r",
+      "middle_metacarpal_r",
+      "middle_01_r",
+      "middle_02_r",
+      "middle_03_r",
+      "pinky_metacarpal_r",
+      "pinky_01_r",
+      "pinky_02_r",
+      "pinky_03_r",
+      "ring_metacarpal_r",
+      "ring_01_r",
+      "ring_02_r",
+      "ring_03_r",
+      "thumb_01_r"
+     ]
+    },
+    {
+     "name": "CollisionCylinder",
+     "class": "CapsuleComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF31331D60) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF31331D78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF31331D90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Arrow",
+     "class": "ArrowComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3133EF60) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3133EF78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3133EF90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": "CollisionCylinder",
+     "socket": "None"
+    },
+    {
+     "name": "CharMoveComp",
+     "class": "CharacterMovementComponent"
+    }
+   ],
+   "cdo_sample": {
+    "Level": "0",
+    "IsDead": "False"
+   },
+   "parent": null
+  },
+  "BP_TradeShowcase": {
+   "components": [
+    {
+     "name": "Default__BP_TradeShowcase_C",
+     "class": "BP_TradeShowcase_C"
+    },
+    {
+     "name": "ItemObs_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7A960) {x: 0.000000, y: 0.000000, z: -27.500000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7A978) {pitch: 0.000000, yaw: 90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7A990) {x: 1.120000, y: 1.120000, z: 1.120000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SM_ObsidianSovereign_Chest.SM_ObsidianSovereign_Chest",
+     "materials": [
+      "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_ObsidianSovereign_Chest.MI_ObsidianSovereign_Chest"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "ItemObs_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7A960) {x: 0.000000, y: 0.000000, z: -27.500000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7A978) {pitch: 0.000000, yaw: 90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7A990) {x: 1.120000, y: 1.120000, z: 1.120000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SM_ObsidianSovereign_Chest.SM_ObsidianSovereign_Chest",
+     "materials": [
+      "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_ObsidianSovereign_Chest.MI_ObsidianSovereign_Chest"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "ItemHelm_GEN_VARIABLE",
+     "class": "SkeletalMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3E1E6560) {x: -3.200000, y: 0.000000, z: -264.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3E1E6578) {pitch: 0.000000, yaw: 90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3E1E6590) {x: 1.600000, y: 1.600000, z: 1.600000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/ShadowKight/Mesh/ShadowknightUE_SK.ShadowknightUE_SK",
+     "materials": [
+      "/Game/CastleDefender/Characters/Knight/M_Knight_Hidden.M_Knight_Hidden",
+      "/Game/CastleDefender/Characters/Knight/M_Knight_Hidden.M_Knight_Hidden",
+      "/Game/CastleDefender/Characters/Knight/M_Knight_Hidden.M_Knight_Hidden",
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_HelmetWorn.MI_Hero_HelmetWorn",
+      "/Game/CastleDefender/Characters/Knight/M_Knight_Hidden.M_Knight_Hidden"
+     ],
+     "sockets": [
+      "root",
+      "pelvis",
+      "spine_01",
+      "spine_02",
+      "spine_03",
+      "neck_01",
+      "head",
+      "clavicle_l",
+      "upperarm_l",
+      "lowerarm_l",
+      "hand_l",
+      "index_01_l",
+      "index_02_l",
+      "index_03_l",
+      "thumb_01_l",
+      "thumb_02_l",
+      "thumb_03_l",
+      "middle_01_l",
+      "middle_02_l",
+      "middle_03_l",
+      "ring_01_l",
+      "ring_02_l",
+      "ring_03_l",
+      "pinky_01_l",
+      "pinky_02_l",
+      "pinky_03_l",
+      "lowerarm_twist_01_l",
+      "upperarm_twist_01_l",
+      "clavicle_r",
+      "upperarm_r",
+      "lowerarm_r",
+      "hand_r",
+      "index_01_r",
+      "index_02_r",
+      "index_03_r",
+      "thumb_01_r",
+      "thumb_02_r",
+      "thumb_03_r",
+      "middle_01_r",
+      "middle_02_r",
+      "middle_03_r",
+      "ring_01_r",
+      "ring_02_r",
+      "ring_03_r",
+      "pinky_01_r",
+      "pinky_02_r",
+      "pinky_03_r",
+      "lowerarm_twist_01_r",
+      "upperarm_twist_01_r",
+      "thigh_l",
+      "calf_l",
+      "foot_l",
+      "ball_l",
+      "calf_twist_01_l",
+      "thigh_twist_01_l",
+      "thigh_r",
+      "calf_r",
+      "foot_r",
+      "ball_r",
+      "calf_twist_01_r"
+     ]
+    },
+    {
+     "name": "ItemHelm_GEN_VARIABLE",
+     "class": "SkeletalMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3E1E6560) {x: -3.200000, y: 0.000000, z: -264.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3E1E6578) {pitch: 0.000000, yaw: 90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3E1E6590) {x: 1.600000, y: 1.600000, z: 1.600000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/ShadowKight/Mesh/ShadowknightUE_SK.ShadowknightUE_SK",
+     "materials": [
+      "/Game/CastleDefender/Characters/Knight/M_Knight_Hidden.M_Knight_Hidden",
+      "/Game/CastleDefender/Characters/Knight/M_Knight_Hidden.M_Knight_Hidden",
+      "/Game/CastleDefender/Characters/Knight/M_Knight_Hidden.M_Knight_Hidden",
+      "/Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_HelmetWorn.MI_Hero_HelmetWorn",
+      "/Game/CastleDefender/Characters/Knight/M_Knight_Hidden.M_Knight_Hidden"
+     ],
+     "sockets": [
+      "root",
+      "pelvis",
+      "spine_01",
+      "spine_02",
+      "spine_03",
+      "neck_01",
+      "head",
+      "clavicle_l",
+      "upperarm_l",
+      "lowerarm_l",
+      "hand_l",
+      "index_01_l",
+      "index_02_l",
+      "index_03_l",
+      "thumb_01_l",
+      "thumb_02_l",
+      "thumb_03_l",
+      "middle_01_l",
+      "middle_02_l",
+      "middle_03_l",
+      "ring_01_l",
+      "ring_02_l",
+      "ring_03_l",
+      "pinky_01_l",
+      "pinky_02_l",
+      "pinky_03_l",
+      "lowerarm_twist_01_l",
+      "upperarm_twist_01_l",
+      "clavicle_r",
+      "upperarm_r",
+      "lowerarm_r",
+      "hand_r",
+      "index_01_r",
+      "index_02_r",
+      "index_03_r",
+      "thumb_01_r",
+      "thumb_02_r",
+      "thumb_03_r",
+      "middle_01_r",
+      "middle_02_r",
+      "middle_03_r",
+      "ring_01_r",
+      "ring_02_r",
+      "ring_03_r",
+      "pinky_01_r",
+      "pinky_02_r",
+      "pinky_03_r",
+      "lowerarm_twist_01_r",
+      "upperarm_twist_01_r",
+      "thigh_l",
+      "calf_l",
+      "foot_l",
+      "ball_l",
+      "calf_twist_01_l",
+      "thigh_twist_01_l",
+      "thigh_r",
+      "calf_r",
+      "foot_r",
+      "ball_r",
+      "calf_twist_01_r"
+     ]
+    },
+    {
+     "name": "FillLight_GEN_VARIABLE",
+     "class": "PointLightComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3F545160) {x: -160.000000, y: 60.000000, z: -10.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3F545178) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3F545190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "FillLight_GEN_VARIABLE",
+     "class": "PointLightComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3F545160) {x: -160.000000, y: 60.000000, z: -10.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3F545178) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3F545190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "ItemSov_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7A160) {x: -0.045410, y: -3.666069, z: 0.559054}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7A178) {pitch: 0.000000, yaw: 0.000000, roll: 70.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7A190) {x: 0.800000, y: 0.800000, z: 0.800000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Equipment/sovereign/Golden_Sovereign_LowPoly.Golden_Sovereign_LowPoly",
+     "materials": [
+      "/Game/CastleDefender/Equipment/sovereign/Golden_Sovereign___Baked_PBR_1K.Golden_Sovereign___Baked_PBR_1K"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "ItemSov_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7A160) {x: -0.045410, y: -3.666069, z: 0.559054}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7A178) {pitch: 0.000000, yaw: 0.000000, roll: 70.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7A190) {x: 0.800000, y: 0.800000, z: 0.800000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Equipment/sovereign/Golden_Sovereign_LowPoly.Golden_Sovereign_LowPoly",
+     "materials": [
+      "/Game/CastleDefender/Equipment/sovereign/Golden_Sovereign___Baked_PBR_1K.Golden_Sovereign___Baked_PBR_1K"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "ItemPlate_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC79960) {x: -0.167832, y: 1.885852, z: -110.878677}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC79978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC79990) {x: 0.008500, y: 0.008500, z: 0.008500}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/Fab/Gold_Armor/gold_armor.gold_armor",
+     "materials": [
+      "/Game/Fab/Gold_Armor/wire_143224087.wire_143224087"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "ItemPlate_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC79960) {x: -0.167832, y: 1.885852, z: -110.878677}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC79978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC79990) {x: 0.008500, y: 0.008500, z: 0.008500}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/Fab/Gold_Armor/gold_armor.gold_armor",
+     "materials": [
+      "/Game/Fab/Gold_Armor/wire_143224087.wire_143224087"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "ItemXbow_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC79160) {x: 0.017899, y: -3.724948, z: 0.544114}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC79178) {pitch: 0.000000, yaw: 0.000000, roll: 70.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC79190) {x: 0.800000, y: 0.800000, z: 0.800000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly.Noble_Crossbow_LowPoly",
+     "materials": [
+      "/Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "ItemXbow_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC79160) {x: 0.017899, y: -3.724948, z: 0.544114}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC79178) {pitch: 0.000000, yaw: 0.000000, roll: 70.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC79190) {x: 0.800000, y: 0.800000, z: 0.800000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly.Noble_Crossbow_LowPoly",
+     "materials": [
+      "/Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "Stage_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF529A3760) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF529A3778) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF529A3790) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Stage_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF529A3760) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF529A3778) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF529A3790) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "KeyLight_GEN_VARIABLE",
+     "class": "PointLightComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3F545660) {x: -110.000000, y: -80.000000, z: 70.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3F545678) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3F545690) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "DefaultSceneRoot_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF529A3A60) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF529A3A78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF529A3A90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Cam_GEN_VARIABLE",
+     "class": "SceneCaptureComponent2D",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF41959160) {x: -175.000000, y: 0.000000, z: 12.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF41959178) {pitch: -6.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF41959190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Cam_GEN_VARIABLE",
+     "class": "SceneCaptureComponent2D",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF41959160) {x: -175.000000, y: 0.000000, z: 12.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF41959178) {pitch: -6.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF41959190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "RimLight_GEN_VARIABLE",
+     "class": "PointLightComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3F544C60) {x: 60.000000, y: 80.000000, z: 50.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3F544C78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3F544C90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "RimLight_GEN_VARIABLE",
+     "class": "PointLightComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3F544C60) {x: 60.000000, y: 80.000000, z: 50.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3F544C78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3F544C90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "KeyLight_GEN_VARIABLE",
+     "class": "PointLightComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3F545660) {x: -110.000000, y: -80.000000, z: 70.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3F545678) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3F545690) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Ring_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7B160) {x: 0.000000, y: 0.000000, z: -40.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7B178) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7B190) {x: 1.050000, y: 1.050000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Engine/BasicShapes/Plane.Plane",
+     "materials": [
+      "/Game/CastleDefender/UI/Trade/M_Trade_Ring.M_Trade_Ring"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "Halo_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7C160) {x: 70.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7C178) {pitch: 90.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7C190) {x: 2.200000, y: 2.200000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Engine/BasicShapes/Plane.Plane",
+     "materials": [
+      "/Game/CastleDefender/UI/Trade/M_Trade_Halo.M_Trade_Halo"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "Halo_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7C160) {x: 70.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7C178) {pitch: 90.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7C190) {x: 2.200000, y: 2.200000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Engine/BasicShapes/Plane.Plane",
+     "materials": [
+      "/Game/CastleDefender/UI/Trade/M_Trade_Halo.M_Trade_Halo"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "Shaft_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7B960) {x: 0.000000, y: 0.000000, z: 10.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7B978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7B990) {x: 0.750000, y: 0.750000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Engine/BasicShapes/Cylinder.Cylinder",
+     "materials": [
+      "/Game/CastleDefender/UI/Trade/M_Trade_Shaft.M_Trade_Shaft"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "Shaft_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7B960) {x: 0.000000, y: 0.000000, z: 10.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7B978) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7B990) {x: 0.750000, y: 0.750000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Engine/BasicShapes/Cylinder.Cylinder",
+     "materials": [
+      "/Game/CastleDefender/UI/Trade/M_Trade_Shaft.M_Trade_Shaft"
+     ],
+     "sockets": []
+    },
+    {
+     "name": "Ring_GEN_VARIABLE",
+     "class": "StaticMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF3BC7B160) {x: 0.000000, y: 0.000000, z: -40.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF3BC7B178) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF3BC7B190) {x: 1.050000, y: 1.050000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None",
+     "mesh": "/Engine/BasicShapes/Plane.Plane",
+     "materials": [
+      "/Game/CastleDefender/UI/Trade/M_Trade_Ring.M_Trade_Ring"
+     ],
+     "sockets": []
+    }
+   ],
+   "cdo_sample": {},
+   "parent": null
+  },
+  "BP_SkillTreeHUD": {
+   "components": [
+    {
+     "name": "Default__BP_SkillTreeHUD_C",
+     "class": "BP_SkillTreeHUD_C"
+    },
+    {
+     "name": "DefaultSceneRoot_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22771360) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22771378) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22771390) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    }
+   ],
+   "cdo_sample": {
+    "Gold": "0"
+   },
+   "parent": null
+  },
+  "BP_ZombieHUD": {
+   "components": [
+    {
+     "name": "Default__BP_ZombieHUD_C",
+     "class": "BP_ZombieHUD_C"
+    },
+    {
+     "name": "DefaultSceneRoot_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22771360) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22771378) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22771390) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    }
+   ],
+   "cdo_sample": {
+    "Gold": "0"
+   },
+   "parent": null
+  },
+  "BP_ArmoryHUD": {
+   "components": [
+    {
+     "name": "Default__BP_ArmoryHUD_C",
+     "class": "BP_ArmoryHUD_C"
+    },
+    {
+     "name": "DefaultSceneRoot_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22771360) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22771378) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22771390) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Tally_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF20D24060) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF20D24078) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF20D24090) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Zoom_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF20D24660) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF20D24678) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF20D24690) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    }
+   ],
+   "cdo_sample": {
+    "Gold": "0"
+   },
+   "parent": null
+  },
+  "BP_QueueHUD": {
+   "components": [
+    {
+     "name": "Default__BP_QueueHUD_C",
+     "class": "BP_QueueHUD_C"
+    },
+    {
+     "name": "DefaultSceneRoot_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF22771360) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF22771378) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF22771390) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Tally_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF20D24060) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF20D24078) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF20D24090) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Zoom_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF20D24660) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF20D24678) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF20D24690) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    }
+   ],
+   "cdo_sample": {
+    "Gold": "0"
+   },
+   "parent": null
+  }
+ }
+}

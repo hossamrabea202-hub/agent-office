@@ -1,0 +1,331 @@
+{
+ "captured_utc": "2026-10-28T17:13:54.335065Z",
+ "private_dir": "C:\\Unreal Backups\\Castle Defender\\Tools\\PrivateExports\\2026-10-28\\weapon95",
+ "meshes": [
+  {
+   "path": "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SK_Knight_ChestRemnant",
+   "class": "SkeletalMesh",
+   "bounds_min": null,
+   "bounds_max": null,
+   "materials": [
+    {
+     "slot": "Chest_M",
+     "material": "/Game/ShadowKight/Materials/Chest_M.Chest_M"
+    }
+   ],
+   "skeleton": "/Game/ShadowKight/Mesh/ShadowknightUE_Skeleton.ShadowknightUE_Skeleton",
+   "fbx": "SK_Knight_ChestRemnant.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 291856
+  },
+  {
+   "path": "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SK_ObsidianSovereign_Chest",
+   "class": "SkeletalMesh",
+   "bounds_min": null,
+   "bounds_max": null,
+   "materials": [
+    {
+     "slot": "obs",
+     "material": null
+    }
+   ],
+   "skeleton": "/Game/ShadowKight/Mesh/ShadowknightUE_Skeleton.ShadowknightUE_Skeleton",
+   "fbx": "SK_ObsidianSovereign_Chest.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 1062544
+  },
+  {
+   "path": "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SM_ObsidianSovereign_Chest",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B0BF80) {x: -18.990631, y: -13.422277, z: -0.590000}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B0BF98) {x: 18.988508, y: 17.567717, z: 49.553875}>",
+   "fbx": "SM_ObsidianSovereign_Chest.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 1705712
+  },
+  {
+   "path": "/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Neck",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B0A9C0) {x: -9.313900, y: -8.748240, z: -8.234220}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B0A9D8) {x: 9.313890, y: 2.609360, z: 13.886800}>",
+   "fbx": "SM_Gorget_Neck.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 330480
+  },
+  {
+   "path": "/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Spine",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B09880) {x: -21.113840, y: -13.490710, z: -16.580339}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B09898) {x: 21.113831, y: 4.124050, z: 13.912830}>",
+   "fbx": "SM_Gorget_Spine.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 727216
+  },
+  {
+   "path": "/Game/CastleDefender/Characters/Knight/SM_HeroHead",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B07D00) {x: -1182.616943, y: -1353.492676, z: 16753.203125}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B07D18) {x: 1237.437012, y: 1535.229736, z: 20491.142578}>",
+   "fbx": "SM_HeroHead.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 1356096
+  },
+  {
+   "path": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Quinn_Simple",
+   "class": "SkeletalMesh",
+   "bounds_min": null,
+   "bounds_max": null,
+   "materials": [
+    {
+     "slot": "Quinn_01",
+     "material": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01"
+    },
+    {
+     "slot": "Quinn_02",
+     "material": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.MI_Quinn_02"
+    }
+   ],
+   "skeleton": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+   "fbx": "SKM_Quinn_Simple.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 2679808
+  },
+  {
+   "path": "/Game/CastleDefender/Equipment/Weapons/Longsword/SM_Longsword_LP",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B0F7C0) {x: -12.500000, y: -1.700000, z: -25.500000}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B0F7D8) {x: 12.500000, y: 1.700000, z: 99.500000}>",
+   "fbx": "SM_Longsword_LP.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 40352
+  },
+  {
+   "path": "/Game/CastleDefender/Equipment/Weapons/Shield/SM_Shield",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B07280) {x: -5.986000, y: -27.000000, z: -38.000000}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B07298) {x: 7.150000, y: 27.000000, z: 35.000000}>",
+   "fbx": "SM_Shield.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 51312
+  },
+  {
+   "path": "/Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B08A00) {x: -48.169556, y: -55.278576, z: -5.837473}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B08A18) {x: 48.124809, y: 59.741844, z: 14.122993}>",
+   "fbx": "Noble_Crossbow_LowPoly.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 143632
+  },
+  {
+   "path": "/Game/CastleDefender/Equipment/sovereign/Golden_Sovereign_LowPoly",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B09540) {x: -48.305859, y: -55.298496, z: -5.990130}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B09558) {x: 48.419384, y: 59.746517, z: 14.124556}>",
+   "fbx": "Golden_Sovereign_LowPoly.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 143712
+  },
+  {
+   "path": "/Game/CastleDefender/Gameplay/Crossbow/Meshes/SM_XbowBolt",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B0A000) {x: -40.299999, y: -2.078500, z: -1.200000}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B0A018) {x: 6.500000, y: 2.078500, z: 2.400000}>",
+   "fbx": "SM_XbowBolt.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 24864
+  },
+  {
+   "path": "/Game/Fab/Gold_Armor/gold_armor",
+   "class": "StaticMesh",
+   "bounds_min": "<Struct 'Vector' (0x00000BDFB9B0CF40) {x: -3088.570068, y: -2093.149902, z: 10291.450195}>",
+   "bounds_max": "<Struct 'Vector' (0x00000BDFB9B0CF58) {x: 3128.060059, y: 1649.419922, z: 15797.650391}>",
+   "fbx": "gold_armor.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 336064
+  },
+  {
+   "path": "/Game/ShadowKight/Mesh/ShadowknightUE_SK",
+   "class": "SkeletalMesh",
+   "bounds_min": null,
+   "bounds_max": null,
+   "materials": [
+    {
+     "slot": "arms",
+     "material": "/Game/ShadowKight/Materials/Arms_M.Arms_M"
+    },
+    {
+     "slot": "chest",
+     "material": "/Game/ShadowKight/Materials/Chest_M.Chest_M"
+    },
+    {
+     "slot": "cloth",
+     "material": "/Game/ShadowKight/Materials/Cloth_M.Cloth_M"
+    },
+    {
+     "slot": "helmet",
+     "material": "/Game/ShadowKight/Materials/Helmet_M.Helmet_M"
+    },
+    {
+     "slot": "pants",
+     "material": "/Game/ShadowKight/Materials/Pants_M.Pants_M"
+    }
+   ],
+   "skeleton": "/Game/ShadowKight/Mesh/ShadowknightUE_Skeleton.ShadowknightUE_Skeleton",
+   "fbx": "ShadowknightUE_SK.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 1863440
+  }
+ ],
+ "textures": [],
+ "materials": {
+  "/Game/ShadowKight/Materials/Chest_M.Chest_M": {
+   "scalar": [],
+   "vector": [],
+   "textures": {},
+   "parent": null
+  },
+  "/Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01": {
+   "scalar": [
+    "LogoLayer0_Brightness",
+    "LogoSize",
+    "LogoPosOffset_Y",
+    "LogoPosOffset_X",
+    "LogoLayer1_Brightness",
+    "LogoLayer2_Brightness",
+    "ChromaticCurve",
+    "EnergeConservation",
+    "BaseColorFallOff",
+    "Metal_Desaturation",
+    "Metal_Brightness",
+    "Plastic_Desaturation",
+    "Plastic_Brightness",
+    "MetalPaintMetallic"
+   ],
+   "vector": [
+    "LogoLayer0_Color",
+    "LogoLayer1_Color",
+    "LogoLayer2_Color",
+    "Tint"
+   ],
+   "textures": {
+    "Normal": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_N.T_Quinn_01ID_N",
+     "file": "T_Quinn_01ID_N.tga"
+    },
+    "Tangent": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_Tan.T_Quinn_01ID_Tan",
+     "file": "T_Quinn_01ID_Tan.tga"
+    },
+    "Base Texture": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_D.T_Quinn_01ID_D",
+     "file": "T_Quinn_01ID_D.tga"
+    },
+    "LogoTexture": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Shared/T_UE_Logo_M.T_UE_Logo_M",
+     "file": "T_UE_Logo_M.tga"
+    },
+    "BNormal": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_BN.T_Quinn_01ID_BN",
+     "file": "T_Quinn_01ID_BN.tga"
+    },
+    "AnisoAOPaintMaskTex": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01_ASAOMASK_MSK.T_Quinn_01_ASAOMASK_MSK",
+     "file": "T_Quinn_01_ASAOMASK_MSK.tga"
+    },
+    "CCCCRTex": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01_CCRCCPlastic_MSK.T_Quinn_01_CCRCCPlastic_MSK",
+     "file": "T_Quinn_01_CCRCCPlastic_MSK.tga"
+    },
+    "MSR_tex": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_MSR_MSK.T_Quinn_01ID_MSR_MSK",
+     "file": "T_Quinn_01ID_MSR_MSK.tga"
+    }
+   },
+   "parent": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/M_Mannequin.M_Mannequin"
+  },
+  "/Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.MI_Quinn_02": {
+   "scalar": [
+    "LogoLayer0_Brightness",
+    "LogoSize",
+    "LogoPosOffset_Y",
+    "LogoPosOffset_X",
+    "LogoLayer1_Brightness",
+    "LogoLayer2_Brightness",
+    "ChromaticCurve",
+    "EnergeConservation",
+    "BaseColorFallOff",
+    "Metal_Desaturation",
+    "Metal_Brightness",
+    "Plastic_Desaturation",
+    "Plastic_Brightness",
+    "MetalPaintMetallic"
+   ],
+   "vector": [
+    "LogoLayer0_Color",
+    "LogoLayer1_Color",
+    "LogoLayer2_Color",
+    "Tint"
+   ],
+   "textures": {
+    "Normal": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_N.T_Quinn_02ID_N",
+     "file": "T_Quinn_02ID_N.tga"
+    },
+    "Tangent": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_Tan.T_Quinn_02ID_Tan",
+     "file": "T_Quinn_02ID_Tan.tga"
+    },
+    "Base Texture": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_D.T_Quinn_02ID_D",
+     "file": "T_Quinn_02ID_D.tga"
+    },
+    "LogoTexture": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Shared/T_UE_Logo_M.T_UE_Logo_M",
+     "file": "T_UE_Logo_M.tga"
+    },
+    "BNormal": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_BN.T_Quinn_02ID_BN",
+     "file": "T_Quinn_02ID_BN.tga"
+    },
+    "AnisoAOPaintMaskTex": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02_ASAOMASK_MSK.T_Quinn_02_ASAOMASK_MSK",
+     "file": "T_Quinn_02_ASAOMASK_MSK.tga"
+    },
+    "CCCCRTex": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02_CCRCCPlastic_MSK.T_Quinn_02_CCRCCPlastic_MSK",
+     "file": "T_Quinn_02_CCRCCPlastic_MSK.tga"
+    },
+    "MSR_tex": {
+     "texture": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_MSR_MSK.T_Quinn_02ID_MSR_MSK",
+     "file": "T_Quinn_02ID_MSR_MSK.tga"
+    }
+   },
+   "parent": "/Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01"
+  },
+  "/Game/ShadowKight/Materials/Arms_M.Arms_M": {
+   "scalar": [],
+   "vector": [],
+   "textures": {},
+   "parent": null
+  },
+  "/Game/ShadowKight/Materials/Cloth_M.Cloth_M": {
+   "scalar": [],
+   "vector": [],
+   "textures": {},
+   "parent": null
+  },
+  "/Game/ShadowKight/Materials/Helmet_M.Helmet_M": {
+   "scalar": [],
+   "vector": [],
+   "textures": {},
+   "parent": null
+  },
+  "/Game/ShadowKight/Materials/Pants_M.Pants_M": {
+   "scalar": [],
+   "vector": [],
+   "textures": {},
+   "parent": null
+  }
+ }
+}

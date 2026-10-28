@@ -1,0 +1,17 @@
+Begin Object Class=/Script/Engine.Blueprint Name="BPC_CapeVariation" ExportPath="/Script/Engine.Blueprint'/Game/CastleDefender/Characters/Knight/BPC_CapeVariation.BPC_CapeVariation'"
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Characters/Knight/BPC_CapeVariation.BPC_CapeVariation:EventGraph'"
+   End Object
+   Begin Object Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Characters/Knight/BPC_CapeVariation.BPC_CapeVariation:EventGraph'"
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      bAllowDeletion=False
+      GraphGuid=FB16939B495B349DDB5D6DB80B8816BA
+   End Object
+   ParentClass="/Script/CoreUObject.Class'/Script/Engine.ActorComponent'"
+   BlueprintSystemVersion=2
+   UbergraphPages(0)="/Script/Engine.EdGraph'EventGraph'"
+   CategorySorting(0)="Event Graph"
+   LastEditedDocuments(0)=(EditedObjectPath="/Game/CastleDefender/Characters/Knight/BPC_CapeVariation.BPC_CapeVariation:EventGraph",SavedViewOffset=(X=-570.600037,Y=-329.625000),SavedZoomAmount=1.000000)
+   GeneratedClass="/Script/Engine.BlueprintGeneratedClass'BPC_CapeVariation_C'"
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=77EBABD8447A8F870030ABBA0E05FBF2
+End Object

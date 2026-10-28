@@ -1,0 +1,153 @@
+{
+ "captured_utc": "2026-10-28T17:13:54.335065Z",
+ "files": {
+  "BP_Zombie.t3d": {
+   "asset": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie",
+   "ok": true,
+   "bytes": 2570851
+  },
+  "BP_ZombieVariety.t3d": {
+   "asset": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_ZombieVariety",
+   "ok": true,
+   "bytes": 119974
+  }
+ },
+ "missing": [],
+ "blueprints": {
+  "BP_Zombie": {
+   "components": [
+    {
+     "name": "Default__BP_Zombie_C",
+     "class": "BP_Zombie_C"
+    },
+    {
+     "name": "CollisionCylinder",
+     "class": "CapsuleComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF9B9B7860) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF9B9B7878) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF9B9B7890) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    },
+    {
+     "name": "Arrow",
+     "class": "ArrowComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF9B9B7160) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF9B9B7178) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF9B9B7190) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": "CollisionCylinder",
+     "socket": "None"
+    },
+    {
+     "name": "CharacterMesh0",
+     "class": "SkeletalMeshComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF93998D60) {x: 0.000000, y: 0.000000, z: -90.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF93998D78) {pitch: 0.000000, yaw: -90.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF93998D90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": "CollisionCylinder",
+     "socket": "None",
+     "mesh": "/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie.SK_Zombie",
+     "materials": [
+      "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/MI_Zombie_AAA_A.MI_Zombie_AAA_A",
+      "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/MI_Zombie_AAA_B.MI_Zombie_AAA_B"
+     ],
+     "sockets": [
+      "Hips",
+      "Spine",
+      "Spine1",
+      "Spine2",
+      "Neck",
+      "Head",
+      "HeadTop_End",
+      "LeftShoulder",
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand",
+      "LeftHandThumb1",
+      "LeftHandThumb2",
+      "LeftHandThumb3",
+      "LeftHandThumb4",
+      "LeftHandIndex1",
+      "LeftHandIndex2",
+      "LeftHandIndex3",
+      "LeftHandIndex4",
+      "LeftHandMiddle1",
+      "LeftHandMiddle2",
+      "LeftHandMiddle3",
+      "LeftHandMiddle4",
+      "LeftHandRing1",
+      "LeftHandRing2",
+      "LeftHandRing3",
+      "LeftHandRing4",
+      "LeftHandPinky1",
+      "LeftHandPinky2",
+      "LeftHandPinky3",
+      "LeftHandPinky4",
+      "RightShoulder",
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "RightHandThumb1",
+      "RightHandThumb2",
+      "RightHandThumb3",
+      "RightHandThumb4",
+      "RightHandIndex1",
+      "RightHandIndex2",
+      "RightHandIndex3",
+      "RightHandIndex4",
+      "RightHandMiddle1",
+      "RightHandMiddle2",
+      "RightHandMiddle3",
+      "RightHandMiddle4",
+      "RightHandRing1",
+      "RightHandRing2",
+      "RightHandRing3",
+      "RightHandRing4",
+      "RightHandPinky1",
+      "RightHandPinky2",
+      "RightHandPinky3",
+      "RightHandPinky4",
+      "LeftUpLeg",
+      "LeftLeg",
+      "LeftFoot",
+      "LeftToeBase",
+      "LeftToe_End"
+     ]
+    },
+    {
+     "name": "ZombieDesync_GEN_VARIABLE",
+     "class": "BPC_ZombieDesync_C"
+    },
+    {
+     "name": "CharMoveComp",
+     "class": "CharacterMovementComponent"
+    }
+   ],
+   "cdo_sample": {
+    "MaxHP": "0.0",
+    "ZType": "0",
+    "Dead": "False"
+   },
+   "parent": null
+  },
+  "BP_ZombieVariety": {
+   "components": [
+    {
+     "name": "Default__BP_ZombieVariety_C",
+     "class": "BP_ZombieVariety_C"
+    },
+    {
+     "name": "DefaultSceneRoot_GEN_VARIABLE",
+     "class": "SceneComponent",
+     "rel_loc": "<Struct 'Vector' (0x00000BDF61FDBE60) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+     "rel_rot": "<Struct 'Rotator' (0x00000BDF61FDBE78) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+     "rel_scale": "<Struct 'Vector' (0x00000BDF61FDBE90) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+     "attach_parent": null,
+     "socket": "None"
+    }
+   ],
+   "cdo_sample": {},
+   "parent": null
+  }
+ }
+}

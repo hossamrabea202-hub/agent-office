@@ -1,0 +1,250 @@
+{
+ "captured_utc": "2026-10-28T17:13:54.335065Z",
+ "private_dir": "C:\\Unreal Backups\\Castle Defender\\Tools\\PrivateExports\\2026-10-28\\zombie-variants",
+ "meshes": [
+  {
+   "path": "/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie",
+   "class": "SkeletalMesh",
+   "bounds_min": null,
+   "bounds_max": null,
+   "materials": [
+    {
+     "slot": "skeletonZombie_Material1",
+     "material": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/MI_Zombie_AAA_A.MI_Zombie_AAA_A"
+    },
+    {
+     "slot": "skeletonZombie_Material",
+     "material": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/MI_Zombie_AAA_B.MI_Zombie_AAA_B"
+    }
+   ],
+   "skeleton": "/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie_Skeleton.SK_Zombie_Skeleton",
+   "fbx": "SK_Zombie.fbx",
+   "fbx_ok": true,
+   "fbx_bytes": 498816
+  }
+ ],
+ "textures": [],
+ "materials": {
+  "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/MI_Zombie_AAA_A.MI_Zombie_AAA_A": {
+   "scalar": [
+    "MicroTiling",
+    "TintAmount",
+    "Brightness",
+    "Wetness",
+    "RoughnessScale",
+    "SSSAmount",
+    "MicroStrength",
+    "Specular",
+    "GlowIntensity",
+    "VarTint",
+    "VarWet",
+    "HitT"
+   ],
+   "vector": [
+    "Tint",
+    "GlowColor"
+   ],
+   "textures": {
+    "BaseColorTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_A_BC.T_Zombie_A_BC",
+     "file": "T_Zombie_A_BC.tga"
+    },
+    "ORMSTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_A_ORMS.T_Zombie_A_ORMS",
+     "file": "T_Zombie_A_ORMS.tga"
+    },
+    "NormalTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_N.T_Zombie_N",
+     "file": "T_Zombie_N.tga"
+    },
+    "GlowTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_Glow.T_Zombie_Glow",
+     "file": "T_Zombie_Glow.tga"
+    },
+    "MicroNormalTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_MicroSkin_N.T_Zombie_MicroSkin_N",
+     "file": "T_Zombie_MicroSkin_N.tga"
+    }
+   },
+   "parent": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/M_Zombie_Skin_AAA.M_Zombie_Skin_AAA"
+  },
+  "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/MI_Zombie_AAA_B.MI_Zombie_AAA_B": {
+   "scalar": [
+    "MicroTiling",
+    "TintAmount",
+    "Brightness",
+    "Wetness",
+    "RoughnessScale",
+    "SSSAmount",
+    "MicroStrength",
+    "Specular",
+    "GlowIntensity",
+    "VarTint",
+    "VarWet",
+    "HitT"
+   ],
+   "vector": [
+    "Tint",
+    "GlowColor"
+   ],
+   "textures": {
+    "BaseColorTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_B_BC.T_Zombie_B_BC",
+     "file": "T_Zombie_B_BC.tga"
+    },
+    "ORMSTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_B_ORMS.T_Zombie_B_ORMS",
+     "file": "T_Zombie_B_ORMS.tga"
+    },
+    "NormalTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_N.T_Zombie_N",
+     "file": "T_Zombie_N.tga"
+    },
+    "GlowTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_Glow.T_Zombie_Glow",
+     "file": "T_Zombie_Glow.tga"
+    },
+    "MicroNormalTex": {
+     "texture": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/T_Zombie_MicroSkin_N.T_Zombie_MicroSkin_N",
+     "file": "T_Zombie_MicroSkin_N.tga"
+    }
+   },
+   "parent": "/Game/CastleDefender/Characters/Enemies/Zombie/AAA/M_Zombie_Skin_AAA.M_Zombie_Skin_AAA"
+  },
+  "/Game/CastleDefender/Characters/Enemies/Zombie/MI_Zombie_Brute_0": {
+   "scalar": [
+    "MicroTiling",
+    "TintAmount",
+    "Brightness",
+    "Wetness",
+    "RoughnessScale",
+    "SSSAmount",
+    "MicroStrength",
+    "Specular",
+    "GlowIntensity",
+    "VarTint",
+    "VarWet",
+    "HitT"
+   ],
+   "vector": [
+    "Tint",
+    "GlowColor"
+   ],
+   "texture_params": [
+    "BaseColorTex",
+    "ORMSTex",
+    "NormalTex",
+    "GlowTex",
+    "MicroNormalTex"
+   ]
+  },
+  "/Game/CastleDefender/Characters/Enemies/Zombie/MI_Zombie_Brute_1": {
+   "scalar": [
+    "MicroTiling",
+    "TintAmount",
+    "Brightness",
+    "Wetness",
+    "RoughnessScale",
+    "SSSAmount",
+    "MicroStrength",
+    "Specular",
+    "GlowIntensity",
+    "VarTint",
+    "VarWet",
+    "HitT"
+   ],
+   "vector": [
+    "Tint",
+    "GlowColor"
+   ],
+   "texture_params": [
+    "BaseColorTex",
+    "ORMSTex",
+    "NormalTex",
+    "GlowTex",
+    "MicroNormalTex"
+   ]
+  },
+  "/Game/CastleDefender/Characters/Enemies/Zombie/MI_Zombie_Ghoul_0": {
+   "scalar": [
+    "MicroTiling",
+    "TintAmount",
+    "Brightness",
+    "Wetness",
+    "RoughnessScale",
+    "SSSAmount",
+    "MicroStrength",
+    "Specular",
+    "GlowIntensity",
+    "VarTint",
+    "VarWet",
+    "HitT"
+   ],
+   "vector": [
+    "Tint",
+    "GlowColor"
+   ],
+   "texture_params": [
+    "BaseColorTex",
+    "ORMSTex",
+    "NormalTex",
+    "GlowTex",
+    "MicroNormalTex"
+   ]
+  },
+  "/Game/CastleDefender/Characters/Enemies/Zombie/MI_Zombie_Ghoul_1": {
+   "scalar": [
+    "MicroTiling",
+    "TintAmount",
+    "Brightness",
+    "Wetness",
+    "RoughnessScale",
+    "SSSAmount",
+    "MicroStrength",
+    "Specular",
+    "GlowIntensity",
+    "VarTint",
+    "VarWet",
+    "HitT"
+   ],
+   "vector": [
+    "Tint",
+    "GlowColor"
+   ],
+   "texture_params": [
+    "BaseColorTex",
+    "ORMSTex",
+    "NormalTex",
+    "GlowTex",
+    "MicroNormalTex"
+   ]
+  },
+  "/Game/CastleDefender/Characters/Enemies/Zombie/skeletonZombie_Material": {
+   "scalar": [
+    "MicroTiling",
+    "TintAmount",
+    "Brightness",
+    "Wetness",
+    "RoughnessScale",
+    "SSSAmount",
+    "MicroStrength",
+    "Specular",
+    "GlowIntensity",
+    "VarTint",
+    "VarWet",
+    "HitT"
+   ],
+   "vector": [
+    "Tint",
+    "GlowColor"
+   ],
+   "texture_params": [
+    "BaseColorTex",
+    "ORMSTex",
+    "NormalTex",
+    "GlowTex",
+    "MicroNormalTex"
+   ]
+  }
+ }
+}
