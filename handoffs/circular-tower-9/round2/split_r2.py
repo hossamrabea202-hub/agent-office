@@ -17,6 +17,24 @@ GROUPS = [  # part name, object-name prefixes
 ]
 ROT = Matrix.Rotation(math.radians(-90.0), 4, 'Z')
 
+# 2026-10-28 owner: the U-turn at the mid landing was too tight for the hero (64 cm landing, inner posts Rail_post.009/.010
+# at y 1.80, roof deck from y 2.30). Remove those two posts and end both inner handrails at the y 0.90 posts, so the hero
+# turns across the top treads under the open hatch.
+for nm in ('Rail_post.009', 'Rail_post.010'):
+    bpy.data.objects.remove(bpy.data.objects[nm], do_unlink=True)
+# (+ flight B's inner stringer: its low end stood ~15 cm proud of the landing right in the crossing path -> end it at y 1.20)
+for nm, end in (('Stair_handrail.001', 0.95), ('Stair_handrail.002', 0.95), ('Stair_stringer.002', 1.20)):
+    o = bpy.data.objects[nm]; mw = o.matrix_world; inv = mw.inverted()
+    ws = [mw @ v.co for v in o.data.vertices]
+    ymax = max(w.y for w in ws)
+    lo, hi = min(ws, key=lambda w: w.y), max(ws, key=lambda w: w.y)
+    slope = (hi.z - lo.z) / (hi.y - lo.y)
+    cut = ymax - end
+    for v, w in zip(o.data.vertices, ws):
+        if w.y > ymax - 0.10:                                  # end-cap vertices only
+            w2 = w.copy(); w2.y -= cut; w2.z -= cut * slope
+            v.co = inv @ w2
+    o.data.update()
 src = [o for o in bpy.data.collections['TOWER_09_REVIEW'].objects if o.type == 'MESH']
 used = set()
 report = {'rotation_deg_z': -90, 'export': {'axis_forward': '-Y', 'axis_up': 'Z', 'apply_unit_scale': True}, 'parts': {}}
