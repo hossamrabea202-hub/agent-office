@@ -1,0 +1,84 @@
+{
+  "lod0": {
+    "objects": 568,
+    "triangles_instanced": 239972,
+    "unique_meshes": 18,
+    "unique_triangles": 11860,
+    "degenerate_faces": 0,
+    "nonmanifold_edges": 0,
+    "missing_uv0": 0,
+    "missing_uv1": 0,
+    "min": [
+      -14.100000381469727,
+      -14.100000381469727,
+      -1.7980555295944214
+    ],
+    "max": [
+      16.35928726196289,
+      15.1303071975708,
+      200.0
+    ]
+  },
+  "lod1": {
+    "objects": 568,
+    "triangles_instanced": 137516,
+    "unique_meshes": 18,
+    "unique_triangles": 6658,
+    "degenerate_faces": 0,
+    "nonmanifold_edges": 0,
+    "missing_uv0": 0,
+    "missing_uv1": 0,
+    "min": [
+      -14.106027603149414,
+      -14.106029510498047,
+      -1.7965692281723022
+    ],
+    "max": [
+      16.362106323242188,
+      15.128988265991211,
+      200.0
+    ]
+  },
+  "lod2": {
+    "objects": 568,
+    "triangles_instanced": 69414,
+    "unique_meshes": 18,
+    "unique_triangles": 3194,
+    "degenerate_faces": 0,
+    "nonmanifold_edges": 0,
+    "missing_uv0": 0,
+    "missing_uv1": 0,
+    "min": [
+      -14.116823196411133,
+      -14.116823196411133,
+      -1.7946399450302124
+    ],
+    "max": [
+      16.35875701904297,
+      15.128988265991211,
+      200.0
+    ]
+  },
+  "route_probes": {
+    "samples": 3888,
+    "misses": [],
+    "miss_count": 0,
+    "max_floor_error_m": 6.781684021461842e-06,
+    "nominal_width_m": 3,
+    "rise_m": 0.1527777777777778,
+    "actual_capsule_sweeps": false,
+    "soldier_navigation_tested": false
+  },
+  "dimensions": {
+    "above_ground_height_m": 200.0,
+    "roof_m": 198,
+    "below_grade_extent_m": 1.7980555295944214,
+    "note": "Datum Z=0 is ground; first consoles/bed extend below grade as foundations."
+  },
+  "engine_status": "not imported or Play-tested",
+  "evidence_limits": [
+    "No blanket intersection-free claim; intentional masonry joints overlap.",
+    "No dynamic gameplay, wind, enemies or weather implemented.",
+    "Static geometry and sampled route probes do not prove capsule clearance or engine performance."
+  ]
+}
