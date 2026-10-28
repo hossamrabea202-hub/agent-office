@@ -1,0 +1,104 @@
+[
+  {
+    "mesh": "SM_T49_Drum_45",
+    "triangles": 164,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_DrumSlit_45",
+    "triangles": 464,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_BaseLower_45",
+    "triangles": 164,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_BaseUpper_45",
+    "triangles": 164,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_StringCourse_45",
+    "triangles": 206,
+    "ucx_hulls": 0,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_Stair_45",
+    "triangles": 1852,
+    "ucx_hulls": 16,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_StairBase0_45",
+    "triangles": 1852,
+    "ucx_hulls": 16,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_StairBase1_45",
+    "triangles": 1852,
+    "ucx_hulls": 16,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_StairBase2_45",
+    "triangles": 1852,
+    "ucx_hulls": 16,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_StairBase3_45",
+    "triangles": 1852,
+    "ucx_hulls": 16,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_RoofDeck_45",
+    "triangles": 132,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_CrownParapet_45",
+    "triangles": 196,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_CrownCorbel_45",
+    "triangles": 246,
+    "ucx_hulls": 0,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_Merlon",
+    "triangles": 36,
+    "ucx_hulls": 0,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_IronHandhold",
+    "triangles": 192,
+    "ucx_hulls": 0,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_BaseEntrance_45",
+    "triangles": 252,
+    "ucx_hulls": 6,
+    "uv_layers": 2
+  },
+  {
+    "mesh": "SM_T49_GroundFloor_45",
+    "triangles": 132,
+    "ucx_hulls": 8,
+    "uv_layers": 2
+  }
+]
