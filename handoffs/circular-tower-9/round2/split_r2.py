@@ -36,6 +36,19 @@ for part, prefixes in GROUPS:
     j.matrix_world = ROT @ j.matrix_world
     bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
     j.data.update()
+    # perf: the 7 preview limestone variants + mortar all get the same castle wall stone in UE -> one slot (draw calls 9 -> 2)
+    mats = list(j.data.materials)
+    if any(m and m.name.startswith(('Limestone', 'Mortar')) for m in mats):
+        wall = bpy.data.materials.get('Limestone_Wall') or bpy.data.materials.new('Limestone_Wall')
+        keep = [m for m in mats if m and not m.name.startswith(('Limestone', 'Mortar'))]
+        new = [wall] + keep
+        remap = [new.index(wall) if (m and m.name.startswith(('Limestone', 'Mortar'))) else new.index(m) for m in mats]
+        idx = [remap[p.material_index] for p in j.data.polygons]
+        j.data.materials.clear()
+        for m in new:
+            j.data.materials.append(m)
+        for p, k in zip(j.data.polygons, idx):
+            p.material_index = k
     xs = [v.co for v in j.data.vertices]
     bb = [[round(min(c[i] for c in xs), 3), round(max(c[i] for c in xs), 3)] for i in range(3)]
     tris = sum(len(p.vertices) - 2 for p in j.data.polygons)
