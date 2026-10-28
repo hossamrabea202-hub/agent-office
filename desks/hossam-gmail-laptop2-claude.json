@@ -1,6 +1,6 @@
 {
- "working": "waiting on editor driver: #101 HUD exports for #68",
- "tokens": 112000,
+ "working": "#96 Obsidian set bonus: spec, price curve, set-aura overlay material",
+ "tokens": 140000,
  "ctx": 1000000,
  "since": "2026-10-28T15:23:05Z",
  "done": [
@@ -14,12 +14,12 @@
  "usage": {
   "who": "hossam gmail laptop2 (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-28T15:23:55Z",
+  "asOf": "2026-10-28T15:45:56Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 7,
+    "pct": 9,
     "resetsAt": "2026-10-28T19:09:59Z",
     "color": "#59bda5"
    },
@@ -32,7 +32,7 @@
    }
   ]
  },
- "asOf": "2026-10-28T15:23:55Z",
+ "asOf": "2026-10-28T15:45:56Z",
  "seat": "hossam gmail laptop2 (Claude)",
  "ask": {
   "text": "#101: export the prompt-drawing HUD graphs so I can build the #68 paste",
