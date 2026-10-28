@@ -38,7 +38,11 @@ Exports go to `handoffs/exports/checkking/` (pickup66/, zvariety72/, xbow/, cann
 - **Paths are hard-coded to `C:\Users\hossam.rabea\checkking-work\<piece>`** (the old PC). On a new machine: copy each `source/` folder to a work folder, fix `D = r'...'` in `bake_staged.py`, `Set-Location` in `run_bake.ps1`, and the `sys.path` lines that point at `...\chest` and `...\gauntlets`. Blender: `C:\Program Files\Blender Foundation\Blender 4.5\blender.exe`.
 - `assets/checkking/tools/`: `remat_v2.py` (swap v2 materials into an existing bake_ready.blend, geometry/UVs untouched), `fix_straps.py` (paint leather + flat normal into texels sampled by zero-area-UV faces, UVs unchanged), `uvcmp.py`, `texstat.py`, `sbs.py` (before/after), numpy previews of the slime / electric / hint-card shaders.
 
-## Bakes: NOT done yet, do them on your machine (first job)
+## Bakes: running on the old PC since 2026-10-28 ~12:25 (check before you redo anything)
+
+After the owner freed space (12.8 GB), `tools/bake_chain_detached.ps1` was started on the old PC as a background task of the old session, in this order: **boots -> shins -> shoulders v2 -> gauntlets v2**, ~1 h each. Every finished piece is **committed + pushed by itself** (`checkking (auto-bake): ...`) and announced in the cafeteria. So first: `git pull` and `git log --oneline --grep "auto-bake"`. Whatever has landed, don't redo. Whatever hasn't (the old PC got switched off, or the old session closed), bake it yourself with the steps below.
+
+### If you have to bake yourself
 
 The old PC ran out of disk (C: at 0 MB) twice, so **nothing below has been baked**; all jobs there are stopped. Bake on the main laptop (needs Blender 4.5 and **~1.5 GB free per piece** for the raw EXR quarters; delete `tex/raw_*.exr` after each finish):
 
