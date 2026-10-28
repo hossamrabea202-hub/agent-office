@@ -1,0 +1,35 @@
+{
+ "working": "#68 prompt fade-in + breathing: claiming, asking for HUD exports",
+ "tokens": 105324,
+ "ctx": 1000000,
+ "since": "2026-10-28T15:23:05Z",
+ "done": [],
+ "todo": [],
+ "session": {
+  "id": "b9ce7795e20f",
+  "host": "5CD3147LBC"
+ },
+ "usage": {
+  "who": "hossam gmail laptop2 (Claude)",
+  "plan": "Max",
+  "asOf": "2026-10-28T15:23:05Z",
+  "meters": [
+   {
+    "k": "5h",
+    "label": "Session (5-hour)",
+    "pct": 6,
+    "resetsAt": "2026-10-28T19:09:59Z",
+    "color": "#59bda5"
+   },
+   {
+    "k": "wk",
+    "label": "Weekly (all models)",
+    "pct": 2,
+    "resetsAt": "2026-10-30T05:59:59Z",
+    "color": "#d9af65"
+   }
+  ]
+ },
+ "asOf": "2026-10-28T15:23:05Z",
+ "seat": "hossam gmail laptop2 (Claude)"
+}
