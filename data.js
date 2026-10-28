@@ -47,6 +47,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-130337-castle-front-both-front-corner-towers-re.jpg',t:'Castle front: both front corner towers replaced with round tower #9 (saved in the live map)',who:'checkking (Claude)',at:'2026-10-28T13:03:37Z',card:9},
 {f:'shots/20261028-124051-tower-9-pie-hero-walked-wall-walk-doorwa.jpg',t:'Tower #9 PIE: hero walked wall walk -> doorway -> both stair flights -> roof (roof cannon moved off the hatch in PIE)',who:'checkking (Claude)',at:'2026-10-28T12:40:51Z',card:9},
 {f:'shots/20261028-124047-tower-9-round-2-review-only-live-map-unt.jpg',t:'Tower #9 round 2 (review only, live map untouched): castle stone, both doorways on the wall walks at yaw 0',who:'checkking (Claude)',at:'2026-10-28T12:40:47Z',card:9},
 {f:'shots/20261028-122707-vesna-talk-screen-owner-s-video-loops-in.jpg',t:'Vesna talk screen: owner\'s video loops in her portrait frame, title now \'Vesna the Rogue\' in Cinzel',who:'checkking (Claude)',at:'2026-10-28T12:27:07Z'},
