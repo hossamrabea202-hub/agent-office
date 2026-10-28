@@ -8,7 +8,7 @@ The shipped steel BaseColor sat at ~0.02 linear almost everywhere (texture p10-p
 
 Renders: `assets/checkking/Obsidian-Sovereign/Chest/renders/chest4k_v2_*.png` (baked game mesh, Cycles).
 
-**Known issue (old, not new in v2):** the two over-the-shoulder leather straps bake as grey/white instead of leather (visible in the old renders too). They sit under the pauldrons when worn. checkking takes this as the next fix on #64.
+**Strap fix (in this push):** the two over-the-shoulder straps rendered grey/white (old bug): 438 of their 466 faces have zero-area UVs, so they sampled stray texels and got broken tangents. `source/fix_straps.py` paints plain leather + a flat normal into exactly the texels those faces sample, without changing the UVs (the fitted SK chest stays valid). Proper strap UVs would mean re-exporting the skinned chest, so that waits until someone re-fits it.
 
 ## Part 1: textures (this hand-off)
 
