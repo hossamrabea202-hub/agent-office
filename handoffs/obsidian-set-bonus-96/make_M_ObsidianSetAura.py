@@ -14,21 +14,21 @@ MEL, EAL = unreal.MaterialEditingLibrary, unreal.EditorAssetLibrary
 tools = unreal.AssetToolsHelpers.get_asset_tools()
 
 if EAL.does_asset_exist(FULL):
-    raise RuntimeError(FULL + ' already exists: delete or rename it first, the script never overwrites')
+    EAL.delete_asset(FULL)   # master: removing the half-built asset from the failed first run (2026-10-28)
 
 # The MPC that holds Armor (the Obsidian chest swap, vesna-obsidian-shop/README.md).
 mpc = None
 reg = unreal.AssetRegistryHelpers.get_asset_registry()
 for ad in reg.get_assets_by_class(unreal.TopLevelAssetPath('/Script/Engine', 'MaterialParameterCollection')):
     c = ad.get_asset()
-    if any(str(v.parameter_name) == 'Armor' for v in c.get_editor_property('vector_parameters')):
+    if any(str(v.get_editor_property('parameter_name')) == 'Armor' for v in c.get_editor_property('vector_parameters')):
         mpc = c; break
 if mpc is None:
     raise RuntimeError('no MaterialParameterCollection with a vector parameter Armor found')
 unreal.log('#96 Armor lives in ' + mpc.get_path_name())
 
 vecs = list(mpc.get_editor_property('vector_parameters'))
-if not any(str(v.parameter_name) == 'ObsSet' for v in vecs):
+if not any(str(v.get_editor_property('parameter_name')) == 'ObsSet' for v in vecs):
     p = unreal.CollectionVectorParameter()
     p.set_editor_property('parameter_name', 'ObsSet')
     p.set_editor_property('default_value', unreal.LinearColor(0, -100, -100, 0))   # off, burst/hit far in the past
@@ -43,7 +43,12 @@ mat.set_editor_property('blend_mode', unreal.BlendMode.BLEND_ADDITIVE)
 mat.set_editor_property('shading_model', unreal.MaterialShadingModel.MSM_UNLIT)
 mat.set_editor_property('two_sided', False)
 
-lp = MEL.create_material_expression(mat, unreal.MaterialExpressionLocalPosition, -1000, -100)
+# UE 5.3 python has no LocalPosition expression: object-relative world position (WorldPosition - ObjectPositionWS) instead
+wp = MEL.create_material_expression(mat, unreal.MaterialExpressionWorldPosition, -1300, -150)
+op = MEL.create_material_expression(mat, unreal.MaterialExpressionObjectPositionWS, -1300, -50)
+lp = MEL.create_material_expression(mat, unreal.MaterialExpressionSubtract, -1000, -100)
+MEL.connect_material_expressions(wp, '', lp, 'A')
+MEL.connect_material_expressions(op, '', lp, 'B')
 now = MEL.create_material_expression(mat, unreal.MaterialExpressionTime, -1000, 0)
 fres = MEL.create_material_expression(mat, unreal.MaterialExpressionFresnel, -1000, 100)
 fres.set_editor_property('exponent', 3.0)
