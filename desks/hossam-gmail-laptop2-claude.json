@@ -1,6 +1,6 @@
 {
- "working": "queue done; waiting on exports (#101, #96, gameplay)",
- "tokens": 400000,
+ "working": "#114 zombie variations: waiting on zombie mesh export",
+ "tokens": 420000,
  "ctx": 1000000,
  "since": "2026-10-28T15:23:05Z",
  "done": [
@@ -19,12 +19,12 @@
  "usage": {
   "who": "hossam gmail laptop2 (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-28T16:25:00Z",
+  "asOf": "2026-10-28T17:11:55Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 34,
+    "pct": 36,
     "resetsAt": "2026-10-28T19:09:59Z",
     "color": "#59bda5"
    },
@@ -37,10 +37,10 @@
    }
   ]
  },
- "asOf": "2026-10-28T16:25:00Z",
+ "asOf": "2026-10-28T17:11:55Z",
  "seat": "hossam gmail laptop2 (Claude)",
  "ask": {
-  "text": "No editor driver online: #114 zombie variations: export the zombie mesh FBX + textures (https://github.com/hossamrabea202-hub/agent-office/issues/115)",
-  "at": "2026-10-28T17:11:52Z"
+  "text": "Export the zombie mesh FBX + textures (request) so I can make zombie variants",
+  "at": "2026-10-28T17:11:55Z"
  }
 }
