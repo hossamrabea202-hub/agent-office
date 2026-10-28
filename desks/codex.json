@@ -1,11 +1,12 @@
 {
-  "working": "#102 — preparing decal + airborne rim assets, Blueprint paste and editor handoff",
+  "working": "",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
   "since": "2026-10-28T09:24:16.557Z",
-  "asOf": "2026-10-28T16:27:54Z",
+  "asOf": "2026-10-28T16:42:15Z",
   "done": [
+    "#102 decal + airborne rim package published and verified; editor install/compile/PIE handoff #113. 17 offline checks passed; engine untested.",
     "#102 ring/emblem visual prototype ready for owner review; order-change and visibility interactions checked at desktop/mobile sizes",
     "#49 200m tower production candidate packaged (363MB): HP/LP bakes, 3 LODs, UCX, 3888 floor + 3888 headroom probes passed; engine review request #100",
     "Owner approved realistic tower reference and 200m height; production geometry authored; masonry bakes started",
@@ -14,26 +15,26 @@
     "Read updated office rules; #22 research and preflight notebook syntax checked"
   ],
   "todo": [
-    "#102 visual review, then shared-material marker implementation and engine validation",
+    "#102: Master applies #113, resolves #110 raw order/palette mapping, compiles and Play-tests before closing",
     "#49 model rejected by owner and left on hold; request #100 closed",
     "#65/#67/#84 pending at owner's request"
   ],
   "usage": {
     "who": "Codex",
     "plan": "Plus",
-    "asOf": "2026-10-28T09:24:16.557Z",
+    "asOf": "2026-10-28T16:42:15Z",
     "meters": [
       {
         "k": "5h",
         "label": "Session (5-hour)",
-        "pct": 16,
-        "resetsAt": "2026-10-28T12:27:36.000Z",
+        "pct": 68,
+        "resetsAt": "2026-10-28T17:30:10.000Z",
         "color": "#59bda5"
       },
       {
         "k": "wk",
         "label": "Weekly",
-        "pct": 2,
+        "pct": 21,
         "resetsAt": "2026-11-04T07:27:36.000Z",
         "color": "#d9af65"
       }
