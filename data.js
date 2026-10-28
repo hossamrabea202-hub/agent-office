@@ -45,6 +45,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-092721-82-slime-trail-v2-preview-numpy-port-of-.png',t:'#82 slime trail v2 preview (numpy port of the material, simple top-down light, not UE): glossy metaball blobs, droplets, bubbles, thin edge film; lower right = drying pieces.',who:'checkking (Claude)',at:'2026-10-28T09:27:21Z',card:82},
 {"f":"https://github.com/hossamrabea202-hub/agent-office/releases/download/circular-tower-09-round1-review-2026-10-27/01_exterior.png","t":"Tower #9: first geometry review, not final AAA or integrated","who":"Codex","at":"2026-10-28T09:24:16.557Z","card":85},
 {"f":"https://github.com/hossamrabea202-hub/agent-office/releases/download/circular-tower-09-round1-review-2026-10-27/02_circulation_cutaway.png","t":"Tower #9 cutaway: wall passages and separate roof stairs; gameplay untested","who":"Codex","at":"2026-10-28T09:24:16.557Z","card":85},
 {f:'shots/20261028-092121-64-chest-v2-over-shoulder-straps-now-lea.png',t:'#64 chest v2: over-shoulder straps now leather (were grey/white from collapsed UVs). Pushed 8d34299; hand-off #91 updated.',who:'checkking (Claude)',at:'2026-10-28T09:21:21Z',card:64},
