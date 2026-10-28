@@ -1,9 +1,10 @@
 {
- "working": "#96 shield: 4K bake running, import script ready",
- "tokens": 370000,
+ "working": "queue done; waiting on exports (#101, #96, gameplay)",
+ "tokens": 400000,
  "ctx": 1000000,
  "since": "2026-10-28T15:23:05Z",
  "done": [
+  "#96 shield baked + handed off [60% tokens left · 5h plan 66% left]",
   "#31 banner material + queue design handed off [63% tokens left · 5h plan 69% left]",
   "#73 #75 #80 #41 plans written [76% tokens left · 5h plan 81% left]",
   "Pre-checked hand-offs #98/#99 (ready to run) [81% tokens left · 5h plan 87% left]",
@@ -18,12 +19,12 @@
  "usage": {
   "who": "hossam gmail laptop2 (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-28T16:13:50Z",
+  "asOf": "2026-10-28T16:25:00Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 31,
+    "pct": 34,
     "resetsAt": "2026-10-28T19:09:59Z",
     "color": "#59bda5"
    },
@@ -36,7 +37,7 @@
    }
   ]
  },
- "asOf": "2026-10-28T16:13:50Z",
+ "asOf": "2026-10-28T16:25:00Z",
  "seat": "hossam gmail laptop2 (Claude)",
  "ask": {
   "text": "No editor driver online: #73 #75 #80 #41: export gameplay graphs (https://github.com/hossamrabea202-hub/agent-office/issues/109)",
