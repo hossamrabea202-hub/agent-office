@@ -85,9 +85,9 @@ for (int L = 0; L < 2; L++)
     float3 gx = P * 0.45 + float3(0, step_t * 0.73, L * 9.1);
     float3 gi = floor(gx); float3 gf = frac(gx); gf = gf * gf * (3 - 2 * gf);
     float gv = 0;
-    for (int c = 0; c < 8; c++)
+    for (int cg = 0; cg < 8; cg++)   // own name: HLSL loop counters can leak into the enclosing scope
     {
-        float3 d = float3(c & 1, (c >> 1) & 1, (c >> 2) & 1);
+        float3 d = float3(cg & 1, (cg >> 1) & 1, (cg >> 2) & 1);
         float3 w = lerp(1 - gf, gf, d);
         gv += frac(sin(dot(gi + d, float3(269.5, 183.3, 246.1))) * 43758.5453) * w.x * w.y * w.z;
     }

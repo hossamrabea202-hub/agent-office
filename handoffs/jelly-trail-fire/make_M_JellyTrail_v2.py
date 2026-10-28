@@ -25,8 +25,7 @@ now = MEL.create_material_expression(mat, unreal.MaterialExpressionTime, -1100, 
 data = {}
 for i, n in enumerate(['BornT', 'BurnT', 'Size', 'Seed']):
     d = MEL.create_material_expression(mat, unreal.MaterialExpressionPerInstanceCustomData, -1100, 240 + i * 110)
-    d.set_editor_property('data_index', i)
-    d.set_editor_property('default_value', -1.0 if n == 'BurnT' else 0.0)
+    d.set_editor_property('data_index', i)   # no default_value in 5.3 Python; the trail manager writes all 4 floats
     data[n] = d
 
 # Shared shape + state, pasted at the top of every Custom node (they can't share functions).
@@ -38,9 +37,9 @@ float settle = 0.72 + 0.28 * saturate(age / 1.5);
 float E = 0.006;
 float H[3];
 float B0 = 0;
-for (int k = 0; k < 3; k++)
+for (int ki = 0; ki < 3; ki++)   // not 'k': HLSL loop counters leak into the node scope
 {
-    float2 p = UV * 2 - 1 + (k == 1 ? float2(E, 0) : (k == 2 ? float2(0, E) : float2(0, 0)));
+    float2 p = UV * 2 - 1 + (ki == 1 ? float2(E, 0) : (ki == 2 ? float2(0, E) : float2(0, 0)));
     float2 q = float2(p.x * (0.95 - 0.15 * s1), p.y * (1.10 + 0.20 * s2)) / settle;
     q.y += 0.08 * sin(q.x * 2.3 + s3 * 6.283);
     // metaballs: main body, front + back lobes, a side bulge, and droplets that merge or sit apart
@@ -66,8 +65,8 @@ for (int k = 0; k < 3; k++)
     float br = 0.10 + 0.22 * frac(hb * 17.3);
     float2 bo = (float2(frac(hb * 7.7), frac(hb * 3.9)) - 0.5) * 0.4;
     float bub = (hb > 0.72 ? 1 : 0) * sqrt(saturate(1 - length(f - bo) / br)) * step(0.35, body);
-    if (k == 0) B0 = bub;
-    H[k] = body > 0 ? body + (lump + streak) * body + 0.18 * bub : 0;
+    if (ki == 0) B0 = bub;
+    H[ki] = body > 0 ? body + (lump + streak) * body + 0.18 * bub : 0;
 }
 float T = H[0];
 float inside = T > 0 ? 1 : 0;

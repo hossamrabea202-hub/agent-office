@@ -5,7 +5,12 @@
 import os
 import unreal
 
-SRC = os.path.dirname(os.path.abspath(__file__))
+# __file__ isn't always set by the editor's `py` command: then set REPO to your office-repo checkout.
+REPO = r''
+try:
+    SRC = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    SRC = os.path.join(REPO, 'assets', 'checkking', 'Obsidian-Sovereign', 'Chest')
 DST = '/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest'
 EAL = unreal.EditorAssetLibrary
 tools = unreal.AssetToolsHelpers.get_asset_tools()
@@ -23,6 +28,7 @@ tex = {
 tools.import_asset_tasks([task(os.path.join(SRC, 'textures', n + '.png'), DST) for n in tex])
 for n, (srgb, comp) in tex.items():
     t = unreal.load_asset(f'{DST}/{n}')
+    t.modify()   # without it the settings don't stick on a re-import
     t.set_editor_property('srgb', srgb); t.set_editor_property('compression_settings', comp)
     if 'Normal' in n: t.set_editor_property('flip_green_channel', False)
     EAL.save_loaded_asset(t)
