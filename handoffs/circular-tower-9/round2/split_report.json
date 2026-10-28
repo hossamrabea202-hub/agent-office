@@ -1,0 +1,175 @@
+{
+ "rotation_deg_z": -90,
+ "export": {
+  "axis_forward": "-Y",
+  "axis_up": "Z",
+  "apply_unit_scale": true
+ },
+ "parts": {
+  "Drum": {
+   "objects": 8,
+   "tris": 59124,
+   "bounds_m": [
+    [
+     -5.052,
+     5.052
+    ],
+    [
+     -5.052,
+     5.052
+    ],
+    [
+     0.0,
+     10.5
+    ]
+   ],
+   "materials": [
+    "Dressed_limestone",
+    "Limestone_00",
+    "Limestone_01",
+    "Limestone_02",
+    "Limestone_03",
+    "Limestone_04",
+    "Limestone_05",
+    "Limestone_06",
+    "Mortar_backing"
+   ]
+  },
+  "Floors": {
+   "objects": 4,
+   "tris": 1254,
+   "bounds_m": [
+    [
+     -4.982,
+     4.982
+    ],
+    [
+     -4.982,
+     4.982
+    ],
+    [
+     6.48,
+     10.7
+    ]
+   ],
+   "materials": [
+    "Dressed_limestone"
+   ]
+  },
+  "Stairs": {
+   "objects": 26,
+   "tris": 2808,
+   "bounds_m": [
+    [
+     -1.757,
+     1.758
+    ],
+    [
+     0.875,
+     3.375
+    ],
+    [
+     6.71,
+     10.7
+    ]
+   ],
+   "materials": [
+    "Dressed_limestone"
+   ]
+  },
+  "Iron": {
+   "objects": 41,
+   "tris": 4428,
+   "bounds_m": [
+    [
+     -2.322,
+     2.325
+    ],
+    [
+     0.755,
+     3.485
+    ],
+    [
+     6.612,
+     11.725
+    ]
+   ],
+   "materials": [
+    "Forged_iron"
+   ]
+  },
+  "Parapet": {
+   "objects": 41,
+   "tris": 11232,
+   "bounds_m": [
+    [
+     -5.019,
+     5.019
+    ],
+    [
+     -5.019,
+     5.019
+    ],
+    [
+     10.7,
+     12.07
+    ]
+   ],
+   "materials": [
+    "Dressed_limestone",
+    "Limestone_00",
+    "Limestone_01",
+    "Limestone_02",
+    "Limestone_03",
+    "Limestone_04",
+    "Limestone_05",
+    "Limestone_06"
+   ]
+  },
+  "Portals": {
+   "objects": 50,
+   "tris": 5400,
+   "bounds_m": [
+    [
+     -0.065,
+     5.022
+    ],
+    [
+     -5.022,
+     0.065
+    ],
+    [
+     6.812,
+     9.745
+    ]
+   ],
+   "materials": [
+    "Dressed_limestone"
+   ]
+  }
+ },
+ "unassigned": [],
+ "markers_after_rotation_m": {
+  "PlusX_long_end": [
+   0,
+   -6.0,
+   0.1
+  ],
+  "PlusY_short_end": [
+   3.0,
+   0,
+   0.1
+  ],
+  "PortalX_centre": [
+   1.4,
+   -4.9,
+   7.8
+  ],
+  "PortalY_centre": [
+   4.9,
+   -1.4,
+   7.8
+  ]
+ },
+ "blender": "4.3.0"
+}
