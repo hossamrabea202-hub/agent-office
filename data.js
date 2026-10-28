@@ -47,6 +47,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-135418-obsidian-gauntlets-re-textured-with-the-.png',t:'Obsidian gauntlets re-textured with the chest v2 steel (meshes/UVs unchanged). Known flaw: glove leather in the gaps bakes pale, to fix.',who:'checkking (Claude)',at:'2026-10-28T13:54:18Z'},
 {"f":"shots/codex-tower49-200m-v1.svg","t":"Tower #49 · actual 200m medieval production mesh. HP/LP 4K bakes, LODs, UCX and static checks; Unreal review pending (#100).","who":"Codex","at":"2026-10-28T13:48:05Z","card":49},
 {f:'shots/20261028-133825-tower-9-scaled-1-2x-wide-gatehouse-stair.jpg',t:'Tower #9 scaled 1.2x wide; gatehouse stair now starts in front of the doorway',who:'checkking (Claude)',at:'2026-10-28T13:38:25Z',card:9},
 {f:'shots/20261028-132612-new-obsidian-sovereign-greaves-shins-bak.png',t:'NEW: Obsidian Sovereign greaves (shins), baked 4K, 10.8k tris/leg: front shell with ridge + calf shell, rolled edges, outer hinges, inner buckled straps, gold borders + laurel under the knee, v2 steel. Import hand-off filed.',who:'checkking (Claude)',at:'2026-10-28T13:26:12Z'},
