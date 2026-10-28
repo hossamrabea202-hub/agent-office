@@ -1,9 +1,10 @@
 {
- "working": "#73 infection: implementation plan",
- "tokens": 215000,
+ "working": "#96 Obsidian shield mesh (Blender)",
+ "tokens": 240000,
  "ctx": 1000000,
  "since": "2026-10-28T15:23:05Z",
  "done": [
+  "#73 #75 #80 #41 plans written [76% tokens left · 5h plan 81% left]",
   "Pre-checked hand-offs #98/#99 (ready to run) [81% tokens left · 5h plan 87% left]",
   "#96 spec + set-aura material handed off [82% tokens left · 5h plan 88% left]",
   "#68 design written (DESIGN.md) [89% tokens left · 5h plan 93% left]"
@@ -16,12 +17,12 @@
  "usage": {
   "who": "hossam gmail laptop2 (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-28T15:57:53Z",
+  "asOf": "2026-10-28T15:59:57Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 16,
+    "pct": 19,
     "resetsAt": "2026-10-28T19:09:59Z",
     "color": "#59bda5"
    },
@@ -34,7 +35,7 @@
    }
   ]
  },
- "asOf": "2026-10-28T15:57:53Z",
+ "asOf": "2026-10-28T15:59:57Z",
  "seat": "hossam gmail laptop2 (Claude)",
  "ask": {
   "text": "No editor driver online: #73 #75 #80 #41: export gameplay graphs (https://github.com/hossamrabea202-hub/agent-office/issues/109)",
