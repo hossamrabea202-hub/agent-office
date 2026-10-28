@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "mesh_budget",
+      "passed": true,
+      "detail": "260 authored vertices, 256 triangles"
+    },
+    {
+      "name": "finite_mesh",
+      "passed": true,
+      "detail": "All position components finite"
+    },
+    {
+      "name": "uv_range",
+      "passed": true,
+      "detail": "UV0 in [0,1] with authored angular seam"
+    },
+    {
+      "name": "nondegenerate_triangles",
+      "passed": true,
+      "detail": "Min area 7.6571 cm^2; intentionally open surface"
+    },
+    {
+      "name": "seam_positions",
+      "passed": true,
+      "detail": "Seam is position-matched with UV 0/1 split"
+    },
+    {
+      "name": "mesh_bounds",
+      "passed": true,
+      "detail": "[135.0, 135.0, 16.0] cm"
+    },
+    {
+      "name": "clipboard_references",
+      "passed": true,
+      "detail": "46 nodes, 186 unique pins, reciprocal links and no forked exec output"
+    },
+    {
+      "name": "event_parameter_serialization",
+      "passed": true,
+      "detail": "Native clipboard parameter records for int and bool custom events"
+    },
+    {
+      "name": "continuous_translation",
+      "passed": true,
+      "detail": "Owner attachment added; root absolute rotation/scale required by setup"
+    },
+    {
+      "name": "cosmetic_graph_scope",
+      "passed": true,
+      "detail": "No gameplay health/order writes, Niagara or point lights in new actor paste"
+    },
+    {
+      "name": "terrain_filter",
+      "passed": true,
+      "detail": "Static-world object filter; recipient must confirm channel mapping"
+    },
+    {
+      "name": "range_and_rate",
+      "passed": true,
+      "detail": "60m camera cutoff, 0.2s terrain refresh"
+    },
+    {
+      "name": "shared_palette",
+      "passed": true,
+      "detail": "Eight identical linear RGB palette entries in both shader domains"
+    },
+    {
+      "name": "style_round_clamp",
+      "passed": true,
+      "detail": "Both shader domains round and clamp semantic style IDs"
+    },
+    {
+      "name": "mapping_not_guessed",
+      "passed": true,
+      "detail": "Semantic IDs explicit; current game mapping deliberately unresolved until fresh exports"
+    },
+    {
+      "name": "refuse_existing_destination",
+      "passed": true,
+      "detail": "Existing asset folder refused before asset creation"
+    },
+    {
+      "name": "python_syntax",
+      "passed": true,
+      "detail": "All shipped Python source parses; Unreal API calls not executed"
+    }
+  ],
+  "ue_imported": false,
+  "hlsl_compiled": false,
+  "blueprint_pasted_or_compiled": false,
+  "play_tested": false,
+  "performance_measured": false
+}
