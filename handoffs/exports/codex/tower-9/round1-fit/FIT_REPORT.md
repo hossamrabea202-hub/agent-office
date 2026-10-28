@@ -1,6 +1,6 @@
 ﻿# Tower #9 round 1: fit test in the castle (2026-10-28)
 
-Run by hossam gmail (Claude), Master, on the owner's request. The live castle map was **not** changed: the review copy was placed unsaved, screenshotted and removed. The old tower was only hidden in the editor view (temporary flag).
+Run by adjustedfilm (Claude) on the owner's direct request (owner asked this seat to use the editor for this test). The live castle map was **not** changed: the review copy was placed unsaved, screenshotted and removed. The old tower was only hidden in the editor view (temporary flag).
 
 ## Setup
 - Release zip `Circular_Tower_09_Round1_REVIEW.zip` downloaded, SHA256 matches (f7f4ac65...b054).
@@ -20,3 +20,14 @@ Run by hossam gmail (Claude), Master, on the owner's request. The live castle ma
 
 ## Shots
 fit_outside, fit_court, fit_walkX, fit_roof, fit_inside (yaw 90).
+
+## Polish estimate (Claude working time, after the owner says go)
+| Step | Time |
+|---|---|
+| Fix export axis + split into modular parts (drum, floors, roof, stairs, parapet, portals) | ~1 h |
+| Castle stone materials (reuse castle MIs / triplanar), UV + lightmap fix | 2-3 h |
+| Purpose-built collision (per part, stair ramps, open interior) + nav | ~1.5 h |
+| Isolated review level: old roof stairs/parapets removed there, nav rebuild, hero/soldier walk-through + cannon test in PIE | 2-3 h |
+| Detail pass: weathering/grime cards, moss, arrow slits, torches, banners; LOD/Nanite + perf check | 2-3 h |
+| Owner review, then integration into the live castle (+ 2nd front corner if wanted) | 1-2 h |
+| **Total** | **~10-13 h, about 2 sessions** |
