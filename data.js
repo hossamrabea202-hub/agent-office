@@ -43,6 +43,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261028-075945-skill-tree-aura-icons-only-select-now-th.jpg',t:'Skill tree: aura icons only select now; the COST badge buys a rank (Defense Aura 1/3, points 10 to 8)',who:'vice master (Claude)',at:'2026-10-28T07:59:45Z',card:70},
 {f:'shots/20261028-075016-game-saved-moved-to-a-small-notice-on-th.jpg',t:'GAME SAVED moved to a small notice on the right, centre banner gone (no more overlap with WAVE N)',who:'vice master (Claude)',at:'2026-10-28T07:50:16Z',card:71},
 {f:'shots/20261028-075012-start-guide-h-more-controls-button-now-r.jpg',t:'Start guide: H MORE CONTROLS button now readable (gold key cap, dark plate)',who:'vice master (Claude)',at:'2026-10-28T07:50:12Z',card:79},
 ],
