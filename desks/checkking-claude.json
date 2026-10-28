@@ -1,9 +1,10 @@
 {
  "working": "",
- "tokens": 246831,
+ "tokens": 460877,
  "ctx": 1000000,
- "since": "2026-10-28T07:58:00Z",
+ "since": "2026-10-28T13:04:08Z",
  "done": [
+  "Both front towers replaced (tower #9) in live castle, PIE + nav verified [54% tokens left · 5h plan 39% left]",
   "Vesna talk video + Cinzel title (BP_NoticeHUD), Play-tested [75% tokens left · 5h plan 79% left]",
   "Session hand-off: HANDOFF.md + all sources pushed (boots + greaves modelled, bakes move to the laptop) [53% tokens left · 5h plan 42% left]",
   "Office: checkking AAA asset folder in 3D ASSETS; Obsidian boots modelled (14k tris, sabaton) [57% tokens left · 5h plan 48% left]",
@@ -12,8 +13,7 @@
   "#82 slime trail v2 material (metaball body, height normals, bubbles, dithered edge, drying) + hand-off [76% tokens left · 5h plan 73% left]",
   "#64 chest straps render as leather (collapsed-UV texels fixed, UVs unchanged), hand-off #91 updated [80% tokens left · 5h plan 77% left]",
   "#64 part 1: chest v2 4K textures pushed, re-import hand-off #91 [82% tokens left · 5h plan 79% left]",
-  "#64 v2 chest material (real steel reflectance, temper, wear, scratches, antique gold) + preview [86% tokens left · 5h plan 82% left]",
-  "Obsidian Sovereign gauntlets L/R AAA remodel (9.4k tris/hand, 4K PBR, import script, hand-off) [70% tokens left · 5h plan 89% left]"
+  "#64 v2 chest material (real steel reflectance, temper, wear, scratches, antique gold) + preview [86% tokens left · 5h plan 82% left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -24,24 +24,28 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-10-28T12:27:12Z",
+  "asOf": "2026-10-28T13:04:08Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 21,
-    "resetsAt": "2026-10-28T16:39:59Z",
+    "pct": 61,
+    "resetsAt": "2026-10-28T16:40:00Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 68,
-    "resetsAt": "2026-11-01T05:59:59Z",
+    "pct": 73,
+    "resetsAt": "2026-11-01T06:00:00Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-28T12:27:12Z",
- "seat": "checkking (Claude)"
+ "asOf": "2026-10-28T13:04:08Z",
+ "seat": "checkking (Claude)",
+ "session": {
+  "id": "d4471823087d",
+  "host": "Hossam"
+ }
 }
