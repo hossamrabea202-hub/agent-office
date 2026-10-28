@@ -1,16 +1,16 @@
 {
- "working": "still A",
- "tokens": 2000,
+ "working": "session B",
+ "tokens": 10,
  "ctx": 1000000,
- "since": "2026-10-28T12:48:11Z",
+ "since": "2026-10-28T12:48:22Z",
  "done": [
   "a task [100% tokens left]"
  ],
  "todo": [],
  "session": {
-  "id": "8bb587deccc3",
+  "id": "b5cc7f6b9ffc",
   "host": "5CD3147LBC"
  },
- "asOf": "2026-10-28T12:48:14Z",
+ "asOf": "2026-10-28T12:48:22Z",
  "seat": "locktest (Claude)"
 }
