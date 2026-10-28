@@ -22,4 +22,10 @@
 - BP_Cannon: actor bounds (2020 cm) include gameplay volumes, not the gun; use the mesh entries in the JSON for the real cannon size (8 placed, tag Cannon).
 - Nav: default RecastNavMesh agent (see project settings); soldiers path on the wall-walk via nav, stairs tagged "Stairs".
 - Equal-area round tower from 4 corner-tower footprints (2x2 of 430 cm): side 860 cm -> D = 2.257 x 430 = ~970 cm. Existing tower top 1020, wall-walk top 680.
-- Screenshots not included (Master out of credits); JSON lists 211 selected actors (towers, wall-walk slabs, wall blocks, stairs, ramps, 8 cannons).
+- JSON lists 211 selected actors (towers, wall-walk slabs, wall blocks, stairs, ramps, 8 cannons).
+
+## Added 2026-10-28 (Master, read-only, camera moves only; nothing in the level changed)
+- Screenshots (editor viewport, Lit): `tower9_overview.jpg` (whole castle from the front-left, high), `tower9_front.jpg` (gate front, x ~ 50 side: front towers at (50,50) and (50,3450) with their roof cannons), `tower9_side.jpg` (west wall from y -3400, corner tower at (50,50) on the right), `tower9_corner.jpg` (close oblique on the (50,50) corner tower: wall-walk, stairs and the roof cannon).
+- Connection angles: every tower and wall run is axis-aligned (yaw 0.0), so walls meet towers at 90 degrees along +X and +Y.
+- Wall-walk joins the tower at z 680 (slab ~200 cm wide); tower tops are z 1020, so the tower roof sits 340 cm above the walk (stairs inside the footprint today).
+- Cannon on the tower roof: real gun size is in the JSON mesh entries; keep a clear ring of at least ~250 cm around the gun for the crew posts.
