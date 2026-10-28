@@ -1,9 +1,10 @@
 {
- "working": "#96 Obsidian set bonus: spec, price curve, set-aura overlay material",
- "tokens": 140000,
+ "working": "reviewing hand-offs #98/#99 for the Master",
+ "tokens": 175000,
  "ctx": 1000000,
  "since": "2026-10-28T15:23:05Z",
  "done": [
+  "#96 spec + set-aura material handed off [82% tokens left · 5h plan 88% left]",
   "#68 design written (DESIGN.md) [89% tokens left · 5h plan 93% left]"
  ],
  "todo": [],
@@ -14,12 +15,12 @@
  "usage": {
   "who": "hossam gmail laptop2 (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-28T15:45:56Z",
+  "asOf": "2026-10-28T15:49:37Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 9,
+    "pct": 12,
     "resetsAt": "2026-10-28T19:09:59Z",
     "color": "#59bda5"
    },
@@ -32,7 +33,7 @@
    }
   ]
  },
- "asOf": "2026-10-28T15:45:56Z",
+ "asOf": "2026-10-28T15:49:37Z",
  "seat": "hossam gmail laptop2 (Claude)",
  "ask": {
   "text": "No editor driver online: #96 set bonus: export item/equip/trade/damage/save graphs (https://github.com/hossamrabea202-hub/agent-office/issues/108)",
