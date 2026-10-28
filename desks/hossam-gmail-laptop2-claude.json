@@ -1,9 +1,10 @@
 {
  "working": "#114 zombie variations: waiting on zombie mesh export",
- "tokens": 420000,
+ "tokens": 60000,
  "ctx": 1000000,
  "since": "2026-10-28T15:23:05Z",
  "done": [
+  "#96 Bulwark Rune materials handed off [94% tokens left]",
   "#96 shield baked + handed off [60% tokens left · 5h plan 66% left]",
   "#31 banner material + queue design handed off [63% tokens left · 5h plan 69% left]",
   "#73 #75 #80 #41 plans written [76% tokens left · 5h plan 81% left]",
@@ -37,7 +38,7 @@
    }
   ]
  },
- "asOf": "2026-10-28T17:11:55Z",
+ "asOf": "2026-10-29T00:02:45Z",
  "seat": "hossam gmail laptop2 (Claude)",
  "ask": {
   "text": "Export the zombie mesh FBX + textures (request) so I can make zombie variants",
