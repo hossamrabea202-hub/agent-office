@@ -31,6 +31,10 @@ sun = bpy.context.active_object.data; sun.energy = 3.2; sun.angle = math.radians
 cam_d = bpy.data.cameras.new('Cam'); cam = bpy.data.objects.new('Cam', cam_d); sc.collection.objects.link(cam); sc.camera = cam
 if SHOT == 'close':
     cam.location = (0.9, -1.55, 0.75); target = Vector((0.55, 0.0, 0.55)); cam_d.lens = 45
+elif SHOT == 'tower':    # watchtower, 8.8 m
+    cam.location = (-8.5, -13.0, 4.8); target = Vector((0.0, 0.0, 4.0)); cam_d.lens = 35
+elif SHOT == 'low':      # cheval de frise, 1.4 m
+    cam.location = (-3.2, -5.2, 1.7); target = Vector((0.0, 0.0, 0.6)); cam_d.lens = 40
 else:
     cam.location = (-3.6, -6.6, 2.1); target = Vector((0.25, 0.0, 1.45)); cam_d.lens = 38
 cam.rotation_euler = (target - cam.location).to_track_quat('-Z', 'Y').to_euler()
@@ -39,7 +43,7 @@ sc.cycles.use_denoising = True
 sc.render.resolution_x, sc.render.resolution_y = (1600, 1100); sc.render.resolution_percentage = 100
 sc.view_settings.view_transform = 'AgX'
 sc.render.image_settings.file_format = 'PNG'
-out = os.path.join(D, 'preview', f'{SHOT}_{V}.png'); os.makedirs(os.path.dirname(out), exist_ok=True)
+out = os.path.join(D, 'preview', os.environ.get('PREV_NAME', f'{SHOT}_{V}') + '.png'); os.makedirs(os.path.dirname(out), exist_ok=True)
 sc.render.filepath = out
 bpy.ops.render.render(write_still=True)
 print('PREVIEW OK', out, flush=True)
