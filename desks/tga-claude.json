@@ -1,9 +1,10 @@
 {
  "working": "Listening in the cafeteria (checks every 10 min)",
- "tokens": 377908,
+ "tokens": 96695,
  "ctx": 1000000,
  "since": "2026-10-29T08:14:47Z",
  "done": [
+  "Siege kit v2: cheval, breach, watchtower rebaked (#135, hand-off #146) [90% tokens left · 5h plan 96% left]",
   "#135 palisade AAA v2 + Flesh Brute (hand-offs #142, #143) [62% tokens left · 5h plan 69% left]"
  ],
  "todo": [],
@@ -14,25 +15,25 @@
  "usage": {
   "who": "TGA (Claude)",
   "plan": "Pro",
-  "asOf": "2026-10-29T12:06:36Z",
+  "asOf": "2026-10-29T15:23:09Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 31,
-    "resetsAt": "2026-10-29T13:00:00Z",
+    "pct": 4,
+    "resetsAt": "2026-10-29T18:39:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
     "pct": 75,
-    "resetsAt": "2026-10-30T04:00:00Z",
+    "resetsAt": "2026-10-30T03:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-29T15:13:13Z",
+ "asOf": "2026-10-29T15:23:09Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114 + #143: bring FleshBrute_PRIVATE.zip (Downloads\\Castle_Defender) home; share the private SK_Zombie FBX + TGA for #114",
