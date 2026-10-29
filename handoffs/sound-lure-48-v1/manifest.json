@@ -1,0 +1,9 @@
+{
+  "zip": "Sound_Lure_48_Source_Handoff.zip",
+  "bytes": 19761,
+  "sha256": "d7c17b7d52415581c0154d41673b8729bea1148d637f2af31a4921e3be744f74",
+  "status": "source review; no Unreal build or PIE",
+  "static_checks": 11,
+  "native_assertions_supplied": 16,
+  "native_assertions_executed": 0
+}
