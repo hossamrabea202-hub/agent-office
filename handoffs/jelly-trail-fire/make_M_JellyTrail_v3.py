@@ -35,20 +35,14 @@ float FM0 = 0;
 for (int ki = 0; ki < 3; ki++)   // not 'k': HLSL loop counters leak into the node scope
 {
     float2 p = UV * 2 - 1 + (ki == 1 ? float2(E, 0) : (ki == 2 ? float2(0, E) : float2(0, 0)));
-    float2 q = float2(p.x * (0.95 - 0.15 * s1), p.y * (1.10 + 0.20 * s2)) / settle;
-    q.y += 0.08 * sin(q.x * 2.3 + s3 * 6.283);
-    // metaballs: main body, front + back lobes, a side bulge, and droplets that merge or sit apart
-    float2 c1 = q - float2(0.30 + 0.20 * s2, 0.40 * (s3 - 0.5));
-    float2 c2 = q - float2(-0.28 - 0.20 * s3, 0.44 * (s1 - 0.5));
-    float2 c3 = q - float2(0.30 * (s2 - 0.5), 0.36 * (s1 > 0.5 ? 1 : -1));
-    float2 d1 = q - float2(0.70 + 0.05 * s2, 0.25 * (s3 - 0.5));
-    float2 d2 = q - float2(-0.72 - 0.04 * s3, 0.30 * (s1 - 0.5));
-    float2 d3 = q - float2(0.40 * (s2 - 0.5), 0.62 + 0.05 * s1);
-    float fm = exp(-dot(q, q) / (0.30 + 0.06 * s1)) + 0.85 * exp(-dot(c1, c1) / (0.16 + 0.05 * s3))
-             + (0.45 + 0.45 * s1) * exp(-dot(c2, c2) / (0.10 + 0.08 * s2)) + (0.30 + 0.40 * s3) * exp(-dot(c3, c3) / (0.05 + 0.05 * s2))
-             + 0.90 * exp(-dot(d1, d1) / (0.006 + 0.006 * s1)) + 0.90 * exp(-dot(d2, d2) / (0.004 + 0.004 * s3))
-             + 0.90 * step(0.45, s3) * exp(-dot(d3, d3) / 0.004);
-    fm *= 1 + 0.10 * sin(q.x * 6 + s2 * 20) * sin(q.y * 7 + s3 * 20) + 0.04 * sin(q.x * 17 + q.y * 13 + s1 * 40);
+    float2 q = p / settle;
+    float ang = atan2(q.y, q.x);
+    float rr = length(q);
+    // soft dome with an irregular rim: thick centre, thin rounded edge; pieces are laid with overlap so they merge into one smear
+    float edge = 0.80 + 0.05 * sin(ang * 2 + s1 * 6.283) + 0.04 * sin(ang * 5 + s2 * 6.283) + 0.025 * sin(ang * 9 + s3 * 6.283);
+    float dd = rr / edge;
+    float dome = pow(saturate(1 - dd * dd), 0.6);
+    float fm = dd < 1 ? 0.45 + 0.55 * dome : 0.45 - 1.2 * (dd - 1);   // past the rim fm falls 0.45 -> 0.26 within ~16% = soaked halo band
     float h = saturate((fm - 0.45) / 0.55);
     float body = h * h * (3 - 2 * h);
     float lump = 0.10 * sin(q.x * 8.7 + s2 * 20) * sin(q.y * 10.3 + s3 * 20) + 0.05 * sin(q.x * 19 + q.y * 7 + s1 * 30);
@@ -80,8 +74,8 @@ nT = inside > 0 ? normalize(nT) : float3(0, 0, 1);
 NODES = [
     ('BaseColor', unreal.CustomMaterialOutputType.CMOT_FLOAT3, unreal.MaterialProperty.MP_BASE_COLOR, r'''
 float th = smoothstep(0.0, 0.9, T);
-float3 thin = float3(0.045, 0.058, 0.014);       // murky olive film
-float3 deep = float3(0.017, 0.038, 0.004);       // thick body: light is absorbed -> deep sickly green
+float3 thin = float3(0.034, 0.038, 0.012);       // murky olive-brown film
+float3 deep = float3(0.014, 0.026, 0.005);       // thick body: deep murky green-brown
 float3 c = lerp(thin, deep, th);
 c = lerp(c, c * 1.6 + float3(0.012, 0.016, 0.0), B0 * 0.6);   // bubbles a touch lighter
 c = lerp(c, float3(0.022, 0.020, 0.012), dry * 0.8);
