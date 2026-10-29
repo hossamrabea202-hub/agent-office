@@ -19,13 +19,15 @@ replaces it in place.
   - a micro-detail bump carried by the normal bake
 - **Known:** faint ghost marks where the back-rail ropes project onto two posts in the bake. v1 had the same marks.
 - `source/preview135.py` renders the look-dev or the baked mesh. The v1 shot is kept as `renders/palisade_front34.png`.
-- The cheval, breach and watchtower are unchanged (still v1). Re-run `run_kit.ps1 -Assets Cheval,Breach,Watchtower`
-  to give them the v2 look.
+- **Whole kit v2 (TGA, same day, owner's ask):** the cheval, breach and watchtower are rebaked with the same v2 bark,
+  on the same meshes and file names. The whole border now matches. v1 shots are kept as `cheval_front34.png`,
+  `breach_back34.png` and `watchtower.png`.
+- `run_kit.ps1 -Assets` takes **one asset per run** (`-Assets Cheval,Breach` arrives as one string and fails in prep).
 
 ![palisade v2](renders/palisade_v2_front34.jpg)
-![cheval](renders/cheval_front34.png)
-![breach](renders/breach_back34.png)
-![watchtower](renders/watchtower.png)
+![cheval v2](renders/cheval_v2.jpg)
+![breach v2](renders/breach_v2.jpg)
+![watchtower v2](renders/watchtower_v2.jpg)
 
 ## Pieces
 
