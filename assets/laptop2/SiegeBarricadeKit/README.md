@@ -7,6 +7,7 @@ public repo.
 
 ![palisade](renders/palisade_front34.png)
 ![cheval](renders/cheval_front34.png)
+![breach](renders/breach_back34.png)
 
 ## Pieces
 
@@ -14,6 +15,7 @@ public repo.
 |---|---|---|---|
 | `SM_SiegeBarricade_Palisade` | 4.0 m wide, 2.6-3.5 m tall, 1.8 m deep with its braces | 46,140 | About 13 pine posts packed edge to edge, sunk 0.25 m, axe-pointed and fire-hardened (charred) tips; one post snapped and burnt lower down. Two rails at the back, X-lashed with hemp rope; two diagonal braces. |
 | `SM_SiegeBarricade_Cheval` | 3.6 m long, ~1.4 m tall | 10,192 | A cheval de frise: an axle log bored through by 12 crossing stakes, both ends pointed and charred. |
+| `SM_SiegeBarricade_Breach` | 4.0 m wide, same posts | 25,008 | The palisade smashed inward by the horde: the outer posts stand (the two at the hole lean away), the middle ones are snapped into splintered stumps, knocked over or lying flat inside; both rails broken with sagging ends. **The gap is passable**, so put one on every zombie spawn lane. |
 
 ## Detail
 

@@ -2,7 +2,7 @@
 # Run in the editor:  py "<repo>/assets/laptop2/SiegeBarricadeKit/import_siegekit_ue.py"
 # Creates (re-running re-imports the same files):
 #   /Game/CastleDefender/Environment/Boundaries/SiegeKit/M_SiegeBarricade          shared master (BaseColor/ORM/Normal + Tint, Wetness)
-#   .../SM_SiegeBarricade_Palisade, SM_SiegeBarricade_Cheval  + their textures and MI_ instances
+#   .../SM_SiegeBarricade_Palisade, _Cheval, _Breach  + their textures and MI_ instances
 #   4 LODs each (100 / 50 / 25 / 10 %), simple box collision (blocks Pawn and Camera), lightmap UVs off
 import os
 import unreal
@@ -15,7 +15,7 @@ except NameError:
 DST = '/Game/CastleDefender/Environment/Boundaries/SiegeKit'
 EAL, MEL, SML = unreal.EditorAssetLibrary, unreal.MaterialEditingLibrary, unreal.EditorStaticMeshLibrary
 tools = unreal.AssetToolsHelpers.get_asset_tools()
-ASSETS = ('Palisade', 'Cheval')
+ASSETS = ('Palisade', 'Cheval', 'Breach')
 
 def task(path, opts=None):
     t = unreal.AssetImportTask()
