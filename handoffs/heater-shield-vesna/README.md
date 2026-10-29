@@ -24,7 +24,6 @@ and only one can be worn at a time. Putting one on moves the other to the pack, 
 ## Steps (editor driver)
 
 1. **Import:** `py "<repo>/assets/laptop2/WeaponPack/import_weapons_ue.py" HeaterShield`. The Output Log shows "HeaterShield imported".
-   "Heater shield imported".
 2. **Icon:** import `assets/laptop2/WeaponPack/HeaterShield/icon/T_Item_HeaterShield.png` next to the other `T_Item_` icons (UI texture group, no mips,
    sRGB on).
 3. **Hero:** add a StaticMeshComponent **HeaterShield** to BP_ThirdPersonCharacter, a child of Mesh on the same
