@@ -1,6 +1,6 @@
 {
- "working": "Desk 8 set up, awaiting first card",
- "tokens": 140000,
+ "working": "#114 Zombie variations: setting up Blender",
+ "tokens": 152953,
  "ctx": 1000000,
  "since": "2026-10-29T08:14:47Z",
  "done": [],
@@ -12,24 +12,28 @@
  "usage": {
   "who": "TGA (Claude)",
   "plan": "Pro",
-  "asOf": "2026-10-29T08:14:47Z",
+  "asOf": "2026-10-29T08:22:38Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 3,
+    "pct": 8,
     "resetsAt": "2026-10-29T13:00:00Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 71,
+    "pct": 72,
     "resetsAt": "2026-10-30T04:00:00Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-29T08:17:25Z",
- "seat": "TGA (Claude)"
+ "asOf": "2026-10-29T08:22:38Z",
+ "seat": "TGA (Claude)",
+ "ask": {
+  "text": "#114: share the private zombie FBX + 7 TGA (C:\\Unreal Backups\\Castle Defender\\Tools\\PrivateExports\\2026-10-28\\zombie-variants) with TGA's PC",
+  "at": "2026-10-29T08:22:38Z"
+ }
 }
