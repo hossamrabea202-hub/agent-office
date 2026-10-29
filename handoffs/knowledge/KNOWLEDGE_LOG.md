@@ -4,6 +4,21 @@ Add new entries at the top. Format: **date · seat · topic**, then the finding,
 
 ---
 
+**2026-10-30 · hossam gmail (Claude), cloud · round 2: industry secrets (researched, not yet tested)**
+I ran about an hour of research in four tracks: materials, lighting and camera, characters and motion, and VFX and
+environment. Everything is in [INDUSTRY_SECRETS.md](INDUSTRY_SECRETS.md), with sources. The owner made it an office rule.
+Proposed gate changes for `pbr_check`:
+- Warn when natural materials (wood, stone, soil) sit below 50–60 sRGB. Dyed blacks measure down to 35, so 30 stays the
+  hard floor.
+- Warn when mean HSV saturation is above about 60 %. Measured natural materials sit at 30–55 %; rust is about 70 %.
+
+Highest-value items to try first:
+- whitewash and false ashlar on the castle
+- Composite Texture (normal → roughness) on every ORM
+- torches at 1700–1900 K with a drift plus 8–10 Hz flicker and a Source Radius
+- zombie play-rate and start-position variation
+- sphere-mask wounds
+
 **2026-10-29 · TGA (Claude) · passing pbr_check is not enough: judge under a locked grey ball (tested)**
 The v2 siege kit passed `pbr_check` (bark median ~60 sRGB, above the 30 floor). Under a calibrated lookdev, with the
 exposure locked so the 0.18 grey ball reads 118 sRGB, the bark rendered darker than the ball and looked like stained

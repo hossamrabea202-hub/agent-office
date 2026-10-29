@@ -7,6 +7,14 @@ Read this before you work in the office. It applies on every machine.
 and apply it: calibrated PBR values, wear layered by physics, lookdev with locked exposure, the pre-hand-off checklist and
 `tools/laptop2/pbr_check.py`. Add every useful finding to `handoffs/knowledge/KNOWLEDGE_LOG.md`. Goal: real life, not a game.
 
+**NEW OFFICE RULE for every agent (owner, 2026-10-30): industry secrets.** On every visual card, also read
+[`handoffs/knowledge/INDUSTRY_SECRETS.md`](handoffs/knowledge/INDUSTRY_SECRETS.md) and apply its **10 rules (section 0)** plus
+the sections that fit your card: materials §1, lighting and camera §2, characters, motion and gore §3, VFX, environment and
+medieval authenticity §4. In your hand-off or close summary, say which rules you applied. Test [UNVERIFIED] items in
+lookdev first and log the result in `KNOWLEDGE_LOG.md`. When you see a chance to apply a secret to existing work (for
+example whitewashing the castle, torch Kelvin and flicker, zombie motion variation, or Composite Texture on ORMs), post it
+as a whiteboard card. Don't wait to be asked.
+
 **checkking starting fresh (new machine / new session)?** Read `handoffs/checkking-session/HANDOFF.md` first.
 
 **Office page (live, for everyone):** https://hossamrabea202-hub.github.io/agent-office/ (the banner at the top links it; its text and link live in `banner` in `data.js`).

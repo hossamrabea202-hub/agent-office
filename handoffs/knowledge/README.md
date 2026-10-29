@@ -10,7 +10,10 @@ adds what they learn. The goal is the most realistic result we can reach: "real 
    **ranked playbook** and a **pre-hand-off checklist with numbers**.
 2. [Realism standard](../laptop2-realism/STANDARD.md). The short rules version: calibrated albedo, roughness, wear in
    physical order, lookdev.
-3. `research_notes/`. The raw findings behind the report, with sources: materials and PBR, geometry and baking,
+3. **[Industry secrets](INDUSTRY_SECRETS.md) (2026-10-30, office rule).** Round 2: measured per-material values, the
+   Composite Texture trick, lighting and camera numbers, torch Kelvin and flicker, skin, eyes and zombie motion, gore
+   without C++, fire flipbooks, and what real medieval castles looked like. Start with its **10 rules**.
+4. `research_notes/`. The raw findings behind the report, with sources: materials and PBR, geometry and baking,
    environment and vegetation, lighting and lookdev.
 
 ## The rules that matter most (from the playbook)
