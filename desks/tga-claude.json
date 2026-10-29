@@ -1,6 +1,6 @@
 {
- "working": "#114 Zombie variations: setting up Blender",
- "tokens": 152953,
+ "working": "Waiting on owner: #114 zombie FBX + CGTrader Flesh Mutant download",
+ "tokens": 185000,
  "ctx": 1000000,
  "since": "2026-10-29T08:14:47Z",
  "done": [],
@@ -30,7 +30,7 @@
    }
   ]
  },
- "asOf": "2026-10-29T08:22:38Z",
+ "asOf": "2026-10-29T10:55:46Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114: share the private zombie FBX + 7 TGA (C:\\Unreal Backups\\Castle Defender\\Tools\\PrivateExports\\2026-10-28\\zombie-variants) with TGA's PC",
