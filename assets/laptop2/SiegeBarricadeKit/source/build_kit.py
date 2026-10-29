@@ -63,8 +63,9 @@ def log(name, p0, p1, r, seed, tip1=0.0, tip0=0.0, bend=0.02, char=0.0, split=Fa
     brk: the p1 end is snapped off instead: a jagged, splintered break up to brk metres deep, bare fibre showing."""
     rng = np.random.default_rng(seed)
     o, L, X, Y, Z = frame(p0, p1, rng.uniform(0, 2 * PI))
-    na = 160 if HIGH else 14
-    dl = 0.006 if HIGH else 0.14
+    HS = float(os.environ.get('HIGH_SCALE', '1'))     # >1 = coarser high mesh (big assets seen from afar; keeps the bake in memory)
+    na = int(160 / HS) if HIGH else 14
+    dl = 0.006 * HS if HIGH else 0.14
     nl = max(int(L / dl), 6)
     t = np.linspace(0, 1, nl + 1)
     # extra rings near pointed ends so the facets resolve on the low mesh
@@ -341,6 +342,79 @@ elif ASSET == 'Breach':
     # the left brace still holds; the right one was knocked flat
     objs.append(log('Brace_L', (-0.9, 1.75, -0.2), (-1.1, 0.36, 2.05), 0.085, 990, bend=0.02))
     objs.append(log('Brace_R', (1.6, 2.2, 0.08), (0.9, 0.8, 0.1), 0.085, 991, bend=0.02, brk=0.15))
+elif ASSET == 'Watchtower':
+    # abandoned watch post at the fog edge, the "read" landmark of #29: four 7.6 m legs (3.0 m apart at the base,
+    # 2.3 m at the top), X-braced on two levels, a pole platform at 5.8 m behind a stake parapet, an A-frame roof
+    # whose thatch is gone (two rafter pairs and the ridge left). One leg is snapped at 4.2 m, so the whole tower
+    # leans 6 degrees toward that corner; a ladder still leans on the front.
+    B0, B1, HT, PZ = 1.5, 1.15, 7.6, 5.8
+    corners = [(-1, -1), (1, -1), (1, 1), (-1, 1)]
+    leg = lambda k, z: np.array([corners[k][0] * (B0 + (B1 - B0) * z / HT), corners[k][1] * (B0 + (B1 - B0) * z / HT), z])
+    SNAP = 2
+    for k in range(4):
+        if k == SNAP:   # snapped: stump below, the broken upper part still hanging from the platform beams
+            objs.append(log('Leg_%d' % k, leg(k, -0.3), leg(k, 4.2), 0.17, 1000 + k, bend=0.02, brk=0.3))
+            objs.append(log('LegTop_%d' % k, leg(k, HT) + np.array([0, 0, 0]), leg(k, 4.55) + np.array([0.12, 0.10, 0]), 0.16, 1010 + k, bend=0.02, brk=0.25))
+        else:
+            objs.append(log('Leg_%d' % k, leg(k, -0.3), leg(k, HT), 0.17, 1000 + k, tip1=0.35, bend=0.03, char=0.6))
+    # X braces on two levels on all four sides, plus a ring beam under the platform; lashed where they cross a leg
+    for lvl, (z0, z1) in enumerate(((0.5, 2.9), (3.1, 5.5))):
+        for s in range(4):
+            a, b = s, (s + 1) % 4
+            if lvl == 1 and SNAP in (a, b) and s % 2: continue          # one upper brace pulled out by the collapse
+            for d, (za, zb) in enumerate(((z0, z1), (z1, z0))):
+                pa, pb = leg(a, za), leg(b, zb)
+                o = (pa + pb) / 2; n_ = np.array([o[0], o[1], 0]); n_ /= np.linalg.norm(n_)
+                objs.append(log('Brace_%d_%d_%d' % (lvl, s, d), pa + n_ * 0.18, pb + n_ * 0.18, 0.075, 1100 + lvl * 20 + s * 2 + d, bend=0.02))
+    for s in range(4):
+        a, b = s, (s + 1) % 4
+        pa, pb = leg(a, PZ - 0.15), leg(b, PZ - 0.15)
+        # beams sit on the outside of the legs (offset outward by leg + beam radius) and are lashed to each leg
+        mid = (pa + pb) / 2; out_ = np.array([mid[0], mid[1], 0]); out_ /= np.linalg.norm(out_)
+        off = out_ * 0.27
+        objs.append(log('Beam_%d' % s, pa + off + (pa - pb) * 0.08, pb + off + (pb - pa) * 0.08, 0.11, 1200 + s, bend=0.01))
+        for k_ in (a, b):
+            if k_ == SNAP: continue
+            c = leg(k_, PZ - 0.15)
+            objs.append(lash('LashB_%d_%d' % (s, k_), c, 0.17, c + off, 0.11, (0, 0, 1), pb - pa, 1250 + s * 2 + k_))
+    # pole floor: 16 poles across the beams, a few missing over the snapped corner
+    W2 = B0 + (B1 - B0) * PZ / HT
+    for k in range(16):
+        y = -W2 + 0.12 + k * (2 * W2 - 0.24) / 15
+        if k >= 12 and rng.random() < 0.6: continue
+        objs.append(log('Floor_%02d' % k, (-W2 - 0.25, y, PZ + 0.05), (W2 + 0.25, y + rng.uniform(-0.03, 0.03), PZ + 0.05), rng.uniform(0.05, 0.065), 1300 + k, bend=0.01))
+    # stake parapet around the platform (1.3 m), gaps where stakes fell
+    for s in range(4):
+        a, b = s, (s + 1) % 4
+        pa, pb = leg(a, PZ), leg(b, PZ)
+        for t in np.linspace(0.08, 0.92, 9):
+            if rng.random() < (0.45 if SNAP in (a, b) else 0.12): continue
+            p = pa + (pb - pa) * t; n_ = np.array([p[0], p[1], 0]); n_ /= np.linalg.norm(n_)
+            objs.append(log('Stake_%d_%02d' % (s, int(t * 100)), p + n_ * 0.12 + np.array([0, 0, -0.3]), p + n_ * (0.12 + rng.uniform(0, 0.1)) + np.array([0, 0, rng.uniform(1.2, 1.45)]),
+                            rng.uniform(0.05, 0.065), 1400 + s * 10 + int(t * 9), tip1=0.18, bend=0.01, char=0.8))
+    # roof: ridge and two rafter pairs (the thatch has rotted away), one rafter fallen onto the floor
+    ridge_z = HT + 1.2
+    objs.append(log('Ridge', (-B1 - 0.3, 0, ridge_z), (B1 + 0.3, 0.02, ridge_z - 0.05), 0.08, 1500, bend=0.02))
+    for x, sd in ((-B1 + 0.1, 1510), (B1 - 0.1, 1520)):
+        for sgn in (-1, 1):
+            if x > 0 and sgn > 0:
+                objs.append(log('RafterFallen', (x - 0.3, 0.4, PZ + 0.17), (x - 1.6, -0.6, PZ + 0.2), 0.065, sd + 5, bend=0.02, brk=0.15)); continue
+            objs.append(log('Rafter_%d_%d' % (sd, sgn), (x, sgn * (B1 + 0.35), HT - 0.35), (x, -sgn * 0.12, ridge_z + 0.12), 0.065, sd + (sgn > 0), bend=0.02))
+    # ladder on the front (-Y): two rails and rungs, one rung missing, the top resting on the platform beam
+    for k, xr in enumerate((-0.32, 0.32)):
+        objs.append(log('LadderRail_%d' % k, (xr, -B0 - 1.6, -0.1), (xr * 0.9, -W2 - 0.18, PZ + 0.35), 0.055, 1600 + k, bend=0.01))
+    for k in range(13):
+        t = (k + 0.6) / 14
+        if k == 7: continue
+        p0 = np.array([-0.38, -B0 - 1.6 + (-W2 - 0.18 + B0 + 1.6) * t, -0.1 + (PZ + 0.7) * t])
+        objs.append(log('Rung_%02d' % k, p0, p0 + np.array([0.76, 0.01, rng.uniform(-0.02, 0.02)]), 0.032, 1650 + k, bend=0.0))
+    # lean the whole tower 6 deg toward the snapped corner (about the axis through the base, perpendicular to it)
+    ax = np.array([corners[SNAP][1], -corners[SNAP][0], 0.0]); ax /= np.linalg.norm(ax)
+    ang = math.radians(6.0)
+    import mathutils
+    R = mathutils.Matrix.Rotation(ang, 4, mathutils.Vector(ax))
+    for ob in objs:
+        ob.data.transform(R); ob.data.update()
 elif ASSET == 'Cheval':
     # cheval de frise: 3.6 m axle log at 0.55 m with 6 pairs of stakes through it, both ends fire-hardened points
     Lc, zc = 3.6, 0.62

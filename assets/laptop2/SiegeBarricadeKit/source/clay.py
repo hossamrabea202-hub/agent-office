@@ -27,7 +27,7 @@ sun = bpy.data.objects.new('Sun', bpy.data.lights.new('Sun', 'SUN')); sc.collect
 sun.data.energy = 3.5; sun.rotation_euler = (math.radians(50), 0, math.radians(-35)); sun.data.angle = math.radians(3)
 cam = bpy.data.objects.new('Cam', bpy.data.cameras.new('Cam')); sc.collection.objects.link(cam); sc.camera = cam
 cam.data.lens = 40
-views = {'front34': ((-4.6, -6.2, 2.3), (0, 0, 1.4)), 'back34': ((4.8, 6.0, 2.4), (0, 0, 1.3)), 'tips': ((-1.0, -1.9, 3.3), (0.1, 0, 2.95)), 'base': ((-0.9, -2.0, 0.9), (0.2, 0, 0.5)), 'lash': ((1.4, 1.9, 2.4), (0.4, 0.3, 2.1))}
+views = {'tower': ((-9.5, -13.0, 5.5), (0, 0, 4.2)), 'front34': ((-4.6, -6.2, 2.3), (0, 0, 1.4)), 'back34': ((4.8, 6.0, 2.4), (0, 0, 1.3)), 'tips': ((-1.0, -1.9, 3.3), (0.1, 0, 2.95)), 'base': ((-0.9, -2.0, 0.9), (0.2, 0, 0.5)), 'lash': ((1.4, 1.9, 2.4), (0.4, 0.3, 2.1))}
 for k, (p, t) in views.items():
     if os.environ.get('VIEWS') and k not in os.environ['VIEWS'].split(','): continue
     cam.location = p; d = mathutils.Vector(t) - mathutils.Vector(p); cam.rotation_euler = d.to_track_quat('-Z', 'Y').to_euler()

@@ -8,6 +8,7 @@ public repo.
 ![palisade](renders/palisade_front34.png)
 ![cheval](renders/cheval_front34.png)
 ![breach](renders/breach_back34.png)
+![watchtower](renders/watchtower.png)
 
 ## Pieces
 
@@ -16,6 +17,7 @@ public repo.
 | `SM_SiegeBarricade_Palisade` | 4.0 m wide, 2.6-3.5 m tall, 1.8 m deep with its braces | 46,140 | About 13 pine posts packed edge to edge, sunk 0.25 m, axe-pointed and fire-hardened (charred) tips; one post snapped and burnt lower down. Two rails at the back, X-lashed with hemp rope; two diagonal braces. |
 | `SM_SiegeBarricade_Cheval` | 3.6 m long, ~1.4 m tall | 10,192 | A cheval de frise: an axle log bored through by 12 crossing stakes, both ends pointed and charred. |
 | `SM_SiegeBarricade_Breach` | 4.0 m wide, same posts | 25,008 | The palisade smashed inward by the horde: the outer posts stand (the two at the hole lean away), the middle ones are snapped into splintered stumps, knocked over or lying flat inside; both rails broken with sagging ends. **The gap is passable**, so put one on every zombie spawn lane. |
+| `SM_SiegeBarricade_Watchtower` | 3.0 m footprint, 8.8 m tall | 68,472 | The "read" landmark of #29: an abandoned watch post at the fog edge. Four X-braced legs, a pole platform at 5.8 m behind a stake parapet, a roof frame whose thatch has rotted away, a leaning ladder. One leg is snapped, so the tower leans 6° toward it. One every 40-60 m along the border, backlit by the fog. |
 
 ## Detail
 
@@ -51,6 +53,8 @@ Everything needed to rebuild, or to make new variations, is in `source/`:
 - `woodmat.py` + `matlib.py`: the procedural PBR
 - `bake_kit.py` + `run_kit.ps1`: staged 4K bake
 - `clay.py`: renders
+
+For the watchtower set `HIGH_SCALE=1.8` before `run_kit.ps1` (a lighter bake source, so it fits in memory).
 
 Copy `source/` into a short folder (Blender can't open paths over 260 characters) and run
 `powershell -ExecutionPolicy Bypass -File run_kit.ps1 -Assets Palisade`, then run it again with `Cheval`. It needs
