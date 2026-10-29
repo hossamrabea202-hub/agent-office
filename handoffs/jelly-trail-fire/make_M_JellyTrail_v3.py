@@ -10,7 +10,8 @@ MEL = unreal.MaterialEditingLibrary
 if unreal.EditorAssetLibrary.does_asset_exist(FULL):
     unreal.EditorAssetLibrary.delete_asset(FULL)
 mat = unreal.AssetToolsHelpers.get_asset_tools().create_asset(NAME, PATH, unreal.Material, unreal.MaterialFactoryNew())
-mat.set_editor_property('blend_mode', unreal.BlendMode.BLEND_TRANSLUCENT)
+mat.set_editor_property('blend_mode', unreal.BlendMode.BLEND_MASKED)
+mat.set_editor_property('opacity_mask_clip_value', 0.5)
 mat.set_editor_property('translucency_lighting_mode', unreal.TranslucencyLightingMode.TLM_SURFACE_PER_PIXEL_LIGHTING)
 mat.set_editor_property('used_with_instanced_static_meshes', True)
 mat.set_editor_property('two_sided', True)
@@ -73,14 +74,14 @@ float charred = max(burnt, (burning > 0 && T < bt * 1.15) ? 1 : 0);
 
 float halo = (1 - inside) * smoothstep(0.26, 0.44, FM0);          // soaked ground just outside the body
 float vis = burning > 0 ? 1 - saturate((since - 3.0) / 10.0) : 1 - saturate((age - 20.0) / 5.0);
-float3 nT = float3(-(H[1] - H[0]) / E * 0.16, (H[2] - H[0]) / E * 0.16, 1);
+float3 nT = float3(-(H[1] - H[0]) / E * 0.07, (H[2] - H[0]) / E * 0.07, 1);
 nT = inside > 0 ? normalize(nT) : float3(0, 0, 1);
 '''
 NODES = [
     ('BaseColor', unreal.CustomMaterialOutputType.CMOT_FLOAT3, unreal.MaterialProperty.MP_BASE_COLOR, r'''
 float th = smoothstep(0.0, 0.9, T);
-float3 thin = float3(0.090, 0.095, 0.035);       // murky olive film
-float3 deep = float3(0.018, 0.026, 0.006);       // thick body: light is absorbed -> deep brown-green
+float3 thin = float3(0.045, 0.058, 0.014);       // murky olive film
+float3 deep = float3(0.017, 0.038, 0.004);       // thick body: light is absorbed -> deep sickly green
 float3 c = lerp(thin, deep, th);
 c = lerp(c, c * 1.6 + float3(0.012, 0.016, 0.0), B0 * 0.6);   // bubbles a touch lighter
 c = lerp(c, float3(0.022, 0.020, 0.012), dry * 0.8);
@@ -89,31 +90,35 @@ return lerp(c, float3(0.025, 0.02, 0.018), charred);'''),
     ('Emissive', unreal.CustomMaterialOutputType.CMOT_FLOAT3, unreal.MaterialProperty.MP_EMISSIVE_COLOR, r'''
 float wet = inside * (1 - dry) * (1 - charred);
 float3 Ls = normalize(float3(0.35, 0.22, 1.0));
-float glint = pow(saturate(dot(nT, Ls)), 160) * 1.4 + pow(saturate(dot(nT, normalize(float3(-0.4, 0.5, 1.0)))), 90) * 0.35;
-float rim = pow(saturate(1 - nT.z), 1.5) * 0.10;
-float3 sky = float3(0.55, 0.60, 0.55) * (glint + rim) * wet * smoothstep(0.03, 0.25, T);
-float3 bub = float3(0.25, 0.28, 0.2) * B0 * pow(saturate(dot(nT, Ls)), 40) * wet;
-float3 base = sky + bub;
+float glint = pow(saturate(dot(nT, Ls)), 220) * 0.30 + pow(saturate(dot(nT, normalize(float3(-0.4, 0.5, 1.0)))), 140) * 0.06;
+float rim = pow(saturate(1 - nT.z), 2.0) * 0.015;
+float3 sky = float3(0.42, 0.46, 0.34) * (glint + rim) * wet * smoothstep(0.03, 0.25, T);
+float3 bub = float3(0.05, 0.06, 0.03) * B0 * pow(saturate(dot(nT, Ls)), 60) * wet;
+float3 sss = float3(0.0015, 0.005, 0.0004) * smoothstep(0.35, 1.0, T) * wet;   // light scattered inside thick goo
+float3 base = sky * 0.7 + bub + sss;
 if (burning < 1 || burnt > 0) return base;
 float flick = 0.6 + 0.4 * sin(Now * 23 + Seed * 40 + T * 9) * sin(Now * 31 + UV.x * 15);
 float3 col = lerp(float3(4.0, 0.9, 0.12), float3(6.0, 3.2, 0.6), saturate(T));
 return col * (1 - bt) * (1 - charred * 0.7) * flick;'''),
     ('Roughness', unreal.CustomMaterialOutputType.CMOT_FLOAT1, unreal.MaterialProperty.MP_ROUGHNESS, r'''
 if (charred > 0) return 0.92;
-float r = lerp(0.10, 0.015, smoothstep(0.03, 0.4, T));
+float r = lerp(0.26, 0.11, smoothstep(0.03, 0.4, T));
 r = lerp(r, 0.30, halo);
 return lerp(r, 0.55, dry);'''),
     ('Specular', unreal.CustomMaterialOutputType.CMOT_FLOAT1, unreal.MaterialProperty.MP_SPECULAR, r'''
-return lerp(0.85, 0.35, max(dry, charred));'''),
+return lerp(0.35, 0.15, max(dry, charred));'''),
     ('Normal', unreal.CustomMaterialOutputType.CMOT_FLOAT3, unreal.MaterialProperty.MP_NORMAL, r'''
 float k = (1 - dry * 0.6) * (1 - charred);
 return normalize(lerp(float3(0, 0, 1), nT, k));'''),
-    ('Opacity', unreal.CustomMaterialOutputType.CMOT_FLOAT1, unreal.MaterialProperty.MP_OPACITY, r'''
+    ('Opacity', unreal.CustomMaterialOutputType.CMOT_FLOAT1, unreal.MaterialProperty.MP_OPACITY_MASK, r'''
 float body = inside * lerp(0.30, 0.94, smoothstep(0.0, 0.6, T));   // thin edges see-through, thick body dense
 float o = max(body, halo * 0.38);
 o = lerp(o, o * 0.85, dry);
 if (charred > 0) o = max(o, inside * 0.95);
-return o * vis;'''),
+o *= vis;
+// masked + temporal dither: TAA turns this into soft see-through edges
+float dn = frac(sin(dot(floor(UV * Size * 2.0), float2(12.9898, 78.233)) + frac(Now * 7.31) * 91.7) * 43758.5453);
+return dn < o ? 1 : 0;'''),
     ('Refraction', unreal.CustomMaterialOutputType.CMOT_FLOAT1, unreal.MaterialProperty.MP_REFRACTION, r'''
 return 1.0 + 0.18 * inside * smoothstep(0.0, 0.5, T) * (1 - dry);'''),
     ('WPO', unreal.CustomMaterialOutputType.CMOT_FLOAT1, None, r'''
@@ -138,14 +143,16 @@ for i, (label, out_type, prop, body) in enumerate(NODES):
         MEL.connect_material_property(c, '', prop)
     nodes[label] = c
 # WPO: (0,0,h) in local space -> world
-mv = MEL.create_material_expression(mat, unreal.MaterialExpressionAppendVector, -200, 1800)
-z0 = MEL.create_material_expression(mat, unreal.MaterialExpressionConstant2Vector, -350, 1800)
+mv = MEL.create_material_expression(mat, unreal.MaterialExpressionAppendVector, -500, 600)
+z0 = MEL.create_material_expression(mat, unreal.MaterialExpressionConstant2Vector, -700, 600)
 MEL.connect_material_expressions(z0, '', mv, 'A'); MEL.connect_material_expressions(nodes['WPO'], '', mv, 'B')
-tr = MEL.create_material_expression(mat, unreal.MaterialExpressionTransform, -50, 1800)
+tr = MEL.create_material_expression(mat, unreal.MaterialExpressionTransform, -300, 600)
 tr.set_editor_property('transform_source_type', unreal.MaterialVectorCoordTransformSource.TRANSFORMSOURCE_LOCAL)
 tr.set_editor_property('transform_type', unreal.MaterialVectorCoordTransform.TRANSFORM_WORLD)
 MEL.connect_material_expressions(mv, '', tr, '')
-MEL.connect_material_property(tr, '', unreal.MaterialProperty.MP_WORLD_POSITION_OFFSET)
+# UE 5.3 Python has no MP_WORLD_POSITION_OFFSET: wire the Transform node to World Position Offset by hand in the material editor
+try: MEL.connect_material_property(tr, '', getattr(unreal.MaterialProperty, 'MP_WORLD_POSITION_OFFSET'))
+except AttributeError: unreal.log_warning('M_JellyTrail_v3: connect Transform -> World Position Offset by hand')
 MEL.recompile_material(mat)
 unreal.EditorAssetLibrary.save_asset(FULL)
 unreal.log('M_JellyTrail_v3 built: ' + FULL)
