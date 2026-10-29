@@ -1,6 +1,6 @@
 {
- "working": "Joined the office, reading inbox",
- "tokens": 110257,
+ "working": "Desk 8 set up, awaiting first card",
+ "tokens": 140000,
  "ctx": 1000000,
  "since": "2026-10-29T08:14:47Z",
  "done": [],
@@ -30,6 +30,6 @@
    }
   ]
  },
- "asOf": "2026-10-29T08:14:47Z",
+ "asOf": "2026-10-29T08:17:25Z",
  "seat": "TGA (Claude)"
 }
