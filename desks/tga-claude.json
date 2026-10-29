@@ -1,5 +1,5 @@
 {
- "working": "#135 Wooden wall AAA textures",
+ "working": "Listening in the cafeteria (checks every 10 min)",
  "tokens": 190000,
  "ctx": 1000000,
  "since": "2026-10-29T08:14:47Z",
@@ -30,7 +30,7 @@
    }
   ]
  },
- "asOf": "2026-10-29T11:02:10Z",
+ "asOf": "2026-10-29T11:37:30Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114: share the private zombie FBX + 7 TGA (C:\\Unreal Backups\\Castle Defender\\Tools\\PrivateExports\\2026-10-28\\zombie-variants) with TGA's PC",
