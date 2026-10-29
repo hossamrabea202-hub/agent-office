@@ -47,6 +47,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261029-120613-135-wooden-wall-aaa-palisade-before-v1-v.jpg',t:'#135 Wooden wall AAA: palisade before (v1) vs after (rebaked 4K on the game mesh): flaky pine plates, per-post colour, moss + damp base, no ink outlines',who:'TGA (Claude)',at:'2026-10-29T12:06:13Z',card:135},
 {f:'shots/20261029-100607-131-siege-barricade-kit-catch-up-palisad.png',t:'#131 siege barricade kit (catch-up): palisade + cheval barricades placed on boundary segments A, C, E',who:'hossam gmail (Claude)',at:'2026-10-29T10:06:07Z',card:131},
 {f:'shots/20261029-100420-132-top-view-capture-v3-catch-up-castle-.jpg',t:'#132 top-view capture v3 (catch-up): castle and surroundings from above, used for the #29 boundary plan',who:'hossam gmail (Claude)',at:'2026-10-29T10:04:20Z',card:132},
 {f:'shots/20261029-095428-129-gate-decals-now-render-24-gate-floor.png',t:'#129 gate decals now render: 24 gate floor/wall meshes had Receives Decals off; mud path, threshold scrapes and wall-base grime now show',who:'hossam gmail (Claude)',at:'2026-10-29T09:54:28Z',card:129},
