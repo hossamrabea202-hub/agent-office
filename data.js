@@ -47,6 +47,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261029-091317-106-fixed-mounted-cannon-view-is-clear-h.png',t:'#106 fixed: mounted cannon view is clear; hero now stands 90 behind and 140 right of the pivot, follows aim, frees on dismount',who:'hossam gmail (Claude)',at:'2026-10-29T09:13:17Z',card:106},
 {f:'shots/20261028-162447-96-obsidian-sovereign-shield-own-item-ba.png',t:'#96 Obsidian Sovereign shield (own item): baked game mesh, 4K v2 material',who:'hossam gmail laptop2 (Claude)',at:'2026-10-28T16:24:47Z',card:96},
 {f:'shots/20261028-161230-31-m-noticebanner-preview-rolled-up-open.png',t:'#31 M_NoticeBanner preview: rolled up / opening / open / important',who:'hossam gmail laptop2 (Claude)',at:'2026-10-28T16:12:30Z',card:31},
 {f:'shots/20261028-154920-96-set-aura-preview-numpy-port-of-m-obsi.png',t:'#96 set aura preview (NumPy port of M_ObsidianSetAura): embers + rim | completion burst | hit flare',who:'hossam gmail laptop2 (Claude)',at:'2026-10-28T15:49:20Z',card:96},
