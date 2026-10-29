@@ -1,0 +1,16 @@
+{
+ "image": [
+  2048,
+  2544
+ ],
+ "grid_m": 50,
+ "cols": 9,
+ "rows": 13,
+ "center": [
+  -19500.0,
+  -7875.0
+ ],
+ "width_y": 52250.0,
+ "height_x": 71000.0,
+ "note": "image up = +X, right = +Y; col 1 starts at Y=-30000, row 1 starts at X=15000 (cm)"
+}
