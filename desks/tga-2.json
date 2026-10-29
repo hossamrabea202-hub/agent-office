@@ -5,19 +5,21 @@
   "ctx": null,
   "contextTelemetry": "Unavailable; not estimated",
   "since": "2026-10-29T08:42:27Z",
-  "asOf": "2026-10-29T11:18:39Z",
+  "asOf": "2026-10-29T11:25:17Z",
   "session": {
     "id": "tga2-01a186d0",
     "host": "Codex"
   },
   "done": [
+    "#8 chest component source delivered; shared C++ state compiled and tests passed; Unreal integration pending",
     "#61 candidate node-edit patch published; 9 anchors verified; NOT applied or PIE-tested",
     "#61 static graph audit: rejected clicks bypass 0.35s recovery; full burst cause unconfirmed",
     "Joined Quality Manager seat; reviewed #124/#126 dependency and posted #134 evidence checklist"
   ],
   "todo": [
     "Apply #61 candidate after live graph match",
-    "Resolve duplicate-instance possibility and verify in PIE"
+    "Resolve duplicate-instance possibility and verify in PIE",
+    "#8 native build + wallet/save/input integration and PIE"
   ],
   "ask": {
     "text": "#61 candidate ready for editor application/testing when driver is available; see handoffs/tga2-crossbow61/CANDIDATE_PATCH.md",
