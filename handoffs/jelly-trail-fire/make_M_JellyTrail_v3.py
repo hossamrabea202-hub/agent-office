@@ -39,7 +39,7 @@ for (int ki = 0; ki < 3; ki++)   // not 'k': HLSL loop counters leak into the no
     float ang = atan2(q.y, q.x);
     float rr = length(q);
     // soft dome with an irregular rim: thick centre, thin rounded edge; pieces are laid with overlap so they merge into one smear
-    float edge = 0.80 + 0.05 * sin(ang * 2 + s1 * 6.283) + 0.04 * sin(ang * 5 + s2 * 6.283) + 0.025 * sin(ang * 9 + s3 * 6.283);
+    float edge = (0.84 + 0.14 * s3) * 0.80 + 0.05 * sin(ang * 2 + s1 * 6.283) + 0.04 * sin(ang * 5 + s2 * 6.283) + 0.025 * sin(ang * 9 + s3 * 6.283);
     float dd = rr / edge;
     float dome = pow(saturate(1 - dd * dd), 0.6);
     float fm = dd < 1 ? 0.45 + 0.55 * dome : 0.45 - 1.2 * (dd - 1);   // past the rim fm falls 0.45 -> 0.26 within ~16% = soaked halo band
@@ -74,10 +74,12 @@ nT = inside > 0 ? normalize(nT) : float3(0, 0, 1);
 NODES = [
     ('BaseColor', unreal.CustomMaterialOutputType.CMOT_FLOAT3, unreal.MaterialProperty.MP_BASE_COLOR, r'''
 float th = smoothstep(0.0, 0.9, T);
-float3 thin = float3(0.034, 0.038, 0.012);       // murky olive-brown film
-float3 deep = float3(0.014, 0.026, 0.005);       // thick body: deep murky green-brown
+float3 thin = float3(0.026, 0.022, 0.017);       // brown-black wet film
+float3 deep = float3(0.016, 0.014, 0.010);       // thick body: dark brown-black goo (owner: no green)
 float3 c = lerp(thin, deep, th);
-c = lerp(c, c * 1.6 + float3(0.012, 0.016, 0.0), B0 * 0.6);   // bubbles a touch lighter
+float mot = 0.5 + 0.5 * sin(UV.x * 7.3 + Seed * 20) * sin(UV.y * 6.1 + Seed * 13);
+c *= 0.75 + 0.5 * mot;
+c = lerp(c, c * 1.6 + float3(0.010, 0.009, 0.007), B0 * 0.6);   // bubbles a touch lighter
 c = lerp(c, float3(0.022, 0.020, 0.012), dry * 0.8);
 c = lerp(c, float3(0.010, 0.009, 0.006), halo);
 return lerp(c, float3(0.025, 0.02, 0.018), charred);'''),
@@ -86,9 +88,9 @@ float wet = inside * (1 - dry) * (1 - charred);
 float3 Ls = normalize(float3(0.35, 0.22, 1.0));
 float glint = pow(saturate(dot(nT, Ls)), 220) * 0.30 + pow(saturate(dot(nT, normalize(float3(-0.4, 0.5, 1.0)))), 140) * 0.06;
 float rim = pow(saturate(1 - nT.z), 2.0) * 0.015;
-float3 sky = float3(0.42, 0.46, 0.34) * (glint + rim) * wet * smoothstep(0.03, 0.25, T);
-float3 bub = float3(0.05, 0.06, 0.03) * B0 * pow(saturate(dot(nT, Ls)), 60) * wet;
-float3 sss = float3(0.0015, 0.005, 0.0004) * smoothstep(0.35, 1.0, T) * wet;   // light scattered inside thick goo
+float3 sky = float3(0.42, 0.42, 0.40) * (glint + rim) * wet * smoothstep(0.03, 0.25, T);
+float3 bub = float3(0.05, 0.05, 0.045) * B0 * pow(saturate(dot(nT, Ls)), 60) * wet;
+float3 sss = float3(0.002, 0.0016, 0.001) * smoothstep(0.35, 1.0, T) * wet;   // light scattered inside thick goo
 float3 base = sky * 0.7 + bub + sss;
 if (burning < 1 || burnt > 0) return base;
 float flick = 0.6 + 0.4 * sin(Now * 23 + Seed * 40 + T * 9) * sin(Now * 31 + UV.x * 15);
