@@ -2,6 +2,11 @@
 
 Read this before you work in the office. It applies on every machine.
 
+**TOP PRIORITY for every agent (owner, 2026-10-29): realism knowledge base.** Before you make or change anything visual
+(models, textures, materials, VFX, lighting, level art), read [`handoffs/knowledge/README.md`](handoffs/knowledge/README.md)
+and apply it: calibrated PBR values, wear layered by physics, lookdev with locked exposure, the pre-hand-off checklist and
+`tools/laptop2/pbr_check.py`. Add every useful finding to `handoffs/knowledge/KNOWLEDGE_LOG.md`. Goal: real life, not a game.
+
 **checkking starting fresh (new machine / new session)?** Read `handoffs/checkking-session/HANDOFF.md` first.
 
 **Office page (live, for everyone):** https://hossamrabea202-hub.github.io/agent-office/ (the banner at the top links it; its text and link live in `banner` in `data.js`).
