@@ -72,7 +72,7 @@ for part in ('01', '02'):
     burn = np.clip(0.88 + 0.12 * ss(-1.0, 1.0, mott), 0, 1)
     # char: near-black, with grey-white ash crusting the raised skin in patches
     ash = np.clip(ridge * 0.6 + ss(0.3, 1.6, detail) * 0.5, 0, 1) * ss(-0.6, 0.8, mott)
-    char = mix(np.array([0.012, 0.010, 0.009]), np.array([0.20, 0.19, 0.18]), ash * 0.85)
+    char = mix(np.array([0.021, 0.018, 0.016]), np.array([0.20, 0.19, 0.18]), ash * 0.85)    # charcoal ~38 sRGB, not black
     chd = mix(bc1 * np.array([0.35, 0.16, 0.10]), char, burn)
     raw = bc2 * np.array([1.25, 0.45, 0.32])                 # raw, glistening flesh in the burn cracks
     chd = mix(chd, raw, np.clip(crack * 1.2, 0, 0.95))
@@ -83,6 +83,19 @@ for part in ('01', '02'):
     pale = mix(pale, np.array([0.10, 0.10, 0.17]), ss(0.2, 0.7, cav) * 0.6)
     pale = mix(pale, np.array([0.22, 0.20, 0.26]), ss(0.5, 1.8, -mott) * 0.35)
     skins['Drowned'] = (pale, np.clip(rg1 * 0.55, 0.12, 1))
+
+    # realism standard (handoffs/laptop2-realism/STANDARD.md): nothing darker than ~32 sRGB (soft toe on luminance,
+    # so hue is kept), roughness varied at three scales: micro (skin detail), mid (noise), macro (mottling); cavities wetter
+    rng = np.random.default_rng(143 + int(part))
+    def nz(r): n = blur(rng.standard_normal(ao.shape).astype(np.float32), r); return n / (n.std() + 1e-6)
+    rvar = 0.035 * np.clip(detail, -2, 2) + 0.03 * nz(4) + 0.035 * np.clip(mott, -2, 2) - 0.06 * ss(0.2, 0.7, cav)
+    # dark floor in sRGB on the channel mean: a soft toe lifts it to ~36 with an even (neutral) add, so the darkest reds
+    # keep their hue but lose the impossible near-zero G/B; values above ~70 sRGB are practically untouched
+    F = 36 / 255
+    for name in list(skins):
+        bc, rg = skins[name]; s = to_srgb(bc); m = s.mean(-1)
+        s = s + (np.sqrt(m * m + F * F) - m)[..., None] * (1 - ss(0.15, 0.35, m))[..., None]
+        skins[name] = (to_lin(np.clip(s, 0, 1)), np.clip(rg + rvar, 0.05, 1))
 
     for name, (bc, rg) in skins.items():
         save(bc, f'T_FleshBrute_{name}_P{part}_BC', True)

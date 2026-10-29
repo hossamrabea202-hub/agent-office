@@ -39,6 +39,16 @@ The model's own UE package is built for **UE 5.8**, so it can't be opened in our
 The masks come from the artist's own AO, colour and normal-map curvature, so the variants don't break at UV seams.
 The generator is `source/make_skins.py` (Blender 5.2, numpy).
 
+**Realism standard pass (2026-10-29, `handoffs/laptop2-realism/STANDARD.md`):** all 10 BaseColor/ORM pairs pass
+`tools/laptop2/pbr_check.py`. Before the pass:
+- Charred was 74 % below 30 sRGB. Its char is now charcoal at about 38-50 sRGB.
+- Even the artist's Clean and Bloody had 16-31 % crushed blacks. A soft dark floor on every skin lifts only the darkest
+  tones to about 36 sRGB.
+- Roughness was flat on three P02 maps. It now varies at three scales (skin detail, noise, mottling), with wetter
+  cavities.
+
+The private zip has the new maps.
+
 ## Unreal (Master)
 
 1. **Import.** Run `py "<repo>/assets/tga/FleshBrute/import_fleshbrute_ue.py"`. It creates
