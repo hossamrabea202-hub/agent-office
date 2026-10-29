@@ -51,3 +51,30 @@ Seat: `hossam gmail laptop2 (Claude)` (owner reassigned from adjustedfilm, 2026-
 
 `BP_SoldierSword`, `BP_SoldierXbow` (order switch + targeting), `BP_ThirdPersonCharacter` (sword hit handler),
 `BP_TentacleVitals`, `BPC_TentacleStrike` (wind-up flag), `BP_ArmyHUD` (how orders are stored).
+
+## v1 implementation (laptop2, 2026-10-29, from the 10-28 exports in handoffs/exports/laptop2/gameplay)
+
+Findings that make this small: **no hero edit and no soldier-graph edit are needed.**
+- Soldiers take orders through two components: `Order` (RelativeLocation.X = order number) and `Goal`
+  (RelativeLocation = world point). The Commander HUD writes them exactly like that (commander-kit v2).
+  Orders: 0 post, 1 follow, 3 crew cannon, **5 hold at Goal**, 6 attack zombies, 7 defend gate.
+  `BP_SoldierXbow` is a child of `BP_SoldierSword` (one cast, tag `Xbow` tells them apart). `Dead` is a bool on them.
+- The hero's sword does `ApplyDamage(OtherActor, 35, DamageCauser = hero)`. Tentacles take damage through the actor's
+  `OnTakeAnyDamage` (BP_TentacleVitals binds it on its attach parent). So the manager binds `OnTakeAnyDamage` on
+  every tentacle (Get All Actors Of Class BP_TentacleVitals → Get Attach Parent Actor) and engages when
+  DamageCauser == Get Player Character(0).
+- Soldiers only ever target BP_Zombie, so the strike team's attacks are done by the manager: sword = face the
+  tentacle, `AM_Slash1`/`AM_Slash2` montage, `SC_SwordHit` sound, `ApplyDamage(tentacle, 20, causer = soldier)`;
+  crossbow = `AM_Xbow_Aim`, `SFX_XbowFire`, spawn `BP_SoldierBolt` aimed at the tentacle (life span = distance /
+  5000), `ApplyDamage(15)`. Paths: /Game/CastleDefender/Gameplay/Castle/Combat/AM_Slash1|2,
+  /Game/CastleDefender/Gameplay/Crossbow/Anims/AM_Xbow_Aim, /Game/Audio/Kenney/SC_SwordHit,
+  /Game/CastleDefender/Gameplay/Crossbow/Audio/SFX_XbowFire, /Game/CastleDefender/Characters/Knight/BP_SoldierBolt.
+- Both teams use **order 5 (hold at Goal)**, so no new orders 7/8 are needed in the soldier graph:
+  strike swords Goal = ring slot r 250 cm around the tentacle (500 cm while the tentacle's `BPC_TentacleStrike.State`
+  != 0 = slam wind-up/strike), strike crossbows Goal = 1300 cm from the tentacle toward the hero, spread 150 cm
+  sideways; guard Goal = ring slot r 400 cm around HoldPoint (the hero's position at the split).
+- Teams: followers = alive soldiers with Order.X 1 or 2 (`Abs(X - 1) < 0.5 || Abs(X - 2) < 0.5`). Per role (sword /
+  xbow) alternate guard, strike, guard, strike… so odd counts guard. Fewer than 2 followers: no split.
+- `PrevX[]` stores each member's Order.X; Restore writes it back. End: tentacle not valid, vitals Health <= 0, no
+  hero hit for 6 s, or hero > 2500 cm from it. Tick interval 0.5 s.
+- Shouts are left to a socket (PushNotice) until #31's banner is confirmed installed.
