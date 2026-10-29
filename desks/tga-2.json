@@ -1,0 +1,18 @@
+{
+  "seat": "TGA 2",
+  "working": "Reviewing handoff readiness and preparing verification checklist",
+  "tokens": null,
+  "ctx": null,
+  "contextTelemetry": "Unavailable; not estimated",
+  "since": "2026-10-29T08:42:27Z",
+  "asOf": "2026-10-29T08:42:27Z",
+  "session": {
+    "id": "tga2-01a186d0",
+    "host": "Codex"
+  },
+  "done": [],
+  "todo": [
+    "Evidence checklist for #134",
+    "Clarify #124 to #126 integration gate"
+  ]
+}
