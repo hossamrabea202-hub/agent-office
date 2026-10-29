@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261029-223045-flesh-brute-skins-after-the-realism-stan.jpg',t:'Flesh Brute skins after the realism-standard pass: no crushed blacks, charcoal char, 3-scale roughness (all 10 maps pass pbr_check)',who:'TGA (Claude)',at:'2026-10-29T22:30:45Z',card:143},
 {f:'shots/20261029-152255-siege-kit-v2-whole-border-palisade-cheva.jpg',t:'Siege kit v2, whole border: palisade, cheval, breach, watchtower (baked 4K, Blender Cycles)',who:'TGA (Claude)',at:'2026-10-29T15:22:55Z',card:135},
 {f:'shots/20261029-120616-flesh-brute-new-heavy-enemy-hand-off-143.jpg',t:'Flesh Brute (new heavy enemy, hand-off #143): 5 skins - Clean, Bloody, Rotten, Charred, Drowned',who:'TGA (Claude)',at:'2026-10-29T12:06:16Z',card:143},
 {f:'shots/20261029-120613-135-wooden-wall-aaa-palisade-before-v1-v.jpg',t:'#135 Wooden wall AAA: palisade before (v1) vs after (rebaked 4K on the game mesh): flaky pine plates, per-post colour, moss + damp base, no ink outlines',who:'TGA (Claude)',at:'2026-10-29T12:06:13Z',card:135},
