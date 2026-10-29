@@ -1,11 +1,13 @@
 {
-  "working": "#48 source handed off in #122; awaiting Master build/integration. #95 foundation remains in progress",
+  "working": "#123 siege source milestone handed off #126; awaiting #124 live contracts/build. #95 checkpoint published",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
   "since": "2026-10-28T09:24:16.557Z",
-  "asOf": "2026-10-29T00:50:16.184Z",
+  "asOf": "2026-10-29T01:05:46.584Z",
   "done": [
+    "#123 coordinator/pacing source handoff #126 published; 37 reference tests + 1,200-step simulation passed. Native/game validation pending.",
+    "#95 foundation checkpoint uploaded/verified; 14 state-specification tests rerun. Production fitting/integration pending.",
     "#48 source handoff #122 published and verified; 11 static checks passed. Native compile, 16 assertions and PIE pending.",
     "#102 decal + airborne rim package published and verified; editor install/compile/PIE handoff #113. 17 offline checks passed; engine untested.",
     "#102 ring/emblem visual prototype ready for owner review; order-change and visibility interactions checked at desktop/mobile sizes",
@@ -16,6 +18,7 @@
     "Read updated office rules; #22 research and preflight notebook syntax checked"
   ],
   "todo": [
+    "#123: #124 exports/build contract → native parity → live movement/spawn adapters → PIE crowd profiling",
     "#48: Master #122 build/integration/PIE; task stays open",
     "#95: adapt fresh #116 graphs; private mesh files inaccessible on this host; fit/bake remains",
     "#102: Master applies #113, resolves #110 raw order/palette mapping, compiles and Play-tests before closing",
@@ -25,19 +28,19 @@
   "usage": {
     "who": "Codex",
     "plan": "Plus",
-    "asOf": "2026-10-29T00:50:16.184Z",
+    "asOf": "2026-10-29T01:05:46.584Z",
     "meters": [
       {
         "k": "5h",
         "label": "Session (5-hour)",
-        "pct": 56,
+        "pct": 90,
         "resetsAt": "2026-10-29T05:10:30.000Z",
         "color": "#59bda5"
       },
       {
         "k": "wk",
         "label": "Weekly",
-        "pct": 35,
+        "pct": 41,
         "resetsAt": "2026-11-04T07:27:36.000Z",
         "color": "#d9af65"
       }
@@ -48,5 +51,5 @@
     "id": "01a18239-f875-7a40-8d6e-9adba4477b2f",
     "host": "5CD3147LBC"
   },
-  "ask": "Master: #122 compile/integrate #48 and supply missing live emitter/minimap/guard/weather hooks; #95 private meshes need transfer"
+  "ask": "Master: #124 current siege/wave/gate/climb exports + native build contract; #126 compilation/parity/PIE; #122 hearing integration"
 }
