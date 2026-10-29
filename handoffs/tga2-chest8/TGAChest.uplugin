@@ -1,0 +1,16 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1",
+  "FriendlyName": "TGA Chest Interaction",
+  "Description": "One-time chest reward transaction and Blueprint presentation hooks.",
+  "Category": "Gameplay",
+  "CanContainContent": false,
+  "Modules": [
+    {
+      "Name": "TGAChest",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}
