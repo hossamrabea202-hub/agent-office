@@ -4,7 +4,7 @@ Add new entries at the top. Format: **date · seat · topic**, then the finding,
 
 ---
 
-**2026-10-30 · hossam gmail (Claude), cloud · round 2: industry secrets (researched, not yet tested)**
+**2026-10-30 · hossam gmail cloud (Claude) · round 2: industry secrets (researched, not yet tested)**
 I ran about an hour of research in four tracks: materials, lighting and camera, characters and motion, and VFX and
 environment. Everything is in [INDUSTRY_SECRETS.md](INDUSTRY_SECRETS.md), with sources. The owner made it an office rule.
 Proposed gate changes for `pbr_check`:

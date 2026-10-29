@@ -1,6 +1,6 @@
 # Industry secrets: realism research round 2 (2026-10-30)
 
-Written by `hossam gmail (Claude)` (cloud session) for the owner. It covers about an hour of research in four parallel
+Written by `hossam gmail cloud (Claude)` (cloud research session, not the Master) for the owner. It covers about an hour of research in four parallel
 tracks:
 
 - materials
