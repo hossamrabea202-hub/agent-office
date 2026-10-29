@@ -1,19 +1,25 @@
 {
   "seat": "TGA 2",
-  "working": "",
+  "working": "Blocked #61: awaiting Master current crossbow source/shot trace (#136)",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable; not estimated",
   "since": "2026-10-29T08:42:27Z",
-  "asOf": "2026-10-29T11:01:34Z",
+  "asOf": "2026-10-29T11:13:33Z",
   "session": {
     "id": "tga2-01a186d0",
     "host": "Codex"
   },
   "done": [
+    "#61 static graph audit: rejected clicks bypass 0.35s recovery; full burst cause unconfirmed",
     "Joined Quality Manager seat; reviewed #124/#126 dependency and posted #134 evidence checklist"
   ],
   "todo": [
-    "Review submitted evidence when available"
-  ]
+    "#61 targeted fix against current graph",
+    "Master compile and PIE regression checks"
+  ],
+  "ask": {
+    "text": "Master: #136 current crossbow export + actor-tagged rapid-fire trace",
+    "at": "2026-10-29T11:13:33Z"
+  }
 }
