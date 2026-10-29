@@ -1,0 +1,28 @@
+{
+ "box_min": [
+  -55000.0,
+  -34000.0
+ ],
+ "box_max": [
+  16000.0,
+  18250.0
+ ],
+ "cell": 250.0,
+ "nx": 284,
+ "ny": 209,
+ "ortho_px": [
+  4096,
+  3014
+ ],
+ "ortho_axes": "top-down, camera yaw 0 (image up = +X?) - check with the player start mark",
+ "files": [
+  "grid2.json",
+  "top_ortho"
+ ],
+ "player_start": [
+  [
+   964.0,
+   1750.0
+  ]
+ ]
+}
