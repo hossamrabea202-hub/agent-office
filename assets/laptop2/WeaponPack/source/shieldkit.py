@@ -67,6 +67,12 @@ def sweep(path, up, prof, closed=False, caps=True):
     N = len(path); prof = np.vstack([prof, prof[:1]]); M = len(prof)
     V = (path[:, None, :] + prof[None, :, 0, None] * side[:, None, :] + prof[None, :, 1, None] * up[:, None, :]).reshape(-1, 3)
     Q = grid_quads(N, M, False)
+    # wind the faces so they point away from the path (the profile's direction decides it otherwise; inward tubes
+    # render black through the normal map)
+    f = Q[(N // 2) * (M - 1) + (M - 1) // 3] if N > 2 else Q[0]
+    nrm = np.cross(V[f[1]] - V[f[0]], V[f[2]] - V[f[0]])
+    inward = np.dot(nrm, V[f].mean(0) - path[min(N // 2, N - 1)]) < 0
+    if inward: Q = Q[:, ::-1]
     pl = np.r_[0, np.cumsum(np.linalg.norm(np.diff(prof, axis=0), axis=1))]
     sl = np.r_[0, np.cumsum(np.linalg.norm(np.diff(path, axis=0), axis=1))]
     uv = np.stack(np.broadcast_arrays(pl[None, :], sl[:, None]), -1).reshape(-1, 2)
@@ -79,6 +85,7 @@ def sweep(path, up, prof, closed=False, caps=True):
         uv = np.vstack([uv, pu, pu, pu.mean(0, keepdims=True), pu.mean(0, keepdims=True)])
         j = np.arange(K); jn = (j + 1) % K; a0, a1, ce0, ce1 = c0, c0 + K, c0 + 2 * K, c0 + 2 * K + 1
         Tr = np.vstack([np.stack([np.full(K, ce0), a0 + jn, a0 + j], -1), np.stack([np.full(K, ce1), a1 + j, a1 + jn], -1)])
+        if inward: Tr = Tr[:, ::-1]
     return V, Q, Tr, uv
 def rrect(w, h, n, p=6.0):
     a = np.linspace(0, 2 * PI, n, endpoint=False); c, s = np.cos(a), np.sin(a)

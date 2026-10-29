@@ -9,7 +9,7 @@ sc.render.engine = 'CYCLES'; sc.cycles.samples = int(os.environ.get('SAMPLES', '
 sc.render.resolution_x, sc.render.resolution_y = int(os.environ.get('RW', '1200')), int(os.environ.get('RH', '1200'))
 sc.view_settings.view_transform = 'AgX'; sc.view_settings.exposure = float(os.environ.get('EXPOSURE', '0'))
 if mode == 'mat':
-    sys.path.insert(0, os.environ.get('KITDIR', D)); import shieldmat, swordmat; (swordmat if os.environ.get('SHIELD') == 'Sword' else shieldmat).build_all()
+    sys.path.insert(0, os.environ.get('KITDIR', D)); import shieldmat, swordmat, potionmat; (swordmat if os.environ.get('SHIELD') == 'Sword' else potionmat if os.environ.get('VIEWSET') == 'potion' else shieldmat).build_all()
 elif mode == 'clay':
     for m in bpy.data.materials:
         m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
@@ -39,9 +39,37 @@ if os.environ.get('VIEWSET') == 'sword':
     views = {'full': ((0.95, -1.10, 0.35), (0, 0, 0.20)), 'side': ((1.45, -0.05, 0.20), (0, 0, 0.20)),
              'close_hilt': ((0.16, -0.26, 0.06), (0, 0, -0.04)), 'close_blade': ((0.10, -0.22, 0.30), (0, 0, 0.22)),
              'close_pommel': ((0.05, -0.16, -0.10), (0, 0, -0.118)), 'close_guard': ((0.10, -0.18, 0.05), (0, 0, 0.015))}
+
+def potion_glass():   # the potions' glass and liquid slots get preview materials (UE has its own translucent ones)
+    lc = (0.75, 0.04, 0.03) if 'Health' in bpy.data.filepath else (0.12, 0.65, 0.08)
+    for m in bpy.data.materials:
+        if m.name.startswith('M_PotionGlass') or m.name.startswith('M_PotionLiquid'):
+            m.use_nodes = True; b = m.node_tree.nodes.get('Principled BSDF') or m.node_tree.nodes.new('ShaderNodeBsdfPrincipled')
+            o = m.node_tree.nodes.get('Material Output') or m.node_tree.nodes.new('ShaderNodeOutputMaterial'); m.node_tree.links.new(b.outputs[0], o.inputs[0])
+            if 'Glass' in m.name:
+                b.inputs['Transmission Weight'].default_value = 1.0; b.inputs['Roughness'].default_value = 0.04; b.inputs['IOR'].default_value = 1.48
+            else:
+                b.inputs['Transmission Weight'].default_value = 0.85; b.inputs['Base Color'].default_value = (*lc, 1); b.inputs['Roughness'].default_value = 0.1
+                b.inputs['Emission Color'].default_value = (*lc, 1); b.inputs['Emission Strength'].default_value = 0.6
+if os.environ.get('VIEWSET') == 'potion':
+    potion_glass()
+    views = {'front': ((0.0, -0.42, 0.10), (0, 0, 0.065)), 'p34': ((-0.22, -0.34, 0.16), (0, 0, 0.065)),
+             'close_top': ((-0.06, -0.14, 0.15), (0, 0, 0.11)), 'close_tag': ((0.03, -0.12, 0.08), (0.004, -0.012, 0.085))}
+    lc = (0.75, 0.04, 0.03) if 'Health' in bpy.data.filepath else (0.12, 0.65, 0.08)
+    for o in bpy.data.objects:
+        if o.type != 'MESH' or o.name not in ('Glass', 'Liquid'): continue
+        m = bpy.data.materials.new('P_' + o.name); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
+        if o.name == 'Glass':
+            b.inputs['Transmission Weight'].default_value = 1.0; b.inputs['Roughness'].default_value = 0.04; b.inputs['IOR'].default_value = 1.48
+            b.inputs['Base Color'].default_value = (0.92, 0.95, 0.92, 1)
+        else:
+            b.inputs['Transmission Weight'].default_value = 0.85; b.inputs['Base Color'].default_value = (*lc, 1); b.inputs['Roughness'].default_value = 0.1
+            b.inputs['Emission Color'].default_value = (*lc, 1); b.inputs['Emission Strength'].default_value = 0.6
+        o.data.materials.clear(); o.data.materials.append(m)
 for kk, (p, t) in views.items():
     if os.environ.get('VIEWS') and kk not in os.environ['VIEWS'].split(','): continue
     cam.location = p; d = mathutils.Vector(t) - mathutils.Vector(p); cam.rotation_euler = d.to_track_quat('-Z', 'Y').to_euler()
     cam.data.lens = 85 if kk.startswith('close') else 60
+    if os.environ.get('VIEWSET') == 'potion': cam.data.lens = 70
     sc.render.filepath = out + '_' + kk + '.png'; bpy.ops.render.render(write_still=True)
 print('RENDER OK')

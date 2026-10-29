@@ -6,7 +6,7 @@ import sys, os, json
 import bpy, numpy as np
 D = os.environ.get('WORK') or os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, D)
-import shieldmat, swordmat
+import shieldmat, swordmat, potionmat
 from matlib import set_output
 
 STAGE = os.environ['STAGE']
@@ -14,7 +14,10 @@ SIZE = int(os.environ.get('BAKE_SIZE', '4096'))
 SH = os.environ.get('SHIELD', 'Heater')
 NAME = 'SM_%sShield' % SH; TN = 'T_%sShield' % SH
 if SH == 'Sword': NAME, TN = 'SM_Emberoath', 'T_Emberoath'
-MATS = swordmat if SH == 'Sword' else shieldmat
+POT = SH.startswith('Potion')
+if POT: NAME, TN = 'SM_Potion_' + SH[6:], 'T_Potion_' + SH[6:]
+MATS = swordmat if SH == 'Sword' else potionmat if POT else shieldmat
+UNBAKED = ('Glass', 'Liquid')     # potions: these keep translucent UE materials and are not baked
 TEX = os.path.join(D, 'tex'); os.makedirs(TEX, exist_ok=True)
 sc = bpy.context.scene
 
@@ -26,6 +29,7 @@ def join(objs, name):
     return objs[0]
 
 if STAGE == 'prep':
+    for o in [o for o in bpy.data.objects if o.type == 'MESH' and o.name in UNBAKED]: bpy.data.objects.remove(o)
     LP = join([o for o in bpy.data.objects if o.type == 'MESH'], NAME)
     LP.data.materials.clear()
     m = bpy.data.materials.new('M_' + NAME); m.use_nodes = True; LP.data.materials.append(m)
@@ -37,7 +41,7 @@ if STAGE == 'prep':
     bpy.ops.object.mode_set(mode='OBJECT')
     with bpy.data.libraries.load(os.path.join(D, SH + '_high.blend')) as (src, dst):
         dst.objects = list(src.objects)
-    hp = [o for o in dst.objects if o is not None and o.type == 'MESH']
+    hp = [o for o in dst.objects if o is not None and o.type == 'MESH' and o.name not in UNBAKED]
     for o in hp: sc.collection.objects.link(o)
     join(hp, 'HP')
     MATS.build_all()
@@ -107,6 +111,15 @@ elif STAGE == 'finish':
     nt.links.new(sep.outputs[1], bsdf.inputs['Roughness']); nt.links.new(sep.outputs[2], bsdf.inputs['Metallic'])
     nm = nt.nodes.new('ShaderNodeNormalMap'); nt.links.new(teximg(TN + '_Normal_OpenGL', 'Non-Color').outputs[0], nm.inputs['Color'])
     nt.links.new(nm.outputs[0], bsdf.inputs['Normal'])
+    if POT:   # put the glass and the liquid back, each with its own material slot for UE's translucent materials
+        with bpy.data.libraries.load(os.path.join(D, SH + '_low.blend')) as (src, dst):
+            dst.objects = [n for n in src.objects if n in UNBAKED]
+        for o in dst.objects:
+            sc.collection.objects.link(o); o.data.materials.clear()
+            o.data.materials.append(bpy.data.materials.new('M_Potion' + o.name))
+        bpy.ops.object.select_all(action='DESELECT')
+        for o in dst.objects: o.select_set(True)
+        LP.select_set(True); bpy.context.view_layer.objects.active = LP; bpy.ops.object.join()
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(D, SH + '_final.blend'))     # world space, for renders
     # pivot at the hand grip centre (the hand socket goes here), then the two FBX: with and without the arrow
     g = json.load(open(os.path.join(D, SH.lower() + '_meta.json')))['grip']

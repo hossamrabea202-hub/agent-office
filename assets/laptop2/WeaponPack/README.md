@@ -1,4 +1,4 @@
-# Weapon pack: Heater Shield, Round Shield, Emberoath (legendary short sword)
+# Weapon pack: Heater Shield, Round Shield, Emberoath (legendary short sword), Health Potion, Antidote
 
 Made 2026-10-29 by `hossam gmail laptop2 (Claude)`. Original work: procedural, no third-party assets, safe for the
 public repo. Every piece is a **low-poly game mesh with a 4K bake** from a 1.8–2.3 million triangle high poly.
@@ -8,13 +8,17 @@ public repo. Every piece is a **low-poly game mesh with a 4K bake** from a 1.8�
 | **Heater Shield** | `SM_HeaterShield` | 6,746 | 0.62 × 0.84 m | Painted lime planks on gesso: *azure, a tower Or, on a chief gules three bezants*. Iron rim with rivets, sword gashes, dents, chipped paint, rust bleed, seam cracks. Back: bare planks, leather arm strap, quilted arm pad, leather-wrapped grip on two blocks, guige strap with an iron buckle. |
 | **Round Shield** | `SM_RoundShield` | 5,872 | Ø 0.80 m | Seven bare linden planks, tapered 10.5 → 6 mm. Hammered iron boss with 5 rivets, laced rawhide rim with nicks, sun-greyed wood, a flame scorch, sword cuts, scratches, an arrow hole. Back: a wooden grip bar across the hand hole (leather-wrapped), clinched nails, guige strap. |
 | **Emberoath** | `SM_Emberoath` | 2,540 | 0.69 m | Legendary short sword. Pattern-welded leaf blade with a fuller carved with runes that **glow ember-orange** (an Emissive map plus a pulse in the material). A gilded guard with swept quillons, ball terminals and amber cabochons. Leather grip bound with twisted gold wire, and a wheel pommel bearing the castle-tower crest of the heater shield. |
+| **Health Potion** | `SM_Potion_Health` | 2,764 | 0.12 m | A round-bottomed flask of glowing red potion. Cork plug under a dripping red sealing-wax cap stamped with a cross, three turns of jute twine, and a paper tag with an inked heart. |
+| **Antidote** | `SM_Potion_Antidote` | 2,476 | 0.135 m | A tall hexagonal bottle of green antidote. Green wax cap stamped with a leaf, twine, and a tag with an inked herb sprig. This is the cure item for the #73 infection. |
 
 Textures per item: `BaseColor` (sRGB), `ORM` (R = AO, G = roughness, B = metallic) and `Normal_DirectX`; Emberoath
-also has `Emissive`. Each item has a 512 px transparent shop icon, `T_Item_<Item>`, in `icon/`.
+also has `Emissive`. The potions bake at 2K. Their glass and liquid are extra material slots with no textures: the
+script gives them `M_LP2Glass` (translucent, with fresnel opacity and refraction 1.45) and an `MI_..._Liquid` of
+`M_LP2Liquid` (translucent and glowing, with `Color` and `Glow` parameters). Each item has a 512 px transparent shop icon, `T_Item_<Item>`, in `icon/`.
 
 ## Unreal
 
-`py "<repo>/assets/laptop2/WeaponPack/import_weapons_ue.py"` imports all three. Add an item name, e.g. `... Emberoath`,
+`py "<repo>/assets/laptop2/WeaponPack/import_weapons_ue.py"` imports everything. Add an item name, e.g. `... Emberoath`,
 to import only that one. Each item goes to `/Game/CastleDefender/Weapons/<Item>/` and gets:
 - its textures and a `MI_` of the shared master `M_LP2Weapon`. The master has `Tint`, `Wetness`, and `EmissiveBoost`
   (8) plus `EmberPulse` (0.25) for the sword's rune glow.
@@ -34,6 +38,8 @@ can use the same pattern. Suggested prices:
 - Round Shield: 180 gold, 12 % block
 - Emberoath: 1,200 gold, +25 % sword damage, plus a 10 % chance of an ember burst that sets zombies alight. Its
   #32 fire trail hookup is optional.
+- Health Potion: the #74 rules (Q key, heals 35 %, 60 gold) with this mesh and icon. No Fab download is needed.
+- Antidote: the #73 cure at Vesna, with icon `T_Item_Potion_Antidote`.
 
 ## Rebuild
 

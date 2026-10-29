@@ -7,6 +7,8 @@ REPO, pick = args[0], args[1:]
 SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(REPO, 'assets', 'laptop2', 'WeaponPack')
 ITEMS = {'HeaterShield': ('SM_HeaterShield', 'T_HeaterShield', 'heater', 'T_Item_HeaterShield'),
+         'PotionHealth': ('SM_Potion_Health', 'T_Potion_Health', 'potionHealth', 'T_Item_Potion_Health'),
+         'PotionAntidote': ('SM_Potion_Antidote', 'T_Potion_Antidote', 'potionAntidote', 'T_Item_Potion_Antidote'),
          'RoundShield': ('SM_RoundShield', 'T_RoundShield', 'round', 'T_Item_RoundShield'),
          'Emberoath': ('SM_Emberoath', 'T_Emberoath', 'sword', 'T_Item_Emberoath')}
 sc = bpy.context.scene; st = sc.render.image_settings
@@ -26,7 +28,7 @@ for item in (pick or ITEMS):
     if os.path.exists(ic): os.makedirs(os.path.join(d, 'icon'), exist_ok=True); shutil.copy2(ic, os.path.join(d, 'icon'))
     print('PACKED', item)
 os.makedirs(os.path.join(OUT, 'source'), exist_ok=True)
-for f in ('shieldkit.py', 'build_heater.py', 'build_round.py', 'build_sword.py', 'shieldmat.py', 'swordmat.py', 'matlib.py',
+for f in ('shieldkit.py', 'build_heater.py', 'build_round.py', 'build_sword.py', 'build_potion.py', 'shieldmat.py', 'swordmat.py', 'potionmat.py', 'woodmat.py', 'matlib.py',
           'bake_shield.py', 'run_shield.ps1', 'render_heater.py', 'icon_heater.py', 'pack_weapons.py'):
     shutil.copy2(os.path.join(SRC, f), os.path.join(OUT, 'source'))
 shutil.copy2(os.path.join(SRC, 'import_weapons_ue.py'), OUT)

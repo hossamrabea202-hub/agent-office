@@ -1,4 +1,5 @@
-# laptop2's weapon pack (2026-10-29): Heater Shield, Round Shield, Emberoath (legendary short sword). Import into UE 5.3.
+# laptop2's weapon pack (2026-10-29): Heater Shield, Round Shield, Emberoath (legendary short sword), Health Potion,
+# Antidote. Import into UE 5.3.
 # Run in the editor:  py "<repo>/assets/laptop2/WeaponPack/import_weapons_ue.py"            (all three)
 #                     py "<repo>/assets/laptop2/WeaponPack/import_weapons_ue.py" Emberoath  (just one)
 # For each item it creates, in /Game/CastleDefender/Weapons/<Item>/ (re-running re-imports):
@@ -18,7 +19,10 @@ ITEMS = {   # item: (folder, mesh, texture prefix, has emissive)
     'HeaterShield': ('HeaterShield', 'SM_HeaterShield', 'T_HeaterShield', False),
     'RoundShield': ('RoundShield', 'SM_RoundShield', 'T_RoundShield', False),
     'Emberoath': ('Emberoath', 'SM_Emberoath', 'T_Emberoath', True),
+    'PotionHealth': ('Potions', 'SM_Potion_Health', 'T_Potion_Health', False),
+    'PotionAntidote': ('Potions', 'SM_Potion_Antidote', 'T_Potion_Antidote', False),
 }
+LIQUID = {'PotionHealth': (0.75, 0.03, 0.02), 'PotionAntidote': (0.10, 0.62, 0.06)}   # liquid colours
 pick = [a for a in sys.argv[1:] if a in ITEMS] or list(ITEMS)
 EAL, MEL, SML = unreal.EditorAssetLibrary, unreal.MaterialEditingLibrary, unreal.EditorStaticMeshLibrary
 tools = unreal.AssetToolsHelpers.get_asset_tools()
@@ -88,6 +92,41 @@ def make_master(T0, emis_tex):
     MEL.connect_material_property(e2, '', unreal.MaterialProperty.MP_EMISSIVE_COLOR)
     MEL.recompile_material(m); EAL.save_asset(MASTER)
 
+def make_glass_liquid():
+    """translucent potion glass (fresnel opacity, refraction) and a glowing liquid with a Color parameter."""
+    out = {}
+    for name in ('M_LP2Glass', 'M_LP2Liquid'):
+        path = ROOT + '/Potions/' + name
+        if EAL.does_asset_exist(path): out[name] = unreal.load_asset(path); continue
+        m = tools.create_asset(name, ROOT + '/Potions', unreal.Material, unreal.MaterialFactoryNew())
+        m.set_editor_property('blend_mode', unreal.BlendMode.BLEND_TRANSLUCENT)
+        m.set_editor_property('two_sided', True)
+        try: m.set_editor_property('translucency_lighting_mode', unreal.TranslucencyLightingMode.TLM_SURFACE_PER_PIXEL_LIGHTING)
+        except Exception: pass
+        fr = MEL.create_material_expression(m, unreal.MaterialExpressionFresnel, -700, 200)
+        rough = MEL.create_material_expression(m, unreal.MaterialExpressionConstant, -400, 100); rough.set_editor_property('r', 0.05 if 'Glass' in name else 0.12)
+        MEL.connect_material_property(rough, '', unreal.MaterialProperty.MP_ROUGHNESS)
+        if 'Glass' in name:
+            col = MEL.create_material_expression(m, unreal.MaterialExpressionConstant3Vector, -400, -100); col.set_editor_property('constant', unreal.LinearColor(0.9, 0.95, 0.9, 1))
+            op = MEL.create_material_expression(m, unreal.MaterialExpressionLinearInterpolate, -400, 250)
+            op.set_editor_property('const_a', 0.10); op.set_editor_property('const_b', 0.65); MEL.connect_material_expressions(fr, '', op, 'Alpha')
+            ior = MEL.create_material_expression(m, unreal.MaterialExpressionConstant, -400, 400); ior.set_editor_property('r', 1.45)
+            MEL.connect_material_property(ior, '', unreal.MaterialProperty.MP_REFRACTION)
+        else:
+            col = MEL.create_material_expression(m, unreal.MaterialExpressionVectorParameter, -700, -100); col.set_editor_property('parameter_name', 'Color')
+            col.set_editor_property('default_value', unreal.LinearColor(0.75, 0.03, 0.02, 1))
+            glow = MEL.create_material_expression(m, unreal.MaterialExpressionScalarParameter, -700, 50); glow.set_editor_property('parameter_name', 'Glow')
+            glow.set_editor_property('default_value', 1.5)
+            em = MEL.create_material_expression(m, unreal.MaterialExpressionMultiply, -400, 0)
+            MEL.connect_material_expressions(col, '', em, 'A'); MEL.connect_material_expressions(glow, '', em, 'B')
+            MEL.connect_material_property(em, '', unreal.MaterialProperty.MP_EMISSIVE_COLOR)
+            op = MEL.create_material_expression(m, unreal.MaterialExpressionLinearInterpolate, -400, 250)
+            op.set_editor_property('const_a', 0.72); op.set_editor_property('const_b', 0.95); MEL.connect_material_expressions(fr, '', op, 'Alpha')
+        MEL.connect_material_property(col, '', unreal.MaterialProperty.MP_BASE_COLOR)
+        MEL.connect_material_property(op, '', unreal.MaterialProperty.MP_OPACITY)
+        MEL.recompile_material(m); EAL.save_asset(path); out[name] = m
+    return out
+
 for item in pick:
     folder, mesh, tn, emis = ITEMS[item]
     DST = ROOT + '/' + folder
@@ -113,6 +152,17 @@ for item in pick:
     EAL.save_asset(MI)
     sm = unreal.load_asset('%s/%s' % (DST, mesh))
     sm.set_material(0, mi)
+    if item in LIQUID:   # slots 1 and 2: the glass and the liquid
+        gl = make_glass_liquid()
+        LMI = '%s/MI_%s_Liquid' % (DST, mesh[3:])
+        lmi = unreal.load_asset(LMI) if EAL.does_asset_exist(LMI) else tools.create_asset('MI_%s_Liquid' % mesh[3:], DST, unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
+        MEL.set_material_instance_parent(lmi, gl['M_LP2Liquid'])
+        MEL.set_material_instance_vector_parameter_value(lmi, 'Color', unreal.LinearColor(*LIQUID[item], 1)); EAL.save_asset(LMI)
+        for i, sl in enumerate(sm.static_materials):
+            nm = str(sl.material_slot_name)
+            if 'Glass' in nm: sm.set_material(i, gl['M_LP2Glass'])
+            elif 'Liquid' in nm: sm.set_material(i, lmi)
+            else: sm.set_material(i, mi)
     opts = unreal.EditorScriptingMeshReductionOptions()
     opts.reduction_settings = [unreal.EditorScriptingMeshReductionSettings(1.0, 1.0), unreal.EditorScriptingMeshReductionSettings(0.5, 0.3),
                                unreal.EditorScriptingMeshReductionSettings(0.25, 0.12)]
