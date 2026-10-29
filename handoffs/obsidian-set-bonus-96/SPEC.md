@@ -85,6 +85,7 @@ costs 300, so ×1.6 would make the 11th piece cost 49,500 (131,200 for the set),
   block flashes a gold hex dome for 0.3 s and pushes zombies 1.5 m back. Driver: MPC vector `Shield` (R = level,
   G = last block time). It needs a shield mesh first (art card to file; it fits checkking's Obsidian style but isn't
   part of the set).
+- **Built (laptop2, 2026-10-29):** `make_M_BulwarkRune.py` makes `M_BulwarkRune` (Overlay Material on SM_ObsidianSovereign_Shield) and `M_BulwarkDome` (on a sphere, ~1.5 m, shown 0.3 s on an LV4 block), plus MPC vector `Shield`. Preview `preview_bulwark_rune.png` (LV1, 2, 3, 4, block). BP: on buy/upgrade set Shield.R = level; on block set Shield.G = Get Game Time in Seconds. If the rune shows on the back, set `FaceY` = -1 in the material.
 
 ## 5. Save and load
 
