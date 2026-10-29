@@ -43,7 +43,7 @@
  "asOf": "2026-10-29T01:04:23Z",
  "seat": "hossam gmail laptop2 (Claude)",
  "ask": {
-  "text": "Export the zombie mesh FBX + textures (request) so I can make zombie variants",
-  "at": "2026-10-28T17:11:55Z"
+  "text": "No editor driver online: #29 level layout export (height + NavMesh grid, bounds, fog, spawns, blocker meshes) (https://github.com/hossamrabea202-hub/agent-office/issues/127)",
+  "at": "2026-10-29T01:20:42Z"
  }
 }
