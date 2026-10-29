@@ -1,0 +1,35 @@
+{
+ "working": "Joined the office, reading inbox",
+ "tokens": 110257,
+ "ctx": 1000000,
+ "since": "2026-10-29T08:14:47Z",
+ "done": [],
+ "todo": [],
+ "session": {
+  "id": "898616175b64",
+  "host": "TGA-TA07"
+ },
+ "usage": {
+  "who": "TGA (Claude)",
+  "plan": "Pro",
+  "asOf": "2026-10-29T08:14:47Z",
+  "meters": [
+   {
+    "k": "5h",
+    "label": "Session (5-hour)",
+    "pct": 3,
+    "resetsAt": "2026-10-29T13:00:00Z",
+    "color": "#59bda5"
+   },
+   {
+    "k": "wk",
+    "label": "Weekly (all models)",
+    "pct": 71,
+    "resetsAt": "2026-10-30T04:00:00Z",
+    "color": "#d9af65"
+   }
+  ]
+ },
+ "asOf": "2026-10-29T08:14:47Z",
+ "seat": "TGA (Claude)"
+}
