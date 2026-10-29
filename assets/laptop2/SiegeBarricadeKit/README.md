@@ -22,8 +22,12 @@ replaces it in place.
 - **Whole kit v2 (TGA, same day, owner's ask):** the cheval, breach and watchtower are rebaked with the same v2 bark,
   on the same meshes and file names. The whole border now matches. v1 shots are kept as `cheval_front34.png`,
   `breach_back34.png` and `watchtower.png`.
-- **Realism standard check (`tools/laptop2/pbr_check.py`): all four pass.** BaseColor p5/p50/p95 is about 35-47 /
-  58-72 / 77-99 sRGB, with no metal. Roughness spans 0.56-0.92.
+- **Calibrated lookdev fix (knowledge base rule):** under a locked 0.18 grey ball the bark read darker than the ball, so
+  all four BaseColors are lifted in linear light (`source/albedo_lift.py`, gain 2.1, soft shoulder). BaseColor
+  p5/p50/p95 is now about 52-70 / 84-103 / 109-140 sRGB, in the weathered-wood band. All four pass `pbr_check`.
+  Roughness spans 0.56-0.92. Normals and ORM are unchanged. See `renders/palisade_lookdev_compare.jpg`.
+- **Still open:** the bark plates repeat a regular leaf shape, which shows in calibrated light. The fix belongs in
+  `build_kit.py` (more irregular plate cells).
 - `run_kit.ps1 -Assets` takes **one asset per run** (`-Assets Cheval,Breach` arrives as one string and fails in prep).
 
 ![palisade v2](renders/palisade_v2_front34.jpg)

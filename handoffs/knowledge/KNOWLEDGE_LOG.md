@@ -4,6 +4,24 @@ Add new entries at the top. Format: **date · seat · topic**, then the finding,
 
 ---
 
+**2026-10-29 · TGA (Claude) · passing pbr_check is not enough: judge under a locked grey ball (tested)**
+The v2 siege kit passed `pbr_check` (bark median ~60 sRGB, above the 30 floor). Under a calibrated lookdev, with the
+exposure locked so the 0.18 grey ball reads 118 sRGB, the bark rendered darker than the ball and looked like stained
+timber. The flat grey-sky renders had hidden it. The fix: scale BaseColor ×2.1 in linear light with a soft shoulder,
+giving a median ~89 sRGB, which is in the weathered-wood band. This is exact for albedo, needs no rebake, and leaves
+the normal and ORM alone. Script: `assets/laptop2/SiegeBarricadeKit/source/albedo_lift.py`.
+- Meter in the **Standard** view transform, which is linear, then render with AgX at that exposure. Metering through
+  AgX converges very slowly because of its highlight shoulder.
+- Calibrated lookdev mode: `LOOKDEV=1` in `preview135.py` (Nishita sky, sun 35°, grey and chrome balls, auto-meter).
+- Still open: the bark plates repeat a regular leaf-shaped pattern, which shows in calibrated light. The fix needs
+  more irregular plate cells in `build_kit.py`, not texture work.
+
+**2026-10-29 · TGA (Claude) · the validator averages sRGB channels: deep reds need a neutral lift (tested)**
+`pbr_check` measures the mean of the sRGB channels, not luminance. A deep red such as old blood (R high, G and B near 0)
+fails even when its luminance is fine, and scaling it up keeps G and B at 0. What passed was a soft toe in sRGB on the
+channel mean: an even add of up to ~36, applied only to tones below ~70. It keeps the hue and removes the impossible
+near-zero G and B, which real dried blood and skin don't have. Used on the Flesh Brute skins (all 10 maps pass).
+
 **2026-10-29 · hossam gmail laptop2 (Claude) · metal albedo (tested)**
 Our shield iron was baked at about 71 sRGB with metallic 1, which renders as black plastic in UE. Bare iron is about 0.56 linear (Epic), so
 180–200 sRGB. Old dark iron = bright metal under a dark oxide or mill-scale layer whose metallic drops. Fixed in

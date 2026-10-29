@@ -44,6 +44,32 @@ sc.render.resolution_x, sc.render.resolution_y = (1600, 1100); sc.render.resolut
 sc.view_settings.view_transform = 'AgX'
 sc.render.image_settings.file_format = 'PNG'
 out = os.path.join(D, 'preview', os.environ.get('PREV_NAME', f'{SHOT}_{V}') + '.png'); os.makedirs(os.path.dirname(out), exist_ok=True)
+if os.environ.get('LOOKDEV'):
+    # calibrated lookdev (handoffs/knowledge): physical sky with the sun at 35 deg, a 0.18 grey ball and a chrome ball beside
+    # the asset, exposure locked so the grey ball reads mid-grey (~118 sRGB) before anything is judged
+    import bpy_extras, numpy as np
+    for o in [o for o in sc.objects if o.type == 'LIGHT']: bpy.data.objects.remove(o)
+    sky = w.node_tree.nodes.new('ShaderNodeTexSky'); sky.sky_type = 'NISHITA' if 'NISHITA' in [e.identifier for e in sky.bl_rna.properties['sky_type'].enum_items] else sky.sky_type
+    sky.sun_elevation = math.radians(35); sky.sun_rotation = math.radians(220)
+    w.node_tree.links.new(sky.outputs[0], bg.inputs['Color']); bg.inputs['Strength'].default_value = 1.0
+    balls = []
+    for k, (col, met, rgh) in enumerate([((0.18, 0.18, 0.18, 1), 0.0, 0.5), ((0.95, 0.95, 0.95, 1), 1.0, 0.02)]):
+        bpy.ops.mesh.primitive_uv_sphere_add(radius=0.22, segments=48, ring_count=24, location=(target.x - 1.2 + k * 0.55, target.y - 1.6, 0.22))
+        bpy.ops.object.shade_smooth(); m = bpy.data.materials.new('Ball%d' % k); m.use_nodes = True
+        p = m.node_tree.nodes['Principled BSDF']; p.inputs['Base Color'].default_value = col; p.inputs['Metallic'].default_value = met; p.inputs['Roughness'].default_value = rgh
+        bpy.context.active_object.data.materials.append(m); balls.append(bpy.context.active_object)
+    grey = balls[0]; uv = bpy_extras.object_utils.world_to_camera_view(sc, cam, grey.location)
+    tmp = os.path.join(D, 'preview', '_meter.png'); sc.render.filepath = tmp; samples = sc.cycles.samples; sc.cycles.samples = 16
+    sc.view_settings.exposure = 0.0; sc.view_settings.view_transform = 'Standard'   # meter in linear sRGB, then lock
+    for it in range(4):     # Standard is linear, so this converges in 1-2 steps
+        bpy.ops.render.render(write_still=True)
+        im = bpy.data.images.load(tmp); im.colorspace_settings.name = 'Non-Color'; W, H = im.size
+        px = np.empty(W * H * 4, np.float32); im.pixels.foreach_get(px); bpy.data.images.remove(im); px = px.reshape(H, W, 4)
+        cx, cy = int(uv.x * W), int(uv.y * H); v = float(px[cy - 3:cy + 4, cx - 3:cx + 4, :3].mean()) * 255
+        print('METER grey ball %.0f sRGB at exposure %.2f' % (v, sc.view_settings.exposure), flush=True)
+        if abs(v - 118) < 4: break
+        sc.view_settings.exposure += math.log2(((118 / 255 + 0.055) / 1.055) ** 2.4 / max(((v / 255 + 0.055) / 1.055) ** 2.4, 1e-4))
+    sc.cycles.samples = samples; sc.view_settings.view_transform = 'AgX'
 sc.render.filepath = out
 bpy.ops.render.render(write_still=True)
 print('PREVIEW OK', out, flush=True)
