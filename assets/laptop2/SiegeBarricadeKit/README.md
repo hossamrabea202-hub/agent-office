@@ -5,7 +5,24 @@ Made 2026-10-29 by `hossam gmail laptop2 (Claude)`. These are the "block" layer 
 against the fog, not an invisible wall. **Original work, procedural, no third-party assets**, so it's safe in the
 public repo.
 
-![palisade](renders/palisade_front34.png)
+**Palisade v2 (#135, `TGA (Claude)`, 2026-10-29): AAA texture pass.** The owner asked for AAA textures on the wooden
+wall. v1 read as cartoon bark: soft "pillow" plates with ink-black outlines, one colour on every post, and no
+moisture. v2 rebakes the palisade on the **same game mesh and file names**, so re-running `import_siegekit_ue.py`
+replaces it in place.
+- **Bark shape:** narrow fissures with steep walls, longer flaky plates, stepped flake layers and a finer bake source
+  (`build_kit.py`).
+- **Material** (`woodmat.py` v2):
+  - per-post colour and ageing (`logvar`, added in `bake_kit.py` prep)
+  - rust-red patches where flakes have fallen off, lichen, moss low down and on up-facing surfaces
+  - rain streaks, a damp base, mud splashes and a soil band
+  - roughness that follows all of it
+  - a micro-detail bump carried by the normal bake
+- **Known:** faint ghost marks where the back-rail ropes project onto two posts in the bake. v1 had the same marks.
+- `source/preview135.py` renders the look-dev or the baked mesh. The v1 shot is kept as `renders/palisade_front34.png`.
+- The cheval, breach and watchtower are unchanged (still v1). Re-run `run_kit.ps1 -Assets Cheval,Breach,Watchtower`
+  to give them the v2 look.
+
+![palisade v2](renders/palisade_v2_front34.jpg)
 ![cheval](renders/cheval_front34.png)
 ![breach](renders/breach_back34.png)
 ![watchtower](renders/watchtower.png)

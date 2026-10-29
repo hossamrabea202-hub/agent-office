@@ -1,7 +1,7 @@
 # Builds and bakes the siege barricade kit (#29). powershell -File run_kit.ps1 [-Assets Palisade,Cheval] [-Size 4096]
 # Each step runs in its own Blender process; log in kit_bake.log ("ALL DONE" / "FAILED <step>"). Needs ~2 GB free.
 param([string[]]$Assets = @('Palisade', 'Cheval'), [int]$Size = 4096, [int]$Samples = 24)
-$b = 'C:\Program Files\Blender Foundation\Blender 4.5\blender.exe'
+$b = if ($env:BLENDER) { $env:BLENDER } else { 'C:\Program Files\Blender Foundation\Blender 4.5\blender.exe' }
 Set-Location $PSScriptRoot
 $env:WORK = $PSScriptRoot; $env:BAKE_SIZE = "$Size"; $env:BAKE_SAMPLES = "$Samples"
 $log = 'kit_bake.log'; "start $(Get-Date)" | Set-Content $log

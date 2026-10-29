@@ -38,6 +38,11 @@ if STAGE == 'prep':
         dst.objects = list(src.objects)
     hp = [o for o in dst.objects if o is not None and o.type == 'MESH']
     for o in hp: sc.collection.objects.link(o)
+    # #135: one 'logvar' value per log/rope (0..1), read by woodmat v2 for per-post colour, ageing and pattern offset
+    rng = np.random.default_rng(135)
+    for o in hp:
+        at = o.data.attributes.new('logvar', 'FLOAT', 'POINT')
+        at.data.foreach_set('value', np.full(len(o.data.vertices), rng.random(), np.float32))
     join(hp, 'HP')
     woodmat.build_all()
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(D, ASSET + '_bake.blend'))

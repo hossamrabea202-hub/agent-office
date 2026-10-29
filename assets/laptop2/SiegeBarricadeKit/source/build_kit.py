@@ -64,8 +64,8 @@ def log(name, p0, p1, r, seed, tip1=0.0, tip0=0.0, bend=0.02, char=0.0, split=Fa
     rng = np.random.default_rng(seed)
     o, L, X, Y, Z = frame(p0, p1, rng.uniform(0, 2 * PI))
     HS = float(os.environ.get('HIGH_SCALE', '1'))     # >1 = coarser high mesh (big assets seen from afar; keeps the bake in memory)
-    na = int(160 / HS) if HIGH else 14
-    dl = 0.006 * HS if HIGH else 0.14
+    na = int(210 / HS) if HIGH else 14              # #135: finer bake source (was 160 / 6 mm) so fissure walls resolve sharp
+    dl = 0.0045 * HS if HIGH else 0.14
     nl = max(int(L / dl), 6)
     t = np.linspace(0, 1, nl + 1)
     # extra rings near pointed ends so the facets resolve on the low mesh
@@ -135,15 +135,20 @@ def log(name, p0, p1, r, seed, tip1=0.0, tip0=0.0, bend=0.02, char=0.0, split=Fa
             return F2 - F1, cid
         # pine bark: big uneven vertical plates (6-9 cm x 14-20 cm) split by deep fissures, each plate cracked again by
         # shallow minor cracks, plate tops at their own heights and laminated in thin horizontal flakes
-        e1, c1 = cells(rng.uniform(0.06, 0.085), rng.uniform(0.20, 0.28), seed + 21)
+        e1, c1 = cells(rng.uniform(0.05, 0.075), rng.uniform(0.26, 0.40), seed + 21)   # #135: longer, narrower plates
         e2, _ = cells(0.035, 0.09, seed + 41, 1.0)
-        valley = 1 - np.clip(e1 / 0.32, 0, 1) ** 0.75               # wide V-shaped fissure between plates
-        minor = 1 - np.clip(e2 / 0.06, 0, 1)                         # narrow shallow cracks across a plate
+        # #135 (AAA pass): v1's wide soft V (e1/0.32 ** 0.75) rounded every plate into a pillow. Real pine bark has
+        # flat-ish, broken plate tops and narrow fissures with steep walls, so: narrower valley with a hard shoulder,
+        # more height between plates, a mid-scale break-up on the tops and deeper minor cracks.
+        valley = 1 - np.clip(e1 / 0.17, 0, 1) ** 1.6                 # narrow fissure, steep walls
+        minor = 1 - np.clip(e2 / 0.035, 0, 1)                        # sharp cracks across a plate
         ph = _hash(c1, c1 // 13, seed + 23)
-        rough = fbm(u * 45, zl * 22, seed + 5, 4, 45)                # coarse, uneven plate tops
-        lam = fbm(u * 60, zl * 150, seed + 6, 3, 60)                 # thin horizontal flake layers
-        top = 0.004 * ph + 0.0035 * rough + 0.0012 * lam
-        plates = top * (1 - valley) - 0.011 * valley ** 1.3 - 0.0016 * minor * (1 - valley)
+        rough = fbm(u * 30, zl * 12, seed + 5, 4, 30)                # coarse, uneven plate tops
+        mid = fbm(u * 95, zl * 40, seed + 7, 3, 95)                  # broken, chipped surface on each plate
+        lam = fbm(u * 40, zl * 70, seed + 6, 3, 40)                  # horizontal flake layers, stepped
+        lam = np.floor(lam * 5) / 5 * 0.6 + lam * 0.4
+        top = 0.0065 * ph + 0.0045 * rough + 0.0030 * mid + 0.0028 * lam
+        plates = top * (1 - valley) - 0.014 * valley ** 1.2 - 0.0026 * minor * (1 - valley)
         disp = plates * (1 - cutw)
         # axe facets: shallow scallops and stringy fibres along the grain
         sc = fbm(u * 14, zl * 9, seed + 9, 2, 14)
