@@ -111,7 +111,7 @@ if HIGH:
 def quillon(sgn, hi):
     n = 120 if hi else 10
     t = np.linspace(0, 1, n)
-    x = sgn * (0.018 + 0.074 * t)
+    x = sgn * (0.010 + 0.082 * t)                                                     # starts buried in the centre block
     z = 0.012 + 0.016 * t ** 2.2                                                      # sweeps gently toward the blade
     path = np.stack([x, np.zeros(n), z], -1)
     prof = rrect(1.0, 1.0, 32 if hi else 8, 3.2)
@@ -148,8 +148,8 @@ for sy_ in (-1, 1):   # langets: thin tongues lying on the blade faces
     Vs, Qs, Ts = superellipsoid(24 if HIGH else 6, 12 if HIGH else 3, 0.35)
     cl = np.array([0, sy_ * (th(0.035) / 2 + 0.0008), 0.040])
     add(parts, cl + Vs * np.array([0.0065, 0.0012, 0.014]), Qs, Ts, np.stack([Vs[:, 0] * 0.0065, Vs[:, 2] * 0.014], -1))
-# gem bezels (gold rims around the stones)
-for sy_ in (-1, 1):
+# gem bezels (gold rims around the stones): high poly only, too thin to bake onto as their own low-poly parts
+for sy_ in ((-1, 1) if HIGH else ()):
     a = np.linspace(0, 2 * PI, 64 if HIGH else 10, endpoint=False)
     ring = np.stack([0.0105 * np.cos(a), np.full_like(a, sy_ * 0.0118), 0.013 + 0.0078 * np.sin(a)], -1)
     V, Q, Tr, uv = sweep(ring, np.tile([0, sy_ * 1.0, 0], (len(a), 1)), circ(0.0014, 12 if HIGH else 5), closed=True, caps=False)
@@ -258,6 +258,15 @@ Vs, Qs, Ts = superellipsoid(32 if HIGH else 8, 12 if HIGH else 3, 0.6)
 add(parts_p, np.array([0, 0, GZ0 - 0.002]) + Vs * np.array([0.0125, 0.0105, 0.0060]), Qs, Ts, np.stack([Vs[:, 0], Vs[:, 2]], -1) * 0.012)
 emit('Pommel', parts_p + parts, 'Gold')
 
+# the superellipsoid parts got planar UVs whose front and back faces overlap (the back gem showed on the front):
+# give them a real unwrap with seams on the low poly
+if not HIGH:
+    for nm in ('Guard', 'Pommel', 'Gem'):
+        o = bpy.data.objects[nm]
+        bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
+        bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
+        bpy.ops.uv.smart_project(angle_limit=math.radians(60), island_margin=0.004, scale_to_bounds=False)
+        bpy.ops.object.mode_set(mode='OBJECT')
 GRIP = [0.0, 0.0, (GZ0 + GZ1) / 2]
 json.dump({'grip': GRIP, 'blade_axis': [0, 0, 1], 'length': Z1 - (PZ - PR - 0.008)}, open(os.path.join(D, 'sword_meta.json'), 'w'))
 tris = sum(len(p.vertices) - 2 for o in bpy.data.objects if o.type == 'MESH' for p in o.data.polygons)

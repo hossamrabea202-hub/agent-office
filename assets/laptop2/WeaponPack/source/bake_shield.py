@@ -32,6 +32,7 @@ if STAGE == 'prep':
     bpy.context.view_layer.objects.active = LP
     bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
     sc.tool_settings.use_uv_select_sync = True; bpy.ops.uv.select_all(action='SELECT')
+    if SH == 'Sword': bpy.ops.uv.average_islands_scale()          # equal texel density for every part
     bpy.ops.uv.pack_islands(udim_source='CLOSEST_UDIM', margin=0.003, rotate=True, shape_method='CONCAVE', scale=True)
     bpy.ops.object.mode_set(mode='OBJECT')
     with bpy.data.libraries.load(os.path.join(D, SH + '_high.blend')) as (src, dst):
