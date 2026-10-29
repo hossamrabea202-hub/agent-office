@@ -70,7 +70,7 @@ json.dump({'lo': lo, 'hi': hi, 'cell': CELL, 'nx': NX, 'ny': NY, 'ground': groun
 # ---- fog-free orthographic top view of the same box ----
 W = 4096; Hpx = int(W * (hi[1] - lo[1]) / (hi[0] - lo[0]))
 rt = unreal.RenderingLibrary.create_render_target2d(world, W, Hpx, unreal.TextureRenderTargetFormat.RTF_RGBA8)
-cap = eas.spawn_actor_from_class(unreal.SceneCapture2D, unreal.Vector((lo[0] + hi[0]) / 2, (lo[1] + hi[1]) / 2, TOP), unreal.Rotator(-90, 0, 0))
+cap = eas.spawn_actor_from_class(unreal.SceneCapture2D, unreal.Vector((lo[0] + hi[0]) / 2, (lo[1] + hi[1]) / 2, TOP), unreal.Rotator(roll=0.0, pitch=-90.0, yaw=0.0))
 try:
     c = cap.capture_component2d
     c.set_editor_property('projection_type', unreal.CameraProjectionMode.ORTHOGRAPHIC)

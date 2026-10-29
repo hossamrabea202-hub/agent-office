@@ -6,6 +6,8 @@
 # Axes are written into meta3.json: image right = +Y, image up = +X (camera yaw 0, pitch -90), plus a test marker:
 # a 10 m red cube is spawned at the castle centre for the shot and removed after, so the orientation can't be misread.
 # Read-only for the level: everything spawned is destroyed, nothing is saved.
+# Fix 2026-10-29: unreal.Rotator() takes (roll, pitch, yaw), so v2's Rotator(-90, 0, 0) rolled the camera instead of
+# pointing it down (the side-on top_ortho). Keyword arguments now.
 # Run in the editor with the game level open:   py "<repo>/tools/laptop2/capture_top_v3.py"
 import json, os
 import unreal
@@ -41,7 +43,7 @@ for a in actors:
     elif 'Fog' in n or 'Fog' in c or 'Sky' in c or 'Cloud' in c:
         hide.append(a)
 castle = [1500.0, 1750.0]
-marker = eas.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(castle[0] + 3000, castle[1], 3000), unreal.Rotator(0, 0, 0))
+marker = eas.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(castle[0] + 3000, castle[1], 3000), unreal.Rotator(roll=0.0, pitch=0.0, yaw=0.0))
 marker.static_mesh_component.set_static_mesh(unreal.load_asset('/Engine/BasicShapes/Cube'))
 marker.set_actor_scale3d(unreal.Vector(10, 2, 2))      # a 10 m bar pointing +X from beside the castle: "this way is +X"
 try:
@@ -52,7 +54,7 @@ except Exception:
 
 def shot(name, cx, cy, width, px=4096, aspect=1.0):
     rt = unreal.RenderingLibrary.create_render_target2d(world, px, int(px * aspect), unreal.TextureRenderTargetFormat.RTF_RGBA8)
-    cap = eas.spawn_actor_from_class(unreal.SceneCapture2D, unreal.Vector(cx, cy, 60000), unreal.Rotator(-90, 0, 0))
+    cap = eas.spawn_actor_from_class(unreal.SceneCapture2D, unreal.Vector(cx, cy, 60000), unreal.Rotator(roll=0.0, pitch=-90.0, yaw=0.0))
     try:
         c = cap.capture_component2d
         c.set_editor_property('projection_type', unreal.CameraProjectionMode.ORTHOGRAPHIC)
