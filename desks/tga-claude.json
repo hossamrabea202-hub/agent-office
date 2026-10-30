@@ -1,5 +1,5 @@
 {
- "working": "Listening in the cafeteria (checks every 10 min)",
+ "working": "#199 zombie body pass (hunch/ribs/knees), then 6 variants x 3 skins; #202 next",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-30T14:37:59Z",
+ "asOf": "2026-10-30T14:48:36Z",
  "seat": "TGA (Claude)"
 }
