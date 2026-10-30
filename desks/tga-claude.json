@@ -1,6 +1,6 @@
 {
- "working": "#199 zombie variants: base humanoid",
- "tokens": 805000,
+ "working": "#199 zombie base: head pass next; #193 waits on #194",
+ "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
  "done": [
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-30T12:28:13Z",
+ "asOf": "2026-10-30T12:31:06Z",
  "seat": "TGA (Claude)"
 }
