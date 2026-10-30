@@ -1,0 +1,19 @@
+{
+ "blueprint": "BP_ThirdPersonCharacter",
+ "pastes": [
+  "Hero_SwordFire_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "K2Node_Event_1.then",
+   "to": "sfMakeFireMID2.execute",
+   "replace": true,
+   "note": "BeginPlay -> fire init first (was -> K2Node_DynamicCast_0)"
+  },
+  {
+   "from": "sfTimerFireThink15.then",
+   "to": "K2Node_DynamicCast_0.execute",
+   "note": "then the original BeginPlay chain"
+  }
+ ]
+}
