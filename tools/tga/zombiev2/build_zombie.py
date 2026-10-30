@@ -155,6 +155,16 @@ for s, sd in ((1, 'l'), (-1, 'r')):
         hp, kn, an, ft = LEG[sd]; bone('thigh_' + sd, hp, kn, 'pelvis'); bone('calf_' + sd, kn, an, 'thigh_' + sd)
         bone('foot_' + sd, an, an + np.array([0, -0.10, -0.06]), 'calf_' + sd); bone('ball_' + sd, an + np.array([0, -0.10, -0.06]), ft, 'foot_' + sd)
     else: bone('thigh_' + sd, (0.095 * s, 0, 0.92), (0.105 * s, -0.01, 0.70), 'pelvis')
+    if 'ball_' + sd in ad.edit_bones: t = ad.edit_bones['ball_' + sd].tail; bone('toeend_' + sd, t, t + Vector((0, -0.04, 0)), 'ball_' + sd)
+bone('headtop', (0, -0.055, 1.80), (0, -0.055, 1.86), 'head')
+# SK_Zombie (#200, zombie_bones.txt) uses Mixamo names with Hips as the root: rename so the existing anims share by name
+ad.edit_bones.remove(ad.edit_bones['root'])
+SKZ = {'pelvis': 'Hips', 'spine_01': 'Spine', 'spine_02': 'Spine1', 'spine_03': 'Spine2', 'neck_01': 'Neck', 'head': 'Head', 'headtop': 'HeadTop_End'}
+for sd, side in (('l', 'Left'), ('r', 'Right')):
+    SKZ.update({'clavicle_' + sd: side + 'Shoulder', 'upperarm_' + sd: side + 'Arm', 'lowerarm_' + sd: side + 'ForeArm', 'hand_' + sd: side + 'Hand',
+                'thigh_' + sd: side + 'UpLeg', 'calf_' + sd: side + 'Leg', 'foot_' + sd: side + 'Foot', 'ball_' + sd: side + 'ToeBase', 'toeend_' + sd: side + 'Toe_End'})
+for k, v in SKZ.items():
+    if k in ad.edit_bones: ad.edit_bones[k].name = v
 bpy.ops.object.mode_set(mode='OBJECT')
 for o in bpy.context.scene.objects: o.select_set(False)
 body.select_set(True); arm.select_set(True); bpy.context.view_layer.objects.active = arm
