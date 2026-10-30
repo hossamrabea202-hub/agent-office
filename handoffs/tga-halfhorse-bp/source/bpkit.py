@@ -30,7 +30,7 @@ class Node:
         if not c: raise KeyError('%s has no pin %s (has %s)' % (self.name, pname, [p['name'] for p in self.pins]))
         return c[0]
     def set_default(self, pname, value=None, obj=None):
-        p = self.pin(pname, False); line = re.sub(r'DefaultValue="[^"]*",', '', p['line']); line = re.sub(r'DefaultObject="[^"]*",', '', line)
+        p = self.pin(pname, False); line = re.sub(r'(?<![A-Za-z])DefaultValue="[^"]*",', '', p['line']); line = re.sub(r'(?<![A-Za-z])DefaultObject="[^"]*",', '', line)
         ins = ''
         if value is not None: ins += 'DefaultValue="%s",' % value
         if obj is not None: ins += 'DefaultObject="%s",' % obj

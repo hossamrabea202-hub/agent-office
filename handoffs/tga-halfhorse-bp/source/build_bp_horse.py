@@ -93,7 +93,7 @@ sock['line'] = re.sub(r'PinType\.PinCategory="real",PinType\.PinSubCategory="\w*
 for rule, val in (('LocationRule', 'SnapToTarget'), ('RotationRule', 'KeepWorld'), ('ScaleRule', 'KeepWorld')):
     q = add_pin_from(att, spawn_t, 'CollisionHandlingOverride', rule)
     q['line'] = re.sub(r'PinSubCategoryObject="[^"]+"', 'PinSubCategoryObject="/Script/CoreUObject.Enum\'/Script/Engine.EAttachmentRule\'"', q['line'])
-    q['line'] = re.sub(r'DefaultValue="[^"]*",', '', q['line'])
+    q['line'] = re.sub(r'(?<![A-Za-z])DefaultValue="[^"]*",', '', q['line'])
 for nm in ('bWeldSimulatedBodies',):
     q = add_pin_from(att, scratch(Z, 'K2Node_CallFunction', 'PlayAnimation'), 'bLooping', nm)
 rv = add_pin_from(att, scratch(Z, 'K2Node_CallFunction', 'K2_SetActorRotation'), 'ReturnValue', 'ReturnValue')
