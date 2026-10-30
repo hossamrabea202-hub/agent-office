@@ -128,7 +128,7 @@ def skin(S):
         cc = S['cloth'] * (0.8 + 0.35 * fbm(P, 9, 3, 62))[:, None]; col = mix(col, cc, cloth); rg = rg + (0.86 - rg) * cloth
     col = mix(col, S['grime'], 0.45 * cav); rg = rg + 0.1 * cav
     dirt = ss(0.5, 0.2, z) * 0.6 + up * ss(0.4, 0.7, fbm(P, 10, 3, 23)) * 0.35; col = mix(col, S['dirt'], np.clip(dirt, 0, 1) * (1 - flesh)); rg = rg + 0.1 * dirt
-    rg = rg + 0.06 * (micro - 0.5) + 0.08 * (mid - 0.5) + 0.16 * (mott - 0.5) + 0.10 * (fbm(P, 2.5, 2, 63) - 0.5)   # 3-scale, std >= 0.05
+    rg = rg + 0.06 * (micro - 0.5) + 0.08 * (mid - 0.5) + 0.16 * (mott - 0.5) + 0.10 * (fbm(P, 2.5, 2, 63) - 0.5) + (0.16 + 0.14 * (VAR == 'Crawler')) * (fbm(P, 6, 2, 64) - 0.5)   # 3-scale (crawler: big uniform stump/torso areas need more), std >= 0.05
     em = np.clip(np.maximum(ember * 1.0, (eye * S['eyeglow'] + vein * S['veinglow'] + growth * 0.5 * (VAR == 'Infected'))), 0, 1)
     if VAR == 'Infected': em = np.maximum(em, np.clip(eye * 1.2, 0, 1))
     return col, np.clip(rg, 0.08, 0.95), em
