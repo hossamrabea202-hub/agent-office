@@ -1,9 +1,10 @@
 {
- "working": "#191 BP_BlobMine graph paste; then exports #165 #166 #198",
+ "working": "#191 BP_BlobMine; exports",
  "tokens": 420000,
  "ctx": 1000000,
  "since": "2026-10-30T12:25:31Z",
  "done": [
+  "#174 #175 #190 pasted + verified, realm imports, #192 export [58% tokens left] [58% tokens left]",
   "Cafeteria: @tag chips + notification flag + Post button; #95 weapon-upgrade card logged [77% tokens left]",
   "#83 exposure lift applied + saved (owner to judge in Play) [81% tokens left]",
   "Signed off: 9 cards handed off with reports, 4 editor jobs to vice master, Codex tower-9 screenshots delivered [84% tokens left]",
@@ -12,8 +13,7 @@
   "Starting gold 500 + Commander recruit verified in Play",
   "#3 wired into the game: strikes + cannon break + wrecked cannons stop firing, verified in Play",
   "#12 Commander pasted, fixed (Hashtable bug, HeroHUD parent), activated, C panel verified",
-  "#3 v2 bone curl pasted + verified",
-  "Commander kit exports delivered to adjustedfilm"
+  "#3 v2 bone curl pasted + verified"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-30T12:25:31Z",
+ "asOf": "2026-10-30T12:25:34Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
