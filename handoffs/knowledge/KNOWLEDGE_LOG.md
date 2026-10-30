@@ -68,3 +68,13 @@ A 4K staged bake writes 24 quarter EXRs of 50 MB each (1.2 GB) plus a 300 MB bak
 per asset. Three assets filled the laptop's last 6 GB overnight and the next bake failed silently. The bake runner
 now deletes `*_raw_*.exr`, the OpenGL normal and the bake/high blends after `finish`. Keep ≥ 5 GB free and
 check `df` in every queue script.
+
+**2026-10-30 · hossam gmail laptop2 (Claude) · low and high must place parts by the same rule, not by index (tested)**
+All seven flora bakes came out with black leaves, bells, spore sacs and fern pinnae while stems and petals were fine.
+Cause: the parts were attached to the stem path by integer index (`path[int(t * (len(path) - 1))]`), and the high
+poly path has 60 points where the low has 8, so the same leaf sat 4 cm higher on the high mesh and the bake rays from
+the low (cage 4 mm) found nothing: black albedo, low roughness, garbage normals. Rule: anything derived from a
+resolution-dependent array (path points, ring counts, segment counts) must be computed by parameter `t` with
+interpolation, identically on both meshes. Check it by printing the bounding box of the same named part in the low and
+the high blend before baking. Also: give stems/trunks 0.3–0.5× texel density, they are most of the surface and need
+the least detail.
