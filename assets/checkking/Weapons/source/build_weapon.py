@@ -354,7 +354,40 @@ def messer():        # German messer: single-edged, slight curve, nagel on the g
         parts[-1].rotation_euler = (math.pi / 2, 0, 0); parts[-1].location.z = -0.05 + 0.04 * k
     box('Cap', 0.034, 0.02, 0.012, (0.006, 0, -0.075), IRON, 0.003, rot=(0, 0.25, 0))
 
+def flanged_mace():  # 15th c. flanged mace: seven iron flanges on a socket, iron haft with a leather grip
+    cyl('Haft', 0.0135, -0.30, 0.30, IRON, 16, r1=0.013)
+    grip_wrap(-0.30, -0.16, 0.0155, LEATHER)
+    cyl('Socket', 0.022, 0.24, 0.38, IRON, 20, r1=0.019)
+    for k in range(7):
+        a = 2 * math.pi * k / 7
+        fl_ = axe_head('Flange%d' % k, 0.018, 0.055, lambda f: 0.37 - 0.012 * f, lambda f: 0.25 + 0.02 * f ** 1.5,
+                       lambda f: max(0.0012, 0.004 * (1 - f) + 0.0012), 0.012, IRON, NX=10, NZ=8)
+        fl_.rotation_euler = (0, 0, a)
+    sphere('Finial', 0.016, (0, 0, 0.392), IRON, (1, 1, 1.3))
+
+def war_hammer():    # horseman's war hammer: square face, back beak, langets, leather grip
+    cyl('Haft', 0.0145, -0.33, 0.33, OAK, 16, r1=0.014)
+    grip_wrap(-0.33, -0.19, 0.016, LEATHER)
+    box('Block', 0.04, 0.036, 0.05, (0, 0, 0.30), IRON, 0.004)
+    box('Face', 0.035, 0.034, 0.034, (0.05, 0, 0.30), STEEL, 0.003)
+    axe_head('Beak', -0.02, -0.12, lambda f: 0.318 - 0.012 * f, lambda f: 0.282 + 0.024 * f ** 0.8,
+             lambda f: max(0.0012, 0.012 * (1 - f) ** 0.8), 0.0, STEEL, NX=16, NZ=8)
+    blade('TopSpike', 0.09, 0.008, 0.05, 0.006, 0.003, z0=0.325, taper=0.9, m=STEEL)
+    for s_ in (-1, 1): box('Langet', 0.005, 0.003, 0.18, (0, s_ * 0.0125, 0.19), IRON, 0.001)
+
+def rondel_dagger(): # rondel dagger: stiff triangular-section blade, disc guard and pommel
+    st = []
+    for i in range(25):
+        f = i / 24; z = 0.03 + 0.30 * f
+        w = 0.011 * (1 - f) ** 0.9 + 0.0006
+        st.append((z, w, 0.0055 * (1 - f) + 0.0007, 0.0003, 0.0))
+    loft('Blade', st, STEEL)
+    cyl('GuardDisc', 0.026, 0.018, 0.028, IRON, 24)
+    grip_wrap(-0.075, 0.018, 0.0125, OAK)
+    cyl('PommelDisc', 0.028, -0.09, -0.078, IRON, 24)
+
 WEAPONS = {'arming_sword': ('ArmingSword', arming_sword), 'longsword': ('Longsword', longsword), 'falchion': ('Falchion', falchion),
+           'flanged_mace': ('FlangedMace', flanged_mace), 'war_hammer': ('WarHammer', war_hammer), 'rondel_dagger': ('RondelDagger', rondel_dagger),
            'bearded_axe': ('BeardedAxe', bearded_axe), 'dane_axe': ('DaneAxe', dane_axe), 'war_axe': ('WarAxe', war_axe),
            'winged_spear': ('WingedSpear', winged_spear), 'boar_spear': ('BoarSpear', boar_spear), 'glaive': ('Glaive', glaive),
            'halberd': ('Halberd', halberd), 'bardiche': ('Bardiche', bardiche), 'partisan': ('Partisan', partisan), 'messer': ('Messer', messer)}
@@ -371,7 +404,20 @@ bpy.context.view_layer.objects.active = parts[0]; bpy.ops.object.join()
 obj = bpy.context.object; obj.name = 'SM_CK_' + NAME
 bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
 bpy.ops.uv.smart_project(angle_limit=math.radians(60), island_margin=0.004, area_weight=0.6)
-bpy.ops.uv.pack_islands(margin=0.004)
+bpy.ops.object.mode_set(mode='OBJECT')
+# v2 texel priority: the long wood/leather hafts were eating the UV square. Shrink their islands to 35 % (they read fine at
+# lower density: grain runs along them), keep the metal at full size, then repack so the metal gets the space.
+low = {i for i, m in enumerate(obj.data.materials) if m and m.name.split('.')[0] in ('Wood', 'Oak', 'Leather')}
+uvl = obj.data.uv_layers.active.data
+for p in obj.data.polygons:
+    if p.material_index in low:
+        for li in p.loop_indices: uvl[li].uv = uvl[li].uv * 0.35
+sc_ts = bpy.context.scene.tool_settings; sc_ts.use_uv_select_sync = True      # pack every island, not only UV-selected ones
+bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
+try:
+    bpy.ops.uv.pack_islands(margin=0.004, rotate=True, scale=True, shape_method='CONCAVE')
+except TypeError:
+    bpy.ops.uv.pack_islands(margin=0.004, rotate=True)
 bpy.ops.object.mode_set(mode='OBJECT')
 tris = sum(len(p.vertices) - 2 for p in obj.data.polygons)
 
