@@ -1,6 +1,6 @@
 # checkking medieval weapon kit (night of 2026-10-30)
 
-13 historical weapons, built procedurally in Blender (`source/build_weapon.py`), baked to 2K PBR, ready for UE 5.3.
+16 historical weapons, built procedurally in Blender (`source/build_weapon.py`), baked to 2K PBR, ready for UE 5.3.
 They're static meshes, with the hand point at the origin and Z along the weapon.
 
 | Weapon | Folder | Length | Tris | Notes |
@@ -8,11 +8,14 @@ They're static meshes, with the hand point at the origin and Z along the weapon.
 | Arming sword | `ArmingSword` | 0.93 m | 4.6k | one-handed, fuller over 70 % of the blade, wheel pommel, leather-wrapped grip |
 | Longsword | `Longsword` | ~1.2 m | | two-handed grip, short fuller, scent-stopper pommel |
 | Falchion | `Falchion` | 0.82 m | 3.3k | single edge, widening clipped tip, bronze pommel |
+| Rondel dagger | `RondelDagger` | 0.42 m | 3.0k | stiff triangular blade, disc guard and pommel |
 | Messer | `Messer` | 0.88 m | 1.9k | single edge with a slight curve, nagel, riveted oak grip slabs |
 | Bearded axe | `BeardedAxe` | 0.76 m | 3.0k | Viking hand axe: the beard hooks below the eye |
 | Dane axe | `DaneAxe` | 1.47 m | 3.3k | two-handed, broad thin crescent, iron bands |
 | War axe | `WarAxe` | 0.59 m | 6.3k | horseman's axe: steel head, back spike, langets, leather grip |
 | Bardiche | `Bardiche` | 2.08 m | 3.9k | long crescent fixed to the haft at two sockets |
+| Flanged mace | `FlangedMace` | 0.71 m | 6.5k | seven iron flanges, iron haft, leather grip |
+| War hammer | `WarHammer` | 0.75 m | 4.6k | square face, back beak, top spike, langets |
 | Winged spear | `WingedSpear` | 2.43 m | 1.3k | leaf blade, side wings, butt cap |
 | Boar spear | `BoarSpear` | 2.26 m | 1.8k | broad blade, wings, leather grip rings |
 | Partisan | `Partisan` | 2.55 m | 1.8k | broad triangular head with side lugs |
@@ -55,8 +58,8 @@ Using a weapon in game:
 
 ## Known limits / v2
 
-- The long hafts take most of the UV square, so metal gets fewer texels than it could. v2: pack the metal first and
-  scale the wood islands down.
+- v2 (done): metal-first UV packing. Wood and leather islands are packed at 35 %, so blades and heads get about 4x the
+  texels.
 - Rigid static meshes: no skinning needed for weapons.
 
 ## Rebuild
@@ -65,5 +68,5 @@ Using a weapon in game:
 blender -b --factory-startup -P source/build_weapon.py -- <weapon> <out_root> 2048 32
 ```
 
-`<weapon>` is one of: `arming_sword longsword falchion messer bearded_axe dane_axe war_axe bardiche winged_spear
-boar_spear partisan glaive halberd`.
+`<weapon>` is one of: `arming_sword longsword falchion messer rondel_dagger bearded_axe dane_axe war_axe bardiche
+flanged_mace war_hammer winged_spear boar_spear partisan glaive halberd`.
