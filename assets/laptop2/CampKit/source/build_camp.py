@@ -1,6 +1,6 @@
 # Camp kit (laptop2 2026-10-30): TorchPost, Campfire, HayBale, Well, HandCart. Knowledge-base standard: real scale,
 # bevels >= 3 mm, nothing perfectly straight, wear in the materials (campmat).
-#   blender -b --factory-startup -P build_camp.py      (env RES = low | high, VARIANT = TorchPost | Campfire | HayBale | Well | HandCart | MarketStall | Anvil)
+#   blender -b --factory-startup -P build_camp.py      (env RES = low | high, VARIANT = TorchPost | Campfire | HayBale | Well | HandCart | MarketStall | Anvil | Tent | SiegeLadder)
 # Units: metres, Z up, the prop stands on z 0 with its pivot at the base centre.
 import os, sys, math, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -8,11 +8,11 @@ import bpy, numpy as np
 bpy.ops.wm.read_factory_settings(use_empty=True)
 import kitlog
 from kitlog import log
-from propkit import plank, strap, nails, board_prof
+from propkit import plank, strap, nails, board_prof, group
 from shieldkit import fbm, sstep, mesh, grid_quads, unit, sweep, rrect, circ, superellipsoid, HIGH, PI
 D = os.path.dirname(os.path.abspath(__file__))
 VAR = os.environ.get('VARIANT', 'HayBale')
-rng = np.random.default_rng({'TorchPost': 151, 'Campfire': 152, 'HayBale': 153, 'Well': 154, 'HandCart': 155, 'MarketStall': 156, 'Anvil': 157}[VAR])
+rng = np.random.default_rng({'TorchPost': 151, 'Campfire': 152, 'HayBale': 153, 'Well': 154, 'HandCart': 155, 'MarketStall': 156, 'Anvil': 157, 'Tent': 158, 'SiegeLadder': 159, 'CannonCart': 160, 'Workbench': 161, 'Grindstone': 162}[VAR])
 j = lambda a=0.004: rng.uniform(-a, a)
 
 def rotm(yaw, pitch, roll=0.0):
@@ -100,7 +100,8 @@ elif VAR == 'Campfire':   # 1.2 m stone ring, ash bed, glowing coals, five part-
         mesh('Coal_%d' % k, c + Vs * np.array([sz, sz * 0.8, sz * 0.55]), [Qs, Ts], 'Coal', uv=np.stack([Vs[:, 0], Vs[:, 2]], -1) * sz, attrs={'glow': np.full(len(Vs), max(0.0, 1 - r_ / 0.22) * rng.uniform(0.6, 1.0))})
     for k in range(5):   # logs lying into the fire, outer ends up on the stones, inner ends charred
         a = 2 * PI * k / 5 + rng.uniform(-0.25, 0.25); r0 = 0.055 if k % 2 else 0.045; L = rng.uniform(0.55, 0.68)
-        p1 = np.array([0.08 * math.cos(a + 2.5), 0.08 * math.sin(a + 2.5), 0.06 + 0.035 * k]); p0 = p1 + np.array([math.cos(a), math.sin(a), 0]) * L + [0, 0, 0.09 + 0.02 * (k % 2)]
+        # inner ends clear the ash and coals by > 12 mm (the bake ray distance), or the logs bake the coals' black
+        p1 = np.array([0.08 * math.cos(a + 2.5), 0.08 * math.sin(a + 2.5), 0.13 + 0.04 * k]); p0 = p1 + np.array([math.cos(a), math.sin(a), 0]) * L + [0, 0, 0.06 + 0.02 * (k % 2)]
         ob = log('Log_%d' % k, tuple(p0), tuple(p1), r0, 650 + k, bend=0.01, brk=0.04 if k % 2 else 0.0)
         char_log(ob, p1, rng.uniform(0.14, 0.22), 0.8)      # only the inner end is burnt; the rest stays bark
     for k in range(2):   # spare firewood beside the ring
@@ -273,6 +274,142 @@ elif VAR == 'Anvil':   # 0.62 m iron anvil on an oak stump: base, waist, face bl
     tube('HammerHandle', np.array([[0.06, 0.08, Z0 + 0.29], [0.1, 0.03, Z0 + 0.31], [0.14, -0.14, Z0 + 0.335]]), [0, 0, 1.0], 0.013, 'WoodCut', n=16 if HIGH else 6, rad=[0.016, 0.013, 0.015])
     block('HammerHead', (0.065, 0.085, Z0 + 0.3), (0.045, 0.02, 0.022), 0.15, 6)
     meta = {'size': [0.62, 0.38, 0.8], 'work_point': [0.0, 0.0, Z0 + 0.27]}
+
+elif VAR == 'Tent':   # 2.4 x 1.8 m soldiers' ridge tent: ridge pole on two end poles, canvas draped over, front flap tied open, guy ropes to pegs
+    L, Wd, Ht = 2.4, 1.8, 1.55
+    log('PoleF', (L / 2 - 0.1, 0.0, -0.05), (L / 2 - 0.1 + j(0.01), j(0.01), Ht), 0.03, 1000, bend=0.004)
+    log('PoleB', (-L / 2 + 0.1, 0.0, -0.05), (-L / 2 + 0.1 + j(0.01), j(0.01), Ht), 0.03, 1001, bend=0.004)
+    log('Ridge', (-L / 2 - 0.15, 0.0, Ht + 0.02), (L / 2 + 0.15, 0.0, Ht + 0.025), 0.028, 1002, bend=0.006)
+    nu, nv = (160, 48) if HIGH else (26, 10)
+    for sy in (-1, 1):   # two canvas slopes from the ridge to the ground, sagging between the poles, hem lifting at the pegs
+        U, V_ = np.meshgrid(np.linspace(0, 1, nu), np.linspace(0, 1, nv), indexing='ij')
+        X = -L / 2 - 0.1 + (L + 0.2) * U; Y = sy * (0.015 + (Wd / 2) * V_); Z = Ht + 0.02 - (Ht + 0.02) * V_ ** 1.05
+        sag = 0.05 * np.sin(np.clip((U - 0.08) / 0.84, 0, 1) * PI) * np.sin(V_ * PI) ** 0.8
+        Z = Z - sag; Y = Y + sy * 0.03 * np.sin(V_ * PI) * np.sin(np.clip((U - 0.08) / 0.84, 0, 1) * PI)
+        Z = Z + 0.012 * np.abs(np.sin(U * 5 * PI)) ** 2 * V_ * (1 - V_) * 2        # creases from the guy ropes
+        if HIGH: Z = Z + 0.004 * (fbm(U * 14, V_ * 8 + sy, 1010, 4) - 0.5) * 2 + 0.001 * (fbm(U * 70, V_ * 40, 1011, 3) - 0.5) * 2
+        Z = np.maximum(Z, 0.003)
+        Vc = np.stack([X, Y, Z], -1).reshape(-1, 3); Qc = grid_quads(nu, nv, False)
+        mesh('Canvas_%d' % int(sy > 0), Vc, [Qc], 'Canvas', uv=np.stack([X, V_ * Wd * 0.9], -1).reshape(-1, 2))
+    # back wall: a triangle of canvas; front: two flaps, one tied back to the pole
+    nb = 24 if HIGH else 6
+    Ub, Vb = np.meshgrid(np.linspace(-1, 1, nb), np.linspace(0, 1, nb), indexing='ij')
+    Xb = -L / 2 - 0.1 + 0.0 * Ub + 0.01 * (1 - Vb); Yb = Ub * (Wd / 2) * (1 - Vb); Zb = (Ht + 0.0) * Vb
+    if HIGH: Xb = Xb + 0.004 * (fbm(Ub * 6, Vb * 6, 1012, 3) - 0.5) * 2
+    mesh('BackWall', np.stack([Xb, Yb, Zb], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'Canvas', uv=np.stack([Yb, Zb], -1).reshape(-1, 2))
+    Uf, Vf = np.meshgrid(np.linspace(0, 1, nb), np.linspace(0, 1, nb), indexing='ij')
+    Xf = L / 2 + 0.1 - 0.02 * Vf; Yf = -(Wd / 2) * (1 - Vf) * Uf; Zf = Ht * Vf + 0.0        # closed left flap
+    if HIGH: Xf = Xf + 0.004 * (fbm(Uf * 6, Vf * 6, 1013, 3) - 0.5) * 2
+    mesh('FlapL', np.stack([Xf, Yf, Zf], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'Canvas', uv=np.stack([Yf, Zf], -1).reshape(-1, 2))
+    Xr = L / 2 + 0.1 + 0.25 * Uf * (1 - Vf); Yr = (Wd / 2) * (1 - Vf) * (0.35 + 0.65 * Uf) * (1 - 0.5 * Uf * (1 - Vf)); Zr = Ht * Vf + 0.1 * Uf * (1 - Vf)   # right flap rolled open toward the pole
+    mesh('FlapR', np.stack([Xr, Yr, Zr], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'Canvas', uv=np.stack([Yr + Xr, Zr], -1).reshape(-1, 2))
+    for sy in (-1, 1):   # guy ropes from the hem to wooden pegs, and the ridge ropes to the end pegs
+        for k in range(3):
+            x = -L / 2 + 0.3 + k * (L - 0.6) / 2
+            peg = np.array([x + j(0.03), sy * (Wd / 2 + 0.35), 0.0])
+            kitlog.rope('Guy_%d_%d' % (int(sy > 0), k), [[x, sy * (Wd / 2 - 0.02), 0.12], peg + [0, 0, 0.06]], 0.005, 1020 + k)
+            V, Q, Tr, uv = sweep(np.array([peg + [0, 0, -0.08], peg + [0, 0, 0.12]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.025, 0.02, 8 if HIGH else 4, 5.0)); mesh('Peg_%d_%d' % (int(sy > 0), k), V, [Q, Tr], 'WoodCut', uv=uv)
+    for sx in (-1, 1):
+        peg = np.array([sx * (L / 2 + 0.75), 0.0, 0.0])
+        kitlog.rope('RidgeGuy_%d' % int(sx > 0), [[sx * (L / 2 + 0.15), 0.0, Ht + 0.02], peg + [0, 0, 0.07]], 0.006, 1030 + int(sx > 0))
+        V, Q, Tr, uv = sweep(np.array([peg + [0, 0, -0.08], peg + [0, 0, 0.14]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.03, 0.022, 8 if HIGH else 4, 5.0)); mesh('RidgePeg_%d' % int(sx > 0), V, [Q, Tr], 'WoodCut', uv=uv)
+    meta = {'size': [L + 1.7, Wd + 0.8, Ht + 0.05], 'door': [L / 2 + 0.1, 0.0, 0.0]}
+
+elif VAR == 'SiegeLadder':   # 5 m assault ladder: two bark rails, 14 rungs, lashed at every third rung, iron hooks at the top
+    LL, Wr = 5.0, 0.42
+    for k, y in enumerate((-Wr / 2, Wr / 2)):
+        log('Rail_%d' % k, (0.0, y, 0.0), (LL + j(0.03), y + j(0.02), 0.0 + j(0.01)), 0.038, 1100 + k, bend=0.015)
+    for r in range(14):
+        x = 0.25 + r * (LL - 0.5) / 13
+        xr = x + j(0.006)   # rungs lie across the top of the rails
+        tube('Rung_%02d' % r, np.array([[xr, -Wr / 2 - 0.05, 0.046], [xr, 0.0, 0.05], [xr, Wr / 2 + 0.05, 0.046]]), [0, 0, 1.0], 0.02, 'WoodCut', n=16 if HIGH else 7, rad=[0.019, 0.022, 0.019])
+        if r % 3 == 0:
+            for sy in (-1, 1): kitlog.lash('Lash_%02d_%d' % (r, int(sy > 0)), (xr, sy * Wr / 2, 0.0), 0.038, (xr, sy * Wr / 2, 0.046), 0.02, (1, 0, 0), (0, 1, 0), 1120 + r + int(sy > 0))
+    for sy in (-1, 1):   # top hooks: an iron strap along the rail, bent over into a hook
+        a = np.linspace(0, PI * 0.9, 16 if HIGH else 5)
+        hook = np.vstack([[[LL - 0.5, sy * Wr / 2, 0.04]], [[LL, sy * Wr / 2, 0.04]], np.stack([LL + 0.06 * np.sin(a), np.full_like(a, sy * Wr / 2), 0.04 - 0.06 * (1 - np.cos(a))], -1)[1:]])
+        V, Q, Tr, uv = sweep(hook, np.tile([0, 1.0, 0], (len(hook), 1)), rrect(0.03, 0.007, 8 if HIGH else 4, 5.0)); mesh('Hook_%d' % int(sy > 0), V, [Q, Tr], 'Iron', uv=uv)
+        nails('HookNails_%d' % int(sy > 0), [(LL - 0.4, sy * Wr / 2, 0.044), (LL - 0.15, sy * Wr / 2, 0.044)], (0, 0, 1.0), None, r=0.006)
+    meta = {'size': [LL + 0.1, Wr + 0.12, 0.09], 'note': 'lies flat along +X with the foot at the origin; lean it 65-70 deg against the wall, hooks over the crenel'}
+
+elif VAR == 'CannonCart':   # #50: two-wheel cannon carriage/limber: the cannon sits in a cradle on the bed; wheels are separate pieces
+    # pieces (vertex groups): Body (bed, cradle, axle, shafts), WheelL, WheelR (pivot on the axle: rotate about Y by distance / radius)
+    BZ, AX, WY, WR = 0.55, 0.0, 0.62, 0.55
+    for b in range(5):
+        y = -0.36 + 0.72 * (b + 0.5) / 5
+        plank('Bed_%d' % b, (-1.0 + j(0.01), y, BZ), (1.1 + j(0.01), y + j(0.003), BZ + j(0.003)), 0.135, 0.03, 1200 + b, (0, 0, 1.0), rot=0.1, gname='Body')
+    for k, x in enumerate((-0.9, 0.0, 0.95)):
+        plank('Bearer_%d' % k, (x, -0.42, BZ - 0.045), (x, 0.42, BZ - 0.045), 0.08, 0.06, 1210 + k, (0, 0, -1.0), rot=0.2, gname='Body')
+    for k, x in enumerate((-0.45, 0.45)):   # the cradle: two V blocks that hold the barrel
+        for sy in (-1, 1):
+            V, Q, Tr, uv = sweep(np.array([[x, sy * 0.12, BZ + 0.015], [x + j(0.005), sy * 0.26, BZ + 0.24]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.12, 0.07, 10 if HIGH else 4, 6.0))
+            group(mesh('Cradle_%d_%d' % (k, int(sy > 0)), V, [Q, Tr], 'WoodCut', uv=uv), 'Body')
+            strap('CradleStrap_%d_%d' % (k, int(sy > 0)), (x, sy * 0.13, BZ + 0.03), (x, sy * 0.25, BZ + 0.23), 0.04, 0.004, 'Body', tip=False)
+    group(tube('Axle', np.array([[AX, -WY - 0.14, WR], [AX, 0, WR + 0.003], [AX, WY + 0.14, WR]]), [0, 0, 1.0], 0.04, 'WoodCut', n=24 if HIGH else 8), 'Body')
+    for sy in (-1, 1):
+        plank('Bolster_%d' % int(sy > 0), (AX - 0.08, sy * 0.32, WR + 0.045), (AX + 0.08, sy * 0.32, WR + 0.045), 0.14, 0.05, 1220 + int(sy > 0), (0, 0, 1.0), rot=0.2, gname='Body')
+        group(ring('AxleCap_%d' % int(sy > 0), (AX, sy * (WY + 0.13), WR), 0.045, rrect(0.02, 0.006, 8 if HIGH else 4, 5.0), 'Iron', axis=(0, 1.0, 0), n=48 if HIGH else 12), 'Body')
+    for sy in (-1, 1):   # wheels: 12 spokes, felloe rim, iron tyre, hub with bands; pivot = (AX, sy*WY, WR)
+        g = 'WheelL' if sy < 0 else 'WheelR'; wc = np.array([AX, sy * WY, WR])
+        group(ring('Rim_%s' % g, wc, WR - 0.03, rrect(0.06, 0.05, 12 if HIGH else 4, 6.0), 'WoodCut', axis=(0, 1.0, 0), n=144 if HIGH else 36, tilt=0.002), g)
+        group(ring('Tyre_%s' % g, wc, WR + 0.004, rrect(0.055, 0.012, 10 if HIGH else 4, 5.0), 'Iron', axis=(0, 1.0, 0), n=144 if HIGH else 36), g)
+        group(tube('Hub_%s' % g, np.array([wc + [0, -sy * 0.1, 0], wc + [0, sy * 0.11, 0]]), [0, 0, 1.0], 0.075, 'WoodCut', n=32 if HIGH else 10), g)
+        for z_ in (-0.085, 0.09): group(ring('HubBand_%s_%d' % (g, int(z_ > 0)), wc + [0, sy * z_, 0], 0.077, rrect(0.022, 0.004, 8 if HIGH else 4, 5.0), 'Iron', axis=(0, 1.0, 0), n=64 if HIGH else 16), g)
+        for k in range(12):
+            a = 2 * PI * k / 12 + rng.uniform(-0.02, 0.02); dvec = np.array([math.cos(a), 0, math.sin(a)])
+            group(tube('Spoke_%s_%02d' % (g, k), np.array([wc + dvec * 0.065, wc + dvec * (WR - 0.045)]), [0, 1.0, 0], 0.015, 'WoodCut', n=12 if HIGH else 6, rad=[0.018, 0.013]), g)
+    for sy in (-1, 1):   # shafts forward (+X) with a pull bar for the pulling mechanic; a push bar at the back
+        group(log('Shaft_%d' % int(sy > 0), (0.6, sy * 0.38, BZ - 0.06), (2.3, sy * 0.33, BZ + 0.02), 0.034, 1230 + int(sy > 0), bend=0.01), 'Body')
+    group(tube('PullBar', np.array([[2.2, -0.36, BZ + 0.02], [2.2, 0.36, BZ + 0.02]]), [0, 0, 1.0], 0.022, 'WoodCut', n=16 if HIGH else 6), 'Body')
+    group(tube('PushBar', np.array([[-1.05, -0.45, BZ + 0.35], [-1.05, 0.45, BZ + 0.35]]), [0, 0, 1.0], 0.022, 'WoodCut', n=16 if HIGH else 6), 'Body')
+    for sy in (-1, 1):
+        V, Q, Tr, uv = sweep(np.array([[-1.0, sy * 0.4, BZ], [-1.05, sy * 0.44, BZ + 0.36]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.045, 0.035, 10 if HIGH else 4, 6.0)); group(mesh('PushPost_%d' % int(sy > 0), V, [Q, Tr], 'WoodCut', uv=uv), 'Body')
+    meta = {'size': [3.4, 1.5, 1.1], 'pieces': {'Body': [0, 0, 0], 'WheelL': [AX, -WY, WR], 'WheelR': [AX, WY, WR]}, 'wheel_radius_m': WR + 0.004,
+            'cradle_socket': [0.0, 0.0, BZ + 0.2], 'pull_handle': [2.2, 0.0, BZ + 0.02], 'push_handle': [-1.05, 0.0, BZ + 0.35],
+            'note': 'rotate WheelL/WheelR about their local Y by travelled_distance / wheel_radius_m (radians); the cannon barrel mesh sits at cradle_socket'}
+
+elif VAR == 'Workbench':   # #50 workshop: heavy oak bench with a leg vice, tools on top (hammer, tongs, file), a toolbox underneath
+    W, Dp, H = 1.8, 0.75, 0.9
+    for b in range(4):
+        y = -Dp / 2 + Dp * (b + 0.5) / 4
+        plank('Top_%d' % b, (-W / 2 + j(0.01), y, H - 0.04), (W / 2 + j(0.01), y + j(0.003), H - 0.04 + j(0.002)), Dp / 4 - 0.006, 0.08, 1300 + b, (0, 0, 1.0), rot=0.05)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            V, Q, Tr, uv = sweep(np.array([[sx * (W / 2 - 0.12), sy * (Dp / 2 - 0.1), 0.0], [sx * (W / 2 - 0.12) + j(0.01), sy * (Dp / 2 - 0.1), H - 0.08]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.1, 0.1, 10 if HIGH else 4, 6.0))
+            mesh('Leg_%d_%d' % (int(sx > 0), int(sy > 0)), V, [Q, Tr], 'WoodCut', uv=uv)
+        plank('Stretcher_%d' % int(sx > 0), (sx * (W / 2 - 0.12), -Dp / 2 + 0.1, 0.25), (sx * (W / 2 - 0.12), Dp / 2 - 0.1, 0.25), 0.09, 0.05, 1310 + int(sx > 0), (0, 0, 1.0), rot=0.3)
+    plank('Shelf', (-W / 2 + 0.2, 0.0, 0.27), (W / 2 - 0.2, 0.0, 0.27), 0.5, 0.03, 1320, (0, 0, 1.0), rot=0.4)
+    # leg vice on the front left: wooden jaw, iron screw with a tommy bar
+    V, Q, Tr, uv = sweep(np.array([[-W / 2 + 0.15, -Dp / 2 - 0.08, 0.05], [-W / 2 + 0.15, -Dp / 2 - 0.08, H + 0.02]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.11, 0.06, 10 if HIGH else 4, 6.0)); mesh('ViceJaw', V, [Q, Tr], 'WoodCut', uv=uv)
+    tube('ViceScrew', np.array([[-W / 2 + 0.15, -Dp / 2 - 0.3, H - 0.15], [-W / 2 + 0.15, -Dp / 2 + 0.05, H - 0.15]]), [0, 0, 1.0], 0.018, 'Iron', n=16 if HIGH else 6)
+    tube('ViceBar', np.array([[-W / 2 + 0.15, -Dp / 2 - 0.27, H - 0.32], [-W / 2 + 0.15, -Dp / 2 - 0.27, H + 0.02]]), [1.0, 0, 0], 0.009, 'Iron', n=10 if HIGH else 5)
+    # tools on top: hammer, tongs, a file
+    tube('HammerHandle', np.array([[0.2, -0.1, H + 0.015], [0.5, -0.02, H + 0.015]]), [0, 0, 1.0], 0.013, 'WoodCut', n=12 if HIGH else 6)
+    Vs, Qs, Ts = superellipsoid(16 if HIGH else 6, 8 if HIGH else 4, 0.15); mesh('HammerHead', np.array([0.52, -0.015, H + 0.025]) + Vs * np.array([0.03, 0.055, 0.025]), [Qs, Ts], 'Iron', uv=np.stack([Vs[:, 1], Vs[:, 2]], -1) * 0.05)
+    for k, (a, L) in enumerate(((0.0, 0.42), (0.12, 0.42))):
+        tube('Tong_%d' % k, np.array([[-0.5, 0.15, H + 0.008], [-0.5 + L * math.cos(a), 0.15 + L * math.sin(a), H + 0.008]]), [0, 0, 1.0], 0.007, 'Iron', n=8 if HIGH else 5)
+    V, Q, Tr, uv = sweep(np.array([[0.1, 0.25, H + 0.006], [0.45, 0.28, H + 0.006]]), np.tile([0, 0, 1.0], (2, 1)), rrect(0.025, 0.006, 8 if HIGH else 4, 5.0)); mesh('File', V, [Q, Tr], 'Iron', uv=uv)
+    # toolbox on the shelf: an open plank box with an iron bail
+    bx, by, bz = -0.2, 0.0, 0.285
+    plank('BoxBottom', (bx - 0.3, by, bz + 0.01), (bx + 0.3, by, bz + 0.01), 0.26, 0.015, 1330, (0, 0, 1.0), rot=0.1)
+    for sy in (-1, 1): plank('BoxSide_%d' % int(sy > 0), (bx - 0.3, by + sy * 0.13, bz + 0.09), (bx + 0.3, by + sy * 0.13, bz + 0.09), 0.16, 0.015, 1331 + int(sy > 0), (0, sy * 1.0, 0), rot=0.1)
+    for sx in (-1, 1): plank('BoxEnd_%d' % int(sx > 0), (bx + sx * 0.3, by - 0.12, bz + 0.09), (bx + sx * 0.3, by + 0.12, bz + 0.09), 0.16, 0.015, 1333 + int(sx > 0), (sx * 1.0, 0, 0), rot=0.1)
+    tube('BoxHandle', np.array([[bx - 0.28, by, bz + 0.17], [bx - 0.28, by, bz + 0.27], [bx + 0.28, by, bz + 0.27], [bx + 0.28, by, bz + 0.17]]), [0, 1.0, 0], 0.008, 'Iron', n=8 if HIGH else 5)
+    meta = {'size': [W + 0.4, Dp + 0.3, H + 0.1], 'work_point': [0.0, 0.0, H + 0.1]}
+
+elif VAR == 'Grindstone':   # #50 workshop: 0.6 m sandstone wheel in an oak frame over a water trough, with a crank
+    tube('Trough', np.array([[-0.35, 0.0, 0.3], [0.35, 0.0, 0.3]]), [0, 0, 1.0], 0.16, 'WoodCut', n=24 if HIGH else 8)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            V, Q, Tr, uv = sweep(np.array([[sx * 0.3, sy * 0.22, 0.0], [sx * 0.3 + j(0.005), sy * 0.2, 0.55]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.07, 0.07, 8 if HIGH else 4, 6.0)); mesh('Post_%d_%d' % (int(sx > 0), int(sy > 0)), V, [Q, Tr], 'WoodCut', uv=uv)
+    plank('Rail_0', (-0.36, 0.2, 0.52), (0.36, 0.2, 0.52), 0.08, 0.05, 1400, (0, 0, 1.0), rot=0.2); plank('Rail_1', (-0.36, -0.2, 0.52), (0.36, -0.2, 0.52), 0.08, 0.05, 1401, (0, 0, 1.0), rot=0.2)
+    # the stone: a 0.6 m disc 9 cm thick (a tube along Y), slightly worn out of round on the high
+    ob = tube('Stone', np.array([[0.0, -0.045, 0.58], [0.0, 0.045, 0.58]]), [0, 0, 1.0], 0.3, 'Stone', n=96 if HIGH else 28, rad=[0.3, 0.3])
+    ob.data.attributes.new('soot', 'FLOAT', 'POINT').data.foreach_set('value', np.zeros(len(ob.data.vertices), np.float32))
+    tube('Axle', np.array([[0.0, -0.3, 0.58], [0.0, 0.3, 0.58]]), [0, 0, 1.0], 0.022, 'Iron', n=16 if HIGH else 6)
+    crank = np.array([[0.0, 0.3, 0.58], [0.0, 0.36, 0.58], [0.14, 0.37, 0.58], [0.14, 0.52, 0.58]])
+    tube('Crank', crank, [0, 0, 1.0], 0.012, 'Iron', n=12 if HIGH else 6); tube('CrankGrip', crank[-2:] + [[0, 0.02, 0], [0, -0.01, 0]], [0, 0, 1.0], 0.02, 'WoodCut', n=16 if HIGH else 6)
+    meta = {'size': [0.8, 0.7, 0.9], 'work_point': [-0.3, 0.0, 0.62]}
 
 json.dump({'grip': [0, 0, 0], **meta}, open(os.path.join(D, 'camp%s_meta.json' % VAR.lower()), 'w'))
 tris = sum(len(p.vertices) - 2 for o in bpy.data.objects if o.type == 'MESH' for p in o.data.polygons)
