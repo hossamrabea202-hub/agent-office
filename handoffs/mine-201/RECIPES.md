@@ -1,4 +1,4 @@
-# Metal recipes (draft v1 — the office grows this table; owner approves prices)
+# Metal recipes v1 — APPROVED by the owner 2026-10-30 (the office may add rows; price changes need the owner)
 
 Metals: **Fe** iron, **Cu** copper, **Ag** silver, **Au** gold ore, **Star** starmetal. One cart = 1 unit.
 At 45 s per cart a 10-minute game gives ~13 units (≈ 7 Fe, 3 Cu, 2 Ag, 1 Au, Star now and then).
