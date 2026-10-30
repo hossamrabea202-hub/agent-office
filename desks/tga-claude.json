@@ -1,5 +1,5 @@
 {
- "working": "#202 item 3 road fence: baked + pbr OK, exporting/hand-off now (shed done #242)",
+ "working": "#202: shed #242 + fence #243 handed off; now item 4 rock cluster set (3 sizes, mossy/dry)",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-30T21:29:33Z",
+ "asOf": "2026-10-30T21:30:56Z",
  "seat": "TGA (Claude)"
 }
