@@ -126,3 +126,14 @@ def sqrove(c, n, s, h):
     V, Q, Tr = superellipsoid(16 if HIGH else 4, 6 if HIGH else 1, 0.25)
     P = c + V[:, 0, None] * a * s / 2 + V[:, 1, None] * b * s / 2 + (V[:, 2, None] * 0.5 + 0.5) * n * h
     return P, Q, Tr, np.stack([P[:, 0], P[:, 2]], -1)
+
+def smart_uv(names):
+    """superellipsoid parts got planar UVs whose front and back overlap: give them a real unwrap on the low poly."""
+    import bpy, math
+    for nm in names:
+        o = bpy.data.objects.get(nm)
+        if o is None: continue
+        bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
+        bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
+        bpy.ops.uv.smart_project(angle_limit=math.radians(60), island_margin=0.004, scale_to_bounds=False)
+        bpy.ops.object.mode_set(mode='OBJECT')

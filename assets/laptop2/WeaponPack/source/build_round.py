@@ -277,6 +277,8 @@ if HIGH:
         add(parts, *sweep(arc, np.tile([0, 1.0, 0], (12, 1)), circ(0.0011, 8)))
 emit('Iron', parts, 'Iron')
 
+if not HIGH:
+    import shieldkit; shieldkit.smart_uv(('Iron',))
 json.dump({'grip': GRIP.tolist(), 'grip_axis': [1, 0, 0], 'radius': R}, open(os.path.join(D, 'round_meta.json'), 'w'))
 tris = sum(len(p.vertices) - 2 for o in bpy.data.objects if o.type == 'MESH' for p in o.data.polygons)
 print('TRIS', tris, 'VERTS', sum(len(o.data.vertices) for o in bpy.data.objects if o.type == 'MESH'))

@@ -4,7 +4,8 @@
 # high = bake source (1 mm grids, paint chips, sword gashes, rivets)   -> Heater_high.blend + masks/*.png
 # Units: metres, Z up, the painted face looks toward -Y, the bottom point at z 0. The pivot (hand grip centre) is
 # written to heater_meta.json and applied when the FBX is exported.
-import os, math, json
+import os, sys, math, json
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bpy, numpy as np
 D = os.path.dirname(os.path.abspath(__file__))
 RES = os.environ.get('RES', 'low'); HIGH = RES == 'high'
@@ -529,6 +530,8 @@ if ARROW:
     j = np.arange(len(sq)); Tr = np.stack([np.full(len(sq), c0), (len(th_) - 1) * len(sq) + (j + 1) % len(sq), (len(th_) - 1) * len(sq) + j], -1)
     mesh('ArrowHead', V, [Q, Tr], 'Iron', uv=uv, group='arrow')
 
+if not HIGH:
+    import shieldkit; shieldkit.smart_uv(('Fittings', 'GripWood'))
 json.dump({'grip': GRIP.tolist(), 'grip_axis': [0, 0, 1], 'width': W, 'height': H}, open(os.path.join(D, 'heater_meta.json'), 'w'))
 tris = sum(len(p.vertices) - 2 for o in bpy.data.objects if o.type == 'MESH' for p in o.data.polygons)
 print('TRIS', tris, 'VERTS', sum(len(o.data.vertices) for o in bpy.data.objects if o.type == 'MESH'))

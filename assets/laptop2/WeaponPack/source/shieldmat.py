@@ -136,12 +136,18 @@ def iron(m):
     m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
     co = _co(nt); edge = _edge(nt, 0.0010); cav, ao = _cav(nt, 0.005)
     n1 = _noise(nt, co, 24, 6, 0.6)
-    col = _mix_col(nt, n1, (0.042, 0.040, 0.038), (0.078, 0.072, 0.066))
+    # calibrated: wrought iron reflects ~45-55 % (linear), so bare metal sits at 180-200 sRGB; the darkness of old iron comes
+    # from oxide and grime (non-metal layers), never from a dark metal base
+    col = _mix_col(nt, n1, (0.40, 0.385, 0.36), (0.52, 0.50, 0.47))
     ham = _n(nt, 'ShaderNodeTexVoronoi', feature='SMOOTH_F1', in_Scale=180.0); nt.links.new(co, ham.inputs['Vector'])
     hm = _maprange(nt, ham.outputs['Distance'], 0.0, 0.6)
-    col = _mix_col(nt, _math(nt, 'MULTIPLY', hm, 0.25), col, (0.10, 0.095, 0.09))
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', hm, 0.25), col, (0.34, 0.33, 0.31))
     shine = _maprange(nt, _math(nt, 'MULTIPLY', edge, _maprange(nt, _noise(nt, co, 60, 6, 0.65), 0.40, 0.62)), 0.03, 0.12)
-    col = _mix_col(nt, shine, col, (0.40, 0.39, 0.37))
+    col = _mix_col(nt, shine, col, (0.62, 0.61, 0.58))
+    # dark mill-scale / oxide film over most of it (a non-metal layer: metallic drops where it sits)
+    scale_ = _maprange(nt, _noise(nt, co, 14, 5, 0.6), 0.30, 0.55, 0.55, 0.95)
+    scale_ = _math(nt, 'MULTIPLY', scale_, _math(nt, 'SUBTRACT', 1.0, shine, True))
+    col = _mix_col(nt, scale_, col, (0.055, 0.050, 0.046))
     s = _sep(nt, co)
     rlow = _maprange(nt, s[2], 0.35, 0.0, 0.0, 0.35)       # the bottom of the rim sat in the mud more
     rmask = _math(nt, 'ADD', _maprange(nt, cav, 0.15, 0.6), _math(nt, 'ADD', _maprange(nt, _noise(nt, co, 9, 5, 0.6), 0.52, 0.68, 0, 0.8), rlow))
@@ -152,8 +158,9 @@ def iron(m):
     rg = _mix_f(nt, n1, 0.36, 0.52)
     rg = _mix_f(nt, _math(nt, 'MULTIPLY', hm, 0.4), rg, 0.6)
     rg = _mix_f(nt, shine, rg, 0.24)
+    rg = _mix_f(nt, scale_, rg, 0.62)
     rg = _mix_f(nt, rmask, rg, 0.90)
-    mt = _mix_f(nt, rmask, 0.92, 0.0)
+    mt = _mix_f(nt, rmask, _mix_f(nt, scale_, 1.0, 0.35), 0.0)
     _finish(nt, col, rg, mt, ao)
 
 def shaft(m):

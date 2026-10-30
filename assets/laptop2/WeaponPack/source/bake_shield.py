@@ -6,7 +6,7 @@ import sys, os, json
 import bpy, numpy as np
 D = os.environ.get('WORK') or os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, D)
-import shieldmat, swordmat, potionmat
+import shieldmat, swordmat, potionmat, gatemat, floramat, propmat, ballistamat
 from matlib import set_output
 
 STAGE = os.environ['STAGE']
@@ -16,7 +16,14 @@ NAME = 'SM_%sShield' % SH; TN = 'T_%sShield' % SH
 if SH == 'Sword': NAME, TN = 'SM_Emberoath', 'T_Emberoath'
 POT = SH.startswith('Potion')
 if POT: NAME, TN = 'SM_Potion_' + SH[6:], 'T_Potion_' + SH[6:]
-MATS = swordmat if SH == 'Sword' else potionmat if POT else shieldmat
+if SH == 'Gate': NAME, TN = 'SM_SiegeGate', 'T_SiegeGate'
+FLO = SH.startswith('Flora')
+if FLO: NAME, TN = 'SM_Flora_' + SH[5:], 'T_Flora_' + SH[5:]
+PRP = SH.startswith('Props')
+if PRP: NAME, TN = 'SM_Barracks_' + SH[5:], 'T_Barracks_' + SH[5:]
+if SH == 'Ballista': NAME, TN = 'SM_FireBallista', 'T_FireBallista'
+MATS = swordmat if SH == 'Sword' else potionmat if POT else gatemat if SH == 'Gate' else floramat if FLO else propmat if PRP else ballistamat if SH == 'Ballista' else shieldmat
+PIECES = SH in ('Gate', 'Ballista')      # multi-piece assets: one texture, one FBX per piece (vertex groups)
 UNBAKED = ('Glass', 'Liquid')     # potions: these keep translucent UE materials and are not baked
 TEX = os.path.join(D, 'tex'); os.makedirs(TEX, exist_ok=True)
 sc = bpy.context.scene
@@ -36,7 +43,7 @@ if STAGE == 'prep':
     bpy.context.view_layer.objects.active = LP
     bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
     sc.tool_settings.use_uv_select_sync = True; bpy.ops.uv.select_all(action='SELECT')
-    if SH == 'Sword': bpy.ops.uv.average_islands_scale()          # equal texel density for every part
+    if SH in ('Sword', 'Heater', 'Round'): bpy.ops.uv.average_islands_scale()          # equal texel density for every part
     bpy.ops.uv.pack_islands(udim_source='CLOSEST_UDIM', margin=0.003, rotate=True, shape_method='CONCAVE', scale=True)
     bpy.ops.object.mode_set(mode='OBJECT')
     with bpy.data.libraries.load(os.path.join(D, SH + '_high.blend')) as (src, dst):
@@ -56,6 +63,7 @@ elif STAGE in ('BC', 'RG', 'MT', 'AO', 'Normal', 'EM'):
     sc.cycles.use_auto_tile = True; sc.cycles.tile_size = 1024
     # thin parts (14 mm board, 4 mm straps): a short cage so a face never picks up what sits in front of it
     b = sc.render.bake; b.use_selected_to_active = True; b.cage_extrusion = 0.006; b.max_ray_distance = 0.012; b.margin = 16
+    if FLO: b.cage_extrusion = 0.0015; b.max_ray_distance = 0.003      # thin petals and leaves: don't catch the neighbours
     QUAD = os.environ.get('QUAD'); BS = SIZE
     if QUAD is not None:
         q = int(QUAD); qx, qy = q % 2, q // 2; BS = SIZE // 2
@@ -97,7 +105,7 @@ elif STAGE == 'finish':
     one = np.ones((SIZE, SIZE), np.float32)
     save(np.stack([srgb(chan('BC', k)) for k in range(3)] + [one], -1), TN + '_BaseColor')
     save(np.stack([chan('AO', 0), chan('RG', 0), chan('MT', 0)] + [one], -1), TN + '_ORM')
-    if SH == 'Sword': save(np.stack([srgb(np.clip(chan('EM', k), 0, 1)) for k in range(3)] + [one], -1), TN + '_Emissive')
+    if os.path.exists(os.path.join(TEX, f'{SH}_raw_EM_q0.exr')): save(np.stack([srgb(np.clip(chan('EM', k), 0, 1)) for k in range(3)] + [one], -1), TN + '_Emissive')
     n = [chan('Normal', k) for k in range(3)]
     save(np.stack(n + [one], -1), TN + '_Normal_OpenGL', '16')
     n[1] = 1.0 - n[1]
@@ -122,7 +130,7 @@ elif STAGE == 'finish':
         LP.select_set(True); bpy.context.view_layer.objects.active = LP; bpy.ops.object.join()
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(D, SH + '_final.blend'))     # world space, for renders
     # pivot at the hand grip centre (the hand socket goes here), then the two FBX: with and without the arrow
-    g = json.load(open(os.path.join(D, SH.lower() + '_meta.json')))['grip']
+    mp_ = os.path.join(D, SH.lower() + '_meta.json'); g = json.load(open(mp_))['grip'] if os.path.exists(mp_) else [0, 0, 0]
     me = LP.data; co = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co)
     me.vertices.foreach_set('co', (co.reshape(-1, 3) - np.array(g, np.float32)).ravel()); me.update()
     def export(fn):
@@ -131,6 +139,23 @@ elif STAGE == 'finish':
                                  use_tspace=True, add_leaf_bones=False, path_mode='STRIP', axis_forward='-Y', axis_up='Z')
     export(NAME + '.fbx')
     print('TRIS', sum(len(p.vertices) - 2 for p in me.polygons))
+    if PIECES:   # one shared texture, several meshes: split by vertex group, pivot each piece, one FBX per piece
+        piv = json.load(open(os.path.join(D, SH.lower() + '_meta.json')))['pieces']
+        co_ = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co_)
+        me.vertices.foreach_set('co', (co_.reshape(-1, 3) + np.array(g, np.float32)).ravel()); me.update()   # undo the generic pivot
+        for piece, pv in piv.items():
+            o = LP.copy(); o.data = LP.data.copy(); sc.collection.objects.link(o); o.name = NAME + '_' + piece
+            bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
+            gi = o.vertex_groups[piece].index
+            bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
+            o.vertex_groups.active_index = gi; bpy.ops.object.vertex_group_deselect(); bpy.ops.mesh.delete(type='VERT')
+            bpy.ops.object.mode_set(mode='OBJECT')
+            c2 = np.empty(len(o.data.vertices) * 3, np.float32); o.data.vertices.foreach_get('co', c2)
+            o.data.vertices.foreach_set('co', (c2.reshape(-1, 3) - np.array(pv, np.float32)).ravel()); o.data.update()
+            bpy.ops.export_scene.fbx(filepath=os.path.join(D, o.name + '.fbx'), use_selection=True, apply_unit_scale=True, mesh_smooth_type='FACE',
+                                     use_tspace=True, add_leaf_bones=False, path_mode='STRIP', axis_forward='-Y', axis_up='Z')
+            print('PIECE', o.name, len(o.data.polygons))
+        print('STAGE finish OK', flush=True); raise SystemExit
     vg = LP.vertex_groups.get('arrow')
     if vg is None:
         print('STAGE finish OK', flush=True); raise SystemExit
