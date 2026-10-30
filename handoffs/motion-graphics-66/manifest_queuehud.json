@@ -1,0 +1,9 @@
+{
+  "blueprint": "BP_QueueHUD",
+  "_built_on": "handoffs/exports/master/2026-10-30b/BP_QueueHUD.T3D (CX_67 = I key, CX_73 = I OR click -> opens the pack)",
+  "pastes": [{"file": "Queue_AutoOpen_graph.txt"}],
+  "rewires": [
+    {"from": "CX_67.ReturnValue", "to": "AutoOpenOR.A"},
+    {"from": "AutoOpenOR.ReturnValue", "to": "CX_73.A", "replace": true, "note": "was CX_67 (I key) directly"}
+  ]
+}

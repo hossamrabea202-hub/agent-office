@@ -1,0 +1,11 @@
+{
+  "blueprint": "BPC_MotionFX",
+  "_apply": "only after #148 (BPC_Infection) is in the project and BPC_MotionFX_graph.txt is pasted; live = a fresh export of BPC_MotionFX's EventGraph",
+  "pastes": [{"file": "MotionFX_Infection_graph.txt"}],
+  "rewires": [
+    {"from": "RevealSeq.then_2", "to": "CallDrawInfection.execute"},
+    {"from": "DrawReveal.Hud", "to": "CallDrawInfection.Hud"},
+    {"from": "DrawReveal.SizeX", "to": "CallDrawInfection.SizeX"},
+    {"from": "DrawReveal.SizeY", "to": "CallDrawInfection.SizeY"}
+  ]
+}

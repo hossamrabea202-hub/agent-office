@@ -112,7 +112,7 @@ open while MPC `Shop.R > 0.5` and the game is paused, and `Shop.G` is the carous
   - Not enough gold shows the shop's own line, "Not enough gold, hunter.", for 1.5 s.
   - The cuirass row is info only, because it's still sold in the shop's carousel.
   - `PanelScale` on the component sizes the panel without a paste.
-- **The hook is 9 nodes in BP_ArmoryHUD** (`manifest_armoryhud.json`). A Sequence goes after the parent DrawHUD call:
+- **The hook is 13 nodes in BP_ArmoryHUD** (`manifest_armoryhud.json`). A Sequence goes after the parent DrawHUD call (`then_2` = checkking's BPC_MotionFX.DrawReveal, motion graphics hand-off):
   `then_0` = the whole shop draw, unchanged; `then_1` = `BPC_ObsidianSet.DrawArmoury(self, SizeX, SizeY)`.
   Dry-run merge on the 10-30b export: **Validation OK** (+12 links).
 - **Save:** own slot `CastleSaveObsidian`, using the existing `BP_CastleSave` class (`Data = [Owned, Worn, Bought,

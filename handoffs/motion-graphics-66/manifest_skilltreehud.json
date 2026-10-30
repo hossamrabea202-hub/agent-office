@@ -1,0 +1,9 @@
+{
+  "blueprint": "BP_SkillTreeHUD",
+  "_built_on": "handoffs/exports/master/2026-10-30b/BP_SkillTreeHUD.T3D (CX_23 = T key, CX_112 = T OR badge click -> opens the tree)",
+  "pastes": [{"file": "SkillTree_AutoOpen_graph.txt"}],
+  "rewires": [
+    {"from": "CX_23.ReturnValue", "to": "AutoOpenOR.A"},
+    {"from": "AutoOpenOR.ReturnValue", "to": "CX_112.A", "replace": true, "note": "was CX_23 (T key) directly"}
+  ]
+}
