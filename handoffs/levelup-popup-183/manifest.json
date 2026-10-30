@@ -1,0 +1,8 @@
+{
+ "blueprint": "BP_ZombieHUD",
+ "pastes": [],
+ "rewires": [
+  {"from": "K2Node_IfThenElse_H296.then", "to": "K2Node_CallFunction_H2128.execute", "replace": true,
+   "note": "skip the 'LEVEL UP!' DrawText (K2Node_CallFunction_H297); the branch now goes straight on"}
+ ]
+}
