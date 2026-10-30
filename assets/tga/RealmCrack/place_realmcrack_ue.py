@@ -114,4 +114,11 @@ lc.set_editor_property('light_color', unreal.Color(255, 110, 30, 255)); lc.set_e
 lc.set_editor_property('source_radius', 120.0); lc.set_editor_property('cast_shadows', True)
 sp = eas.spawn_actor_from_class(unreal.TargetPoint, unreal.Vector(loc.x + d.x * 600, loc.y + d.y * 600, loc.z + 500), unreal.Rotator(0, 0, yaw + 90))
 sp.set_actor_label('Realm_SwarmSpawn'); sp.set_folder_path('Gameplay/Realm')
-unreal.log('Realm crack placed at %s yaw %.0f (facing the realm). Light + Realm_SwarmSpawn added. Save the level.' % (loc, yaw))
+# tell the wave manager where the swarm comes out (SwarmSpawnLocation, from the realm-wasp BP hand-off), if it has it
+swarm_at = sp.get_actor_location(); told = 0
+for a in eas.get_all_level_actors():
+    if a.get_class().get_name() == 'BP_ZombieWaveManager_C':
+        for prop in ('SwarmSpawnLocation', 'swarm_spawn_location'):
+            try: a.set_editor_property(prop, swarm_at); told += 1; break
+            except Exception: pass
+unreal.log('Realm crack placed at %s yaw %.0f (facing the realm). Light + Realm_SwarmSpawn added; SwarmSpawnLocation set on %d wave manager(s). Save the level.' % (loc, yaw, told))

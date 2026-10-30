@@ -1,0 +1,22 @@
+{
+    "blueprint":  "BP_ZombieWaveManager",
+    "_note":  "Swarm waves (#169 stage 3 / #167): after the wave counter goes up, every SwarmEveryNthWave-th wave spawns SwarmSize BP_RealmWasp at SwarmSpawnLocation once SwarmUnlocked is true (the breach sets it).",
+    "pastes":  [
+                   {
+                       "file":  "BP_ZombieWaveManager_Swarm_graph.txt"
+                   }
+               ],
+    "rewires":  [
+                    {
+                        "from":  "WV_90.then",
+                        "to":  "SWM_N1.execute",
+                        "replace":  true,
+                        "note":  "was -\u003e CX_9 (K2_SetTimer ForceNextWave)"
+                    },
+                    {
+                        "from":  "SWM_N1.then_0",
+                        "to":  "CX_9.execute",
+                        "note":  "original flow continues first"
+                    }
+                ]
+}
