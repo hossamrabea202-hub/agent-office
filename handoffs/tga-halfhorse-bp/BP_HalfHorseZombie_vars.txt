@@ -1,0 +1,6 @@
+BPVar(VarName="State",VarGuid=3687CEEBD7DB4C8699680158B178200E,VarType=(PinCategory="int"),FriendlyName="State",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="CurAnim",VarGuid=D7F121010B0F40FFAD13D3202E93F2DB,VarType=(PinCategory="int"),FriendlyName="CurAnim",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="WantAnim",VarGuid=F775EB2654AF4FB7839F10FDC6FFF343,VarType=(PinCategory="int"),FriendlyName="WantAnim",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1")
+BPVar(VarName="StateTime",VarGuid=08B6621CCEE144DD98B043BAC22DED31,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="StateTime",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="ThinkAcc",VarGuid=25B82DEDD00C4B6F92D16299DF2B9A81,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ThinkAcc",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="TorsoDrop",VarGuid=E21FF680F2914B6791E2033675C918C7,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="TorsoDrop",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="-100.0")

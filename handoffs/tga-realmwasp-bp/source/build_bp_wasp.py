@@ -279,6 +279,7 @@ print('WASP nodes', len(G.nodes), 'links', len(G.links))
 H = Graph('SWM')
 def hc_(ex, cls, member=None, x=0, y=0, extra=None): return H.clone(ex, T(ex, cls, member, extra), x, y)
 sq = hc_(Z, 'K2Node_ExecutionSequence', None, 0, 0)
+_p = [p for p in sq.pins if p['name'] == 'then_1'][0]; sq.pins.append(dict(_p, id=__import__('bpkit').g(), name='then_2', line=_p['line'].replace('PinName="then_1"', 'PinName="then_2"')))
 bw = hc_(Z, 'K2Node_IfThenElse', None, 300, 100)
 andn = hc_(Z, 'K2Node_CallFunction', 'BooleanAND', 100, 250)
 H.link(var_get(H, 'SwarmUnlocked', bo('SwarmUnlocked'), -150, 250), 'SwarmUnlocked', andn, 'A')
@@ -296,9 +297,22 @@ mv = hc_(Z, 'K2Node_CallFunction', 'MakeVector', 400, 550)
 for r_, k in zip(rr, 'XYZ'): H.link(r_, 'ReturnValue', mv, k)
 av = hc_(Z, 'K2Node_CallFunction', 'Add_VectorVector', 600, 450); H.link(var_get(H, 'SwarmSpawnLocation', vec('SwarmSpawnLocation'), 400, 420), 'SwarmSpawnLocation', av, 'A'); H.link(mv, 'ReturnValue', av, 'B')
 H.link(av, 'ReturnValue', mt, 'Location'); H.link(mt, 'ReturnValue', spw, 'SpawnTransform'); H.link(fo, 'LoopBody', spw, 'execute')
+# then_2: the realm's half-horse zombies (#168) walk out of the breach once the realm is unlocked
+HORSEC = '/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/BP_HalfHorseZombie.BP_HalfHorseZombie_C'
+bh = hc_(Z, 'K2Node_IfThenElse', None, 300, 900); H.link(var_get(H, 'SwarmUnlocked', bo('SwarmUnlocked'), 100, 1050), 'SwarmUnlocked', bh, 'Condition'); H.link(sq, 'then_2', bh, 'execute')
+fh = H.clone(W, 'CX_26', 600, 900); fh.set_default('FirstIndex', '1'); H.link(var_get(H, 'HorsesPerWave', it('HorsesPerWave'), 400, 1050), 'HorsesPerWave', fh, 'LastIndex'); H.link(bh, 'then', fh, 'execute')
+sh = H.clone(W, 'CX_30', 1000, 900); sh.set_default('Class', obj=HORSEC)
+rvh = sh.pin('ReturnValue'); rvh['line'] = rvh['line'].replace('/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie.BP_Zombie_C', HORSEC)
+mth = H.clone(W, 'CX_29', 800, 1150)
+rh = [hc_(Z, 'K2Node_CallFunction', 'RandomFloatInRange', 200, 1300 + 100 * i) for i in range(2)]
+for r_ in rh: r_.set_default('Min', '-300.0').set_default('Max', '300.0')
+mvh = hc_(Z, 'K2Node_CallFunction', 'MakeVector', 400, 1350); mvh.set_default('Z', '0.0'); H.link(rh[0], 'ReturnValue', mvh, 'X'); H.link(rh[1], 'ReturnValue', mvh, 'Y')
+avh = hc_(Z, 'K2Node_CallFunction', 'Add_VectorVector', 600, 1250); H.link(var_get(H, 'HorseSpawnLocation', vec('HorseSpawnLocation'), 400, 1220), 'HorseSpawnLocation', avh, 'A'); H.link(mvh, 'ReturnValue', avh, 'B')
+H.link(avh, 'ReturnValue', mth, 'Location'); H.link(mth, 'ReturnValue', sh, 'SpawnTransform'); H.link(fh, 'LoopBody', sh, 'execute')
 open(os.path.join(OUT, 'BP_ZombieWaveManager_Swarm_graph.txt'), 'w', encoding='utf-8').write(H.render())
 VW = [bpvar('SwarmUnlocked', 'bool', 'False'), bpvar('SwarmEveryNthWave', 'int', '2'), bpvar('SwarmSize', 'int', '6'),
-      bpvar('SwarmSpawnLocation', 'struct', '-14171.000000,11000.000000,1500.000000', obj="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'")]
+      bpvar('SwarmSpawnLocation', 'struct', '-14171.000000,11000.000000,1500.000000', obj="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),
+      bpvar('HorsesPerWave', 'int', '1'), bpvar('HorseSpawnLocation', 'struct', '-10500.000000,2600.000000,-600.000000', obj="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'")]
 open(os.path.join(OUT, 'BP_ZombieWaveManager_vars.txt'), 'w', encoding='utf-8').write('\n'.join(VW) + '\n')
 man = {'blueprint': 'BP_ZombieWaveManager', '_note': 'Swarm waves (#169 stage 3 / #167): after the wave counter goes up, every SwarmEveryNthWave-th wave spawns SwarmSize BP_RealmWasp at SwarmSpawnLocation once SwarmUnlocked is true (the breach sets it).',
        'pastes': [{'file': 'BP_ZombieWaveManager_Swarm_graph.txt', 'offset': [0, 0]}],

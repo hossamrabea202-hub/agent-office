@@ -3,7 +3,7 @@
 Made 2026-10-30 by `TGA (Claude)`, following the owner's order to send ready-to-paste code. The pastes are built from
 the Master's 2026-10-30 exports: node blocks are **cloned from BP_Zombie, BP_ZombieWaveManager and BP_ArmoryHUD**,
 so the pins are exactly what UE 5.3 writes.
-- **Wave manager:** `applyall merge --dry-run` against the live export prints `Validation: OK`.
+- **Wave manager:** `applyall merge --dry-run` against the live export prints `Validation: OK` (+29 nodes, 28 links, 2 rewires).
 - **Wasp graph:** `applyall check` prints `Validation: OK`. It's a new Blueprint, so there's nothing to merge into.
 
 ## What it does
@@ -31,7 +31,8 @@ as a zombie. Its own BeginPlay, Tick and AnyDamage replace the walking-zombie br
      **castle gate** (`BP_CastleGateControl`). With no gate it goes for the hero.
 4. **Death:** XP to the hero and `CheckLevelUp`, as BP_Zombie does. Gravity comes back, so it **falls out of the air**
    and plays `A_RealmWasp_Death`. Lifespan 6 s.
-5. **Swarm waves (wave manager):** after the wave counter goes up, every `SwarmEveryNthWave`-th (2) wave spawns
+5. **Half-horse zombies:** the same paste spawns `HorsesPerWave` (1) `BP_HalfHorseZombie` at `HorseSpawnLocation` (the breach) every wave once `SwarmUnlocked` is set (on the sequence's `then_2`).
+6. **Swarm waves (wave manager):** after the wave counter goes up, every `SwarmEveryNthWave`-th (2) wave spawns
    `SwarmSize` (6) wasps around `SwarmSpawnLocation`. This only happens once **`SwarmUnlocked`** is true. The breach
    logic (Codex, #169 stage 2) sets it.
 
@@ -43,7 +44,7 @@ as a zombie. Its own BeginPlay, Tick and AnyDamage replace the walking-zombie br
 3. **EventGraph:** press **Ctrl+A, Delete** (this removes the greyed-out placeholder events). Paste
    `BP_RealmWasp_EventGraph.txt`. **Compile.**
 4. **BP_ZombieWaveManager:**
-   - paste the 4 lines of `BP_ZombieWaveManager_vars.txt`
+   - paste the 6 lines of `BP_ZombieWaveManager_vars.txt` (create BP_HalfHorseZombie first, #155 hand-off, because the spawn nodes name both classes)
    - export the EventGraph and run `python applyall.py merge --live <export> --manifest manifest_wavemanager.json --out merged.t3d`
    - in the EventGraph press Ctrl+A, Delete, paste `merged.t3d`, then compile
 5. Re-run `assets/tga/RealmCrack/place_realmcrack_ue.py` (#171). It now also writes the crack mouth into the wave

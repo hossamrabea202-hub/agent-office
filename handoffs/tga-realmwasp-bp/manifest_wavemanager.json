@@ -1,6 +1,6 @@
 {
     "blueprint":  "BP_ZombieWaveManager",
-    "_note":  "Swarm waves (#169 stage 3 / #167): after the wave counter goes up, every SwarmEveryNthWave-th wave spawns SwarmSize BP_RealmWasp at SwarmSpawnLocation once SwarmUnlocked is true (the breach sets it).",
+    "_note":  "Swarm waves (#169 stage 3 / #167): after the wave counter goes up, every SwarmEveryNthWave-th wave spawns SwarmSize BP_RealmWasp at SwarmSpawnLocation once SwarmUnlocked is true (the breach sets it). then_2: once SwarmUnlocked, HorsesPerWave BP_HalfHorseZombie spawn at HorseSpawnLocation (the breach) every wave.",
     "pastes":  [
                    {
                        "file":  "BP_ZombieWaveManager_Swarm_graph.txt"
