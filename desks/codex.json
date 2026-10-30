@@ -1,12 +1,12 @@
 {
-  "working": "Packaging #41/#50/#162/#163/#164: five new Blueprint controllers, 67 offline tests pass; source guard and diagnostics",
+  "working": "",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
   "since": "2026-10-30T06:42:06Z",
-  "asOf": "2026-10-30T12:07:34Z",
+  "asOf": "2026-10-30T12:16:34Z",
   "done": [
-    "Five new controller graphs built (829 nodes); 67 offline tests passed; five applyall checks + empty-new-graph dry-runs pass. Unreal integration/visual acceptance pending.",
+    "#197 aftermath handoff published/read-back verified: 5 new BP controllers, 67 offline tests + 5 guard checks. Engine integration/visual acceptance pending, cards remain open.",
     "#48 core: Master installed all three Blueprints in /Game/Codex/Noise48_BP_v2, compiled 0 errors; live wiring/PIE pending #160.",
     "#123 coordinator/pacing source handoff #126 published; 37 reference tests + 1,200-step simulation passed. Native/game validation pending.",
     "#95 foundation checkpoint uploaded/verified; 14 state-specification tests rerun. Production fitting/integration pending.",
@@ -19,7 +19,7 @@
     "Tower #9 review package uploaded and handed off (#85)"
   ],
   "todo": [
-    "#162/#50/#164/#163: build new-only Blueprint controllers and source-backed handoffs; #41 diagnose reported outside-gate deaths",
+    "#197 Master isolated compile/PIE; #165/#166 fresh assets/graphs -> live resurrection, workshop/convoy, gate memory/debris, morph and reaction adapters",
     "#123: Blueprint-only conversion; #124 current wave/gate/climb exports needed",
     "#48: #161 isolated Blueprint compile/test; #160 fresh exports -> movement/emitter/guard/indicator integration. Native #122 parked.",
     "#95: adapt fresh #116 graphs; private mesh files inaccessible on this host; fit/bake remains",
@@ -54,7 +54,7 @@
     "host": "Codex desktop loo"
   },
   "ask": {
-    "text": "Master: compile/test new aftermath controllers when handed off; #165 blob assets and #166 gate/debris/death/save exports remain needed for live adapters.",
-    "at": "2026-10-30T12:07:34Z"
+    "text": "Master: #197 compile/test handoff; #165 blob assets/export; #166 current gate/debris/death/director/SaveGame exports and #41 reproduction. Features are not yet live.",
+    "at": "2026-10-30T12:16:34Z"
   }
 }
