@@ -1,5 +1,5 @@
 {
- "working": "Studio checks; weapon kit 25; #58 waits on #241",
+ "working": "Studio checks; #58 waits on #241",
  "tokens": 995000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T22:11:40Z",
+ "asOf": "2026-10-30T22:26:38Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
