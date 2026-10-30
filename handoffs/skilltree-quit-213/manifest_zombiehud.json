@@ -1,0 +1,21 @@
+{
+  "blueprint": "BP_ZombieHUD",
+  "_built_on": "handoffs/exports/master/2026-10-30b/BP_ZombieHUD_EventGraph.txt (QuitGame branches IW2412 / IW2578 / IW2874)",
+  "pastes": [{"file": "ZombieHUD_QuitGuard_graph.txt"}],
+  "rewires": [
+    {"from": "K2Node_CallFunction_IW2410.then", "to": "QSt1.execute", "replace": true, "note": "was -> IW2412"},
+    {"from": "QSt1.then", "to": "K2Node_IfThenElse_IW2412.execute"},
+    {"from": "K2Node_CallFunction_IW2411.ReturnValue", "to": "QAnd1.A"},
+    {"from": "QAnd1.ReturnValue", "to": "K2Node_IfThenElse_IW2412.Condition", "replace": true},
+
+    {"from": "K2Node_CallFunction_IW2576.then", "to": "QSt2.execute", "replace": true, "note": "was -> IW2578"},
+    {"from": "QSt2.then", "to": "K2Node_IfThenElse_IW2578.execute"},
+    {"from": "K2Node_CallFunction_IW2577.ReturnValue", "to": "QAnd2.A"},
+    {"from": "QAnd2.ReturnValue", "to": "K2Node_IfThenElse_IW2578.Condition", "replace": true},
+
+    {"from": "K2Node_CallFunction_IW2872.then", "to": "QSt3.execute", "replace": true, "note": "was -> IW2874"},
+    {"from": "QSt3.then", "to": "K2Node_IfThenElse_IW2874.execute"},
+    {"from": "K2Node_CallFunction_IW2873.ReturnValue", "to": "QAnd3.A"},
+    {"from": "QAnd3.ReturnValue", "to": "K2Node_IfThenElse_IW2874.Condition", "replace": true}
+  ]
+}
