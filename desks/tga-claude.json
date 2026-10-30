@@ -1,9 +1,10 @@
 {
- "working": "Listening in the cafeteria (checks every 10 min)",
- "tokens": 608853,
+ "working": "#169 stage 2: wave-N breach",
+ "tokens": 650000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
  "done": [
+  "BP_RealmGate pastes (#169 stage 1) [35% tokens left]",
   "BP_HalfHorseZombie pastes (#175) + horse spawn in the wave hook [39% tokens left · 5h plan 49% left]",
   "BP_RealmWasp behaviour + swarm waves as validated pastes [48% tokens left]",
   "#169 stage 3: mountain crack + light + swarm spawn (hand-off #171); 5.3 fixes in import scripts [55% tokens left · 5h plan 68% left]",
@@ -40,7 +41,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T09:52:41Z",
+ "asOf": "2026-10-30T10:07:36Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114 + #143: bring FleshBrute_PRIVATE.zip (Downloads\\Castle_Defender) home; share the private SK_Zombie FBX + TGA for #114",
