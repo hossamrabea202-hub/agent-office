@@ -82,9 +82,9 @@ for s in (1, -1):
     blob((0.075 * s, 0.07, 1.22), (0.035, 0.03, 0.09))                       # shoulder-blade / lat ridge
 rng = np.random.default_rng({'Bloated': 1, 'Burnt': 2, 'Hollow': 3, 'Infected': 4, 'Soldier': 5, 'Crawler': 6}.get(VAR, 0))
 if VAR == 'Infected':                                                         # pink realm growths clustered on shoulder, back and thigh
-    for c0, n0 in (((-0.21, 0.0, 1.42), 9), ((0.06, 0.14, 1.25), 8), ((-0.15, -0.07, 0.78), 6), ((0.05, -0.02, 1.70), 3)):
+    for c0, n0 in (((-0.21, 0.0, 1.42), 9), ((0.06, 0.14, 1.25), 8), ((-0.15, -0.07, 0.78), 6), ((0.045, -0.03, 1.665), 3)):
         for _ in range(n0):
-            r0 = rng.uniform(0.018, 0.038); blob(np.array(c0) + rng.normal(0, 0.03, 3), (r0, r0 * rng.uniform(0.8, 1.2), r0), 12, 14)
+            r0 = rng.uniform(0.018, 0.038); blob(np.array(c0) + rng.normal(0, 0.02, 3), (r0, r0 * rng.uniform(0.8, 1.2), r0), 12, 14)
 if VAR == 'Soldier':                                                          # torn tabard: a thin shell over the torso hanging to mid-thigh, ragged hem
     n = 30; t = np.linspace(0, 1, n); P = np.stack([np.zeros(n), np.linspace(-0.01, 0.0, n), np.linspace(1.44, 0.70, n)], 1)
     add(*loft(P, prof(t, [(0, 0.115), (0.3, 0.125), (0.6, 0.14), (1, 0.15)], 3), prof(t, [(0, 0.19), (0.3, 0.165), (0.5, 0.15), (0.65, 0.17), (1, 0.20)], 3), 40))
@@ -171,9 +171,15 @@ x, y, z = co[:, 0], co[:, 1], co[:, 2]
 if VAR == 'Bloated':                                                          # split belly: a ragged vertical tear opening into the gut
     tear = np.exp(-((x + 0.01 * np.sin(z * 90)) / 0.012) ** 2 - ((z - 1.08) / 0.07) ** 4) * (y < -0.15); co[:, 1] += 0.035 * tear
 if VAR == 'Hollow':                                                           # ribcage torn open on the left of the chest
-    d = np.sqrt(((x - 0.05) / 0.06) ** 2 + ((z - 1.28) / 0.08) ** 2); cav = np.exp(-d ** 4) * (y < -0.04); co[:, 1] += 0.06 * cav
+    d = np.sqrt(((x - 0.05) / 0.06) ** 2 + ((z - 1.28) / 0.08) ** 2); cav = np.exp(-d ** 4) * (y < -0.04)
+    bars = (np.cos((z - 1.17) * 2 * np.pi / 0.034) > 0.45) * (np.abs(x - 0.05) < 0.05)              # broken rib bars left across the hole
+    co[:, 1] += 0.06 * cav * (1 - 0.85 * bars)
 if VAR == 'Burnt':                                                            # charred, cracked skin: shallow Voronoi-like grooves
     q = np.sin(x * 61 + np.sin(z * 37) * 2) * np.sin(z * 53 + np.sin(y * 41) * 2) * np.sin(y * 47 + x * 29); co -= (co - [0, 0, 1.0]) / (np.linalg.norm(co - [0, 0, 1.0], axis=1, keepdims=True) + 1e-6) * (0.004 * (np.abs(q) < 0.08))[:, None]
+if VAR == 'Soldier':                                                          # tabard folds + torn, uneven hem
+    rad = np.hypot(x, y); a = np.arctan2(x, y); tab = (rad > 0.125) * ss(0.70, 0.76, z) * (1 - ss(1.20, 1.28, z)) * (np.abs(x) < 0.21)
+    co[:, :2] += np.stack([np.sin(a), np.cos(a)], 1) * (0.009 * np.sin(a * 13 + z * 6) * tab)[:, None]
+    co[:, 2] += 0.07 * (0.5 + 0.5 * np.sin(a * 5 + 1.3)) ** 3 * (z < 0.80) * (z > 0.62) * (rad > 0.125) * (np.abs(x) < 0.21)
 if VAR == 'Crawler':                                                          # ragged stump ends
     stump = ss(0.80, 0.70, z) * (z > 0.6); co[:, 2] += 0.02 * np.sin(x * 140 + y * 90) * stump
 rib = np.cos((z - 1.17) * 2 * np.pi / 0.032) * ss(1.10, 1.16, z) * (1 - ss(1.34, 1.40, z)) * ss(0.06, 0.11, np.abs(x)) * (1 - ss(0.13, 0.15, np.abs(x))) * (y < 0.02)
