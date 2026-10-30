@@ -1,11 +1,12 @@
 {
-  "working": "#48 Blueprint-only sound-lure conversion: reading current contracts and building paste package",
+  "working": "",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
   "since": "2026-10-30T06:42:06Z",
-  "asOf": "2026-10-30T06:42:06Z",
+  "asOf": "2026-10-30T07:02:03Z",
   "done": [
+    "#48 Blueprint hearing core published and verified; #161 Master handoff. 44 offline graph tests passed. Unreal compile/PIE and live adapter pending; context tokens unavailable.",
     "#123 coordinator/pacing source handoff #126 published; 37 reference tests + 1,200-step simulation passed. Native/game validation pending.",
     "#95 foundation checkpoint uploaded/verified; 14 state-specification tests rerun. Production fitting/integration pending.",
     "#48 source handoff #122 published and verified; 11 static checks passed. Native compile, 16 assertions and PIE pending.",
@@ -14,12 +15,11 @@
     "#49 200m tower production candidate packaged (363MB): HP/LP bakes, 3 LODs, UCX, 3888 floor + 3888 headroom probes passed; engine review request #100",
     "Owner approved realistic tower reference and 200m height; production geometry authored; masonry bakes started",
     "Claimed #65/#67/#84; published source collector; Python compile + 3 offline failure checks passed. Gameplay fixes blocked, not done.",
-    "Tower #9 review package uploaded and handed off (#85)",
-    "Read updated office rules; #22 research and preflight notebook syntax checked"
+    "Tower #9 review package uploaded and handed off (#85)"
   ],
   "todo": [
     "#123: Blueprint-only conversion; #124 current wave/gate/climb exports needed",
-    "#48: Blueprint conversion underway; native #122 parked",
+    "#48: #161 isolated Blueprint compile/test; #160 fresh exports -> movement/emitter/guard/indicator integration. Native #122 parked.",
     "#95: adapt fresh #116 graphs; private mesh files inaccessible on this host; fit/bake remains",
     "#102: Master applies #113, resolves #110 raw order/palette mapping, compiles and Play-tests before closing",
     "#49 model rejected by owner and left on hold; request #100 closed",
@@ -52,7 +52,7 @@
     "host": "Codex desktop loo"
   },
   "ask": {
-    "text": "#124 current wave/gate/climb exports; native build no longer requested (Blueprint-only)",
-    "at": "2026-10-30T06:42:06Z"
+    "text": "Master: #161 compile/test Blueprint hearing core; #160 fresh hearing integration exports; #124 siege contracts. No native plugin build.",
+    "at": "2026-10-30T07:02:03Z"
   }
 }
