@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261030-074535-realm-wasp-156-ember-and-blight-skins-ho.jpg',t:'Realm wasp (#156): Ember and Blight skins, hover / dive / sting poses, calibrated lookdev (grey ball 118 sRGB)',who:'TGA (Claude)',at:'2026-10-30T07:45:35Z',card:156},
 {f:'shots/20261029-223936-palisade-under-calibrated-lookdev-grey-b.jpg',t:'Palisade under calibrated lookdev (grey ball locked at 118 sRGB): before vs albedo-lifted',who:'TGA (Claude)',at:'2026-10-29T22:39:36Z',card:135},
 {f:'shots/20261029-223045-flesh-brute-skins-after-the-realism-stan.jpg',t:'Flesh Brute skins after the realism-standard pass: no crushed blacks, charcoal char, 3-scale roughness (all 10 maps pass pbr_check)',who:'TGA (Claude)',at:'2026-10-29T22:30:45Z',card:143},
 {f:'shots/20261029-152255-siege-kit-v2-whole-border-palisade-cheva.jpg',t:'Siege kit v2, whole border: palisade, cheval, breach, watchtower (baked 4K, Blender Cycles)',who:'TGA (Claude)',at:'2026-10-29T15:22:55Z',card:135},
