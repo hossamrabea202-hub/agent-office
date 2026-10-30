@@ -1,0 +1,63 @@
+Begin Object Class=/Script/Engine.Blueprint Name="BP_FireCoals_01a" ExportPath="/Script/Engine.Blueprint'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a'"
+   Begin Object Class=/Script/Engine.EdGraph Name="UserConstructionScript_MERGED" ExportPath="/Script/Engine.EdGraph'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript_MERGED'"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionEntry Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript_MERGED.K2Node_FunctionEntry_0'"
+      End Object
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="ExecuteUbergraph_BP_FireCoals_01a" ExportPath="/Script/Engine.EdGraph'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:ExecuteUbergraph_BP_FireCoals_01a'"
+   End Object
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfo Name="SceneThumbnailInfo_0" ExportPath="/Script/UnrealEd.SceneThumbnailInfo'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:SceneThumbnailInfo_0'"
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="UserConstructionScript" ExportPath="/Script/Engine.EdGraph'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript'"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionEntry Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript.K2Node_FunctionEntry_0'"
+      End Object
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:EventGraph'"
+   End Object
+   Begin Object Name="UserConstructionScript_MERGED" ExportPath="/Script/Engine.EdGraph'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript_MERGED'"
+      Begin Object Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript_MERGED.K2Node_FunctionEntry_0'"
+         FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.Actor'",MemberName="UserConstructionScript")
+         NodeGuid=D02050EA414E36D88595FCBCB9683D53
+         CustomProperties Pin (PinId=BE2C23B64C9318565D655D8B836D93D6,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      Nodes(0)="/Script/BlueprintGraph.K2Node_FunctionEntry'K2Node_FunctionEntry_0'"
+      bAllowDeletion=False
+      GraphGuid=A3B252334CDA484EB95E729C75C50823
+   End Object
+   Begin Object Name="ExecuteUbergraph_BP_FireCoals_01a" ExportPath="/Script/Engine.EdGraph'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:ExecuteUbergraph_BP_FireCoals_01a'"
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      GraphGuid=7033E6614A5038538C7CB0BA43B52D92
+   End Object
+   Begin Object Name="SceneThumbnailInfo_0" ExportPath="/Script/UnrealEd.SceneThumbnailInfo'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:SceneThumbnailInfo_0'"
+   End Object
+   Begin Object Name="UserConstructionScript" ExportPath="/Script/Engine.EdGraph'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript'"
+      Begin Object Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript.K2Node_FunctionEntry_0'"
+         FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.Actor'",MemberName="UserConstructionScript")
+         NodeGuid=D02050EA414E36D88595FCBCB9683D53
+         CustomProperties Pin (PinId=BE2C23B64C9318565D655D8B836D93D6,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      Nodes(0)="/Script/BlueprintGraph.K2Node_FunctionEntry'K2Node_FunctionEntry_0'"
+      bAllowDeletion=False
+      GraphGuid=A3B252334CDA484EB95E729C75C50823
+   End Object
+   Begin Object Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:EventGraph'"
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      bAllowDeletion=False
+      GraphGuid=4C3BA1BE496A1AEBBE462897D26A4B42
+   End Object
+   ParentClass="/Script/CoreUObject.Class'/Script/Engine.Actor'"
+   BlueprintSystemVersion=2
+   SimpleConstructionScript="/Script/Engine.SimpleConstructionScript'BP_FireCoals_01a_C:SimpleConstructionScript_0'"
+   UbergraphPages(0)="/Script/Engine.EdGraph'EventGraph'"
+   FunctionGraphs(0)="/Script/Engine.EdGraph'UserConstructionScript'"
+   CategorySorting(0)="Default"
+   CategorySorting(1)=""
+   CategorySorting(2)="Event Graph"
+   LastEditedDocuments(0)=(EditedObjectPath="/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:UserConstructionScript",SavedZoomAmount=1.000000)
+   LastEditedDocuments(1)=(EditedObjectPath="/Game/AncientTreasures/Blueprints/BP_FireCoals_01a.BP_FireCoals_01a:EventGraph",SavedViewOffset=(X=-2127.809570,Y=-1345.977783),SavedZoomAmount=0.225000)
+   ThumbnailInfo="/Script/UnrealEd.SceneThumbnailInfo'SceneThumbnailInfo_0'"
+   GeneratedClass="/Script/Engine.BlueprintGeneratedClass'BP_FireCoals_01a_C'"
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=416CE0B7462ED6C0AB477B815DA41527
+End Object

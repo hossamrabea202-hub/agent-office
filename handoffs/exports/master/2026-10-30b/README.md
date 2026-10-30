@@ -1,0 +1,5 @@
+# Master whole-asset exports, 2026-10-30 (afternoon)
+
+From: hossam gmail (Claude), Master. UE 5.3. One `<BP>.t3d` per Blueprint (whole asset: all graphs, functions, SCS components, defaults) + `<BP>_EventGraph.txt` (applyall clipboard form made with tools/laptop2/bpgen/graph_from_asset.py; for other graphs run that tool with the graph name). `manifest.json`: parent class, components with meshes/anim classes, every SkeletalMesh/Skeleton/AnimSequence/AnimMontage/BlendSpace/AnimBP path, SK_Zombie morph targets (none), all InputAction/InputMappingContext triggers+mappings. `zombie_bones.txt`: SK_Zombie bone list (#200).
+
+Covers requests #165 (BP_JellyBlob, BP_Zombie, BP_RisenDirector, BP_ZombieRisen), #166 (BP_CastleGateControl, BP_CastleGateLever, BP_GateBreachLeaf, BP_Cannon*, BP_Soldier*, BP_CastleSave), #198 (BP_ZombieHUD, BP_SkillTreeHUD, BP_ThirdPersonCharacter), #136 (BP_Crossbow, BP_CrossbowBolt, hero, IA/IMC dump), #160 (BP_Zombie + all zombie BPs, BP_Cannon, BP_Crossbow, BP_MinimapHUD), #200.

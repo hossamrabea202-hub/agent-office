@@ -1,0 +1,16 @@
+Begin Object Class=/Script/Engine.Blueprint Name="BP_CannonShake_Fire" ExportPath="/Script/Engine.Blueprint'/Game/CastleDefender/Gameplay/Cannon/BP_CannonShake_Fire.BP_CannonShake_Fire'"
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Gameplay/Cannon/BP_CannonShake_Fire.BP_CannonShake_Fire:EventGraph'"
+   End Object
+   Begin Object Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Gameplay/Cannon/BP_CannonShake_Fire.BP_CannonShake_Fire:EventGraph'"
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      bAllowDeletion=False
+      GraphGuid=16D1F01247DD20CAEA6B94821F2E9A91
+   End Object
+   ParentClass="/Script/CoreUObject.Class'/Script/GameplayCameras.LegacyCameraShake'"
+   BlueprintSystemVersion=2
+   UbergraphPages(0)="/Script/Engine.EdGraph'EventGraph'"
+   LastEditedDocuments(0)=(EditedObjectPath="/Game/CastleDefender/Gameplay/Cannon/BP_CannonShake_Fire.BP_CannonShake_Fire:EventGraph")
+   GeneratedClass="/Script/Engine.BlueprintGeneratedClass'BP_CannonShake_Fire_C'"
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=A1042E7F40B0157ABE013E922405D579
+End Object

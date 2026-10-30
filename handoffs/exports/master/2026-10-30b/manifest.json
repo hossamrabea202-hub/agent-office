@@ -1,0 +1,707 @@
+{
+ "engine": "5.3.2-29314046+++UE5+Release-5.3",
+ "exported_at": "2026-10-30T14:06:10.752221",
+ "blueprints": {
+  "BPC_CannonBreak": {
+   "path": "/Game/CastleDefender/Gameplay/Cannon/BPC_CannonBreak",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BPC_ZombieDesync": {
+   "path": "/Game/CastleDefender/Characters/Enemies/Zombie/BPC_ZombieDesync",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ArmoryHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_ArmoryHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ArmyHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_ArmyHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_BarracksHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_BarracksHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_BlobMine": {
+   "path": "/Game/CastleDefender/Realm/BP_BlobMine",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_Cannon": {
+   "path": "/Game/CastleDefender/Gameplay/Cannon/BP_Cannon",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CannonLevelUpFX": {
+   "path": "/Game/CastleDefender/VFX/LevelUp/BP_CannonLevelUpFX",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CannonShake_Fire": {
+   "path": "/Game/CastleDefender/Gameplay/Cannon/BP_CannonShake_Fire",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CannonShake_Impact": {
+   "path": "/Game/CastleDefender/Gameplay/Cannon/BP_CannonShake_Impact",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_Cannonball": {
+   "path": "/Game/CastleDefender/Gameplay/Cannon/BP_Cannonball",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CastleGateControl": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_CastleGateControl",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CastleGateLever": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_CastleGateLever",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CastleSave": {
+   "path": "/Game/CastleDefender/Gameplay/Save/BP_CastleSave",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CommanderHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_CommanderHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ControlsHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_ControlsHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CreditsHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_CreditsHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_Crossbow": {
+   "path": "/Game/CastleDefender/Gameplay/Crossbow/BP_Crossbow",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_CrossbowBolt": {
+   "path": "/Game/CastleDefender/Gameplay/Crossbow/BP_CrossbowBolt",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_FireCoals_01a": {
+   "path": "/Game/AncientTreasures/Blueprints/BP_FireCoals_01a",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_GateBreachLeaf": {
+   "path": "/Game/CastleDefender/Props/GateBreach/BP_GateBreachLeaf",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_HalfHorseZombie": {
+   "path": "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/BP_HalfHorseZombie",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_HeroHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_HeroHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_JellyBlob": {
+   "path": "/Game/CastleDefender/Gameplay/Tentacle/Jelly/BP_JellyBlob",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_MinimapHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_MinimapHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_NPC_Barracks": {
+   "path": "/Game/CastleDefender/Characters/NPC/Barracks/BP_NPC_Barracks",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_NoticeHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_NoticeHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_QueueHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_QueueHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_RisenDirector": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_RisenDirector",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_SkillTreeHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_SkillTreeHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_SoldierBolt": {
+   "path": "/Game/CastleDefender/Characters/Knight/BP_SoldierBolt",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_SoldierCommander": {
+   "path": "/Game/CastleDefender/Characters/Knight/BP_SoldierCommander",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_SoldierLevelUpFX": {
+   "path": "/Game/CastleDefender/VFX/LevelUp/BP_SoldierLevelUpFX",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_SoldierLevelWatch": {
+   "path": "/Game/CastleDefender/Characters/Knight/BP_SoldierLevelWatch",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_SoldierSword": {
+   "path": "/Game/CastleDefender/Characters/Knight/BP_SoldierSword",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_SoldierXbow": {
+   "path": "/Game/CastleDefender/Characters/Knight/BP_SoldierXbow",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ThirdPersonCharacter": {
+   "path": "/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_Zombie": {
+   "path": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ZombieCharge": {
+   "path": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_ZombieCharge",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ZombieHUD": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ZombieJellyShield": {
+   "path": "/Game/CastleDefender/Gameplay/Tentacle/Jelly/BP_ZombieJellyShield",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ZombieRisen": {
+   "path": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_ZombieRisen",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ZombieVariety": {
+   "path": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_ZombieVariety",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ZombieWallBreaker": {
+   "path": "/Game/CastleDefender/Gameplay/Siege/BP_ZombieWallBreaker",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  },
+  "BP_ZombieWaveManager": {
+   "path": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager",
+   "err": "'BlueprintGeneratedClass' object has no attribute 'get_super_class'"
+  }
+ },
+ "skeletal_assets": {
+  "Skeleton": [
+   "/Game/CastleDefender/Characters/Assassin/Meshes/base_mesh/SK_Mannequin",
+   "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/SK_HorseBody_Skeleton",
+   "/Game/CastleDefender/Characters/Enemies/RealmWasp/SK_RealmWasp_Skeleton",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie_Skeleton",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Meshes/Greystone_Skeleton",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SK_Mannequin",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01_Skeleton",
+   "/Game/CastleDefender/Props/Flags/Cloth/SK_ClothBanner_Skeleton",
+   "/Game/CastleDefender/Props/Flags/Cloth/SK_ClothStandard_Skeleton",
+   "/Game/CastleDefender/Props/GateBreach/SK_GateLeaf_L_Skeleton",
+   "/Game/CastleDefender/Props/GateBreach/SK_GateLeaf_R_Skeleton",
+   "/Game/ShadowKight/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton",
+   "/Game/ShadowKight/Mesh/ShadowknightUE_Skeleton",
+   "/Game/ZombieAnimationPack/Demo/EpicContent/Mannequin_UE4/Mesh/SKEL_UE4_Mannequin",
+   "/Game/ZombieAnimationPack/Demo/EpicContent/Mannequin_UE5/Meshes/SKEL_Mannequin"
+  ],
+  "AnimBlueprint": [
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Greystone_AnimBlueprint",
+   "/Game/CastleDefender/Characters/Knight/ABP_KnightFollow",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/ABP_Manny",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/ABP_Quinn",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/ABP_Quinn_PostProcess",
+   "/Game/CastleDefender/Gameplay/Tentacle/ABP_TentacleStrikePP",
+   "/Game/ShadowKight/Animations/Anim_ShadowKight",
+   "/Game/ShadowKight/Mannequin/Animations/ThirdPerson_AnimBP"
+  ],
+  "AnimSequence": [
+   "/Game/CastleDefender/Characters/Assassin/Demo/anim_MF_Idle",
+   "/Game/CastleDefender/Characters/Assassin/Demo/anim_MM_Idle",
+   "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/A_HorseBody_Death",
+   "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/A_HorseBody_Gallop",
+   "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/A_HorseBody_Idle",
+   "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/A_HorseBody_Rear",
+   "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/A_HorseBody_Walk",
+   "/Game/CastleDefender/Characters/Enemies/RealmWasp/A_RealmWasp_Death",
+   "/Game/CastleDefender/Characters/Enemies/RealmWasp/A_RealmWasp_Dive",
+   "/Game/CastleDefender/Characters/Enemies/RealmWasp/A_RealmWasp_Fly",
+   "/Game/CastleDefender/Characters/Enemies/RealmWasp/A_RealmWasp_Hover",
+   "/Game/CastleDefender/Characters/Enemies/RealmWasp/A_RealmWasp_Sting",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Attack",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Death",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Hit",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Run",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Walk",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Attack_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Attack_B",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Attack_C",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Attack_D",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_B",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_B",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_C",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_D",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_E",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_F",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_G",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_H",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_I",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_K",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Idle_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Idle_B",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Impaled_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Impaled_B",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Laying_Idle_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Laying_Idle_B",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Run_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_B",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_C",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_D",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_E",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_F",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Walk_A",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Walk_B",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Walk_C",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ability_E",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ability_E_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ability_Q",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ability_R",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ability_Ultimate",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ability_Ultimate_FrozenPose",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_CC",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_CD",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_CU",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_LBC",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_LBD",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_LBU",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_LC",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_LD",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_LU",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_RBC",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_RBD",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_RBU",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_RC",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_RD",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/AimOffsets/Idle_AO_RU",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_A_Fast",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_A_Fast_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_A_Med",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_A_Med_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_A_Slow",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_A_Slow_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_A_Slow_Recovery",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_A_Slow_Recovery_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_B_Fast",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_B_Fast_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_B_Med",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_B_Med_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_B_Slow",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_B_Slow_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_B_Slow_Recovery",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_B_Slow_Recovery_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_C_Fast",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_C_Fast_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_C_Med",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_C_Med_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_C_Slow",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_C_Slow_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_C_Slow_Recovery",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_C_Slow_Recovery_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_D_Fast",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_D_Fast_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_D_Med",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_D_Med_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_D_Slow",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_D_Slow_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_D_Slow_Recovery",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_D_Slow_Recovery_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_PrimaryA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_PrimaryB",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_PrimaryC",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_RMB",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Bound",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/CardCast",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/CardCast_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Cast",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Cast_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Death",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Deflect_InPlace",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Emote_EpicRiff",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Emote_EpicRiff_Intro",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Emote_EpicRiff_Loop",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Emote_EpicRiff_Outro",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Emote_Master_SwordPlay_T3",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Emote_OooLaLa_T3",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Emote_Taunt_BringItOn_T1",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Emote_Taunt_SwordPoint_T1",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/HitReact_Back",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/HitReact_Front",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/HitReact_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/HitReact_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Idle",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Bwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Bwd_Circle_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Bwd_Circle_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Bwd_Pivot180",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Bwd_Start",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Bwd_Stop",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Downhill_Bwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Downhill_Fwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Downhill_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Downhill_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Fwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Fwd_Circle_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Fwd_Circle_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Fwd_Pivot180",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Fwd_Start",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Fwd_Stop",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Left_Circle_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Left_Circle_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Left_Pivot180",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Left_Start",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Left_Stop",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Right_Circle_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Right_Circle_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Right_Pivot180",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Right_Start",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Right_Stop",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Uphill_Bwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Uphill_Fwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Uphill_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jog_Uphill_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_Apex",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_Fall",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_Land",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_Melee",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_Melee_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_Recovery",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_Recovery_Additive",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_Start",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Jump_pad",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/LevelStart",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/RMB_Targeting",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/RMB_Targeting_MSA",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Recall",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Respawn",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Spin_Jog_Bwd2Fwd_CCW",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Spin_Jog_Bwd2Fwd_CW",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Spin_Jog_Fwd2Bwd_CCW",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Spin_Jog_Fwd2Bwd_CW",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Stun_Idle",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Stun_Start",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Bwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Bwd_Circle_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Bwd_Circle_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Bwd_Pivot180",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Bwd_Stop",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Downhill_Bwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Downhill_Fwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Fwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Fwd_Circle_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Fwd_Circle_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Fwd_Pivot180",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Fwd_Start",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Fwd_Stop",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Left",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Right",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Uphill_Bwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/TravelMode_Uphill_Fwd",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Travelmode_Bwd_Start",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Turn_Left_180",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Turn_Left_90",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Turn_Right_180",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Turn_Right_90",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ultimate_Entry",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ultimate_Part1",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Ultimate_Part2",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Manny/MM_Fall_Loop",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Manny/MM_Idle",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Manny/MM_Jump",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Manny/MM_Land",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Manny/MM_Run_Fwd",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Manny/MM_Walk_Fwd",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Manny/MM_Walk_InPlace",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Quinn/MF_Idle",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Quinn/MF_Run_Fwd",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Animations/Quinn/MF_Walk_Fwd",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_calf_l_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_calf_r_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_clavicle_l_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_clavicle_r_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_foot_l_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_foot_r_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_hand_l_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_hand_r_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_lowerarm_r_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_thigh_l_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_thigh_r_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_upperarm_l_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Rigs/Poses/Quinn/Quinn_upperarm_r_anim",
+   "/Game/CastleDefender/Characters/Mannequins/Mixamo/Retargeted/MX_Slash_Cross_Quinn",
+   "/Game/CastleDefender/Characters/Mannequins/Mixamo/Retargeted/MX_Slash_Downward_Quinn",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/Backup/SK_CorruptedTentacle_01_Anim_Ripple_Sway020_orig",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/Backup/SK_CorruptedTentacle_01_Anim_Ripple_Sway030_orig",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/Backup/SK_CorruptedTentacle_01_Anim_Ripple_Sway040_orig",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/Backup/SK_CorruptedTentacle_01_Anim_Ripple_orig",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01_Anim_Ripple",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01_Anim_Ripple_Sway000",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01_Anim_Ripple_Sway020",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01_Anim_Ripple_Sway030",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01_Anim_Ripple_Sway040",
+   "/Game/CastleDefender/Gameplay/Crossbow/Anims/AS_Xbow_AimSweep",
+   "/Game/CastleDefender/Gameplay/Crossbow/Anims/AS_Xbow_Reload",
+   "/Game/CastleDefender/Gameplay/ThirdPerson/Anims/AS_Hero_HardLand",
+   "/Game/CastleDefender/Gameplay/ThirdPerson/Anims/AS_Hero_LandRoll",
+   "/Game/CastleDefender/Props/GateBreach/SK_GateLeaf_L_Anim",
+   "/Game/CastleDefender/Props/GateBreach/SK_GateLeaf_R_Anim",
+   "/Game/ShadowKight/Animations/ThirdPersonIdle",
+   "/Game/ShadowKight/Animations/ThirdPersonJump_Loop",
+   "/Game/ShadowKight/Animations/ThirdPersonJump_Start",
+   "/Game/ShadowKight/Animations/ThirdPersonRun",
+   "/Game/ShadowKight/Animations/ThirdPersonWalk",
+   "/Game/ShadowKight/Animations/ThirdPerson_Jump",
+   "/Game/ShadowKight/Mannequin/Animations/ThirdPersonIdle",
+   "/Game/ShadowKight/Mannequin/Animations/ThirdPersonJump_End",
+   "/Game/ShadowKight/Mannequin/Animations/ThirdPersonJump_Loop",
+   "/Game/ShadowKight/Mannequin/Animations/ThirdPersonJump_Start",
+   "/Game/ShadowKight/Mannequin/Animations/ThirdPersonRun",
+   "/Game/ShadowKight/Mannequin/Animations/ThirdPersonWalk",
+   "/Game/ShadowKight/Mannequin/Animations/ThirdPerson_Jump",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Attack_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Attack_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Attack_C",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Attack_D",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Belly_Crawling_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Belly_Crawling_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_C",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_D",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_E",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_F",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_G",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_H",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_I",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Burst_K",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Idle_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Idle_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Impaled_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Impaled_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Laying_Idle_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Laying_Idle_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Run_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Taking_Damage_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Taking_Damage_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Taking_Damage_C",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Taking_Damage_D",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Taking_Damage_E",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Taking_Damage_F",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Walk_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Walk_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE4/anim_Walk_C",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Attack_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Attack_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Attack_C",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Attack_D",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Belly_Crawling_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Belly_Crawling_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_C",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_D",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_E",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_F",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_G",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_H",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_I",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Burst_K",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Idle_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Idle_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Impaled_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Impaled_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Laying_Idle_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Laying_Idle_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Run_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Taking_Damage_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Taking_Damage_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Taking_Damage_C",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Taking_Damage_D",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Taking_Damage_E",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Taking_Damage_F",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Walk_A",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Walk_B",
+   "/Game/ZombieAnimationPack/Animations/Mannequin_UE5/anim_Walk_C"
+  ],
+  "AnimMontage": [
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_PrimaryA_Montage",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_PrimaryB_Montage",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Attack_PrimaryC_Montage",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/LevelStart_Montage",
+   "/Game/CastleDefender/Gameplay/Castle/Combat/AM_Slash1",
+   "/Game/CastleDefender/Gameplay/Castle/Combat/AM_Slash2",
+   "/Game/CastleDefender/Gameplay/Crossbow/Anims/AM_Xbow_Aim",
+   "/Game/CastleDefender/Gameplay/Crossbow/Anims/AM_Xbow_Reload",
+   "/Game/CastleDefender/Gameplay/ThirdPerson/Anims/AM_Hero_HardLand",
+   "/Game/CastleDefender/Gameplay/ThirdPerson/Anims/AM_Hero_LandRoll"
+  ],
+  "SkeletalMesh": [
+   "/Game/CastleDefender/Characters/Assassin/Meshes/base_mesh/SKM_base_mesh_ue",
+   "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/SK_HorseBody",
+   "/Game/CastleDefender/Characters/Enemies/RealmWasp/SK_RealmWasp",
+   "/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Meshes/Greystone",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/Dragonlord/Meshes/Greystone_Dragonlord",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/Novaborn/Meshes/Greystone_Novaborn",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/Tough/Meshes/Greystone_Tough",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/WhiteTiger/Meshes/Greystone_WhiteTiger",
+   "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SK_Knight_ChestRemnant",
+   "/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SK_ObsidianSovereign_Chest",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Manny",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Manny_Simple",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Quinn",
+   "/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Quinn_Simple",
+   "/Game/CastleDefender/Environment/Tentacles/Rig/SK_CorruptedTentacle_01",
+   "/Game/CastleDefender/Props/Flags/Cloth/SK_ClothBanner",
+   "/Game/CastleDefender/Props/Flags/Cloth/SK_ClothStandard",
+   "/Game/CastleDefender/Props/GateBreach/SK_GateLeaf_L",
+   "/Game/CastleDefender/Props/GateBreach/SK_GateLeaf_R",
+   "/Game/ShadowKight/Mannequin/Character/Mesh/SK_Mannequin",
+   "/Game/ShadowKight/Mannequin/Character/Mesh/SK_Mannequin_Female",
+   "/Game/ShadowKight/Mesh/ShadowknightUE_SK",
+   "/Game/ZombieAnimationPack/Demo/EpicContent/Mannequin_UE4/Mesh/SK_Mannequin",
+   "/Game/ZombieAnimationPack/Demo/EpicContent/Mannequin_UE5/Meshes/SK_Manny_Simple"
+  ],
+  "BlendSpace": [
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Blendspaces/Greystone_Locomotion_BS",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Blendspaces/JogBwdSlopeLean",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Blendspaces/JogFwdSlopeLean",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Blendspaces/JogLeftSlopeLean",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Blendspaces/JogRightSlopeLean",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Blendspaces/Locomotion_BS",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Blendspaces/SprintBwdSlopeLean",
+   "/Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Animations/Blendspaces/SprintFwdSlopeLean"
+  ]
+ },
+ "SK_Zombie_morph_targets": [],
+ "SK_Zombie_skeleton": "/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie_Skeleton.SK_Zombie_Skeleton",
+ "SK_Zombie_bones": 73,
+ "input": {
+  "/Game/CastleDefender/Gameplay/Cannon/IA_CannonAim": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.AXIS2D: 2>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": false
+  },
+  "/Game/CastleDefender/Gameplay/Cannon/IA_CannonFire": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": false
+  },
+  "/Game/CastleDefender/Gameplay/Cannon/IA_CannonInteract": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": false
+  },
+  "/Game/CastleDefender/Gameplay/Cannon/IA_CannonReload": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": false
+  },
+  "/Game/CastleDefender/Gameplay/Cannon/IA_CannonUpgrade": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": false
+  },
+  "/Game/CastleDefender/Gameplay/Cannon/IMC_Cannon": {
+   "class": "InputMappingContext",
+   "err": "'Key' object has no attribute 'key_name'"
+  },
+  "/Game/CastleDefender/Gameplay/Crossbow/Input/IA_XbowAim": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/Crossbow/Input/IA_XbowFire": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/Crossbow/Input/IA_XbowReload": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/Crossbow/Input/IMC_Crossbow": {
+   "class": "InputMappingContext",
+   "err": "'Key' object has no attribute 'key_name'"
+  },
+  "/Game/CastleDefender/Gameplay/Input/IA_Attack": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/ThirdPerson/Input/Actions/IA_Jump": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [
+    "InputTriggerPressed",
+    "InputTriggerReleased"
+   ],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/ThirdPerson/Input/Actions/IA_Look": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.AXIS2D: 2>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/ThirdPerson/Input/Actions/IA_Move": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.AXIS2D: 2>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/Crossbow/Input/IA_XbowSwap": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.BOOLEAN: 0>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/ThirdPerson/Input/Actions/IA_CameraZoom": {
+   "class": "InputAction",
+   "value_type": "<InputActionValueType.AXIS1D: 1>",
+   "triggers": [],
+   "modifiers": [],
+   "consume_input": true
+  },
+  "/Game/CastleDefender/Gameplay/ThirdPerson/Input/IMC_Default": {
+   "class": "InputMappingContext",
+   "err": "'Key' object has no attribute 'key_name'"
+  }
+ },
+ "missing_wanted": [
+  "BP_SoldierCrossbow"
+ ]
+}

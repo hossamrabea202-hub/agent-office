@@ -1,0 +1,18 @@
+Begin Object Class=/Script/Engine.Blueprint Name="BP_CastleSave" ExportPath="/Script/Engine.Blueprint'/Game/CastleDefender/Gameplay/Save/BP_CastleSave.BP_CastleSave'"
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Gameplay/Save/BP_CastleSave.BP_CastleSave:EventGraph'"
+   End Object
+   Begin Object Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Gameplay/Save/BP_CastleSave.BP_CastleSave:EventGraph'"
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      bAllowDeletion=False
+      GraphGuid=28BDC4E44ED5D09C870FFD8F1C3FF9A5
+   End Object
+   ParentClass="/Script/CoreUObject.Class'/Script/Engine.SaveGame'"
+   BlueprintSystemVersion=2
+   UbergraphPages(0)="/Script/Engine.EdGraph'EventGraph'"
+   NewVariables(0)=(VarName="Data",VarGuid=6688197E44E394B481DCF4BB966EBC48,VarType=(PinCategory="real",PinSubCategory="double",ContainerType=Array),FriendlyName="Data",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=65541)
+   CategorySorting(0)="Default"
+   LastEditedDocuments(0)=(EditedObjectPath="/Game/CastleDefender/Gameplay/Save/BP_CastleSave.BP_CastleSave:EventGraph",SavedZoomAmount=1.000000)
+   GeneratedClass="/Script/Engine.BlueprintGeneratedClass'BP_CastleSave_C'"
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=B2DC34F04EF1F88FD30A47871CA8274E
+End Object
