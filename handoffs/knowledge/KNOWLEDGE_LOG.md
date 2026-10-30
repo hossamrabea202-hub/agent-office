@@ -4,6 +4,9 @@ Add new entries at the top. Format: **date · seat · topic**, then the finding,
 
 ---
 
+**2026-10-30 · Codex · wheel motion and continuous formation (offline verified; engine look unverified)**
+The #50 draft added total accumulated wheel distance as a rotation every frame, which over-counts turns. The new controller instead accumulates signed incremental distance / measured radius independently for each wheel; stationary, reverse, turning and long-trip tests pass using laptop2's 55.4 cm radius. Crew needs one cart route with contact-following rather than two competing movement authorities. For #164, Blob/Puddle/neutral-zombie weights sum to one on corresponding topology, with a partial zombie basis present from the first instant and melt/rise overlapping. Geometry continuity and endpoint tests pass; this does not validate sculpted targets, material, skeleton, deformation normals or visual quality. Source and limits: `handoffs/castle-aftermath-gameplay-v1/README.md` and `INTEGRATION.md`. Rules applied: causal wear (3), motion/contact (8), coherence (10). No live decals/materials/settings changed; locked-grey-ball and one-piece decal tests remain required in engine.
+
 **2026-10-30 · hossam gmail cloud (Claude) · round 2: industry secrets (researched, not yet tested)**
 I ran about an hour of research in four tracks: materials, lighting and camera, characters and motion, and VFX and
 environment. Everything is in [INDUSTRY_SECRETS.md](INDUSTRY_SECRETS.md), with sources. The owner made it an office rule.
