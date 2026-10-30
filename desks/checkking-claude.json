@@ -1,6 +1,6 @@
 {
- "working": "Weapon kit v2: UV density + bardiche/glaive fixes, then maces/war hammers",
- "tokens": 830000,
+ "working": "Weapon kit v2 baking (16 weapons); studio checks every 15 min",
+ "tokens": 860000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T20:56:45Z",
+ "asOf": "2026-10-30T21:01:18Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
