@@ -1,6 +1,6 @@
 {
- "working": "Studio checks; #58 waits on cannon export; next weapons batch",
- "tokens": 920000,
+ "working": "Weapon batch 3: Viking sword, ranseur, pollaxe",
+ "tokens": 930000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T21:11:34Z",
+ "asOf": "2026-10-30T21:12:18Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
