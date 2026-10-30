@@ -1,0 +1,35 @@
+{
+ "blueprint": "BP_SoldierSword",
+ "_built_on": "handoffs/exports/master/2026-10-30b/BP_SoldierSword.T3D (EventGraph)",
+ "pastes": [
+  "SoldierSword_Unstick220_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_135.then",
+   "to": "Unstick220In.execute",
+   "replace": true,
+   "note": "Tick -> unstick first (was CX_139)"
+  },
+  {
+   "from": "Unstick220In.then_1",
+   "to": "CX_139.execute",
+   "note": "then the original Tick chain"
+  },
+  {
+   "from": "CX_135.DeltaSeconds",
+   "to": "unMultiply_Doubl10.A",
+   "note": "dt into the accumulator"
+  },
+  {
+   "from": "CX_86.ReturnValue",
+   "to": "UnstickTarget.InputPin",
+   "note": "the soldier's own move target (what CX_399 moves to)"
+  },
+  {
+   "from": "K2Node_CallFunction_2.ReturnValue",
+   "to": "UnstickCtl.InputPin",
+   "note": "the controller CX_399 uses"
+  }
+ ]
+}
