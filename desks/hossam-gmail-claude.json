@@ -1,8 +1,8 @@
 {
- "working": "#138 Castle breach: wall-breaker colossus + 3 breach spots",
- "tokens": 60000,
+ "working": "#191 BP_BlobMine graph paste; then exports #165 #166 #198",
+ "tokens": 420000,
  "ctx": 1000000,
- "since": "2026-10-29T15:39:09Z",
+ "since": "2026-10-30T12:25:31Z",
  "done": [
   "Cafeteria: @tag chips + notification flag + Post button; #95 weapon-upgrade card logged [77% tokens left]",
   "#83 exposure lift applied + saved (owner to judge in Play) [81% tokens left]",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-29T15:39:09Z",
+ "asOf": "2026-10-30T12:25:31Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
@@ -50,7 +50,7 @@
  },
  "seat": "hossam gmail (Claude)",
  "session": {
-  "id": "82dbe205ed2c",
+  "id": "f6e27a831c7b",
   "host": "Hossam"
  }
 }
