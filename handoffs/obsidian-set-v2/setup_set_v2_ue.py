@@ -89,7 +89,10 @@ VARS = {
     'HiddenMat': BEL.get_object_reference_type(unreal.MaterialInterface),
     'Knight': BEL.get_object_reference_type(unreal.SkeletalMeshComponent),
     'TierAt': ARR(I), 'TierDR': ARR(Dd), 'Tier': I, 'AvailMask': I, 'WornEff': I, 'LastWorn': I,
+    'SetNames': ARR(BEL.get_basic_type_by_name('string')), 'PanelScale': Dd, 'MsgUntil': Dd,   # part 2: Vesna panel
 }
+SET_NAMES = ['Cuirass', 'Pauldrons', 'Gauntlets', 'Sabatons', 'Greaves', 'Helmet', 'Rerebraces', 'Vambraces',
+             'Fauld & Tassets', 'Cuisses', 'Cape']   # row i = piece id 10 + i
 have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
 for n, t in VARS.items():
     if n not in have:
@@ -98,7 +101,8 @@ for n, t in VARS.items():
 BEL.compile_blueprint(bp)
 cdo = unreal.get_default_object(bp.generated_class())
 for n, v in (('PieceId', ids), ('PieceBone', bones), ('PieceOffset', offsets), ('KnightCover', cover),
-             ('HiddenMat', unreal.load_asset(HIDDEN)), ('TierAt', TIER_AT), ('TierDR', TIER_DR), ('AvailMask', avail), ('LastWorn', -1)):
+             ('HiddenMat', unreal.load_asset(HIDDEN)), ('TierAt', TIER_AT), ('TierDR', TIER_DR), ('AvailMask', avail), ('LastWorn', -1),
+             ('SetNames', SET_NAMES), ('PanelScale', 1.0), ('MsgUntil', 0.0)):
     cdo.set_editor_property(n, v)
 EAL.save_asset(COMP)
 log.append('BPC_ObsidianSet: %d piece meshes, AvailMask %d, KnightCover %s' % (len(ids), avail, cover))

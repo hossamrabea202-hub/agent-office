@@ -115,7 +115,7 @@ b.wire(b.aget('PieceOffset', XF, (lp2, 'Index'), 3600, 900), srt, 'NewTransform'
 addc = b.aadd('PieceComps', SMCV, pc, 4300, 0); G.link(srt, 'then', addc, 'execute')
 G.link(okp, 'else', addc, 'execute')          # keep indices aligned with the table even if a component is missing
 tm = b.timer('Refresh', 2700, -300, dtime='0.5', loop=True); G.link(lp2, 'Completed', tm, 'execute')
-G.link(tm, 'then', b.me('Refresh', 3000, -300), 'execute')
+b.chain(tm, b.me('LoadSaved', 3000, -300), b.me('Refresh', 3300, -300))
 
 # =====================================================================================================================
 # BuyPiece(Id): only a piece that has art and isn't owned yet. Owned + worn (a bought piece goes straight on), count +1.
@@ -129,7 +129,7 @@ br = b.branch(ok, 300, Y, tag='IfCanBuy'); G.link('BuyPiece', 'then', br, 'execu
 s1 = b.set('ObsOwned', INT, b.i2('Or_IntInt', b.get('ObsOwned', INT, 1300, Y + 700), bit, 1500, Y + 700), 1500, Y)
 s2 = b.set('ObsWorn', INT, b.i2('Or_IntInt', b.get('ObsWorn', INT, 1500, Y + 850), bit, 1700, Y + 850), 1750, Y)
 s3 = b.set('ObsBought', INT, b.i2('Add_IntInt', b.get('ObsBought', INT, 1800, Y + 1000), None, 2000, Y + 1000, db='1'), 2000, Y)
-G.link(br, 'then', s1, 'execute'); b.chain(s1, s2, s3, b.me('Refresh', 2300, Y))
+G.link(br, 'then', s1, 'execute'); b.chain(s1, s2, s3, b.me('Refresh', 2300, Y), b.me('SaveNow', 2600, Y))
 
 # =====================================================================================================================
 # SetPieceWorn(Id, Worn): on only if owned. ToggleWear(Id): flips it (for the HUD set panel).
@@ -148,7 +148,7 @@ b.event('ToggleWear', [it('Id')], 0, Y)
 bit = b.bit(('ToggleWear', 'Id'), 0, Y + 250)
 cw = b.me('SetPieceWorn', 900, Y, pins=[it('Id', default='0'), bo('Worn', default='false')])
 b.wire(('ToggleWear', 'Id'), cw, 'Id'); b.wire(b.bnot(b.has(b.get('ObsWorn', INT, 600, Y + 450), bit, 700, Y + 450), 900, Y + 450), cw, 'Worn')
-b.chain('ToggleWear', cw)
+b.chain('ToggleWear', cw, b.me('SaveNow', 1200, Y))
 
 # ---- DebugGiveAll(): every piece with art owned and worn (test without the HUD) ----
 Y = 4300
@@ -161,7 +161,7 @@ b.chain('DebugGiveAll', s1, s2, b.me('Refresh', 900, Y))
 Y = 4800
 b.event('BuyShield', [], 0, Y)
 lv = b.i2('Min', b.i2('Add_IntInt', b.get('ShieldLevel', INT, 0, Y + 200), None, 250, Y + 200, db='1'), None, 450, Y + 200, db='4')
-b.chain('BuyShield', b.set('ShieldLevel', INT, lv, 700, Y), b.me('Refresh', 1000, Y))
+b.chain('BuyShield', b.set('ShieldLevel', INT, lv, 700, Y), b.me('Refresh', 1000, Y), b.me('SaveNow', 1300, Y))
 
 # ---- LoadState(Owned, Worn, Bought, ShieldLvl): from the save; a full set loads without replaying the burst ----
 Y = 5300
@@ -294,6 +294,168 @@ cast(G, 'AsChar', CHARC, 'AsCharacter', 1600, Y)
 G.link(hurt, 'then', 'AsChar', 'execute'); b.wire((lz, 'Array Element'), 'AsChar', 'Object')
 la = b.call(CHARC, 'LaunchCharacter', [V('LaunchVelocity'), bo('bXYOverride', default='true'), bo('bZOverride', default='true')], 2300, Y, target=('AsChar', 'AsCharacter'), tag='Launch')
 G.link('AsChar', 'then', la, 'execute'); b.wire(vel, la, 'LaunchVelocity')
+
+# =====================================================================================================================
+# Part 2. Save: own slot CastleSaveObsidian, the existing BP_CastleSave class (Data = real array):
+#   Data = [ObsOwned, ObsWorn, ObsBought, ShieldLevel]. Saved after every buy / wear change, loaded at BeginPlay.
+# =====================================================================================================================
+SAVEC = BPC('/Game/CastleDefender/Gameplay/Save/BP_CastleSave', 'BP_CastleSave')
+SAVEG = CLS('SaveGame')
+SLOT = 'CastleSaveObsidian'
+DARR = arr(D('Data'))
+Y = 11600
+b.event('SaveNow', [], 0, Y)
+cs = b.lib(GS, 'CreateSaveGameObject', [CLSPIN('SaveGameClass', SAVEG, '/Game/CastleDefender/Gameplay/Save/BP_CastleSave.BP_CastleSave_C'),
+           ob('ReturnValue', SAVEC, out=True)], 300, Y, tag='NewSave')
+G.link('SaveNow', 'then', cs, 'execute')
+cast(G, 'AsSave', SAVEC, 'AsBP Castle Save', 300, Y + 300, pure=True); b.wire((cs, 'ReturnValue'), 'AsSave', 'Object')
+mk = b.name('MakeData')
+G.node(mk, 'K2Node_MakeArray', ['NumInputs=4'], [D('[%d]' % i, default='0.0') for i in range(4)] + [arr(D('Array', out=True))], 600, Y + 300)
+for i, v in enumerate(('ObsOwned', 'ObsWorn', 'ObsBought', 'ShieldLevel')):
+    b.wire(b.i2d(b.get(v, INT, 300, Y + 500 + i * 120), 450, Y + 500 + i * 120), mk, '[%d]' % i)
+sd = b.setm('Data', SAVEC, DARR, (mk, 'Array'), ('AsSave', 'AsBP Castle Save'), 900, Y)
+G.link(cs, 'then', sd, 'execute')
+sv = b.lib(GS, 'SaveGameToSlot', [ob('SaveGameObject', SAVEG), S('SlotName', default=SLOT), it('UserIndex', default='0'), bo('ReturnValue', out=True, default='false')], 1200, Y, tag='Save')
+b.wire(('AsSave', 'AsBP Castle Save'), sv, 'SaveGameObject'); G.link(sd, 'then', sv, 'execute')
+
+Y = 12500
+b.event('LoadSaved', [], 0, Y)
+ex_ = b.lib(GS, 'DoesSaveGameExist', [S('SlotName', default=SLOT), it('UserIndex', default='0'), bo('ReturnValue', out=True, default='false')], 200, Y + 200, pure=True, tag='HasSave')
+bl = b.branch((ex_, 'ReturnValue'), 300, Y, tag='IfSave'); G.link('LoadSaved', 'then', bl, 'execute')
+ld = b.lib(GS, 'LoadGameFromSlot', [S('SlotName', default=SLOT), it('UserIndex', default='0'), ob('ReturnValue', SAVEG, out=True)], 600, Y, tag='Load')
+G.link(bl, 'then', ld, 'execute')
+cast(G, 'AsLoad', SAVEC, 'AsBP Castle Save', 600, Y + 300, pure=True); b.wire((ld, 'ReturnValue'), 'AsLoad', 'Object')
+dat = b.getm('Data', SAVEC, DARR, ('AsLoad', 'AsBP Castle Save'), 850, Y + 300)
+lenn = b.name('LenData')
+G.node(lenn, 'K2Node_CallArrayFunction', ['bIsPureFunc=True', 'FunctionReference=(MemberParent=%s,MemberName="Array_Length")' % KARR],
+       [selfpin(KARR, hidden=True), {'name': 'TargetArray', 'cat': 'real', 'sub': 'double', 'container': 'Array', 'ref': True}, it('ReturnValue', out=True, default='0')], 1100, Y + 450)
+b.wire(dat, lenn, 'TargetArray')
+okd = b.branch(b.icmp('GreaterEqual_IntInt', (lenn, 'ReturnValue'), None, 1300, Y + 450, db='4'), 1000, Y, tag='IfData')
+G.link(ld, 'then', okd, 'execute')
+cl = b.me('LoadState', 1400, Y, pins=[it('Owned', default='0'), it('Worn', default='0'), it('Bought', default='0'), it('ShieldLvl', default='0')])
+for i, p in enumerate(('Owned', 'Worn', 'Bought', 'ShieldLvl')):
+    b.wire(b.round_(b.item(dat, D('v'), b.i2('Add_IntInt', None, None, 1100, Y + 650 + i * 150, da=str(i)), 1250, Y + 650 + i * 150), 1450, Y + 650 + i * 150), cl, p)
+G.link(okd, 'then', cl, 'execute')
+
+# =====================================================================================================================
+# Part 2. DrawArmoury(Hud, SizeX, SizeY): called from BP_ArmoryHUD's DrawHUD (ArmoryHUD_hook manifest) after the shop
+# has drawn. While Vesna's shop is open (MPC Shop.R > 0.5 and the game paused) it draws a panel on the right edge:
+#   OBSIDIAN ARMOURY / SET 5/11 . TIER 2 . DAMAGE -6% / one row per piece (11) with its state.
+# Click a row: BUY (pays NextPrice from the HUD's Gold, then BuyPiece), WEAR / WORN (ToggleWear). Cuirass row: info only
+# (it's sold in the shop's own carousel). No art yet: "NOT FORGED YET". Not enough gold: the shop's own line, 1.5 s.
+# Layout: right edge, 1080p units times PanelScale (component default 1.0), so the Master can tune size without a paste.
+# =====================================================================================================================
+HUDC = CLS('HUD')
+ZHUD = BPC('/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD', 'BP_ZombieHUD')
+FONT = '/Game/CastleDefender/UI/Fonts/Font_Cinzel.Font_Cinzel'
+FONTC = '"/Script/CoreUObject.Class\'/Script/Engine.Font\'"'
+KEY = '"/Script/CoreUObject.ScriptStruct\'/Script/InputCore.Key\'"'
+F = lambda n, default='0.0', out=False: fl(n, default=default, out=out)   # C++ float pins (HUD draw calls)
+def col(r, g, b_, a=1.0): return '(R=%f,G=%f,B=%f,A=%f)' % (r, g, b_, a)
+
+Y = 13600
+b.event('DrawArmoury', [ob('Hud', HUDC), it('SizeX'), it('SizeY')], 0, Y)
+hud = ('DrawArmoury', 'Hud')
+gsh2, csh = b.mpc_get('Shop', 300, Y); G.link('DrawArmoury', 'then', gsh2, 'execute')
+paused = b.lib(GS, 'IsGamePaused', [WC(), bo('ReturnValue', out=True, default='false')], 500, Y + 450, pure=True, tag='Paused')
+open_ = b.b2('BooleanAND', b.dcmp('Greater_DoubleDouble', csh['R'], None, 700, Y + 350, db='0.5'), (paused, 'ReturnValue'), 900, Y + 400)
+bo_ = b.branch(open_, 700, Y, tag='IfShop'); G.link(gsh2, 'then', bo_, 'execute')
+# geometry (1080p units * s)
+sc = b.d2('Multiply_DoubleDouble', b.d2('Divide_DoubleDouble', b.i2d(('DrawArmoury', 'SizeY'), 300, Y + 700), None, 500, Y + 700, db='1080.0'),
+          b.get('PanelScale', DBL, 500, Y + 850), 700, Y + 750)
+u = lambda v, x, y: b.d2('Multiply_DoubleDouble', sc, None, x, y, db=str(float(v)))
+sx = b.i2d(('DrawArmoury', 'SizeX'), 300, Y + 1000)
+PX = b.d2('Subtract_DoubleDouble', sx, u(430, 500, Y + 1100), 700, Y + 1050)
+PY = u(210, 700, Y + 1200)
+W, RH = u(400, 700, Y + 1300), u(36, 700, Y + 1400)
+add = lambda a, c, x, y: b.d2('Add_DoubleDouble', a, c, x, y)
+# background + title + status
+bg = b.call(HUDC, 'DrawRect', [st('RectColor', LC, default=col(0.02, 0.015, 0.01, 0.72)), F('ScreenX'), F('ScreenY'), F('ScreenW'), F('ScreenH')], 1100, Y, target=hud, tag='PanelBg')
+b.wire(b.d2('Subtract_DoubleDouble', PX, u(16, 900, Y + 1500), 1000, Y + 1500), bg, 'ScreenX')
+b.wire(b.d2('Subtract_DoubleDouble', PY, u(86, 900, Y + 1600), 1000, Y + 1600), bg, 'ScreenY')
+b.wire(add(W, u(32, 900, Y + 1700), 1000, Y + 1700), bg, 'ScreenW')
+b.wire(add(b.d2('Multiply_DoubleDouble', RH, None, 900, Y + 1800, db='11.0'), u(110, 900, Y + 1900), 1000, Y + 1850), bg, 'ScreenH')
+G.link(bo_, 'then', bg, 'execute')
+def text(src, colr, x_, y_, scale, nx, ny, tag, dtext=''):
+    n = b.call(HUDC, 'DrawText', [S('Text', default=dtext), st('TextColor', LC, default=colr), F('ScreenX'), F('ScreenY'), dict(ob('Font', FONTC), dobj=FONT),
+               F('Scale', default='1.0'), bo('bScalePosition', default='false')], nx, ny, target=hud, tag=tag)
+    b.wire(src, n, 'Text'); b.wire(x_, n, 'ScreenX'); b.wire(y_, n, 'ScreenY'); b.wire(u(scale, nx - 200, ny + 400), n, 'Scale')
+    return n
+t1 = text(None, col(1.0, 0.72, 0.28), PX, b.d2('Subtract_DoubleDouble', PY, u(76, 1100, Y + 2100), 1300, Y + 2100), 0.44, 1500, Y, 'Title', dtext='OBSIDIAN ARMOURY')
+G.link(bg, 'then', t1, 'execute')
+def istr_of(src, x, y):
+    n = b.lib(KSTR, 'Conv_IntToString', [it('InInt', default='0'), S('ReturnValue', out=True)], x, y, pure=True); b.wire(src, n, 'InInt'); return (n, 'ReturnValue')
+gob, cob = b.mpc_get('ObsSet', 1500, Y + 2300)
+drp = b.round_(b.d2('Multiply_DoubleDouble', cob['R'], None, 1900, Y + 2500, db='15.0'), 2100, Y + 2500)   # R * 0.15 * 100
+line = b.concat(b.concat(b.concat(b.concat(b.concat(None, istr_of(b.get('WornCount', INT, 1500, Y + 2700), 1700, Y + 2700), 1900, Y + 2700, da='SET '),
+        None, 2100, Y + 2700, db='/11   TIER '), istr_of(b.get('Tier', INT, 1900, Y + 2850), 2100, Y + 2850), 2300, Y + 2750),
+        None, 2500, Y + 2750, db='   DAMAGE -'), istr_of(drp, 2300, Y + 2550), 2700, Y + 2700)
+line = b.concat(line, None, 2900, Y + 2700, db='%')
+t2 = text(line, col(0.86, 0.80, 0.70), PX, b.d2('Subtract_DoubleDouble', PY, u(38, 1900, Y + 3000), 2100, Y + 3000), 0.28, 2000, Y, 'Status')
+b.chain(t1, gob, t2)
+# mouse + click
+pcn = b.call(HUDC, 'GetOwningPlayerController', [ob('ReturnValue', PCON, out=True)], 1500, Y + 3300, target=hud, pure=True, const=True, tag='PC')
+mp = b.call(PCON, 'GetMousePosition', [F('LocationX', out=True), F('LocationY', out=True), bo('ReturnValue', out=True, default='false')], 1700, Y + 3300,
+            target=(pcn, 'ReturnValue'), pure=True, const=True, tag='Mouse')
+clk = b.call(PCON, 'WasInputKeyJustPressed', [st('Key', KEY, default='LeftMouseButton'), bo('ReturnValue', out=True, default='false')], 1700, Y + 3500,
+             target=(pcn, 'ReturnValue'), pure=True, const=True, tag='Click')
+mx, my = (mp, 'LocationX'), (mp, 'LocationY')
+# rows 0..10
+lr = b.forloop(None, b.i2('Add_IntInt', None, None, 2200, Y + 300, da='10'), 2400, Y); G.link(t2, 'then', lr, 'execute')   # rows 0..10
+ri = (lr, 'Index')
+ry = add(PY, b.d2('Multiply_DoubleDouble', RH, b.i2d(ri, 2400, Y + 3700), 2600, Y + 3700), 2800, Y + 3700)
+bitr = b.round_(b.pow(None, b.i2d(ri, 2400, Y + 3850), 2600, Y + 3850), 2800, Y + 3850)
+av = b.has(b.get('AvailMask', INT, 2600, Y + 4000), bitr, 2800, Y + 4000)
+own_ = b.has(b.i2('Or_IntInt', b.get('ObsOwned', INT, 2600, Y + 4150), b.get('WornEff', INT, 2600, Y + 4250), 2800, Y + 4150), bitr, 3000, Y + 4150)
+worn = b.has(b.get('WornEff', INT, 2600, Y + 4350), bitr, 3000, Y + 4350)
+first = b.icmp('EqualEqual_IntInt', ri, None, 2800, Y + 4500, db='0')
+price_ = b.get('NextPrice', INT, 2600, Y + 4650)
+zh = cast(G, 'AsZHud', ZHUD, 'AsBP Zombie HUD', 2600, Y + 4800, pure=True); b.wire(hud, 'AsZHud', 'Object')
+gold = b.getm('Gold', ZHUD, INT, ('AsZHud', 'AsBP Zombie HUD'), 2900, Y + 4800)
+afford = b.icmp('GreaterEqual_IntInt', gold, price_, 3100, Y + 4750)
+stt = b.selstr(None, b.concat(None, istr_of(price_, 2900, Y + 4950), 3100, Y + 4950, da='BUY  '), b.bnot(own_, 3200, Y + 5050), 3400, Y + 4950, da='WEAR')
+stt = b.selstr(None, stt, worn, 3600, Y + 4950, da='WORN')
+stt = b.selstr(b.selstr(None, None, worn, 3600, Y + 5150, da='WORN', db='ON THE RACK'), stt, first, 3800, Y + 5000)
+stt = b.selstr(None, stt, b.bnot(av, 3800, Y + 5250), 4000, Y + 5050, da='NOT FORGED YET')
+selc = lambda a, c, pick, x, y, da, db: b.math('SelectColor', [(st('A', LC, default=da), a), (st('B', LC, default=db), c), (bo('bPickA', default='false'), pick)], st('ReturnValue', LC, out=True), x, y)
+cbuy = selc(None, None, afford, 3600, Y + 5400, col(0.95, 0.88, 0.76), col(0.85, 0.32, 0.25))
+cst = selc(cbuy, None, b.bnot(own_, 3600, Y + 5700), 3800, Y + 5600, col(0, 0, 0), col(0.80, 0.80, 0.80))   # not owned: buy colour, else WEAR grey
+cst = selc(None, cst, worn, 4000, Y + 5600, col(1.0, 0.74, 0.30), col(0, 0, 0))
+cst = selc(None, cst, b.bnot(av, 4000, Y + 5750), 4200, Y + 5650, col(0.42, 0.40, 0.38), col(0, 0, 0))
+hov = b.b2('BooleanAND',
+           b.b2('BooleanAND', b.dcmp('GreaterEqual_DoubleDouble', mx, b.d2('Subtract_DoubleDouble', PX, u(10, 2600, Y + 5900), 2800, Y + 5900), 3000, Y + 5900),
+                b.dcmp('Less_DoubleDouble', mx, add(PX, W, 2800, Y + 6000), 3000, Y + 6000), 3200, Y + 5950),
+           b.b2('BooleanAND', b.dcmp('GreaterEqual_DoubleDouble', my, ry, 3000, Y + 6100),
+                b.dcmp('Less_DoubleDouble', my, add(ry, RH, 2800, Y + 6200), 3000, Y + 6200), 3200, Y + 6150), 3400, Y + 6050)
+bhv = b.branch(hov, 2700, Y, tag='IfHover'); G.link(lr, 'LoopBody', bhv, 'execute')
+hl = b.call(HUDC, 'DrawRect', [st('RectColor', LC, default=col(1.0, 0.70, 0.25, 0.12)), F('ScreenX'), F('ScreenY'), F('ScreenW'), F('ScreenH')], 3000, Y, target=hud, tag='RowHover')
+b.wire(b.d2('Subtract_DoubleDouble', PX, u(8, 2800, Y + 6400), 3000, Y + 6400), hl, 'ScreenX'); b.wire(ry, hl, 'ScreenY')
+b.wire(add(W, u(16, 2800, Y + 6500), 3000, Y + 6500), hl, 'ScreenW'); b.wire(RH, hl, 'ScreenH')
+G.link(bhv, 'then', hl, 'execute')
+nm = b.aget('SetNames', S('v'), ri, 3200, Y + 6600)
+tn = text(nm, col(0.92, 0.86, 0.74), PX, add(ry, u(6, 3200, Y + 6800), 3400, Y + 6800), 0.27, 3400, Y, 'RowName')
+G.link(hl, 'then', tn, 'execute'); G.link(bhv, 'else', tn, 'execute')
+ts = text(stt, col(1, 1, 1), add(PX, u(232, 3400, Y + 7000), 3600, Y + 7000), add(ry, u(6, 3400, Y + 7100), 3600, Y + 7100), 0.27, 3800, Y, 'RowState')
+b.wire(cst, ts, 'TextColor'); G.link(tn, 'then', ts, 'execute')
+act = b.b2('BooleanAND', b.b2('BooleanAND', hov, (clk, 'ReturnValue'), 3800, Y + 7300), b.b2('BooleanAND', av, b.bnot(first, 3800, Y + 7500), 4000, Y + 7450), 4200, Y + 7350)
+bact = b.branch(act, 4200, Y, tag='IfClick'); G.link(ts, 'then', bact, 'execute')
+pid = b.i2('Add_IntInt', ri, None, 4200, Y + 7700, db='10')
+bown = b.branch(own_, 4500, Y, tag='IfOwned'); G.link(bact, 'then', bown, 'execute')
+tw = b.me('ToggleWear', 4800, Y, pins=[it('Id', default='0')]); b.wire(pid, tw, 'Id'); G.link(bown, 'then', tw, 'execute')
+baf = b.branch(afford, 4800, Y + 300, tag='IfGold'); G.link(bown, 'else', baf, 'execute')
+sg = b.setm('Gold', ZHUD, INT, b.i2('Subtract_IntInt', gold, price_, 4900, Y + 600), ('AsZHud', 'AsBP Zombie HUD'), 5100, Y + 300)
+G.link(baf, 'then', sg, 'execute')
+bp_ = b.me('BuyPiece', 5400, Y + 300, pins=[it('Id', default='0')]); b.wire(pid, bp_, 'Id'); G.link(sg, 'then', bp_, 'execute')
+rt = b.lib(GS, 'GetRealTimeSeconds', [WC(), D('ReturnValue', out=True)], 4900, Y + 900, pure=True, tag='RealNow')
+smsg = b.set('MsgUntil', DBL, b.d2('Add_DoubleDouble', (rt, 'ReturnValue'), None, 5100, Y + 900, db='1.5'), 5200, Y + 600)
+G.link(baf, 'else', smsg, 'execute')
+# after the rows: "Not enough gold, hunter." while MsgUntil is ahead of real time
+rt2 = b.lib(GS, 'GetRealTimeSeconds', [WC(), D('ReturnValue', out=True)], 2400, Y + 8200, pure=True, tag='RealNow')
+bm = b.branch(b.dcmp('Less_DoubleDouble', (rt2, 'ReturnValue'), b.get('MsgUntil', DBL, 2400, Y + 8350), 2600, Y + 8250), 2700, Y + 8000, tag='IfMsg')
+G.link(lr, 'Completed', bm, 'execute')
+tmsg = text(None, col(0.85, 0.32, 0.25), PX, add(PY, b.d2('Multiply_DoubleDouble', RH, None, 2800, Y + 8500, db='11.2'), 3000, Y + 8500), 0.27, 3000, Y + 8000,
+            'NoGold', dtext='Not enough gold, hunter.')
+G.link(bm, 'then', tmsg, 'execute')
 
 # ---------------------------------------------------------------- self-check + write
 names = {n[0] for n in G.nodes}

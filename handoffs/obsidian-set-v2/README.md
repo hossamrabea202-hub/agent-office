@@ -1,8 +1,8 @@
 # Obsidian set v2: a set system that works with the pieces we have, and grows by one table row per piece
 
 By `checkking (Claude)`, 2026-10-30, card #96. Owner asked for "a better system" for the in-game Obsidian set.
-Built on the Master's 2026-10-30 export (`handoffs/exports/master/2026-10-30/BPC_ObsidianSet.t3d` and
-`BP_ThirdPersonCharacter.t3d`). Graph check: **321 nodes, 390 links, Validation: OK**. Not compiled yet: that needs the
+Built on the Master's 2026-10-30 exports (`handoffs/exports/master/2026-10-30/BPC_ObsidianSet.t3d`, `BP_ThirdPersonCharacter.t3d`
+and `2026-10-30b/BP_ArmoryHUD_EventGraph.txt`). Graph checks: **component 505 nodes, Validation OK; shop hook Validation OK**. Not compiled yet: that needs the
 editor.
 
 ## What was wrong with v1 (found in today's exports)
@@ -99,14 +99,46 @@ at Vesna counts as set piece 10 without any HUD change.
 - Per-piece DEF numbers from SPEC 1 aren't applied. **Decision:** the tier bonus is the set's stat, so damage stays in
   one place.
 
-## Part 2 (next hand-off, on today's HUD exports): let the player use it
+## Part 2 (in this folder too): the player buys, wears and keeps the pieces
 
-- **Vesna:** one carousel entry, "Obsidian Armoury". Prev/next pages through the pieces in AvailMask, showing each
-  piece's name, state (owned or worn) and `NextPrice`. BUY = pay `NextPrice`, then `ObsidianSet.BuyPiece(Id)`.
-  It's one branch in BP_SkillTreeHUD for all pieces, not one per piece.
-- **Inventory:** an `OBSIDIAN SET 5/11 · TIER 2` line under the torso slot. Clicking it opens a small paper-doll panel
-  with one toggle per owned piece, which calls `ToggleWear`.
-- **Save:** BP_CastleSave stores ObsOwned / ObsWorn / ObsBought / ShieldLevel, and calls `LoadState` on load.
+Built on `handoffs/exports/master/2026-10-30b/BP_ArmoryHUD_EventGraph.txt`. Vesna's shop lives in BP_ArmoryHUD. It is
+open while MPC `Shop.R > 0.5` and the game is paused, and `Shop.G` is the carousel item.
+
+- **Obsidian Armoury panel in Vesna's shop.** While the shop is open, the component draws a panel on the right edge
+  (Font_Cinzel, the shop's colours).
+  - Header: `OBSIDIAN ARMOURY` and `SET 5/11   TIER 2   DAMAGE -6%`.
+  - One row per piece (11 rows): `BUY 950` (red when you can't afford it), `WEAR`, `WORN` (gold) or `NOT FORGED YET`.
+  - Hovering a row highlights it. A click buys (gold comes off the HUD's `Gold`, then `BuyPiece`) or toggles wear.
+  - Not enough gold shows the shop's own line, "Not enough gold, hunter.", for 1.5 s.
+  - The cuirass row is info only, because it's still sold in the shop's carousel.
+  - `PanelScale` on the component sizes the panel without a paste.
+- **The hook is 9 nodes in BP_ArmoryHUD** (`manifest_armoryhud.json`). A Sequence goes after the parent DrawHUD call:
+  `then_0` = the whole shop draw, unchanged; `then_1` = `BPC_ObsidianSet.DrawArmoury(self, SizeX, SizeY)`.
+  Dry-run merge on the 10-30b export: **Validation OK** (+12 links).
+- **Save:** own slot `CastleSaveObsidian`, using the existing `BP_CastleSave` class (`Data = [Owned, Worn, Bought,
+  ShieldLevel]`). It saves after every buy or wear change and loads at BeginPlay without replaying the completion burst.
+  It lives as long as `CastleSaveArmory` does: neither is deleted on a new game.
+- **Decision:** wearing is toggled in the Vesna panel, not with a new inventory panel. The inventory HUD stays
+  untouched: one place for the whole set, and one hook instead of two.
+
+The component graph above already contains part 2: 505 nodes, 659 links, Validation OK.
+
+### Part 2 steps (after steps 1-5)
+
+1. Export BP_ArmoryHUD's EventGraph fresh (Ctrl+A, Ctrl+C, save it as `live.t3d`).
+2. `python tools/applyall/applyall.py merge --live live.t3d --manifest handoffs/obsidian-set-v2/manifest_armoryhud.json --out merged.t3d`.
+   Go on only if it prints `Validation: OK`.
+3. Paste `merged.t3d` into BP_ArmoryHUD's EventGraph (Ctrl+A, BackSpace, Ctrl+V), then Compile and Save.
+
+### Part 2 checks
+
+1. Play, open Vesna's shop: the panel shows on the right and doesn't cover the shop's carousel, BUY button or arrows.
+   If it does, set `PanelScale` (for example 0.85) on BPC_ObsidianSet's defaults. Screenshot it (`--card 96`).
+2. With 2,000 gold: click Sabatons (`BUY 450`). Gold drops to 1,550, the row turns `WORN`, the boots appear on the hero,
+   and the next price is 650. Click again: `WEAR`, and the boots go away.
+3. With 0 gold: `BUY` is red, and a click shows "Not enough gold, hunter." with nothing bought.
+4. The shop's own carousel and BUY still work, and buying the cuirass there makes the cuirass row show `WORN`.
+5. Quit Play, start Play again: owned and worn pieces come back, and there's no completion flash.
 
 ## Office rules applied
 

@@ -1,0 +1,11 @@
+{
+  "blueprint": "BP_ArmoryHUD",
+  "_built_on": "handoffs/exports/master/2026-10-30b/BP_ArmoryHUD_EventGraph.txt",
+  "pastes": [{"file": "ArmoryHUD_ObsHook_graph.txt", "offset": [-200, -1200]}],
+  "rewires": [
+    {"from": "CX_2.then", "to": "ObsHookSeq.execute", "replace": true, "note": "was -> CX_26 (shop draw start)"},
+    {"from": "ObsHookSeq.then_0", "to": "CX_26.execute", "note": "the shop draws first, unchanged"},
+    {"from": "CX_1.SizeX", "to": "HookSizeX.A"},
+    {"from": "CX_1.SizeY", "to": "HookSizeY.A"}
+  ]
+}
