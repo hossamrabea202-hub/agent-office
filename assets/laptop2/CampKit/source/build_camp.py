@@ -407,8 +407,8 @@ elif VAR == 'Grindstone':   # #50 workshop: 0.6 m sandstone wheel in an oak fram
             V, Q, Tr, uv = sweep(np.array([[sx * 0.3, sy * 0.22, 0.0], [sx * 0.3 + j(0.005), sy * 0.2, 0.55]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.07, 0.07, 8 if HIGH else 4, 6.0)); mesh('Post_%d_%d' % (int(sx > 0), int(sy > 0)), V, [Q, Tr], 'WoodCut', uv=uv)
     plank('Rail_0', (-0.36, 0.2, 0.52), (0.36, 0.2, 0.52), 0.08, 0.05, 1400, (0, 0, 1.0), rot=0.2); plank('Rail_1', (-0.36, -0.2, 0.52), (0.36, -0.2, 0.52), 0.08, 0.05, 1401, (0, 0, 1.0), rot=0.2)
     # the stone: a 0.6 m disc 9 cm thick (a tube along Y), slightly worn out of round on the high
-    ob = tube('Stone', np.array([[0.0, -0.045, 0.58], [0.0, 0.045, 0.58]]), [0, 0, 1.0], 0.3, 'Stone', n=96 if HIGH else 28, rad=[0.3, 0.3])
-    ob.data.attributes.new('soot', 'FLOAT', 'POINT').data.foreach_set('value', np.zeros(len(ob.data.vertices), np.float32))
+    # the stone: a 0.6 m sandstone disc 9 cm thick (a tube along Y); 48 segments on the low so the rim reads round, its own 'Grindstone' grit material
+    tube('Stone', np.array([[0.0, -0.045, 0.58], [0.0, 0.045, 0.58]]), [0, 0, 1.0], 0.3, 'Grindstone', n=192 if HIGH else 48, rad=[0.3, 0.3])
     tube('Axle', np.array([[0.0, -0.3, 0.58], [0.0, 0.3, 0.58]]), [0, 0, 1.0], 0.022, 'Iron', n=16 if HIGH else 6)
     crank = np.array([[0.0, 0.3, 0.58], [0.0, 0.36, 0.58], [0.14, 0.37, 0.58], [0.14, 0.52, 0.58]])
     tube('Crank', crank, [0, 0, 1.0], 0.012, 'Iron', n=12 if HIGH else 6); tube('CrankGrip', crank[-2:] + [[0, 0.02, 0], [0, -0.01, 0]], [0, 0, 1.0], 0.02, 'WoodCut', n=16 if HIGH else 6)

@@ -43,6 +43,42 @@ def stone(m):
     rg = _mix_f(nt, _maprange(nt, _noise(nt, co, 300, 2, 0.6), 0.3, 0.7), _math(nt, 'SUBTRACT', rg, 0.04), _math(nt, 'ADD', rg, 0.04))
     _finish(nt, col, rg, 0.0, ao)
 
+def grindstone(m):
+    """sandstone grinding wheel: fine grit, a smooth dark wear band round the rim, faint radial scratches on the faces,
+    the bottom of the wheel wet from the trough (it sits at z 0.58, radius 0.3, axis along Y)."""
+    m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    co = _co(nt); cav, ao = _cav(nt, 0.01)
+    s = _sep(nt, co); x, y, z = s[0], s[1], s[2]
+    dz = _math(nt, 'SUBTRACT', z, 0.58)
+    r = _math(nt, 'SQRT', _math(nt, 'ADD', _math(nt, 'MULTIPLY', x, x), _math(nt, 'MULTIPLY', dz, dz)))      # distance from the axle
+    rim = _maprange(nt, r, 0.27, 0.295)                                                                      # 1 on the running surface
+    face = _math(nt, 'SUBTRACT', 1.0, rim)
+    # body: warm sandstone, mottled, with sharp grit speckle
+    tone = _noise(nt, co, 7, 4, 0.6)
+    col = _mix_col(nt, tone, (0.30, 0.25, 0.18), (0.42, 0.36, 0.26))                                          # 150-175 sRGB: tan sandstone
+    grit = _n(nt, 'ShaderNodeTexVoronoi', feature='F1', in_Scale=1500.0); nt.links.new(co, grit.inputs['Vector'])
+    g = _maprange(nt, grit.outputs['Distance'], 0.0, 0.45)
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', g, 0.45), col, (0.22, 0.19, 0.15))
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, _noise(nt, co, 700, 2, 0.6), 0.62, 0.9), 0.25), col, (0.60, 0.56, 0.48))   # quartz grains
+    # the rim: glazed by steel, darker, with fine circumferential lines (noise stretched along the axle)
+    lines = _maprange(nt, _noise(nt, _scale(nt, co, 1.0, 60.0, 1.0), 40, 3, 0.5), 0.4, 0.6)
+    glaze = _mix_col(nt, lines, (0.18, 0.16, 0.13), (0.26, 0.23, 0.18))
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', rim, 0.8), col, glaze)
+    # faces: faint radial scratches (noise stretched along the radius) and a dark ring of swarf near the axle
+    ang = _n(nt, 'ShaderNodeMath', operation='ARCTAN2'); nt.links.new(dz, ang.inputs[0]); nt.links.new(x, ang.inputs[1])
+    rad = _maprange(nt, _noise(nt, _scale(nt, _vec(nt, ang.outputs[0], r, y), 30.0, 1.5, 1.0), 12, 2, 0.5), 0.42, 0.58)
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', _math(nt, 'MULTIPLY', face, rad), 0.3), col, (0.24, 0.21, 0.16))
+    swarf = _math(nt, 'MULTIPLY', face, _maprange(nt, r, 0.12, 0.04))
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', swarf, 0.5), col, (0.12, 0.10, 0.08))
+    # wet from the trough: the lowest 6 cm of the wheel, fading up, plus damp splash on the faces
+    wet = _maprange(nt, _math(nt, 'ADD', z, _math(nt, 'MULTIPLY', _noise(nt, co, 25, 3, 0.6), 0.04)), 0.38, 0.30)
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', wet, 0.6), col, (0.14, 0.11, 0.08))
+    col = _mix_col(nt, _maprange(nt, cav, 0.2, 0.8, 0, 0.5), col, (0.10, 0.08, 0.06))
+    rg = _mix_f(nt, tone, 0.86, 0.95); rg = _mix_f(nt, rim, rg, 0.62); rg = _mix_f(nt, wet, rg, 0.28)
+    rg = _mix_f(nt, _math(nt, 'MULTIPLY', g, 0.5), rg, _math(nt, 'SUBTRACT', rg, 0.08))
+    _finish(nt, col, rg, 0.0, ao)
+
+
 def mortar(m):
     m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
     co = _co(nt); cav, ao = _cav(nt, 0.015); s = _sep(nt, co); z = s[2]
@@ -157,7 +193,7 @@ def gold(m):
     nt.links.new(bump.outputs['Normal'], nt.nodes['BSDF'].inputs['Normal'])
 
 KIND = {'Plank': gatemat.plank, 'Iron': shieldmat.iron, 'Coal': ballistamat.coal, 'Shaft': ballistamat.shaft, 'Twine': potionmat.twine,
-        'Stone': stone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'CanvasEnd': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold, 'Burlap': propmat.burlap, 'Grain': propmat.grain, 'WaxRed': potionmat.KIND['WaxRed']}
+        'Stone': stone, 'Grindstone': grindstone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'CanvasEnd': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold, 'Burlap': propmat.burlap, 'Grain': propmat.grain, 'WaxRed': potionmat.KIND['WaxRed']}
 def build_all():
     woodmat.build_all()
     for m in bpy.data.materials:

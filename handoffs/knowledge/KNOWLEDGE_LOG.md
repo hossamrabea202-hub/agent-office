@@ -104,3 +104,9 @@ Bark logs baked black twice because the cage/ray distance had been shortened to 
 leaking; bark plates stand 10–20 mm proud of the low mesh, so the rays never reached them. Rule: set the cage from the
 deepest relief in the asset (bark 12/30 mm, planks 6/12, petals 4/8, lumpy sacs 20/45) and fix leaks by moving parts
 apart, never by shortening the rays. Keep the per-asset table in `bake_shield.py`.
+
+## 2026-10-30 — Grindstone wheel (laptop2)
+- A wheel baked with the fieldstone material looked like smooth plastic: lichen/moss/bleach rules are for rocks, not a worked tool.
+  Tools need their own material: sandstone grit (Voronoi 1500), a glazed darker rim band on the running surface (radius mask),
+  radial scratches on the faces (noise stretched in angle), swarf ring at the axle, wet band where it dips in the trough.
+- A 0.6 m disc needs 48 segments on the low or the rim polygons show in close-ups (28 was visible).
