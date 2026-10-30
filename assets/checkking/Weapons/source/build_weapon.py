@@ -386,7 +386,36 @@ def rondel_dagger(): # rondel dagger: stiff triangular-section blade, disc guard
     grip_wrap(-0.075, 0.018, 0.0125, OAK)
     cyl('PommelDisc', 0.028, -0.09, -0.078, IRON, 24)
 
+def viking_sword():  # 10th c. Viking sword: broad blade, long fuller, short straight guard, lobed pommel
+    blade('Blade', 0.76, 0.029, 0.07, 0.004, 0.0022, z0=0.05, taper=0.78, fuller=0.85)
+    box('Guard', 0.11, 0.024, 0.014, (0, 0, 0.042), IRON, 0.004)
+    grip_wrap(-0.055, 0.036, 0.014, LEATHER)
+    box('UpperHilt', 0.075, 0.024, 0.012, (0, 0, -0.062), IRON, 0.004)
+    for k, x_ in enumerate((-0.022, 0.0, 0.022)): sphere('Lobe%d' % k, 0.013, (x_, 0, -0.074), IRON, (0.9, 0.8, 1.1))
+
+def ranseur():       # ranseur: long spike with two upswept side blades
+    cyl('Shaft', 0.017, -1.25, 0.76, OAK, 16, r1=0.016)
+    blade('Spike', 0.40, 0.013, 0.15, 0.007, 0.0025, z0=0.86, taper=0.75, m=STEEL)
+    for s_ in (-1, 1):
+        axe_head('Side%d' % (s_ + 1), 0.014 * s_, 0.11 * s_, lambda f: 0.88 + 0.12 * f ** 1.6, lambda f: 0.86 + 0.07 * f ** 1.8,
+                 lambda f: max(0.0008, 0.005 * (1 - f)), 0.0, STEEL, NX=14, NZ=6)
+    cyl('Socket', 0.02, 0.74, 0.88, IRON, 16, r1=0.015)
+    cyl('ButtCap', 0.0185, -1.29, -1.24, IRON, 16, r1=0.017)
+
+def pollaxe():       # 15th c. pollaxe: axe blade, hammer back, top spike, langets, rondel hand guard
+    cyl('Shaft', 0.0175, -1.15, 0.52, OAK, 16, r1=0.0165, oval=0.85)
+    axe_head('Blade', 0.016, 0.13, lambda f: 0.63 + 0.03 * f, lambda f: 0.51 - 0.035 * f ** 2, lambda f: max(0.0006, 0.008 * (1 - f) ** 1.2), 0.012, STEEL)
+    box('Hammer', 0.06, 0.034, 0.034, (-0.045, 0, 0.57), IRON, 0.004)
+    for kx in (-1, 1):
+        for ky in (-1, 1): box('Tooth', 0.008, 0.008, 0.008, (-0.077, kx * 0.009, 0.57 + ky * 0.009), STEEL, 0.001)
+    blade('Spike', 0.26, 0.011, 0.10, 0.006, 0.003, z0=0.64, taper=0.85, m=STEEL)
+    eye(0.50, 0.65, IRON, r=0.022, oval=0.85)
+    for s_ in (-1, 1): box('Langet', 0.005, 0.003, 0.28, (0, s_ * 0.015, 0.36), IRON, 0.001)
+    cyl('Rondel', 0.04, -0.10, -0.092, IRON, 24)
+    cyl('ButtSpike', 0.016, -1.24, -1.14, IRON, 12, r1=0.002)
+
 WEAPONS = {'arming_sword': ('ArmingSword', arming_sword), 'longsword': ('Longsword', longsword), 'falchion': ('Falchion', falchion),
+           'viking_sword': ('VikingSword', viking_sword), 'ranseur': ('Ranseur', ranseur), 'pollaxe': ('Pollaxe', pollaxe),
            'flanged_mace': ('FlangedMace', flanged_mace), 'war_hammer': ('WarHammer', war_hammer), 'rondel_dagger': ('RondelDagger', rondel_dagger),
            'bearded_axe': ('BeardedAxe', bearded_axe), 'dane_axe': ('DaneAxe', dane_axe), 'war_axe': ('WarAxe', war_axe),
            'winged_spear': ('WingedSpear', winged_spear), 'boar_spear': ('BoarSpear', boar_spear), 'glaive': ('Glaive', glaive),

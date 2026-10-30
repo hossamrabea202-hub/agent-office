@@ -1,12 +1,13 @@
 # checkking medieval weapon kit (night of 2026-10-30)
 
-16 historical weapons, built procedurally in Blender (`source/build_weapon.py`), baked to 2K PBR, ready for UE 5.3.
+19 historical weapons, built procedurally in Blender (`source/build_weapon.py`), baked to 2K PBR, ready for UE 5.3.
 They're static meshes, with the hand point at the origin and Z along the weapon.
 
 | Weapon | Folder | Length | Tris | Notes |
 |---|---|---|---|---|
 | Arming sword | `ArmingSword` | 0.93 m | 4.6k | one-handed, fuller over 70 % of the blade, wheel pommel, leather-wrapped grip |
 | Longsword | `Longsword` | ~1.2 m | | two-handed grip, short fuller, scent-stopper pommel |
+| Viking sword | `VikingSword` | 0.90 m | 4.2k | broad blade, fuller over 85 %, short guard, lobed pommel |
 | Falchion | `Falchion` | 0.82 m | 3.3k | single edge, widening clipped tip, bronze pommel |
 | Rondel dagger | `RondelDagger` | 0.42 m | 3.0k | stiff triangular blade, disc guard and pommel |
 | Messer | `Messer` | 0.88 m | 1.9k | single edge with a slight curve, nagel, riveted oak grip slabs |
@@ -19,6 +20,8 @@ They're static meshes, with the hand point at the origin and Z along the weapon.
 | Winged spear | `WingedSpear` | 2.43 m | 1.3k | leaf blade, side wings, butt cap |
 | Boar spear | `BoarSpear` | 2.26 m | 1.8k | broad blade, wings, leather grip rings |
 | Partisan | `Partisan` | 2.55 m | 1.8k | broad triangular head with side lugs |
+| Ranseur | `Ranseur` | 2.55 m | 1.9k | long spike with two upswept side blades |
+| Pollaxe | `Pollaxe` | 2.14 m | 4.4k | axe blade, toothed hammer back, top spike, rondel guard, butt spike |
 | Glaive | `Glaive` | 2.66 m | 1.1k | curved blade, back hook |
 | Halberd | `Halberd` | 2.33 m | 4.0k | axe blade, back fluke, top spike, langets |
 
@@ -68,5 +71,5 @@ Using a weapon in game:
 blender -b --factory-startup -P source/build_weapon.py -- <weapon> <out_root> 2048 32
 ```
 
-`<weapon>` is one of: `arming_sword longsword falchion messer rondel_dagger bearded_axe dane_axe war_axe bardiche
+`<weapon>` is one of: `viking_sword ranseur pollaxe arming_sword longsword falchion messer rondel_dagger bearded_axe dane_axe war_axe bardiche
 flanged_mace war_hammer winged_spear boar_spear partisan glaive halberd`.
