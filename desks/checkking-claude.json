@@ -1,6 +1,6 @@
 {
- "working": "Next whiteboard card (queue order)",
- "tokens": 340000,
+ "working": "Motion graphics: #66 #86 #139 #140 #141 (reading the live reveal code)",
+ "tokens": 380000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T19:32:54Z",
+ "asOf": "2026-10-30T20:06:20Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
