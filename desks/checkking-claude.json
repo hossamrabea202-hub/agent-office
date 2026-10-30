@@ -1,9 +1,10 @@
 {
- "working": "Weapon batch 5: katzbalger, guisarme, morning star",
- "tokens": 975000,
+ "working": "Studio checks; #58 waits on #241",
+ "tokens": 985000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
+  "Weapon batch 5, kit 25 [1% tokens left]",
   "Weapon batch 4 (estoc, zweihander, Lochaber axe), kit 22 [3% tokens left]",
   "Weapon batch 3 (Viking sword, ranseur, pollaxe), kit 19 [5% tokens left]",
   "Weapon kit v2: 16 weapons rebaked + pushed (#233 updated) [8% tokens left]",
@@ -12,8 +13,7 @@
   "Night fixes #213 #214 #216 #217 #219 #220 handed off (#232-#238), weapon kit 13 (#233) [24% tokens left · 5h plan 70% left]",
   "Motion graphics #66/#86/#139/#140/#141: reveals + cards + infection look, hand-off #231 [44% tokens left · 5h plan 91% left]",
   "Filed owner's 3 new systems as cards #224-#226 [66% tokens left]",
-  "Filed owner's farming idea as card #223 [66% tokens left]",
-  "#96 set v2 part 2: Vesna Obsidian Armoury panel + save + ArmoryHUD hook (Validation OK), hand-off filed [67% tokens left · 5h plan 96% left]"
+  "Filed owner's farming idea as card #223 [66% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T21:41:57Z",
+ "asOf": "2026-10-30T21:45:24Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
