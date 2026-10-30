@@ -1,0 +1,34 @@
+{
+ "blueprint": "BP_SkillTreeHUD",
+ "pastes": [
+  "SkillTreeHUD_SkillSplines_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_1.then",
+   "to": "SPTickIn.execute",
+   "replace": true,
+   "note": "DrawHUD -> sparkle tick first"
+  },
+  {
+   "from": "SPTickIn.then_2",
+   "to": "CX_2.execute",
+   "note": "then the original DrawHUD chain"
+  },
+  {
+   "from": "CX_2396.ReturnValue",
+   "to": "spAdd_DoubleDoub25.A",
+   "note": "skill icon ScreenX source"
+  },
+  {
+   "from": "CX_2398.ReturnValue",
+   "to": "spAdd_DoubleDoub26.A",
+   "note": "skill icon ScreenY source"
+  },
+  {
+   "from": "CX_2322.ReturnValue",
+   "to": "spMultiply_Doubl24.A",
+   "note": "skill icon size source"
+  }
+ ]
+}
