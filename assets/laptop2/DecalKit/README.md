@@ -14,6 +14,9 @@ heat ring, the crack dark inside with a lip of displaced earth.
 | ScorchA | under the campfire, the brazier, burnt-out torches | 1.3 m |
 | ScorchFlare | where fire spears / cannon balls land (BP: spawn on impact) | 1 m |
 | GroundCrack | across courtyard cobbles and the realm crust (rotate freely, overlap 2–3) | 2–3 m |
+| Footprints | a 6-step boot trail (walks along +Y): on the road, the gate threshold, the barracks yard | 2 × 2 m |
+| BoltHoles | split-wood impact holes under stuck bolts on the gate, palisades, the training dummy | 1 m |
+| MuzzleScorch | soot fan in front of each cannon muzzle (+Y = the firing direction) | 2.5 m |
 
 ## Unreal
 

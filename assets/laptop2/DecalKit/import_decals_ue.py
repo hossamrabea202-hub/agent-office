@@ -7,7 +7,7 @@
 #    under the campfire / brazier and where fire spears land, the crack across courtyard cobbles.
 import sys, os, unreal
 SRC = os.path.dirname(os.path.abspath(__file__)); ROOT = '/Game/CastleDefender/Environment/Decals'
-NAMES = ('BloodSplatA', 'BloodSplatB', 'BloodDrips', 'MudSplashA', 'MudSplashB', 'MossPatchA', 'MossPatchB', 'ScorchA', 'ScorchFlare', 'GroundCrack')
+NAMES = ('BloodSplatA', 'BloodSplatB', 'BloodDrips', 'MudSplashA', 'MudSplashB', 'MossPatchA', 'MossPatchB', 'ScorchA', 'ScorchFlare', 'GroundCrack', 'Footprints', 'BoltHoles', 'MuzzleScorch')
 pick = [a for a in sys.argv[1:] if a in NAMES] or list(NAMES)
 EAL, MEL, tools = unreal.EditorAssetLibrary, unreal.MaterialEditingLibrary, unreal.AssetToolsHelpers.get_asset_tools()
 

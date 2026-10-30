@@ -27,7 +27,7 @@ GRD = SH.startswith('Ground')
 if GRD: NAME, TN = 'SM_Ground_' + SH[6:], 'T_Ground_' + SH[6:]
 if CMP: NAME, TN = 'SM_Camp_' + SH[4:], 'T_Camp_' + SH[4:]
 MATS = swordmat if SH == 'Sword' else potionmat if POT else gatemat if SH == 'Gate' else floramat if FLO else propmat if PRP else ballistamat if SH == 'Ballista' else campmat if CMP else groundmat if GRD else shieldmat
-PIECES = SH in ('Gate', 'Ballista')      # multi-piece assets: one texture, one FBX per piece (vertex groups)
+PIECES = SH in ('Gate', 'Ballista', 'CampCannonCart')      # multi-piece assets: one texture, one FBX per piece (vertex groups)
 UNBAKED = ('Glass', 'Liquid')     # potions: these keep translucent UE materials and are not baked
 TEX = os.path.join(D, 'tex'); os.makedirs(TEX, exist_ok=True)
 sc = bpy.context.scene
@@ -71,6 +71,7 @@ elif STAGE in ('BC', 'RG', 'MT', 'AO', 'Normal', 'EM', 'HT'):
     if FLO: b.cage_extrusion = 0.004; b.max_ray_distance = 0.008
     if SH == 'CampCampfire': b.cage_extrusion = 0.004; b.max_ray_distance = 0.008   # logs lie on stones and ash: short rays so they don't bake the neighbours
     if SH == 'PropsSack': b.cage_extrusion = 0.015; b.max_ray_distance = 0.03         # slumped cloth, no thin parts
+    if SH == 'FloraBloodcap': b.cage_extrusion = 0.012; b.max_ray_distance = 0.025   # big cupped petals with 8 mm veins/ruffle: the 4 mm cage missed them (black)
     if SH in ('FloraBlobMine', 'FloraEggCluster'): b.cage_extrusion = 0.02; b.max_ray_distance = 0.045   # lumpy sacs and mounds, no thin leaves: the 4 mm cage left black holes      # thin petals and leaves: clear the 2 mm midrib/ruffle of the high, but not the neighbours (whorls 6 mm apart)
     QUAD = os.environ.get('QUAD'); BS = SIZE
     if QUAD is not None:
