@@ -1,0 +1,11 @@
+{
+  "source": "handoffs/risen-soldiers-41/bp/gen41.py",
+  "source_sha256": "11f8fb4d2e58d6ff3acda39c0079bb116e718de755d66f1b1cdea7ebf3704fd8",
+  "guard": "dIfRisenSpawnVa180",
+  "failure_execution_nodes": [
+    "dTimerRiseNext181"
+  ],
+  "assertions": 5,
+  "passed": true,
+  "scope": "Generated candidate graph topology only. Patch is NOT a replacement live graph. Current export and Master application required."
+}
