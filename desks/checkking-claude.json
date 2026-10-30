@@ -1,9 +1,10 @@
 {
- "working": "Motion graphics: #66 #86 #139 #140 #141 (reading the live reveal code)",
- "tokens": 380000,
+ "working": "Next whiteboard card (queue order)",
+ "tokens": 560000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
+  "Motion graphics #66/#86/#139/#140/#141: reveals + cards + infection look, hand-off #231 [44% tokens left · 5h plan 91% left]",
   "Filed owner's 3 new systems as cards #224-#226 [66% tokens left]",
   "Filed owner's farming idea as card #223 [66% tokens left]",
   "#96 set v2 part 2: Vesna Obsidian Armoury panel + save + ArmoryHUD hook (Validation OK), hand-off filed [67% tokens left · 5h plan 96% left]",
@@ -12,8 +13,7 @@
   "Both front towers replaced (tower #9) in live castle, PIE + nav verified [54% tokens left · 5h plan 39% left]",
   "Vesna talk video + Cinzel title (BP_NoticeHUD), Play-tested [75% tokens left · 5h plan 79% left]",
   "Session hand-off: HANDOFF.md + all sources pushed (boots + greaves modelled, bakes move to the laptop) [53% tokens left · 5h plan 42% left]",
-  "Office: checkking AAA asset folder in 3D ASSETS; Obsidian boots modelled (14k tris, sabaton) [57% tokens left · 5h plan 48% left]",
-  "#66 phase 1 (design + M_HintCard) + #72 plan + #91/#92 script fixes [69% tokens left · 5h plan 63% left]"
+  "Office: checkking AAA asset folder in 3D ASSETS; Obsidian boots modelled (14k tris, sabaton) [57% tokens left · 5h plan 48% left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -24,25 +24,25 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-10-30T18:50:32Z",
+  "asOf": "2026-10-30T20:23:03Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 4,
+    "pct": 9,
     "resetsAt": "2026-10-30T23:00:00Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 80,
+    "pct": 82,
     "resetsAt": "2026-11-01T06:00:00Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-30T20:06:20Z",
+ "asOf": "2026-10-30T20:23:03Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
