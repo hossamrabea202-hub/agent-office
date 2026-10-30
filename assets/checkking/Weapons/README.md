@@ -1,6 +1,6 @@
 # checkking medieval weapon kit (night of 2026-10-30)
 
-19 historical weapons, built procedurally in Blender (`source/build_weapon.py`), baked to 2K PBR, ready for UE 5.3.
+22 historical weapons, built procedurally in Blender (`source/build_weapon.py`), baked to 2K PBR, ready for UE 5.3.
 They're static meshes, with the hand point at the origin and Z along the weapon.
 
 | Weapon | Folder | Length | Tris | Notes |
@@ -8,6 +8,8 @@ They're static meshes, with the hand point at the origin and Z along the weapon.
 | Arming sword | `ArmingSword` | 0.93 m | 4.6k | one-handed, fuller over 70 % of the blade, wheel pommel, leather-wrapped grip |
 | Longsword | `Longsword` | ~1.2 m | | two-handed grip, short fuller, scent-stopper pommel |
 | Viking sword | `VikingSword` | 0.90 m | 4.2k | broad blade, fuller over 85 %, short guard, lobed pommel |
+| Estoc | `Estoc` | 1.32 m | 6.4k | stiff thrusting blade, ring guard, long grip |
+| Zweihänder | `Zweihander` | 1.78 m | 10k | leather ricasso, parrying lugs, wide guard |
 | Falchion | `Falchion` | 0.82 m | 3.3k | single edge, widening clipped tip, bronze pommel |
 | Rondel dagger | `RondelDagger` | 0.42 m | 3.0k | stiff triangular blade, disc guard and pommel |
 | Messer | `Messer` | 0.88 m | 1.9k | single edge with a slight curve, nagel, riveted oak grip slabs |
@@ -22,6 +24,7 @@ They're static meshes, with the hand point at the origin and Z along the weapon.
 | Partisan | `Partisan` | 2.55 m | 1.8k | broad triangular head with side lugs |
 | Ranseur | `Ranseur` | 2.55 m | 1.9k | long spike with two upswept side blades |
 | Pollaxe | `Pollaxe` | 2.14 m | 4.4k | axe blade, toothed hammer back, top spike, rondel guard, butt spike |
+| Lochaber axe | `LochaberAxe` | 2.24 m | 3.5k | tall blade fixed at two points, back hook |
 | Glaive | `Glaive` | 2.66 m | 1.1k | curved blade, back hook |
 | Halberd | `Halberd` | 2.33 m | 4.0k | axe blade, back fluke, top spike, langets |
 
@@ -71,5 +74,5 @@ Using a weapon in game:
 blender -b --factory-startup -P source/build_weapon.py -- <weapon> <out_root> 2048 32
 ```
 
-`<weapon>` is one of: `viking_sword ranseur pollaxe arming_sword longsword falchion messer rondel_dagger bearded_axe dane_axe war_axe bardiche
+`<weapon>` is one of: `estoc zweihander lochaber_axe viking_sword ranseur pollaxe arming_sword longsword falchion messer rondel_dagger bearded_axe dane_axe war_axe bardiche
 flanged_mace war_hammer winged_spear boar_spear partisan glaive halberd`.

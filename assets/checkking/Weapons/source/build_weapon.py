@@ -414,7 +414,31 @@ def pollaxe():       # 15th c. pollaxe: axe blade, hammer back, top spike, lange
     cyl('Rondel', 0.04, -0.10, -0.092, IRON, 24)
     cyl('ButtSpike', 0.016, -1.24, -1.14, IRON, 12, r1=0.002)
 
+def estoc():         # estoc: stiff diamond-section thrusting blade, long grip, ring guard
+    blade('Blade', 1.0, 0.016, 0.25, 0.0075, 0.004, z0=0.07, taper=0.7)
+    box('Guard', 0.22, 0.018, 0.014, (0, 0, 0.06), IRON, 0.003)
+    cyl('Ring', 0.03, 0.055, 0.062, IRON, 24, x=0.0)
+    grip_wrap(-0.2, 0.05, 0.0145, LEATHER)
+    sphere('Pommel', 0.025, (0, 0, -0.225), IRON, (1, 0.8, 1.1))
+
+def zweihander():    # zweihaender: long blade with a leather-wrapped ricasso and parrying lugs, big swept guard
+    blade('Blade', 1.15, 0.026, 0.14, 0.006, 0.0025, z0=0.24, taper=0.7, fuller=0.35)
+    cyl('Ricasso', 0.017, 0.07, 0.24, LEATHER, 12, oval=0.4)
+    for s_ in (-1, 1): box('Lug', 0.03, 0.01, 0.012, (s_ * 0.028, 0, 0.24), IRON, 0.003, rot=(0, s_ * 0.5, 0))
+    box('Guard', 0.36, 0.022, 0.018, (0, 0, 0.06), IRON, 0.004)
+    for s_ in (-1, 1): sphere('GuardEnd', 0.014, (s_ * 0.18, 0, 0.07), IRON)
+    grip_wrap(-0.32, 0.05, 0.016, LEATHER)
+    sphere('Pommel', 0.03, (0, 0, -0.35), IRON, (1, 1, 1.3))
+
+def lochaber_axe():  # Lochaber axe: tall blade fixed at two points, top hook, long haft
+    cyl('Shaft', 0.0175, -1.2, 0.62, OAK, 16, r1=0.0165)
+    axe_head('Blade', 0.016, 0.12, lambda f: 0.92 + 0.08 * f ** 2, lambda f: 0.40 + 0.06 * f, lambda f: max(0.0006, 0.007 * (1 - f) ** 1.3), 0.02, IRON, NX=26, NZ=20)
+    eye(0.58, 0.64, IRON, r=0.022); eye(0.40, 0.46, IRON, r=0.022)
+    axe_head('Hook', -0.016, -0.07, lambda f: 0.66 + 0.05 * f ** 1.5, lambda f: 0.63 + 0.04 * f ** 1.8, lambda f: max(0.001, 0.005 * (1 - f)), 0.0, IRON, NX=10, NZ=6)
+    cyl('ButtCap', 0.019, -1.24, -1.19, IRON, 16, r1=0.0175)
+
 WEAPONS = {'arming_sword': ('ArmingSword', arming_sword), 'longsword': ('Longsword', longsword), 'falchion': ('Falchion', falchion),
+           'estoc': ('Estoc', estoc), 'zweihander': ('Zweihander', zweihander), 'lochaber_axe': ('LochaberAxe', lochaber_axe),
            'viking_sword': ('VikingSword', viking_sword), 'ranseur': ('Ranseur', ranseur), 'pollaxe': ('Pollaxe', pollaxe),
            'flanged_mace': ('FlangedMace', flanged_mace), 'war_hammer': ('WarHammer', war_hammer), 'rondel_dagger': ('RondelDagger', rondel_dagger),
            'bearded_axe': ('BeardedAxe', bearded_axe), 'dane_axe': ('DaneAxe', dane_axe), 'war_axe': ('WarAxe', war_axe),
