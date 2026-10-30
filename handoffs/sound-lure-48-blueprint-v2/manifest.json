@@ -1,0 +1,28 @@
+{
+  "file": "sound-lure-48-blueprint.zip",
+  "bytes": 95597,
+  "sha256": "3fc56dd96bbfe8c15ecc83b767810976bd8d84e3a5dd9114723d9d4819c4842e",
+  "files": {
+    "README.md": "7c48f555e11cb3d0a7fc1131418de780ac1bdffc68c2ec6582e9eaf760281767",
+    "INTEGRATION.md": "9c14f7f95f7c6092843c353156284c305a30d6f809df23392182f3ddeef532fb",
+    "ACCEPTANCE.md": "5dc226e054a59276b2a77c381e61b4edde1ac76c95950e0ce7686d4bb9f20e3b",
+    "VARIABLES.md": "51e745b44d9c93535ec1ec16877bf45489ba73b0696f5736fb05a179cb4d83c5",
+    "build48.py": "448c4e3d164496df3db8ab6b64ca416740a79cf3cebeecc8418e2d82429275ad",
+    "kit.py": "dc103a54e6b27ee29381b656bb9c6518fad2008180dd5ed1e2dba384c24b8dbd",
+    "test48.py": "4fded5bff0dd3543b37b7a0c7481f42f5477623f8413d9cd204e19c720edf3ab",
+    "create_assets_ue.py": "ac6a76dd8b8cab9b4673d6effc88f7e49d4cd2e30fe06b9dcec059671a7c39ef",
+    "program.json": "4c03d7988b4d6e73195173e42a2a6f276e7f6e5905800fa5650a0b8e39d37112",
+    "test-report.json": "afb272df1ec3b0b2bec725b0104c8586faa0b29b880caa782a0cf0dff5410655",
+    "graph-counts.json": "775e6595f9d8cc2ff4759d562bc85ec2ef84143e248957f69f1830d1613d1271",
+    "BP_NoiseWorld48_EventGraph.txt": "4cf3c53e4fcaa1f308825e6f45aa7a4a4fbfe6b0af058ff6d2a91978c67e4720",
+    "BPC_NoiseSource48_EventGraph.txt": "f4533ec30c63482c1267b51ff18a4235b46a2301c5bc7c008392f5e1efc3520b",
+    "BPC_NoiseListener48_EventGraph.txt": "d15017d33620309edb6838a2f942c5595dada03fd35ca52e3a42eb10b65d389a"
+  },
+  "validation": {
+    "tests": 44,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "scope": "Offline execution of generated K2 node/link graphs; not Unreal compilation, navigation or PIE."
+  }
+}
