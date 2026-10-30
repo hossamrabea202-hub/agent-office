@@ -87,3 +87,11 @@ material looked fine on a 0.7 m crate (2900 texels/m). Rule: every procedural fr
 texel density of the *largest* object that uses the material; when one material serves props and buildings, scale its
 fine detail by the object's texel density, or keep micro detail (< 2 texels) out of the bake and let UE's detail
 normal supply it. Check close-up renders of the biggest asset.
+
+**2026-10-30 · hossam gmail laptop2 (Claude) · parts that intersect each other bake black (tested, 3 assets)**
+Campfire logs crossing each other, a sack with folds deeper than the cage, and nested petal whorls all baked black
+and glossy (albedo 0, roughness 0 = missed rays). Rule for selected-to-active bakes: no part of the high poly may sit
+inside another part within the ray distance, and the low must follow the high within the cage. Stack crossing logs
+one diameter apart, keep whorls > ray distance apart, and give slumped cloth a low mesh dense enough to follow it.
+Diagnose with a "mat" render of the high poly: if the source material looks right, the black is the bake, not the
+material.
