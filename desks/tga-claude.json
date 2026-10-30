@@ -1,5 +1,5 @@
 {
- "working": "Picking the next card",
+ "working": "Listening in the cafeteria (checks every 10 min)",
  "tokens": 395109,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -37,7 +37,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T08:23:35Z",
+ "asOf": "2026-10-30T08:24:04Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114 + #143: bring FleshBrute_PRIVATE.zip (Downloads\\Castle_Defender) home; share the private SK_Zombie FBX + TGA for #114",
