@@ -20,33 +20,76 @@ VAR = os.environ.get('VARIANT', 'Wall'); DMG = float(os.environ.get('DAMAGE', '0
 rng = np.random.default_rng({'Wall': 301, 'Tower': 302, 'Crenel': 303}[VAR] + int(DMG * 100))
 
 # ---------------------------------------------------------------- block primitives
+def rounded_box(h, spacing, bevel):
+    """TGA v2 (#193): a watertight rounded box with EVEN vertex density on every face (a lattice of the box surface,
+    welded by construction), then each point is pulled onto the box shrunk by `bevel` plus a sphere of radius `bevel`
+    (the rounded-box SDF), so edges get a true radius bevel. The superellipsoid of v1 crowded its vertices on the edges
+    and left the faces nearly empty, so fractures projected onto it crumpled. Returns metric V and quads."""
+    n = [max(2, int(round(2 * hi / spacing))) for hi in h]
+    idx = {}; V = []
+    def vid(i, j, k):
+        key = (i, j, k)
+        if key not in idx: idx[key] = len(V); V.append((i / n[0] * 2 - 1, j / n[1] * 2 - 1, k / n[2] * 2 - 1))
+        return idx[key]
+    Q = []
+    for (a, b, fixed, val, flip) in ((1, 2, 0, n[0], False), (1, 2, 0, 0, True), (2, 0, 1, n[1], False), (2, 0, 1, 0, True), (0, 1, 2, n[2], False), (0, 1, 2, 0, True)):
+        for u in range(n[a]):
+            for v in range(n[b]):
+                c = []
+                for (du, dv) in ((0, 0), (1, 0), (1, 1), (0, 1)):
+                    p = [0, 0, 0]; p[fixed] = val; p[a] = u + du; p[b] = v + dv; c.append(vid(*p))
+                Q.append(c[::-1] if flip else c)
+    V = np.array(V) * h
+    inner = h - bevel; q = np.clip(V, -inner, inner); d = V - q; L = np.linalg.norm(d, axis=1, keepdims=True)
+    N = d / np.maximum(L, 1e-9)
+    return q + N * bevel, np.array(Q, np.int64), N
+
+def conchoidal(V, h, ci, depth, seed):
+    """TGA v2 (#193): a conchoidal fracture off one corner of a block (metric space, half-size h). Stone breaks in shells:
+    the vertices inside a large fracture sphere set just outside the corner are projected onto it (a shallow concave
+    scoop with a sharp rim where the sphere leaves the block), a second smaller nested shell scoops deeper near the
+    corner, the rim is ragged (fbm on the sphere radius), and fine ripple rings run round the impact point."""
+    sgn = np.array([(ci & 1) * 2 - 1, ((ci >> 1) & 1) * 2 - 1, ((ci >> 2) & 1) * 2 - 1], float)
+    corner = sgn * h; axis = sgn / np.linalg.norm(sgn)
+    s = (0.05 + 0.15 * depth) * min(1.0, h.min() / 0.21)          # chip size (m): about 5-20 cm on a 42 cm course
+    a_ = np.cross(axis, [0, 0, 1.0] if abs(axis[2]) < 0.9 else [1.0, 0, 0]); a_ /= np.linalg.norm(a_); b_ = np.cross(axis, a_)
+    for k, (reach, flat) in enumerate(((1.0, 2.2), (0.55, 1.4))):  # outer shell, then the nested inner shell
+        F = corner + axis * s * flat                                 # sphere centre outside the corner
+        Rs = s * flat + s * reach                                   # reaches s*reach inside along the diagonal
+        D = V - F; L = np.linalg.norm(D, axis=1); U = D / L[:, None]
+        rim = 1 + 0.07 * (fbm(U @ a_ * 1.8 + seed, U @ b_ * 1.8 + k * 7, seed + k, 2) - 0.5) * 2       # ragged outline (coarse: stone, not wax)
+        R = Rs * rim
+        inside = L < R
+        if not inside.any(): continue
+        ang = np.arccos(np.clip(U @ (-axis), -1, 1))                 # angle from the impact axis
+        ph = ang * (30 + 8 * k) + 2.5 * fbm(U @ a_ * 2.5, U @ b_ * 2.5, seed + 9 + k, 2)
+        saw = (ph / (2 * np.pi)) % 1.0; saw = sstep(0.0, 0.85, saw) - sstep(0.85, 1.0, saw)            # stepped shell ridges
+        ripple = 0.025 * s * (saw - 0.5) * sstep(0.0, 0.25, ang)
+        Vn = F + U * (R + ripple)[:, None]
+        V = np.where(inside[:, None], Vn, V)
+    return V
+
 def block(name, c, sz, seed, chips=(), crater=None, mname='Stone', group=None):
     """one ashlar block: a rounded box (superellipsoid e=0.1) with per-vertex tool marks on the high; chips = list of
     (corner_index 0..7, depth 0..1) that cut a rough wedge off that corner; crater = (local xyz on the face, radius,
     depth). All deformation is vertex displacement of a closed surface, so the block stays watertight."""
     r = np.random.default_rng(seed)
-    nlon, nlat = (40, 20) if HIGH else (12, 6)
-    Vs, Qs, Ts = superellipsoid(nlon, nlat, r.uniform(0.06, 0.12))
-    V = Vs.copy()
+    h = np.asarray(sz, float) / 2
+    # TGA v2: even-density rounded box (1.5 cm high / 9 cm low), bevel 1.2-2.4 cm (>= 2 texels at the bake density)
+    V, Qs, Nrm = rounded_box(h, 0.015 if HIGH else 0.09, r.uniform(0.012, 0.024))
+    Ts = np.zeros((0, 3), np.int64)
     if HIGH:
-        # tool marks (point-chisel), a soft lump, weathered edges: all under the mesh's Nyquist (40 segments -> < 12 cycles)
-        V = V * (1 + 0.012 * (fbm(Vs[:, 0] * 5 + seed, Vs[:, 1] * 5 + Vs[:, 2] * 3, seed, 3) - 0.5) * 2 + 0.004 * (fbm(Vs[:, 0] * 11, Vs[:, 2] * 11, seed + 1, 2) - 0.5) * 2)[:, None]
+        # point-chisel tool marks and a soft lump, along the surface normal, in metres
+        V = V + Nrm * (0.0035 * (fbm(V[:, 0] * 9 + seed, V[:, 1] * 9 + V[:, 2] * 7, seed, 3) - 0.5) * 2
+                       + 0.0012 * (fbm(V[:, 0] * 40, V[:, 2] * 40 + V[:, 1] * 30, seed + 1, 2) - 0.5) * 2)[:, None]
     for ci, depth in chips:
-        corner = np.array([(ci & 1) * 2 - 1, ((ci >> 1) & 1) * 2 - 1, ((ci >> 2) & 1) * 2 - 1], float)
-        d = np.linalg.norm(V - corner, axis=1)                      # distance to the corner (unit box space)
-        rad = 0.5 + 0.7 * depth
-        w = sstep(rad, rad * 0.25, d)                               # 1 at the corner, 0 at rad
-        rough = 1 + 0.45 * (fbm(Vs[:, 0] * 6 + ci, Vs[:, 1] * 6 + seed, seed + 5 + ci, 3) - 0.5) * 2          # uneven fracture on both resolutions
-        # conchoidal: the chip is deeper at the corner and shells out in rings; a second smaller chip beside it
-        V = V - corner[None] * (w * (0.25 + 0.45 * depth) * rough * (1 + 0.2 * np.sin(d * 9 + seed)))[:, None]
-        d2 = np.linalg.norm(V - corner * np.array([1, 1, 0.3]), axis=1); w2 = sstep(rad * 0.7, rad * 0.2, d2)
-        V = V - corner[None] * (w2 * 0.12 * depth * rough)[:, None]
+        V = conchoidal(V, h, ci, depth, seed * 13 + ci)
     if crater is not None:
-        p, rad, depth = crater; p = np.asarray(p, float); n = p / max(np.linalg.norm(p), 1e-6)
-        d = np.linalg.norm(V - p, axis=1); w = sstep(rad, 0.0, d) ** 0.7
-        rough = 1 + 0.3 * (fbm(Vs[:, 0] * 14, Vs[:, 1] * 14, seed + 9, 3) - 0.5) * 2 if HIGH else 1.0
-        V = V - n[None] * (w * depth * rough)[:, None]
-    P = V * np.asarray(sz) / 2 + np.asarray(c)
+        p, rad, depth = crater; p = np.asarray(p, float) * h; n = p / max(np.linalg.norm(p), 1e-6)
+        d = np.linalg.norm(V - p, axis=1); w = sstep(rad * h.min() * 2, 0.0, d) ** 0.7
+        rough = 1 + 0.3 * (fbm(V[:, 0] * 30, V[:, 2] * 30, seed + 9, 3) - 0.5) * 2 if HIGH else 1.0
+        V = V - n[None] * (w * depth * h.min() * 2 * rough)[:, None]
+    P = V + np.asarray(c)
     uv = np.stack([P[:, 0] + P[:, 1], P[:, 2]], -1)
     return mesh(name, P, [Qs, Ts], mname, uv=uv, group=group), P
 
@@ -87,7 +130,7 @@ missing = set()
 for (ix, iz, ir) in impacts:
     for (c, i, ctr, sz) in blocks:
         d = math.hypot(ctr[0] - ix, ctr[2] - iz)
-        if d < ir * 0.6 * DMG and rng.random() < 0.7: missing.add((c, i))
+        if d < ir * 0.9 * DMG + 0.12 and rng.random() < 0.7: missing.add((c, i))     # TGA v2: v1's radius rarely caught a block
 holes = []
 for (c, i, ctr, sz) in blocks:
     if (c, i) in missing:
@@ -102,6 +145,14 @@ for (c, i, ctr, sz) in blocks:
         if math.hypot(ctr[0] - ix, ctr[2] - iz) < ir and (c, i) not in missing and rng.random() < 0.6 * DMG:
             lx = np.clip((ix - ctr[0]) / (sz[0] / 2), -0.8, 0.8); lz = np.clip((iz - ctr[2]) / (sz[2] / 2), -0.8, 0.8)
             crater = ((lx, -1.0, lz), rng.uniform(0.5, 0.9), rng.uniform(0.12, 0.3) * DMG)
+    # TGA v2: blocks beside a hole spall on the corners that face it (the impact cracked them off), front corners only
+    for (mc, mi) in missing:
+        if mc == c and abs(mi - i) == 1:
+            side = 1 if mi > i else 0
+            chips += [(side | (0 << 1) | (0 << 2), float(rng.uniform(0.6, 1.0))), (side | (0 << 1) | (1 << 2), float(rng.uniform(0.5, 0.9)))]
+        elif abs(mc - c) == 1 and abs(mi - i) <= 1:
+            top_ = 1 if mc > c else 0
+            chips.append((int(rng.integers(0, 2)) | (0 << 1) | (top_ << 2), float(rng.uniform(0.5, 0.9))))
     # bulge: blocks above a missing one lean out a little (the wall sags into the hole)
     lean = 0.0
     for (mc, mi) in missing:
