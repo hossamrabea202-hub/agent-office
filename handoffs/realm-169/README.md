@@ -30,5 +30,10 @@ side for the E prompt), chevals flanking it, the breach pair `Realm_Wall_Breach_
 26 corrupt patches, 102 realm plants, 22 blob mines, 7 egg clusters, `Realm_Spawn_Zombie_00..11`, `Realm_Spawn_Giant_00/01`,
 `Realm_Spawn_Wasp` (north, the mountain crack), and torch posts every 12 m outside the wall.
 
-For Codex (BP_RealmGate): hinge = the LeafL/LeafR actor pivots; open = yaw ∓95° over 1.2 s (ease out), Bar up 40 cm first,
+**Gate behaviour without a new Blueprint:** `handoffs/realm-169/place_realm_gate_bp.py` (run after step 3) spawns the
+level's own `BP_CastleGateControl` at the realm gate and swaps its door/lever meshes for the siege gate leaves on that
+instance (E prompt, swing, zombie block, damage/repair all come for free). Play-test E; if a leaf swings the wrong way,
+mirror the pivot Y in the script or flip the open angle on the instance.
+
+For Codex / TGA (only if the reuse above is not enough): hinge = the LeafL/LeafR actor pivots; open = yaw ∓95° over 1.2 s (ease out), Bar up 40 cm first,
 Lever -35°. Zombies never open it; the leaves block nav when closed (Nav Modifier in the opening).
