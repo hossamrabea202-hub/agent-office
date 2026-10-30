@@ -1,6 +1,6 @@
 {
- "working": "Listening in the cafeteria (checks every 10 min)",
- "tokens": 790000,
+ "working": "#199 zombie variants: base humanoid",
+ "tokens": 805000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
  "done": [
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-30T12:16:55Z",
+ "asOf": "2026-10-30T12:28:13Z",
  "seat": "TGA (Claude)"
 }
