@@ -1,0 +1,18 @@
+{
+ "blueprint": "BP_ZombieRisen",
+ "pastes": [
+  "ZombieRisen_ScaleFix_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "rZombieBeginPla1.then",
+   "to": "sfScaleOne2.execute",
+   "replace": true,
+   "note": "was -> rSetHiddenInGam3"
+  },
+  {
+   "from": "sfKnightOne6.then",
+   "to": "rSetHiddenInGam3.execute"
+  }
+ ]
+}

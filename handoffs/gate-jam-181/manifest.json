@@ -1,0 +1,24 @@
+{
+ "blueprint": "BP_SoldierSword",
+ "pastes": [
+  "SoldierSword_Unstick_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_135.then",
+   "to": "UnstickIn.execute",
+   "replace": true,
+   "note": "Tick -> unstick first (was CX_139)"
+  },
+  {
+   "from": "UnstickIn.then_1",
+   "to": "CX_139.execute",
+   "note": "then the original Tick chain"
+  },
+  {
+   "from": "CX_135.DeltaSeconds",
+   "to": "usMultiply_Doubl11.A",
+   "note": "dt into the accumulator"
+  }
+ ]
+}
