@@ -1,0 +1,49 @@
+{
+ "blueprint": "BP_BarracksHUD",
+ "pastes": [
+  "BarracksHUD_RecruitQueue_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_228.then",
+   "to": "rqEnq07.execute",
+   "replace": true,
+   "note": "was -> CX_229 sword spawn"
+  },
+  {
+   "from": "CX_228.else",
+   "to": "rqEnq18.execute",
+   "replace": true,
+   "note": "was -> CX_240 crossbow spawn"
+  },
+  {
+   "from": "CX_3296.then",
+   "to": "rqEnq29.execute",
+   "replace": true,
+   "note": "was -> CX_3310 commander spawn"
+  },
+  {
+   "from": "CX_1.then",
+   "to": "QTickIn.execute",
+   "replace": true,
+   "note": "DrawHUD -> queue tick first"
+  },
+  {
+   "from": "QTickIn.then_2",
+   "to": "CX_2.execute",
+   "note": "then the original DrawHUD chain"
+  },
+  {
+   "from": "rqIsSword11.then",
+   "to": "CX_229.execute"
+  },
+  {
+   "from": "rqIsXbow13.then",
+   "to": "CX_240.execute"
+  },
+  {
+   "from": "rqIsXbow13.else",
+   "to": "CX_3310.execute"
+  }
+ ]
+}
