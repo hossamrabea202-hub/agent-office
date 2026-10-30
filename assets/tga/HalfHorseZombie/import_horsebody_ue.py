@@ -35,7 +35,6 @@ for n, srgb, comp in TEX:
 f = unreal.FbxImportUI()
 f.import_mesh = True; f.import_as_skeletal = True; f.mesh_type_to_import = unreal.FBXImportType.FBXIT_SKELETAL_MESH
 f.import_materials = False; f.import_textures = False; f.import_animations = True; f.create_physics_asset = True
-f.skeletal_mesh_import_data.import_morph_targets = False
 f.skeletal_mesh_import_data.normal_import_method = unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS_AND_TANGENTS
 tools.import_asset_tasks([task(os.path.join(SRC, 'SK_HorseBody.fbx'), f)])
 for path in EAL.list_assets(DST, recursive=False):          # FBX takes -> A_HorseBody_<Clip>

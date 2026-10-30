@@ -6,8 +6,8 @@
 #       A_RealmWasp_Hover / _Fly / _Dive (loops), _Sting, _Death (one-shots)
 #   .../M_RealmWasp_Body   BaseColor / ORM / Normal + Tint, TintAmount, Wetness, HitT (the zombie skin master's names, so
 #                          the per-spawn tint and hit-flash code can drive it)
-#   .../M_RealmWasp_Wings  two-sided, masked with dithered opacity (the membrane alpha is 0.3-0.5); WingBlur 0..1 fades the
-#                          membrane while it beats fast, so the wings read as a blur in flight
+#   .../M_RealmWasp_Wings  two-sided, masked at clip 0.33 (MaterialExpressionDitherTemporalAA isn't exposed to 5.3 Python,
+#                          so no dither); WingBlur 0..1 fades the membrane while it beats fast
 #   .../MI_RealmWasp_Body_Ember / _Blight and MI_RealmWasp_Wings_Ember / _Blight
 import os
 import unreal
@@ -40,7 +40,6 @@ for n, srgb, comp in TEX:
 f = unreal.FbxImportUI()
 f.import_mesh = True; f.import_as_skeletal = True; f.mesh_type_to_import = unreal.FBXImportType.FBXIT_SKELETAL_MESH
 f.import_materials = False; f.import_textures = False; f.import_animations = True; f.create_physics_asset = True
-f.skeletal_mesh_import_data.import_morph_targets = False
 f.skeletal_mesh_import_data.normal_import_method = unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS_AND_TANGENTS
 f.anim_sequence_import_data.set_editor_property('import_bone_tracks', True)
 tools.import_asset_tasks([task(os.path.join(SRC, 'SK_RealmWasp.fbx'), f)])
@@ -91,24 +90,22 @@ if not EAL.does_asset_exist(BODY):
     m.set_editor_property('used_with_skeletal_mesh', True)
     MEL.recompile_material(m); EAL.save_asset(BODY)
 
-# ---- wings master: two-sided, masked, dithered opacity ----
+# ---- wings master: two-sided, masked ----
 WING = DST + '/M_RealmWasp_Wings'
 if not EAL.does_asset_exist(WING):
     m = tools.create_asset('M_RealmWasp_Wings', DST, unreal.Material, unreal.MaterialFactoryNew())
     m.set_editor_property('blend_mode', unreal.BlendMode.BLEND_MASKED); m.set_editor_property('two_sided', True)
-    m.set_editor_property('opacity_mask_clip_value', 0.5); m.set_editor_property('used_with_skeletal_mesh', True)
+    m.set_editor_property('opacity_mask_clip_value', 0.33); m.set_editor_property('used_with_skeletal_mesh', True)
     t = param(m, unreal.MaterialExpressionTextureSampleParameter2D, 'WingTex', -1000, 0, DST + '/T_RealmWasp_Wings_Ember_BCA')
     blur = param(m, unreal.MaterialExpressionScalarParameter, 'WingBlur', -1000, 300); blur.set_editor_property('default_value', 0.0)
-    # opacity = alpha * (1 - 0.6 * WingBlur), dithered so partial alpha works in a masked material
+    # opacity = alpha * (1 - 0.6 * WingBlur); the 0.33 clip keeps most of the 0.3-0.5 membrane visible
     k = MEL.create_material_expression(m, unreal.MaterialExpressionMultiply, -750, 300); MEL.connect_material_expressions(blur, '', k, 'A'); k.set_editor_property('const_b', 0.6)
     om = MEL.create_material_expression(m, unreal.MaterialExpressionOneMinus, -600, 300); MEL.connect_material_expressions(k, '', om, '')
     a = MEL.create_material_expression(m, unreal.MaterialExpressionMultiply, -450, 200); MEL.connect_material_expressions(t, 'A', a, 'A'); MEL.connect_material_expressions(om, '', a, 'B')
-    dith = MEL.create_material_expression(m, unreal.MaterialExpressionDitherTemporalAA, -250, 250)
-    MEL.connect_material_expressions(a, '', dith, 'Alpha Threshold')
     rough = MEL.create_material_expression(m, unreal.MaterialExpressionConstant, -450, 100); rough.set_editor_property('r', 0.3)
     MEL.connect_material_property(t, 'RGB', unreal.MaterialProperty.MP_BASE_COLOR)
     MEL.connect_material_property(rough, '', unreal.MaterialProperty.MP_ROUGHNESS)
-    MEL.connect_material_property(dith, '', unreal.MaterialProperty.MP_OPACITY_MASK)
+    MEL.connect_material_property(a, '', unreal.MaterialProperty.MP_OPACITY_MASK)
     MEL.recompile_material(m); EAL.save_asset(WING)
 
 def mi(name, parent, tex):
