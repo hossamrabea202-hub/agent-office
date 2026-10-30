@@ -72,10 +72,14 @@ Dp = prof(t, [(0, 0.0), (0.03, 0.10), (0.15, 0.11), (0.4, 0.085 * THIN), (0.7, 0
 add(*loft(P, Dp, W, 40))
 blob((0, -0.005, 1.29), (0.135, 0.10, 0.13))                      # ribcage (inside the torso loft, just fills the chest)
 for s in (1, -1):
-    blob((0.07 * s, 0.05, 0.93), (0.075, 0.07, 0.08))              # gluteals
+    blob((0.065 * s, 0.035, 0.94), (0.065, 0.05, 0.07))             # gluteals (wasted)
     blob((0.12 * s, 0.0, 1.44), (0.07, 0.05, 0.035), axis=0)       # trapezius
     blob((0.18 * s, -0.005, 1.39), (0.045, 0.045, 0.05))            # deltoid (wasted, overlaps the shoulder)
 if VAR == 'Bloated': blob((0, -0.10, 1.10), (0.16, 0.13, 0.16))  # distended belly
+for s in (1, -1):
+    limb([(0.015 * s, -0.085, 1.43), (0.08 * s, -0.075, 1.445), (0.16 * s, -0.04, 1.43)], [(0, 0.013), (0.5, 0.011), (1, 0.014)], 14, 12)   # collarbones
+    blob((0.11 * s, -0.06, 0.51), (0.035, 0.022, 0.035))                     # kneecaps
+    blob((0.075 * s, 0.07, 1.22), (0.035, 0.03, 0.09))                       # shoulder-blade / lat ridge
 # ---- neck + head --------------------------------------------------------------------------------------------------
 limb([(0, -0.01, 1.38), (0, -0.035, 1.48), (0, -0.045, 1.56)], [(0, 0.075), (0.5, 0.060), (1, 0.058)], 12, 20, 1.1, cap=False)   # short, thick, pushed forward
 def head(c, nu=128, nv=96):
@@ -138,7 +142,7 @@ for s, sd in ((1, 'l'), (-1, 'r')):
     if VAR == 'Crawler':                                                                # legs gone at mid-thigh: ragged stumps
         limb([hp, hp + [0.01 * s, -0.01, -0.22]], [(0, 0.085), (0.8, 0.07), (1, 0.05)], 16, 22); LEG[sd] = None; continue
     limb([hp, (hp + kn) / 2, kn, kn + (an - kn) * 0.3, an], [(0, 0.085), (0.4, 0.065), (0.48, 0.05), (0.55, 0.05), (0.7, 0.048), (1, 0.034)], 40, 22)
-    blob((0.11 * s, 0.035, 0.36), (0.04, 0.035, 0.09))                               # calf
+    blob((0.11 * s, 0.02, 0.37), (0.035, 0.025, 0.08))                               # calf
     ft = np.array([0.115 * s, -0.16, 0.025])
     limb([an + [0, 0.02, 0.09], an + [0, 0.0, -0.05], ft], [(0, 0.03), (0.3, 0.04), (1, 0.03)], 20, 16, 0.6)
     LEG[sd] = (hp, kn, an, ft)
@@ -154,7 +158,15 @@ sm = body.modifiers.new('Smooth', 'LAPLACIANSMOOTH'); sm.lambda_factor = 0.5; sm
 # ---- carve the face and the variant damage (vertex displacement on the fused skin) ---------------------------------------
 co = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
 x, y, z = co[:, 0], co[:, 1], co[:, 2]
-# (face landmarks now live in head(); variant damage displacement goes here)
+# (face landmarks live in head()) - emaciated ribs on the chest sides, then the hunch
+rib = np.cos((z - 1.17) * 2 * np.pi / 0.032) * ss(1.10, 1.16, z) * (1 - ss(1.34, 1.40, z)) * ss(0.06, 0.11, np.abs(x)) * (1 - ss(0.13, 0.15, np.abs(x))) * (y < 0.02)
+co[:, :2] += (co[:, :2] / (np.linalg.norm(co[:, :2], axis=1, keepdims=True) + 1e-6)) * (0.0025 * rib)[:, None]
+co[:, 1] += 0.012 * np.exp(-((x / 0.02) ** 2 + ((z - 1.25) / 0.10) ** 2)) * (y < -0.05)    # sternum groove
+def hunch(p):
+    # bend the upper body forward about the waist; the same map is applied to the bones so the rig matches
+    p = np.atleast_2d(np.asarray(p, float)).copy(); a = np.radians(14) * ss(1.05, 1.50, p[:, 2]); dz = p[:, 2] - 1.05; dy = p[:, 1]
+    p[:, 1] = dy * np.cos(a) - dz * np.sin(a); p[:, 2] = 1.05 + dy * np.sin(a) + dz * np.cos(a); return p
+co[:] = hunch(co)
 me.vertices.foreach_set('co', co.ravel()); me.update()
 n0 = len(me.polygons) * 2
 dm = body.modifiers.new('Decimate', 'DECIMATE'); dm.ratio = min(1.0, TRIS / max(n0, 1)); bpy.ops.object.modifier_apply(modifier='Decimate')
@@ -169,7 +181,7 @@ ad = bpy.data.armatures.new('SK_ZombieV2_Skeleton'); arm = bpy.data.objects.new(
 bpy.context.scene.collection.objects.link(arm); bpy.context.view_layer.objects.active = arm; body.select_set(False); arm.select_set(True)
 bpy.ops.object.mode_set(mode='EDIT')
 def bone(name, h, t, parent=None):
-    b = ad.edit_bones.new(name); b.head = Vector(h); b.tail = Vector(t)
+    b = ad.edit_bones.new(name); b.head = Vector(hunch(h)[0]); b.tail = Vector(hunch(t)[0])
     if parent: b.parent = ad.edit_bones[parent]
 bone('root', (0, 0, 0), (0, 0.25, 0)); bone('pelvis', (0, 0, 0.95), (0, 0, 1.05), 'root')
 bone('spine_01', (0, 0, 1.05), (0, -0.005, 1.17), 'pelvis'); bone('spine_02', (0, -0.005, 1.17), (0, 0.0, 1.29), 'spine_01'); bone('spine_03', (0, 0.0, 1.29), (0, -0.02, 1.42), 'spine_02')
