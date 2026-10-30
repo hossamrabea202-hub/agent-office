@@ -1,0 +1,10 @@
+{
+  "blueprint": "BP_Crossbow",
+  "_apply": "after manifest_crossbow.json (#214): hooks onto its SetNextFire node",
+  "pastes": [{"file": "Xbow_FaceAim_graph.txt"}],
+  "rewires": [
+    {"from": "SetNextFire.then", "to": "FaceAim.execute", "replace": true, "note": "was -> CX_123"},
+    {"from": "FaceAim.then", "to": "CX_123.execute"},
+    {"from": "CX_106.AsBP Third Person Character", "to": "FaceHeroIn.InputPin"}
+  ]
+}

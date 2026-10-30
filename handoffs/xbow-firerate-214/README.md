@@ -16,3 +16,15 @@ reload at high XbowUp, the golden weapon):
 
 **Check.** Golden crossbow: hold and spam the fire button. At most one bolt per second. The normal crossbow behaves as
 before.
+
+## #216 Zoomed aim can shoot backwards (same folder, apply after #214)
+
+When a shot fires, the hero turns to the camera's yaw first:
+`SetNextFire.then → FaceAim: hero.K2_SetActorRotation((0, ControlRotation.Yaw, 0)) → CX_123`.
+
+The bolt spawns from the muzzle afterwards (CX_137/CX_138 are evaluated after the turn), so it always leaves from the
+front, toward where the player aims. Files: `Xbow_FaceAim_graph.txt` and `manifest_crossbow_216.json` (5 nodes; dry-run
+on top of #214: **Validation OK**).
+
+**Check.** Zoom in, turn the camera so the gate is behind the hero, and shoot. The hero spins to face the aim and the bolt
+flies forward.
