@@ -6,7 +6,7 @@ import sys, os, json
 import bpy, numpy as np
 D = os.environ.get('WORK') or os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, D)
-import shieldmat, swordmat, potionmat, gatemat, floramat, propmat, ballistamat, campmat
+import shieldmat, swordmat, potionmat, gatemat, floramat, propmat, ballistamat, campmat, groundmat
 from matlib import set_output
 
 STAGE = os.environ['STAGE']
@@ -23,8 +23,10 @@ PRP = SH.startswith('Props')
 if PRP: NAME, TN = 'SM_Barracks_' + SH[5:], 'T_Barracks_' + SH[5:]
 if SH == 'Ballista': NAME, TN = 'SM_FireBallista', 'T_FireBallista'
 CMP = SH.startswith('Camp')
+GRD = SH.startswith('Ground')
+if GRD: NAME, TN = 'SM_Ground_' + SH[6:], 'T_Ground_' + SH[6:]
 if CMP: NAME, TN = 'SM_Camp_' + SH[4:], 'T_Camp_' + SH[4:]
-MATS = swordmat if SH == 'Sword' else potionmat if POT else gatemat if SH == 'Gate' else floramat if FLO else propmat if PRP else ballistamat if SH == 'Ballista' else campmat if CMP else shieldmat
+MATS = swordmat if SH == 'Sword' else potionmat if POT else gatemat if SH == 'Gate' else floramat if FLO else propmat if PRP else ballistamat if SH == 'Ballista' else campmat if CMP else groundmat if GRD else shieldmat
 PIECES = SH in ('Gate', 'Ballista')      # multi-piece assets: one texture, one FBX per piece (vertex groups)
 UNBAKED = ('Glass', 'Liquid')     # potions: these keep translucent UE materials and are not baked
 TEX = os.path.join(D, 'tex'); os.makedirs(TEX, exist_ok=True)
@@ -46,7 +48,7 @@ if STAGE == 'prep':
     bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
     sc.tool_settings.use_uv_select_sync = True; bpy.ops.uv.select_all(action='SELECT')
     if SH in ('Sword', 'Heater', 'Round'): bpy.ops.uv.average_islands_scale()          # equal texel density for every part
-    bpy.ops.uv.pack_islands(udim_source='CLOSEST_UDIM', margin=0.003, rotate=True, shape_method='CONCAVE', scale=True)
+    if not GRD: bpy.ops.uv.pack_islands(udim_source='CLOSEST_UDIM', margin=0.003, rotate=True, shape_method='CONCAVE', scale=True)   # a ground tile keeps UV 0..1 exactly (seamless)
     bpy.ops.object.mode_set(mode='OBJECT')
     with bpy.data.libraries.load(os.path.join(D, SH + '_high.blend')) as (src, dst):
         dst.objects = list(src.objects)
@@ -58,14 +60,16 @@ if STAGE == 'prep':
     print('TRIS', sum(len(p.vertices) - 2 for p in LP.data.polygons))
     print('STAGE prep OK', flush=True)
 
-elif STAGE in ('BC', 'RG', 'MT', 'AO', 'Normal', 'EM'):
+elif STAGE in ('BC', 'RG', 'MT', 'AO', 'Normal', 'EM', 'HT'):
     LP, HP = bpy.data.objects[NAME], bpy.data.objects['HP']
     sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'
     sc.cycles.samples = int(os.environ.get('BAKE_SAMPLES', '24'))
     sc.cycles.use_auto_tile = True; sc.cycles.tile_size = 1024
     # thin parts (14 mm board, 4 mm straps): a short cage so a face never picks up what sits in front of it
     b = sc.render.bake; b.use_selected_to_active = True; b.cage_extrusion = 0.006; b.max_ray_distance = 0.012; b.margin = 16
-    if FLO: b.cage_extrusion = 0.004; b.max_ray_distance = 0.008      # thin petals and leaves: clear the 2 mm midrib/ruffle of the high, but not the neighbours (whorls 6 mm apart)
+    if GRD: b.cage_extrusion = 0.15; b.max_ray_distance = 0.4; b.margin = 0      # a flat quad under a heightfield up to 8 cm tall; no margin, the tile wraps
+    if FLO: b.cage_extrusion = 0.004; b.max_ray_distance = 0.008
+    if SH in ('FloraBlobMine', 'FloraEggCluster'): b.cage_extrusion = 0.02; b.max_ray_distance = 0.045   # lumpy sacs and mounds, no thin leaves: the 4 mm cage left black holes      # thin petals and leaves: clear the 2 mm midrib/ruffle of the high, but not the neighbours (whorls 6 mm apart)
     QUAD = os.environ.get('QUAD'); BS = SIZE
     if QUAD is not None:
         q = int(QUAD); qx, qy = q % 2, q // 2; BS = SIZE // 2
@@ -107,7 +111,10 @@ elif STAGE == 'finish':
     one = np.ones((SIZE, SIZE), np.float32)
     save(np.stack([srgb(chan('BC', k)) for k in range(3)] + [one], -1), TN + '_BaseColor')
     save(np.stack([chan('AO', 0), chan('RG', 0), chan('MT', 0)] + [one], -1), TN + '_ORM')
-    if os.path.exists(os.path.join(TEX, f'{SH}_raw_EM_q0.exr')): save(np.stack([srgb(np.clip(chan('EM', k), 0, 1)) for k in range(3)] + [one], -1), TN + '_Emissive')
+    if os.path.exists(os.path.join(TEX, f'{SH}_raw_EM_q0.exr')):
+        if GRD and SH != 'GroundCorrupt': save(np.stack([chan('EM', 0)] * 3 + [one], -1), TN + '_Height', '16')   # ground: the EM pass carries the height, linear 16-bit
+        else: save(np.stack([srgb(np.clip(chan('EM', k), 0, 1)) for k in range(3)] + [one], -1), TN + '_Emissive')
+    if os.path.exists(os.path.join(TEX, f'{SH}_raw_HT_q0.exr')): save(np.stack([chan('HT', 0)] * 3 + [one], -1), TN + '_Height', '16')
     n = [chan('Normal', k) for k in range(3)]
     save(np.stack(n + [one], -1), TN + '_Normal_OpenGL', '16')
     n[1] = 1.0 - n[1]

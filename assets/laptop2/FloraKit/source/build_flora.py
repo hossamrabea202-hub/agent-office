@@ -89,7 +89,8 @@ def flower_head(c, axis, n_pet, L, W, shape, mname, curl, cup, tilt, whorls=1, s
 def at(path, t):
     """point and tangent at fraction t of the path, interpolated (the high and low paths have different point counts,
     so integer indexing put leaves at different heights on the two meshes and the bake rays found nothing)."""
-    path = np.asarray(path, float); s = np.linspace(0, 1, len(path)); t = float(np.clip(t, 0, 1))
+    path = np.asarray(path, float); t = float(np.clip(t, 0, 1))
+    s = np.r_[0, np.cumsum(np.linalg.norm(np.diff(path, axis=0), axis=1))]; s = s / s[-1]      # by arc length: the two meshes' point spacing differs
     p = np.array([np.interp(t, s, path[:, k]) for k in range(3)])
     e = 0.5 / (len(path) - 1); p1 = np.array([np.interp(min(t + e, 1), s, path[:, k]) for k in range(3)]); p0 = np.array([np.interp(max(t - e, 0), s, path[:, k]) for k in range(3)])
     return p, unit(p1 - p0)
@@ -154,7 +155,8 @@ elif VAR == 'Bloodcap':  # realm: fleshy cup flower, 60 cm, veined dark petals a
         path = bezier(base, base + [0, 0, H * 0.5], base + lv * 0.4 + [0, 0, H * 0.95], base + lv + [0, 0, H], 70 if HIGH else 9)
         stem('Stem_%d' % h, path, 0.009, 0.005, 'Flesh', bumpy=0.3, glow=0.0)
         top = path[-1]; axis = unit(unit(path[-1] - path[-3]) + [0, 0, 0.5])
-        flower_head(top, axis, 6, 0.09, 0.05, ell(0.8), 'FleshPetal', curl=-0.2, cup=0.7, tilt=0.75, whorls=2, spread=0.01, ruffle=0.4, vein=0.008, glow=0.15, twist=0.3)
+        # one whorl of 8: nested whorls sat 6 mm apart and the bake rays (8 mm) hit the inner petal instead
+        flower_head(top, axis, 8, 0.09, 0.05, ell(0.8), 'FleshPetal', curl=-0.2, cup=0.5, tilt=0.7, whorls=1, spread=0.012, ruffle=0.25, vein=0.008, glow=0.15, twist=0.2)
         disc('Core_%d' % h, top + axis * 0.012, axis, 0.028, 0.024, 'Core', bump=0.004, glow=1.0)
         leaves(path, 3, 0.16, 0.04, lanceolate, 'FleshLeaf', 0.05, 0.5, vein=0.006, glow=0.05)
 elif VAR == 'SporeStalk':   # realm: 1.4 m stalk, spore sacs hanging on thin stems, glowing
