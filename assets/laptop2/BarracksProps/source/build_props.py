@@ -70,13 +70,13 @@ elif VAR == 'Barrel':   # 0.6 x 0.9 m oak barrel: 20 bulging staves, 4 iron hoop
     meta = {'size': [2 * Rm, 2 * Rm, H]}
 elif VAR == 'Sack':     # 0.55 m grain sack, slumped, tied at the neck with twine; a second small sack leaning on it
     def sack(name, c, h, r, seed, lean=0.0, open_=False):
-        nu, nv = (96, 72) if HIGH else (16, 12)
+        nu, nv = (96, 72) if HIGH else (28, 20)      # the low must follow the 5 cm slump within the bake cage
         th = np.linspace(0, 2 * PI, nu + 1); zz = np.linspace(0, 1, nv + 1)
         T_, Z_ = np.meshgrid(th, zz, indexing='ij')
         prof = np.sin(np.clip(Z_, 0, 1) * PI) ** 0.55
         prof = prof * (1 - 0.35 * sstep(0.82, 0.98, Z_))                                    # necked near the top
         prof = prof * (1 + 0.18 * (fbm(np.cos(T_) * 2 + seed, Z_ * 3, seed, 3) - 0.5) * 2)     # slump
-        if HIGH: prof = prof * (1 + 0.025 * (fbm(T_ * 4, Z_ * 14, seed + 1, 4) - 0.5) * 2 + 0.012 * np.sin(T_ * 36) * sstep(0.1, 0.6, Z_) * (1 - Z_))  # cloth folds
+        if HIGH: prof = prof * (1 + 0.010 * (fbm(T_ * 4, Z_ * 14, seed + 1, 4) - 0.5) * 2 + 0.005 * np.sin(T_ * 36) * sstep(0.1, 0.6, Z_) * (1 - Z_))  # cloth folds, within the 6 mm bake cage (deeper folds baked as black holes)
         squash = 1.0 - 0.25 * (1 - Z_)                                                        # fatter at the bottom
         X = c[0] + r * prof * np.cos(T_) * (1 + 0.3 * squash * 0) + Z_ * lean
         Y = c[1] + r * prof * np.sin(T_) * 1.15

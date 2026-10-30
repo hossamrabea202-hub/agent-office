@@ -139,6 +139,8 @@ def set_output(m, what):
     nt = m.node_tree; out = nt.nodes['OUT']; em = nt.nodes['EMIT']
     if what == 'BSDF':
         nt.links.new(nt.nodes['BSDF'].outputs[0], out.inputs['Surface']); return
+    if 'OUT_' + what not in nt.nodes and what == 'EM':   # materials without emission (bark, rope, iron...) bake black
+        rr = _n(nt, 'NodeReroute'); rr.name = 'OUT_EM'; c = _n(nt, 'ShaderNodeRGB'); c.outputs[0].default_value = (0, 0, 0, 1); nt.links.new(c.outputs[0], rr.inputs[0])
     nt.links.new(nt.nodes['OUT_' + what].outputs[0], em.inputs['Color'])
     nt.links.new(em.outputs[0], out.inputs['Surface'])
 

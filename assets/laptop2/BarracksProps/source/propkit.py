@@ -40,7 +40,7 @@ def plank(name, p0, p1, w, t, seed, up, mname='Plank', rot=0.0, gname=None):
     wet = sstep(0.9, 0.05, zw)
     if HIGH:
         # grain ridges the mesh can resolve (40 segments across): broad undulation + ~14 annual-ring ridges; finer grain is the material's
-        grain = 0.0007 * (fbm(cu * 5 + seed, s * 0.7, seed, 3) - 0.5) * 2 + 0.00035 * (fbm(cu * 14, s * 2.5, seed + 1, 3) - 0.5)
+        grain = 0.0004 * (fbm(cu * 5 + seed, s * 0.7, seed, 3) - 0.5) * 2 + 0.0002 * (fbm(cu * 14, s * 2.5, seed + 1, 3) - 0.5)
         # splits along the grain: a few long cracks per board, wider near the ends
         cr = np.zeros_like(cu)
         for _ in range(rng.integers(2, 6)):

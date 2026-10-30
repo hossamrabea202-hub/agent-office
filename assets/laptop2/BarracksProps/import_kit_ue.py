@@ -14,7 +14,8 @@ KIT = os.path.basename(SRC)
 KITS = {  # kit: (UE folder, {item: (mesh names, texture prefix, emissive, collision)})
     'BarracksProps': ('/Game/CastleDefender/Environment/Barracks', {v: (['SM_Barracks_' + v], 'T_Barracks_' + v, False, True) for v in ('Crate', 'Barrel', 'Sack', 'WeaponRack')}),
     'SiegeGate': ('/Game/CastleDefender/Environment/Boundaries/SiegeGate', {'Gate': (['SM_SiegeGate_' + p for p in ('Frame', 'LeafL', 'LeafR', 'Bar', 'Lever')], 'T_SiegeGate', False, True)}),
-    'CampKit': ('/Game/CastleDefender/Environment/Camp', {v: (['SM_Camp_' + v], 'T_Camp_' + v, v in ('TorchPost', 'Campfire'), v != 'Campfire') for v in ('TorchPost', 'Campfire', 'HayBale', 'Well', 'HandCart', 'MarketStall', 'Anvil')}),
+    'CampKit': ('/Game/CastleDefender/Environment/Camp', {v: (['SM_Camp_' + v], 'T_Camp_' + v, v in ('TorchPost', 'Campfire'), v != 'Campfire') for v in ('TorchPost', 'Campfire', 'HayBale', 'Well', 'HandCart', 'MarketStall', 'Anvil', 'Tent', 'SiegeLadder', 'Workbench', 'Grindstone', 'Forge')}),
+    'CannonCart': ('/Game/CastleDefender/Environment/Camp', {'CannonCart': (['SM_Camp_CannonCart_' + p for p in ('Body', 'WheelL', 'WheelR')], 'T_Camp_CannonCart', False, True)}),
     'FireBallista': ('/Game/CastleDefender/Weapons/FireBallista', {'Ballista': (['SM_FireBallista_' + p for p in ('Base', 'Frame', 'Slider', 'Spear')], 'T_FireBallista', True, True)}),
 }
 if KIT not in KITS: raise RuntimeError('run this from inside one of the kit folders: ' + ', '.join(KITS))
