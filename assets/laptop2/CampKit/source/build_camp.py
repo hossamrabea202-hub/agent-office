@@ -12,7 +12,7 @@ from propkit import plank, strap, nails, board_prof, group
 from shieldkit import fbm, sstep, mesh, grid_quads, unit, sweep, rrect, circ, superellipsoid, HIGH, PI
 D = os.path.dirname(os.path.abspath(__file__))
 VAR = os.environ.get('VARIANT', 'HayBale')
-rng = np.random.default_rng({'TorchPost': 151, 'Campfire': 152, 'HayBale': 153, 'Well': 154, 'HandCart': 155, 'MarketStall': 156, 'Anvil': 157, 'Tent': 158, 'SiegeLadder': 159, 'CannonCart': 160, 'Workbench': 161, 'Grindstone': 162}[VAR])
+rng = np.random.default_rng({'TorchPost': 151, 'Campfire': 152, 'HayBale': 153, 'Well': 154, 'HandCart': 155, 'MarketStall': 156, 'Anvil': 157, 'Tent': 158, 'SiegeLadder': 159, 'CannonCart': 160, 'Workbench': 161, 'Grindstone': 162, 'Forge': 163, 'Banner': 164, 'GoldPile': 165}[VAR])
 j = lambda a=0.004: rng.uniform(-a, a)
 
 def rotm(yaw, pitch, roll=0.0):
@@ -20,13 +20,15 @@ def rotm(yaw, pitch, roll=0.0):
     Rz = np.array([[cy, -sy, 0], [sy, cy, 0], [0, 0, 1.0]]); Rx = np.array([[1.0, 0, 0], [0, cp, -sp], [0, sp, cp]]); Ry = np.array([[cr, 0, sr], [0, 1.0, 0], [-sr, 0, cr]])
     return Rz @ Rx @ Ry
 
-def rock(name, c, sz, seed, mname='Stone', soot=None, yaw=None, boxy=False):
+def rock(name, c, sz, seed, mname='Stone', soot=None, yaw=None, boxy=False, dressed=False):
     """a fieldstone: lumpy superellipsoid, sz = (x, y, z) half sizes; soot = per-vertex 0..1 or None; boxy = dressed-ish wall stone."""
     r = np.random.default_rng(seed)
-    Vs, Qs, Ts = superellipsoid(32 if HIGH else 12, 16 if HIGH else 6, r.uniform(0.12, 0.22) if boxy else r.uniform(0.3, 0.5))
-    V = Vs * (1 + (0.10 if boxy else 0.16) * (fbm(Vs[:, 0] * 1.5 + seed, Vs[:, 1] * 1.5 + Vs[:, 2] * 1.2, seed, 3) - 0.5) * 2 + (0.05 if boxy else 0.0) * (fbm(Vs[:, 0] * 4 + seed, Vs[:, 2] * 4, seed + 7, 3) - 0.5) * 2)[:, None]
+    e = r.uniform(0.06, 0.1) if dressed else (r.uniform(0.12, 0.22) if boxy else r.uniform(0.3, 0.5))
+    Vs, Qs, Ts = superellipsoid(32 if HIGH else 12, 16 if HIGH else 6, e)
+    lump = 0.03 if dressed else (0.10 if boxy else 0.16)
+    V = Vs * (1 + lump * (fbm(Vs[:, 0] * 1.5 + seed, Vs[:, 1] * 1.5 + Vs[:, 2] * 1.2, seed, 3) - 0.5) * 2 + (0.05 if boxy and not dressed else 0.0) * (fbm(Vs[:, 0] * 4 + seed, Vs[:, 2] * 4, seed + 7, 3) - 0.5) * 2)[:, None]
     if HIGH: V = V * (1 + 0.025 * (fbm(Vs[:, 0] * 9 + Vs[:, 2] * 3, Vs[:, 1] * 9, seed + 1, 4) - 0.5) * 2 + 0.006 * (fbm(Vs[:, 0] * 40, Vs[:, 1] * 40 + Vs[:, 2] * 20, seed + 2, 3) - 0.5) * 2)[:, None]
-    R = rotm(r.uniform(0, 2 * PI) if yaw is None else yaw, r.uniform(-0.25, 0.25), r.uniform(-0.2, 0.2))
+    R = rotm(r.uniform(0, 2 * PI) if yaw is None else yaw, 0.0 if dressed else r.uniform(-0.25, 0.25), 0.0 if dressed else r.uniform(-0.2, 0.2))
     P = (V * np.asarray(sz)) @ R.T + np.asarray(c)
     uv = np.stack([np.arctan2(Vs[:, 1], Vs[:, 0]) / (2 * PI) * 2 * PI * max(sz[:2]), Vs[:, 2] * sz[2]], -1)
     attrs = {'soot': np.asarray(soot, float) if soot is not None else np.zeros(len(P))}
@@ -101,7 +103,8 @@ elif VAR == 'Campfire':   # 1.2 m stone ring, ash bed, glowing coals, five part-
     for k in range(5):   # logs lying into the fire, outer ends up on the stones, inner ends charred
         a = 2 * PI * k / 5 + rng.uniform(-0.25, 0.25); r0 = 0.055 if k % 2 else 0.045; L = rng.uniform(0.55, 0.68)
         # inner ends clear the ash and coals by > 12 mm (the bake ray distance), or the logs bake the coals' black
-        p1 = np.array([0.08 * math.cos(a + 2.5), 0.08 * math.sin(a + 2.5), 0.13 + 0.04 * k]); p0 = p1 + np.array([math.cos(a), math.sin(a), 0]) * L + [0, 0, 0.06 + 0.02 * (k % 2)]
+        # each log lies one diameter above the previous so they stack and never intersect (intersecting logs baked black: rays hit the neighbour's inside)
+        p1 = np.array([0.08 * math.cos(a + 2.5), 0.08 * math.sin(a + 2.5), 0.10 + 0.115 * k]); p0 = p1 + np.array([math.cos(a), math.sin(a), 0]) * L + [0, 0, -0.02 - 0.03 * k]
         ob = log('Log_%d' % k, tuple(p0), tuple(p1), r0, 650 + k, bend=0.01, brk=0.04 if k % 2 else 0.0)
         char_log(ob, p1, rng.uniform(0.14, 0.22), 0.8)      # only the inner end is burnt; the rest stays bark
     for k in range(2):   # spare firewood beside the ring
@@ -290,19 +293,19 @@ elif VAR == 'Tent':   # 2.4 x 1.8 m soldiers' ridge tent: ridge pole on two end 
         if HIGH: Z = Z + 0.004 * (fbm(U * 14, V_ * 8 + sy, 1010, 4) - 0.5) * 2 + 0.001 * (fbm(U * 70, V_ * 40, 1011, 3) - 0.5) * 2
         Z = np.maximum(Z, 0.003)
         Vc = np.stack([X, Y, Z], -1).reshape(-1, 3); Qc = grid_quads(nu, nv, False)
-        mesh('Canvas_%d' % int(sy > 0), Vc, [Qc], 'Canvas', uv=np.stack([X, V_ * Wd * 0.9], -1).reshape(-1, 2))
+        mesh('Canvas_%d' % int(sy > 0), Vc, [Qc], 'CanvasPlain', uv=np.stack([X, V_ * Wd * 0.9], -1).reshape(-1, 2))
     # back wall: a triangle of canvas; front: two flaps, one tied back to the pole
     nb = 24 if HIGH else 6
     Ub, Vb = np.meshgrid(np.linspace(-1, 1, nb), np.linspace(0, 1, nb), indexing='ij')
     Xb = -L / 2 - 0.1 + 0.0 * Ub + 0.01 * (1 - Vb); Yb = Ub * (Wd / 2) * (1 - Vb); Zb = (Ht + 0.0) * Vb
     if HIGH: Xb = Xb + 0.004 * (fbm(Ub * 6, Vb * 6, 1012, 3) - 0.5) * 2
-    mesh('BackWall', np.stack([Xb, Yb, Zb], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'Canvas', uv=np.stack([Yb, Zb], -1).reshape(-1, 2))
+    mesh('BackWall', np.stack([Xb, Yb, Zb], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'CanvasPlain', uv=np.stack([Yb, Zb], -1).reshape(-1, 2))
     Uf, Vf = np.meshgrid(np.linspace(0, 1, nb), np.linspace(0, 1, nb), indexing='ij')
     Xf = L / 2 + 0.1 - 0.02 * Vf; Yf = -(Wd / 2) * (1 - Vf) * Uf; Zf = Ht * Vf + 0.0        # closed left flap
     if HIGH: Xf = Xf + 0.004 * (fbm(Uf * 6, Vf * 6, 1013, 3) - 0.5) * 2
-    mesh('FlapL', np.stack([Xf, Yf, Zf], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'Canvas', uv=np.stack([Yf, Zf], -1).reshape(-1, 2))
+    mesh('FlapL', np.stack([Xf, Yf, Zf], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'CanvasPlain', uv=np.stack([Yf, Zf], -1).reshape(-1, 2))
     Xr = L / 2 + 0.1 + 0.25 * Uf * (1 - Vf); Yr = (Wd / 2) * (1 - Vf) * (0.35 + 0.65 * Uf) * (1 - 0.5 * Uf * (1 - Vf)); Zr = Ht * Vf + 0.1 * Uf * (1 - Vf)   # right flap rolled open toward the pole
-    mesh('FlapR', np.stack([Xr, Yr, Zr], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'Canvas', uv=np.stack([Yr + Xr, Zr], -1).reshape(-1, 2))
+    mesh('FlapR', np.stack([Xr, Yr, Zr], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'CanvasPlain', uv=np.stack([Yr + Xr, Zr], -1).reshape(-1, 2))
     for sy in (-1, 1):   # guy ropes from the hem to wooden pegs, and the ridge ropes to the end pegs
         for k in range(3):
             x = -L / 2 + 0.3 + k * (L - 0.6) / 2
@@ -410,6 +413,116 @@ elif VAR == 'Grindstone':   # #50 workshop: 0.6 m sandstone wheel in an oak fram
     crank = np.array([[0.0, 0.3, 0.58], [0.0, 0.36, 0.58], [0.14, 0.37, 0.58], [0.14, 0.52, 0.58]])
     tube('Crank', crank, [0, 0, 1.0], 0.012, 'Iron', n=12 if HIGH else 6); tube('CrankGrip', crank[-2:] + [[0, 0.02, 0], [0, -0.01, 0]], [0, 0, 1.0], 0.02, 'WoodCut', n=16 if HIGH else 6)
     meta = {'size': [0.8, 0.7, 0.9], 'work_point': [-0.3, 0.0, 0.62]}
+
+elif VAR == 'Forge':   # #186: blacksmith forge: fieldstone hearth with a chimney, coal bed with embers, leather bellows, quench barrel, tool rack
+    # hearth: a 1.6 x 1.2 m stone block 0.95 m high, open on the front (+X), chimney hood of stone rising to 2.6 m at the back
+    def wallstones(x0, x1, y0, y1, z0, z1, seed, soot=0.0):
+        r = np.random.default_rng(seed); nz = max(int((z1 - z0) / 0.18), 1)
+        for c in range(nz):
+            z = z0 + (c + 0.5) * (z1 - z0) / nz; L = math.hypot(x1 - x0, y1 - y0); n = max(int(L / 0.26), 1)
+            for k in range(n):
+                tt = (k + 0.5 * (c % 2) + 0.5) / n
+                if tt > 1: continue
+                x, y = x0 + (x1 - x0) * tt, y0 + (y1 - y0) * tt
+                sz = (r.uniform(0.12, 0.145), r.uniform(0.1, 0.12), r.uniform(0.082, 0.09))
+                ob, P = rock('HStone_%d_%d_%d' % (seed, c, k), (x + r.uniform(-0.006, 0.006), y + r.uniform(-0.006, 0.006), z), sz, seed * 100 + c * 20 + k, yaw=math.atan2(y1 - y0, x1 - x0), boxy=True, dressed=True)
+                ob.data.attributes['soot'].data.foreach_set('value', np.full(len(P), soot, np.float32))
+    HX, HY, HZ = 0.8, 0.6, 0.95
+    wallstones(-HX, -HX, -HY, HY, 0.0, HZ, 1)                       # back wall (-X)
+    wallstones(-HX, HX, -HY, -HY, 0.0, HZ, 2); wallstones(-HX, HX, HY, HY, 0.0, HZ, 3)   # sides
+    wallstones(HX, HX, -HY, HY, 0.0, HZ * 0.45, 4)                  # low front lip
+    ring('HearthSlab', (0, 0, HZ + 0.03), 0.01, rrect(0.0, 0.0, 4, 4.0), 'Mortar', n=4) if False else None
+    Vs, Qs, Ts = superellipsoid(24 if HIGH else 8, 8 if HIGH else 4, 0.12)
+    mesh('HearthTop', np.array([0, 0, HZ + 0.03]) + Vs * np.array([HX + 0.04, HY + 0.04, 0.035]), [Qs, Ts], 'Mortar', uv=np.stack([Vs[:, 0] * HX, Vs[:, 1] * HY], -1))
+    # chimney hood: a tapering stone box from the back half of the hearth up to 2.6 m, sooted inside
+    for c in range(9):
+        z0 = HZ + 0.07 + c * 0.18; f = 1 - 0.35 * c / 9
+        wallstones(-HX, -HX, -HY * f, HY * f, z0, z0 + 0.18, 10 + c, soot=0.5)
+        wallstones(-HX, -HX + 0.55 * f, -HY * f, -HY * f, z0, z0 + 0.18, 20 + c, soot=0.5); wallstones(-HX, -HX + 0.55 * f, HY * f, HY * f, z0, z0 + 0.18, 30 + c, soot=0.5)
+        if c >= 3: wallstones(-HX + 0.55 * f, -HX + 0.55 * f, -HY * f, HY * f, z0, z0 + 0.18, 40 + c, soot=0.7)   # the hood's front closes above head height
+    # coal bed and embers on the hearth top (glow attribute), a tuyere pipe from the bellows
+    for k in range(30 if HIGH else 18):
+        a = rng.uniform(0, 2 * PI); r_ = rng.uniform(0, 1) ** 0.6 * 0.3; c = [-0.15 + r_ * math.cos(a), r_ * math.sin(a) * 0.8, HZ + 0.07 + 0.03 * (1 - r_ / 0.3)]
+        Vs, Qs, Ts = superellipsoid(16 if HIGH else 8, 8 if HIGH else 4, 0.55); sz = rng.uniform(0.02, 0.04)
+        if HIGH: Vs = Vs * (1 + 0.12 * (fbm(Vs[:, 0] * 4 + k, Vs[:, 1] * 4, 1640, 3) - 0.5))[:, None]
+        mesh('Coal_%d' % k, c + Vs * np.array([sz, sz * 0.8, sz * 0.55]), [Qs, Ts], 'Coal', uv=np.stack([Vs[:, 0], Vs[:, 2]], -1) * sz, attrs={'glow': np.full(len(Vs), max(0.0, 1 - r_ / 0.32) * rng.uniform(0.6, 1.0))})
+    tube('Tuyere', np.array([[-0.15, HY + 0.3, HZ + 0.08], [-0.15, 0.05, HZ + 0.08]]), [0, 0, 1.0], 0.025, 'Iron', n=12 if HIGH else 6)
+    # bellows beside the hearth (+Y): two oak boards hinged at the nozzle, leather pleats between, a lever handle
+    BY = HY + 0.55; BZ = 0.75
+    plank('BellowsTop', (-0.45, BY, BZ + 0.12), (0.25, BY, BZ + 0.22), 0.42, 0.03, 1650, (0, 0, 1.0), rot=0.0)
+    plank('BellowsBot', (-0.45, BY, BZ - 0.02), (0.25, BY, BZ - 0.02), 0.42, 0.03, 1651, (0, 0, 1.0), rot=0.0)
+    nu, nv = (48, 16) if HIGH else (14, 6)
+    U_, V_ = np.meshgrid(np.linspace(0, 1, nu), np.linspace(0, 1, nv), indexing='ij')
+    for sy in (-1, 1):
+        X = -0.45 + 0.7 * U_; Zc = BZ - 0.005 + (0.12 + 0.1 * U_) * V_; Yc = BY + sy * (0.21 - 0.035 * np.abs(np.sin(V_ * 4 * PI)) ** 0.7 * (1 - U_ * 0.3))
+        if HIGH: Yc = Yc + sy * 0.003 * (fbm(U_ * 20, V_ * 10, 1652, 3) - 0.5)
+        mesh('Pleat_%d' % int(sy > 0), np.stack([X, Yc, Zc], -1).reshape(-1, 3), [grid_quads(nu, nv, False)], 'Leather', uv=np.stack([X, Zc], -1).reshape(-1, 2))
+    tube('BellowsNozzle', np.array([[-0.45, BY, BZ + 0.05], [-0.15, BY, BZ + 0.06], [-0.15, HY + 0.3, HZ + 0.08]]), [0, 0, 1.0], 0.025, 'Iron', n=12 if HIGH else 6)
+    tube('BellowsHandle', np.array([[0.2, BY, BZ + 0.2], [0.65, BY, BZ + 0.62]]), [0, 0, 1.0], 0.016, 'WoodCut', n=10 if HIGH else 6)
+    for k, (x, y) in enumerate(((-0.4, BY - 0.15), (-0.4, BY + 0.15), (0.2, BY - 0.15), (0.2, BY + 0.15))):
+        V, Q, Tr, uv = sweep(np.array([[x, y, 0.0], [x, y, BZ - 0.03]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.06, 0.06, 8 if HIGH else 4, 6.0)); mesh('BellowsLeg_%d' % k, V, [Q, Tr], 'WoodCut', uv=uv)
+    # quench barrel (-Y side): staves + 3 hoops + water disc; tool rack on the back wall: a plank with 5 pegs
+    QY = -HY - 0.5
+    for k in range(16):
+        a = 2 * PI * k / 16; r0, r1 = 0.21, 0.24
+        plank('QStave_%02d' % k, (0.2 + r0 * math.cos(a), QY + r0 * math.sin(a), 0.0), (0.2 + r1 * math.cos(a), QY + r1 * math.sin(a), 0.62), 2 * r1 * math.sin(PI / 16) - 0.004, 0.018, 1660 + k, (math.cos(a), math.sin(a), 0), rot=0.3)
+    for z, r in ((0.08, 0.215), (0.33, 0.228), (0.56, 0.238)): ring('QHoop', (0.2, QY, z), r + 0.006, rrect(0.03, 0.004, 8 if HIGH else 4, 5.0), 'Iron', n=96 if HIGH else 20)
+    Vs, Qs, Ts = superellipsoid(32 if HIGH else 12, 6 if HIGH else 3, 0.9)
+    mesh('QWater', np.array([0.2, QY, 0.55]) + Vs * np.array([0.22, 0.22, 0.004]), [Qs, Ts], 'Iron', uv=np.stack([Vs[:, 0], Vs[:, 1]], -1) * 0.2)
+    plank('ToolRack', (-HX - 0.02, -0.5, 1.75), (-HX - 0.02, 0.5, 1.75), 0.14, 0.03, 1670, (-1.0, 0, 0), rot=0.1)
+    for k in range(5):
+        y = -0.4 + 0.2 * k
+        tube('RackPeg_%d' % k, np.array([[-HX - 0.03, y, 1.75], [-HX - 0.18, y, 1.78]]), [0, 0, 1.0], 0.012, 'WoodCut', n=10 if HIGH else 5)
+    for k, (y, L) in enumerate(((-0.4, 0.38), (0.0, 0.3), (0.4, 0.42))):   # hanging tongs / hammer / poker
+        tube('Tool_%d' % k, np.array([[-HX - 0.17, y, 1.76], [-HX - 0.17, y + 0.02, 1.76 - L]]), [1.0, 0, 0], 0.008, 'Iron', n=8 if HIGH else 5)
+    meta = {'size': [2.4, 3.0, 2.7], 'fire': [-0.15, 0.0, HZ + 0.12], 'smoke': [-HX + 0.25, 0.0, 2.65], 'work_point': [0.5, 0.0, HZ + 0.1],
+            'note': 'fire + ember Niagara at fire, chimney smoke at smoke; pair with an orange point light 1800 K 900 cd at fire'}
+
+elif VAR == 'Banner':   # #169 watchtower banner: 3 m pole with a finial, a crossbar, a hanging wool banner (swallow tail) bearing the castle crest
+    log('Pole', (0, 0, -0.05), (0.005, 0.0, 3.0), 0.03, 1700, bend=0.004, tip1=0.12)
+    tube('Crossbar', np.array([[-0.42, 0.0, 2.75], [0.42, 0.0, 2.76]]), [0, 0, 1.0], 0.016, 'WoodCut', n=12 if HIGH else 6)
+    a_ = np.linspace(0, 2 * PI * 4, 48 if HIGH else 16)   # a few diagonal rope turns round the bar/pole crossing (lash() needs offset centres)
+    kitlog.rope('BarLash', np.stack([0.036 * np.cos(a_), 0.036 * np.sin(a_), 2.72 + 0.06 * a_ / (2 * PI * 4)], -1), 0.005, 1701)
+    # the cloth: hangs from the crossbar (-Y side, 2 cm off), 0.7 m wide, 1.6 m long, sways and sags; swallow-tail cut 0.35 m deep
+    nu, nv = (36, 90) if HIGH else (10, 24)
+    U_, V_ = np.meshgrid(np.linspace(0, 1, nu), np.linspace(0, 1, nv), indexing='ij')
+    W_, Lc = 0.7, 1.6
+    X = (U_ - 0.5) * W_; Z = 2.75 - 0.02 - V_ * Lc
+    Y = -0.035 - 0.06 * np.sin(V_ * PI * 1.3) * (0.6 + 0.4 * np.cos(U_ * PI * 2)) - 0.03 * V_ ** 2 * np.sin(U_ * PI)      # gentle wind belly
+    if HIGH: Y = Y + 0.004 * (fbm(U_ * 10, V_ * 25, 1702, 4) - 0.5) * 2 + 0.0012 * (fbm(U_ * 50, V_ * 90, 1703, 2) - 0.5) * 2   # wool folds
+    Y = Y + 0.012 * np.sin(U_ * 7 * PI) ** 2 * V_                                                                  # vertical ripples growing downward
+    tail = np.clip((np.abs(U_ - 0.5) * 2 - 0.0) * 0.35, 0, 0.35)                                                  # swallow tail: centre notch 0.35 m
+    keep = V_ * Lc <= Lc - (0.35 - tail)
+    Vc = np.stack([X, Y, Z], -1).reshape(-1, 3); Q = grid_quads(nu, nv, False)
+    kf = keep.reshape(-1); Q = Q[np.all(kf[Q], axis=1)]
+    uv = np.stack([U_ * W_, (1 - V_) * Lc], -1).reshape(-1, 2)        # u 0..0.7 across, v 0 at the tail .. 1.6 at the bar (the crest reads upright)
+    mesh('Cloth', Vc, [Q], 'Banner', uv=uv)
+    for x in (-0.3, -0.1, 0.1, 0.3):   # ties to the bar
+        kitlog.rope('Tie_%d' % int((x + 0.3) * 10), [[x, -0.035, 2.73], [x, 0.0, 2.76], [x, 0.035, 2.73]], 0.004, 1710 + int((x + 0.3) * 10))
+    meta = {'size': [0.9, 0.2, 3.1], 'cloth_uv': [W_, Lc], 'note': 'use SimpleGrassWind (WindIntensity 0.25) on the cloth material in UE for sway'}
+
+elif VAR == 'GoldPile':   # #187 gold drop: a spilled leather purse with a mound of coins around it, a few coins scattered; 0.35 m
+    Vs, Qs, Ts = superellipsoid(48 if HIGH else 14, 12 if HIGH else 5, 0.7)
+    mound = Vs * (1 + 0.1 * (fbm(Vs[:, 0] * 3, Vs[:, 1] * 3 + 1, 1800, 3) - 0.5) * 2)[:, None] * np.array([0.16, 0.13, 0.045]); mound[:, 2] = np.maximum(mound[:, 2], 0) + 0.002
+    mesh('Mound', mound, [Qs, Ts], 'Gold', uv=np.stack([Vs[:, 0], Vs[:, 1]], -1) * 0.15, attrs={'coin': np.ones(len(Vs))})
+    n = 0
+    for k in range(90 if HIGH else 40):   # coins: flat discs tilted at random, denser on the mound
+        a = rng.uniform(0, 2 * PI); r_ = rng.uniform(0, 1) ** 0.5 * 0.17; c = np.array([r_ * math.cos(a), r_ * math.sin(a) * 0.85, 0.0])
+        h = 0.045 * max(0.0, 1 - (r_ / 0.15) ** 2) * (1 + 0.1 * (fbm(c[0] * 3, c[1] * 3 + 1, 1800, 3) - 0.5) * 2)
+        c[2] = h + 0.004 + rng.uniform(0, 0.006); R = rotm(rng.uniform(0, 2 * PI), rng.uniform(-0.6, 0.6) * (0.3 + h / 0.045), rng.uniform(-0.4, 0.4))
+        Vc, Qc, Tc = superellipsoid(20 if HIGH else 10, 4 if HIGH else 2, 0.25)
+        P = (Vc * np.array([0.014, 0.014, 0.0012])) @ R.T + c
+        mesh('Coin_%02d' % k, P, [Qc, Tc], 'Gold', uv=np.stack([Vc[:, 0], Vc[:, 1]], -1) * 0.014, attrs={'coin': np.ones(len(P))})
+    # the purse: a soft leather bag on its side, mouth open toward +X, drawstring
+    nu, nv = (48, 24) if HIGH else (14, 8)
+    T_, Z_ = np.meshgrid(np.linspace(0, 2 * PI, nu + 1), np.linspace(0, 1, nv + 1), indexing='ij')
+    prof = np.sin(Z_ * PI) ** 0.5 * (1 - 0.3 * sstep(0.85, 1.0, Z_)); prof = prof * (1 + 0.06 * (fbm(np.cos(T_) * 2, Z_ * 3, 1801, 3) - 0.5) * 2)
+    if HIGH: prof = prof * (1 + 0.012 * np.sin(T_ * 14) * sstep(0.7, 1.0, Z_))
+    PX_ = -0.09 - 0.14 * Z_ * -1 - 0.04; PY = 0.05 + 0.07 * prof * np.cos(T_); PZ = 0.0 + 0.055 * prof * (0.5 + 0.5 * np.sin(T_)) + 0.001
+    Vp = np.stack([-0.17 + 0.16 * Z_, PY, PZ], -1).reshape(-1, 3)
+    mesh('Purse', Vp, [grid_quads(nu + 1, nv + 1, False)], 'Leather', uv=np.stack([T_ * 0.06, Z_ * 0.16], -1).reshape(-1, 2))
+    kitlog.rope('Drawstring', [[-0.03, 0.05 + 0.07 * math.cos(a_), 0.001 + 0.055 * (0.5 + 0.5 * math.sin(a_)) * 0.7] for a_ in np.linspace(0, 2 * PI, 24)], 0.003, 1802, closed=True)
+    meta = {'size': [0.4, 0.3, 0.07], 'pickup_radius_m': 0.9, 'note': 'gold drop (#187): sparkle Niagara at origin, bob + slow yaw in BP, despawn 60 s'}
 
 json.dump({'grip': [0, 0, 0], **meta}, open(os.path.join(D, 'camp%s_meta.json' % VAR.lower()), 'w'))
 tris = sum(len(p.vertices) - 2 for o in bpy.data.objects if o.type == 'MESH' for p in o.data.polygons)

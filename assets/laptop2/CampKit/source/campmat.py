@@ -74,7 +74,7 @@ def hay(m):
     rg = _mix_f(nt, stalk, 0.92, 0.78); rg = _mix_f(nt, damp, rg, 0.62)
     _finish(nt, col, rg, 0.0, ao)
 
-def canvas(m):
+def canvas(m, stripes=True):
     """market awning: woven cotton duck, red and cream stripes along u, sun-faded on top, dirt and mildew at the hem."""
     m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
     co = _co(nt); uv = _n(nt, 'ShaderNodeTexCoord').outputs['UV']; cav, ao = _cav(nt, 0.01)
@@ -86,7 +86,7 @@ def canvas(m):
     st = _maprange(nt, stripe.outputs['Fac'], 0.48, 0.52)
     cream = _mix_col(nt, _noise(nt, co, 20, 3, 0.6), (0.62, 0.56, 0.44), (0.72, 0.66, 0.52))
     red = _mix_col(nt, _noise(nt, co, 20, 3, 0.6), (0.38, 0.07, 0.05), (0.50, 0.11, 0.07))
-    col = _mix_col(nt, st, cream, red)
+    col = _mix_col(nt, st, cream, red) if stripes else _mix_col(nt, _noise(nt, co, 40, 3, 0.6), (0.40, 0.37, 0.30), (0.52, 0.48, 0.40))   # plain army duck, grey-cream, mud-stained
     col = _mix_col(nt, _math(nt, 'MULTIPLY', weave, 0.35), col, _mul_col(nt, col, 0.7))
     fade = _math(nt, 'MULTIPLY', _maprange(nt, nz, 0.2, 0.9), _maprange(nt, _noise(nt, co, 2, 3, 0.5), 0.3, 0.8))      # sun on the top
     col = _mix_col(nt, _math(nt, 'MULTIPLY', fade, 0.45), col, (0.66, 0.62, 0.55))
@@ -97,8 +97,53 @@ def canvas(m):
     rg = _mix_f(nt, weave, 0.88, 0.72); rg = _mix_f(nt, hem, rg, 0.65)
     _finish(nt, col, rg, 0.0, ao)
 
+def banner(m):
+    """watchtower banner: azure wool with the castle crest (the heater shield's herald mask: R gold tower/bezants, G red
+    chief, B black line), woven twill, wool fuzz, sun-fade on the field, dirt and fraying at the tail. UV: u 0..0.7 across,
+    v 0 at the tail .. 1.6 at the bar; the crest sits in v 0.35..1.3."""
+    m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    co = _co(nt); uv = _n(nt, 'ShaderNodeTexCoord').outputs['UV']; cav, ao = _cav(nt, 0.01)
+    s = _sep(nt, uv); su, sv = s[0], s[1]
+    muv = _vec(nt, _maprange(nt, su, 0.04, 0.66), _maprange(nt, sv, 0.35, 1.30), 0.0)
+    hz = shieldmat._img(nt, 'herald', muv)
+    inside = _math(nt, 'MULTIPLY', _math(nt, 'MULTIPLY', _maprange(nt, sv, 0.33, 0.36), _maprange(nt, sv, 1.32, 1.29)), _math(nt, 'MULTIPLY', _maprange(nt, su, 0.02, 0.05), _maprange(nt, su, 0.68, 0.65)))
+    tone = _noise(nt, co, 9, 4, 0.55)
+    azure = _mix_col(nt, tone, (0.020, 0.045, 0.14), (0.035, 0.07, 0.20))
+    red = _mix_col(nt, tone, (0.26, 0.02, 0.015), (0.36, 0.04, 0.025))
+    gold = _mix_col(nt, tone, (0.42, 0.27, 0.06), (0.58, 0.40, 0.10))
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', hz[1], inside), azure, red)
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', hz[0], inside), col, gold)
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', hz[2], inside), col, (0.02, 0.018, 0.016))
+    # twill weave + wool fuzz
+    w1 = _n(nt, 'ShaderNodeTexWave', wave_type='BANDS', bands_direction='DIAGONAL', in_Scale=700.0, in_Distortion=0.4, in_Detail=1.0); nt.links.new(uv, w1.inputs['Vector'])
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, w1.outputs['Fac'], 0.3, 0.7), 0.22), col, _mul_col(nt, col, 0.72))
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, _noise(nt, co, 600, 2, 0.6), 0.6, 0.9), 0.18), col, (0.5, 0.5, 0.5))
+    # sun-fade (random patches), dirt and fraying toward the tail (low v)
+    fade = _maprange(nt, _noise(nt, co, 2.5, 3, 0.5), 0.45, 0.75, 0, 0.35)
+    col = _mix_col(nt, fade, col, _mix_col(nt, _n(nt, 'ShaderNodeValue').outputs[0], col, (0.45, 0.42, 0.38)))
+    tailm = _math(nt, 'MULTIPLY', _maprange(nt, sv, 0.45, 0.0), _maprange(nt, _noise(nt, co, 12, 4, 0.6), 0.35, 0.75))
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', tailm, 0.55), col, (0.10, 0.08, 0.06))
+    col = _mix_col(nt, _maprange(nt, cav, 0.3, 0.85, 0, 0.4), col, _mul_col(nt, col, 0.5))
+    rg = _mix_f(nt, _maprange(nt, w1.outputs['Fac'], 0.3, 0.7), 0.90, 0.78); rg = _mix_f(nt, _math(nt, 'MULTIPLY', hz[0], inside), rg, 0.7); rg = _mix_f(nt, tailm, rg, 0.95)
+    _finish(nt, col, rg, 0.0, ao)
+
+def gold(m):
+    """coins: worn gold (metallic 1, albedo ~0.9/0.7/0.3 linear = Epic's gold), hammered faces, dark grime in the
+    recesses, a few duller tarnished coins by the 'coin' attribute hash."""
+    m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    co = _co(nt); edge = _edge(nt, 0.0008); cav, ao = _cav(nt, 0.004)
+    tone = _noise(nt, co, 120, 3, 0.55)
+    col = _mix_col(nt, tone, (0.82, 0.62, 0.22), (0.95, 0.75, 0.32))
+    ham = _n(nt, 'ShaderNodeTexVoronoi', feature='SMOOTH_F1', in_Scale=600.0); nt.links.new(co, ham.inputs['Vector'])
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, ham.outputs['Distance'], 0.0, 0.5), 0.2), col, (0.6, 0.45, 0.18))
+    grime = _maprange(nt, cav, 0.2, 0.8, 0, 0.7)
+    col = _mix_col(nt, grime, col, (0.12, 0.08, 0.03))
+    rg = _mix_f(nt, tone, 0.28, 0.42); rg = _mix_f(nt, grime, rg, 0.7); rg = _mix_f(nt, _maprange(nt, edge, 0.03, 0.2), rg, 0.22)
+    mt = _math(nt, 'SUBTRACT', 1.0, grime, True)
+    _finish(nt, col, rg, mt, ao)
+
 KIND = {'Plank': gatemat.plank, 'Iron': shieldmat.iron, 'Coal': ballistamat.coal, 'Shaft': ballistamat.shaft, 'Twine': potionmat.twine,
-        'Stone': stone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas}
+        'Stone': stone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold}
 def build_all():
     woodmat.build_all()
     for m in bpy.data.materials:
