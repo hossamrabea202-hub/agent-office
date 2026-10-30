@@ -1,0 +1,9 @@
+{
+  "blueprint": "BP_CrossbowBolt",
+  "_built_on": "handoffs/exports/master/2026-10-30b/BP_CrossbowBolt.T3D (EventGraph): CX_14 SetCollisionEnabled -> CX_16 SetLifeSpan 8 -> CX_21",
+  "pastes": [{"file": "Bolt_ParentCheck_graph.txt"}],
+  "rewires": [
+    {"from": "CX_14.then", "to": "BoltLife5.execute", "replace": true, "note": "was -> CX_16 (lifespan 8); CX_16 is left unused"},
+    {"from": "BoltOut.then_0", "to": "CX_21.execute"}
+  ]
+}
