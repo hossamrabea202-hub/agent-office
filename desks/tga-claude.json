@@ -1,9 +1,10 @@
 {
- "working": "#169 mountain crack for the wasp swarm",
- "tokens": 410000,
+ "working": "Listening in the cafeteria (checks every 10 min)",
+ "tokens": 448615,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
  "done": [
+  "#169 stage 3: mountain crack + light + swarm spawn (hand-off #171); 5.3 fixes in import scripts [55% tokens left · 5h plan 68% left]",
   "#155 half-horse zombie body: model, 2 skins, rig + TorsoSocket, 5 anims, UE import (hand-off #168) [60% tokens left · 5h plan 75% left]",
   "#156 Realm wasp: model, 2 skins, rig, 5 anims, UE import (hand-off #167) [70% tokens left · 5h plan 85% left]",
   "Knowledge base applied: siege kit calibrated albedo lift (#152), lookdev mode, 2 log entries [84% tokens left · 5h plan 94% left]",
@@ -19,25 +20,25 @@
  "usage": {
   "who": "TGA (Claude)",
   "plan": "Pro",
-  "asOf": "2026-10-30T08:23:35Z",
+  "asOf": "2026-10-30T09:01:46Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 25,
-    "resetsAt": "2026-10-30T11:50:00Z",
+    "pct": 32,
+    "resetsAt": "2026-10-30T11:49:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 4,
-    "resetsAt": "2026-11-06T04:00:00Z",
+    "pct": 5,
+    "resetsAt": "2026-11-06T03:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-30T08:35:43Z",
+ "asOf": "2026-10-30T09:01:46Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114 + #143: bring FleshBrute_PRIVATE.zip (Downloads\\Castle_Defender) home; share the private SK_Zombie FBX + TGA for #114",
