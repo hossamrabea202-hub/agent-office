@@ -1,0 +1,7 @@
+{
+  "tests": 67,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "scope": "Generated K2 topology + snapshot codec, offline only; not Unreal compile, nav, physics, animation, or PIE."
+}
