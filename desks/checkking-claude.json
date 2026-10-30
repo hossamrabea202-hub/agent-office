@@ -1,9 +1,10 @@
 {
- "working": "Back on duty: read rules + handoff + inbox, picking next card",
- "tokens": 120000,
+ "working": "#96 set v2 part 2: Vesna Obsidian page + set panel + save",
+ "tokens": 200000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
+  "#96 Obsidian set v2 system: hand-off #221 (321-node graph, Validation OK, setup + test scripts) [80% tokens left · 5h plan 98% left]",
   "Tower #9 scaled 1.2x, landing turn + gatehouse stairs fixed, PIE verified [40% tokens left]",
   "Both front towers replaced (tower #9) in live castle, PIE + nav verified [54% tokens left · 5h plan 39% left]",
   "Vesna talk video + Cinzel title (BP_NoticeHUD), Play-tested [75% tokens left · 5h plan 79% left]",
@@ -12,8 +13,7 @@
   "#66 phase 1 (design + M_HintCard) + #72 plan + #91/#92 script fixes [69% tokens left · 5h plan 63% left]",
   "#77 phase 1: LV4 crossbow electric overlay material + hand-off [73% tokens left · 5h plan 69% left]",
   "#82 slime trail v2 material (metaball body, height normals, bubbles, dithered edge, drying) + hand-off [76% tokens left · 5h plan 73% left]",
-  "#64 chest straps render as leather (collapsed-UV texels fixed, UVs unchanged), hand-off #91 updated [80% tokens left · 5h plan 77% left]",
-  "#64 part 1: chest v2 4K textures pushed, re-import hand-off #91 [82% tokens left · 5h plan 79% left]"
+  "#64 chest straps render as leather (collapsed-UV texels fixed, UVs unchanged), hand-off #91 updated [80% tokens left · 5h plan 77% left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -24,7 +24,7 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-10-30T18:14:58Z",
+  "asOf": "2026-10-30T18:26:51Z",
   "meters": [
    {
     "k": "5h",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T18:14:58Z",
+ "asOf": "2026-10-30T18:26:51Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
