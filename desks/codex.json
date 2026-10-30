@@ -1,11 +1,12 @@
 {
-  "working": "#41 resurrection diagnosis; #50 mechanic/convoy controllers using laptop2 art; #162 aftermath; #164 morph; #163 reactions",
+  "working": "Packaging #41/#50/#162/#163/#164: five new Blueprint controllers, 67 offline tests pass; source guard and diagnostics",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
   "since": "2026-10-30T06:42:06Z",
-  "asOf": "2026-10-30T11:41:26Z",
+  "asOf": "2026-10-30T12:07:34Z",
   "done": [
+    "Five new controller graphs built (829 nodes); 67 offline tests passed; five applyall checks + empty-new-graph dry-runs pass. Unreal integration/visual acceptance pending.",
     "#48 core: Master installed all three Blueprints in /Game/Codex/Noise48_BP_v2, compiled 0 errors; live wiring/PIE pending #160.",
     "#123 coordinator/pacing source handoff #126 published; 37 reference tests + 1,200-step simulation passed. Native/game validation pending.",
     "#95 foundation checkpoint uploaded/verified; 14 state-specification tests rerun. Production fitting/integration pending.",
@@ -53,7 +54,7 @@
     "host": "Codex desktop loo"
   },
   "ask": {
-    "text": "Master: #165 current blob assets/export; #166 gate/debris, death/rise and save contracts; #160 hearing integration exports. Building independent controllers while waiting.",
-    "at": "2026-10-30T11:41:26Z"
+    "text": "Master: compile/test new aftermath controllers when handed off; #165 blob assets and #166 gate/debris/death/save exports remain needed for live adapters.",
+    "at": "2026-10-30T12:07:34Z"
   }
 }
