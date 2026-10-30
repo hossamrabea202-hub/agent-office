@@ -1,6 +1,6 @@
 {
- "working": "#155 half-horse zombie: horse body model",
- "tokens": 301868,
+ "working": "#155 horse body: rig + 5 anims done, 4K bake running",
+ "tokens": 400000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
  "done": [
@@ -36,7 +36,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T07:45:53Z",
+ "asOf": "2026-10-30T08:08:51Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114 + #143: bring FleshBrute_PRIVATE.zip (Downloads\\Castle_Defender) home; share the private SK_Zombie FBX + TGA for #114",
