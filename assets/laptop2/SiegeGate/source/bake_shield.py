@@ -71,6 +71,7 @@ elif STAGE in ('BC', 'RG', 'MT', 'AO', 'Normal', 'EM', 'HT'):
     if FLO: b.cage_extrusion = 0.004; b.max_ray_distance = 0.008
     if SH == 'CampCampfire': b.cage_extrusion = 0.004; b.max_ray_distance = 0.008   # logs lie on stones and ash: short rays so they don't bake the neighbours
     if SH == 'PropsSack': b.cage_extrusion = 0.015; b.max_ray_distance = 0.03         # slumped cloth, no thin parts
+    if SH == 'FloraBloodcap': b.cage_extrusion = 0.012; b.max_ray_distance = 0.025   # big cupped petals with 8 mm veins/ruffle: the 4 mm cage missed them (black)
     if SH in ('FloraBlobMine', 'FloraEggCluster'): b.cage_extrusion = 0.02; b.max_ray_distance = 0.045   # lumpy sacs and mounds, no thin leaves: the 4 mm cage left black holes      # thin petals and leaves: clear the 2 mm midrib/ruffle of the high, but not the neighbours (whorls 6 mm apart)
     QUAD = os.environ.get('QUAD'); BS = SIZE
     if QUAD is not None:

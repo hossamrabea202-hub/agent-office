@@ -10,7 +10,7 @@ sc.render.resolution_x, sc.render.resolution_y = int(os.environ.get('RW', '1200'
 sc.view_settings.view_transform = 'AgX'; sc.view_settings.exposure = float(os.environ.get('EXPOSURE', '0'))
 if mode == 'mat':
     MS = os.environ.get('MATSET') or os.environ.get('VIEWSET')   # MATSET picks the material module when the camera set differs
-    sys.path.insert(0, os.environ.get('KITDIR', D)); import shieldmat, swordmat, potionmat, gatemat, floramat, propmat, ballistamat; (swordmat if os.environ.get('SHIELD') == 'Sword' else potionmat if MS == 'potion' else gatemat if MS == 'gate' else floramat if MS == 'flora' else propmat if MS == 'props' else ballistamat if os.environ.get('SHIELD') == 'Ballista' else shieldmat).build_all()
+    sys.path.insert(0, os.environ.get('KITDIR', D)); import shieldmat, swordmat, potionmat, gatemat, floramat, propmat, ballistamat, campmat; (campmat if MS == 'camp' else swordmat if os.environ.get('SHIELD') == 'Sword' else potionmat if MS == 'potion' else gatemat if MS == 'gate' else floramat if MS == 'flora' else propmat if MS == 'props' else ballistamat if os.environ.get('SHIELD') == 'Ballista' else shieldmat).build_all()
 elif mode == 'clay':
     for m in bpy.data.materials:
         m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()

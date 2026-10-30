@@ -7,6 +7,7 @@
 # Units: metres, Z up. The OUTSIDE face (toward the realm) looks toward -Y. The opening is centred on x 0.
 import os, sys, math, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import math
 import bpy, numpy as np
 bpy.ops.wm.read_factory_settings(use_empty=True)
 import kitlog
@@ -118,9 +119,9 @@ frame = []
 for k, sx in enumerate((-1, 1)):
     o = log('Post_%d' % k, (sx * PX, 0.0, -0.40), (sx * PX + sx * 0.03, 0.02, PH), PR, 700 + k, bend=0.015)
     frame.append(group(o, 'Frame'))
-o = log('Lintel', (-PX - 0.45, 0.05, PH - 0.38), (PX + 0.45, 0.03, PH - 0.42), 0.19, 710, bend=0.02); frame.append(group(o, 'Frame'))
+o = log('Lintel', (-PX - 0.45, 0.05, PH - 0.18), (PX + 0.45, 0.03, PH - 0.22), 0.19, 710, bend=0.02); frame.append(group(o, 'Frame'))
 for k, sx in enumerate((-1, 1)):
-    o = lash('Lash_%d' % k, (sx * PX, 0.0, PH - 0.40), PR, (sx * PX, 0.05 + PR + 0.19 - 0.02, PH - 0.40), 0.19, (0, 0, 1), (1, 0, 0), 720 + k)
+    o = lash('Lash_%d' % k, (sx * PX, 0.0, PH - 0.20), PR, (sx * PX, 0.05 + PR + 0.19 - 0.02, PH - 0.20), 0.19, (0, 0, 1), (1, 0, 0), 720 + k)
     frame.append(group(o, 'Frame'))
 # pintles (hinge pins) on the posts and the bar brackets (inside, +Y)
 HZ = (Z0 + 0.45, Z0 + LH - 0.45)
@@ -145,7 +146,8 @@ def leaf(side):
     objs = []
     for k in range(nb):
         xc = x_h - side * (bw * (k + 0.5))
-        top = Z0 + LH + rng.uniform(-0.05, 0.05) - (0.10 if k == nb - 1 else 0)
+        # arched top (owner concept): the two leaves together form a round arch 0.7 m high over the flat line
+        top = Z0 + LH - 0.25 + 0.95 * math.sqrt(max(1 - (xc / (GW / 2)) ** 2, 0)) + rng.uniform(-0.03, 0.03)
         rot = rng.uniform(0.5, 1.0)
         objs.append(plank('Board', (xc, -0.035, Z0 + rng.uniform(0, 0.04)), (xc + rng.uniform(-0.006, 0.006), -0.035, top),
                           bw - 0.006, 0.055, 810 + k + (100 if side > 0 else 0), (0, -1.0, 0), rot=rot, gname=g))
@@ -157,11 +159,16 @@ def leaf(side):
                       850 + (100 if side > 0 else 0), (0, 1.0, 0), rot=0.4, gname=g))
     objs.append(plank('Brace', (x_m + side * 0.12, 0.034, Z0 + LH * 0.52 + 0.12), (x_h - side * 0.18, 0.034, Z0 + LH - 0.5), 0.17, 0.045,
                       851 + (100 if side > 0 else 0), (0, 1.0, 0), rot=0.1, gname=g))
+    # iron bands across the whole leaf (outside) at two heights, clenched with nails (the concept's banded gate)
+    for k, zb_ in enumerate((Z0 + 1.0, Z0 + LH - 0.75)):
+        objs.append(strap('Band', (x_h - side * 0.02, -0.066, zb_), (x_m + side * 0.02, -0.066, zb_ + 0.005), 0.09, 0.008, g, tip=False))
     # strap hinges on the outside, running from the pintle across most of the leaf; nails along them
     nl = []
     for hz in HZ:
         objs.append(strap('Strap', (side * (GW / 2 + 0.06), -0.068, hz), (x_m + side * 0.35, -0.068, hz + 0.01), 0.075, 0.009, g))
         for xx in np.linspace(side * (GW / 2 - 0.12), x_m + side * 0.5, 7): nl.append((xx, -0.073, hz))
+    for zb_ in (Z0 + 1.0, Z0 + LH - 0.75):
+        for xx in np.linspace(x_h - side * 0.12, x_m + side * 0.12, 8): nl.append((xx, -0.071, zb_))
     # clench nails through the ledges (outside heads)
     for zl in (Z0 + 0.42, Z0 + LH * 0.52, Z0 + LH - 0.38):
         for k in range(nb): nl.append((x_h - side * (bw * (k + 0.5)) + 0.03, -0.064, zl + 0.04)); nl.append((x_h - side * (bw * (k + 0.5)) - 0.03, -0.064, zl - 0.04))
@@ -180,7 +187,7 @@ plank('LeverArm', (LX, 0.40, 1.15), (LX + 0.25, 0.40, 2.25), 0.10, 0.08, 881, (0
 n = 16 if HIGH else 5
 V, Q, Tr, uv = sweep(np.array([[LX, 0.30, 1.18], [LX, 0.68, 1.18]]), np.tile([0, 0, 1.0], (2, 1)), circ(0.025, n))
 group(mesh('LeverPin', V, [Q, Tr], 'Iron', uv=uv), 'Lever')
-rp = np.array([[LX + 0.25, 0.40, 2.22], [LX + 0.55, 0.32, 3.0], [-PX + 0.1, 0.24, PH - 0.62]])
+rp = np.array([[LX + 0.25, 0.40, 2.22], [LX + 0.55, 0.32, 3.0], [-PX + 0.1, 0.24, PH - 0.42]])
 rp = np.vstack([rp[0] + (rp[1] - rp[0]) * t for t in np.linspace(0, 1, 12)] + [rp[1] + (rp[2] - rp[1]) * t for t in np.linspace(0, 1, 24)[1:]])
 group(rope('LeverRope', rp, 0.012, 882), 'Lever')
 
