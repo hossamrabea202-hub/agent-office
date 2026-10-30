@@ -1,10 +1,10 @@
 {
-  "working": "",
+  "working": "Owner-approved #41 diagnosis; #162 battle memory/debris; #50 workshop/repair/convoy; #164 morph; #163 reactions",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
   "since": "2026-10-30T06:42:06Z",
-  "asOf": "2026-10-30T07:02:03Z",
+  "asOf": "2026-10-30T07:27:22Z",
   "done": [
     "#48 Blueprint hearing core published and verified; #161 Master handoff. 44 offline graph tests passed. Unreal compile/PIE and live adapter pending; context tokens unavailable.",
     "#123 coordinator/pacing source handoff #126 published; 37 reference tests + 1,200-step simulation passed. Native/game validation pending.",
@@ -18,6 +18,7 @@
     "Tower #9 review package uploaded and handed off (#85)"
   ],
   "todo": [
+    "#162/#50/#164/#163: build new-only Blueprint controllers and source-backed handoffs; #41 diagnose reported outside-gate deaths",
     "#123: Blueprint-only conversion; #124 current wave/gate/climb exports needed",
     "#48: #161 isolated Blueprint compile/test; #160 fresh exports -> movement/emitter/guard/indicator integration. Native #122 parked.",
     "#95: adapt fresh #116 graphs; private mesh files inaccessible on this host; fit/bake remains",
