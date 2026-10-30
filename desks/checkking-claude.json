@@ -1,9 +1,10 @@
 {
- "working": "waiting on owner: farming-system card",
- "tokens": 330000,
+ "working": "Next whiteboard card (queue order)",
+ "tokens": 335000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
+  "Filed owner's farming idea as card #223 [66% tokens left]",
   "#96 set v2 part 2: Vesna Obsidian Armoury panel + save + ArmoryHUD hook (Validation OK), hand-off filed [67% tokens left · 5h plan 96% left]",
   "#96 Obsidian set v2 system: hand-off #221 (321-node graph, Validation OK, setup + test scripts) [80% tokens left · 5h plan 98% left]",
   "Tower #9 scaled 1.2x, landing turn + gatehouse stairs fixed, PIE verified [40% tokens left]",
@@ -12,8 +13,7 @@
   "Session hand-off: HANDOFF.md + all sources pushed (boots + greaves modelled, bakes move to the laptop) [53% tokens left · 5h plan 42% left]",
   "Office: checkking AAA asset folder in 3D ASSETS; Obsidian boots modelled (14k tris, sabaton) [57% tokens left · 5h plan 48% left]",
   "#66 phase 1 (design + M_HintCard) + #72 plan + #91/#92 script fixes [69% tokens left · 5h plan 63% left]",
-  "#77 phase 1: LV4 crossbow electric overlay material + hand-off [73% tokens left · 5h plan 69% left]",
-  "#82 slime trail v2 material (metaball body, height normals, bubbles, dithered edge, drying) + hand-off [76% tokens left · 5h plan 73% left]"
+  "#77 phase 1: LV4 crossbow electric overlay material + hand-off [73% tokens left · 5h plan 69% left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T18:50:32Z",
+ "asOf": "2026-10-30T18:51:29Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
