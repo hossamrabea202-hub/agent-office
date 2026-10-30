@@ -96,5 +96,23 @@ nc = b.name('AsNoticeHUD'); cast(G, nc, NOTC, 'AsBP Notice HUD', 7600, Y); b.wir
 txt = b.selstr(None, None, b.get('IsNight', BOOL, 7900, Y + 500), 8150, Y + 400, da='NIGHT FALLS', db='DAWN')
 pn = b.call(NOTC, 'PushNotice', [S('Text'), it('Tier', default='1')], 8200, Y, target=(nc, 'AsBP Notice HUD'), tag='Notice'); b.wire(txt, pn, 'Text'); G.link(nc, 'then', pn, 'execute')
 
+al = b.call_self('ApplyLights', [], 8600, Y, ACT, tag='CallApplyLights'); G.link(pn, 'then', al, 'execute')
+al0 = b.call_self('ApplyLights', [], 2300, 0, ACT, tag='CallApplyLights0'); G.link(tm, 'then', al0, 'execute')
+
+# ---------------- ApplyLights: torches / fire pits on at night, off by day ----------------
+#   any actor with the tag NightLight (point lights, your torch and lantern props, Niagara fires) and every BP_FireCoals_01a
+Y = 3400
+ev3 = b.event('ApplyLights', [], 0, Y)
+hide = b.bnot(b.get('IsNight', BOOL, 0, Y + 500), 300, Y + 500)
+tg = b.lib(GS, 'GetAllActorsWithTag', [WC(), N('Tag', default='NightLight'), arr(ob('OutActors', ACT, out=True))], 300, Y, tag='Tagged')
+G.link(ev3, 'then', tg, 'execute')
+fe1 = b.foreach(ACT, 700, Y); G.link(tg, 'then', fe1, 'Exec'); b.wire((tg, 'OutActors'), fe1, 'Array')
+h1 = b.call(ACT, 'SetActorHiddenInGame', [bo('bNewHidden')], 1100, Y + 100, target=(fe1, 'Array Element'), tag='HideTagged'); b.wire(hide, h1, 'bNewHidden'); G.link(fe1, 'LoopBody', h1, 'execute')
+P_COALS = '/Game/AncientTreasures/Blueprints/BP_FireCoals_01a'
+fc_ = b.lib(GS, 'GetAllActorsOfClass', [WC(), CLSPIN('ActorClass', ACT, cpath(P_COALS)), arr(ob('OutActors', ACT, out=True))], 1500, Y, tag='FirePits')
+G.link(fe1, 'Completed', fc_, 'execute')
+fe2 = b.foreach(ACT, 1900, Y); G.link(fc_, 'then', fe2, 'Exec'); b.wire((fc_, 'OutActors'), fe2, 'Array')
+h2 = b.call(ACT, 'SetActorHiddenInGame', [bo('bNewHidden')], 2300, Y + 100, target=(fe2, 'Array Element'), tag='HidePit'); b.wire(hide, h2, 'bNewHidden'); G.link(fe2, 'LoopBody', h2, 'execute')
+
 open(os.path.join(HERE, 'BP_DayNight_graph.txt'), 'w', encoding='utf-8').write(G.render())
 print('BP_DayNight', len(G.nodes), 'nodes')

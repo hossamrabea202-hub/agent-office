@@ -26,8 +26,14 @@ existing rewired. It drives the sun, sky light and fog that are already in the l
 `DayLengthMin` 10 · `StartHour` 9 · `SunYaw` 35 (which way the sun comes from) · `MoonLux` 0.6 · `FogDay` 0.02 ·
 `FogNightExtra` 0.03. Noon lux / colours are constants in the Clock chain if you want them different.
 
-## Hooks for later (one line each)
-- Waves: in `BP_ZombieWaveManager`, read `BP_DayNight.IsNight` → bigger / faster waves at night.
-- Ore carts (#201): night carts carry rarer metals, zombies raid more.
-- Sword fire: at night keep `FireHeat` at 0.25 idle so the blade is a torch.
-- Street torches: emissive × `MPC_DayNight.Night`.
+## Night hooks (owner: "yes, all three")
+- **Torches and fire pits** (in the BP_DayNight paste, event *ApplyLights*): at dusk every actor tagged **`NightLight`** and
+  every `BP_FireCoals_01a` fire pit is shown; at dawn hidden. Tag your torch / lantern / point-light actors `NightLight`
+  (Details → Actor → Tags). Materials can also read `MPC_DayNight.Night` for a glow that fades in.
+- **Night waves**: paste `WaveManager_Night_graph.txt` (7 nodes, Validation OK) into `BP_ZombieWaveManager`, then two
+  wires by hand (the merge tool cannot run on that export, it holds duplicated node copies): `WV_104` (Round, the rolled
+  count of the new wave) → pin A of the pasted *Multiply_IntInt*; the pasted *Divide_IntInt* → pin B of `CX_15` (the
+  Add that feeds *Set ToSpawn* `WV_105`), replacing the old Round → B wire. Result: 1.5× zombies per wave at night.
+  Paste BP_DayNight first, the wave manager looks it up by class.
+- **Sword as a torch**: in the sword-fire paste v3 (handoffs/sword-fire): the blade idles at `NightIdle` 0.25 all night.
+- Still open: ore carts at night (rarer metals, more raids) once #201 is in.

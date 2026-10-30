@@ -13,7 +13,7 @@ component (new material, new instance).
    → `/Game/CastleDefender/VFX/SwordFire/`: 2 textures, `M_SwordFireOverlay`, `MI_SwordFire`.
 2. Open `M_SwordFireOverlay`, drag the output of the node described **WPO_OUT** into *World Position Offset*, Apply, Save
    (Python cannot connect that pin). Skip this if you want flames flat on the blade.
-3. `BP_ThirdPersonCharacter`: add the 10 variables in `VARIABLES.md`.
+3. `BP_ThirdPersonCharacter`: add the 11 variables in `VARIABLES.md`.
 4. Paste `Hero_SwordFire_graph.txt` into the EventGraph (Validation OK, 88 nodes), then wire by hand (`manifest.json`
    lists the same ten wires; the applyall merge cannot run on the hero export because the whole-asset conversion
    drops the Enhanced Input / PlayMontage nodes):
@@ -34,6 +34,10 @@ component (new material, new instance).
   `EdgePower` 2 (how much the fire hugs the edges), `Tint`, `StandoffCm` 2 (how far flames stand off the blade).
 - In the Blueprint: `FireRange` 600 cm, `FireOn` (false = never burns; #95 can set it from the element choice later),
   the light's 4000 max intensity is the Multiply constant in FireThink.
+
+## Night (v3)
+With `BP_DayNight` placed (handoffs/day-night), the blade idles warm at night: `NightIdle` 0.25 = a small steady flame and a
+torch-light on the ground all night; zombies near still push it to full. Without BP_DayNight nothing changes.
 
 ## Tuning the burn
 `BurnDamage` 5 per tick (4 ticks a second), `BurnTime` 3 s, both on the hero. The zombie's flames are `MI_Burning`.

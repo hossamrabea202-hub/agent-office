@@ -33,3 +33,12 @@ BPVar(VarName="BurnEnd",VarGuid=5F1E0C4A5B8D4E1F9A2B3C4D5E6F7C08,VarType=(PinCat
 BPVar(VarName="BurnDamage",VarGuid=5F1E0C4A5B8D4E1F9A2B3C4D5E6F7C09,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="BurnDamage",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="5.0")
 BPVar(VarName="BurnTime",VarGuid=5F1E0C4A5B8D4E1F9A2B3C4D5E6F7C0A,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="BurnTime",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="3.0")
 ```
+
+Night idle (v3):
+
+| NightIdle | float | 0.25 | heat the blade keeps at night (0 = off) |
+|---|---|---|---|
+
+```
+BPVar(VarName="NightIdle",VarGuid=5F1E0C4A5B8D4E1F9A2B3C4D5E6F7C0B,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="NightIdle",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.25")
+```

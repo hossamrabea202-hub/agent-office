@@ -11,46 +11,46 @@
    "note": "BeginPlay -> fire init first (was -> K2Node_DynamicCast_0)"
   },
   {
-   "from": "sfTimerBurnThink37.then",
+   "from": "sfTimerBurnThink44.then",
    "to": "K2Node_DynamicCast_0.execute",
    "note": "then the original BeginPlay chain"
   },
   {
    "from": "CX_737.then",
-   "to": "sfIfHotSlash40.execute",
+   "to": "sfIfHotSlash47.execute",
    "replace": true,
    "note": "slash: after Intensity is set (was -> CX_728 SetLifeSpan)"
   },
   {
-   "from": "sfIfHotSlash40.else",
+   "from": "sfIfHotSlash47.else",
    "to": "CX_728.execute"
   },
   {
-   "from": "sfSlashHot42.then",
+   "from": "sfSlashHot49.then",
    "to": "CX_728.execute"
   },
   {
    "from": "CX_721.ReturnValue",
-   "to": "sfSlashEmber41.self"
+   "to": "sfSlashEmber48.self"
   },
   {
    "from": "CX_721.ReturnValue",
-   "to": "sfSlashHot42.self",
+   "to": "sfSlashHot49.self",
    "note": "the slash MID"
   },
   {
    "from": "CX_735.ReturnValue",
-   "to": "sfMultiply_Doubl43.A",
+   "to": "sfMultiply_Doubl50.A",
    "note": "the normal slash intensity, x3 when hot"
   },
   {
    "from": "K2Node_CallFunction_CH7.then",
-   "to": "sfIfHotHit46.execute",
+   "to": "sfIfHotHit53.execute",
    "note": "after the sword hit damage"
   },
   {
    "from": "K2Node_ComponentBoundEvent_CH0.OtherActor",
-   "to": "sfAsZombieHit47.Object",
+   "to": "sfAsZombieHit54.Object",
    "note": "the actor the sword hit"
   }
  ]

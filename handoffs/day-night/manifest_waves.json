@@ -1,0 +1,19 @@
+{
+ "blueprint": "BP_ZombieWaveManager",
+ "pastes": [
+  "WaveManager_Night_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "WV_104.ReturnValue",
+   "to": "nwMultiply_IntIn6.A",
+   "note": "the rolled wave count"
+  },
+  {
+   "from": "nwDivide_IntInt7.ReturnValue",
+   "to": "CX_15.B",
+   "replace": true,
+   "note": "x1.5 at night into ToSpawn = ToSpawn + count"
+  }
+ ]
+}

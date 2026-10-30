@@ -53,7 +53,13 @@ br = b.branch(close, 1900, Y + 200, 'IfClose'); G.link(fe, 'LoopBody', br, 'exec
 s_n1 = b.set('FireNear', bo('v', default='true'), None, 2200, Y + 200); G.link(br, 'then', s_n1, 'execute')
 # target heat, ease, apply
 want = b.b2('BooleanAND', b.get('FireOn', BOOL, 1300, Y + 750), b.get('FireNear', BOOL, 1300, Y + 900), 1600, Y + 800)
-tgt = b.self_(None, None, want, 1900, Y + 800, da='1.0', db='0.0')
+tgt0 = b.self_(None, None, want, 1900, Y + 800, da='1.0', db='0.0')
+# night: the blade idles warm (a torch) while BP_DayNight says it is night
+DNC = BPC('/Game/CastleDefender/Environment/DayNight/BP_DayNight', 'BP_DayNight')
+dn = b.lib(GS, 'GetActorOfClass', [WC(), CLSPIN('ActorClass', ACT, '/Game/CastleDefender/Environment/DayNight/BP_DayNight.BP_DayNight_C'), ob('ReturnValue', DNC, out=True)], 1300, Y + 1200, pure=True, tag='FindDayNight')
+isn = b.b2('BooleanAND', b.valid((dn, 'ReturnValue'), 1600, Y + 1150), b.getm('IsNight', DNC, BOOL, (dn, 'ReturnValue'), 1600, Y + 1300), 1900, Y + 1200)
+idle = b.self_(b.get('NightIdle', D('v', default='0.25'), 1900, Y + 1400), None, isn, 2150, Y + 1250, db='0.0')
+tgt = b.math('FMax', [(D('A'), tgt0), (D('B'), idle)], D('ReturnValue', out=True), 2150, Y + 950)
 ease = b.math('FInterpTo', [(D('Current'), b.get('FireHeat', DBL, 1900, Y + 1000)), (D('Target'), tgt), (D('DeltaTime', default='0.15'), None), (D('InterpSpeed', default='4.0'), None)], D('ReturnValue', out=True), 2300, Y + 850)
 s_h = b.set('FireHeat', DBL, ease, 2600, Y + 600); G.link(fe, 'Completed', s_h, 'execute')
 heat = b.get('FireHeat', DBL, 2600, Y + 1000)
