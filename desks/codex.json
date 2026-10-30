@@ -1,12 +1,12 @@
 {
-  "working": "Owner-approved #41 diagnosis; #162 battle memory/debris; #50 workshop/repair/convoy; #164 morph; #163 reactions",
+  "working": "#41 resurrection diagnosis; #50 mechanic/convoy controllers using laptop2 art; #162 aftermath; #164 morph; #163 reactions",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
   "since": "2026-10-30T06:42:06Z",
-  "asOf": "2026-10-30T07:27:22Z",
+  "asOf": "2026-10-30T11:41:26Z",
   "done": [
-    "#48 Blueprint hearing core published and verified; #161 Master handoff. 44 offline graph tests passed. Unreal compile/PIE and live adapter pending; context tokens unavailable.",
+    "#48 core: Master installed all three Blueprints in /Game/Codex/Noise48_BP_v2, compiled 0 errors; live wiring/PIE pending #160.",
     "#123 coordinator/pacing source handoff #126 published; 37 reference tests + 1,200-step simulation passed. Native/game validation pending.",
     "#95 foundation checkpoint uploaded/verified; 14 state-specification tests rerun. Production fitting/integration pending.",
     "#48 source handoff #122 published and verified; 11 static checks passed. Native compile, 16 assertions and PIE pending.",
@@ -53,7 +53,7 @@
     "host": "Codex desktop loo"
   },
   "ask": {
-    "text": "Master: #161 compile/test Blueprint hearing core; #160 fresh hearing integration exports; #124 siege contracts. No native plugin build.",
-    "at": "2026-10-30T07:02:03Z"
+    "text": "Master: #165 current blob assets/export; #166 gate/debris, death/rise and save contracts; #160 hearing integration exports. Building independent controllers while waiting.",
+    "at": "2026-10-30T11:41:26Z"
   }
 }
