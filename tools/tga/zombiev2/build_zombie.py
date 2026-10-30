@@ -1,4 +1,4 @@
-# Zombie variations v2 (#199, TGA, 2026-10-30): an ORIGINAL procedural humanoid base (no licensed mesh), then variants.
+﻿# Zombie variations v2 (#199, TGA, 2026-10-30): an ORIGINAL procedural humanoid base (no licensed mesh), then variants.
 #   blender -b --factory-startup -P build_zombie.py       env VARIANT = Base | Bloated | Burnt | Hollow | Infected | Soldier | Crawler
 # Anatomy lofts (torso, ribcage, pelvis, neck, skull + face masses, arms, hands with fingers, legs, feet) are fused by a
 # voxel remesh, smoothed like muscle, then variant damage is carved, decimated to ~22k tris, smart-UV'd and auto-weighted
@@ -70,22 +70,54 @@ P = path([(0, 0.00, 0.90), (0, -0.01, 1.08), (0, 0.01, 1.25), (0, -0.02, 1.40), 
 W = prof(t, [(0, 0.0), (0.03, 0.15), (0.15, 0.17), (0.4, 0.135), (0.7, 0.16), (0.9, 0.15), (1.0, 0.0)], 5)
 Dp = prof(t, [(0, 0.0), (0.03, 0.10), (0.15, 0.11), (0.4, 0.085 * THIN), (0.7, 0.11), (0.9, 0.09), (1.0, 0.0)], 5)
 add(*loft(P, Dp, W, 40))
-blob((0, -0.02, 1.27), (0.15, 0.115, 0.15))                       # ribcage
+blob((0, -0.005, 1.29), (0.135, 0.10, 0.13))                      # ribcage (inside the torso loft, just fills the chest)
 for s in (1, -1):
     blob((0.07 * s, 0.05, 0.93), (0.075, 0.07, 0.08))              # gluteals
     blob((0.12 * s, 0.0, 1.44), (0.07, 0.05, 0.035), axis=0)       # trapezius
-    blob((0.195 * s, -0.005, 1.385), (0.04, 0.045, 0.055))          # deltoid (wasted)
+    blob((0.18 * s, -0.005, 1.39), (0.045, 0.045, 0.05))            # deltoid (wasted, overlaps the shoulder)
 if VAR == 'Bloated': blob((0, -0.10, 1.10), (0.16, 0.13, 0.16))  # distended belly
 # ---- neck + head --------------------------------------------------------------------------------------------------
-limb([(0, -0.02, 1.40), (0, -0.04, 1.50), (0, -0.05, 1.60)], [(0, 0.062), (1, 0.052)], 12, 20, 1.1, cap=False)
-blob((0, -0.035, 1.715), (0.074, 0.098, 0.088), n=24, seg=32, axis=1)   # cranium (long front-back)
-blob((0, -0.085, 1.635), (0.06, 0.05, 0.065), n=20, seg=28)          # face / maxilla
-blob((0, -0.115, 1.705), (0.055, 0.02, 0.015), axis=0)             # brow ridge
-blob((0, -0.135, 1.66), (0.012, 0.02, 0.028))                     # nose
-blob((0, -0.10, 1.585), (0.045, 0.035, 0.03), axis=0)             # jaw / chin (slack)
+limb([(0, -0.01, 1.38), (0, -0.035, 1.48), (0, -0.045, 1.56)], [(0, 0.075), (0.5, 0.060), (1, 0.058)], 12, 20, 1.1, cap=False)   # short, thick, pushed forward
+def head(c, nu=128, nv=96):
+    """one star-shaped surface: an egg (cranium + face) whose radius is pushed/pulled by skull landmarks, so the features
+    flow into each other instead of reading as stuck-on lumps. Local frame: x right(+ = left side), y front(-), z up."""
+    c = np.asarray(c, float); u = np.linspace(0, 2 * np.pi, nu, endpoint=False); v = np.linspace(0, np.pi, nv)
+    U, Vv = np.meshgrid(u, v); D = np.stack([np.sin(Vv) * np.cos(U), np.sin(Vv) * np.sin(U), np.cos(Vv)], -1)   # unit dirs
+    dx, dy, dz = D[..., 0], D[..., 1], D[..., 2]
+    rx = 0.071 - 0.012 * ss(0.0, -0.9, dz)                                    # jaw narrower than the cranium
+    ry = np.where(dy < 0, 0.100 - 0.006 * ss(0.3, -0.6, dz), 0.098)           # long front-back skull
+    rz = np.where(dz > 0, 0.100, 0.118)                                        # chin hangs lower than the crown rises
+    P = D * np.stack([rx, ry, rz], -1)
+    def bump(p, w, a, sx=1.0):                                                  # radial push (+) / pull (-) around a landmark
+        q = P / np.array([sx, 1.0, 1.0]) - np.asarray(p) / np.array([sx, 1.0, 1.0]); d2 = (q ** 2).sum(-1) / w ** 2
+        return a * np.exp(-d2)
+    dr = np.zeros(dx.shape)
+    dr += bump((0, -0.090, 0.040), 0.030, 0.010, 2.2)                           # brow ridge (wide band)
+    dr += bump((0, -0.080, -0.088), 0.022, 0.010)                               # chin
+    dr += bump((0, -0.097, 0.012), 0.010, 0.016)                                # nasal bridge
+    dr += bump((0, -0.100, -0.012), 0.011, -0.020)                              # rotted nose: open nasal cavity
+    dr += bump((0, -0.090, -0.052), 0.016, -0.022, 1.9)                         # gaping mouth (wide slit, slack jaw)
+    dr += bump((0, -0.093, -0.036), 0.010, 0.006, 2.4)                          # upper lip / teeth line
+    for s in (1, -1):
+        dr += bump((0.033 * s, -0.088, 0.018), 0.019, -0.026)                  # deep orbits (sunken eyes)
+        dr += bump((0.034 * s, -0.080, 0.014), 0.009, 0.010)                   # shrivelled eyeball at the bottom of the orbit
+        dr += bump((0.054 * s, -0.070, -0.006), 0.016, 0.009)                  # zygomatic bone / cheekbone
+        dr += bump((0.068 * s, -0.030, -0.004), 0.020, 0.005, 0.6)             # zygomatic arch running back to the ear
+        dr += bump((0.046 * s, -0.068, -0.040), 0.018, -0.014)                 # hollow cheek under the cheekbone
+        dr += bump((0.062 * s, -0.040, 0.036), 0.020, -0.007)                  # sunken temple
+        dr += bump((0.055 * s, 0.000, -0.078), 0.020, 0.008)                   # mandible angle
+        dr += bump((0.070 * s, -0.012, -0.014), 0.010, 0.006)                  # ear root (ears added as blobs)
+    dr += bump((0, 0.095, -0.020), 0.035, 0.008, 1.6)                           # occipital bulge
+    P = P + D * dr[..., None] + c
+    V = [tuple(p) for p in P.reshape(-1, 3)]; F = []
+    for i in range(nv - 1):
+        for j in range(nu):
+            j1 = (j + 1) % nu; F.append([i * nu + j, i * nu + j1, (i + 1) * nu + j1, (i + 1) * nu + j])
+    add(V, F)                                                                  # pole rings collapse to points: the remesh welds them
+HEADC = (0, -0.055, 1.625)
+head(HEADC)
 for s in (1, -1):
-    blob((0.045 * s, -0.11, 1.645), (0.02, 0.02, 0.016))           # cheekbones
-    blob((0.075 * s, -0.045, 1.67), (0.008, 0.018, 0.03))          # ears
+    blob((0.074 * s, -0.060, 1.617), (0.008, 0.017, 0.028))                    # ears (shrivelled)
 # ---- arms (A-pose ~25 deg) and hands with fingers --------------------------------------------------------------------
 ARM = {}
 for s, sd in ((1, 'l'), (-1, 'r')):
@@ -108,7 +140,7 @@ for s, sd in ((1, 'l'), (-1, 'r')):
     limb([hp, (hp + kn) / 2, kn, kn + (an - kn) * 0.3, an], [(0, 0.085), (0.4, 0.065), (0.48, 0.05), (0.55, 0.05), (0.7, 0.048), (1, 0.034)], 40, 22)
     blob((0.11 * s, 0.035, 0.36), (0.04, 0.035, 0.09))                               # calf
     ft = np.array([0.115 * s, -0.16, 0.025])
-    limb([an + [0, 0.03, 0.03], an + [0, 0.0, -0.05], ft], [(0, 0.03), (0.3, 0.04), (1, 0.03)], 20, 16, 0.6)
+    limb([an + [0, 0.02, 0.09], an + [0, 0.0, -0.05], ft], [(0, 0.03), (0.3, 0.04), (1, 0.03)], 20, 16, 0.6)
     LEG[sd] = (hp, kn, an, ft)
 
 V, F = [], []
@@ -122,11 +154,7 @@ sm = body.modifiers.new('Smooth', 'LAPLACIANSMOOTH'); sm.lambda_factor = 0.5; sm
 # ---- carve the face and the variant damage (vertex displacement on the fused skin) ---------------------------------------
 co = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
 x, y, z = co[:, 0], co[:, 1], co[:, 2]
-for s in (1, -1):                                                                      # sunken eye sockets
-    d = np.sqrt(((x - 0.033 * s) / 0.022) ** 2 + ((z - 1.675) / 0.016) ** 2) ; front = y < -0.09
-    co[:, 1] += 0.016 * np.exp(-d ** 2 * 1.5) * front
-d = np.sqrt((x / 0.025) ** 2 + ((z - 1.606) / 0.01) ** 2); co[:, 1] += 0.012 * np.exp(-d ** 2) * (y < -0.1)    # gaping mouth
-gaunt = np.exp(-(((x.__abs__() - 0.05) / 0.02) ** 2 + ((z - 1.62) / 0.025) ** 2)) * (y < -0.07); co[:, 0] -= np.sign(x) * 0.008 * gaunt   # hollow cheeks
+# (face landmarks now live in head(); variant damage displacement goes here)
 me.vertices.foreach_set('co', co.ravel()); me.update()
 n0 = len(me.polygons) * 2
 dm = body.modifiers.new('Decimate', 'DECIMATE'); dm.ratio = min(1.0, TRIS / max(n0, 1)); bpy.ops.object.modifier_apply(modifier='Decimate')
@@ -145,7 +173,7 @@ def bone(name, h, t, parent=None):
     if parent: b.parent = ad.edit_bones[parent]
 bone('root', (0, 0, 0), (0, 0.25, 0)); bone('pelvis', (0, 0, 0.95), (0, 0, 1.05), 'root')
 bone('spine_01', (0, 0, 1.05), (0, -0.005, 1.17), 'pelvis'); bone('spine_02', (0, -0.005, 1.17), (0, 0.0, 1.29), 'spine_01'); bone('spine_03', (0, 0.0, 1.29), (0, -0.02, 1.42), 'spine_02')
-bone('neck_01', (0, -0.03, 1.44), (0, -0.055, 1.56), 'spine_03'); bone('head', (0, -0.055, 1.56), (0, -0.055, 1.80), 'neck_01')
+bone('neck_01', (0, -0.02, 1.42), (0, -0.045, 1.53), 'spine_03'); bone('head', (0, -0.045, 1.53), (0, -0.055, 1.74), 'neck_01')
 for s, sd in ((1, 'l'), (-1, 'r')):
     bone('clavicle_' + sd, (0.03 * s, -0.03, 1.42), (0.18 * s, 0.0, 1.41), 'spine_03')
     if ARM[sd]:
@@ -156,7 +184,7 @@ for s, sd in ((1, 'l'), (-1, 'r')):
         bone('foot_' + sd, an, an + np.array([0, -0.10, -0.06]), 'calf_' + sd); bone('ball_' + sd, an + np.array([0, -0.10, -0.06]), ft, 'foot_' + sd)
     else: bone('thigh_' + sd, (0.095 * s, 0, 0.92), (0.105 * s, -0.01, 0.70), 'pelvis')
     if 'ball_' + sd in ad.edit_bones: t = ad.edit_bones['ball_' + sd].tail; bone('toeend_' + sd, t, t + Vector((0, -0.04, 0)), 'ball_' + sd)
-bone('headtop', (0, -0.055, 1.80), (0, -0.055, 1.86), 'head')
+bone('headtop', (0, -0.055, 1.74), (0, -0.055, 1.80), 'head')
 # SK_Zombie (#200, zombie_bones.txt) uses Mixamo names with Hips as the root: rename so the existing anims share by name
 ad.edit_bones.remove(ad.edit_bones['root'])
 SKZ = {'pelvis': 'Hips', 'spine_01': 'Spine', 'spine_02': 'Spine1', 'spine_03': 'Spine2', 'neck_01': 'Neck', 'head': 'Head', 'headtop': 'HeadTop_End'}
