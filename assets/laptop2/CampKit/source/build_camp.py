@@ -401,7 +401,7 @@ elif VAR == 'Workbench':   # #50 workshop: heavy oak bench with a leg vice, tool
     meta = {'size': [W + 0.4, Dp + 0.3, H + 0.1], 'work_point': [0.0, 0.0, H + 0.1]}
 
 elif VAR == 'Grindstone':   # #50 workshop: 0.6 m sandstone wheel in an oak frame over a water trough, with a crank
-    tube('Trough', np.array([[-0.26, 0.0, 0.15], [0.26, 0.0, 0.15]]), [0, 0, 1.0], 0.12, 'WoodCut', n=24 if HIGH else 8)   # top at 0.27 < the wheel's bottom 0.28: nothing intersects (intersections bake black)
+    tube('Trough', np.array([[-0.26, 0.0, 0.11], [0.26, 0.0, 0.11]]), [0, 0, 1.0], 0.11, 'WoodCut', n=24 if HIGH else 8)   # top at 0.22, 6 cm under the wheel: outside the 3 cm bake rays
     for sx in (-1, 1):
         for sy in (-1, 1):
             V, Q, Tr, uv = sweep(np.array([[sx * 0.3, sy * 0.22, 0.0], [sx * 0.3 + j(0.005), sy * 0.2, 0.55]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.07, 0.07, 8 if HIGH else 4, 6.0)); mesh('Post_%d_%d' % (int(sx > 0), int(sy > 0)), V, [Q, Tr], 'WoodCut', uv=uv)
