@@ -77,3 +77,15 @@ cart: it breaks into a pile; walk the hero over it: counted. Wave 10+: more silv
   soldier and bolt Blueprints once this is in and tested. The mint works fully now.
 - Paste into the Forge EventGraph (contains ActorBeginOverlap / ActorEndOverlap: delete the stubs first), compile,
   place the forge in the castle yard. Hero items and starmetal recipes come with the pack/equip system (v2).
+
+## Part 3 — the forge levels change the fight (2026-10-30)
+
+Two data-only inserts, no exec changes, both dry-run Validation OK on the 2026-10-30b exports:
+- `manifest_soldier.json` → **BP_SoldierSword** (commander inherits): sword damage × (1 + 0.2·ForgeSword);
+  damage taken ÷ (1 + 0.3·ForgePlate) (= soldier HP +30 %).
+- `manifest_zombie.json` → **BP_Zombie** (all zombie kinds inherit): a soldier bolt's damage × (1 + 0.25·ForgeBolt),
+  or × 2 on a risen soldier; each gate hit ÷ (1 + 0.5·ForgeGate) → iron bands +50 % gate life, silver +100 %, gilded +150 %.
+
+`python tools/applyall/applyall.py merge --live <export> --manifest handoffs/mine-201/manifest_soldier.json --out merged.t3d`
+and the same with `manifest_zombie.json`. Paste, Refresh All Nodes, compile. Needs the four Forge ints on BP_ZombieHUD (part 2).
+Test: buy iron swords at the forge (2 Fe) → soldiers kill 20 % faster; buy gate bands → the gate bar drains slower.

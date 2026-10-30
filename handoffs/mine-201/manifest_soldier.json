@@ -1,0 +1,30 @@
+{
+ "blueprint": "BP_SoldierSword",
+ "pastes": [
+  "SoldierSword_Forge_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_556.ReturnValue",
+   "to": "fsMultiply_Doubl8.A",
+   "note": "the sword damage value"
+  },
+  {
+   "from": "fsMultiply_Doubl8.ReturnValue",
+   "to": "CX_297.BaseDamage",
+   "replace": true,
+   "note": "x (1 + 0.2 ForgeSword) into ApplyDamage"
+  },
+  {
+   "from": "CX_601.Damage",
+   "to": "fsDivide_DoubleD13.A",
+   "note": "incoming damage"
+  },
+  {
+   "from": "fsDivide_DoubleD13.ReturnValue",
+   "to": "CX_612.B",
+   "replace": true,
+   "note": "/ (1 + 0.3 ForgePlate) before the HP subtract"
+  }
+ ]
+}

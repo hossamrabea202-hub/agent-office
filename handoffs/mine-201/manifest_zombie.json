@@ -1,0 +1,43 @@
+{
+ "blueprint": "BP_Zombie",
+ "pastes": [
+  "Zombie_Forge_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "K2Node_Event_ZB60.DamageCauser",
+   "to": "fzAsBolt12.Object",
+   "note": "is it a soldier bolt?"
+  },
+  {
+   "from": "K2Node_Event_ZB60.Damage",
+   "to": "fzMultiply_Doubl15.A",
+   "note": "incoming damage"
+  },
+  {
+   "from": "fzMultiply_Doubl15.ReturnValue",
+   "to": "K2Node_CallFunction_ZB64.B",
+   "replace": true,
+   "note": "x bolt factor into the DamageTaken add"
+  },
+  {
+   "from": "CX_83.ReturnValue",
+   "to": "fzSubtract_Doubl20.A",
+   "note": "GateDamage + hit"
+  },
+  {
+   "from": "CX_82.GateDamage",
+   "to": "fzSubtract_Doubl20.B"
+  },
+  {
+   "from": "CX_82.GateDamage",
+   "to": "fzAdd_DoubleDoub22.A"
+  },
+  {
+   "from": "fzAdd_DoubleDoub22.ReturnValue",
+   "to": "CX_84.A",
+   "replace": true,
+   "note": "softened gate hit into the FMin"
+  }
+ ]
+}
