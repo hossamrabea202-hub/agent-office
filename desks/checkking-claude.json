@@ -1,9 +1,10 @@
 {
- "working": "#213 part 2: skill tree UNLOCK box layout, then #230 deploy cannon",
- "tokens": 760000,
+ "working": "Weapon kit v2: UV density + bardiche/glaive fixes, then maces/war hammers",
+ "tokens": 830000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
+  "#230 deploy cannon handed off (#239) [17% tokens left]",
   "Night fixes #213 #214 #216 #217 #219 #220 handed off (#232-#238), weapon kit 13 (#233) [24% tokens left · 5h plan 70% left]",
   "Motion graphics #66/#86/#139/#140/#141: reveals + cards + infection look, hand-off #231 [44% tokens left · 5h plan 91% left]",
   "Filed owner's 3 new systems as cards #224-#226 [66% tokens left]",
@@ -12,8 +13,7 @@
   "#96 Obsidian set v2 system: hand-off #221 (321-node graph, Validation OK, setup + test scripts) [80% tokens left · 5h plan 98% left]",
   "Tower #9 scaled 1.2x, landing turn + gatehouse stairs fixed, PIE verified [40% tokens left]",
   "Both front towers replaced (tower #9) in live castle, PIE + nav verified [54% tokens left · 5h plan 39% left]",
-  "Vesna talk video + Cinzel title (BP_NoticeHUD), Play-tested [75% tokens left · 5h plan 79% left]",
-  "Session hand-off: HANDOFF.md + all sources pushed (boots + greaves modelled, bakes move to the laptop) [53% tokens left · 5h plan 42% left]"
+  "Vesna talk video + Cinzel title (BP_NoticeHUD), Play-tested [75% tokens left · 5h plan 79% left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T20:52:44Z",
+ "asOf": "2026-10-30T20:56:45Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
