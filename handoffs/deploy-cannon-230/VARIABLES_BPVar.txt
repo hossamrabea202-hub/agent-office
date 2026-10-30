@@ -1,0 +1,11 @@
+# BP_CannonOrder
+BPVar(VarName="InRange",VarGuid=CDB32E34417E4A369627F1B524448148,VarType=(PinCategory="bool"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="Price",VarGuid=F0EAE510EF83428CAB91233F818E366C,VarType=(PinCategory="int"),PropertyFlags=5,DefaultValue="800")
+
+# BP_CannonConvoy
+BPVar(VarName="HP",VarGuid=8DA25B34D3CE4ED4A354D3E4D6FB0513,VarType=(PinCategory="real",PinSubCategory="double"),PropertyFlags=5,DefaultValue="400.0")
+BPVar(VarName="Target",VarGuid=C774175568D84C88B93A7FED96E70226,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="TargetYaw",VarGuid=35B50AD91E684F7FBE15CEA87DFB1CAE,VarType=(PinCategory="real",PinSubCategory="double"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="LastLoc",VarGuid=57FBEE3C2F6747049AB2CBCDAC6C56B6,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="WheelAngle",VarGuid=A988EA04F5194B5E8A424258E396002C,VarType=(PinCategory="real",PinSubCategory="double"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="Crew",VarGuid=CFC60176D366488896B096F7CEE74D6C,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",ContainerType=Array),PropertyFlags=5,DefaultValue="")
