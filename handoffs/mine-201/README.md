@@ -30,6 +30,8 @@ All four graphs: `applyall check` Validation OK; the HUD manifest dry-run on the
   exactly **`Load`** (a lump of ore on the cart; its material needs a Vector parameter named **`Tint`** — make a 1-node
   material `M_OreLoad` with a VectorParameter "Tint" into Base Color, or a dynamic instance). Capsule radius ~90, half
   height ~90; Mesh (skeletal) left empty.
+- **v2:** a PointLight named exactly **`Lantern`** on the cart's handle (~80 cm up, warm 2700 K, intensity ~800, radius 600,
+  Visible off). Do **not** tag the cart NightLight (BP_DayNight would hide the whole cart); the cart switches its own lantern.
 - Class defaults: Auto Possess AI = **Placed in World or Spawned**, AI Controller Class = AIController.
   CharacterMovement → Max Walk Speed 250, Use RVO Avoidance on.
 - Variables: `Metal` int 0, `HP` float 300.
@@ -59,8 +61,18 @@ NavMesh reaches from the mine to the gate (the carts use the same mesh the zombi
 **Test**: play, wait 45 s — a cart with coloured ore rolls to the gate, the ORE line counts up. Let zombies reach a
 cart: it breaks into a pile; walk the hero over it: counted. Wave 10+: more silver/gold/starmetal.
 
+## v2 — night carts (2026-10-30 evening, same pastes, nothing extra to wire)
+Needs BP_DayNight (handoffs/day-night) in the level; without it the mine runs day odds all the time.
+- After dark the mine skips the cheap end of the roll (`NightFloor` 40): **Fe 25 %, Cu 33 %, Ag 25 %, Au 12 %, Star 5 %**
+  (day 55 / 20 / 15 / 7 / 3). Wave shift and veins still apply on top.
+- Night waves are ×1.5, so night carts are worth more and die more: the escort choice is the player's.
+- Each cart lights its `Lantern` from dusk to dawn (checked every 0.5 s), so carts read on the dark road.
+- Variable: `NightFloor` on BP_Mine (VARIABLES.md). If you already pasted v1: delete the old BP_Mine / BP_OreCart graphs
+  and paste these, or take only the new nodes (FindDayNight, IsValid, BooleanAND, SelectFloat → Random.Min; LanternAtNight
+  between the Arrive event and IfAtGate).
+
 ## Follow-ups (not in this paste)
-- Zombie priority on carts (#48 scorer), escort order for soldiers ("guard the cart"), day/night risk knob.
+- Zombie priority on carts (#48 scorer), escort order for soldiers ("guard the cart"). Day/night risk: done in v2.
 - Spending: see `RECIPES.md`; Armory/Vesna shop rows that take metals instead of gold, and the mint (copper + silver → gold).
 - Art: TGA #202 item 1 (mine entrance + 5 ore load meshes), stockpile shed (item 2).
 

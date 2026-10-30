@@ -6,6 +6,7 @@
 | BP_Mine | VeinLeft | int | 0 | carts still to come from the current vein |
 | BP_Mine | VeinMetal | int | 0 | the vein's metal (0..4) |
 | BP_Mine | LastMetal | int | 0 | metal rolled for the cart being sent |
+| BP_Mine | NightFloor | float | 40.0 | night carts: the roll starts here after dark (0 = no night bonus) |
 | BP_OreCart | Metal | int | 0 | 0 iron, 1 copper, 2 silver, 3 gold ore, 4 starmetal |
 | BP_OreCart | HP | float | 300.0 | cart health |
 | BP_OrePile | Metal | int | 0 | as above |
@@ -20,6 +21,7 @@ BPVar(VarName="LastMetal",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B04,VarType=(PinC
 BPVar(VarName="Metal",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B05,VarType=(PinCategory="int"),FriendlyName="Metal",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
 BPVar(VarName="HP",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B06,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="HP",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="300.0")
 BPVar(VarName="Ore",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B07,VarType=(PinCategory="int",ContainerType=Array),FriendlyName="Ore",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="((0),(0),(0),(0),(0))")
+BPVar(VarName="NightFloor",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B08,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="NightFloor",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="40.0")
 ```
 
 Part 2 (forge), all on BP_ZombieHUD, int, default 0: `ForgeGate` (0..3), `ForgeSword`, `ForgeBolt`, `ForgePlate` (0/1).

@@ -22,6 +22,16 @@ SMC, HUDCLS, FONT = CLS('StaticMeshComponent'), CLS('HUD'), CLS('Font')
 METALS = ['Iron', 'Copper', 'Silver', 'Gold ore', 'Starmetal']
 COLORS = ['0.25, 0.25, 0.28', '0.75, 0.35, 0.15', '0.85, 0.85, 0.90', '1.00, 0.75, 0.20', '0.30, 0.60, 1.00']
 CUM = ['55.0', '75.0', '90.0', '97.0']            # roll < 55 iron, < 75 copper, < 90 silver, < 97 gold ore, else starmetal
+# v2 night carts: while BP_DayNight.IsNight the roll starts at NightFloor (40) instead of 0, so after dark a cart is
+# Fe 25 %, Cu 33 %, Ag 25 %, Au 12 %, Star 5 % (day: 55/20/15/7/3). Carts light a Lantern (PointLight) at night.
+P_DN = '/Game/CastleDefender/Environment/DayNight/BP_DayNight'
+DNC, PLIGHT = BPC(P_DN, 'BP_DayNight'), CLS('PointLightComponent')
+
+
+def is_night(b, x, y):
+    """IsValid(BP_DayNight) AND its IsNight (false when the day/night actor is not in the level)."""
+    dn = b.lib(GS, 'GetActorOfClass', [WC(), CLSPIN('ActorClass', ACT, cpath(P_DN)), ob('ReturnValue', DNC, out=True)], x, y, pure=True, tag='FindDayNight')
+    return b.b2('BooleanAND', b.valid((dn, 'ReturnValue'), x + 300, y - 50), b.getm('IsNight', DNC, BOOL, (dn, 'ReturnValue'), x + 300, y + 100), x + 600, y)
 
 
 def event_override(b, nm, member, params, x, y):
@@ -75,7 +85,9 @@ tm = b.timer('Produce', 300, 0, time=b.get('Period', D('v', default='45.0'), 100
 ev = b.event('Produce', [], 0, 800)
 Y = 800
 wmf = b.actor_of(P_WM, WM, 0, Y + 500); wave = b.getm('Wave', WM, INT, (wmf, 'ReturnValue'), 300, Y + 500)
-roll = b.d2('Add_DoubleDouble', b.rnd('0.0', '100.0', 300, Y + 300), b.d2('Multiply_DoubleDouble', b.i2d(wave, 550, Y + 500), None, 800, Y + 500, db='1.5'), 1050, Y + 300)
+base = b.rnd('0.0', '100.0', 300, Y + 300)
+b.wire(b.self_(b.get('NightFloor', D('v', default='40.0'), -600, Y + 150), None, is_night(b, -900, Y + 300), -300, Y + 150), base[0], 'Min')
+roll = b.d2('Add_DoubleDouble', base,b.d2('Multiply_DoubleDouble', b.i2d(wave, 550, Y + 500), None, 800, Y + 500, db='1.5'), 1050, Y + 300)
 m = selint(b, None, None, b.dcmp('Less_DoubleDouble', roll, None, 1300, Y + 700, db=CUM[3]), 1550, Y + 600, da='3', db='4')
 m = selint(b, None, m, b.dcmp('Less_DoubleDouble', roll, None, 1300, Y + 550, db=CUM[2]), 1800, Y + 500, da='2')
 m = selint(b, None, m, b.dcmp('Less_DoubleDouble', roll, None, 1300, Y + 400, db=CUM[1]), 2050, Y + 400, da='1')
@@ -120,7 +132,11 @@ ev2 = b.event('Arrive', [], 0, Y)
 gate2 = b.actor_of(P_GATE, GATEC, 0, Y + 300)
 dist = b.call_self('GetDistanceTo', [ob('OtherActor', ACT), fl('ReturnValue', out=True)], 300, Y + 300, ACT, pure=True, const=True, tag='DistGate')
 b.wire((gate2, 'ReturnValue'), dist, 'OtherActor')
-br = b.branch(b.dcmp('Less_DoubleDouble', (dist, 'ReturnValue'), None, 600, Y + 300, db='500.0'), 900, Y, 'IfAtGate'); G.link(ev2, 'then', br, 'execute')
+br = b.branch(b.dcmp('Less_DoubleDouble', (dist, 'ReturnValue'), None, 600, Y + 300, db='500.0'), 900, Y, 'IfAtGate')
+lan = b.call(SCENE, 'SetVisibility', [bo('bNewVisibility', default='false'), bo('bPropagateToChildren', default='false')], 300, Y - 300,
+             target=b.get('Lantern', ob('v', PLIGHT), 0, Y - 150), tag='LanternAtNight')   # every 0.5 s: lantern follows dusk/dawn
+b.wire(is_night(b, -400, Y - 100), lan, 'bNewVisibility')
+G.link(ev2, 'then', lan, 'execute'); G.link(lan, 'then', br, 'execute')
 d0, d1 = deliver(b, b.get('Metal', INT, 1200, Y + 600), 1200, Y); G.link(br, 'then', d0, 'execute')
 ds = destroy(b, 3200, Y); G.link(d1, 'then', ds, 'execute')
 Y = 2200
