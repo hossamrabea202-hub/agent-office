@@ -232,6 +232,29 @@ bpy.ops.object.mode_set(mode='OBJECT')
 for o in bpy.context.scene.objects: o.select_set(False)
 body.select_set(True); arm.select_set(True); bpy.context.view_layer.objects.active = arm
 bpy.ops.object.parent_set(type='ARMATURE_AUTO')
+# bone heat can fail silently (the crawler came out with 0 weighted verts): any vertex left without weights gets
+# inverse-distance weights to its 2 nearest bone segments, so no variant ships unrigged
+vc = np.array([v.co for v in me.vertices]); bad = np.array([len(v.groups) == 0 for v in me.vertices])
+if bad.any():
+    bns = [b for b in ad.bones if b.use_deform and not b.name.endswith('_End')]
+    Hd = np.array([b.head_local for b in bns]); Tl = np.array([b.tail_local for b in bns]); seg = Tl - Hd
+    q = vc[bad][:, None, :] - Hd[None]; t = np.clip((q * seg[None]).sum(-1) / (seg ** 2).sum(-1)[None], 0, 1)
+    dist = np.linalg.norm(q - t[..., None] * seg[None], axis=-1)
+    Wb = np.zeros((len(vc), len(bns))); nb = np.argsort(dist, 1)[:, :2]; rows = np.nonzero(bad)[0]
+    for j in range(2): Wb[rows, nb[:, j]] = 1.0 / (dist[np.arange(len(rows)), nb[:, j]] + 1e-3) ** 4
+    Wb[rows] /= Wb[rows].sum(1, keepdims=True)
+    ev = np.empty(len(me.edges) * 2, np.int32); me.edges.foreach_get('vertices', ev); ev = ev.reshape(-1, 2)
+    deg = np.bincount(ev.ravel(), minlength=len(vc)).astype(float)[:, None] + 1e-9
+    for _ in range(30):                                                         # distance weights tear: diffuse them over the surface
+        acc = np.zeros_like(Wb); np.add.at(acc, ev[:, 0], Wb[ev[:, 1]]); np.add.at(acc, ev[:, 1], Wb[ev[:, 0]])
+        Wb[rows] = 0.4 * Wb[rows] + 0.6 * (acc / deg)[rows]
+    top = np.argsort(-Wb[rows], 1)[:, :4]
+    for k, vi in enumerate(rows):
+        w = Wb[vi, top[k]]; w = w / max(w.sum(), 1e-9)
+        for j, bi in enumerate(top[k]):
+            if w[j] < 0.01: continue
+            vg = body.vertex_groups.get(bns[bi].name) or body.vertex_groups.new(name=bns[bi].name); vg.add([int(vi)], float(w[j]), 'REPLACE')
+print('WEIGHT FALLBACK verts', int(bad.sum()), flush=True)
 print('BONES', len(ad.bones), flush=True)
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(D, 'zombie_%s.blend' % VAR))
 print('RIG OK', flush=True)
