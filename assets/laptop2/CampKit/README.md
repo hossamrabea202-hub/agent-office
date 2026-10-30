@@ -1,4 +1,4 @@
-# Camp kit: TorchPost, Campfire, HayBale, Well, HandCart, MarketStall, Anvil
+# Camp kit: TorchPost, Campfire, HayBale, Well, HandCart, MarketStall, Anvil, Tent, SiegeLadder
 
 Made 2026-10-30 by `hossam gmail laptop2 (Claude)` to the knowledge-base standard (`handoffs/knowledge`). Original,
 procedural, no third-party assets. Low poly + 2K bakes from high polys. Stone (fieldstone with lichen, moss low down,
@@ -13,6 +13,8 @@ soot), mortar, straw, calibrated iron, the shared plank / bark / rope.
 | **HandCart** | `SM_Camp_HandCart` | 3.1 × 1.3 × 1.05 m | Two-wheel hand cart on its front legs, shafts toward +X. Put sacks / hay / crates on the bed |
 | **MarketStall** | `SM_Camp_MarketStall` | 2.9 × 2.1 × 2.4 m | Vesna's shop stall (#31 / #144): log posts, plank counter (top at `counter_z` 0.945), low shelf, striped canvas awning with a valance, hook bar with 4 iron hooks (`hooks` in the meta: hang shields there). Goods are placed by hand |
 | **Anvil** | `SM_Camp_Anvil` | 0.62 × 0.38 × 0.8 m | Iron anvil on an oak stump with a hammer; `work_point` for a smith's hammer animation / sparks Niagara |
+| **Tent** | `SM_Camp_Tent` | 4.1 × 2.6 × 1.6 m | Soldiers' ridge tent, canvas sagging on a ridge pole, front flap tied open (`door` in the meta), guy ropes to pegs. Camp rows of 3–5 |
+| **SiegeLadder** | `SM_Camp_SiegeLadder` | 5.1 m | Assault ladder with iron hooks: zombie wall-climb prop (#?? ladder rush), or stacked by the barracks. Built flat along +X, foot at the pivot |
 
 All stand on z 0 with the pivot at the base centre; box collision except the campfire. Sink each 1–3 cm into the ground
 and add grass / dirt decals at the contact. Group them: the well in the courtyard, carts and bales by the barracks,
