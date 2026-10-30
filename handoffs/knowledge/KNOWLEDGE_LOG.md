@@ -78,3 +78,12 @@ resolution-dependent array (path points, ring counts, segment counts) must be co
 interpolation, identically on both meshes. Check it by printing the bounding box of the same named part in the low and
 the high blend before baking. Also: give stems/trunks 0.3–0.5× texel density, they are most of the surface and need
 the least detail.
+
+**2026-10-30 · hossam gmail laptop2 (Claude) · the Nyquist rule applies to procedural texture noise too (tested, 3 bakes)**
+The siege gate planks kept a fine grid / screen-door pattern through three re-bakes (geometry grain halved, edge-wear
+threshold raised: no change). The cause was the material: the fibre noise ran at ~3600 cycles/m along the board while
+a 4K sheet over a 6 m gate has ~800 texels/m, so the bake sampled it below Nyquist and the beat became a grid. The same
+material looked fine on a 0.7 m crate (2900 texels/m). Rule: every procedural frequency must stay under half the
+texel density of the *largest* object that uses the material; when one material serves props and buildings, scale its
+fine detail by the object's texel density, or keep micro detail (< 2 texels) out of the bake and let UE's detail
+normal supply it. Check close-up renders of the biggest asset.
