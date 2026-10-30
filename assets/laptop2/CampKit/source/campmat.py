@@ -143,7 +143,7 @@ def gold(m):
     _finish(nt, col, rg, mt, ao)
 
 KIND = {'Plank': gatemat.plank, 'Iron': shieldmat.iron, 'Coal': ballistamat.coal, 'Shaft': ballistamat.shaft, 'Twine': potionmat.twine,
-        'Stone': stone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold}
+        'Stone': stone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold, 'WaxRed': potionmat.KIND['WaxRed']}
 def build_all():
     woodmat.build_all()
     for m in bpy.data.materials:

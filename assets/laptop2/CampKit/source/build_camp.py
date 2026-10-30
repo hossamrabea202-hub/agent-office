@@ -9,10 +9,10 @@ bpy.ops.wm.read_factory_settings(use_empty=True)
 import kitlog
 from kitlog import log
 from propkit import plank, strap, nails, board_prof, group
-from shieldkit import fbm, sstep, mesh, grid_quads, unit, sweep, rrect, circ, superellipsoid, HIGH, PI
+from shieldkit import fbm, sstep, mesh, grid_quads, unit, sweep, rrect, circ, superellipsoid, orient, HIGH, PI
 D = os.path.dirname(os.path.abspath(__file__))
 VAR = os.environ.get('VARIANT', 'HayBale')
-rng = np.random.default_rng({'TorchPost': 151, 'Campfire': 152, 'HayBale': 153, 'Well': 154, 'HandCart': 155, 'MarketStall': 156, 'Anvil': 157, 'Tent': 158, 'SiegeLadder': 159, 'CannonCart': 160, 'Workbench': 161, 'Grindstone': 162, 'Forge': 163, 'Banner': 164, 'GoldPile': 165}[VAR])
+rng = np.random.default_rng({'TorchPost': 151, 'Campfire': 152, 'HayBale': 153, 'Well': 154, 'HandCart': 155, 'MarketStall': 156, 'Anvil': 157, 'Tent': 158, 'SiegeLadder': 159, 'CannonCart': 160, 'Workbench': 161, 'Grindstone': 162, 'Forge': 163, 'Banner': 164, 'GoldPile': 165, 'Firewood': 166, 'Lantern': 167, 'Signpost': 168, 'TargetDummy': 169, 'Burrow': 170}[VAR])
 j = lambda a=0.004: rng.uniform(-a, a)
 
 def rotm(yaw, pitch, roll=0.0):
@@ -293,19 +293,19 @@ elif VAR == 'Tent':   # 2.4 x 1.8 m soldiers' ridge tent: ridge pole on two end 
         if HIGH: Z = Z + 0.004 * (fbm(U * 14, V_ * 8 + sy, 1010, 4) - 0.5) * 2 + 0.001 * (fbm(U * 70, V_ * 40, 1011, 3) - 0.5) * 2
         Z = np.maximum(Z, 0.003)
         Vc = np.stack([X, Y, Z], -1).reshape(-1, 3); Qc = grid_quads(nu, nv, False)
-        mesh('Canvas_%d' % int(sy > 0), Vc, [Qc], 'CanvasPlain', uv=np.stack([X, V_ * Wd * 0.9], -1).reshape(-1, 2))
+        mesh('Canvas_%d' % int(sy > 0), Vc, [orient(Vc, Qc, np.array([0, sy * 1.0, 0.5]))], 'CanvasPlain', uv=np.stack([X, V_ * Wd * 0.9], -1).reshape(-1, 2))
     # back wall: a triangle of canvas; front: two flaps, one tied back to the pole
     nb = 24 if HIGH else 6
     Ub, Vb = np.meshgrid(np.linspace(-1, 1, nb), np.linspace(0, 1, nb), indexing='ij')
     Xb = -L / 2 - 0.1 + 0.0 * Ub + 0.01 * (1 - Vb); Yb = Ub * (Wd / 2) * (1 - Vb); Zb = (Ht + 0.0) * Vb
     if HIGH: Xb = Xb + 0.004 * (fbm(Ub * 6, Vb * 6, 1012, 3) - 0.5) * 2
-    mesh('BackWall', np.stack([Xb, Yb, Zb], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'CanvasPlain', uv=np.stack([Yb, Zb], -1).reshape(-1, 2))
+    Vb_ = np.stack([Xb, Yb, Zb], -1).reshape(-1, 3); mesh('BackWall', Vb_, [orient(Vb_, grid_quads(nb, nb, False), np.array([-1.0, 0, 0]))], 'CanvasPlain', uv=np.stack([Yb, Zb], -1).reshape(-1, 2))
     Uf, Vf = np.meshgrid(np.linspace(0, 1, nb), np.linspace(0, 1, nb), indexing='ij')
     Xf = L / 2 + 0.1 - 0.02 * Vf; Yf = -(Wd / 2) * (1 - Vf) * Uf; Zf = Ht * Vf + 0.0        # closed left flap
     if HIGH: Xf = Xf + 0.004 * (fbm(Uf * 6, Vf * 6, 1013, 3) - 0.5) * 2
-    mesh('FlapL', np.stack([Xf, Yf, Zf], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'CanvasPlain', uv=np.stack([Yf, Zf], -1).reshape(-1, 2))
+    Vf_ = np.stack([Xf, Yf, Zf], -1).reshape(-1, 3); mesh('FlapL', Vf_, [orient(Vf_, grid_quads(nb, nb, False), np.array([1.0, 0, 0]))], 'CanvasPlain', uv=np.stack([Yf, Zf], -1).reshape(-1, 2))
     Xr = L / 2 + 0.1 + 0.25 * Uf * (1 - Vf); Yr = (Wd / 2) * (1 - Vf) * (0.35 + 0.65 * Uf) * (1 - 0.5 * Uf * (1 - Vf)); Zr = Ht * Vf + 0.1 * Uf * (1 - Vf)   # right flap rolled open toward the pole
-    mesh('FlapR', np.stack([Xr, Yr, Zr], -1).reshape(-1, 3), [grid_quads(nb, nb, False)], 'CanvasPlain', uv=np.stack([Yr + Xr, Zr], -1).reshape(-1, 2))
+    Vr_ = np.stack([Xr, Yr, Zr], -1).reshape(-1, 3); mesh('FlapR', Vr_, [orient(Vr_, grid_quads(nb, nb, False), np.array([1.0, 0.5, 0]))], 'CanvasPlain', uv=np.stack([Yr + Xr, Zr], -1).reshape(-1, 2))
     for sy in (-1, 1):   # guy ropes from the hem to wooden pegs, and the ridge ropes to the end pegs
         for k in range(3):
             x = -L / 2 + 0.3 + k * (L - 0.6) / 2
@@ -401,7 +401,7 @@ elif VAR == 'Workbench':   # #50 workshop: heavy oak bench with a leg vice, tool
     meta = {'size': [W + 0.4, Dp + 0.3, H + 0.1], 'work_point': [0.0, 0.0, H + 0.1]}
 
 elif VAR == 'Grindstone':   # #50 workshop: 0.6 m sandstone wheel in an oak frame over a water trough, with a crank
-    tube('Trough', np.array([[-0.35, 0.0, 0.3], [0.35, 0.0, 0.3]]), [0, 0, 1.0], 0.16, 'WoodCut', n=24 if HIGH else 8)
+    tube('Trough', np.array([[-0.26, 0.0, 0.2], [0.26, 0.0, 0.2]]), [0, 0, 1.0], 0.13, 'WoodCut', n=24 if HIGH else 8)   # clear of the posts and rails (intersections bake black)
     for sx in (-1, 1):
         for sy in (-1, 1):
             V, Q, Tr, uv = sweep(np.array([[sx * 0.3, sy * 0.22, 0.0], [sx * 0.3 + j(0.005), sy * 0.2, 0.55]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.07, 0.07, 8 if HIGH else 4, 6.0)); mesh('Post_%d_%d' % (int(sx > 0), int(sy > 0)), V, [Q, Tr], 'WoodCut', uv=uv)
@@ -523,6 +523,111 @@ elif VAR == 'GoldPile':   # #187 gold drop: a spilled leather purse with a mound
     mesh('Purse', Vp, [grid_quads(nu + 1, nv + 1, False)], 'Leather', uv=np.stack([T_ * 0.06, Z_ * 0.16], -1).reshape(-1, 2))
     kitlog.rope('Drawstring', [[-0.03, 0.05 + 0.07 * math.cos(a_), 0.001 + 0.055 * (0.5 + 0.5 * math.sin(a_)) * 0.7] for a_ in np.linspace(0, 2 * PI, 24)], 0.003, 1802, closed=True)
     meta = {'size': [0.4, 0.3, 0.07], 'pickup_radius_m': 0.9, 'note': 'gold drop (#187): sparkle Niagara at origin, bob + slow yaw in BP, despawn 60 s'}
+
+elif VAR == 'Firewood':   # owner list #8: a 1.4 m stack of split logs between two stakes, a few loose on top
+    for k, x in enumerate((-0.72, 0.72)):
+        for y in (-0.2, 0.2): log('Stake_%d_%d' % (k, int(y > 0)), (x, y, -0.05), (x + j(0.01), y, 1.0), 0.03, 1900 + k, bend=0.004, tip1=0.06)
+    rows = 6
+    for r_ in range(rows):
+        z = 0.08 + r_ * 0.15; n = 7 - (r_ // 3)
+        for i_ in range(n):
+            x = -0.62 + 1.24 * (i_ + 0.5 + 0.5 * (r_ % 2)) / n
+            if x > 0.66: continue
+            split = rng.random() < 0.7
+            ob = log('Log_%d_%02d' % (r_, i_), (x + j(0.01), -0.26 + j(0.01), z), (x + j(0.01), 0.26 + j(0.01), z + j(0.005)), 0.065 + j(0.012), 1910 + r_ * 10 + i_, bend=0.003, split=split)
+    for i_ in range(3):   # loose ones on top
+        x = rng.uniform(-0.4, 0.4); a = rng.uniform(-0.4, 0.4)
+        log('Loose_%d' % i_, (x - 0.25 * math.sin(a), -0.25 * math.cos(a), 0.08 + rows * 0.15 + 0.02), (x + 0.25 * math.sin(a), 0.25 * math.cos(a), 0.08 + rows * 0.15 + 0.03), 0.06, 1950 + i_, bend=0.003, split=True)
+    meta = {'size': [1.5, 0.6, 1.1]}
+
+elif VAR == 'Lantern':   # #10: hanging iron lantern: ring handle, 4 posts, horn panes (glass slot kept unbaked), a candle, a hook bracket
+    base = 0.0
+    group_ = None
+    ring('BaseRing', (0, 0, base + 0.01), 0.075, rrect(0.02, 0.006, 8 if HIGH else 4, 5.0), 'Iron', n=64 if HIGH else 16)
+    Vs, Qs, Ts = superellipsoid(24 if HIGH else 8, 6 if HIGH else 3, 0.2); mesh('BasePlate', np.array([0, 0, base + 0.006]) + Vs * np.array([0.07, 0.07, 0.006]), [Qs, Ts], 'Iron', uv=np.stack([Vs[:, 0], Vs[:, 1]], -1) * 0.07)
+    for k in range(4):
+        a = 2 * PI * k / 4 + PI / 4; x, y = 0.06 * math.cos(a), 0.06 * math.sin(a)
+        tube('Post_%d' % k, np.array([[x, y, base + 0.01], [x * 0.9, y * 0.9, base + 0.2]]), [0, 0, 1.0], 0.005, 'Iron', n=8 if HIGH else 4)
+    ring('TopRing', (0, 0, base + 0.2), 0.065, rrect(0.016, 0.005, 8 if HIGH else 4, 5.0), 'Iron', n=64 if HIGH else 16)
+    # conical roof with a vent cap, a wire bail
+    n = 24 if HIGH else 8; th = np.linspace(0, 2 * PI, n + 1); roof = np.stack([0.078 * np.cos(th), 0.078 * np.sin(th), np.full_like(th, base + 0.2)], -1)
+    roof2 = np.stack([0.02 * np.cos(th), 0.02 * np.sin(th), np.full_like(th, base + 0.26)], -1)
+    Vr = np.vstack([roof, roof2]); Qr = grid_quads(2, n + 1, False); mesh('Roof', Vr, [orient(Vr, Qr, np.array([0, 0, 1.0]))], 'Iron', uv=np.stack([np.tile(th, 2) * 0.078, np.repeat([0, 0.06], n + 1)], -1))
+    tube('Cap', np.array([[0, 0, base + 0.25], [0, 0, base + 0.29]]), [1.0, 0, 0], 0.02, 'Iron', n=12 if HIGH else 6, rad=[0.022, 0.012])
+    a_ = np.linspace(0, PI, 20 if HIGH else 7); bail = np.stack([0.06 * np.cos(a_), np.zeros_like(a_), base + 0.27 + 0.07 * np.sin(a_)], -1)
+    tube('Bail', bail, [0, 1.0, 0], 0.004, 'Iron', n=8 if HIGH else 4)
+    tube('Hook', np.array([[0, 0, base + 0.34], [0, 0, base + 0.42], [0.03, 0, base + 0.45], [0.05, 0, base + 0.43]]), [0, 1.0, 0], 0.005, 'Iron', n=8 if HIGH else 4)
+    # candle stub (wax) in the middle; the horn panes: 4 thin quads named Glass (unbaked, UE translucent material)
+    tube('Candle', np.array([[0, 0, base + 0.012], [0, 0, base + 0.09]]), [1.0, 0, 0], 0.012, 'WaxRed', n=12 if HIGH else 6)
+    Vs, Qs, Ts = superellipsoid(10 if HIGH else 6, 5 if HIGH else 3, 0.8); mesh('Flame', np.array([0, 0, base + 0.105]) + Vs * np.array([0.006, 0.006, 0.014]), [Qs, Ts], 'Coal', uv=np.stack([Vs[:, 0], Vs[:, 2]], -1) * 0.01, attrs={'glow': np.ones(len(Vs))})
+    for k in range(4):
+        a = 2 * PI * k / 4; c_, s_ = math.cos(a), math.sin(a)
+        P = np.array([[0.062 * c_ - 0.045 * s_, 0.062 * s_ + 0.045 * c_, base + 0.015], [0.062 * c_ + 0.045 * s_, 0.062 * s_ - 0.045 * c_, base + 0.015], [0.056 * c_ + 0.04 * s_, 0.056 * s_ - 0.04 * c_, base + 0.195], [0.056 * c_ - 0.04 * s_, 0.056 * s_ + 0.04 * c_, base + 0.195]])
+        mesh('Glass', P, [np.array([[0, 1, 2, 3]])], 'Glass', uv=np.array([[0, 0], [0.09, 0], [0.09, 0.18], [0, 0.18]]))
+    meta = {'size': [0.16, 0.16, 0.46], 'light': [0, 0, base + 0.1], 'note': 'pivot at the base; hang by the hook (top at z 0.45); point light 1800 K 150 cd at light, flicker; Glass slot = translucent horn'}
+
+elif VAR == 'Signpost':   # #11: a post with 3 carved arrow boards at different heights/angles
+    log('Post', (0, 0, -0.1), (0.01, 0.0, 2.3), 0.055, 2000, bend=0.008, tip1=0.1)
+    for k, (z, yaw, L, flip) in enumerate(((2.05, 0.3, 0.9, 1), (1.78, -0.9, 0.75, -1), (1.5, 2.2, 0.8, 1))):
+        c_, s_ = math.cos(yaw), math.sin(yaw); d = np.array([c_, s_, 0]) * flip
+        p0 = np.array([0, 0, z]) - d * 0.12; p1 = np.array([0, 0, z]) + d * L
+        plank('Board_%d' % k, tuple(p0), tuple(p1), 0.16, 0.03, 2010 + k, (-s_, c_, 0), rot=0.1)
+        # the arrow point: a wedge plank at the far end
+        tip = p1 + d * 0.12
+        V, Q, Tr, uv = sweep(np.array([p1 - [0, 0, 0.0], tip]), np.tile([-s_, c_, 0.0], (2, 1)), rrect(0.16, 0.03, 8 if HIGH else 4, 6.0))
+        M1 = (8 if HIGH else 4) + 1; G = V[:2 * M1].reshape(2, M1, 3); ctr = np.array([p1, tip])[:, None, :]; G[1] = ctr[1] + (G[1] - ctr[1]) * 0.05; V[:2 * M1] = G.reshape(-1, 3)
+        K = M1 - 1; V[2 * M1 + K:2 * M1 + 2 * K] = G[-1, :K]; mesh('Tip_%d' % k, V, [Q, Tr], 'WoodCut', uv=uv)
+        nails('BoardNails_%d' % k, [tuple(np.array([0, 0, z]) + d * 0.0 + np.array([-s_, c_, 0]) * 0.02 + [0, 0, dz]) for dz in (-0.04, 0.04)], (-s_, c_, 0), None, r=0.007)
+    meta = {'size': [2.0, 2.0, 2.3], 'note': 'carve the names as a decal per board (DecalKit next), or leave blank and let the HUD label it'}
+
+elif VAR == 'TargetDummy':   # #13: straw training dummy on a post: burlap body stuffed with straw, a straw head, a cross-arm, a battered shield disc, bolt holes decal goes on it
+    log('Post', (0, 0, -0.1), (0.01, 0.0, 1.95), 0.05, 2100, bend=0.006)
+    tube('Arm', np.array([[-0.55, 0.0, 1.35], [0.55, 0.0, 1.36]]), [0, 0, 1.0], 0.025, 'WoodCut', n=12 if HIGH else 6)
+    kitlog.lash('ArmLash', (0, 0, 1.35), 0.05, (0, 0, 1.35), 0.025, (0, 0, 1), (1, 0, 0), 2101) if False else None
+    a_ = np.linspace(0, 2 * PI * 3, 40 if HIGH else 14); kitlog.rope('ArmLash', np.stack([0.055 * np.cos(a_), 0.055 * np.sin(a_), 1.3 + 0.1 * a_ / (6 * PI)], -1), 0.005, 2101)
+    # body: a sack shape (reuse the sack profile idea) around the post, straw bulging at the neck and waist
+    nu, nv = (64, 40) if HIGH else (18, 10)
+    T_, Z_ = np.meshgrid(np.linspace(0, 2 * PI, nu + 1), np.linspace(0, 1, nv + 1), indexing='ij')
+    prof = (0.16 + 0.06 * np.sin(Z_ * PI) ** 0.7) * (1 - 0.25 * sstep(0.9, 1.0, Z_)) * (1 + 0.05 * (fbm(np.cos(T_) * 2, Z_ * 3, 2102, 3) - 0.5) * 2)
+    if HIGH: prof = prof * (1 + 0.012 * (fbm(T_ * 4, Z_ * 12, 2103, 4) - 0.5) * 2)
+    Vb = np.stack([prof * np.cos(T_) * 1.1, prof * np.sin(T_) * 0.8, 0.75 + 0.75 * Z_], -1).reshape(-1, 3)
+    mesh('Body', Vb, [orient(Vb, grid_quads(nu + 1, nv + 1, False), np.array([1.0, 0, 0]))], 'Burlap', uv=np.stack([T_ * 0.18, Z_ * 0.75], -1).reshape(-1, 2))
+    for z in (0.78, 1.47):   # straw bulging out top and bottom
+        Vs, Qs, Ts = superellipsoid(32 if HIGH else 10, 8 if HIGH else 4, 0.7); mesh('Straw_%d' % int(z * 10), np.array([0, 0, z]) + Vs * np.array([0.17, 0.13, 0.03]), [Qs, Ts], 'Hay', uv=np.stack([Vs[:, 0], Vs[:, 1]], -1) * 0.15)
+    Vs, Qs, Ts = superellipsoid(24 if HIGH else 10, 12 if HIGH else 5, 0.9); mesh('Head', np.array([0, 0, 1.68]) + Vs * (1 + 0.06 * (fbm(Vs[:, 0] * 4, Vs[:, 1] * 4, 2104, 3) - 0.5) * 2)[:, None] * np.array([0.12, 0.11, 0.14]), [Qs, Ts], 'Burlap', uv=np.stack([np.arctan2(Vs[:, 1], Vs[:, 0]) * 0.12, Vs[:, 2] * 0.14], -1))
+    for sy in (-1, 1):   # twine at the neck and waist, a battered round plank disc on the left arm
+        a_ = np.linspace(0, 2 * PI * 2, 30 if HIGH else 10); kitlog.rope('Twine_%d' % int(sy > 0), np.stack([0.15 * np.cos(a_) * 1.1, 0.15 * np.sin(a_) * 0.8, (1.49 if sy > 0 else 0.8) + 0.01 * a_ / (4 * PI)], -1), 0.004, 2105 + int(sy > 0))
+    ring('ShieldRim', (-0.45, -0.05, 1.3), 0.22, rrect(0.04, 0.02, 8 if HIGH else 4, 5.0), 'WoodCut', axis=(0, 1.0, 0), n=48 if HIGH else 14)
+    for b in range(5):
+        x = -0.45 - 0.2 + 0.4 * (b + 0.5) / 5; hw = math.sqrt(max(0.21 ** 2 - (x + 0.45) ** 2, 0.001))
+        plank('ShieldBoard_%d' % b, (x, -0.06, 1.3 - hw), (x, -0.06, 1.3 + hw), 0.4 / 5 - 0.004, 0.02, 2110 + b, (0, -1.0, 0), rot=0.3)
+    meta = {'size': [1.2, 0.5, 2.0], 'note': 'put DecalKit BoltHoles on the body/shield; the shield arm takes hits (BP: damage numbers, no HP)'}
+
+elif VAR == 'Burrow':   # #20: tentacle burrow: a 3 m ring of heaved earth and torn roots round a dark hole, flesh lip inside; the tentacle mesh rises from the hole
+    n_a, n_r = (160, 24) if HIGH else (40, 8)
+    th = np.linspace(0, 2 * PI, n_a + 1); rr = np.linspace(0, 1, n_r + 1)
+    T, R = np.meshgrid(th, rr, indexing='ij')
+    R0, R1 = 0.55, 1.5
+    rad = R0 + (R1 - R0) * R; rad = rad * (1 + 0.08 * (fbm(np.cos(T) * 2 + 3, np.sin(T) * 2, 2200, 3) - 0.5) * 2 * R)
+    Z = 0.32 * np.exp(-((R - 0.22) / 0.2) ** 2) * (1 + 0.3 * (fbm(T * 2, R * 3, 2201, 3) - 0.5) * 2)      # the heaved ring
+    Z = Z - 0.5 * sstep(0.18, 0.0, R)                                                                     # down into the hole
+    Z = Z * sstep(1.0, 0.8, R)                                                                            # flat at the rim
+    if HIGH: Z = Z + 0.01 * (fbm(T * 6, R * 14, 2202, 4) - 0.5) * 2
+    V = np.stack([rad * np.cos(T), rad * np.sin(T), Z], -1).reshape(-1, 3)
+    glow = (sstep(0.35, 0.05, R)).reshape(-1)
+    Q = grid_quads(n_a + 1, n_r + 1, False); mesh('Earth', V, [orient(V, Q, np.array([0, 0, 1.0]))], 'Corrupt' if False else 'Mortar', uv=np.stack([rad * np.cos(T), rad * np.sin(T)], -1).reshape(-1, 2) * 0.5)
+    # inner flesh lip
+    th2 = np.linspace(0, 2 * PI, (96 if HIGH else 24) + 1); rr2 = np.linspace(0, 1, (10 if HIGH else 4) + 1)
+    T2, R2 = np.meshgrid(th2, rr2, indexing='ij'); rad2 = 0.18 + 0.42 * R2; Z2 = -0.5 + 0.2 * R2 ** 0.6 * 1.0 - 0.1 * (1 - R2) + 0.03 * np.sin(T2 * 9) * (1 - R2)
+    V2 = np.stack([rad2 * np.cos(T2), rad2 * np.sin(T2), Z2], -1).reshape(-1, 3)
+    mesh('Lip', V2, [orient(V2, grid_quads(len(th2), len(rr2), False), np.array([0, 0, 1.0]))], 'Leather', uv=np.stack([T2 * 0.4, R2 * 0.5], -1).reshape(-1, 2))
+    for k in range(10):   # torn roots sticking out of the heaved ring
+        a = rng.uniform(0, 2 * PI); r0 = rng.uniform(0.6, 1.1); L = rng.uniform(0.25, 0.6)
+        ctrl = np.array([[r0 * math.cos(a), r0 * math.sin(a), 0.1], [(r0 + L * 0.5) * math.cos(a + 0.2), (r0 + L * 0.5) * math.sin(a + 0.2), 0.25 + 0.2 * rng.random()], [(r0 + L) * math.cos(a + 0.35), (r0 + L) * math.sin(a + 0.35), 0.15]])
+        s_ = np.linspace(0, 1, 14 if HIGH else 7)[:, None]; p = (1 - s_) ** 2 * ctrl[0] + 2 * (1 - s_) * s_ * ctrl[1] + s_ ** 2 * ctrl[2]   # smooth quadratic curve
+        if HIGH: p = p + 0.01 * (fbm(s_[:, 0] * 6 + k, np.zeros(len(s_)), 2210 + k, 3) - 0.5)[:, None] * 2
+        tube('Root_%d' % k, p, [0, 0, 1.0], 0.02, 'WoodCut', n=10 if HIGH else 5, rad=list(0.022 * (1 - s_[:, 0]) ** 0.8 + 0.004))
+    meta = {'size': [3.2, 3.2, 0.4], 'hole_radius_m': 0.55, 'note': 'the tentacle actor sits at the origin and rises from z -0.5; add DecalKit GroundCrack x3 around it, realm fog low'}
 
 json.dump({'grip': [0, 0, 0], **meta}, open(os.path.join(D, 'camp%s_meta.json' % VAR.lower()), 'w'))
 tris = sum(len(p.vertices) - 2 for o in bpy.data.objects if o.type == 'MESH' for p in o.data.polygons)
