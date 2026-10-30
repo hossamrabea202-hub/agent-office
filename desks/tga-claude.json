@@ -1,5 +1,5 @@
 {
- "working": "#199 body pass done (9278a53+); next: 6 variant damage passes, then 3 skins",
+ "working": "#199 variant damage passes; then #202 from item 2 (shed)",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-30T14:50:12Z",
+ "asOf": "2026-10-30T15:50:29Z",
  "seat": "TGA (Claude)"
 }
