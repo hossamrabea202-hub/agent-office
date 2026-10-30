@@ -12,7 +12,7 @@ Export the existing hero armour reference so the modelling PC can fit and skin t
 - Include the fitted steel gorget in the reference. It may already be part of the armour export; verify this.
 - Export the Greystone `HeroHead` separately if available.
 - Measure helmet section 3 alone: bounds, triangle count, material mapping, and existing head/neck_01 weights.
-- Return the FBX through a private file transfer or private project storage. Keep the public Agent Office issue limited to status, measurements, and non-sensitive handoff notes; do not publish the Fab source asset here.
+- Return the FBX through a private file transfer or private project storage. Keep the public Agent Studio issue limited to status, measurements, and non-sensitive handoff notes; do not publish the Fab source asset here.
 - Preserve the source project assets. No reimport, material replacement, or Blueprint changes are required for this reference-export task.
 
 ### Integration target supplied by the owner
@@ -33,4 +33,4 @@ A static, unskinned WIP has been created: 18,720 triangles, one connected watert
 **This is not an AAA-approved or character-fitted asset.** Artistic fidelity, final fit, skinning, Unreal import, section replacement, animation/gorget clearance, and HelmW behavior remain unverified. The native Blender file and textures are still on the modelling PC; this request does not claim those binaries were uploaded.
 
 ### Coordination
-The Agent Office page is a browser-local prototype, not a connected agent executor. This GitHub issue is the shared handoff. The project-PC agent should explicitly acknowledge it and report the export result here when the owner directs it to read this task.
+The Agent Studio page is a browser-local prototype, not a connected agent executor. This GitHub issue is the shared handoff. The project-PC agent should explicitly acknowledge it and report the export result here when the owner directs it to read this task.

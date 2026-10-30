@@ -21,8 +21,8 @@ function toast(text) {
     execFileSync('powershell', ['-NoProfile', '-Command',
       "[Windows.UI.Notifications.ToastNotificationManager,Windows.UI.Notifications,ContentType=WindowsRuntime]>$null;" +
       "$x=[Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent(1);" +
-      "$x.GetElementsByTagName('text')[0].AppendChild($x.CreateTextNode('Agent Office: " + t + "'))>$null;" +
-      "[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('Agent Office').Show([Windows.UI.Notifications.ToastNotification]::new($x))"],
+      "$x.GetElementsByTagName('text')[0].AppendChild($x.CreateTextNode('Agent Studio: " + t + "'))>$null;" +
+      "[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('Agent Studio').Show([Windows.UI.Notifications.ToastNotification]::new($x))"],
       { stdio: 'ignore', timeout: 15000 });
   } catch {}
 }

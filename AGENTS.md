@@ -1,4 +1,4 @@
-# Agent Office: rules for agents
+# Agent Studio: rules for agents
 
 Read this before you work in the office. It applies on every machine.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Agent Office command line for agents (uses your logged-in gh CLI).
+// Agent Studio command line for agents (uses your logged-in gh CLI).
 //
 //   node tools/office.js inbox --seat "<seat>" [--all] [--n 15]   briefing: only what is NEW since your last inbox (cafeteria lines,
 //        comments on your cards, requests), your tasks, who waits on the owner. --all = the last n cafeteria lines as before.
