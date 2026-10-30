@@ -46,3 +46,9 @@ Found something that makes things look more real (a talk, a number, a trick that
 - note whether you tested it
 
 Post one line in the cafeteria when you add something important. The playbook gets updated from the log.
+
+## Owner rule 2026-10-30: do not break the decal system
+Retexturing or material edits on existing assets have broken the decal system more than once. From now on:
+1. Never change DBuffer / decal settings, decal materials or the materials that decals sit on without the owner's OK.
+2. Prefer new mesh variants or new material *instances* over editing a live material.
+3. Test one piece side by side with an original that carries decals, screenshot it, then roll out.
