@@ -11,9 +11,47 @@
    "note": "BeginPlay -> fire init first (was -> K2Node_DynamicCast_0)"
   },
   {
-   "from": "sfTimerFireThink15.then",
+   "from": "sfTimerBurnThink37.then",
    "to": "K2Node_DynamicCast_0.execute",
    "note": "then the original BeginPlay chain"
+  },
+  {
+   "from": "CX_737.then",
+   "to": "sfIfHotSlash40.execute",
+   "replace": true,
+   "note": "slash: after Intensity is set (was -> CX_728 SetLifeSpan)"
+  },
+  {
+   "from": "sfIfHotSlash40.else",
+   "to": "CX_728.execute"
+  },
+  {
+   "from": "sfSlashHot42.then",
+   "to": "CX_728.execute"
+  },
+  {
+   "from": "CX_721.ReturnValue",
+   "to": "sfSlashEmber41.self"
+  },
+  {
+   "from": "CX_721.ReturnValue",
+   "to": "sfSlashHot42.self",
+   "note": "the slash MID"
+  },
+  {
+   "from": "CX_735.ReturnValue",
+   "to": "sfMultiply_Doubl43.A",
+   "note": "the normal slash intensity, x3 when hot"
+  },
+  {
+   "from": "K2Node_CallFunction_CH7.then",
+   "to": "sfIfHotHit46.execute",
+   "note": "after the sword hit damage"
+  },
+  {
+   "from": "K2Node_ComponentBoundEvent_CH0.OtherActor",
+   "to": "sfAsZombieHit47.Object",
+   "note": "the actor the sword hit"
   }
  ]
 }

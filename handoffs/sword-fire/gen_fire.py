@@ -62,9 +62,75 @@ b.wire(heat, sp, 'Value'); G.link(s_h, 'then', sp, 'execute')
 li = b.call(LIGHT, 'SetIntensity', [fl('NewIntensity')], 3350, Y + 600, target=b.get('FireLight', ob('v', PLC), 3100, Y + 850), tag='LightHeat')
 b.wire(b.d2('Multiply_DoubleDouble', heat, None, 3100, Y + 1000, db='4000.0'), li, 'NewIntensity'); G.link(sp, 'then', li, 'execute')
 
+tm2 = b.timer('BurnThink', 4250, 0, dtime='0.25', loop=True); G.link(tm, 'then', tm2, 'execute')
+
+# ---------------- FireSlash: the slash trail turns to fire while the blade is hot ----------------
+# inserted after CX_737 (SetScalarParameterValue Intensity on the slash MID CX_721) and before CX_728 (SetLifeSpan)
+Y = 2400
+hot = b.dcmp('Greater_DoubleDouble', b.get('FireHeat', DBL, 0, Y + 300), None, 300, Y + 300, db='0.5')
+brs = b.branch(hot, 600, Y, 'IfHotSlash')
+sc = b.call(MID, 'SetVectorParameterValue', [N('ParameterName', default='Color'), st('Value', LC, default='(R=1.000000,G=0.320000,B=0.040000,A=1.000000)')], 900, Y, tag='SlashEmber')   # self <- CX_721.ReturnValue
+si = b.call(MID, 'SetScalarParameterValue', [N('ParameterName', default='Intensity'), fl('Value')], 1300, Y, tag='SlashHot')                                                        # self <- CX_721.ReturnValue
+sm = b.d2('Multiply_DoubleDouble', None, None, 1050, Y + 300, da='1.0', db='3.0'); b.wire(sm, si, 'Value')                                                                          # A <- CX_735.ReturnValue
+G.link(brs, 'then', sc, 'execute'); G.link(sc, 'then', si, 'execute')
+SLASH_MULT = sm[0]
+
+# ---------------- BurnStart: a zombie hit by the hot blade keeps burning ----------------
+# hung off CH7.then (ApplyDamage of the sword hit; it had no continuation); OtherActor comes from CH0
+Y = 3200
+hot2 = b.dcmp('Greater_DoubleDouble', b.get('FireHeat', DBL, 0, Y + 300), None, 300, Y + 300, db='0.5')
+brb = b.branch(hot2, 600, Y, 'IfHotHit')
+zc = b.name('AsZombieHit'); cast(G, zc, ZOMBIE, 'AsBP Zombie', 900, Y)                                          # Object <- CH0.OtherActor
+G.link(brb, 'then', zc, 'execute')
+ZH = (zc, 'AsBP Zombie')
+burning = b.get('Burning', arr(ob('v', ACT)), 1200, Y + 400)
+has = b.name('BurnHas'); G.node(has, 'K2Node_CallArrayFunction', ['bIsPureFunc=True', 'FunctionReference=(MemberParent=%s,MemberName="Array_Contains")' % KARR],
+                              [selfpin(KARR, hidden=True), {'name': 'TargetArray', 'cat': 'wildcard', 'container': 'Array', 'ref': True}, {'name': 'ItemToFind', 'cat': 'wildcard', 'ref': True}, bo('ReturnValue', out=True)], 1450, Y + 400)
+b.wire(burning, has, 'TargetArray'); b.wire(ZH, has, 'ItemToFind')
+brn = b.branch(b.bnot((has, 'ReturnValue'), 1750, Y + 400), 1950, Y, 'IfNew'); G.link(zc, 'then', brn, 'execute')
+a1 = b.aadd('Burning', ob('v', ACT), ZH, 2250, Y); G.link(brn, 'then', a1, 'execute')
+endt = b.d2('Add_DoubleDouble', b.now(2250, Y + 500), b.get('BurnTime', D('v', default='3.0'), 2250, Y + 650), 2550, Y + 500)
+a2 = b.aadd('BurnEnd', DBL, endt, 2750, Y); G.link(a1, 'then', a2, 'execute')
+zmesh = b.getm('Mesh', CHARC, ob('v', SKEL), ZH, 2900, Y + 400)
+bov = b.call(MESHC, 'SetOverlayMaterial', [dict(ob('NewOverlayMaterial', MATI), dobj='/Game/CastleDefender/VFX/SwordFire/MI_Burning.MI_Burning')], 3250, Y, target=zmesh, tag='BurnOverlay')
+G.link(a2, 'then', bov, 'execute')
+
+# ---------------- BurnThink (0.25 s): damage every burning zombie; the oldest burn ends after BurnTime ----------------
+Y = 4200
+ev2 = b.event('BurnThink', [], 0, Y)
+fe2 = b.foreach(ACT, 300, Y); b.wire(b.get('Burning', arr(ob('v', ACT)), 0, Y + 300), fe2, 'Array'); G.link(ev2, 'then', fe2, 'Exec')
+ok = b.branch(b.valid((fe2, 'Array Element'), 650, Y + 350), 900, Y + 200, 'IfAlive'); G.link(fe2, 'LoopBody', ok, 'execute')
+ctl = b.call_self('GetController', [ob('ReturnValue', CTRL, out=True)], 1100, Y + 600, PAWN, pure=True, const=True, tag='MyCtl')
+dmg = b.lib(GS, 'ApplyDamage', [ob('DamagedActor', ACT), fl('BaseDamage'), ob('EventInstigator', CTRL), ob('DamageCauser', ACT), CLSPIN('DamageTypeClass', CLS('DamageType'), None), fl('ReturnValue', out=True)], 1200, Y + 200, tag='BurnTick')
+b.wire((fe2, 'Array Element'), dmg, 'DamagedActor'); b.wire(b.get('BurnDamage', D('v', default='5.0'), 950, Y + 500), dmg, 'BaseDamage'); b.wire((ctl, 'ReturnValue'), dmg, 'EventInstigator'); b.wire(b.self_node(1000, Y + 750), dmg, 'DamageCauser')
+G.link(ok, 'then', dmg, 'execute')
+# expiry of the oldest entry
+n_ = b.alen('BurnEnd', DBL, 1700, Y + 900)
+any_ = b.icmp('Greater_IntInt', n_, None, 2150, Y + 900, db='0')
+first = b.aget('BurnEnd', DBL, None, 1700, Y + 1100)
+due = b.dcmp('GreaterEqual_DoubleDouble', b.now(1950, Y + 1300), first, 2250, Y + 1100)
+bre = b.branch(b.b2('BooleanAND', any_, due, 2500, Y + 1000), 2800, Y, 'IfBurnOver'); G.link(fe2, 'Completed', bre, 'execute')
+old = b.aget('Burning', ob('v', ACT), None, 2800, Y + 400)
+oc = b.name('AsOldZombie'); cast(G, oc, ZOMBIE, 'AsBP Zombie', 3100, Y); b.wire(old, oc, 'Object'); G.link(bre, 'then', oc, 'execute')
+omesh = b.getm('Mesh', CHARC, ob('v', SKEL), (oc, 'AsBP Zombie'), 3400, Y + 400)
+off = b.call(MESHC, 'SetOverlayMaterial', [ob('NewOverlayMaterial', MATI)], 3700, Y, target=omesh, tag='BurnOff'); G.link(oc, 'then', off, 'execute')
+def remove0(arrvar, pin, x, y):
+    a = b.get(arrvar, arr(pin), x, y + 200); n = b.name('Pop' + arrvar)
+    G.node(n, 'K2Node_CallArrayFunction', ['FunctionReference=(MemberParent=%s,MemberName="Array_RemoveIndex")' % KARR],
+           [ex(), ex('then', True), selfpin(KARR, hidden=True), {'name': 'TargetArray', 'cat': 'wildcard', 'container': 'Array', 'ref': True}, it('IndexToRemove', default='0'), bo('ReturnValue', out=True)], x, y)
+    b.wire(a, n, 'TargetArray'); return n
+r1 = remove0('Burning', ob('v', ACT), 4100, Y); r2 = remove0('BurnEnd', DBL, 4450, Y)
+G.link(off, 'then', r1, 'execute'); G.link(oc, 'CastFailed', r1, 'execute'); G.link(r1, 'then', r2, 'execute')
+
 open(os.path.join(HERE, 'Hero_SwordFire_graph.txt'), 'w', encoding='utf-8').write(G.render())
 json.dump({'blueprint': 'BP_ThirdPersonCharacter', 'pastes': ['Hero_SwordFire_graph.txt'], 'rewires': [
   {'from': 'K2Node_Event_1.then', 'to': mid + '.execute', 'replace': True, 'note': 'BeginPlay -> fire init first (was -> K2Node_DynamicCast_0)'},
-  {'from': tm + '.then', 'to': 'K2Node_DynamicCast_0.execute', 'note': 'then the original BeginPlay chain'}]},
+  {'from': tm2 + '.then', 'to': 'K2Node_DynamicCast_0.execute', 'note': 'then the original BeginPlay chain'},
+  {'from': 'CX_737.then', 'to': brs + '.execute', 'replace': True, 'note': 'slash: after Intensity is set (was -> CX_728 SetLifeSpan)'},
+  {'from': brs + '.else', 'to': 'CX_728.execute'}, {'from': si + '.then', 'to': 'CX_728.execute'},
+  {'from': 'CX_721.ReturnValue', 'to': sc + '.self'}, {'from': 'CX_721.ReturnValue', 'to': si + '.self', 'note': 'the slash MID'},
+  {'from': 'CX_735.ReturnValue', 'to': SLASH_MULT + '.A', 'note': 'the normal slash intensity, x3 when hot'},
+  {'from': 'K2Node_CallFunction_CH7.then', 'to': brb + '.execute', 'note': 'after the sword hit damage'},
+  {'from': 'K2Node_ComponentBoundEvent_CH0.OtherActor', 'to': zc + '.Object', 'note': 'the actor the sword hit'}]},
   open(os.path.join(HERE, 'manifest.json'), 'w'), indent=1)
 print('wrote', len(G.nodes), 'nodes', mid, tm)
