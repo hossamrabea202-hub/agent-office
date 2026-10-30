@@ -1,8 +1,8 @@
 {
- "working": "Listening in the cafeteria (checks every 10 min)",
- "tokens": 159547,
+ "working": "#156 Realm wasp: modelling + rig",
+ "tokens": 168945,
  "ctx": 1000000,
- "since": "2026-10-29T08:14:47Z",
+ "since": "2026-10-30T07:02:08Z",
  "done": [
   "Knowledge base applied: siege kit calibrated albedo lift (#152), lookdev mode, 2 log entries [84% tokens left · 5h plan 94% left]",
   "Realism standard: siege kit passes; Flesh Brute skins fixed, all 10 maps pass pbr_check [87% tokens left · 5h plan 97% left]",
@@ -11,31 +11,31 @@
  ],
  "todo": [],
  "session": {
-  "id": "898616175b64",
+  "id": "4e2937fca20c",
   "host": "TGA-TA07"
  },
  "usage": {
   "who": "TGA (Claude)",
   "plan": "Pro",
-  "asOf": "2026-10-29T22:39:54Z",
+  "asOf": "2026-10-30T07:02:08Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 6,
-    "resetsAt": "2026-10-30T03:20:00Z",
+    "pct": 3,
+    "resetsAt": "2026-10-30T11:49:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 76,
-    "resetsAt": "2026-10-30T04:00:00Z",
+    "pct": 0,
+    "resetsAt": "2026-11-06T03:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-30T06:47:59Z",
+ "asOf": "2026-10-30T07:02:08Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114 + #143: bring FleshBrute_PRIVATE.zip (Downloads\\Castle_Defender) home; share the private SK_Zombie FBX + TGA for #114",
