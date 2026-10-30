@@ -47,5 +47,9 @@
  "session": {
   "id": "004e1e5b7b5d",
   "host": "5CD3147LBC"
+ },
+ "ask": {
+  "text": "No editor driver online: #58 export SM_FieldCannon_HD as FBX for the 3 break stages (https://github.com/hossamrabea202-hub/agent-office/issues/241)",
+  "at": "2026-10-30T21:02:06Z"
  }
 }
