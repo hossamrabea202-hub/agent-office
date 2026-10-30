@@ -2,7 +2,7 @@
 # with lichen, moss low down, soot from a 'soot' attribute), Mortar and Hay (straw). Knowledge-base standard: non-metal
 # albedo 30-240 sRGB, roughness varied at three scales, wear in physical order (weathering -> lichen -> moss -> soot).
 import bpy
-import woodmat, shieldmat, gatemat, potionmat, ballistamat
+import woodmat, shieldmat, gatemat, potionmat, ballistamat, propmat
 from matlib import _n, _mix_col, _mix_f, _link, _math, _maprange, _edge
 from shieldmat import _co, _sep, _vec, _scale, _noise, _cav, _mul_col
 from swordmat import _finish
@@ -136,14 +136,28 @@ def gold(m):
     col = _mix_col(nt, tone, (0.82, 0.62, 0.22), (0.95, 0.75, 0.32))
     ham = _n(nt, 'ShaderNodeTexVoronoi', feature='SMOOTH_F1', in_Scale=600.0); nt.links.new(co, ham.inputs['Vector'])
     col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, ham.outputs['Distance'], 0.0, 0.5), 0.2), col, (0.6, 0.45, 0.18))
+    # the mound reads as packed coins: a cell pattern of 1.5 cm discs (voronoi F1 in the xy plane), dark gaps between
+    # the coins, a bright rim on each; stacked offsets via a second cell layer
+    cxy = _scale(nt, co, 1.0, 1.0, 0.0)
+    c1 = _n(nt, 'ShaderNodeTexVoronoi', feature='F1', in_Scale=66.0, in_Randomness=0.7); nt.links.new(cxy, c1.inputs['Vector'])
+    disc = _maprange(nt, c1.outputs['Distance'], 0.55, 0.42)                                 # 1 inside a coin, 0 in the gap
+    rim = _math(nt, 'MULTIPLY', _maprange(nt, c1.outputs['Distance'], 0.36, 0.44), _maprange(nt, c1.outputs['Distance'], 0.52, 0.46))
+    c2 = _n(nt, 'ShaderNodeTexVoronoi', feature='F1', in_Scale=66.0, in_Randomness=0.7); nt.links.new(_n(nt, 'ShaderNodeVectorMath', operation='ADD', in_Vector_001=(0.37, 0.21, 0.0)).outputs[0] if False else cxy, c2.inputs['Vector'])
+    gap = _math(nt, 'SUBTRACT', 1.0, disc, True)
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', gap, 0.85), col, (0.05, 0.03, 0.012))            # shadowed gaps
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', rim, 0.5), col, (1.0, 0.85, 0.45))
     grime = _maprange(nt, cav, 0.2, 0.8, 0, 0.7)
     col = _mix_col(nt, grime, col, (0.12, 0.08, 0.03))
-    rg = _mix_f(nt, tone, 0.28, 0.42); rg = _mix_f(nt, grime, rg, 0.7); rg = _mix_f(nt, _maprange(nt, edge, 0.03, 0.2), rg, 0.22)
-    mt = _math(nt, 'SUBTRACT', 1.0, grime, True)
+    rg = _mix_f(nt, tone, 0.28, 0.42); rg = _mix_f(nt, grime, rg, 0.7); rg = _mix_f(nt, _maprange(nt, edge, 0.03, 0.2), rg, 0.22); rg = _mix_f(nt, gap, rg, 0.8)
+    mt = _math(nt, 'SUBTRACT', 1.0, _math(nt, 'MAXIMUM', grime, _math(nt, 'MULTIPLY', gap, 0.7)), True)
+    # coin edges as a bump: the rim ring raised, the gap sunk (the baked normal carries it)
+    bump = _n(nt, 'ShaderNodeBump'); bump.inputs['Strength'].default_value = 0.6; bump.inputs['Distance'].default_value = 0.004
+    nt.links.new(_math(nt, 'SUBTRACT', disc, _math(nt, 'MULTIPLY', rim, 0.3)), bump.inputs['Height'])
     _finish(nt, col, rg, mt, ao)
+    nt.links.new(bump.outputs['Normal'], nt.nodes['BSDF'].inputs['Normal'])
 
 KIND = {'Plank': gatemat.plank, 'Iron': shieldmat.iron, 'Coal': ballistamat.coal, 'Shaft': ballistamat.shaft, 'Twine': potionmat.twine,
-        'Stone': stone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold, 'WaxRed': potionmat.KIND['WaxRed']}
+        'Stone': stone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'CanvasEnd': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold, 'Burlap': propmat.burlap, 'Grain': propmat.grain, 'WaxRed': potionmat.KIND['WaxRed']}
 def build_all():
     woodmat.build_all()
     for m in bpy.data.materials:

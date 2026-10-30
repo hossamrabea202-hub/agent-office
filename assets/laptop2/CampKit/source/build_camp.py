@@ -297,15 +297,15 @@ elif VAR == 'Tent':   # 2.4 x 1.8 m soldiers' ridge tent: ridge pole on two end 
     # back wall: a triangle of canvas; front: two flaps, one tied back to the pole
     nb = 24 if HIGH else 6
     Ub, Vb = np.meshgrid(np.linspace(-1, 1, nb), np.linspace(0, 1, nb), indexing='ij')
-    Xb = -L / 2 - 0.1 + 0.0 * Ub + 0.01 * (1 - Vb); Yb = Ub * (Wd / 2) * (1 - Vb); Zb = (Ht + 0.0) * Vb
+    Xb = -L / 2 - 0.06 + 0.0 * Ub + 0.01 * (1 - Vb); Yb = Ub * (Wd / 2 - 0.03) * (1 - Vb); Zb = (Ht - 0.03) * Vb + 0.003   # 4 cm inside the roof edge, 3 cm off the roof sheets: no shared edges with the slopes
     if HIGH: Xb = Xb + 0.004 * (fbm(Ub * 6, Vb * 6, 1012, 3) - 0.5) * 2
-    Vb_ = np.stack([Xb, Yb, Zb], -1).reshape(-1, 3); mesh('BackWall', Vb_, [orient(Vb_, grid_quads(nb, nb, False), np.array([-1.0, 0, 0]))], 'CanvasPlain', uv=np.stack([Yb, Zb], -1).reshape(-1, 2))
+    Vb_ = np.stack([Xb, Yb, Zb], -1).reshape(-1, 3); mesh('BackWall', Vb_, [orient(Vb_, grid_quads(nb, nb, False), np.array([-1.0, 0, 0]))], 'CanvasEnd', uv=np.stack([Yb, Zb], -1).reshape(-1, 2))
     Uf, Vf = np.meshgrid(np.linspace(0, 1, nb), np.linspace(0, 1, nb), indexing='ij')
-    Xf = L / 2 + 0.1 - 0.02 * Vf; Yf = -(Wd / 2) * (1 - Vf) * Uf; Zf = Ht * Vf + 0.0        # closed left flap
+    Xf = L / 2 + 0.06 - 0.02 * Vf; Yf = -(Wd / 2 - 0.03) * (1 - Vf) * Uf; Zf = (Ht - 0.03) * Vf + 0.003        # closed left flap
     if HIGH: Xf = Xf + 0.004 * (fbm(Uf * 6, Vf * 6, 1013, 3) - 0.5) * 2
-    Vf_ = np.stack([Xf, Yf, Zf], -1).reshape(-1, 3); mesh('FlapL', Vf_, [orient(Vf_, grid_quads(nb, nb, False), np.array([1.0, 0, 0]))], 'CanvasPlain', uv=np.stack([Yf, Zf], -1).reshape(-1, 2))
-    Xr = L / 2 + 0.1 + 0.25 * Uf * (1 - Vf); Yr = (Wd / 2) * (1 - Vf) * (0.35 + 0.65 * Uf) * (1 - 0.5 * Uf * (1 - Vf)); Zr = Ht * Vf + 0.1 * Uf * (1 - Vf)   # right flap rolled open toward the pole
-    Vr_ = np.stack([Xr, Yr, Zr], -1).reshape(-1, 3); mesh('FlapR', Vr_, [orient(Vr_, grid_quads(nb, nb, False), np.array([1.0, 0.5, 0]))], 'CanvasPlain', uv=np.stack([Yr + Xr, Zr], -1).reshape(-1, 2))
+    Vf_ = np.stack([Xf, Yf, Zf], -1).reshape(-1, 3); mesh('FlapL', Vf_, [orient(Vf_, grid_quads(nb, nb, False), np.array([1.0, 0, 0]))], 'CanvasEnd', uv=np.stack([Yf, Zf], -1).reshape(-1, 2))
+    Xr = L / 2 + 0.06 + 0.25 * Uf * (1 - Vf); Yr = (Wd / 2 - 0.03) * (1 - Vf) * (0.35 + 0.65 * Uf) * (1 - 0.5 * Uf * (1 - Vf)); Zr = (Ht - 0.03) * Vf + 0.1 * Uf * (1 - Vf) + 0.003   # right flap rolled open toward the pole
+    Vr_ = np.stack([Xr, Yr, Zr], -1).reshape(-1, 3); mesh('FlapR', Vr_, [orient(Vr_, grid_quads(nb, nb, False), np.array([1.0, 0.5, 0]))], 'CanvasEnd', uv=np.stack([Yr + Xr, Zr], -1).reshape(-1, 2))
     for sy in (-1, 1):   # guy ropes from the hem to wooden pegs, and the ridge ropes to the end pegs
         for k in range(3):
             x = -L / 2 + 0.3 + k * (L - 0.6) / 2
@@ -401,7 +401,7 @@ elif VAR == 'Workbench':   # #50 workshop: heavy oak bench with a leg vice, tool
     meta = {'size': [W + 0.4, Dp + 0.3, H + 0.1], 'work_point': [0.0, 0.0, H + 0.1]}
 
 elif VAR == 'Grindstone':   # #50 workshop: 0.6 m sandstone wheel in an oak frame over a water trough, with a crank
-    tube('Trough', np.array([[-0.26, 0.0, 0.2], [0.26, 0.0, 0.2]]), [0, 0, 1.0], 0.13, 'WoodCut', n=24 if HIGH else 8)   # clear of the posts and rails (intersections bake black)
+    tube('Trough', np.array([[-0.26, 0.0, 0.15], [0.26, 0.0, 0.15]]), [0, 0, 1.0], 0.12, 'WoodCut', n=24 if HIGH else 8)   # top at 0.27 < the wheel's bottom 0.28: nothing intersects (intersections bake black)
     for sx in (-1, 1):
         for sy in (-1, 1):
             V, Q, Tr, uv = sweep(np.array([[sx * 0.3, sy * 0.22, 0.0], [sx * 0.3 + j(0.005), sy * 0.2, 0.55]]), np.tile([1.0, 0, 0], (2, 1)), rrect(0.07, 0.07, 8 if HIGH else 4, 6.0)); mesh('Post_%d_%d' % (int(sx > 0), int(sy > 0)), V, [Q, Tr], 'WoodCut', uv=uv)
@@ -560,10 +560,12 @@ elif VAR == 'Lantern':   # #10: hanging iron lantern: ring handle, 4 posts, horn
     # candle stub (wax) in the middle; the horn panes: 4 thin quads named Glass (unbaked, UE translucent material)
     tube('Candle', np.array([[0, 0, base + 0.012], [0, 0, base + 0.09]]), [1.0, 0, 0], 0.012, 'WaxRed', n=12 if HIGH else 6)
     Vs, Qs, Ts = superellipsoid(10 if HIGH else 6, 5 if HIGH else 3, 0.8); mesh('Flame', np.array([0, 0, base + 0.105]) + Vs * np.array([0.006, 0.006, 0.014]), [Qs, Ts], 'Coal', uv=np.stack([Vs[:, 0], Vs[:, 2]], -1) * 0.01, attrs={'glow': np.ones(len(Vs))})
+    Vg, Qg = [], []   # the four horn panes as ONE object named exactly 'Glass' (the bake skips it; UE gets a translucent slot)
     for k in range(4):
         a = 2 * PI * k / 4; c_, s_ = math.cos(a), math.sin(a)
         P = np.array([[0.062 * c_ - 0.045 * s_, 0.062 * s_ + 0.045 * c_, base + 0.015], [0.062 * c_ + 0.045 * s_, 0.062 * s_ - 0.045 * c_, base + 0.015], [0.056 * c_ + 0.04 * s_, 0.056 * s_ - 0.04 * c_, base + 0.195], [0.056 * c_ - 0.04 * s_, 0.056 * s_ + 0.04 * c_, base + 0.195]])
-        mesh('Glass', P, [np.array([[0, 1, 2, 3]])], 'Glass', uv=np.array([[0, 0], [0.09, 0], [0.09, 0.18], [0, 0.18]]))
+        Qg.append(np.array([[0, 1, 2, 3]]) + 4 * k); Vg.append(P)
+    mesh('Glass', np.vstack(Vg), [np.vstack(Qg)], 'Glass', uv=np.tile(np.array([[0, 0], [0.09, 0], [0.09, 0.18], [0, 0.18]]), (4, 1)))
     meta = {'size': [0.16, 0.16, 0.46], 'light': [0, 0, base + 0.1], 'note': 'pivot at the base; hang by the hook (top at z 0.45); point light 1800 K 150 cd at light, flicker; Glass slot = translucent horn'}
 
 elif VAR == 'Signpost':   # #11: a post with 3 carved arrow boards at different heights/angles
@@ -623,7 +625,8 @@ elif VAR == 'Burrow':   # #20: tentacle burrow: a 3 m ring of heaved earth and t
     mesh('Lip', V2, [orient(V2, grid_quads(len(th2), len(rr2), False), np.array([0, 0, 1.0]))], 'Leather', uv=np.stack([T2 * 0.4, R2 * 0.5], -1).reshape(-1, 2))
     for k in range(10):   # torn roots sticking out of the heaved ring
         a = rng.uniform(0, 2 * PI); r0 = rng.uniform(0.6, 1.1); L = rng.uniform(0.25, 0.6)
-        ctrl = np.array([[r0 * math.cos(a), r0 * math.sin(a), 0.1], [(r0 + L * 0.5) * math.cos(a + 0.2), (r0 + L * 0.5) * math.sin(a + 0.2), 0.25 + 0.2 * rng.random()], [(r0 + L) * math.cos(a + 0.35), (r0 + L) * math.sin(a + 0.35), 0.15]])
+        # roots arch over the heaved ring (ring top 0.32 m): they never pass through it (intersections bake black)
+        ctrl = np.array([[r0 * math.cos(a), r0 * math.sin(a), 0.38], [(r0 + L * 0.5) * math.cos(a + 0.2), (r0 + L * 0.5) * math.sin(a + 0.2), 0.42 + 0.15 * rng.random()], [(r0 + L) * math.cos(a + 0.35), (r0 + L) * math.sin(a + 0.35), 0.2]])
         s_ = np.linspace(0, 1, 14 if HIGH else 7)[:, None]; p = (1 - s_) ** 2 * ctrl[0] + 2 * (1 - s_) * s_ * ctrl[1] + s_ ** 2 * ctrl[2]   # smooth quadratic curve
         if HIGH: p = p + 0.01 * (fbm(s_[:, 0] * 6 + k, np.zeros(len(s_)), 2210 + k, 3) - 0.5)[:, None] * 2
         tube('Root_%d' % k, p, [0, 0, 1.0], 0.02, 'WoodCut', n=10 if HIGH else 5, rad=list(0.022 * (1 - s_[:, 0]) ** 0.8 + 0.004))
