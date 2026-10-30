@@ -21,3 +21,11 @@ BPVar(VarName="Metal",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B05,VarType=(PinCateg
 BPVar(VarName="HP",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B06,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="HP",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="300.0")
 BPVar(VarName="Ore",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B07,VarType=(PinCategory="int",ContainerType=Array),FriendlyName="Ore",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="((0),(0),(0),(0),(0))")
 ```
+
+Part 2 (forge), all on BP_ZombieHUD, int, default 0: `ForgeGate` (0..3), `ForgeSword`, `ForgeBolt`, `ForgePlate` (0/1).
+```
+BPVar(VarName="ForgeGate",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B08,VarType=(PinCategory="int"),FriendlyName="ForgeGate",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="ForgeSword",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B09,VarType=(PinCategory="int"),FriendlyName="ForgeSword",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="ForgeBolt",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B0A,VarType=(PinCategory="int"),FriendlyName="ForgeBolt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="ForgePlate",VarGuid=7C1E0C4A5B8D4E1F9A2B3C4D5E6F7B0B,VarType=(PinCategory="int"),FriendlyName="ForgePlate",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+```

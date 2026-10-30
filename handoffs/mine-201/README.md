@@ -63,3 +63,17 @@ cart: it breaks into a pile; walk the hero over it: counted. Wave 10+: more silv
 - Zombie priority on carts (#48 scorer), escort order for soldiers ("guard the cart"), day/night risk knob.
 - Spending: see `RECIPES.md`; Armory/Vesna shop rows that take metals instead of gold, and the mint (copper + silver → gold).
 - Art: TGA #202 item 1 (mine entrance + 5 ore load meshes), stockpile shed (item 2).
+
+## Part 2 — BP_Forge (spending), added 2026-10-30 after the owner approved RECIPES.md
+
+`BP_Forge_graph.txt` (208 nodes, Validation OK). New Blueprint, parent `Actor`, components: the forge mesh
+(`SM_Camp_Forge` + anvil from CampKit) and a Sphere collision radius 300, Overlap All Dynamic, overlap events on.
+- Hero steps in → keys 1–6 switch on and the notice banner shows the menu. Steps out → keys off.
+- `1` mint 60 gold (1 Cu + 1 Ag) · `2` mint 150 gold (1 Au) · `3` gate bands, next level each press
+  (3 Fe → 2 Ag + 2 Fe → 2 Au + 1 Ag) · `4` iron swords (2 Fe) · `5` silver bolts (1 Ag + 1 Cu) · `6` steel plate (4 Fe + 1 Cu).
+- Not enough metal → banner says what is missing. Bought → banner confirms, metals leave the stockpile.
+- **Add to BP_ZombieHUD** (VARIABLES.md): `ForgeGate`, `ForgeSword`, `ForgeBolt`, `ForgePlate` (int 0). The forge writes
+  the levels; the effects (gate HP ×, sword/bolt damage ×, soldier HP ×) are the next small manifests into the gate,
+  soldier and bolt Blueprints once this is in and tested. The mint works fully now.
+- Paste into the Forge EventGraph (contains ActorBeginOverlap / ActorEndOverlap: delete the stubs first), compile,
+  place the forge in the castle yard. Hero items and starmetal recipes come with the pack/equip system (v2).
