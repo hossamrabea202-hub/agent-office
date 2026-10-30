@@ -1,0 +1,19 @@
+{
+ "blueprint": "BP_ZombieHUD",
+ "pastes": [
+  "ZombieHUD_Ore_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "UX_CallFunction_23.then",
+   "to": "orDrawOre32.execute",
+   "replace": true,
+   "note": "after the XP bar texture draw (was -> K2Node_IfThenElse_H296)"
+  },
+  {
+   "from": "orDrawOre32.then",
+   "to": "K2Node_IfThenElse_H296.execute",
+   "note": "then the rest of the draw chain"
+  }
+ ]
+}
