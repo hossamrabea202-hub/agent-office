@@ -1,5 +1,5 @@
 {
- "working": "#199 final rebake + pbr_check, then hand-off",
+ "working": "#199 handed off (#240); #229 zip on laptop Desktop for owner; now #202 item 2 ore shed (texturing)",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-30T20:20:24Z",
+ "asOf": "2026-10-30T20:55:15Z",
  "seat": "TGA (Claude)"
 }
