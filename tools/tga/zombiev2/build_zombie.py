@@ -75,11 +75,20 @@ for s in (1, -1):
     blob((0.065 * s, 0.035, 0.94), (0.065, 0.05, 0.07))             # gluteals (wasted)
     blob((0.12 * s, 0.0, 1.44), (0.07, 0.05, 0.035), axis=0)       # trapezius
     blob((0.18 * s, -0.005, 1.39), (0.045, 0.045, 0.05))            # deltoid (wasted, overlaps the shoulder)
-if VAR == 'Bloated': blob((0, -0.10, 1.10), (0.16, 0.13, 0.16))  # distended belly
+if VAR == 'Bloated': blob((0, -0.065, 1.12), (0.155, 0.115, 0.19))  # distended belly
 for s in (1, -1):
     limb([(0.015 * s, -0.085, 1.43), (0.08 * s, -0.075, 1.445), (0.16 * s, -0.04, 1.43)], [(0, 0.013), (0.5, 0.011), (1, 0.014)], 14, 12)   # collarbones
-    blob((0.11 * s, -0.06, 0.51), (0.035, 0.022, 0.035))                     # kneecaps
+    if VAR != 'Crawler': blob((0.11 * s, -0.06, 0.51), (0.035, 0.022, 0.035))   # kneecaps
     blob((0.075 * s, 0.07, 1.22), (0.035, 0.03, 0.09))                       # shoulder-blade / lat ridge
+rng = np.random.default_rng({'Bloated': 1, 'Burnt': 2, 'Hollow': 3, 'Infected': 4, 'Soldier': 5, 'Crawler': 6}.get(VAR, 0))
+if VAR == 'Infected':                                                         # pink realm growths clustered on shoulder, back and thigh
+    for c0, n0 in (((-0.21, 0.0, 1.42), 9), ((0.06, 0.14, 1.25), 8), ((-0.15, -0.07, 0.78), 6), ((0.05, -0.02, 1.70), 3)):
+        for _ in range(n0):
+            r0 = rng.uniform(0.018, 0.038); blob(np.array(c0) + rng.normal(0, 0.03, 3), (r0, r0 * rng.uniform(0.8, 1.2), r0), 12, 14)
+if VAR == 'Soldier':                                                          # torn tabard: a thin shell over the torso hanging to mid-thigh, ragged hem
+    n = 30; t = np.linspace(0, 1, n); P = np.stack([np.zeros(n), np.linspace(-0.01, 0.0, n), np.linspace(1.44, 0.70, n)], 1)
+    add(*loft(P, prof(t, [(0, 0.115), (0.3, 0.125), (0.6, 0.14), (1, 0.15)], 3), prof(t, [(0, 0.19), (0.3, 0.165), (0.5, 0.15), (0.65, 0.17), (1, 0.20)], 3), 40))
+    for s in (1, -1): limb([(0.12 * s, -0.02, 1.43), (0.0, -0.02, 1.46), (-0.12 * s, -0.02, 1.43)], [(0, 0.03), (1, 0.03)], 12, 12)   # belt-strap over the shoulders
 # ---- neck + head --------------------------------------------------------------------------------------------------
 limb([(0, -0.01, 1.38), (0, -0.035, 1.48), (0, -0.045, 1.56)], [(0, 0.075), (0.5, 0.060), (1, 0.058)], 12, 20, 1.1, cap=False)   # short, thick, pushed forward
 def head(c, nu=128, nv=96):
@@ -159,6 +168,14 @@ sm = body.modifiers.new('Smooth', 'LAPLACIANSMOOTH'); sm.lambda_factor = 0.5; sm
 co = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
 x, y, z = co[:, 0], co[:, 1], co[:, 2]
 # (face landmarks live in head()) - emaciated ribs on the chest sides, then the hunch
+if VAR == 'Bloated':                                                          # split belly: a ragged vertical tear opening into the gut
+    tear = np.exp(-((x + 0.01 * np.sin(z * 90)) / 0.012) ** 2 - ((z - 1.08) / 0.07) ** 4) * (y < -0.15); co[:, 1] += 0.035 * tear
+if VAR == 'Hollow':                                                           # ribcage torn open on the left of the chest
+    d = np.sqrt(((x - 0.05) / 0.06) ** 2 + ((z - 1.28) / 0.08) ** 2); cav = np.exp(-d ** 4) * (y < -0.04); co[:, 1] += 0.06 * cav
+if VAR == 'Burnt':                                                            # charred, cracked skin: shallow Voronoi-like grooves
+    q = np.sin(x * 61 + np.sin(z * 37) * 2) * np.sin(z * 53 + np.sin(y * 41) * 2) * np.sin(y * 47 + x * 29); co -= (co - [0, 0, 1.0]) / (np.linalg.norm(co - [0, 0, 1.0], axis=1, keepdims=True) + 1e-6) * (0.004 * (np.abs(q) < 0.08))[:, None]
+if VAR == 'Crawler':                                                          # ragged stump ends
+    stump = ss(0.80, 0.70, z) * (z > 0.6); co[:, 2] += 0.02 * np.sin(x * 140 + y * 90) * stump
 rib = np.cos((z - 1.17) * 2 * np.pi / 0.032) * ss(1.10, 1.16, z) * (1 - ss(1.34, 1.40, z)) * ss(0.06, 0.11, np.abs(x)) * (1 - ss(0.13, 0.15, np.abs(x))) * (y < 0.02)
 co[:, :2] += (co[:, :2] / (np.linalg.norm(co[:, :2], axis=1, keepdims=True) + 1e-6)) * (0.0025 * rib)[:, None]
 co[:, 1] += 0.012 * np.exp(-((x / 0.02) ** 2 + ((z - 1.25) / 0.10) ** 2)) * (y < -0.05)    # sternum groove
