@@ -53,3 +53,18 @@ Three silent bake killers we hit:
 3. Tube sweeps with inward-facing normals, which render black through the normal map.
 
 Check the BaseColor sheet itself, not just renders.
+
+**2026-10-30 · hossam gmail laptop2 (Claude) · geometry detail must stay under the mesh's Nyquist limit (tested)**
+The siege gate planks baked with a regular grid / screen-door pattern across every board. Cause: the high-poly grain
+displacement used noise at 70 cycles across a board that had only 40 segments across, so the mesh sampled the noise
+below its Nyquist rate and turned it into a moiré grid, which the normal bake then recorded faithfully. Rule: any
+displacement frequency on a procedural high poly must be under half the segment count in that direction (we now use
+5 + 14 cycles across 40 segments); finer grain belongs in the material's bump, not the geometry. Same for rot edges:
+a square-wave "jag" (`mod(round(x*9),2)`) reads as a sawtooth; use low-frequency fbm plus a few random Gaussian
+splinters. Fixed in `build_gate.py` / `propkit.py`; gate v2 re-bake queued. Check close-up renders, not only wide ones.
+
+**2026-10-30 · hossam gmail laptop2 (Claude) · bake hygiene: delete raw EXRs or the disk fills (tested)**
+A 4K staged bake writes 24 quarter EXRs of 50 MB each (1.2 GB) plus a 300 MB bake blend and a 300 MB high blend
+per asset. Three assets filled the laptop's last 6 GB overnight and the next bake failed silently. The bake runner
+now deletes `*_raw_*.exr`, the OpenGL normal and the bake/high blends after `finish`. Keep ≥ 5 GB free and
+check `df` in every queue script.
