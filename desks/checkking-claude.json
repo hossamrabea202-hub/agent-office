@@ -1,6 +1,6 @@
 {
- "working": "Studio checks; #58 waits on #241",
- "tokens": 970000,
+ "working": "Weapon batch 5: katzbalger, guisarme, morning star",
+ "tokens": 975000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T21:30:20Z",
+ "asOf": "2026-10-30T21:41:57Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
