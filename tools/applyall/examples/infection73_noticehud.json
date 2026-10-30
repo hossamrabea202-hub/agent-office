@@ -1,0 +1,13 @@
+{
+  "blueprint": "BP_NoticeHUD",
+  "pastes": [
+    {"file": "/mnt/user-data/uploads/_claude/ao/handoffs/infection-73/bp/NoticeHUD_Infection_graph.txt"}
+  ],
+  "rewires": [
+    {"from": "CX_208.then",   "to": "InfIn.execute",    "replace": true, "note": "DrawText GAME SAVED; was -> NoticeIn"},
+    {"from": "CX_138.else",   "to": "InfIn.execute",    "replace": true, "note": "Branch else; was -> NoticeIn"},
+    {"from": "InfOut.then_0", "to": "NoticeIn.execute", "replace": true, "note": "banner draws on top"},
+    {"from": "CX_1.SizeX",    "to": "InfSizeX.InInt"},
+    {"from": "CX_1.SizeY",    "to": "InfSizeY.InInt"}
+  ]
+}
