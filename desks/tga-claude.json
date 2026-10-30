@@ -1,9 +1,10 @@
 {
- "working": "#156 Realm wasp: 4K texture bake running; rig + 5 anims + FBX done",
- "tokens": 215000,
+ "working": "#155 half-horse zombie: horse body model",
+ "tokens": 301868,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
  "done": [
+  "#156 Realm wasp: model, 2 skins, rig, 5 anims, UE import (hand-off #167) [70% tokens left · 5h plan 85% left]",
   "Knowledge base applied: siege kit calibrated albedo lift (#152), lookdev mode, 2 log entries [84% tokens left · 5h plan 94% left]",
   "Realism standard: siege kit passes; Flesh Brute skins fixed, all 10 maps pass pbr_check [87% tokens left · 5h plan 97% left]",
   "Siege kit v2: cheval, breach, watchtower rebaked (#135, hand-off #146) [90% tokens left · 5h plan 96% left]",
@@ -17,25 +18,25 @@
  "usage": {
   "who": "TGA (Claude)",
   "plan": "Pro",
-  "asOf": "2026-10-30T07:02:08Z",
+  "asOf": "2026-10-30T07:45:53Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 3,
-    "resetsAt": "2026-10-30T11:49:59Z",
+    "pct": 15,
+    "resetsAt": "2026-10-30T11:50:00Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 0,
-    "resetsAt": "2026-11-06T03:59:59Z",
+    "pct": 2,
+    "resetsAt": "2026-11-06T04:00:00Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-30T07:14:47Z",
+ "asOf": "2026-10-30T07:45:53Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114 + #143: bring FleshBrute_PRIVATE.zip (Downloads\\Castle_Defender) home; share the private SK_Zombie FBX + TGA for #114",
