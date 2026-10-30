@@ -23,8 +23,8 @@ def rotm(yaw, pitch, roll=0.0):
 def rock(name, c, sz, seed, mname='Stone', soot=None, yaw=None, boxy=False):
     """a fieldstone: lumpy superellipsoid, sz = (x, y, z) half sizes; soot = per-vertex 0..1 or None; boxy = dressed-ish wall stone."""
     r = np.random.default_rng(seed)
-    Vs, Qs, Ts = superellipsoid(32 if HIGH else 12, 16 if HIGH else 6, r.uniform(0.18, 0.3) if boxy else r.uniform(0.3, 0.5))
-    V = Vs * (1 + 0.16 * (fbm(Vs[:, 0] * 1.5 + seed, Vs[:, 1] * 1.5 + Vs[:, 2] * 1.2, seed, 3) - 0.5) * 2)[:, None]
+    Vs, Qs, Ts = superellipsoid(32 if HIGH else 12, 16 if HIGH else 6, r.uniform(0.12, 0.22) if boxy else r.uniform(0.3, 0.5))
+    V = Vs * (1 + (0.10 if boxy else 0.16) * (fbm(Vs[:, 0] * 1.5 + seed, Vs[:, 1] * 1.5 + Vs[:, 2] * 1.2, seed, 3) - 0.5) * 2 + (0.05 if boxy else 0.0) * (fbm(Vs[:, 0] * 4 + seed, Vs[:, 2] * 4, seed + 7, 3) - 0.5) * 2)[:, None]
     if HIGH: V = V * (1 + 0.025 * (fbm(Vs[:, 0] * 9 + Vs[:, 2] * 3, Vs[:, 1] * 9, seed + 1, 4) - 0.5) * 2 + 0.006 * (fbm(Vs[:, 0] * 40, Vs[:, 1] * 40 + Vs[:, 2] * 20, seed + 2, 3) - 0.5) * 2)[:, None]
     R = rotm(r.uniform(0, 2 * PI) if yaw is None else yaw, r.uniform(-0.25, 0.25), r.uniform(-0.2, 0.2))
     P = (V * np.asarray(sz)) @ R.T + np.asarray(c)
@@ -102,7 +102,7 @@ elif VAR == 'Campfire':   # 1.2 m stone ring, ash bed, glowing coals, five part-
         a = 2 * PI * k / 5 + rng.uniform(-0.25, 0.25); r0 = 0.055 if k % 2 else 0.045; L = rng.uniform(0.55, 0.68)
         p1 = np.array([0.08 * math.cos(a + 2.5), 0.08 * math.sin(a + 2.5), 0.06 + 0.035 * k]); p0 = p1 + np.array([math.cos(a), math.sin(a), 0]) * L + [0, 0, 0.09 + 0.02 * (k % 2)]
         ob = log('Log_%d' % k, tuple(p0), tuple(p1), r0, 650 + k, bend=0.01, brk=0.04 if k % 2 else 0.0)
-        char_log(ob, p1, rng.uniform(0.28, 0.4), 0.95)
+        char_log(ob, p1, rng.uniform(0.14, 0.22), 0.8)      # only the inner end is burnt; the rest stays bark
     for k in range(2):   # spare firewood beside the ring
         p0 = np.array([0.62 + 0.02 * k, -0.42 + 0.11 * k, 0.05]); p1 = p0 + [0.55, 0.12, 0.0]
         log('Spare_%d' % k, tuple(p0), tuple(p1), 0.05, 660 + k, bend=0.008)
@@ -135,8 +135,9 @@ elif VAR == 'Well':   # 1.3 m stone well head with mortar core, two log posts, a
         n = 13; z = 0.11 + course * 0.215
         for k in range(n):
             a = 2 * PI * (k + 0.5 * (course % 2)) / n + rng.uniform(-0.04, 0.04)
-            sz = (rng.uniform(0.11, 0.14), rng.uniform(0.13, 0.16), rng.uniform(0.095, 0.115))
-            rock('Stone_%d_%02d' % (course, k), (RI * math.cos(a), RI * math.sin(a), z + j(0.01)), sz, 700 + course * 20 + k, yaw=a, boxy=True)
+            sz = (rng.uniform(0.10, 0.13), rng.uniform(0.12, 0.15), rng.uniform(0.085, 0.105))
+            rr = RI + rng.uniform(-0.02, 0.025)
+            rock('Stone_%d_%02d' % (course, k), (rr * math.cos(a), rr * math.sin(a), z + j(0.012)), sz, 700 + course * 20 + k, yaw=a, boxy=True)
     for k, x in enumerate((-0.74, 0.74)):
         log('Post_%d' % k, (x, 0.0, -0.1), (x + j(0.01), j(0.01), 2.02), 0.06, 720 + k, bend=0.01)
     AZ = 1.58
@@ -251,7 +252,10 @@ elif VAR == 'MarketStall':   # 2.4 x 1.6 m market stall (Vesna's shop): log post
     meta = {'size': [W + 0.5, Dp + 0.5, 2.4], 'counter_z': 0.945, 'hooks': [[-W / 2 + 0.4 + k * (W - 0.8) / 3, Dp / 2 - 0.05, 1.94] for k in range(4)]}
 
 elif VAR == 'Anvil':   # 0.62 m iron anvil on an oak stump: base, waist, face block, horn, heel; a hammer on the face
-    log('Stump', (0, 0, -0.05), (0.01, -0.005, 0.45), 0.19, 980, bend=0.0)
+    ns_ = 40 if HIGH else 10; zs = np.linspace(-0.03, 0.45, ns_)
+    stump = np.stack([0.01 * zs / 0.45, -0.005 * zs / 0.45, zs], -1)
+    srad = 0.19 * (1 + 0.03 * np.sin(zs * 40) * 0 + (0.02 * (fbm(zs * 8, np.zeros_like(zs), 982, 3) - 0.5) if HIGH else 0))
+    tube('Stump', stump, [1.0, 0, 0], 0.19, 'WoodCut', n=48 if HIGH else 14, rad=srad)
     def block(name, c, sz, e=0.2, seed=0, mname='Iron'):
         Vs, Qs, Ts = superellipsoid(32 if HIGH else 8, 16 if HIGH else 4, e)
         P = Vs * np.asarray(sz) + np.asarray(c)

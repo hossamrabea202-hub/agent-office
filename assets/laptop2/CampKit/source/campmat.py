@@ -16,7 +16,7 @@ def stone(m):
     s = _sep(nt, co); z = s[2]
     # fieldstone: grey-brown body, mineral speckle, a few darker veins
     tone = _noise(nt, co, 5, 4, 0.55)
-    col = _mix_col(nt, tone, (0.26, 0.24, 0.21), (0.42, 0.38, 0.33))                      # 135-165 sRGB
+    col = _mix_col(nt, tone, (0.17, 0.155, 0.135), (0.31, 0.28, 0.245))                   # 110-145 sRGB: weathered fieldstone, not chalk
     spk = _n(nt, 'ShaderNodeTexVoronoi', feature='F1', in_Scale=420.0); nt.links.new(co, spk.inputs['Vector'])
     sp = _maprange(nt, spk.outputs['Distance'], 0.0, 0.5)
     col = _mix_col(nt, _math(nt, 'MULTIPLY', sp, 0.35), col, (0.16, 0.15, 0.14))
@@ -24,7 +24,7 @@ def stone(m):
     vein = _maprange(nt, _noise(nt, _scale(nt, co, 1.0, 1.0, 4.0), 7, 5, 0.7, 0.4), 0.70, 0.78, 0, 0.6)
     col = _mix_col(nt, vein, col, (0.19, 0.17, 0.15))
     # weathering: pale sun-bleached top faces, grime in the cavities
-    col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, nz, 0.3, 0.9), 0.3), col, (0.48, 0.46, 0.42))
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, nz, 0.3, 0.9), 0.2), col, (0.40, 0.38, 0.34))
     col = _mix_col(nt, _maprange(nt, cav, 0.15, 0.7, 0, 0.75), col, (0.07, 0.06, 0.05))
     # lichen: crusty grey-green patches on the upper, outer faces
     lic = _math(nt, 'MULTIPLY', _maprange(nt, _noise(nt, co, 9, 5, 0.65), 0.58, 0.70), _maprange(nt, nz, -0.2, 0.5))
