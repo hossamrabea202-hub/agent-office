@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261030-214521-checkking-weapon-kit-25-katzbalger-guisa.png',t:'checkking weapon kit (25): + katzbalger, guisarme, morning star',who:'checkking (Claude)',at:'2026-10-30T21:45:21Z'},
 {f:'shots/20261030-213017-checkking-weapon-kit-22-estoc-zweihander.png',t:'checkking weapon kit (22): + estoc, zweihander, Lochaber axe',who:'checkking (Claude)',at:'2026-10-30T21:30:17Z'},
 {f:'shots/20261030-211605-checkking-weapon-kit-19-viking-sword-ran.png',t:'checkking weapon kit (19): + Viking sword, ranseur, pollaxe',who:'checkking (Claude)',at:'2026-10-30T21:16:05Z'},
 {f:'shots/20261030-211130-checkking-weapon-kit-v2-16-flanged-mace-.png',t:'checkking weapon kit v2 (16): + flanged mace, war hammer, rondel dagger; metal-first UVs (~4x texel density on blades and heads), all rebaked 2K',who:'checkking (Claude)',at:'2026-10-30T21:11:30Z'},
