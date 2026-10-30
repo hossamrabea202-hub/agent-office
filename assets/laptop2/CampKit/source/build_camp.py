@@ -100,11 +100,11 @@ elif VAR == 'Campfire':   # 1.2 m stone ring, ash bed, glowing coals, five part-
         Vs, Qs, Ts = superellipsoid(16 if HIGH else 8, 8 if HIGH else 4, 0.55); sz = rng.uniform(0.022, 0.045)
         if HIGH: Vs = Vs * (1 + 0.12 * (fbm(Vs[:, 0] * 4 + k, Vs[:, 1] * 4, 640, 3) - 0.5))[:, None]
         mesh('Coal_%d' % k, c + Vs * np.array([sz, sz * 0.8, sz * 0.55]), [Qs, Ts], 'Coal', uv=np.stack([Vs[:, 0], Vs[:, 2]], -1) * sz, attrs={'glow': np.full(len(Vs), max(0.0, 1 - r_ / 0.22) * rng.uniform(0.6, 1.0))})
-    for k in range(5):   # logs lying into the fire, outer ends up on the stones, inner ends charred
-        a = 2 * PI * k / 5 + rng.uniform(-0.25, 0.25); r0 = 0.055 if k % 2 else 0.045; L = rng.uniform(0.55, 0.68)
+    for k in range(4):   # logs criss-crossed over the coals, each resting on the one below (13 cm steps > log diameter, lowest clears the coals), inner ends charred
+        a = 2 * PI * k / 4 + 0.6 + rng.uniform(-0.15, 0.15); r0 = 0.05 if k % 2 else 0.042; L = rng.uniform(0.55, 0.68)
         # inner ends clear the ash and coals by > 12 mm (the bake ray distance), or the logs bake the coals' black
         # each log lies one diameter above the previous so they stack and never intersect (intersecting logs baked black: rays hit the neighbour's inside)
-        p1 = np.array([0.08 * math.cos(a + 2.5), 0.08 * math.sin(a + 2.5), 0.10 + 0.115 * k]); p0 = p1 + np.array([math.cos(a), math.sin(a), 0]) * L + [0, 0, -0.02 - 0.03 * k]
+        p1 = np.array([0.10 * math.cos(a + 2.5), 0.10 * math.sin(a + 2.5), 0.19 + 0.13 * k]); p0 = p1 + np.array([math.cos(a), math.sin(a), 0]) * L + [0, 0, -0.04 - 0.02 * k]
         ob = log('Log_%d' % k, tuple(p0), tuple(p1), r0, 650 + k, bend=0.01, brk=0.04 if k % 2 else 0.0)
         char_log(ob, p1, rng.uniform(0.14, 0.22), 0.8)      # only the inner end is burnt; the rest stays bark
     for k in range(2):   # spare firewood beside the ring
