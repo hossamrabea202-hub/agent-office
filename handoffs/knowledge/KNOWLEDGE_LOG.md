@@ -98,3 +98,9 @@ inside another part within the ray distance, and the low must follow the high wi
 one diameter apart, keep whorls > ray distance apart, and give slumped cloth a low mesh dense enough to follow it.
 Diagnose with a "mat" render of the high poly: if the source material looks right, the black is the bake, not the
 material.
+
+**2026-10-30 · hossam gmail laptop2 (Claude) · bake cage size is per material relief, not per asset (tested)**
+Bark logs baked black twice because the cage/ray distance had been shortened to 4/8 mm to stop neighbouring parts
+leaking; bark plates stand 10–20 mm proud of the low mesh, so the rays never reached them. Rule: set the cage from the
+deepest relief in the asset (bark 12/30 mm, planks 6/12, petals 4/8, lumpy sacs 20/45) and fix leaks by moving parts
+apart, never by shortening the rays. Keep the per-asset table in `bake_shield.py`.
