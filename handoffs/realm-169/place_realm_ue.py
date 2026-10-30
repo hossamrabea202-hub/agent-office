@@ -71,25 +71,34 @@ dx, dy = P1[0] - P4[0], P1[1] - P4[1]; L = math.hypot(dx, dy); ux, uy = dx / L, 
 wall_yaw = math.degrees(math.atan2(dy, dx))            # along the wall; the palisade mesh's face is -Y, so spikes out = yaw
 out = (uy, -ux)                                        # the -Y side (right-hand normal of P4->P1 points to +Y: flip)
 if out[1] > 0: out = (-out[0], -out[1])
+# the wall line wanders (owner: not a formal straight wall, not a zigzag): a soft lateral curve, +-3.5 m, two slow bends
+def wall_pt(s):
+    off = 330.0 * math.sin(s / 2300.0 + 0.4) + 180.0 * math.sin(s / 870.0 + 1.9) + 60.0 * math.sin(s / 310.0)
+    off = off * min(1.0, s / 800.0, (L - s) / 800.0)              # the ends sit on P4 / P1
+    return P4[0] + ux * s + out[0] * off, P4[1] + uy * s + out[1] * off
+def wall_yaw(s):
+    (x0, y0), (x1, y1) = wall_pt(max(s - 150, 0)), wall_pt(min(s + 150, L)); return math.degrees(math.atan2(y1 - y0, x1 - x0))
+sg = (GATE_X - P4[0]) / ux
 n_pal = int(L / 400); gate_half = 320.0; breach = []
 for k in range(n_pal + 1):
     s = k * 400.0 + 200.0
     if s > L: break
-    x, y = P4[0] + ux * s, P4[1] + uy * s
-    if abs(x - GATE_X) < gate_half: continue                      # the gate gap
+    x, y = wall_pt(s)
+    if abs(s - sg) < gate_half: continue                          # the gate gap (by arc length on the wandering line)
     label = 'Realm_Wall_%03d' % k
-    if abs(x - BREACH_X) < 400: label = 'Realm_Wall_Breach_%s' % ('A' if x < BREACH_X else 'B'); breach.append(label)
-    place(KIT + 'SM_SiegeBarricade_Palisade', label, x + random.uniform(-15, 15), y + random.uniform(-15, 15), wall_yaw + random.uniform(-6, 6), random.uniform(0.95, 1.1), sink=25.0)
+    sb = (BREACH_X - P4[0]) / ux
+    if abs(s - sb) < 400: label = 'Realm_Wall_Breach_%s' % ('A' if s < sb else 'B'); breach.append(label)
+    place(KIT + 'SM_SiegeBarricade_Palisade', label, x + random.uniform(-15, 15), y + random.uniform(-15, 15), wall_yaw(s) + random.uniform(-4, 4), random.uniform(0.95, 1.1), sink=25.0)
 for k, s in enumerate([150.0] + [s_ for s_ in (3000.0, 6000.0, 9000.0) if abs(P4[0] + ux * s_ - GATE_X) > 900] + [L - 150.0]):   # watchtowers: both ends and every 30 m, 2 m inside
-    x, y = P4[0] + ux * s - out[0] * 200, P4[1] + uy * s - out[1] * 200
-    place(KIT + 'SM_SiegeBarricade_Watchtower', 'Realm_Tower_%d' % k, x, y, wall_yaw + random.uniform(-8, 8), 1.0, sink=20.0)
+    x, y = wall_pt(s); x, y = x - out[0] * 200, y - out[1] * 200
+    place(KIT + 'SM_SiegeBarricade_Watchtower', 'Realm_Tower_%d' % k, x, y, wall_yaw(s) + random.uniform(-8, 8), 1.0, sink=20.0)
 unreal.log('#169: breach palisades = %s (Codex swaps these for SM_SiegeBarricade_Breach at the breach wave)' % breach)
 
 # ---- 2. the gate at X -15000 on the wall line (outside = -Y in the gate meshes -> yaw = wall_yaw) ----
-sg = (GATE_X - P4[0]) / ux; gx, gy = P4[0] + ux * sg, P4[1] + uy * sg
+sg = (GATE_X - P4[0]) / ux; gx, gy = wall_pt(sg)
 gz = ground_z(gx, gy)
 if unreal.load_asset(GATE + 'SM_SiegeGate_Frame') is not None and gz is not None:
-    gyaw = wall_yaw
+    gyaw = wall_yaw(sg)
     place(GATE + 'SM_SiegeGate_Frame', 'Realm_Gate_Frame', gx, gy, gyaw, 1.0, sink=35.0, z=gz)
     pieces = {'LeafL': (-2.88, -0.035, 0.0), 'LeafR': (2.88, -0.035, 0.0), 'Bar': (0.0, 0.21, 1.75), 'Lever': (-4.03, 0.4, 1.18)}   # gate_meta.json pivots (m)
     r = math.radians(gyaw); cs, sn = math.cos(r), math.sin(r)
@@ -133,9 +142,9 @@ point('Realm_Breach_Point', BREACH_X, P4[1] + uy * (BREACH_X - P4[0]) / ux, (gz 
 for k in range(int(L / 1200) + 1):
     s = k * 1200.0 + 600.0
     if s > L: break
-    x, y = P4[0] + ux * s + out[0] * 320, P4[1] + uy * s + out[1] * 320
-    if abs(x - GATE_X) < 700: continue
-    place(CAMP + 'TorchPost/SM_Camp_TorchPost', 'Realm_Torch_%02d' % k, x, y, wall_yaw + 180 + random.uniform(-10, 10), 1.0, sink=8.0)
+    x, y = wall_pt(s); x, y = x + out[0] * 320, y + out[1] * 320
+    if abs(s - sg) < 700: continue
+    place(CAMP + 'TorchPost/SM_Camp_TorchPost', 'Realm_Torch_%02d' % k, x, y, wall_yaw(s) + 180 + random.uniform(-10, 10), 1.0, sink=8.0)
 # ---- 6. the dome, last (its collision would catch the ground traces): a huge membrane, front edge behind the wall ----
 # SM_RealmDome is a unit half-ellipsoid (1 m); UE imports it at 100 cm per unit, so scale = radius_cm / 100.
 cx = (P1[0] + P4[0]) / 2
