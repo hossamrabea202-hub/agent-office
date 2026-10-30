@@ -92,6 +92,7 @@ for k in range(n_pal + 1):
 for k, s in enumerate([150.0] + [s_ for s_ in (3000.0, 6000.0, 9000.0) if abs(P4[0] + ux * s_ - GATE_X) > 900] + [L - 150.0]):   # watchtowers: both ends and every 30 m, 2 m inside
     x, y = wall_pt(s); x, y = x - out[0] * 200, y - out[1] * 200
     place(KIT + 'SM_SiegeBarricade_Watchtower', 'Realm_Tower_%d' % k, x, y, wall_yaw(s) + random.uniform(-8, 8), 1.0, sink=20.0)
+    place(CAMP + 'Banner/SM_Camp_Banner', 'Realm_Tower_Banner_%d' % k, x - out[0] * 60, y - out[1] * 60, wall_yaw(s) + 90, 1.0, sink=0.0, z=(ground_z(x, y) or 0) + 420.0)   # banner on the tower top (the tower is ~4.2 m)
 unreal.log('#169: breach palisades = %s (Codex swaps these for SM_SiegeBarricade_Breach at the breach wave)' % breach)
 
 # ---- 2. the gate at X -15000 on the wall line (outside = -Y in the gate meshes -> yaw = wall_yaw) ----
@@ -112,6 +113,7 @@ if unreal.load_asset(GATE + 'SM_SiegeGate_Frame') is not None and gz is not None
     for s in (-1, 1):   # torch posts either side of the gate (the concept's lit gate) and two towers flanking it
         place(CAMP + 'TorchPost/SM_Camp_TorchPost', 'Realm_Gate_Torch_%d' % (s > 0), gx + ux * s * 380 + out[0] * 120, gy + uy * s * 380 + out[1] * 120, gyaw + 180, 1.0, sink=8.0)
         place(KIT + 'SM_SiegeBarricade_Watchtower', 'Realm_Gate_Tower_%d' % (s > 0), gx + ux * s * 650 - out[0] * 220, gy + uy * s * 650 - out[1] * 220, gyaw, 1.0, sink=20.0)
+        place(CAMP + 'Banner/SM_Camp_Banner', 'Realm_Gate_Banner_%d' % (s > 0), gx + ux * s * 650 - out[0] * 280, gy + uy * s * 650 - out[1] * 280, gyaw + 90, 1.0, sink=0.0, z=(gz or 0) + 420.0)
 else:
     unreal.log_warning('#169: SiegeGate meshes not imported (assets/laptop2/SiegeGate/import_kit_ue.py); the gap at X %.0f is left open' % GATE_X)
 
