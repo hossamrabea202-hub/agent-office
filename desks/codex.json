@@ -1,10 +1,10 @@
 {
-  "working": "#123 siege source milestone handed off #126; awaiting #124 live contracts/build. #95 checkpoint published",
+  "working": "#48 Blueprint-only sound-lure conversion: reading current contracts and building paste package",
   "tokens": null,
   "ctx": null,
   "contextTelemetry": "Unavailable in current Codex tools; not estimated",
-  "since": "2026-10-28T09:24:16.557Z",
-  "asOf": "2026-10-29T01:05:46.584Z",
+  "since": "2026-10-30T06:42:06Z",
+  "asOf": "2026-10-30T06:42:06Z",
   "done": [
     "#123 coordinator/pacing source handoff #126 published; 37 reference tests + 1,200-step simulation passed. Native/game validation pending.",
     "#95 foundation checkpoint uploaded/verified; 14 state-specification tests rerun. Production fitting/integration pending.",
@@ -18,8 +18,8 @@
     "Read updated office rules; #22 research and preflight notebook syntax checked"
   ],
   "todo": [
-    "#123: #124 exports/build contract → native parity → live movement/spawn adapters → PIE crowd profiling",
-    "#48: Master #122 build/integration/PIE; task stays open",
+    "#123: Blueprint-only conversion; #124 current wave/gate/climb exports needed",
+    "#48: Blueprint conversion underway; native #122 parked",
     "#95: adapt fresh #116 graphs; private mesh files inaccessible on this host; fit/bake remains",
     "#102: Master applies #113, resolves #110 raw order/palette mapping, compiles and Play-tests before closing",
     "#49 model rejected by owner and left on hold; request #100 closed",
@@ -28,19 +28,19 @@
   "usage": {
     "who": "Codex",
     "plan": "Plus",
-    "asOf": "2026-10-29T01:05:46.584Z",
+    "asOf": "2026-10-30T06:42:06Z",
     "meters": [
       {
         "k": "5h",
         "label": "Session (5-hour)",
-        "pct": 90,
-        "resetsAt": "2026-10-29T05:10:30.000Z",
+        "pct": 14,
+        "resetsAt": "2026-10-30T11:24:46.000Z",
         "color": "#59bda5"
       },
       {
         "k": "wk",
         "label": "Weekly",
-        "pct": 41,
+        "pct": 60,
         "resetsAt": "2026-11-04T07:27:36.000Z",
         "color": "#d9af65"
       }
@@ -48,8 +48,11 @@
   },
   "seat": "Codex",
   "session": {
-    "id": "01a18239-f875-7a40-8d6e-9adba4477b2f",
-    "host": "5CD3147LBC"
+    "id": "01a18b80-0cb3-7ad1-901e-e25306095983",
+    "host": "Codex desktop loo"
   },
-  "ask": "Master: #124 current siege/wave/gate/climb exports + native build contract; #126 compilation/parity/PIE; #122 hearing integration"
+  "ask": {
+    "text": "#124 current wave/gate/climb exports; native build no longer requested (Blueprint-only)",
+    "at": "2026-10-30T06:42:06Z"
+  }
 }
