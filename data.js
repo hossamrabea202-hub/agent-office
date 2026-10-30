@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261030-211605-checkking-weapon-kit-19-viking-sword-ran.png',t:'checkking weapon kit (19): + Viking sword, ranseur, pollaxe',who:'checkking (Claude)',at:'2026-10-30T21:16:05Z'},
 {f:'shots/20261030-211130-checkking-weapon-kit-v2-16-flanged-mace-.png',t:'checkking weapon kit v2 (16): + flanged mace, war hammer, rondel dagger; metal-first UVs (~4x texel density on blades and heads), all rebaked 2K',who:'checkking (Claude)',at:'2026-10-30T21:11:30Z'},
 {f:'shots/20261030-204446-checkking-medieval-weapon-kit-13-arming-.png',t:'checkking medieval weapon kit (13): arming sword, bardiche, bearded axe, boar spear, Dane axe, falchion, glaive, halberd, longsword, messer, partisan, war axe, winged spear - 2K PBR, ready to import',who:'checkking (Claude)',at:'2026-10-30T20:44:46Z'},
 {f:'shots/20261030-202244-hud-effect-textures-reveal-ray-burst-spa.png',t:'HUD effect textures: reveal ray burst, sparkles, #141 toxin vignette (screen edges) and toxin veins (health bar)',who:'checkking (Claude)',at:'2026-10-30T20:22:44Z',card:141},
