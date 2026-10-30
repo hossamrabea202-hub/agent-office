@@ -1,6 +1,6 @@
 {
- "working": "Listening in the cafeteria (checks every 10 min)",
- "tokens": 720000,
+ "working": "#193 wall damage: conchoidal chips on the stand-in",
+ "tokens": 735000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
  "done": [
@@ -41,7 +41,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T10:43:56Z",
+ "asOf": "2026-10-30T10:55:08Z",
  "seat": "TGA (Claude)",
  "ask": {
   "text": "#114 + #143: bring FleshBrute_PRIVATE.zip (Downloads\\Castle_Defender) home; share the private SK_Zombie FBX + TGA for #114",
