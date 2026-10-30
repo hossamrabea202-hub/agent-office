@@ -766,6 +766,18 @@ elif VAR.startswith('Ore'):   # #201 ore cart loads: a heap of ore lumps for the
         placed.append((x, y, s0))
         sz = (s0, s0 * rng.uniform(0.7, 0.95), s0 * rng.uniform(0.6, 0.85))
         chunk('Lump_%02d' % len(placed), (x, y, float(hgt(np.array(x), np.array(y))) + sz[2] * 0.35), sz, 1730 + k)
+    if not HIGH:   # the chunks' wrap-around UV smeared and baked black across its seam: give the low a real unwrap
+        bpy.ops.object.select_all(action='DESELECT')
+        lumps = [o for o in bpy.data.objects if o.name.startswith('Lump_')]
+        for o in lumps: o.select_set(True)
+        bpy.context.view_layer.objects.active = lumps[0]; bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
+        bpy.ops.uv.smart_project(angle_limit=math.radians(55), island_margin=0.0, scale_to_bounds=False); bpy.ops.object.mode_set(mode='OBJECT')
+        for o in lumps:   # smart_project normalises per object: bring every chunk back to metric texel density
+            me = o.data; uvd = me.uv_layers.active.data; a_ = np.empty(len(uvd) * 2, np.float32); uvd.foreach_get('uv', a_); a_ = a_.reshape(-1, 2)
+            area3 = sum(p_.area for p_ in me.polygons); uvarea = 0.0
+            for p_ in me.polygons:
+                q = a_[list(p_.loop_indices)]; uvarea += 0.5 * abs(np.dot(q[:, 0], np.roll(q[:, 1], 1)) - np.dot(q[:, 1], np.roll(q[:, 0], 1)))
+            a_ *= math.sqrt(area3 / max(uvarea, 1e-9)); uvd.foreach_set('uv', a_.ravel())
     meta = {'size': [2 * A, 2 * B_, H_ + 0.12], 'metal': VAR[3:], 'note': 'sits on the HandCart bed (bed top z 0.6125 in SM_Camp_HandCart space): attach as Load at (-0.05, 0, 0.62)'}
 
 json.dump({'grip': [0, 0, 0], **meta}, open(os.path.join(D, 'camp%s_meta.json' % VAR.lower()), 'w'))

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Castle Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Castle Studio (laptop2, 2026-10-30): the Agent Studio as a war room inside the keep. Radio on top, one big operations
+   screen with sections, the agents seated in department rows facing it, everything else underneath.
+   Reads the same data as index.html: data.js (window.OFFICE), board.json (issues + comments mirror), desks branch ticks. */
+:root,[data-theme=night]{color-scheme:dark;
+  --bg:#0d0c0b;--bg2:#15130f;--stone:#1c1915;--stone2:#26221c;--edge:#3a3329;--edge2:#544935;
+  --text:#ece3d0;--muted:#a99c84;--faint:#6f6553;--gold:#d9a94e;--gold2:#f3cf82;--ember:#e0693a;--moss:#7fae6a;--warn:#e6b450;
+  --scr:#061019;--scr2:#0a1b28;--scrEdge:#1d3a4f;--cyan:#62d4ff;--cyan2:#a8e8ff;--scrText:#d5ecf7;--scrMuted:#7ea3b8;--amber:#ffb347;--red:#ff6b5b;--green:#6fe39a;
+  --shadow:0 10px 30px rgba(0,0,0,.45);--glow:0 0 0 1px rgba(217,169,78,.25),0 0 24px rgba(217,169,78,.12)}
+[data-theme=day]{color-scheme:light;
+  --bg:#efe5cf;--bg2:#e6d9bc;--stone:#f8f1e1;--stone2:#efe4cb;--edge:#cdbb94;--edge2:#a88f5f;
+  --text:#2b2216;--muted:#6c5b3f;--faint:#9a8763;--gold:#9a6a12;--gold2:#7a4f00;--ember:#b4471c;--moss:#3f7a2e;--warn:#a46a00;
+  --scr:#0b1a26;--scr2:#11283a;--scrEdge:#2b5470;--shadow:0 8px 22px rgba(80,60,20,.18);--glow:0 0 0 1px rgba(154,106,18,.3)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,system-ui,sans-serif;
+  background-image:radial-gradient(1400px 700px at 50% 120px,rgba(98,212,255,.07),transparent 70%),repeating-linear-gradient(0deg,transparent 0 46px,rgba(255,255,255,.012) 46px 48px),repeating-linear-gradient(90deg,transparent 0 94px,rgba(0,0,0,.05) 94px 96px)}
+a{color:var(--gold2)}button,input{font:inherit;color:inherit}
+h1,h2,h3,.cz{font-family:Cinzel,Georgia,serif;letter-spacing:.04em}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:1500px;margin:0 auto;padding:0 20px 60px}
+/* ---- radio: above everything ---- */
+.radio{background:#0a0908;border-bottom:1px solid var(--edge);color:#d9cdb4}
+[data-theme=day] .radio{background:#2b2216;color:#efe5cf}
+.radio .in{max-width:1500px;margin:0 auto;padding:6px 20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px}
+.radio .now{font-weight:600;min-width:150px}.radio .now.on{color:#6fe39a}
+.radio button{background:transparent;border:1px solid #3a3329;border-radius:999px;padding:2px 10px;cursor:pointer;color:inherit;font-size:12px}
+.radio button.on{border-color:#d9a94e;color:#f3cf82;box-shadow:0 0 10px rgba(217,169,78,.25)}
+.radio input[type=range]{width:90px;accent-color:#d9a94e}
+.eq{display:inline-flex;gap:2px;align-items:flex-end;height:12px;margin-right:2px}.eq i{width:3px;background:#6fe39a;height:3px;border-radius:1px}
+.radio .now.on~.eq i,.eq.on i{animation:eq .9s infinite ease-in-out}.eq i:nth-child(2){animation-delay:.2s!important}.eq i:nth-child(3){animation-delay:.4s!important}
+@keyframes eq{0%,100%{height:3px}50%{height:12px}}
+/* ---- header ---- */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg2) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--edge)}
+.hd{max-width:1500px;margin:0 auto;padding:10px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.crest{width:36px;height:40px;flex:none}
+.brand small{display:block;color:var(--gold);font:600 10.5px Cinzel,serif;letter-spacing:.28em}.brand h1{margin:0;font-size:20px;line-height:1.1}
+.hd .grow{flex:1}
+.search{display:flex;align-items:center;gap:8px;background:var(--stone);border:1px solid var(--edge);border-radius:10px;padding:6px 10px;min-width:min(320px,100%)}
+.search input{border:0;background:transparent;outline:0;width:100%}
+.kbd{font:600 11px Inter;color:var(--muted);border:1px solid var(--edge);border-radius:5px;padding:1px 6px}
+.btn{background:var(--stone2);border:1px solid var(--edge);border-radius:9px;padding:6px 12px;cursor:pointer;transition:.15s;color:var(--text);text-decoration:none;display:inline-block}
+.btn:hover{border-color:var(--gold);box-shadow:var(--glow)}.btn.gold{background:linear-gradient(180deg,#e2b45d,#b98a33);color:#1b1206;border-color:#e9c47a;font-weight:600}
+.fchip{display:none;align-items:center;gap:6px;border:1px solid var(--gold);border-radius:999px;padding:3px 6px 3px 4px;font-size:12.5px;box-shadow:var(--glow)}.fchip.on{display:inline-flex}
+.fchip button{border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:14px;padding:0 2px}
+.sig{width:20px;height:20px;border-radius:6px;display:inline-grid;place-items:center;font:700 9.5px Inter;color:#fff;flex:none;border:1px solid rgba(255,255,255,.25);vertical-align:middle}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--faint);display:inline-block}.dot.on{background:var(--green);box-shadow:0 0 8px var(--green)}.dot.warn{background:var(--warn)}
+
+/* ================= THE BIG SCREEN ================= */
+.room{margin-top:20px;position:relative}
+.bezel{position:relative;padding:12px;border-radius:18px;background:linear-gradient(180deg,#2a2620,#14120f);border:1px solid #4a4031;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06)}
+.bezel::before,.bezel::after{content:"";position:absolute;top:-5px;width:120px;height:10px;border-radius:5px;background:linear-gradient(90deg,#6b5a3a,#d9a94e,#6b5a3a);opacity:.7}
+.bezel::before{left:40px}.bezel::after{right:40px}
+.screen{position:relative;border-radius:10px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,var(--scr2),var(--scr) 70%);color:var(--scrText);border:1px solid var(--scrEdge);
+  box-shadow:inset 0 0 60px rgba(98,212,255,.08),0 0 50px rgba(98,212,255,.12)}
+.screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);mix-blend-mode:screen}
+.scrbar{display:flex;align-items:center;gap:14px;padding:9px 16px;border-bottom:1px solid var(--scrEdge);font:600 12px "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--cyan2);flex-wrap:wrap}
+.scrbar .t{color:var(--cyan)}.scrbar .grow{flex:1}.scrbar .sum{color:var(--scrMuted);font-weight:400}.scrbar .sum b{color:var(--scrText)}
+.scrbar .clock{font-size:15px;color:var(--scrText)}
+.rec{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1.6s infinite}@keyframes blink{50%{opacity:.25}}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--scrEdge)}
+.tile{background:linear-gradient(180deg,rgba(10,27,40,.92),rgba(6,16,25,.96));padding:12px 14px;min-width:0;position:relative}
+.tile h4{margin:0 0 8px;font:600 11px "JetBrains Mono",monospace;letter-spacing:.14em;color:var(--scrMuted);display:flex;align-items:center;gap:8px}
+.tile h4 .big{font:700 22px "JetBrains Mono",monospace;color:var(--cyan);letter-spacing:0}
+.tile.alarm h4 .big{color:var(--amber)}.tile.alarm{box-shadow:inset 0 0 0 1px rgba(255,179,71,.35)}
+.s4{grid-column:span 4}.s5{grid-column:span 5}.s3{grid-column:span 3}.s6{grid-column:span 6}.s12{grid-column:span 12}
+.sl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:12.5px}
+.sl li{display:flex;gap:8px;align-items:flex-start;min-width:0}.sl .t{min-width:0;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+.sl .n{color:var(--cyan);font:600 12px "JetBrains Mono",monospace;flex:none}.sl .age,.age{color:var(--scrMuted);font-size:11px;white-space:nowrap}
+.own{border:1px solid var(--amber);color:var(--amber);border-radius:4px;padding:0 4px;font-size:10px;font-weight:600;margin-right:4px}
+.chart{display:flex;align-items:flex-end;gap:3px;height:120px;padding-bottom:16px;position:relative}
+.chart .hr{flex:1;display:flex;flex-direction:column-reverse;gap:1px;height:100%;position:relative}
+.chart .hr i{display:block;border-radius:2px;min-height:2px;opacity:.9}.chart .hr.now{box-shadow:0 0 0 1px rgba(98,212,255,.5);border-radius:3px}
+.chart .hr span{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font:10px "JetBrains Mono",monospace;color:var(--scrMuted)}
+.beats{display:flex;flex-direction:column;gap:6px;font-size:12px}
+.beat{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+.beat .bar{height:6px;border-radius:3px;background:rgba(255,255,255,.07);overflow:hidden}.beat .bar i{display:block;height:100%;border-radius:3px}
+.shotTile{padding:0;display:flex;flex-direction:column}.shotTile img{width:100%;flex:1;min-height:150px;max-height:220px;object-fit:cover;display:block;cursor:zoom-in;filter:saturate(.95)}
+.shotTile .cap{padding:8px 12px;font-size:12px;color:var(--scrText)}.shotTile h4{position:absolute;top:8px;left:10px;z-index:1;background:rgba(6,16,25,.75);padding:2px 8px;border-radius:4px}
+.ticker{grid-column:span 12;background:rgba(6,16,25,.98);overflow:hidden;white-space:nowrap;padding:8px 0;font-size:12.5px;border-top:1px solid var(--scrEdge);position:relative}
+.ticker .lab{position:absolute;left:0;top:0;bottom:0;z-index:1;display:flex;align-items:center;padding:0 12px;background:linear-gradient(90deg,var(--scr) 80%,transparent);font:600 11px "JetBrains Mono",monospace;color:var(--amber);letter-spacing:.12em}
+.ticker .run{display:inline-block;padding-left:100%;animation:crawl linear infinite}.ticker:hover .run{animation-play-state:paused}
+.ticker .it{margin-right:46px}.ticker .it b{color:var(--cyan2)}
+@keyframes crawl{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.ticker .run{animation:none;padding-left:110px}.rec{animation:none}}
+
+/* ================= THE SEATS (auditorium) ================= */
+.hall{position:relative;margin-top:-6px;padding:34px 10px 12px;background:radial-gradient(70% 70% at 50% 0%,rgba(98,212,255,.10),transparent 70%),linear-gradient(180deg,transparent,rgba(0,0,0,.18));border-radius:0 0 30px 30px}
+[data-theme=day] .hall{background:radial-gradient(70% 70% at 50% 0%,rgba(43,106,160,.12),transparent 70%)}
+.rowS{position:relative;display:flex;justify-content:center;gap:clamp(10px,2vw,34px);padding:14px 120px 6px;flex-wrap:wrap}
+.rowS+.rowS{margin-top:6px}
+.rowS::before{content:"";position:absolute;left:6%;right:6%;bottom:22px;height:40px;border-radius:50%;border-bottom:2px solid var(--edge);opacity:.6;pointer-events:none}
+.rowS .plaque{position:absolute;left:0;top:50%;transform:translateY(-50%);font:700 11px Cinzel,serif;letter-spacing:.2em;color:var(--gold);padding:6px 10px;border:1px solid var(--edge2);border-radius:6px;background:var(--stone);box-shadow:var(--shadow);max-width:110px;text-align:center}
+.seat{position:relative;width:118px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;transition:transform .15s}
+.seat:hover{transform:translateY(-3px)}
+.seat .av{position:relative;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font:700 16px Cinzel,serif;color:#fff;border:2px solid rgba(255,255,255,.3);z-index:2;box-shadow:0 6px 14px rgba(0,0,0,.45)}
+.seat .av .lt{position:absolute;right:-2px;bottom:1px;width:13px;height:13px;border-radius:50%;border:2px solid var(--bg);background:#6f6553}
+.seat .av .lt.on{background:var(--green);box-shadow:0 0 10px var(--green)}.seat .av .lt.warn{background:var(--warn)}
+.seat .av .bellb{position:absolute;left:-6px;top:-6px;font-size:14px;filter:drop-shadow(0 0 6px var(--ember))}
+.seat.live .av{box-shadow:0 0 0 3px rgba(111,227,154,.25),0 0 22px rgba(98,212,255,.35)}
+.chair{width:84px;height:26px;margin-top:-18px;border-radius:12px 12px 6px 6px;background:linear-gradient(180deg,#5a2a22,#3a1914);border:1px solid #6e3a2c;box-shadow:inset 0 2px 0 rgba(255,255,255,.08),0 6px 10px rgba(0,0,0,.4)}
+[data-theme=day] .chair{background:linear-gradient(180deg,#8b4a36,#6a3424);border-color:#a8604a}
+.seat .nm{font-size:12.5px;font-weight:600;text-align:center;line-height:1.2;max-width:118px;overflow-wrap:anywhere}
+.seat .st{font-size:11px;color:var(--muted);text-align:center;line-height:1.25;max-width:118px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:28px}
+.seat.dim{opacity:.32}
+.desk{height:16px;margin:2px 14% 0;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(180deg,#3e2c1a,#24190e);border:1px solid #5a4126;border-top:0;box-shadow:0 10px 20px rgba(0,0,0,.35)}
+[data-theme=day] .desk{background:linear-gradient(180deg,#a07a4c,#7a5a32)}
+
+/* ================= BENEATH ================= */
+section{margin-top:28px}
+.sh{display:flex;align-items:baseline;gap:12px;margin:0 0 10px;flex-wrap:wrap}.sh h2{margin:0;font-size:17px;color:var(--gold2)}.sh .sub{color:var(--muted);font-size:12.5px}.sh .grow{flex:1}
+.panel{background:linear-gradient(180deg,var(--stone),var(--bg2));border:1px solid var(--edge);border-radius:14px;box-shadow:var(--shadow);position:relative}
+.cols{display:grid;grid-template-columns:1.1fr 1fr;gap:18px}.cols>*{min-width:0}
+.list{display:flex;flex-direction:column;max-height:560px;overflow:auto}
+.row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;padding:10px 14px;border-top:1px solid var(--edge);align-items:start}
+.row:first-child{border-top:0}.row:hover{background:color-mix(in srgb,var(--stone2) 70%,transparent)}.row>div{min-width:0}
+.row .num{font:700 12px Inter;color:var(--gold);padding-top:1px;min-width:36px}
+.row .ttl{font-size:13px;overflow-wrap:anywhere}.row .ttl a{color:var(--text);text-decoration:none}.row .ttl a:hover{color:var(--gold2);text-decoration:underline}
+.row .sub2{color:var(--muted);font-size:11.5px;margin-top:3px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row .age{color:var(--faint)}
+.tag{border:1px solid var(--edge);border-radius:6px;padding:0 6px;font-size:11px;color:var(--muted)}.tag.own{border-color:var(--ember);color:var(--ember)}.tag.free{border-color:var(--moss);color:var(--moss)}
+.newd{width:7px;height:7px;border-radius:50%;background:var(--ember);display:inline-block;margin-left:4px;box-shadow:0 0 6px var(--ember)}
+.tabs{display:flex;gap:6px}.tabs button{background:transparent;border:1px solid var(--edge);border-radius:8px;padding:3px 10px;cursor:pointer;font-size:12px;color:var(--muted)}.tabs button.on{color:var(--text);border-color:var(--gold)}
+.msg{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px 14px;border-top:1px solid var(--edge)}.msg>div{min-width:0}
+.msg:first-child{border-top:0}.msg .who{font-weight:600;font-size:12.5px}.msg .txt{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.me{background:color-mix(in srgb,var(--gold) 7%,transparent)}.mention{color:var(--gold2);font-weight:600}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}.gal>*{min-width:0}
+.shot{padding:0;overflow:hidden;cursor:zoom-in;display:flex;flex-direction:column}
+.shot img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--bg2)}
+.shot .cap{padding:8px 10px;font-size:12px;overflow-wrap:anywhere}.clamp{overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:11.5px;align-items:center}
+details.chron{padding:6px 14px}details.chron summary{cursor:pointer;padding:8px 0;color:var(--gold2);font-family:Cinzel,serif}
+.chron .day{margin:6px 0 12px}.chron .day b{color:var(--gold);font-size:12px}.chron ul{margin:4px 0 0 18px;padding:0;color:var(--muted);font-size:12.5px}
+dialog{border:1px solid var(--edge2);background:var(--stone);color:var(--text);border-radius:16px;box-shadow:var(--shadow);padding:0;max-width:min(760px,94vw);width:100%}
+dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(2px)}
+.dh{display:flex;gap:12px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--edge)}.dh h3{margin:0;flex:1}
+.db{padding:14px 18px;max-height:70vh;overflow:auto;display:grid;gap:14px}.db h4{margin:0 0 6px;font:600 12px Cinzel,serif;color:var(--gold);letter-spacing:.12em}
+.db ul{margin:0;padding-left:18px;font-size:13px}.bell{color:var(--ember);font-weight:600}
+#lb{max-width:96vw;background:#000}#lb img{max-width:96vw;max-height:84vh;display:block}#lb .cap{padding:10px 14px;color:#ddd;font-size:13px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--stone2);border:1px solid var(--gold);padding:8px 16px;border-radius:10px;box-shadow:var(--shadow);opacity:0;transition:.25s;pointer-events:none;z-index:50}.toast.on{opacity:1}
+.empty{color:var(--faint);padding:14px;font-style:italic;font-size:13px}.tile .empty{color:var(--scrMuted);padding:2px 0}
+footer{margin-top:34px;color:var(--faint);font-size:12px;text-align:center}
+@media (max-width:1100px){.s4,.s5,.s6{grid-column:span 6}.s3{grid-column:span 6}.cols{grid-template-columns:1fr}.rowS{padding:14px 10px 6px}.rowS .plaque{position:static;transform:none;width:100%;max-width:none;background:transparent;border:0;box-shadow:none;padding:0 0 2px}.rowS::before{display:none}}
+@media (max-width:620px){.wrap{padding:0 12px 40px}.hd{padding:8px 12px}.radio .in{padding:6px 12px}.brand h1{font-size:17px}.search{order:5;min-width:100%}.hide-sm{display:none}
+  .s4,.s5,.s6,.s3{grid-column:span 12}.bezel{padding:7px;border-radius:14px}.chart{height:90px}.chart span{display:none}.seat{width:86px}.seat .nm,.seat .st{max-width:86px}.seat .av{width:44px;height:44px;font-size:14px}.chair{width:66px}}
+</style></head>
+<body>
+<div class="radio"><div class="in" id="radio"><span class="eq" id="eq"><i></i><i></i><i></i></span><span class="now" id="radioNow">📻 Radio</span></div></div>
+<header><div class="hd">
+  <svg class="crest" viewBox="0 0 42 46" aria-hidden="true"><path d="M21 2 39 8v13c0 11-8 19-18 23C11 40 3 32 3 21V8z" fill="#2a2218" stroke="#d9a94e" stroke-width="2"/><path d="M12 30V18h4v-4h3v4h4v-4h3v4h4v12z" fill="#d9a94e"/><path d="M19 30v-5a2 2 0 0 1 4 0v5z" fill="#2a2218"/></svg>
+  <div class="brand"><small>CASTLE DEFENDER</small><h1>Agent Studio</h1></div>
+  <span class="fchip" id="fchip"></span>
+  <span class="grow"></span>
+  <label class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" placeholder="Search cards, hand-offs, chat, shots" autocomplete="off"><span class="kbd">/</span></label>
+  <button class="btn" id="theme" title="Night keep / Day parchment">☾ Night</button>
+  <a class="btn hide-sm" href="index.html">Classic view</a>
+</div></header>
+
+<div class="wrap">
+  <!-- ======== the war room ======== -->
+  <div class="room">
+    <div class="bezel"><div class="screen">
+      <div class="scrbar"><span class="rec"></span><span class="t">OPERATIONS · CASTLE DEFENDER</span><span class="sum" id="scrSum"></span><span class="grow"></span><span class="clock" id="clock"></span></div>
+      <div class="grid">
+        <div class="tile s4" id="tOwner"></div>
+        <div class="tile s5" id="tPaste"></div>
+        <div class="tile s3 shotTile" id="tShot"></div>
+        <div class="tile s6" id="tToday"></div>
+        <div class="tile s3" id="tBeat"></div>
+        <div class="tile s3" id="tReq"></div>
+        <div class="ticker" id="ticker"><span class="lab">TAVERN ▸</span><span class="run" id="tick"></span></div>
+      </div>
+    </div></div>
+    <div class="hall" id="seats"></div>
+    <div class="desk" aria-hidden="true"></div>
+  </div>
+
+  <!-- ======== everything else, beneath ======== -->
+  <section><div class="cols">
+    <div><div class="sh"><h2>Paste queue</h2><span class="sub" id="pasteSub"></span><span class="grow"></span><button class="btn gold" id="copyOrder" title="Copies the queue as a numbered order for the Master">Copy paste order</button></div>
+      <div class="panel list" id="paste"></div></div>
+    <div><div class="sh"><h2>Quest board</h2><span class="sub" id="questSub"></span><span class="grow"></span><div class="tabs" id="questTabs"><button data-f="all" class="on">All</button><button data-f="free">Unclaimed</button><button data-f="taken">Claimed</button></div></div>
+      <div class="panel list" id="quests"></div></div>
+  </div></section>
+  <section><div class="cols">
+    <div><div class="sh"><h2>The Tavern</h2><span class="sub">team chat (issue #<span id="cafeN"></span>), newest first</span><span class="grow"></span><a class="btn" id="cafeLink" target="_blank" rel="noopener">Open chat</a></div>
+      <div class="panel list" id="tavern"></div></div>
+    <div><div class="sh"><h2>Editor requests</h2><span class="sub">exports, pastes, play-tests for the editor driver</span></div>
+      <div class="panel list" id="reqs"></div></div>
+  </div></section>
+  <section><div class="sh"><h2>Gallery</h2><span class="sub">latest screenshots from the agents</span></div><div class="gal" id="gal"></div></section>
+  <section><div class="sh"><h2>Chronicle</h2><span class="sub">what shipped, day by day</span></div><div class="panel"><details class="chron" id="chron"><summary>Open the chronicle</summary><div id="chronBody"></div></details></div></section>
+  <footer>Castle Studio reads data.js, board.json and the desks branch · refreshes on its own · <a href="https://github.com/hossamrabea202-hub/agent-office" target="_blank" rel="noopener">repository</a></footer>
+</div>
+
+<dialog id="drawer"><div class="dh"><span class="sig" id="dSig" style="width:34px;height:34px;font-size:13px"></span><h3 id="dName"></h3><button class="btn" id="dClose">Close</button></div><div class="db" id="dBody"></div></dialog>
+<dialog id="lb"><img id="lbImg" alt=""><div class="cap" id="lbCap"></div></dialog>
+<div class="toast" id="toast"></div>
+
+<script>document.write('<script src="data.js?t='+Date.now()+'"><\/script>')</script>
+<script>
+(()=>{'use strict';
+const REPO='hossamrabea202-hub/agent-office',GH='https://github.com/'+REPO;
+const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+// Departments = the seat rows, front (nearest the screen) to back. Seats not listed sit in the last row.
+const ROWS=[['Command',['hossam gmail (Claude)','vice master (Claude)']],
+  ['Art & Assets',['TGA (Claude)','hossam gmail laptop2 (Claude)','checkking (Claude)']],
+  ['Gameplay & Tech',['TGA 2','adjustedfilm (Claude)','hossam rabea (Claude)']],
+  ['Production',['Codex']]];
+const ROLES={'hossam gmail (Claude)':'Master · drives the Unreal editor','vice master (Claude)':'Vice Master · second editor seat','hossam gmail laptop2 (Claude)':'Asset kits & Blueprint pastes',
+  'TGA (Claude)':'3D Character & Texture Artist','TGA 2':'Gameplay Programmer','Codex':'Producer · weapon research','checkking (Claude)':'VFX Artist · QA Reviewer','adjustedfilm (Claude)':'Technical Artist · Programmer','hossam rabea (Claude)':'Level Designer · Environment Artist'};
+const HUES=['#8b3a3a','#2f5f8f','#4f7a3a','#8b6838','#6a3f86','#2f7a78','#9a4d22','#5a5f2a','#7a2f5a','#36507a'];
+const short=n=>String(n||'').replace(/\s*\(Claude\)\s*$/,''),ini=n=>{const w=short(n).replace(/[^\p{L}\p{N}\s]/gu,' ').trim().split(/\s+/);return ((w[0]||'?')[0]+(w[1]?w[1][0]:(w[0]||'?')[1]||'')).toUpperCase()};
+const ago=t=>{if(!t)return '–';const s=Math.max(0,(Date.now()-new Date(t))/1000);return s<60?'now':s<3600?Math.floor(s/60)+'m':s<86400?Math.floor(s/3600)+'h':Math.floor(s/86400)+'d'};
+const toast=m=>{const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),1800)};
+const plural=(n,a,b)=>n+' '+(n===1?a:b);
+
+// ---------- state ----------
+let O=window.OFFICE||{},board={issues:[],comments:[]},desks={},filterWho=LS.get('cs-who',''),q='',questF='all';
+const lastSeen=LS.get('cs-seen',0),isNew=t=>lastSeen&&new Date(t)>lastSeen;
+addEventListener('beforeunload',()=>LS.set('cs-seen',Date.now()));
+const seats=()=>{const s=new Set([...ROWS.flatMap(r=>r[1]),...Object.keys(O.crew||{}),...Object.values(O.preset||{}),...Object.keys(O.tint||{}),...Object.keys(desks)]);return [...s].filter(Boolean)};
+const hueOf=n=>{const all=[...new Set([...ROWS.flatMap(r=>r[1]),...seats().sort()])];let i=all.indexOf(n);if(i<0){i=0;for(const c of String(n))i=(i*31+c.charCodeAt(0))>>>0}return HUES[i%HUES.length]};
+const sig=(n,sz)=>'<span class="sig" style="background:'+hueOf(n)+(sz?';width:'+sz+'px;height:'+sz+'px':'')+'">'+esc(ini(n))+'</span>';
+const desk=n=>Object.assign({},(O.crew||{})[n]||{},desks[n]||{});
+const live=d=>d&&d.asOf&&Date.now()-new Date(d.asOf)<18e5,stale=d=>live(d)&&Date.now()-new Date(d.asOf)>15e5;
+const labels=i=>(i.labels||[]).map(l=>l.name||l);
+const field=(body,k)=>{const m=String(body||'').match(new RegExp('^'+k+':[ \\t]*(.+)$','im'));return m?m[1].trim():''};
+const commentsOf=n=>board.comments.filter(c=>c.issue===n);
+const claimOf=i=>{let c='';for(const x of commentsOf(i.number)){const m=String(x.body||'').match(/^\s*claimed by\s+(.+)$/im);if(m)c=m[1].trim()}return c};
+const fromOf=b=>{const m=String(b||'').match(/^\s*from:[ \t]*(.+)$/im);return m?m[1].trim():''};
+const matchQ=t=>!q||String(t).toLowerCase().includes(q);
+const matchWho=(...ns)=>!filterWho||ns.some(n=>n&&n.toLowerCase()===filterWho.toLowerCase());
+const owner=i=>/^\s*OWNER\b/i.test(i.title)||/OWNER PRIORITY/i.test(i.title);
+const chatOf=()=>{const n=(O.cafe||{}).issue||25;return board.comments.filter(c=>c.issue===n).map(c=>({c,who:fromOf(c.body)||(c.user&&c.user.login)||'?',txt:String(c.body||'').replace(/^\s*from:.*\n?/i,'').replace(/^\s*re:.*\n?/i,'').trim()}))};
+
+// ---------- data ----------
+async function loadBoard(){try{const r=await fetch('board.json?t='+Date.now(),{cache:'no-store'});if(r.ok){board=await r.json();board.issues=board.issues||[];board.comments=board.comments||[]}}catch{}}
+const deskUrl=s=>'https://raw.githubusercontent.com/'+REPO+'/desks/desks/'+s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')+'.json?t='+Date.now();
+async function loadDesks(){await Promise.all(seats().map(async s=>{try{const r=await fetch(deskUrl(s),{cache:'no-store'});if(r.ok)desks[s]=await r.json()}catch{}}))}
+function reloadData(){return new Promise(res=>{const sc=document.createElement('script');sc.src='data.js?t='+Date.now();sc.onload=()=>{O=window.OFFICE||O;sc.remove();res()};sc.onerror=()=>{sc.remove();res()};document.head.appendChild(sc)})}
+const handoffs=()=>board.issues.filter(i=>i.state!=='closed'&&labels(i).includes('handoff')&&matchWho(field(i.body,'From'),field(i.body,'Target'))&&matchQ(i.title+' '+i.body)).sort((a,b)=>(owner(b)-owner(a))||a.number-b.number);
+const requests=()=>board.issues.filter(i=>i.state!=='closed'&&labels(i).includes('request')&&matchWho(field(i.body,'From'))&&matchQ(i.title+' '+i.body)).sort((a,b)=>a.number-b.number);
+
+// ---------- the screen ----------
+function screen(){
+  const asks=seats().map(n=>[n,desk(n)]).filter(([n,d])=>d.ask&&d.ask.text&&matchWho(n)),hs=handoffs(),rq=requests(),lv=seats().filter(n=>live(desk(n)));
+  $('scrSum').innerHTML='<b>'+asks.length+'</b> owner waits · <b>'+hs.length+'</b> to paste · <b>'+rq.length+'</b> requests · <b>'+lv.length+'</b> live · board '+ago(board.at);
+  $('tOwner').className='tile s4'+(asks.length?' alarm':'');
+  $('tOwner').innerHTML='<h4><span class="big">'+asks.length+'</span>WAITING ON THE OWNER</h4><ul class="sl">'+(asks.length?asks.map(([n,d])=>'<li>'+sig(n)+'<span class="t"><b>'+esc(short(n))+'</b> · '+esc(d.ask.text)+' <span class="age">'+ago(d.ask.at)+'</span></span></li>').join(''):'<li class="empty">Nobody is blocked on you.</li>')+'</ul>';
+  $('tPaste').innerHTML='<h4><span class="big">'+hs.length+'</span>PASTE QUEUE · MASTER</h4><ul class="sl">'+hs.slice(0,6).map(i=>'<li><span class="n">#'+i.number+'</span><span class="t">'+(owner(i)?'<span class="own">OWNER</span>':'')+esc(i.title)+'</span><span class="age">'+ago(i.created_at)+'</span></li>').join('')+(hs.length>6?'<li><a href="#paste" class="age">+'+(hs.length-6)+' more below ▾</a></li>':'')+'</ul>';
+  $('tReq').innerHTML='<h4><span class="big">'+rq.length+'</span>EDITOR REQUESTS</h4><ul class="sl">'+(rq.slice(0,5).map(i=>'<li><span class="n">#'+i.number+'</span><span class="t">'+esc(i.title)+'</span></li>').join('')||'<li class="empty">None open.</li>')+'</ul>';
+  // heartbeat: minutes since each desk's last tick (bar shrinks with age over 4 h)
+  const bs=seats().filter(n=>matchWho(n)&&(desk(n).asOf)).sort((a,b)=>new Date(desk(b).asOf)-new Date(desk(a).asOf)).slice(0,8);
+  $('tBeat').innerHTML='<h4><span class="big">'+lv.length+'</span>HEARTBEAT</h4><div class="beats">'+bs.map(n=>{const d=desk(n),m=(Date.now()-new Date(d.asOf))/6e4,w=Math.max(4,100-m/2.4);
+    return '<div class="beat">'+sig(n,16)+'<div class="bar"><i style="width:'+w+'%;background:'+(live(d)?(stale(d)?'var(--amber)':'var(--green)'):'#3d5566')+'"></i></div><span class="age">'+ago(d.asOf)+'</span></div>'}).join('')+'</div>';
+  const s=(O.shots||[]).filter(x=>matchWho(x.who))[0];
+  $('tShot').innerHTML=s?'<h4>LATEST SHOT</h4><img src="'+esc(s.f)+'" alt="'+esc(s.t)+'" data-f="'+esc(s.f)+'" data-t="'+esc(s.t+' — '+short(s.who))+'"><div class="cap"><div class="clamp">'+esc(s.t)+'</div><div class="age">'+esc(short(s.who))+' · '+ago(s.at)+'</div></div>':'<h4>LATEST SHOT</h4><div class="empty" style="padding:30px 14px">No screenshot yet.</div>';
+  // today: events per hour, stacked by agent colour
+  const d0=new Date();d0.setHours(0,0,0,0);const hrs=Array.from({length:24},()=>({}));let total=0;
+  const add=(t,who)=>{const d=new Date(t);if(d<d0||!matchWho(who))return;who=who||'?';const h=d.getHours();hrs[h][who]=(hrs[h][who]||0)+1;total++};
+  for(const c of board.comments)add(c.created_at,fromOf(c.body));for(const i of board.issues)add(i.created_at,field(i.body,'From'));for(const x of O.shots||[])add(x.at,x.who);
+  const max=Math.max(1,...hrs.map(h=>Object.values(h).reduce((a,b)=>a+b,0))),nowH=new Date().getHours();
+  $('tToday').innerHTML='<h4><span class="big">'+total+'</span>TODAY · EVENTS PER HOUR</h4><div class="chart">'+hrs.map((h,i)=>'<div class="hr'+(i===nowH?' now':'')+'" title="'+String(i).padStart(2,'0')+':00 · '+esc(Object.entries(h).map(([w,n])=>short(w)+' '+n).join(', ')||'quiet')+'">'+Object.entries(h).map(([w,n])=>'<i style="height:'+(n/max*100)+'%;background:'+hueOf(w)+'"></i>').join('')+(i%3===0?'<span>'+String(i).padStart(2,'0')+'</span>':'')+'</div>').join('')+'</div>';
+  // ticker: last 12 tavern lines
+  const ms=chatOf().filter(m=>matchWho(m.who)).slice(-12).reverse();
+  const run=ms.map(m=>'<span class="it"><b>'+esc(short(m.who))+'</b> '+esc(m.txt.replace(/\s+/g,' ').slice(0,150))+' · <span class="age">'+ago(m.c.created_at)+'</span></span>').join('');
+  if($('tick').dataset.sig!==run){$('tick').dataset.sig=run;$('tick').innerHTML=run||'<span class="it">Quiet in the tavern.</span>';$('tick').style.animationDuration=Math.max(40,ms.length*9)+'s'}
+}
+// ---------- the seats ----------
+function seatsRender(){const placed=new Set(ROWS.flatMap(r=>r[1])),extra=seats().filter(n=>!placed.has(n));
+  const rows=ROWS.map(r=>[r[0],r[1].filter(n=>seats().includes(n))]).concat(extra.length?[['Guests',extra]]:[]).filter(r=>r[1].length);
+  $('seats').innerHTML=rows.map(([nm,list])=>'<div class="rowS"><span class="plaque">'+esc(nm.toUpperCase())+'</span>'+list.map((n,k)=>{const d=desk(n),on=live(d),st=stale(d),c=list.length,off=c>1?Math.round(Math.pow((k-(c-1)/2)/((c-1)/2||1),2)*14):0;
+    const dim=(filterWho&&filterWho!==n)||(q&&!matchQ(n+' '+(d.working||'')+' '+(ROLES[n]||'')));
+    return '<div class="seat'+(on?' live':'')+(dim?' dim':'')+'" data-agent="'+esc(n)+'" style="transform:translateY('+(-off)+'px)" title="'+esc(n+' — '+(ROLES[n]||'')+'\n'+(d.working||'idle'))+'"><div class="av" style="background:radial-gradient(circle at 35% 30%,color-mix(in srgb,'+hueOf(n)+' 70%,#fff),'+hueOf(n)+' 60%)">'+esc(ini(n))
+      +'<span class="lt'+(on?(st?' warn':' on'):'')+'"></span>'+(d.ask&&d.ask.text?'<span class="bellb" title="waiting on the owner">🔔</span>':'')+'</div><div class="chair"></div><div class="nm">'+esc(short(n))+'</div><div class="st">'+(on?'live · '+ago(d.asOf):'offline · '+ago(d.asOf))+(d.working?' · '+esc(d.working):'')+'</div></div>'}).join('')+'</div>').join('')}
+
+// ---------- beneath ----------
+function issueRow(i,extra){return '<div class="row"><span class="num">#'+i.number+'</span><div><div class="ttl"><a href="'+esc(i.html_url)+'" target="_blank" rel="noopener">'+esc(i.title)+'</a>'+(isNew(i.created_at)?'<span class="newd" title="new since your last visit"></span>':'')+'</div><div class="sub2">'+extra+'</div></div><span class="age">'+ago(i.created_at)+'</span></div>'}
+function paste(){const hs=handoffs();$('pasteSub').textContent=hs.length+' open · owner orders first, then oldest';
+  $('paste').innerHTML=hs.map(i=>{const f=field(i.body,'From'),file=field(i.body,'File');return issueRow(i,(owner(i)?'<span class="tag own">owner priority</span>':'')+(f?sig(f,16)+' '+esc(short(f)):'')+(field(i.body,'Kind')?'<span class="tag">'+esc(field(i.body,'Kind'))+'</span>':'')
+    +(file&&file!=='-'&&!/^[A-Z]:/.test(file)?'<a href="'+GH+'/blob/main/'+esc(file)+'" target="_blank" rel="noopener">'+esc(file.split('/').slice(-2).join('/'))+'</a>':'')+(i.comments?'<span>💬 '+i.comments+'</span>':''))}).join('')||'<div class="empty">The Master is all caught up.</div>'}
+function quests(){const all=board.issues.filter(i=>i.state!=='closed'&&!labels(i).length);
+  const rows=all.map(i=>({i,c:claimOf(i)})).filter(({i,c})=>(questF==='all'||(questF==='free'?!c:!!c))&&matchWho(c)&&matchQ(i.title+' '+i.body)).sort((a,b)=>b.i.number-a.i.number);
+  $('questSub').textContent=all.length+' open · '+all.filter(i=>!claimOf(i)).length+' unclaimed';
+  $('quests').innerHTML=rows.map(({i,c})=>issueRow(i,c?sig(c,16)+' '+esc(short(c)):'<span class="tag free">unclaimed</span>')).join('')||'<div class="empty">No quest matches.</div>'}
+function reqsList(){$('reqs').innerHTML=requests().map(i=>{const f=field(i.body,'From');return issueRow(i,(f?sig(f,16)+' '+esc(short(f)):'')+(field(i.body,'Kind')?'<span class="tag">'+esc(field(i.body,'Kind'))+'</span>':''))}).join('')||'<div class="empty">No open requests.</div>'}
+function tavern(){const n=(O.cafe||{}).issue||25;$('cafeN').textContent=n;$('cafeLink').href=GH+'/issues/'+n;const me=filterWho&&short(filterWho).toLowerCase();
+  const ms=chatOf().filter(m=>(!filterWho||m.who.toLowerCase()===filterWho.toLowerCase()||m.txt.toLowerCase().includes('@'+me))&&matchQ(m.who+' '+m.txt)).slice(-60).reverse();
+  $('tavern').innerHTML=ms.map(m=>'<div class="msg'+(me&&m.txt.toLowerCase().includes('@'+me)?' me':'')+'">'+sig(m.who,28)+'<div><div class="who">'+esc(short(m.who))+' <span class="age">'+ago(m.c.created_at)+'</span>'+(isNew(m.c.created_at)?'<span class="newd"></span>':'')+'</div><div class="txt">'
+    +esc(m.txt.length>420?m.txt.slice(0,420)+'…':m.txt).replace(/@([\w .-]+?\(Claude\)|[\w-]+)/g,'<span class="mention">@$1</span>').replace(/(^|[^&\w])#(\d{1,4})\b/g,'$1<a href="'+GH+'/issues/$2" target="_blank" rel="noopener">#$2</a>')+'</div></div></div>').join('')||'<div class="empty">Quiet in the tavern.</div>'}
+let galList=[];
+function gallery(){galList=(O.shots||[]).filter(x=>matchWho(x.who)&&matchQ(x.t+' '+x.who)).slice(0,24);
+  $('gal').innerHTML=galList.map((x,k)=>'<div class="panel shot" data-k="'+k+'"><img loading="lazy" src="'+esc(x.f)+'" alt="'+esc(x.t)+'"><div class="cap"><div class="clamp">'+esc(x.t)+'</div><div class="meta" style="margin-top:4px">'+sig(x.who,16)+' '+esc(short(x.who))+' · '+ago(x.at)+(x.card?' · <a href="'+GH+'/issues/'+x.card+'" target="_blank" rel="noopener">#'+x.card+'</a>':'')+'</div></div></div>').join('')||'<div class="empty">No screenshots match.</div>'}
+function chronicle(){const days={};for(const a of [O.archive,O.archive2,O.archive3,O.archive4])for(const [d,l] of a||[])(days[d]=days[d]||[]).push(...l);
+  $('chronBody').innerHTML=Object.entries(days).reverse().map(([d,l])=>'<div class="day"><b>'+esc(d)+'</b><ul>'+[...new Set(l)].map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>').join('')}
+function drawer(n){const d=desk(n);$('dSig').style.background=hueOf(n);$('dSig').textContent=ini(n);$('dName').textContent=n;
+  const cards=board.issues.filter(i=>i.state!=='closed'&&!labels(i).length&&claimOf(i).toLowerCase()===n.toLowerCase());
+  const hs=board.issues.filter(i=>i.state!=='closed'&&labels(i).includes('handoff')&&field(i.body,'From').toLowerCase()===n.toLowerCase());
+  const li=a=>a&&a.length?'<ul>'+a.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'<div class="empty" style="padding:0">none</div>';
+  const tl=d.tokens&&d.ctx?Math.max(0,100-Math.round(d.tokens/d.ctx*100)):null;
+  $('dBody').innerHTML='<div><h4>'+esc((ROLES[n]||'AGENT').toUpperCase())+'</h4><div>'+esc(d.working||'idle')+'</div><div class="meta" style="margin-top:6px"><span>'+(live(d)?'live':'offline')+' · last tick '+ago(d.asOf)+' ago</span>'+(tl!=null?'<span>'+tl+'% context left</span>':'')+(d.since?'<span>session since '+new Date(d.since).toLocaleString()+'</span>':'')+(d.session&&d.session.host?'<span>host '+esc(d.session.host)+'</span>':'')+'</div></div>'
+    +(d.ask&&d.ask.text?'<div><h4>WAITING ON THE OWNER</h4><div class="bell">🔔 '+esc(d.ask.text)+'</div></div>':'')
+    +'<div><h4>RECENTLY DONE</h4>'+li((d.done||[]).slice(0,10))+'</div><div><h4>STILL TO DO</h4>'+li(d.todo)+'</div>'
+    +'<div><h4>CLAIMED CARDS ('+cards.length+')</h4>'+li(cards.map(i=>'#'+i.number+' '+i.title))+'</div><div><h4>HAND-OFFS WAITING ('+hs.length+')</h4>'+li(hs.map(i=>'#'+i.number+' '+i.title))+'</div>'
+    +'<div><button class="btn" id="dFilter">Show only '+esc(short(n))+' everywhere</button></div>';
+  $('dFilter').onclick=()=>{setWho(n);$('drawer').close()};$('drawer').showModal()}
+function all(){screen();seatsRender();paste();quests();reqsList();tavern();gallery();
+  $('fchip').className='fchip'+(filterWho?' on':'');$('fchip').innerHTML=filterWho?sig(filterWho)+'Only '+esc(short(filterWho))+'<button title="Show everyone" id="fclear">✕</button>':''}
+function setWho(n){filterWho=n||'';LS.set('cs-who',filterWho);all()}
+
+// ---------- events ----------
+$('seats').onclick=e=>{const s=e.target.closest('.seat');if(s)drawer(s.dataset.agent)};
+$('fchip').onclick=e=>{if(e.target.id==='fclear')setWho('')};
+$('dClose').onclick=()=>$('drawer').close();$('lb').onclick=()=>$('lb').close();
+const openShot=(f,t)=>{$('lbImg').src=f;$('lbCap').textContent=t;$('lb').showModal()};
+$('tShot').onclick=e=>{const i=e.target.closest('img');if(i)openShot(i.dataset.f,i.dataset.t)};
+$('gal').onclick=e=>{const c=e.target.closest('.shot');if(!c||e.target.closest('a'))return;const x=galList[+c.dataset.k];openShot(x.f,x.t+' — '+short(x.who))};
+let qt;$('q').oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{q=e.target.value.trim().toLowerCase();all()},120)};
+addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement!==$('q')){e.preventDefault();$('q').focus()}if(e.key==='Escape'&&document.activeElement===$('q')){$('q').value='';q='';all();$('q').blur()}});
+$('questTabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;questF=b.dataset.f;[...$('questTabs').children].forEach(x=>x.classList.toggle('on',x===b));quests()};
+$('copyOrder').onclick=async()=>{const hs=handoffs();const txt='@hossam gmail (Claude) paste queue, in this order:\n'+hs.map((i,k)=>(k+1)+'. #'+i.number+' '+i.title.slice(0,110)+(field(i.body,'File')?' ('+field(i.body,'File')+')':'')).join('\n');
+  try{await navigator.clipboard.writeText(txt);toast('Copied '+plural(hs.length,'hand-off','hand-offs')+' in order')}catch{prompt('Copy the order:',txt)}};
+const setTheme=t=>{document.documentElement.dataset.theme=t;$('theme').textContent=t==='day'?'☀ Day':'☾ Night';LS.set('cs-theme',t)};
+setTheme(LS.get('cs-theme','night'));$('theme').onclick=()=>setTheme(document.documentElement.dataset.theme==='day'?'night':'day');
+$('chron').addEventListener('toggle',()=>{if($('chron').open&&!$('chronBody').innerHTML)chronicle()});
+const clk=()=>{const d=new Date();$('clock').textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})};clk();setInterval(clk,1000);
+
+// ---------- radio (same stations as the classic page; remembers your station and volume) ----------
+(()=>{const box=$('radio'),now=$('radioNow'),eq=$('eq');
+  const st=[['Medieval','Medieval Fantasy · laut.fm','https://stream.laut.fm/medieval-fantasy'],['Celtic','Celtic · laut.fm','https://stream.laut.fm/celtic'],['Epic','Epic Sounds FM · laut.fm','https://stream.laut.fm/epicsoundsfm'],['Film','Soundtracks FM · laut.fm','https://stream.laut.fm/soundtracksfm'],['Tavern lofi','Medieval Lofi · laut.fm','https://stream.laut.fm/grooved-cool-it'],['Lofi','Lofi · laut.fm','https://stream.laut.fm/lofi'],['Mellow','Radio Paradise Mellow','https://stream.radioparadise.com/mellow-128']];
+  const K='agent-office-radio',get=()=>LS.get(K,{}),put=o=>LS.set(K,Object.assign(get(),o));
+  const au=new Audio();au.preload='none';au.volume=get().vol??.5;let cur=-1;
+  box.insertAdjacentHTML('beforeend',st.map((s,i)=>'<button type="button" data-st="'+i+'" title="'+s[1]+'">'+s[0]+'</button>').join('')+'<button type="button" id="radioStop" title="Stop">■</button><input type="range" id="radioVol" min="0" max="1" step="0.05" aria-label="Volume" title="Volume">');
+  const paint=msg=>{box.querySelectorAll('[data-st]').forEach(b=>b.classList.toggle('on',+b.dataset.st===cur&&!au.paused));const on=cur>=0&&!au.paused;now.classList.toggle('on',on);eq.classList.toggle('on',on);now.textContent=msg||(on?'📻 '+st[cur][1]:'📻 Radio')};
+  const play=i=>{cur=i;au.src=st[i][2];paint('📻 Tuning in…');au.play().then(()=>{put({ch:i,on:1});paint()}).catch(()=>paint('📻 Press a station to play'))};
+  const stop=()=>{au.pause();au.removeAttribute('src');au.load();cur=-1;put({on:0});paint()};
+  const vol=$('radioVol');vol.value=au.volume;vol.oninput=()=>{au.volume=+vol.value;put({vol:au.volume})};
+  box.addEventListener('click',e=>{const b=e.target.closest('[data-st]');if(b){const i=+b.dataset.st;i===cur&&!au.paused?stop():play(i)}if(e.target.id==='radioStop')stop()});
+  au.addEventListener('pause',()=>paint());au.addEventListener('playing',()=>paint());au.addEventListener('error',()=>{if(cur>=0)paint('📻 Station offline, try another')});
+  const g=get();if(g.on&&st[g.ch])play(g.ch);else paint()})();
+
+// ---------- boot + refresh ----------
+(async()=>{all();await Promise.all([loadBoard(),loadDesks()]);all();
+  setInterval(async()=>{if(document.visibilityState!=='visible')return;await loadDesks();all()},30000);
+  setInterval(async()=>{if(document.visibilityState!=='visible')return;await Promise.all([loadBoard(),reloadData()]);all()},60000)})();
+})();
+</script>
+</body></html>
