@@ -113,20 +113,20 @@ if VAR == 'Daisy':       # oxeye daisy, 45 cm, 3 heads
     for h in range(3):
         base = np.array([rng.uniform(-0.03, 0.03), rng.uniform(-0.03, 0.03), 0]); H = rng.uniform(0.35, 0.5)
         lean = rng.uniform(0, 2 * PI); lv = np.array([math.cos(lean), math.sin(lean), 0]) * rng.uniform(0.03, 0.09)
-        path = bezier(base, base + [0, 0, H * 0.4], base + lv * 0.6 + [0, 0, H * 0.8], base + lv + [0, 0, H], 60 if HIGH else 8)
+        path = bezier(base, base + [0, 0, H * 0.4], base + lv * 0.6 + [0, 0, H * 0.8], base + lv + [0, 0, H], 60 if HIGH else 16)
         stem('Stem_%d' % h, path, 0.0022, 0.0016)
         leaves(path, 3, 0.05, 0.016, lanceolate, 'Leaf', 0.05, 0.5, serr=0.5)
-        top = path[-1]; axis = unit(path[-1] - path[-3]); axis = unit(axis + [0, 0, 0.6])
+        top = path[-1]; axis = at(path, 1.0)[1]; axis = unit(axis + [0, 0, 0.6])
         flower_head(top, axis, 22, 0.021, 0.0045, ell(0.7), 'PetalWhite', curl=0.25, cup=0.12, tilt=0.12, whorls=2, spread=0.006)
         disc('Center_%d' % h, top + axis * 0.004, axis, 0.0075, 0.004, 'Pollen', bump=0.0012)
 elif VAR == 'Poppy':     # red poppy, 55 cm, 2 heads + a bud
     for h in range(3):
         base = np.array([rng.uniform(-0.04, 0.04), rng.uniform(-0.04, 0.04), 0]); H = rng.uniform(0.4, 0.58)
         lean = rng.uniform(0, 2 * PI); lv = np.array([math.cos(lean), math.sin(lean), 0]) * rng.uniform(0.04, 0.12)
-        path = bezier(base, base + [0, 0, H * 0.5], base + lv * 0.7 + [0, 0, H * 0.9], base + lv + [0, 0, H], 60 if HIGH else 8)
+        path = bezier(base, base + [0, 0, H * 0.5], base + lv * 0.7 + [0, 0, H * 0.9], base + lv + [0, 0, H], 60 if HIGH else 16)
         stem('Stem_%d' % h, path, 0.0025, 0.0018)
         leaves(path, 3, 0.08, 0.025, ell(0.6), 'Leaf', 0.05, 0.4, serr=0.9, droop=0.4)
-        top = path[-1]; axis = unit(unit(path[-1] - path[-3]) + [0, 0, 0.3])
+        top = path[-1]; axis = unit(at(path, 1.0)[1] + [0, 0, 0.3])
         if h < 2:
             flower_head(top, axis, 4, 0.038, 0.035, spoon, 'PetalRed', curl=-0.15, cup=0.55, tilt=0.55, whorls=2, spread=0.004, ruffle=0.5, vein=0.003)
             disc('Center_%d' % h, top + axis * 0.004, axis, 0.0065, 0.006, 'PollenDark', bump=0.001)
@@ -135,7 +135,7 @@ elif VAR == 'Poppy':     # red poppy, 55 cm, 2 heads + a bud
             PARTS.append(('Bud', top + axis * 0.012 + Vs * np.array([0.008, 0.008, 0.013]), [Qs, Ts], 'Leaf', np.stack([Vs[:, 0], Vs[:, 2]], -1) * 0.01, None))
 elif VAR == 'Foxglove':  # 1.1 m spire of bells
     H = 1.1; lean = rng.uniform(0, 2 * PI); lv = np.array([math.cos(lean), math.sin(lean), 0]) * 0.08
-    path = bezier(np.zeros(3), [0, 0, H * 0.45], lv * 0.5 + [0, 0, H * 0.85], lv + [0, 0, H], 120 if HIGH else 14)
+    path = bezier(np.zeros(3), [0, 0, H * 0.45], lv * 0.5 + [0, 0, H * 0.85], lv + [0, 0, H], 120 if HIGH else 28)
     stem('Stem', path, 0.006, 0.0025)
     leaves(path, 5, 0.16, 0.05, ell(0.7), 'Leaf', 0.02, 0.35, serr=0.4, droop=0.35)
     for k in range(24):
@@ -152,21 +152,21 @@ elif VAR == 'Bloodcap':  # realm: fleshy cup flower, 60 cm, veined dark petals a
     for h in range(2):
         base = np.array([rng.uniform(-0.05, 0.05), rng.uniform(-0.05, 0.05), 0]); H = rng.uniform(0.45, 0.62)
         lean = rng.uniform(0, 2 * PI); lv = np.array([math.cos(lean), math.sin(lean), 0]) * 0.12
-        path = bezier(base, base + [0, 0, H * 0.5], base + lv * 0.4 + [0, 0, H * 0.95], base + lv + [0, 0, H], 70 if HIGH else 9)
+        path = bezier(base, base + [0, 0, H * 0.5], base + lv * 0.4 + [0, 0, H * 0.95], base + lv + [0, 0, H], 70 if HIGH else 18)
         stem('Stem_%d' % h, path, 0.009, 0.005, 'Flesh', bumpy=0.3, glow=0.0)
-        top = path[-1]; axis = unit(unit(path[-1] - path[-3]) + [0, 0, 0.5])
+        top = path[-1]; axis = unit(at(path, 1.0)[1] + [0, 0, 0.5])
         # one whorl of 8: nested whorls sat 6 mm apart and the bake rays (8 mm) hit the inner petal instead
         flower_head(top, axis, 8, 0.09, 0.05, ell(0.8), 'FleshPetal', curl=-0.2, cup=0.5, tilt=0.7, whorls=1, spread=0.012, ruffle=0.25, vein=0.008, glow=0.15, twist=0.2)
         disc('Core_%d' % h, top + axis * 0.012, axis, 0.028, 0.024, 'Core', bump=0.004, glow=1.0)
         leaves(path, 3, 0.16, 0.04, lanceolate, 'FleshLeaf', 0.05, 0.5, vein=0.006, glow=0.05)
 elif VAR == 'SporeStalk':   # realm: 1.4 m stalk, spore sacs hanging on thin stems, glowing
     H = 1.4; lean = rng.uniform(0, 2 * PI); lv = np.array([math.cos(lean), math.sin(lean), 0]) * 0.2
-    path = bezier(np.zeros(3), [0, 0, H * 0.4], lv * 0.3 + [0, 0, H * 0.8], lv + [0, 0, H], 120 if HIGH else 14)
+    path = bezier(np.zeros(3), [0, 0, H * 0.4], lv * 0.3 + [0, 0, H * 0.8], lv + [0, 0, H], 120 if HIGH else 28)
     stem('Stem', path, 0.014, 0.004, 'Flesh', bumpy=0.4, glow=0.0)
     for k in range(9):
         t = 0.35 + 0.6 * k / 9; p, _ = at(path, t)
         a = k * 2.399; radial = np.array([math.cos(a), math.sin(a), 0]); L = 0.09 + 0.05 * rng.random()
-        sp = bezier(p, p + radial * L * 0.5 + [0, 0, 0.03], p + radial * L + [0, 0, 0.0], p + radial * L * 1.05 + [0, 0, -L * 0.5], 20 if HIGH else 5)
+        sp = bezier(p, p + radial * L * 0.5 + [0, 0, 0.03], p + radial * L + [0, 0, 0.0], p + radial * L * 1.05 + [0, 0, -L * 0.5], 20 if HIGH else 14)
         stem('Pedicel_%d' % k, sp, 0.0025, 0.0018, 'Flesh', glow=0.0)
         Vs, Qs, Ts = superellipsoid(32 if HIGH else 10, 16 if HIGH else 5, 1.0)
         r_ = 0.022 + 0.01 * rng.random()
@@ -176,7 +176,7 @@ elif VAR == 'SporeStalk':   # realm: 1.4 m stalk, spore sacs hanging on thin ste
 elif VAR == 'TentacleFern':  # realm: 7 curling fronds with glowing tips, 70 cm
     for k in range(7):
         a = k * 2 * PI / 7 + rng.uniform(-0.2, 0.2); radial = np.array([math.cos(a), math.sin(a), 0]); L = rng.uniform(0.5, 0.75)
-        p0 = radial * 0.02; path = bezier(p0, p0 + [0, 0, L * 0.5], p0 + radial * L * 0.5 + [0, 0, L * 0.9], p0 + radial * L * 0.75 + [0, 0, L * 0.55], 90 if HIGH else 12)
+        p0 = radial * 0.02; path = bezier(p0, p0 + [0, 0, L * 0.5], p0 + radial * L * 0.5 + [0, 0, L * 0.9], p0 + radial * L * 0.75 + [0, 0, L * 0.55], 90 if HIGH else 24)
         # curl the tip over itself
         tip = path[-1]; tang = unit(path[-1] - path[-2]); curl = np.array([tip + (np.cos(th) * tang - np.sin(th) * np.array([0, 0, 1.0])) * 0.03 * (th / PI) + tang * 0.0 for th in np.linspace(0.3, 2.6, 25 if HIGH else 5)])
         path = np.vstack([path, curl])
@@ -229,7 +229,7 @@ elif VAR == 'BlobMine':  # realm: 0.5 m bio land mine: a quivering membrane sac 
     PARTS.append(('Skirt', skirt, [Qk, Tk], 'Flesh', np.stack([Vk[:, 0], Vk[:, 1]], -1) * 0.3, np.full(len(Vk), 0.1)))
     for k in range(6):   # tendrils rooting it into the ground
         a = k * 2 * PI / 6 + rng.uniform(-0.3, 0.3); radial = np.array([math.cos(a), math.sin(a), 0]); L = rng.uniform(0.25, 0.42)
-        path = bezier(radial * 0.2 + [0, 0, 0.06], radial * (0.2 + L * 0.4) + [0, 0, 0.05], radial * (0.2 + L * 0.8) + [0, 0, 0.0], radial * (0.2 + L) + [0, 0, -0.03], 40 if HIGH else 7)
+        path = bezier(radial * 0.2 + [0, 0, 0.06], radial * (0.2 + L * 0.4) + [0, 0, 0.05], radial * (0.2 + L * 0.8) + [0, 0, 0.0], radial * (0.2 + L) + [0, 0, -0.03], 40 if HIGH else 14)
         stem('Tendril_%d' % k, path, 0.016, 0.004, 'Flesh', bumpy=0.3, glow=0.15)
 elif VAR == 'EggCluster':   # realm: 0.7 m clutch of translucent eggs half sunk in a flesh mound, two hatched
     Vk, Qk, Tk = superellipsoid(64 if HIGH else 20, 14 if HIGH else 5, 0.9)

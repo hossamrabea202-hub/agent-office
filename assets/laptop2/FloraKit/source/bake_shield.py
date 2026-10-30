@@ -69,8 +69,9 @@ elif STAGE in ('BC', 'RG', 'MT', 'AO', 'Normal', 'EM', 'HT'):
     b = sc.render.bake; b.use_selected_to_active = True; b.cage_extrusion = 0.006; b.max_ray_distance = 0.012; b.margin = 16
     if GRD: b.cage_extrusion = 0.15; b.max_ray_distance = 0.4; b.margin = 0      # a flat quad under a heightfield up to 8 cm tall; no margin, the tile wraps
     if FLO: b.cage_extrusion = 0.004; b.max_ray_distance = 0.008
-    if SH == 'CampCampfire': b.cage_extrusion = 0.004; b.max_ray_distance = 0.008   # logs lie on stones and ash: short rays so they don't bake the neighbours
+    if SH in ('CampCampfire', 'CampFirewood', 'CampTorchPost', 'CampSiegeLadder'): b.cage_extrusion = 0.012; b.max_ray_distance = 0.03   # bark logs: the plates stand 1-2 cm proud of the low, short rays missed them (black bark)
     if SH == 'PropsSack': b.cage_extrusion = 0.015; b.max_ray_distance = 0.03         # slumped cloth, no thin parts
+    if SH == 'FloraBloodcap': b.cage_extrusion = 0.012; b.max_ray_distance = 0.025   # big cupped petals with 8 mm veins/ruffle: the 4 mm cage missed them (black)
     if SH in ('FloraBlobMine', 'FloraEggCluster'): b.cage_extrusion = 0.02; b.max_ray_distance = 0.045   # lumpy sacs and mounds, no thin leaves: the 4 mm cage left black holes      # thin petals and leaves: clear the 2 mm midrib/ruffle of the high, but not the neighbours (whorls 6 mm apart)
     QUAD = os.environ.get('QUAD'); BS = SIZE
     if QUAD is not None:
