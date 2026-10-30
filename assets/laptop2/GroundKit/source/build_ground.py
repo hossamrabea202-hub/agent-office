@@ -11,7 +11,7 @@ from shieldkit import mesh, grid_quads, sstep, HIGH, PI
 D = os.path.dirname(os.path.abspath(__file__))
 VAR = os.environ.get('VARIANT', 'Cobble')
 TILE = 2.0
-rng = np.random.default_rng({'Cobble': 201, 'Mud': 202, 'GrassDirt': 203, 'Corrupt': 204}[VAR])
+rng = np.random.default_rng({'Cobble': 201, 'Mud': 202, 'GrassDirt': 203, 'Corrupt': 204, 'CobbleMud': 205}[VAR])
 
 def _hash(ix, iy, s):
     h = (ix * 374761393 + iy * 668265263 + s * 982451653) & 0xFFFFFFFF
@@ -101,6 +101,20 @@ elif VAR == 'Corrupt':   # realm ground: flesh-earth, cracked crust, pulsing vei
     H = 0.03 * crust - 0.025 * crack + 0.012 * vein + 0.045 * bulb + 0.003 * pfbm(u * 40, v * 40, 46, 40, 2)
     GAP = crack; GLOW = np.clip(crack * 1.2 + vein * 0.5 + bulb * 0.8, 0, 1); ID = cidb * (bulb > 0.1)
     WET = np.clip(bulb * 1.5 + vein, 0, 1); VEG = 0 * U
+
+elif VAR == 'CobbleMud':   # transition strip: cobbles on the left third sinking into mud on the right (seamless in v only; u 0 = cobble side, u 1 = mud side)
+    d1, d2, cid = pcells(u, v, 14, 11, jit=0.8)
+    edge = d2 - d1; r = (0.5 / 14) * (0.85 + 0.6 * cid)
+    dome = np.clip(1 - (d1 / r) ** 2.2, 0, 1) ** 0.32; joint = sstep(0.002, 0.011, edge)
+    tilt = (pnoise(u * 14 + 0.5, v * 14 + 0.5, 17, 14) - 0.5) * 0.02 * (u - np.floor(u * 14) / 14 - 0.5 / 14) * 14
+    hs = (dome * (0.020 + 0.016 * cid) + tilt * dome) * joint
+    blend = sstep(0.3, 0.75, u + 0.12 * (pfbm(u * 4, v * 4, 18, 4, 3) - 0.5) * 2)           # 0 cobbles .. 1 mud, a ragged edge
+    mudh = 0.05 * pfbm(u * 3, v * 3, 21, 3, 5, 0.55) + 0.012 * pfbm(u * 20, v * 20, 22, 20, 3)
+    sink = 0.03 * blend                                                                   # the cobbles sink under the mud
+    H = (hs - sink) * (1 - blend) + np.maximum(hs - sink, mudh - 0.02) * blend * 0.5 + mudh * blend
+    ID = cid * (1 - blend); GAP = (1 - joint) * (1 - blend)
+    WET = np.clip(blend * (0.4 + 0.5 * sstep(0.0, -0.03, mudh - mudh.mean())) + (1 - blend) * sstep(0.55, 0.3, 0.5 + 0.5 * (pfbm(u * 2, v * 2, 15, 2, 3) - 0.5) * 2) * 0.3, 0, 1)
+    VEG = np.clip((1 - blend) * (pfbm(u * 4, v * 4, 16, 4, 3) - 0.4) * 2.0, 0, 1) * (1 - joint)
 
 # the mesh: high = displaced grid with attributes; low = one quad (UV 0..1 exactly, no packing)
 if HIGH:

@@ -110,9 +110,27 @@ def corrupt(m):
     _finish(nt, col, rg, 0.0, ao, em)
     rr = _n(nt, 'NodeReroute'); rr.name = 'OUT_HT'; nt.links.new(_mix_col(nt, h, (0, 0, 0), (1, 1, 1)), rr.inputs[0])
 
+def cobblemud(m):
+    """the transition strip: cobble look where 'gap'/'sid' live (left), mud where 'wet' is high (right); blended by u."""
+    m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    uv, g, cav, ao, h, sid, gap, wet, veg, glow = _common(nt)
+    s = _sep(nt, uv); bl = _maprange(nt, _math(nt, 'ADD', s[0], _math(nt, 'MULTIPLY', _math(nt, 'SUBTRACT', _tn(nt, uv, 1, 4, 4, 0.6), 0.5), 0.24)), 0.3, 0.75)
+    tone = _mix_col(nt, sid, (0.30, 0.28, 0.25), (0.42, 0.37, 0.30)); tone = _mix_col(nt, _maprange(nt, sid, 0.6, 0.62), tone, (0.27, 0.29, 0.32))
+    stone = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, _tn(nt, uv, 1, 700, 2, 0.6), 0.55, 0.9), 0.35), tone, (0.16, 0.15, 0.14))
+    stone = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, h, 0.55, 0.9), 0.35), stone, (0.50, 0.47, 0.42))
+    earth = _mix_col(nt, _tn(nt, uv, 1, 60, 4, 0.6), (0.11, 0.085, 0.06), (0.20, 0.16, 0.11))
+    cob = _mix_col(nt, gap, stone, earth)
+    mudc = _mix_col(nt, _tn(nt, uv, 1, 8, 5, 0.6), (0.10, 0.075, 0.05), (0.21, 0.16, 0.11))
+    mudc = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, _tn(nt, uv, 1, 120, 3, 0.6), 0.55, 0.85), 0.4), mudc, (0.28, 0.23, 0.17))
+    col = _mix_col(nt, bl, cob, mudc)
+    col = _mix_col(nt, _maprange(nt, cav, 0.2, 0.8, 0, 0.6), col, (0.05, 0.04, 0.03))
+    col, rg = _moss(nt, uv, col, _mix_f(nt, bl, _mix_f(nt, gap, 0.6, 0.95), 0.85), veg, 0.8)
+    col, rg = _wet(nt, col, rg, wet)
+    _finish(nt, col, rg, 0.0, ao, _mix_col(nt, h, (0, 0, 0), (1, 1, 1)))
+
 KIND = {'Ground': None}
 def build_all():
     import os
-    f = {'Cobble': cobble, 'Mud': mud, 'GrassDirt': grassdirt, 'Corrupt': corrupt}[os.environ.get('VARIANT', 'Cobble')]
+    f = {'Cobble': cobble, 'Mud': mud, 'GrassDirt': grassdirt, 'Corrupt': corrupt, 'CobbleMud': cobblemud}[os.environ.get('VARIANT', 'Cobble')]
     for m in bpy.data.materials:
         if m.name.split('.')[0] == 'Ground': f(m)

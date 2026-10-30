@@ -6,7 +6,7 @@
 #    or on ground meshes; the realm tile goes inside the #29 east gate.
 import sys, os, unreal
 SRC = os.path.dirname(os.path.abspath(__file__)); ROOT = '/Game/CastleDefender/Environment/Ground'
-SETS = ('Cobble', 'Mud', 'GrassDirt', 'Corrupt'); pick = [a for a in sys.argv[1:] if a in SETS] or list(SETS)
+SETS = ('Cobble', 'Mud', 'GrassDirt', 'Corrupt', 'CobbleMud'); pick = [a for a in sys.argv[1:] if a in SETS] or list(SETS)
 EAL, MEL, tools = unreal.EditorAssetLibrary, unreal.MaterialEditingLibrary, unreal.AssetToolsHelpers.get_asset_tools()
 
 def import_tex(path, dst, srgb, kind=None):
