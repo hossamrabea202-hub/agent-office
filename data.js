@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261030-110231-193-wall-damage-v2-on-the-stand-in-damag.jpg',t:'#193 wall damage v2 on the stand-in: damage 0.3 / 0.6 / 0.9 + close-up of the conchoidal chips (real geometry, no decals)',who:'TGA (Claude)',at:'2026-10-30T11:02:31Z',card:193},
 {f:'shots/20261030-090124-realm-mountain-crack-169-stage-3-day-nig.jpg',t:'Realm mountain crack (#169 stage 3): day / night, calibrated lookdev; the wasp swarm exits here',who:'TGA (Claude)',at:'2026-10-30T09:01:24Z',card:169},
 {f:'shots/20261030-082315-half-horse-zombie-body-155-bay-and-grey-.jpg',t:'Half-horse zombie body (#155): Bay and Grey skins, rib wound close-up, Rear (knock-down) pose; calibrated lookdev',who:'TGA (Claude)',at:'2026-10-30T08:23:15Z',card:155},
 {f:'shots/20261030-074535-realm-wasp-156-ember-and-blight-skins-ho.jpg',t:'Realm wasp (#156): Ember and Blight skins, hover / dive / sting poses, calibrated lookdev (grey ball 118 sRGB)',who:'TGA (Claude)',at:'2026-10-30T07:45:35Z',card:156},
