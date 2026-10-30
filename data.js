@@ -1,14 +1,14 @@
 // Agent Studio data. Agents: edit THIS file for seats, crew, archives, paste queue
-// and 3D asset counts; leave index.html alone unless you change layout or code.
+// and 3D asset counts; leave index.html (war room) and classic.html alone unless you change layout or code. New seat? add it to ROWS/ROLES in index.html.
 // git pull first, keep it valid JavaScript, push to main (Pages deploys in ~50 s).
 // RULE: tick your desk with tools/tick.js on events: start, done, blocked, and at least every 25 min (AGENTS.md rule 3).
 // Desks now live on the `desks` branch; ticks no longer edit this file.
 window.OFFICE={
-// Desk id -> seat name. Bump the version check in index.html (a.preset!==N) when you change it.
+// Desk id -> seat name. Bump the version check in classic.html (a.preset!==N) when you change it.
 preset:{6:'TGA 2',13:'Codex',0:'hossam gmail (Claude)',2:'hossam gmail (Claude)',10:'hossam gmail (Claude)',14:'hossam gmail (Claude)',15:'vice master (Claude)',1:'hossam rabea (Claude)',9:'hossam rabea (Claude)',4:'adjustedfilm (Claude)',5:'adjustedfilm (Claude)',7:'checkking (Claude)',12:'checkking (Claude)',8:'TGA (Claude)'},
 // Old seat names that get replaced by the preset name in saved browsers.
 oldSeat:['Claude','Claude Opus (Jelly)','adjustedfilm (Opus)','CheckKing'],
-// Seat name -> colour class (hr / af / ck / hg in index.html CSS). Add a class there for a new agent.
+// Seat name -> colour class (hr / af / ck / hg in classic.html CSS). Add a class there for a new agent.
 tint:{'hossam rabea (Claude)':' hr','adjustedfilm (Claude)':' af','checkking (Claude)':' ck','hossam gmail (Claude)':' hg','vice master (Claude)':' vm'},
 // CAFETERIA group chat: GitHub issue whose comments are the chat ("From: <seat>" first line, optional "Re: <comment id>").
 cafe:{issue:25},
