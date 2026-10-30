@@ -437,7 +437,36 @@ def lochaber_axe():  # Lochaber axe: tall blade fixed at two points, top hook, l
     axe_head('Hook', -0.016, -0.07, lambda f: 0.66 + 0.05 * f ** 1.5, lambda f: 0.63 + 0.04 * f ** 1.8, lambda f: max(0.001, 0.005 * (1 - f)), 0.0, IRON, NX=10, NZ=6)
     cyl('ButtCap', 0.019, -1.24, -1.19, IRON, 16, r1=0.0175)
 
+def katzbalger():    # Landsknecht katzbalger: short broad blade, S-shaped figure-8 guard, flared grip
+    blade('Blade', 0.66, 0.025, 0.06, 0.0042, 0.0028, z0=0.05, taper=0.95, fuller=0.6)
+    for s_ in (-1, 1):
+        cyl('GuardLoop%d' % (s_ + 1), 0.028, 0.035, 0.047, IRON, 24, x=s_ * 0.028, oval=0.35)
+    grip_wrap(-0.075, 0.035, 0.0145, LEATHER)
+    box('Pommel', 0.06, 0.026, 0.016, (0, 0, -0.085), IRON, 0.005)
+
+def guisarme():      # guisarme: long spike with a backward hook and a small cutting blade
+    cyl('Shaft', 0.017, -1.25, 0.76, OAK, 16, r1=0.016)
+    blade('Spike', 0.32, 0.012, 0.12, 0.0065, 0.0025, z0=0.86, taper=0.8, m=STEEL)
+    axe_head('Hook', -0.014, -0.09, lambda f: 0.98 + 0.06 * f ** 0.7, lambda f: 0.95 + 0.07 * f ** 1.4, lambda f: max(0.001, 0.005 * (1 - f)), 0.0, STEEL, NX=12, NZ=6)
+    axe_head('Edge', 0.014, 0.07, lambda f: 0.93 - 0.01 * f, lambda f: 0.87 + 0.02 * f, lambda f: max(0.0007, 0.005 * (1 - f)), 0.008, STEEL, NX=10, NZ=8)
+    cyl('Socket', 0.02, 0.74, 0.88, IRON, 16, r1=0.015)
+    cyl('ButtCap', 0.0185, -1.29, -1.24, IRON, 16, r1=0.017)
+
+def morning_star():  # morning star: oak haft, iron-banded spiked head
+    cyl('Haft', 0.017, -0.38, 0.32, OAK, 16, r1=0.019)
+    grip_wrap(-0.38, -0.24, 0.019, LEATHER)
+    cyl('Head', 0.045, 0.30, 0.44, OAK, 24, r1=0.042)
+    for z_ in (0.31, 0.43): cyl('Band', 0.047, z_ - 0.008, z_ + 0.008, IRON, 24)
+    import random as _r
+    _r.seed(7)
+    for k in range(18):
+        a = 2 * math.pi * (k % 6) / 6 + (k // 6) * 0.5; z_ = 0.33 + (k // 6) * 0.045
+        o = cyl('Spike%d' % k, 0.009, 0.0, 0.045, IRON, 8, r1=0.0005)
+        o.rotation_euler = (0, math.pi / 2, a); o.location = (0.04 * math.cos(a), 0.04 * math.sin(a), z_)
+    o = cyl('TopSpike', 0.01, 0.44, 0.50, IRON, 8, r1=0.0005)
+
 WEAPONS = {'arming_sword': ('ArmingSword', arming_sword), 'longsword': ('Longsword', longsword), 'falchion': ('Falchion', falchion),
+           'katzbalger': ('Katzbalger', katzbalger), 'guisarme': ('Guisarme', guisarme), 'morning_star': ('MorningStar', morning_star),
            'estoc': ('Estoc', estoc), 'zweihander': ('Zweihander', zweihander), 'lochaber_axe': ('LochaberAxe', lochaber_axe),
            'viking_sword': ('VikingSword', viking_sword), 'ranseur': ('Ranseur', ranseur), 'pollaxe': ('Pollaxe', pollaxe),
            'flanged_mace': ('FlangedMace', flanged_mace), 'war_hammer': ('WarHammer', war_hammer), 'rondel_dagger': ('RondelDagger', rondel_dagger),
