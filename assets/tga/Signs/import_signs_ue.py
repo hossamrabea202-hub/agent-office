@@ -1,7 +1,7 @@
 ﻿# Hanging shop signs (#202 item 6; TGA, 2026-10-30): import into UE 5.3. Original procedural work (tools/tga/signs).
 # Run in the editor:   py "<repo>/assets/tga/Signs/import_signs_ue.py"      (re-running re-imports the same files)
 # Creates under /Game/CastleDefender/Props/Town/Signs: SM_Sign_Smith / _Tavern / _Shop sharing one 2K atlas
-# (T_Sign_BC/_ORM/_N, M_Fence + MI_Sign with Tint/TintAmount/Wetness), box collision each.
+# (T_Sign_BC/_ORM/_N, M_Sign + MI_Sign with Tint/TintAmount/Wetness), box collision each.
 # Pivot = the bracket's wall plate top; metallic (bare iron + gilt) is in ORM.B.
 import os
 import unreal
