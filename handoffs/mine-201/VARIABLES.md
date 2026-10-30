@@ -10,6 +10,7 @@
 | BP_OreCart | Metal | int | 0 | 0 iron, 1 copper, 2 silver, 3 gold ore, 4 starmetal |
 | BP_OreCart | HP | float | 300.0 | cart health |
 | BP_OrePile | Metal | int | 0 | as above |
+| BP_OreCart, BP_OrePile | OreMats | Material Interface **array** | 5 MineKit MIs | MI_Camp_OreIron, OreCopper, OreSilver, OreGold, OreStar (in that order) |
 | BP_ZombieHUD | Ore | int **array** | [0,0,0,0,0] | the stockpile, index = metal |
 
 Paste lines for My Blueprint (optional; adding by hand is the same):

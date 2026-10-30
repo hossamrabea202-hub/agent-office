@@ -1,6 +1,6 @@
 # #201 Mine + ore carts + metal stockpile (Blueprint-only, UE 5.3). Owner design 2026-10-30, graphs by laptop2.
 #   BP_Mine    (new Actor)      every Period s rolls a metal (wave-shifted, with 'vein strikes') and sends a BP_OreCart.
-#   BP_OreCart (new Character)  tints its Load mesh, walks to the castle gate (NavMesh), delivers 1 ore to the HUD
+#   BP_OreCart (new Character)  shows its metal (Load mesh + OreMats[Metal] material, MineKit), walks to the castle gate (NavMesh), delivers 1 ore to the HUD
 #                               stockpile; if zombies kill it (HP 300) it drops a BP_OrePile instead.
 #   BP_OrePile (new Actor)      tinted ore on the road; the hero walks over it -> stockpile; gone after 60 s.
 #   BP_ZombieHUD                new int array Ore[5] (Iron, Copper, Silver, Gold ore, Starmetal) + a counter line
@@ -50,13 +50,12 @@ def destroy(b, x, y): return b.call_self('K2_DestroyActor', [], x, y, ACT, tag='
 
 
 def tint_load(b, metal, x, y):
-    """Load (StaticMeshComponent) -> SetVectorParameterValueOnMaterials('Tint', colour of the metal). Returns the exec node."""
-    c = b.selvec(None, None, b.icmp('EqualEqual_IntInt', metal, None, x, y + 650, db='0'), x + 250, y + 500, da=COLORS[0], db=COLORS[1])
-    for i in (2, 3, 4):
-        c = b.selvec(c, None, b.icmp('Less_IntInt', metal, None, x + 250 * (i - 1), y + 650, db=str(i)), x + 250 * i, y + 500, db=COLORS[i])
-    load = b.get('Load', ob('v', SMC), x + 900, y + 300)
-    n = b.call(PRIM, 'SetVectorParameterValueOnMaterials', [N('ParameterName', default='Tint'), V('ParameterValue')], x + 1200, y, target=load, tag='TintLoad')
-    b.wire(c, n, 'ParameterValue'); return n
+    """v3 (MineKit): Load.SetMaterial(0, OreMats[metal]) - the baked ore instances MI_Camp_OreIron..OreStar, one per metal.
+    Returns the exec node."""
+    mat = b.aget('OreMats', ob('v', MATI), metal, x + 300, y + 300)
+    load = b.get('Load', ob('v', SMC), x + 600, y + 200)
+    n = b.call(PRIM, 'SetMaterial', [it('ElementIndex', default='0'), ob('Material', MATI)], x + 900, y, target=load, tag='OreMaterial')
+    b.wire(mat, n, 'Material'); return n
 
 
 def deliver(b, metal, x, y):

@@ -27,8 +27,8 @@ All four graphs: `applyall check` Validation OK; the HUD manifest dry-run on the
 
 **B. BP_OreCart** — new Blueprint, parent `Character` (so it walks the NavMesh like a soldier).
 - Components: `Cart` StaticMesh (SM_Camp_HandCart from CampKit, or the #50 cannon cart body), and a StaticMesh named
-  exactly **`Load`** (a lump of ore on the cart; its material needs a Vector parameter named **`Tint`** — make a 1-node
-  material `M_OreLoad` with a VectorParameter "Tint" into Base Color, or a dynamic instance). Capsule radius ~90, half
+  exactly **`Load`** = **SM_Camp_OreIron** from MineKit (any of the 5, same shape) at (-5, 0, 62) cm on the cart bed.
+  v3: no Tint material any more; the cart sets `OreMats[Metal]` on it. Capsule radius ~90, half
   height ~90; Mesh (skeletal) left empty.
 - **v2:** a PointLight named exactly **`Lantern`** on the cart's handle (~80 cm up, warm 2700 K, intensity ~800, radius 600,
   Visible off). Do **not** tag the cart NightLight (BP_DayNight would hide the whole cart); the cart switches its own lantern.
@@ -41,7 +41,7 @@ All four graphs: `applyall check` Validation OK; the HUD manifest dry-run on the
   Codex/Master — the cart already takes damage from any zombie hit.
 
 **C. BP_OrePile** — new Blueprint, parent `Actor`.
-- Components: a StaticMesh named **`Load`** (same `M_OreLoad` material), and a Sphere collision radius 120 set to
+- Components: a StaticMesh named **`Load`** (SM_Camp_OreIron, scale 0.5: a spilled heap), and a Sphere collision radius 120 set to
   Overlap All Dynamic (Generate Overlap Events on).
 - Variables: `Metal` int 0.
 - Paste `BP_OrePile_graph.txt` (contains Event ActorBeginOverlap). Compile.
@@ -60,6 +60,13 @@ NavMesh reaches from the mine to the gate (the carts use the same mesh the zombi
 
 **Test**: play, wait 45 s — a cart with coloured ore rolls to the gate, the ORE line counts up. Let zombies reach a
 cart: it breaks into a pile; walk the hero over it: counted. Wave 10+: more silver/gold/starmetal.
+
+## v3 — MineKit art (2026-10-30 evening)
+Import `assets/laptop2/MineKit` (`py ".../MineKit/import_kit_ue.py"` → /Game/CastleDefender/Environment/Mine).
+- **BP_Mine:** add a StaticMesh component **SM_Camp_MineEntrance** at the actor origin (mouth faces the actor's +X, so the
+  cart spawn 3 m forward lands on its rails). Hang CampKit **Lantern** at the meta `lantern` point, tag it `NightLight`.
+- **BP_OreCart / BP_OrePile:** new variable **OreMats** (Material Interface array, 5) filled in order
+  MI_Camp_OreIron, MI_Camp_OreCopper, MI_Camp_OreSilver, MI_Camp_OreGold, MI_Camp_OreStar (VARIABLES.md). Re-paste both graphs.
 
 ## v2 — night carts (2026-10-30 evening, same pastes, nothing extra to wire)
 Needs BP_DayNight (handoffs/day-night) in the level; without it the mine runs day odds all the time.
