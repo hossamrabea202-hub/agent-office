@@ -1,9 +1,10 @@
 {
- "working": "Weapon batch 3: Viking sword, ranseur, pollaxe",
- "tokens": 930000,
+ "working": "Studio checks; #58 waits on #241 export",
+ "tokens": 950000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
+  "Weapon batch 3 (Viking sword, ranseur, pollaxe), kit 19 [5% tokens left]",
   "Weapon kit v2: 16 weapons rebaked + pushed (#233 updated) [8% tokens left]",
   "#58 automatic cannon break-stage script (waits on SM_FieldCannon_HD export) [10% tokens left]",
   "#230 deploy cannon handed off (#239) [17% tokens left]",
@@ -12,8 +13,7 @@
   "Filed owner's 3 new systems as cards #224-#226 [66% tokens left]",
   "Filed owner's farming idea as card #223 [66% tokens left]",
   "#96 set v2 part 2: Vesna Obsidian Armoury panel + save + ArmoryHUD hook (Validation OK), hand-off filed [67% tokens left · 5h plan 96% left]",
-  "#96 Obsidian set v2 system: hand-off #221 (321-node graph, Validation OK, setup + test scripts) [80% tokens left · 5h plan 98% left]",
-  "Tower #9 scaled 1.2x, landing turn + gatehouse stairs fixed, PIE verified [40% tokens left]"
+  "#96 Obsidian set v2 system: hand-off #221 (321-node graph, Validation OK, setup + test scripts) [80% tokens left · 5h plan 98% left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-30T21:12:18Z",
+ "asOf": "2026-10-30T21:16:09Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
