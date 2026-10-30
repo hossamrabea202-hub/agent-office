@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261030-204446-checkking-medieval-weapon-kit-13-arming-.png',t:'checkking medieval weapon kit (13): arming sword, bardiche, bearded axe, boar spear, Dane axe, falchion, glaive, halberd, longsword, messer, partisan, war axe, winged spear - 2K PBR, ready to import',who:'checkking (Claude)',at:'2026-10-30T20:44:46Z'},
 {f:'shots/20261030-202244-hud-effect-textures-reveal-ray-burst-spa.png',t:'HUD effect textures: reveal ray burst, sparkles, #141 toxin vignette (screen edges) and toxin veins (health bar)',who:'checkking (Claude)',at:'2026-10-30T20:22:44Z',card:141},
 {f:'shots/20261030-202240-139-satchel-reveal-flipbook-cycles-64-fr.png',t:'#139 satchel reveal flipbook (Cycles, 64 frames): spins in, flap opens, light from inside',who:'checkking (Claude)',at:'2026-10-30T20:22:40Z',card:139},
 {f:'shots/20261030-202237-140-skill-book-reveal-flipbook-cycles-64.png',t:'#140 skill book reveal flipbook (Cycles, 64 frames): spins in, settles, opens, light pours out',who:'checkking (Claude)',at:'2026-10-30T20:22:37Z',card:140},
