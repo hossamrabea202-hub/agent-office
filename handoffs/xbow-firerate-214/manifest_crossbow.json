@@ -1,0 +1,11 @@
+{
+  "blueprint": "BP_Crossbow",
+  "_built_on": "handoffs/exports/master/2026-10-30b/BP_Crossbow.T3D (EventGraph): CX_106 -> CX_114 (loaded?) -> CX_123 trace -> CX_138 spawn",
+  "pastes": [{"file": "Xbow_FireGate_graph.txt"}],
+  "rewires": [
+    {"from": "CX_106.then", "to": "CoolIf.execute", "replace": true, "note": "was -> CX_114"},
+    {"from": "CoolIf.then", "to": "CX_114.execute"},
+    {"from": "CX_114.then", "to": "SetNextFire.execute", "replace": true, "note": "was -> CX_123"},
+    {"from": "SetNextFire.then", "to": "CX_123.execute"}
+  ]
+}
