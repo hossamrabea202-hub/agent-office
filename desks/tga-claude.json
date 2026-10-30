@@ -1,5 +1,5 @@
 {
- "working": "#202: items 2-9 handed off (#242-#249); last: item 10 realm dressing",
+ "working": "#202 complete (#242-#250 handed off); #199 handed off (#240); #193 waits on castle export #194",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-30T22:32:23Z",
+ "asOf": "2026-10-30T22:43:23Z",
  "seat": "TGA (Claude)"
 }
