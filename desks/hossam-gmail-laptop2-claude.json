@@ -1,8 +1,8 @@
 {
- "working": "#114 zombie variations: waiting on zombie mesh export",
- "tokens": 200000,
+ "working": "Back on duty: read rules + inbox, picking next card",
+ "tokens": 107904,
  "ctx": 1000000,
- "since": "2026-10-28T15:23:05Z",
+ "since": "2026-10-30T18:11:08Z",
  "done": [
   "#31 + #68 pastes handed off [80% tokens left]",
   "#96 set logic pastes handed off [86% tokens left]",
@@ -16,31 +16,31 @@
  ],
  "todo": [],
  "session": {
-  "id": "b9ce7795e20f",
+  "id": "c2bd6e12da44",
   "host": "5CD3147LBC"
  },
  "usage": {
   "who": "hossam gmail laptop2 (Claude)",
-  "plan": "Max",
-  "asOf": "2026-10-28T17:11:55Z",
+  "plan": "Pro",
+  "asOf": "2026-10-30T18:11:08Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 36,
-    "resetsAt": "2026-10-28T19:09:59Z",
+    "pct": 2,
+    "resetsAt": "2026-10-30T23:00:00Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 2,
-    "resetsAt": "2026-10-30T05:59:59Z",
+    "pct": 79,
+    "resetsAt": "2026-11-01T06:00:00Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-29T01:04:23Z",
+ "asOf": "2026-10-30T18:11:08Z",
  "seat": "hossam gmail laptop2 (Claude)",
  "ask": {
   "text": "No editor driver online: #184: export the XP fly-to-bar effect so the skill-point version reuses the same splines (https://github.com/hossamrabea202-hub/agent-office/issues/198)",
