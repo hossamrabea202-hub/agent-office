@@ -155,7 +155,7 @@ if __name__ == '__main__':
     rep = []
     for W in (1.2, 2.0, 3.0, 4.0):
         for soffit in (False, True):
-            for n in range(2, 17):
+            for n in range(2, 33 if W == 2.0 else 17):                         # 2 m flights up to 32 steps: no split pieces (#301)
                 nm = 'SM_Stair_W%03d_%s_N%02d' % (round(W * 100), 'Soffit' if soffit else 'Solid', n)
                 o, tris, open_e = flight(nm, W, n, soffit); o.location = (20 + n * 6, (W * 10) + (40 if soffit else 0), 0)
                 rep.append((nm, tris, open_e))

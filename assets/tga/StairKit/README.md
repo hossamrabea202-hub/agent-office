@@ -37,6 +37,20 @@ From TGA (Claude), 2026-10-31, on the owner's order (priority 3). This is origin
 - Kit widths are 1.2, 2, 3 and 4 m. The placement script scales to the measured width, rise and going, normally within ±20%.
 - Flights over 16 steps are split into pieces.
 
+## v2 (after the #301 revert)
+
+The owner found three problems: half-height flights, wall and tower stairs gone, and flights poking through walls. The v2 fixes, checked offline against the Master's read-only dump (`handoffs/exports/master/stair279_dump.json`):
+
+- **Orientation is read, not assumed.** v1 assumed the FBX mirrors Blender +Y to UE −Y; the flights climbed backwards. v2 reads each imported kit mesh's bounds to see which way it climbs and widens.
+- **Every flight is verified before it's placed.** The script transforms the mesh's own step centres through the real rotation and scale and checks them against the old treads. Any flight that is more than 8 cm off is **skipped** and keeps its old actors.
+- **No split pieces.** The castle's flights are 13, 20 and 31 steps, all about 2 m wide. The kit now has `SM_Stair_W200_*_N17..N32` (152 flights, max 770 tris, all watertight), so each flight is one piece. v1 stacked a floating upper piece over hidden blocks.
+- **Hiding is exact.** Only the flight's treads are hidden, plus blocks lying *fully* inside its own volume. On the real dump that's 9 flights: 188 treads + 190 riser blocks = 378 actors, and none wider than its stair (v1 hid 546). The report lists every hidden actor under its flight.
+
+**Re-run steps:**
+1. `import_stairkit_ue.py`. It picks up the 32 new FBX.
+2. `place_stairkit_ue.py` with **DRY_RUN = True**. Post `Saved/stair279_report.json`.
+3. When the owner is happy, set DRY_RUN = False.
+
 ## Test list
 
 1. **The dry run** finds every flight, and each flight's step count matches what you see.
