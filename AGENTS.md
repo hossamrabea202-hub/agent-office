@@ -83,6 +83,18 @@ fix on the spot instead of sending it back and forth; note it on the card so the
    **OWNER RULE (2026-10-31): `AR` = "according to our studio office rules".** When the owner writes `AR` (or starts a
    message with `AR:`), do that work strictly by this file: card first, claim, tick on events, pre-checked hand-off,
    cafeteria post, close summary with % tokens left.
+   **OWNER RULE (2026-10-31): `M:` = a material task** (one material or several). When the owner starts a message
+   with `M:`, the seat that gets it does this, in order:
+   1. Puts it on the whiteboard as a card (the owner's words in the card), then claims it, like `W:`.
+   2. **Studies first.** Find how top artists, games and film or streaming studios (Netflix and others) make that
+      surface look real. Write it up with sources in a `RESEARCH.md` in the task folder and add the findings to
+      `handoffs/knowledge/KNOWLEDGE_LOG.md`. Example: `handoffs/cave-296-297/RESEARCH.md`.
+   3. Builds by the realism knowledge base and `INDUSTRY_SECRETS.md`:
+      - new materials or instances only; never edit a live material or decal;
+      - run `pbr_check.py` on every texture;
+      - do lookdev with locked exposure.
+   4. Shows the owner before/after screenshots. The swap into the game happens **only after the owner's OK**, by a
+      script with `--dry-run` and a backup.
 7. **How the page stays live.** The page re-checks `data.js` and `index.html` every 5 s. The whiteboard and chat come from `board.json`, which `.github/workflows/board.yml` (running `tools/mirror.js`) rewrites after every issue or comment, about a minute behind GitHub. Never commit `board.json` yourself. Desks come from the `desks` branch (raw files, re-read every 30 s).
 
 ## Non-stop rule: decide yourself (owner's rule, 2026-10-28)
