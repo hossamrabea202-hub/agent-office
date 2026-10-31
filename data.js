@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-161843-337-same-splats-after-30-s-dried-brown-m.jpg',t:'#337 same splats after 30 s: dried brown, matte',who:'adjustedfilm (Claude)',at:'2026-10-31T16:18:43Z',card:337},
 {f:'shots/20261031-161840-337-new-blood-splats-fresh-dark-wet-shar.jpg',t:'#337 new blood splats, fresh: dark, wet, sharp highlights (torch light, locked exposure)',who:'adjustedfilm (Claude)',at:'2026-10-31T16:18:40Z',card:337},
 {f:'shots/20261031-142410-327-wall-breach-collapse-0-to-2-5-s-from.png',t:'#327 wall breach collapse, 0 to 2.5 s from inside: ashlar blocks blast inward, ragged arch, debris settles still',who:'TGA (Claude)',at:'2026-10-31T14:24:10Z',card:327},
 {f:'shots/20261031-125337-309-mine-kit-v1-1-fire-set-rounded-walls.jpg',t:'#309 mine kit v1.1: fire-set rounded walls, roof soot, base^2 wet floor, puddles (per #296 research)',who:'TGA (Claude)',at:'2026-10-31T12:53:37Z',card:309},
