@@ -146,9 +146,10 @@ outv = b.math('Normal', [(V('A'), b.v2('Subtract_VectorVector', here(2200, Y + 1
 cpos = b.v2('Add_VectorVector', (sl, 'ReturnValue'), b.math('Multiply_VectorFloat', [(V('A'), outv), (fl('B', default='1500.0'), None)], V('ReturnValue', out=True), 2800, Y + 1450), 3000, Y + 1350)
 sbrk = spawn(b, P_BRK, BRKC, xform(b.v2('Add_VectorVector', cpos, None, 3200, Y + 1300, db='0, 0, 300'), 3400, Y + 1300), 2300, Y + 500)
 G.link(ssp, 'then', sbrk, 'execute')
-stg = b.setm('Target', BRKC, ob('v', SPOTC), None, (sbrk, 'ReturnValue'), 2700, Y + 500)
-cs = b.name('AsSpot'); cast(G, cs, SPOTC, 'AsBP Wall Breach Spot', 2550, Y + 800, pure=True); b.wire(spot(2400, Y + 900), cs, 'Object'); b.wire((cs, 'AsBP Wall Breach Spot'), stg, 'Target')
-G.link(sbrk, 'then', stg, 'execute')
+stg = b.setm('Target', BRKC, ob('v', SPOTC), None, (sbrk, 'ReturnValue'), 2900, Y + 500)
+cs = b.name('AsSpot'); cast(G, cs, SPOTC, 'AsBP Wall Breach Spot', 2600, Y + 500, pure=False); b.wire(spot(2400, Y + 900), cs, 'Object')
+b.wire((cs, 'AsBP Wall Breach Spot'), stg, 'Target')                # value pin is named after the var; #281 warning: the cast was pruned (no exec) -> Target None
+G.link(sbrk, 'then', cs, 'execute'); G.link(cs, 'then', stg, 'execute')
 h0, h1 = spawn_escorts(b.get('ColossusHorde', it('v', default='12'), 3000, Y + 700), cpos, False, 3000, Y + 500)
 G.link(stg, 'then', h0, 'execute')
 rel = b.call_self('ReleaseEscorts', [], 4700, Y + 500, BDC, tag='CallRelease'); G.link(h1[0], h1[1], rel, 'execute')
