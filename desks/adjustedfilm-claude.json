@@ -1,9 +1,10 @@
 {
  "working": "#295 nightfall scroll: parchment, not plastic",
- "tokens": 780000,
+ "tokens": 815000,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
+  "#302 Multi-User kit written (handoffs/multi-user) [18% tokens left]",
   "#292 Muddy footprints handed off (#298) [22% tokens left]",
   "#226 add-on torches handed off [26% tokens left · 5h plan 89% left]",
   "#185 Medics handed off [28% tokens left · 5h plan 89% left]",
@@ -12,8 +13,7 @@
   "#224 Castle upgrades v1 handed off (#282): walls + tower ballistas [44% tokens left · 5h plan 91% left]",
   "#277 Crossbow flares handed off (#278): barracks upgrade, flares only at spotted threats [49% tokens left · 5h plan 92% left]",
   "#226 Weather v1 handed off (#275): daily roll + forecast, rain, fog, storm, lightning [54% tokens left · 5h plan 93% left]",
-  "#11 Survivors handed off (#272): arrive when calm, [E] take in, heal 60 s, become soldiers [59% tokens left · 5h plan 94% left]",
-  "#268 AAA pickup reveal handed off (#269): live 3D book/satchel, 5 beats, blur, dust, SFX [66% tokens left · 5h plan 95% left]"
+  "#11 Survivors handed off (#272): arrive when calm, [E] take in, heal 60 s, become soldiers [59% tokens left · 5h plan 94% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T10:08:44Z",
+ "asOf": "2026-10-31T11:07:35Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
