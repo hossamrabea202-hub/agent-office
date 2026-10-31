@@ -1,0 +1,21 @@
+# #11 Survivors - paste one line at a time on the VARIABLES header of My Blueprint, then Compile
+
+# ---- BPC_Survivors
+BPVar(VarName="LastArrival",VarGuid=9D00BD1C537F58ECA18720B18F90AE7D,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="LastArrival",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="-1000.0")
+BPVar(VarName="MinGap",VarGuid=6520FC41F8EF5102BF3F68231FDEC189,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="MinGap",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="150.0")
+BPVar(VarName="Chance",VarGuid=40D2F0D9C49C5FB881EF9BD40DC8E98F,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Chance",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.12")
+BPVar(VarName="FirstDelay",VarGuid=07A695A164E755CF8C7E28C4D4A77CBF,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FirstDelay",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="120.0")
+BPVar(VarName="MaxWaiting",VarGuid=51862C9158125157B1D33813D15756B8,VarType=(PinCategory="int"),FriendlyName="MaxWaiting",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2")
+BPVar(VarName="ArriveDist",VarGuid=152BA2B03910589898E06765532209C7,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ArriveDist",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="3000.0")
+BPVar(VarName="CastleCentre",VarGuid=D6945DF95C945925B44F7F8A9371F919,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="CastleCentre",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2300.000000,1725.000000,0.000000")
+
+# ---- BP_Survivor
+BPVar(VarName="State",VarGuid=1BC6635DF1D5582692EDA17C8A4F4DFD,VarType=(PinCategory="int"),FriendlyName="State",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="Inside",VarGuid=33BE59A8386D56428BAE8F7719112BF6,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="Inside",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="HealSpot",VarGuid=54674FF9861D584E95E36EE94C0F2FDE,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="HealSpot",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="HealT0",VarGuid=0E6821CADEA35C748B43E1D6F3DAA05D,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="HealT0",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="HealSeconds",VarGuid=574AAB1279835386B9FA236467F58FDC,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="HealSeconds",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="60.0")
+BPVar(VarName="FullUntil",VarGuid=35930094B6A85682B591CA25CD8758BF,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FullUntil",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="MaxArmy",VarGuid=31591CD1FE48518AA9233872D526FABC,VarType=(PinCategory="int"),FriendlyName="MaxArmy",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="30")
+BPVar(VarName="CastleCentre",VarGuid=A59C756BE8F85C9DA44B7CD6BB76780C,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="CastleCentre",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2300.000000,1725.000000,0.000000")
+BPVar(VarName="Label",VarGuid=B35D9B46671A5450A8726B8894B399D2,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.TextRenderComponent'"),FriendlyName="Label",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
