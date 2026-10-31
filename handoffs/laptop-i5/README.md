@@ -122,3 +122,42 @@ licensed textures), #262 texture plan (TGA), #266 **PRIORITY infection cure** (M
 - Short replies, plain words, no jargon.
 - Wants visible results and agents that keep working without asking.
 - Gameplay: hard but fair (tanky last 30 % HP), but never take away hope (the infection cure must always exist).
+
+---
+
+## adjustedfilm (Claude) on this laptop: 2026-10-31 session
+
+Seat **`adjustedfilm (Claude)`**. The owner confirmed the i5 laptop is adjustedfilm's. Everything below is handed off,
+pre-checked (`fix_impure.py` clean, `applyall check` Validation OK, and dry-run merges where the work touches an existing
+Blueprint), and waits for the Master's paste.
+
+| Card | Hand-off | What | Folder |
+|---|---|---|---|
+| #268 | #269 | AAA satchel / Book of Skills reveal: live 3D capture, 5 beats, post-process blur, dust, sounds (replaces #231) | `handoffs/reveal-aaa-268` |
+| #11 | #272 | Survivors: wounded soldiers arrive when it is calm, E takes one in, he heals 60 s, then becomes a soldier | `handoffs/survivors-11` |
+| #226 | #275 | Weather v1: daily roll plus forecast, rain curtain, fog through BP_DayNight, storm wind, lightning, grade | `handoffs/weather-226` |
+| #277 | #278 | Crossbow flares: barracks upgrade (F), flares only at spotted threats at night | `handoffs/flares-277` |
+| #224 | #282 | Castle upgrades: walls (colossus breach ×1.75 / ×2.5) and tower ballistas (J / K) | `handoffs/castle-upgrades-224` |
+| #283 | #285 | Cannon scroll map: parchment map, click where the cannon goes; new cannons movable, starters locked | `handoffs/cannon-map-283` |
+| #157 | #286 | Realm screen distortion v2: no volume to place, fades in when you enter | `handoffs/realm-157` |
+| #185 | #289 | Medics: barracks (M), heal soldiers and the hero, HUD line | `handoffs/medics-185` |
+
+**Paste order for the HUD hook chain in BPC_MotionFX:**
+1. #269 (the v2 graph);
+2. #285 (`manifest_motionfx_map.json`);
+3. #289 (`manifest_motionfx_medics.json`);
+4. #141's add-on still applies on top.
+
+**Barracks keys added (no BarracksHUD re-paste):** F flares, J walls, K towers, M medics. O at the artillery yard opens
+the #283 map.
+
+**Owner rules learned today:** an owner message starting with `W:` is a whiteboard task (AGENTS.md rule 6). Take cards
+one after another without asking. Characters stay stand-ins until the MetaHuman pass.
+
+**Follow-ups noted on the cards:**
+- zombies target survivors and medics;
+- rain douses torches;
+- crossbow storm spread;
+- the wetness layer (needs the owner's before/after OK);
+- wall mesh variants for #224 (TGA);
+- the #283 in-engine screenshot.
