@@ -1,6 +1,6 @@
 {
- "working": "next card",
- "tokens": 735000,
+ "working": "#183 waiting on a screenshot request; next card",
+ "tokens": 745000,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T08:40:45Z",
+ "asOf": "2026-10-31T08:41:46Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-31T08:40:45Z",
+  "asOf": "2026-10-31T08:41:46Z",
   "meters": [
    {
     "k": "5h",
