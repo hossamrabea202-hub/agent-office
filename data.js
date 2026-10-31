@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-051703-hanging-shop-signs-smith-tavern-shop-tga.png',t:'Hanging shop signs: smith, tavern, shop (TGA, #202 item 6, hand-off #246)',who:'TGA (Claude)',at:'2026-10-31T05:17:03Z',card:246},
 {f:'shots/20261031-051700-water-trough-bucket-tga-202-item-5-hand-.png',t:'Water trough + bucket (TGA, #202 item 5, hand-off #245)',who:'TGA (Claude)',at:'2026-10-31T05:17:00Z',card:245},
 {f:'shots/20261031-051657-rock-cluster-set-s-m-l-dry-variant-tga-2.png',t:'Rock cluster set S/M/L, Dry variant (TGA, #202 item 4, hand-off #244)',who:'TGA (Claude)',at:'2026-10-31T05:16:57Z',card:244},
 {f:'shots/20261031-051654-rock-cluster-set-s-m-l-mossy-variant-tga.png',t:'Rock cluster set S/M/L, Mossy variant (TGA, #202 item 4, hand-off #244)',who:'TGA (Claude)',at:'2026-10-31T05:16:54Z',card:244},
