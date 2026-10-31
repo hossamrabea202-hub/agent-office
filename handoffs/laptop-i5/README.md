@@ -272,3 +272,18 @@ level: keep paired actors in one level.
 3. **#366 (new, owner):** the tentacle skin texture is stretched along the tentacles. Fix the mapping (triplanar or
    length-aware UV), a new MI only, with before/after shots.
 4. Fixed tonight, waiting for the Master: #350 hook v2 (no sequences), #349 gear attach paste, #341 underground fog.
+
+### adjustedfilm, 2026-10-31 late night: pick up here
+
+| Card | State | Next step |
+|---|---|---|
+| #269 reveal (OWNER PRIORITY) | fix handed off as **#374** (`handoffs/reveal-aaa-268/FIX269.md`) | read the Master's result. If the centre is still empty, read `diag_reveal268.txt` (the `--probe` pixel count and each stage part's visibility, mobility and size). Ask on #269 which 6 nodes made the live graph 519 (v2 was 513) and add them to `gen_reveal268.py` |
+| #351 meadow roads | road mask handed off (README bottom) | check `meadow351_dry.txt`: its `road zones` must name Env_WornGround_Decal, PortalRoad and HiddenRoad |
+| #366 tentacle skin | `handoffs/tentacle-skin-366` (`--info`, `--build`, `--apply`, `--revert`) | read `tentacle366_info.txt`. If the 5.3 graph walk found 0 samples, change `samples_of()`. Then before/after, owner OK, swap |
+| #350 / #349 / #341 | #371 / #372 / #373 | wait for the Master's test |
+| #364 Day Ledger, #333, #334B, #337, #293 p3 | blocked | wait for `handoffs/exports/adjustedfilm/batch-1031/` (`batch_exports_adjustedfilm_ue.py`) |
+
+Python on this laptop: Blender's (`C:\Program Files\Blender Foundation\Blender 4.5\4.5\python\bin\python.exe -I`).
+Lessons:
+- `office.js handoff` fails with "needs a title" when the details text starts with `--`.
+- Scene-capture alpha: key the item by depth (`SCS_SceneColorSceneDepth`), not by the HDR inverse-opacity alpha.

@@ -1,4 +1,4 @@
-# adjustedfilm (Claude): every open card, one list (updated 2026-10-31 night)
+# adjustedfilm (Claude): every open card, one list (updated 2026-10-31 late night)
 
 The owner, 2026-10-31: *"i feel you are just opening new mini quests and not finish earlier ones"*. This list holds every
 card on this desk, oldest first. A card closes only when it is **in the game and checked**. Keep it updated at every
@@ -19,6 +19,15 @@ plus #296 cave rock (closed by me after the owner's OK).
 | #362 cape slot | inside TGA's #361 redesign |
 | #351 meadow | in the game (Master, radius 15000); polish open |
 | #341 / #349 mine dungeon + miners | placed; the miners are next on the Master's list |
+
+## Fixed tonight (late night session), waiting for the Master
+
+| Card | Hand-off | State |
+|---|---|---|
+| #269 reveal (OWNER PRIORITY) | #374, `handoffs/reveal-aaa-268/FIX269.md` | setup `--fix269` + v3 graph (516 nodes); item kept by depth, Movable stage, holds to 3.2 s. If still empty: diag `--replay` then `--probe` |
+| #351 meadow roads | handoffs/meadow-351 (README bottom) | road mask: road decals, *Road*/*Path* actors, hand-cleared band, `--band` |
+| #366 tentacle skin stretch | handoffs/tentacle-skin-366 | `--info` first; material copy `*_UV366`; swap only on the owner's OK |
+| #350 / #349 / #341 fixes | #371 / #372 / #373 | no Master result yet |
 
 ## 1. My work (nothing blocks it): do these first
 
@@ -41,7 +50,7 @@ plus #296 cave rock (closed by me after the owner's OK).
 | #226 weather | #275 + #290 | |
 | #228 wall-walk tops | fix line on #306 | |
 | #266 antidote (PRIORITY) | #307 | |
-| #268 pickup reveal | #269 | waits on the Master's PIE diagnostic `diag_reveal268.txt` |
+| #268 pickup reveal | #269 + #374 | fix handed off (#374) |
 | #277 flares | #278 | waits on the compile-warning text |
 | #283 cannon map | #285 | the Master's next item (10-31) |
 | #292 mud prints | #298 | |
