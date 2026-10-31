@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-124717-309-mine-dungeon-kit-layout-preview-wet-.jpg',t:'#309 mine dungeon kit layout preview: wet hewn chamber, lanterns with real lights, rails + cart, ore vein glint, timbered tunnel',who:'TGA (Claude)',at:'2026-10-31T12:47:17Z',card:309},
 {f:'shots/20261031-111500-293-realm-bubble-v3-preview-thin-film-pe.png',t:'#293 realm bubble v3 preview: thin-film petrol slick, day / night',who:'adjustedfilm (Claude)',at:'2026-10-31T11:15:00Z',card:293},
 {f:'shots/20261031-111145-295-new-notice-scroll-preview-normal-imp.png',t:'#295 new notice scroll preview: normal, important, half rolled',who:'adjustedfilm (Claude)',at:'2026-10-31T11:11:45Z',card:295},
 {f:'shots/20261031-110035-279-stair-kit-lookdev-w200-n10-against-a.jpg',t:'#279 stair kit lookdev: W200 N10 against a wall + W120 N06 (Cycles, baked high-to-low strips, sides = wall stand-in)',who:'TGA (Claude)',at:'2026-10-31T11:00:35Z',card:279},
