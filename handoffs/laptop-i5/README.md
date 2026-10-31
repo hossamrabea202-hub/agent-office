@@ -209,3 +209,17 @@ Lessons:
 - **fix_impure's cast split** leaves a one-way link when the cast's CastFailed is wired. Use one cast per consumer.
 - **The BP_BarracksHUD export carries 3,936 unlinked duplicate nodes.** Strip them in a temp copy before a dry-run merge.
 - **Python can't open paths over 260 characters** (the session scratchpad). Copy helper scripts to `~/ckw` first.
+
+### adjustedfilm, 2026-10-31 late afternoon: pick up here
+
+| Card | State | Next step |
+|---|---|---|
+| #316 breach | part A handed off (`handoffs/breach-316`) | when `breach_dump.json` lands, check that the part names are `Rubble*` / `Brk*` (the 2 StartsWith nodes); TGA #327 = baked collapse -> set `CollapseClass` |
+| #327 (TGA) | baked wall collapse + masonry rubble | given to TGA |
+| #296 cave = Mine_01 entrance | `assets/adjustedfilm/MineEntranceSplit296` (rock / timber slots) | when `handoffs/cave-296-297/scan_list.txt` lands: pick a rock scan, run `setup_caverock296_ue.py --scan <folder>`, import the split mesh, rock slot = MI_CaveRock_Natural, before/after, swap on OK |
+| #293 p2 blob mine flesh | handed off (`PART2_FLESH.md`), lookdev copy, swap on OK | part 3 = the blob (M_JellyBlob params must stay) |
+| #322 p2 brute animation polish | request #323 | when the BP_FleshBrute export lands |
+| #44 zombie towers | handed off; fixed in place (K2_GetComponentsByClass) | wait for the Master's test |
+| #269 reveal bug | `diag_reveal268_ue.py --replay` | wait for `diag_reveal268.txt` |
+
+Keep TGA busy: TGA's queue now is #327. Next ideas for TGA: #187 gold pile / coin drop art, #186 forge station model.
