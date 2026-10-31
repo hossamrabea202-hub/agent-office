@@ -130,6 +130,56 @@ if not DRY:
         if sm: sm.set_material(0, mi); EAL.save_asset(CD + '/SM_WoundCap_%s_337' % part)
     log.append('made 4 wound caps + M_WoundCap_337 + 4 MIs in ' + CD)
 
+# ---- particle materials for the Niagara blood (RESEARCH §3.1): lit, never emissive
+#   M_BloodParticle_337  droplets / strands: Masked, Default Lit, a fake sphere normal from the sprite UV so each droplet
+#                        gets one sharp highlight; colour from Particle Color (Niagara sets 50,16,10 wet); rough 0.08,
+#                        specular 0.28; dithered fade with Particle Color alpha (last 20 % of life)
+#   M_BloodMist_337      mist: Translucent, Volumetric Non-Directional lighting (cheap), soft disc x Particle Color alpha x
+#                        MistOpacity (0.15), depth fade 20 cm
+PM, MM = DST + '/M_BloodParticle_337', DST + '/M_BloodMist_337'
+log.append('particle materials: M_BloodParticle_337, M_BloodMist_337')
+if not DRY:
+    for path, name in ((PM, 'M_BloodParticle_337'), (MM, 'M_BloodMist_337')):
+        m = unreal.load_asset(path) if EAL.does_asset_exist(path) else AT.create_asset(name, DST, unreal.Material, unreal.MaterialFactoryNew())
+        MEL.delete_all_material_expressions(m)
+        m.set_editor_property('used_with_niagara_sprites', True); m.set_editor_property('used_with_niagara_ribbons', True)
+        E = lambda cls, x, y: MEL.create_material_expression(m, cls, x, y)
+        pc = E(unreal.MaterialExpressionParticleColor, -900, -200)
+        uv = E(unreal.MaterialExpressionTextureCoordinate, -1300, 100)
+        two = E(unreal.MaterialExpressionConstant, -1300, 250); two.set_editor_property('r', 2.0)
+        one = E(unreal.MaterialExpressionConstant, -1300, 320); one.set_editor_property('r', 1.0)
+        mul = E(unreal.MaterialExpressionMultiply, -1150, 100); MEL.connect_material_expressions(uv, '', mul, 'A'); MEL.connect_material_expressions(two, '', mul, 'B')
+        xy = E(unreal.MaterialExpressionSubtract, -1000, 100); MEL.connect_material_expressions(mul, '', xy, 'A'); MEL.connect_material_expressions(one, '', xy, 'B')
+        ln = E(unreal.MaterialExpressionLength, -850, 100); MEL.connect_material_expressions(xy, '', ln, '')
+        disc = E(unreal.MaterialExpressionOneMinus, -700, 100); MEL.connect_material_expressions(ln, '', disc, '')     # 1 centre -> 0 rim
+        if name == 'M_BloodParticle_337':
+            m.set_editor_property('blend_mode', unreal.BlendMode.BLEND_MASKED)
+            dot = E(unreal.MaterialExpressionDotProduct, -850, 300); MEL.connect_material_expressions(xy, '', dot, 'A'); MEL.connect_material_expressions(xy, '', dot, 'B')
+            om = E(unreal.MaterialExpressionOneMinus, -700, 300); MEL.connect_material_expressions(dot, '', om, '')
+            sat = E(unreal.MaterialExpressionSaturate, -600, 300); MEL.connect_material_expressions(om, '', sat, '')
+            zz = E(unreal.MaterialExpressionSquareRoot, -500, 300); MEL.connect_material_expressions(sat, '', zz, '')
+            nrm = E(unreal.MaterialExpressionAppendVector, -350, 250); MEL.connect_material_expressions(xy, '', nrm, 'A'); MEL.connect_material_expressions(zz, '', nrm, 'B')
+            MEL.connect_material_property(nrm, '', unreal.MaterialProperty.MP_NORMAL)
+            MEL.connect_material_property(pc, 'RGB', unreal.MaterialProperty.MP_BASE_COLOR)
+            r_ = E(unreal.MaterialExpressionConstant, -350, 450); r_.set_editor_property('r', 0.08); MEL.connect_material_property(r_, '', unreal.MaterialProperty.MP_ROUGHNESS)
+            s_ = E(unreal.MaterialExpressionConstant, -350, 520); s_.set_editor_property('r', 0.28); MEL.connect_material_property(s_, '', unreal.MaterialProperty.MP_SPECULAR)
+            dith = E(unreal.MaterialExpressionDitherTemporalAA, -500, 0); MEL.connect_material_expressions(pc, 'A', dith, '')
+            mk = E(unreal.MaterialExpressionMultiply, -350, 0)
+            st = E(unreal.MaterialExpressionStep, -500, 100); MEL.connect_material_expressions(disc, '', st, 'X')   # inside the disc
+            MEL.connect_material_expressions(st, '', mk, 'A'); MEL.connect_material_expressions(dith, '', mk, 'B')
+            MEL.connect_material_property(mk, '', unreal.MaterialProperty.MP_OPACITY_MASK)
+        else:
+            m.set_editor_property('blend_mode', unreal.BlendMode.BLEND_TRANSLUCENT)
+            m.set_editor_property('translucency_lighting_mode', unreal.TranslucencyLightingMode.TLM_VOLUMETRIC_NON_DIRECTIONAL)
+            MEL.connect_material_property(pc, 'RGB', unreal.MaterialProperty.MP_BASE_COLOR)
+            soft = E(unreal.MaterialExpressionSaturate, -550, 100); MEL.connect_material_expressions(disc, '', soft, '')
+            po = E(unreal.MaterialExpressionScalarParameter, -550, 200); po.set_editor_property('parameter_name', 'MistOpacity'); po.set_editor_property('default_value', 0.15)
+            a1 = E(unreal.MaterialExpressionMultiply, -400, 100); MEL.connect_material_expressions(soft, '', a1, 'A'); MEL.connect_material_expressions(pc, 'A', a1, 'B')
+            a2 = E(unreal.MaterialExpressionMultiply, -300, 150); MEL.connect_material_expressions(a1, '', a2, 'A'); MEL.connect_material_expressions(po, '', a2, 'B')
+            df = E(unreal.MaterialExpressionDepthFade, -200, 150); df.set_editor_property('fade_distance_default', 20.0); MEL.connect_material_expressions(a2, '', df, '')
+            MEL.connect_material_property(df, '', unreal.MaterialProperty.MP_OPACITY)
+        MEL.recompile_material(m); EAL.save_asset(path)
+
 out ='\n'.join(log)
 if not DRY: open(os.path.join(HERE, 'import_blood337.txt'), 'w').write(out)
 unreal.log(out); print(out)
