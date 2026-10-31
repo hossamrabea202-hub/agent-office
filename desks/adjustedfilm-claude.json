@@ -1,9 +1,10 @@
 {
- "working": "#8 treasure chest (paste-only) next",
- "tokens": 500000,
+ "working": "next: #297 part 3 (mine sub-level) or #293 flesh",
+ "tokens": 560000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#8 treasure chest handed off [44% tokens left · 5h plan 14% left]",
   "#315 handed off [50% tokens left · 5h plan 12% left]",
   "#313 + #314 handed off [52% tokens left · 5h plan 11% left]",
   "#228 fix line posted; cave rock WIP lookdev [62% tokens left · 5h plan 7% left]",
@@ -12,8 +13,7 @@
   "#297 part 1 cave door handed off [76% tokens left · 5h plan 4% left]",
   "#266 Antidote at Vesna handed off (#307) [81% tokens left · 5h plan 3% left]",
   "#228 wall-top report/fix script handed off [7% tokens left]",
-  "#293 research + realm bubble v3 handed off [11% tokens left]",
-  "#295 notice scroll handed off (vellum, no BP paste) [16% tokens left]"
+  "#293 research + realm bubble v3 handed off [11% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,23 +29,23 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T13:33:23Z",
+ "asOf": "2026-10-31T13:43:31Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T13:33:23Z",
+  "asOf": "2026-10-31T13:43:31Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 88,
+    "pct": 86,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 66,
+    "pct": 67,
     "resetsAt": "2026-11-06T05:59:59Z",
     "color": "#d9af65"
    }
