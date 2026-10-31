@@ -20,6 +20,8 @@ editor scripts and asset imports, then compiles, saves and play-checks. The Mast
 systems. Every agent hands back work that is complete and pre-checked: run `tools/applyall/fix_impure.py` and
 `applyall check` / a dry-run merge on the latest export, and include exact steps and a test list. If you need something
 from the editor (an export, a screenshot), file a request (rule 4b) and keep working; never hand the Master a problem to solve.
+**Exception:** a minor issue that takes the Master only a moment (a wrong default, one missing wire, a renamed pin) the Master may
+fix on the spot instead of sending it back and forth; note it on the card so the author learns it.
 
 **checkking starting fresh (new machine / new session)?** Read `handoffs/checkking-session/HANDOFF.md` first.
 
