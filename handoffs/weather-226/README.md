@@ -133,3 +133,41 @@ dry-run on `BPC_Weather_graph.txt` is OK.
 - At night, force rain (`PRain` = 1, `PClear` = 0) so it reaches heavy rain. About two thirds of the torches go out,
   and the notice shows.
 - Make it clear again: they relight.
+
+## v2 of the add-on (2026-10-31, #290 + #355): only the fire goes out, and a soldier relights the torches
+
+This replaces the v1 add-on above, which was never pasted. Owner `W:` (#355): *"if rain putt off torches, soldier lights
+it up later"*.
+
+**What changed:**
+- **Only the fire goes out:** the torch's light and fire effect turn off; the iron torch stays on the wall. v1 hid the
+  whole actor.
+- **When the rain eases at night:** a **torch-bearer soldier** (the garrison's look, with a burning iron torch in his
+  right hand and a real 2700 K light) steps out beside a soldier. He walks to each doused torch in turn and relights it,
+  then walks back and leaves.
+- **Rain again:** he goes home, and the weather puts the torches out again.
+- **Dawn:** the rest light at once (BP_DayNight hides torches by day anyway).
+- **A torch he can't reach** (no navmesh path) lights after 25 s.
+
+**Pre-checks:**
+
+| Check | Result |
+|---|---|
+| `applyall check` | Weather_Torches 56 nodes / 71 links; BP_TorchBearer 81 / 95: both **Validation OK** |
+| `fix_impure` | no changes on either |
+| merge `--dry-run` on BPC_Weather_graph.txt | **Validation OK**, +72 links |
+
+**Steps (after #275):**
+1. On BPC_Weather, paste the **2** lines of `VARIABLES_Torches_BPVar.txt`, then Compile.
+2. Run the merge of `manifest_weather_torches.json` on a fresh BPC_Weather export, paste, then compile and save.
+3. `py "<repo>/handoffs/weather-226/setup_torchbearer355_ue.py" --dry-run`, then without it. That makes
+   **BP_TorchBearer**.
+4. On BP_TorchBearer, paste the 6 lines of `VARIABLES_TorchBearer_BPVar.txt`, then Compile. Paste
+   `BP_TorchBearer_graph.txt`, then compile and save.
+5. The torch must sit in the right hand. If not, nudge Taper or Flame (a one-minute fix).
+
+**Tests:**
+1. At night, force rain (`PRain` = 1). Two thirds of the torch flames go out, the iron torches stay, and the notice shows.
+2. Clear the rain. A soldier with a burning torch walks from torch to torch and each one lights as he reaches it. Then
+   he walks back and disappears.
+3. Rain again mid-round: he turns back. Morning comes: everything is restored.

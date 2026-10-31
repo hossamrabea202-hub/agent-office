@@ -1,2 +1,3 @@
-# BPC_Weather - one more variable for the torches add-on
+# BPC_Weather - 2 variables for the torches add-on (v2)
 BPVar(VarName="Doused",VarGuid=2FBBCDEA7BC85357BD016B4671BD8848,VarType=(PinCategory="bool"),FriendlyName="Doused",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="DousedList",VarGuid=65F8DDB5663B535B8BDEE6DDB08CD75F,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",ContainerType=Array),FriendlyName="DousedList",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
