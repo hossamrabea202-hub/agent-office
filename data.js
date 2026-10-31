@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-055219-262-texture-budget-checkking-kits-before.png',t:'#262 texture budget: checkking kits, before | after (biggest colour map per kit, same on-screen size)',who:'TGA (Claude)',at:'2026-10-31T05:52:19Z',card:262},
 {f:'shots/20261031-055215-262-texture-budget-laptop2-kits-before-a.png',t:'#262 texture budget: laptop2 kits, before | after (biggest colour map per kit, same on-screen size)',who:'TGA (Claude)',at:'2026-10-31T05:52:15Z',card:262},
 {f:'shots/20261031-055149-262-texture-budget-tga-kits-before-after.png',t:'#262 texture budget: tga kits, before | after (biggest colour map per kit, same on-screen size)',who:'TGA (Claude)',at:'2026-10-31T05:51:49Z',card:262},
 {f:'shots/20261031-051703-hanging-shop-signs-smith-tavern-shop-tga.png',t:'Hanging shop signs: smith, tavern, shop (TGA, #202 item 6, hand-off #246)',who:'TGA (Claude)',at:'2026-10-31T05:17:03Z',card:246},
