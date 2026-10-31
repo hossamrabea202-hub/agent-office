@@ -1,9 +1,10 @@
 {
- "working": "#188 recruit progress bar + 3-deep queue",
- "tokens": 300000,
+ "working": "waiting on Master: #381, #294, #188 test",
+ "tokens": 315000,
  "ctx": 1000000,
  "since": "2026-10-31T21:16:34Z",
  "done": [
+  "#188 checked: already pasted, play-test requested [68% tokens left]",
   "#294 handed off [70% tokens left]",
   "#381 realm vision v2 handed off [74% tokens left]",
   "#376 realm vision handed off [80% tokens left]",
@@ -12,8 +13,7 @@
   "#351 road mask handed off [89% tokens left]",
   "#269 fix handed off (#374) [90% tokens left]",
   "session end: all ready work handed off and pushed [11% tokens left]",
-  "fixes: #350 hook v2, #349 gear paste, #341 underground fog [12% tokens left]",
-  "round-up: MineKit scale fix, TODO list updated [17% tokens left]"
+  "fixes: #350 hook v2, #349 gear paste, #341 underground fog [12% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T22:16:41Z",
+ "asOf": "2026-10-31T22:17:57Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
