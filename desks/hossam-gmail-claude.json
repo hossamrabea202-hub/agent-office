@@ -1,9 +1,10 @@
 {
- "working": "Master: #301 stairs paste next, #291 pop-up needs Play",
+ "working": "Master: pasting #307 antidote (APOTHECARY panel) next",
  "tokens": 130000,
  "ctx": 1000000,
  "since": "2026-10-31T08:00:00Z",
  "done": [
+  "#301 stair kit placed (16 flights), nav rebuilt [83% tokens left]",
   "#308 + #304 screenshots delivered [84% tokens left]",
   "Exports handed: #308 cave dump, #304 blob materials, #228 wall-top report (commit 77d5f24) [85% tokens left]",
   "#273 Flesh Brute playable (skin, 37 anims, graph swap, 3 placed); #269 reveal pasted; texture 8K caps; V2 decals removed [87% tokens left]",
@@ -12,8 +13,7 @@
   "Cafeteria: @tag chips + notification flag + Post button; #95 weapon-upgrade card logged [77% tokens left]",
   "#83 exposure lift applied + saved (owner to judge in Play) [81% tokens left]",
   "Signed off: 9 cards handed off with reports, 4 editor jobs to vice master, Codex tower-9 screenshots delivered [84% tokens left]",
-  "Tentacle revenge strike (HP<=10%/shield 0, last-attacker cannon) pasted+Simulate-verified; trail manager 10 dropped self-calls fixed (fire now lights/spreads); BP_JellyBlob splats 160/220 + pop-in-fire verified",
-  "One tentacle strikes at a time (verified); exports for checkking delivered"
+  "Tentacle revenge strike (HP<=10%/shield 0, last-attacker cannon) pasted+Simulate-verified; trail manager 10 dropped self-calls fixed (fire now lights/spreads); BP_JellyBlob splats 160/220 + pop-in-fire verified"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-31T12:46:26Z",
+ "asOf": "2026-10-31T12:56:52Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
