@@ -6,7 +6,9 @@
 #   py ".../setup_caverock296_ue.py" --scan <folder> [--dry-run]                         makes the assets with that scan, swaps
 #        nothing.  <folder> = a content path from scan_list.txt, e.g. /Game/Megascans/Surfaces/Rough_Rock_xyz
 #   py ".../setup_caverock296_ue.py" --apply <ActorLabelPrefix> <MI name> [--dry-run]   ONLY after the owner's before/after OK
-#   py ".../setup_caverock296_ue.py" --revert                                            puts every logged material back
+#   py ".../setup_caverock296_ue.py" --swap-entrance [--dry-run]   ONLY after the owner's OK: Mine_01's entrance mesh -> the
+#        split mesh (scan rock + original timber), logged; removes the CaveRockLookdev copy
+#   py ".../setup_caverock296_ue.py" --revert                                            puts every logged material / mesh back
 #   py ".../setup_caverock296_ue.py" --auto [--dry-run]   ONE STEP (owner: "do it yourself"): picks the best rock scan in the
 #        project, builds the materials, imports the rock/timber split entrance with the scan on the rock slot only, and places
 #        a side-by-side copy (CaveRockLookdev) 11 m beside Mine_01 for the before/after. Swaps nothing live.
@@ -269,7 +271,49 @@ def apply(prefix, miname):
         open(SWAPLOG, 'a').write('\n'.join(rows) + '\n'); unreal.EditorLevelLibrary.save_current_level()
 
 
+MESHLOG = os.path.join(HERE, 'caverock296_meshswaps.txt')
+ME_DIR = '/Game/CastleDefender/Environment/Mine/MineEntrance'
+
+
+def swap_entrance():
+    """after the owner's OK: every SM_Camp_MineEntrance component in the level -> SM_Camp_MineEntrance_Split (same pivot /
+    size), logged for --revert; the CaveRockLookdev copy is removed."""
+    new = unreal.load_asset(ME_DIR + '/SM_Camp_MineEntrance_Split')
+    if not new: raise SystemExit('missing SM_Camp_MineEntrance_Split: run --auto first')
+    rows = []
+    for a in EAS.get_all_level_actors():
+        if a.get_actor_label() == 'CaveRockLookdev': continue
+        for c in a.get_components_by_class(unreal.StaticMeshComponent):
+            m = c.get_editor_property('static_mesh')
+            if m and m.get_name() == 'SM_Camp_MineEntrance':
+                rows.append('%s|%s|%s' % (a.get_name(), c.get_name(), m.get_path_name()))
+                log.append('swap mesh on %s (%s)' % (a.get_actor_label(), c.get_name()))
+                if not DRY:
+                    c.set_static_mesh(new)
+                    for i in range(c.get_num_materials()): c.set_material(i, None)   # use the Split mesh's own slots
+    log.append('swap-entrance: %d components' % len(rows))
+    if not DRY:
+        if rows: open(MESHLOG, 'a').write('\n'.join(rows) + '\n')
+        for a in EAS.get_all_level_actors():
+            if a.get_actor_label() == 'CaveRockLookdev': EAS.destroy_actor(a); log.append('removed CaveRockLookdev')
+        unreal.EditorLevelLibrary.save_current_level()
+
+
 def revert():
+    if os.path.exists(MESHLOG):
+        want = {(r[0], r[1]): r[2] for r in (l.split('|') for l in open(MESHLOG).read().splitlines() if l)}
+        k = 0
+        for a in EAS.get_all_level_actors():
+            for c in a.get_components_by_class(unreal.StaticMeshComponent):
+                old = want.get((a.get_name(), c.get_name()))
+                if old:
+                    k += 1
+                    if not DRY: c.set_static_mesh(unreal.load_asset(old))
+        log.append('revert %d entrance meshes' % k)
+        if not DRY: os.rename(MESHLOG, MESHLOG + '.reverted')
+        if not os.path.exists(SWAPLOG):
+            if not DRY: unreal.EditorLevelLibrary.save_current_level()
+            return
     if not os.path.exists(SWAPLOG): raise SystemExit('nothing to revert')
     rows = [l.split('|') for l in open(SWAPLOG).read().splitlines() if l]
     want = {(r[0], r[1], int(r[2])): r[3] for r in rows}
@@ -287,6 +331,7 @@ def revert():
 
 if LIST: list_scans()
 elif REVERT: revert()
+elif '--swap-entrance' in A: swap_entrance()
 elif APPLY:
     rest = [x for x in A[A.index('--apply') + 1:] if not x.startswith('--')]
     if len(rest) < 2: raise SystemExit('usage: --apply <ActorLabelPrefix> <MI name>')
