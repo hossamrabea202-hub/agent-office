@@ -1,0 +1,104 @@
+{
+ "SM_Flower_Daisy_A": {
+  "LOD0": 1662,
+  "LOD1": 974,
+  "LOD2": 330,
+  "LOD3": 4
+ },
+ "SM_Flower_Daisy_B": {
+  "LOD0": 2626,
+  "LOD1": 1570,
+  "LOD2": 518,
+  "LOD3": 4
+ },
+ "SM_Flower_Daisy_C": {
+  "LOD0": 3590,
+  "LOD1": 2166,
+  "LOD2": 706,
+  "LOD3": 4
+ },
+ "SM_Flower_Poppy_A": {
+  "LOD0": 1260,
+  "LOD1": 608,
+  "LOD2": 356,
+  "LOD3": 4
+ },
+ "SM_Flower_Poppy_B": {
+  "LOD0": 1884,
+  "LOD1": 924,
+  "LOD2": 554,
+  "LOD3": 4
+ },
+ "SM_Flower_Poppy_C": {
+  "LOD0": 1876,
+  "LOD1": 920,
+  "LOD2": 552,
+  "LOD3": 4
+ },
+ "SM_Flower_Yarrow_A": {
+  "LOD0": 1710,
+  "LOD1": 848,
+  "LOD2": 408,
+  "LOD3": 4
+ },
+ "SM_Flower_Yarrow_B": {
+  "LOD0": 2216,
+  "LOD1": 1104,
+  "LOD2": 528,
+  "LOD3": 4
+ },
+ "SM_Flower_Yarrow_C": {
+  "LOD0": 3228,
+  "LOD1": 1616,
+  "LOD2": 768,
+  "LOD3": 4
+ },
+ "SM_Flower_Cornflower_A": {
+  "LOD0": 1006,
+  "LOD1": 736,
+  "LOD2": 323,
+  "LOD3": 4
+ },
+ "SM_Flower_Cornflower_B": {
+  "LOD0": 1645,
+  "LOD1": 898,
+  "LOD2": 428,
+  "LOD3": 4
+ },
+ "SM_Flower_Cornflower_C": {
+  "LOD0": 3396,
+  "LOD1": 1259,
+  "LOD2": 722,
+  "LOD3": 4
+ },
+ "SM_Bush_Hawthorn_A": {
+  "LOD0": 4072,
+  "LOD1": 2396,
+  "LOD2": 854,
+  "LOD3": 4
+ },
+ "SM_Bush_Hawthorn_B": {
+  "LOD0": 5738,
+  "LOD1": 3364,
+  "LOD2": 1157,
+  "LOD3": 4
+ },
+ "SM_Bush_Hazel_A": {
+  "LOD0": 6294,
+  "LOD1": 3474,
+  "LOD2": 1436,
+  "LOD3": 4
+ },
+ "SM_Bush_Hazel_B": {
+  "LOD0": 7946,
+  "LOD1": 4378,
+  "LOD2": 1796,
+  "LOD3": 4
+ },
+ "SM_Fern_Bracken_A": {
+  "LOD0": 6360,
+  "LOD1": 3084,
+  "LOD2": 568,
+  "LOD3": 4
+ }
+}
