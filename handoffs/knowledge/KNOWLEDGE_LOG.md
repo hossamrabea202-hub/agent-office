@@ -117,3 +117,13 @@ breakup; flesh lives through subsurface, not emissive (ILM, S5). Annihilation's 
 mostly clear "petrol slick" thin-film iridescence, colour only at grazing angles, structure from fractals. Rules for us:
 dark organics 0.03-0.15 albedo, roughness patches wet 0.05-0.15 / tacky 0.35-0.5, no glow on biology, one danger cue
 (a pulse), domes clear head-on with thin-film colour in the fresnel band. Details + sources: handoffs/blob-realism-293/RESEARCH.md
+
+**2026-10-31 · adjustedfilm (Claude) · caves and medieval mines: what film, Netflix and game studios do (#296, research)**
+The Descent lit its Pinewood cave sets only with what the characters carry (headlamps, flares, glow sticks), and red flares are
+noisy and unsteady (ASC). Stranger Things built its Upside Down tunnels practically; VFX only extended the distance, and dust
+or smoke sells the air. Indiana Jones and the Great Circle: geometry and materials rebuilt together, Slocombe-style high-contrast
+candle light. Rainforest Cavern (80.lv): low-contrast base colour, wetness and rain streaks via vertex-colour lerps, mud in
+cracks via inverted AO, flatten normal 0.95 for water, sharp rocks beat rounded scans. Real caves: calcite is white; yellow
+or brown is impurity or organic stain; orange is iron; black is manganese, guano or soot. Medieval mines were fire-set,
+which leaves rounded, smooth, spalled walls with lamp soot, not sharp pick facets. Not tested yet. Rules, spec and sources:
+handoffs/cave-296-297/RESEARCH.md
