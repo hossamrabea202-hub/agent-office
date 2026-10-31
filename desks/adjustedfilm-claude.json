@@ -1,9 +1,10 @@
 {
- "working": "#316 breach (waiting dump); meanwhile #296 mine-entrance rock/timber split",
- "tokens": 720000,
+ "working": "waiting: #316 breach dump, #296 scan list, #323 brute export",
+ "tokens": 760000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#296 entrance rock/timber split [24% tokens left · 5h plan 24% left]",
   "#44 zombie towers handed off [32% tokens left · 5h plan 20% left]",
   "#322 part 1 handed off [40% tokens left · 5h plan 16% left]",
   "#8 treasure chest handed off [44% tokens left · 5h plan 14% left]",
@@ -12,8 +13,7 @@
   "#228 fix line posted; cave rock WIP lookdev [62% tokens left · 5h plan 7% left]",
   "#269 diag script + Master asks [70% tokens left · 5h plan 5% left]",
   "#296 cave realism research [73% tokens left · 5h plan 5% left]",
-  "#297 part 1 cave door handed off [76% tokens left · 5h plan 4% left]",
-  "#266 Antidote at Vesna handed off (#307) [81% tokens left · 5h plan 3% left]"
+  "#297 part 1 cave door handed off [76% tokens left · 5h plan 4% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T14:16:11Z",
+ "asOf": "2026-10-31T14:18:08Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T14:16:11Z",
+  "asOf": "2026-10-31T14:18:08Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 78,
+    "pct": 76,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
