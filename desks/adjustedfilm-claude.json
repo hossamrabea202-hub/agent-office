@@ -1,6 +1,6 @@
 {
- "working": "studio flow report for the owner",
- "tokens": 640000,
+ "working": "waiting: Master board cleanup (owner ask) + batch export",
+ "tokens": 690000,
  "ctx": 1000000,
  "since": "2026-10-31T15:21:27Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T17:24:09Z",
+ "asOf": "2026-10-31T18:36:08Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
