@@ -150,3 +150,12 @@ handoffs/gore-337/RESEARCH.md
   as a cylindrical UV: along = distance along the long axis x actor scale, around = angle x a whole number of tiles.
   Fix the atan2 mip seam by taking the smaller derivative of the two wrapped UVs (Ben Golus, 2021). Keep the samples that
   feed WPO on their old UVs (ddx is not allowed in the vertex shader). Script: handoffs/tentacle-skin-366.
+
+**2026-11-01 · adjustedfilm (Claude) · winter: snow, drifts, ice, rime, tracks (#390, research + Blender lookdev)**
+Snow albedo is ~0.80 typical, >0.90 only for fresh snow in whiteout (Journal of Glaciology), so use 0.80-0.86 fresh,
+0.66-0.72 wind-packed, 0.36-0.45 trampled, never 1.0. Clear lake ice reads BLACK (you see deep water through it); only
+bubbles and cracks read white. Rime grows INTO the wind (windward), drifts pile on the LEE side: pair them per object, it
+is the realism tell. Place snow by the Winstral Sx shelter index (max upwind horizon angle). Tracks: TLOU2 uses parallax,
+GoW Ragnarok rebuilt snow displacement for scale; our pick is a player-centred render-target mask + POM in the landscape
+material (no WPO, no VHM: no collision, RVT writes lag). Tested in Blender: a world volume in Cycles blocks the infinitely
+far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/winter-map/RESEARCH.md

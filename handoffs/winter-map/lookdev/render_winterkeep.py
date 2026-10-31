@@ -200,7 +200,7 @@ def castle():
     box('Keep', (bx - 6, by + 3, cz + 11 - 2), (16, 14, 26), lime)
     box('KeepRoof', (bx - 6, by + 3, cz + 25), (17, 15, 2), roof)
     gx, gy, gz = ue_to_img(L['gate']); g = to_b(gx, gy, cz)
-    box('Gatehouse', (g[0], g[1], cz + 7), (10, 9, 16), lime)
+    box('Gatehouse', (g[0] - 4, g[1] + 4, cz + 7), (10, 9, 16), lime)        # behind the camera on the wall-walk
     for name, p in L['farms'].items():
         fx, fy, fz = ue_to_img(p); f = to_b(fx, fy, fz)
         wood = mat_topsnow('M_FarmWood', (0.13, 0.11, 0.09), 0.85)
@@ -211,7 +211,13 @@ def castle():
         d.scale = (9, 5, 2.6); d.rotation_euler[2] = -0.7; d.data.materials.append(bpy.data.materials['M_WinterLandscape_Lookdev'] if False else mat_topsnow('M_Drift', (0.8, 0.82, 0.85), 0.7, thresh=-2))
     bx_, by_, bz_ = ue_to_img(L['bridge']); b = to_b(bx_, by_, bz_)
     stone = mat_topsnow('M_BridgeStone', (0.22, 0.21, 0.2), 0.85)
-    br = box('Bridge', (b[0], b[1], bz_ + 2.2), (6, 26, 1.4), stone); br.rotation_euler[2] = math.radians(-35)
+    rs = np.array(L['road_spline_cm']) / 100.0; k = int(np.argmin(np.hypot(rs[:, 0] - L['bridge'][0] / 100, rs[:, 1] - L['bridge'][1] / 100)))
+    d = rs[min(k + 1, len(rs) - 1)] - rs[max(k - 1, 0)]                  # road direction at the bridge (UE: x east, y south)
+    yaw = math.atan2(-d[1], d[0])                                        # Blender: y north
+    br = box('Bridge', (b[0], b[1], bz_ - 0.6), (52, 6.5, 1.6), stone, rotz=yaw)        # deck along the road, spans the banks
+    for side in (-1, 1):
+        pr = box('BridgeParapet', (b[0] - math.sin(yaw) * side * 3.0, b[1] + math.cos(yaw) * side * 3.0, bz_ + 0.6), (52, 0.5, 1.0), stone, rotz=yaw)
+    pier = box('BridgePier', (b[0], b[1], bz_ - 14), (4, 5.5, 26), stone, rotz=yaw)
     # frozen waterfall: an icy curtain on the rock step
     fx, fy, fz = ue_to_img(L['frozen_falls']); f = to_b(fx, fy + 4, fz - 6)
     icem = bpy.data.materials.new('M_FallsIce'); nt, nd, ln = nodes(icem); o = nd.new('ShaderNodeOutputMaterial')
@@ -299,7 +305,7 @@ def camera(shot):
         eye = to_b(cx + 700, cy + 900, 420); tgt = to_b(cx - 80, cy - 40, 40); cam.lens = 32
     elif shot == 'gate':                                            # the player's first view: gatehouse top, down the road to the bridge
         f = L['first_view']; ex, ey, ez = ue_to_img(f['from']); tx, ty, tz = ue_to_img(f['look_at'])
-        eye = to_b(ex, ey, ez + 4); tgt = to_b(tx, ty, tz); cam.lens = 28
+        eye = to_b(ex, ey, ez); tgt = to_b(tx, ty, tz); cam.lens = 30
     elif shot == 'lake':                                            # from the lake shore toward the castle
         lx, ly, lz = ue_to_img(L['lake']['centre']); cx, cy, cz = ue_to_img(L['castle_centre'])
         eye = to_b(lx - 120, ly + 90, lz + 6); tgt = to_b(cx, cy, cz + 15); cam.lens = 40

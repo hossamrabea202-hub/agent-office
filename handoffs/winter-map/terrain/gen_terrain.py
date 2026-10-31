@@ -52,7 +52,7 @@ MINE_ROAD = [(985, 960), (900, 945), (800, 920), (700, 880), (600, 820), (510, 7
 AVALANCHE = [(1690, 160), (1660, 300), (1620, 430), (1585, 560), (1560, 650)]   # gully top -> runout fan
 FARMS = {'Farm_East': (1480, 860), 'Farm_Road': (1500, 1450), 'Farm_North': (1000, 560)}
 REALM = (1640.0, 1060.0, 115.0)   # tentacle realm: melt ring radius (m), wet black ground + steam
-FIRST_VIEW = {'from': (1036, 962, CASTLE_TOP + 14), 'look_at': (1250, 1210, 30)}   # gatehouse top -> road and bridge
+FIRST_VIEW = {'from': (1044, 978, CASTLE_TOP + 12), 'look_at': (1180, 1150, 44)}   # wall-walk over the gate -> bridge and road
 
 yy, xx = np.mgrid[0:N, 0:N].astype(np.float32)
 
@@ -119,8 +119,8 @@ h += 9.0 * vnoise(160, 5, 0.5, 2) + 3.0 * vnoise(40, 4, 0.5, 3) + (1 - west) * (
 # castle rise: a rocky glacial knob (roche moutonnee) - smooth stoss slope to the NW, plucked steep lee to the SE
 dx, dy = xx - CASTLE[0], yy - CASTLE[1]
 along = (dx * WIND[0] + dy * WIND[1]); across = (-dx * WIND[1] + dy * WIND[0])
-knob_r = np.where(along < 0, np.hypot(along / 230.0, across / 150.0), np.hypot(along / 95.0, across / 140.0))
-h = np.maximum(h, CASTLE_TOP - 6 - 42 * np.clip(knob_r, 0, 1) ** 1.6 + 4 * vnoise(25, 3, 0.5, 4) * np.clip(knob_r, 0.2, 1))
+knob_r = np.where(along < 0, np.hypot(along / 230.0, across / 150.0), np.hypot(along / 175.0, across / 140.0))
+h = np.maximum(h, CASTLE_TOP - 6 - (CASTLE_TOP - 38) * np.clip(knob_r, 0, 1) ** 1.6 - 30 * np.clip(knob_r - 1, 0, 1) + 4 * vnoise(25, 3, 0.5, 4) * np.clip(knob_r, 0.2, 1))
 # west cliff for the mine: a steep rock step on the west ridge, facing east
 mine_d = np.hypot((xx - MINE[0]) / 60.0, (yy - MINE[1]) / 220.0)
 cliff = np.clip((MINE[0] + 25 + 14 * vnoise(30, 3, 0.5, 70) - xx) / 30.0, 0, 1) * np.clip(1.3 - mine_d, 0, 1)
@@ -225,10 +225,22 @@ def grade_road(h, pts, width, maxgrade, deep):
     seg = np.linalg.norm(pts_a[1:] - pts_a[:-1], axis=1); L = float(seg.sum())
     nS = int(L) + 1; sx = np.interp(np.linspace(0, L, nS), np.concatenate([[0], np.cumsum(seg)]), pts_a[:, 0])
     sy = np.interp(np.linspace(0, L, nS), np.concatenate([[0], np.cumsum(seg)]), pts_a[:, 1])
-    prof = h[np.clip(sy.astype(int), 0, N - 1), np.clip(sx.astype(int), 0, N - 1)].astype(np.float64)
-    r = 25; k = np.ones(2 * r + 1) / (2 * r + 1)
-    for _ in range(4): prof = np.convolve(np.pad(prof, r, mode='edge'), k, 'valid')
-    for i in range(1, nS): prof[i] = np.clip(prof[i], prof[i - 1] - maxgrade, prof[i - 1] + maxgrade)
+    iy_, ix_ = np.clip(sy.astype(int), 0, N - 1), np.clip(sx.astype(int), 0, N - 1)
+    terr = smooth(h, 4)[iy_, ix_].astype(np.float64)
+    span = rd[iy_, ix_] < river_w[iy_, ix_] + 20                     # bridge span over the carved banks: deck mesh, not fill
+    idx = np.arange(nS); prof = terr.copy()
+    if span.any() and (~span).any():                                 # level deck at the mean of the two abutments
+        i0, i1 = idx[span].min(), idx[span].max()
+        ends = [terr[j] for j in (i0 - 1, i1 + 1) if 0 <= j < nS]
+        prof[span] = float(np.mean(ends))
+    r = 10; k = np.ones(2 * r + 1) / (2 * r + 1)
+    for _ in range(2): prof = np.convolve(np.pad(prof, r, mode='edge'), k, 'valid')
+    fw = prof.copy(); bw = prof.copy()                               # grade limit both ways, then average (no drag)
+    for i in range(1, nS): fw[i] = np.clip(fw[i], fw[i - 1] - maxgrade, fw[i - 1] + maxgrade)
+    for i in range(nS - 2, -1, -1): bw[i] = np.clip(bw[i], bw[i + 1] - maxgrade, bw[i + 1] + maxgrade)
+    prof = 0.5 * (fw + bw)
+    near_br = np.exp(-(np.hypot(sx - BRIDGE[0], sy - BRIDGE[1]) / 60.0) ** 2)  # a short stone causeway is allowed at the bridge only
+    prof = np.where(span, prof, np.clip(prof, terr - 8.0, terr + 2.5 + 5.0 * near_br))   # cut <= 8 m (hollow way into the rock), fill <= 2.5 m: no embankments
     road_h = np.interp(t * L, np.arange(nS), prof).astype(np.float32) - deep * np.clip(1 - d / width, 0, 1) ** 2 * 0.0
     crown = -0.12 * (d / width) ** 2
     w = np.clip((d - width) / 9.0, 0, 1); w = w * w * (3 - 2 * w)
