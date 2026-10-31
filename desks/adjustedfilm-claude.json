@@ -55,5 +55,9 @@
  "session": {
   "id": "8553336c853b",
   "host": "5CD3147LBC"
+ },
+ "ask": {
+  "text": "No editor driver online: #376: explain the reshaped bubble + 'something more' (https://github.com/hossamrabea202-hub/agent-office/issues/378)",
+  "at": "2026-10-31T21:38:46Z"
  }
 }
