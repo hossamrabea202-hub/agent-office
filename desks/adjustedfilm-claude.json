@@ -1,9 +1,10 @@
 {
- "working": "next session: #269 reveal fix (owner priority), #351 road mask, #366",
- "tokens": 880000,
+ "working": "",
+ "tokens": 890000,
  "ctx": 1000000,
  "since": "2026-10-31T15:21:27Z",
  "done": [
+  "session end: all ready work handed off and pushed [11% tokens left]",
   "fixes: #350 hook v2, #349 gear paste, #341 underground fog [12% tokens left]",
   "round-up: MineKit scale fix, TODO list updated [17% tokens left]",
   "#369 quests + daily rewards v1 handed off [20% tokens left]",
@@ -12,8 +13,7 @@
   "#296 closed (swap live); #297 p4 miners handed off [53% tokens left]",
   "#337 decals + caps + particle mats ready; #333 design; #297 p4 workers request [57% tokens left]",
   "#337 wound caps + particle materials (scripts, lookdev, pbr OK) [58% tokens left]",
-  "#322 v2 keeps Master's bite 15; #337 part 1 blood decals (atlas, lookdev, import script) [63% tokens left]",
-  "#334 part A handed off; pick-up table updated [70% tokens left]"
+  "#322 v2 keeps Master's bite 15; #337 part 1 blood decals (atlas, lookdev, import script) [63% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T21:10:48Z",
+ "asOf": "2026-10-31T21:13:42Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
