@@ -274,17 +274,16 @@ check_write(G, 'BP_WoundCap337_graph.txt')
 # ====================================================================================================== BP_Zombie hook
 G = Graph(); b = B(G, 'zg'); g = b.get
 ZB = BPC('/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie', 'BP_Zombie')
-seqi = b.seq('GoreIn', 1, 3700, 11500)
+# v2 (Master's paste of v1 gave 2 'exec output pin cannot have more than one connection' errors): no Sequence nodes,
+# the OnHit call sits straight between the BP_BloodBurst spawn and the next node.
 kill = b.dcmp('GreaterEqual_DoubleDouble', g('DamageTaken', DBL, 3700, 11800), g('MaxHP', DBL, 3700, 11900), 3900, 11850)
 oh = b.call(GORE, 'OnHit', [D('Damage'), ob('Causer', ACT), bo('Killing', default='false'), D('MaxHP')], 4100, 11500, target=g('Gore', ob('v', GORE), 3900, 11700), tag='GoreHit')
 b.wire(kill, oh, 'Killing'); b.wire(g('MaxHP', DBL, 3900, 12000), oh, 'MaxHP')
-G.link(seqi, 'then_0', oh, 'execute')
-seqo = b.seq('GoreOut', 1, 4400, 11500); G.link(oh, 'then', seqo, 'execute')
 check_write(G, 'Zombie_GoreHook_graph.txt')
-man = {'blueprint': 'BP_Zombie', 'note': '#337: gore hook right after the BP_BloodBurst spawn (built on the 10-30b export)',
+man = {'blueprint': 'BP_Zombie', 'note': '#337 v2 hook: OnHit right after the BP_BloodBurst spawn, no sequences',
        'pastes': [{'file': 'Zombie_GoreHook_graph.txt'}],
-       'rewires': [{'from': 'K2Node_SpawnActorFromClass_ZB93.then', 'to': 'GoreIn.execute', 'replace': True, 'note': 'was -> K2Node_IfThenElse_ZB68'},
-                   {'from': 'GoreOut.then_0', 'to': 'K2Node_IfThenElse_ZB68.execute'},
+       'rewires': [{'from': 'K2Node_SpawnActorFromClass_ZB93.then', 'to': oh + '.execute', 'replace': True, 'note': 'was -> K2Node_IfThenElse_ZB68'},
+                   {'from': oh + '.then', 'to': 'K2Node_IfThenElse_ZB68.execute'},
                    {'from': 'K2Node_Event_ZB60.Damage', 'to': oh + '.Damage'},
                    {'from': 'K2Node_Event_ZB60.DamageCauser', 'to': oh + '.Causer'}]}
 json.dump(man, open(os.path.join(HERE, 'manifest_zombie_gore.json'), 'w'), indent=1)

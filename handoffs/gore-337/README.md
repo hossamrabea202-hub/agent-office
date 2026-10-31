@@ -76,3 +76,23 @@ Master: "use 10-30b for now"). Bones come from `exports/adjustedfilm/gore-337/bo
 
 **Rules applied (INDUSTRY_SECRETS):** §3.5 gore without C++ (hide bone, cap, spawned limb, the Dying Light 2 way), §0
 rule 1 (measured blood values), §4 VFX (lit, wet, no glow), and "not too gory" per RESEARCH §4.1.
+
+## v2 of the BP_Zombie hook (2026-10-31 night, after the Master's compile errors)
+
+The v1 paste gave *"Exec output pin cannot have more than one connection"* twice. The merged file had no doubled links,
+so it came from the paste, most likely the two one-output Sequence nodes (GoreIn / GoreOut). **v2 has no Sequences:**
+6 nodes, with the OnHit call wired straight between the BP_BloodBurst spawn and the next node.
+`manifest_zombie_gore.json` was updated; the merge on the 10-30b export gives **Validation OK**, with no exec output
+linked twice.
+
+**Safest way to apply it (no whole-graph replace):**
+1. Paste `Zombie_GoreHook_graph.txt` into BP_Zombie's EventGraph.
+2. Make the 4 wires by hand:
+   - `K2Node_SpawnActorFromClass_ZB93` (the BP_BloodBurst spawn) **then** → **OnHit** (replaces its old wire to the
+     Branch `ZB68`);
+   - OnHit **then** → `ZB68` execute;
+   - the ReceiveAnyDamage event's **Damage** → OnHit Damage;
+   - the event's **DamageCauser** → OnHit Causer.
+3. Compile.
+
+If you'd rather merge, push `_bp/live_zomb.t3d` and I'll dry-run on it.
