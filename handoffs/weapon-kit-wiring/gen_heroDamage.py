@@ -26,12 +26,20 @@ per = b.d2('Divide_DoubleDouble', b.i2d((gi, 'Output'), 900, 150), None, 1100, 1
 mul = b.self_(per, None, b.icmp('GreaterEqual_IntInt', eq, None, 1100, 300, db='0'), 1300, 200, db='1.0')
 mathfn(G, 'WdMulSlash', 'Multiply_DoubleDouble', [D('A', default='0.0'), D('B', default='1.0'), D('ReturnValue', out=True)], 1500, 100); b.wire(mul, 'WdMulSlash', 'B')
 mathfn(G, 'WdMulHit', 'Multiply_DoubleDouble', [D('A', default='35.0'), D('B', default='1.0'), D('ReturnValue', out=True)], 1500, 300); b.wire(mul, 'WdMulHit', 'B')
+# attack speed: Speed[Equipped] (x1 when nothing equipped) -> the two slash montages' PlayRate (CC7 AM_Slash1, CC12 AM_Slash2)
+spd = b.getm('Speed', KIT, arr(D('v', default='0.0')), (kit, 'ReturnValue'), 450, 500)
+G.node('WdSpdItem', 'K2Node_GetArrayItem', [], [arr(D('Array')), it('Dimension 1', default='0'), D('Output', out=True)], 700, 500)
+b.wire(spd, 'WdSpdItem', 'Array'); b.wire(b.i2('Max', eq, None, 650, 650, db='0'), 'WdSpdItem', 'Dimension 1')
+mathfn(G, 'WdRate', 'SelectFloat', [D('A', default='1.0'), D('B', default='1.0'), bo('bPickA', default='false'), D('ReturnValue', out=True)], 1300, 500)
+G.link('WdSpdItem', 'Output', 'WdRate', 'A'); b.wire(b.icmp('GreaterEqual_IntInt', eq, None, 1100, 650, db='0'), 'WdRate', 'bPickA')
 open(os.path.join(HERE, 'Hero_WeaponDamage_graph.txt'), 'w', newline='\r\n').write(G.render())
 json.dump({'blueprint': 'BP_ThirdPersonCharacter', '_built_on': 'handoffs/exports/master/2026-10-30b/BP_ThirdPersonCharacter_EventGraph.txt',
            'pastes': ['Hero_WeaponDamage_graph.txt'], 'rewires': [
   {'from': 'K2Node_CallFunction_XL20.ReturnValue', 'to': 'WdMulSlash.A'},
   {'from': 'WdMulSlash.ReturnValue', 'to': 'K2Node_CallFunction_ZX8.BaseDamage', 'replace': True},
   {'from': 'WdMulSlash.ReturnValue', 'to': 'K2Node_CallFunction_ZX9.BaseDamage', 'replace': True},
-  {'from': 'WdMulHit.ReturnValue', 'to': 'K2Node_CallFunction_CH7.BaseDamage', 'replace': True}]},
+  {'from': 'WdMulHit.ReturnValue', 'to': 'K2Node_CallFunction_CH7.BaseDamage', 'replace': True},
+  {'from': 'WdRate.ReturnValue', 'to': 'K2Node_PlayMontage_CC7.PlayRate'},
+  {'from': 'WdRate.ReturnValue', 'to': 'K2Node_PlayMontage_CC12.PlayRate'}]},
   open(os.path.join(HERE, 'manifest_hero_damage.json'), 'w'), indent=1)
 print('hero weapon damage: nodes', len(G.nodes))

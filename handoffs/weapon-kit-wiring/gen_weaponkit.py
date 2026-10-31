@@ -64,7 +64,9 @@ held = lambda x, y: b.get('Held', ob('v', SMC), x, y)
 bv = b.branch(b.valid(held(900, 250), 1000, 250), 1000, 0, tag='IfHeld'); G.link(sh, 'then', bv, 'execute')
 at = b.call(SCENE, 'K2_AttachToComponent', [ob('Parent', SCENE), NAME_('SocketName', 'hand_r'), RULE('LocationRule'), RULE('RotationRule'), RULE('ScaleRule'),
             bo('bWeldSimulatedBodies', default='false'), bo('ReturnValue', out=True, default='false')], 1300, 0, target=held(1200, 300))
-b.wire(b.item((fk, 'ReturnValue'), ob('v', SKEL), None, 1000, 500), at, 'Parent'); G.link(bv, 'then', at, 'execute')
+kn = b.item((fk, 'ReturnValue'), ob('v', SKEL), None, 1000, 500)
+b.wire(kn, at, 'Parent')
+sk = b.set('Knight', ob('v', SKEL), kn, 1150, -250); G.link(bv, 'then', sk, 'execute'); G.link(sk, 'then', at, 'execute')
 rr = b.call(SCENE, 'K2_SetRelativeRotation', [st('NewRotation', ROT, default='0, 0, 0'), bo('bSweep', default='false'), st('SweepHitResult', HITRES, out=True),
             bo('bTeleport', default='true')], 1600, 0, target=held(1500, 300))
 b.wire(b.get('WeaponRot', st('v', ROT), 1400, 450), rr, 'NewRotation'); G.link(at, 'then', rr, 'execute')
@@ -81,6 +83,13 @@ ssm = b.call(SMC, 'SetStaticMesh', [ob('NewMesh', SM), bo('ReturnValue', out=Tru
 b.wire(b.aget('Meshes', ob('v', SM), eq, 600, Y + 550), ssm, 'NewMesh'); G.link(be, 'then', ssm, 'execute')
 sv = b.call(SCENE, 'SetVisibility', [bo('bNewVisibility', default='false'), bo('bPropagateToChildren', default='false')], 1000, Y, target=held(900, Y + 250))
 b.wire(on, sv, 'bNewVisibility'); G.link(ssm, 'then', sv, 'execute'); G.link(be, 'else', sv, 'execute')
+knv = b.get('Knight', ob('v', SKEL), 1100, Y + 400)
+bk_ = b.branch(b.b2('BooleanAND', b.valid(knv, 1300, Y + 400), on, 1500, Y + 400), 1300, Y, tag='IfHideSword'); G.link(sv, 'then', bk_, 'execute')
+bvk = b.branch(b.valid(knv, 1300, Y + 600), 1300, Y + 200, tag='IfKnight'); G.link(bk_, 'else', bvk, 'execute')
+hb = b.call(SKIN, 'HideBoneByName', [NAME_('BoneName'), {'name': 'PhysBodyOption', 'cat': 'byte', 'obj': "\"/Script/CoreUObject.Enum'/Script/Engine.EPhysBodyOp'\"", 'default': 'PBO_None'}], 1600, Y, target=knv, tag='HideSword')
+b.wire(b.get('KnightSwordBone', NAME_('v'), 1450, Y + 700), hb, 'BoneName'); G.link(bk_, 'then', hb, 'execute')
+ub = b.call(SKIN, 'UnHideBoneByName', [NAME_('BoneName')], 1600, Y + 200, target=knv, tag='ShowSword')
+b.wire(b.get('KnightSwordBone', NAME_('v'), 1450, Y + 800), ub, 'BoneName'); G.link(bvk, 'then', ub, 'execute')
 
 # ---------------------------------------------------------------- save / load (Data = [Owned, Equipped])
 Y = 1700
@@ -205,5 +214,8 @@ lines = [bpvar('Owned', 'PinCategory="int"', '0'), bpvar('Equipped', 'PinCategor
          bpvar('WeaponRot', 'PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct\'/Script/CoreUObject.Rotator\'"', '0,0,0'),
          bpvar('Names', 'PinCategory="string",ContainerType=Array', ''), bpvar('Prices', 'PinCategory="int",ContainerType=Array', ''),
          bpvar('Damage', 'PinCategory="int",ContainerType=Array', ''),
+         bpvar('Speed', 'PinCategory="real",PinSubCategory="double",ContainerType=Array', ''),
+         bpvar('KnightSwordBone', 'PinCategory="name"', 'weapon_r'),
+         bpvar('Knight', "PinCategory=\"object\",PinSubCategoryObject=\"/Script/CoreUObject.Class'/Script/Engine.SkeletalMeshComponent'\"", ''),
          bpvar('Meshes', 'PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class\'/Script/Engine.StaticMesh\'",ContainerType=Array', '')]
 open(os.path.join(HERE, 'VARIABLES_BPVar.txt'), 'w', newline='\r\n').write('# BPC_WeaponKit - paste one line at a time on the VARIABLES header\n' + '\n'.join(lines) + '\n')

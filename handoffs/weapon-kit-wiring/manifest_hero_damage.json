@@ -23,6 +23,14 @@
    "from": "WdMulHit.ReturnValue",
    "to": "K2Node_CallFunction_CH7.BaseDamage",
    "replace": true
+  },
+  {
+   "from": "WdRate.ReturnValue",
+   "to": "K2Node_PlayMontage_CC7.PlayRate"
+  },
+  {
+   "from": "WdRate.ReturnValue",
+   "to": "K2Node_PlayMontage_CC12.PlayRate"
   }
  ]
 }

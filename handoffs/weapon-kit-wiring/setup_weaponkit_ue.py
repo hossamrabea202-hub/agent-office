@@ -33,6 +33,7 @@ if {'Names', 'Prices', 'Damage', 'Meshes'} <= have:
     cdo = unreal.get_default_object(bp.generated_class())
     cdo.set_editor_property('Names', [w['name'] for w in W]); cdo.set_editor_property('Prices', [w['price'] for w in W])
     cdo.set_editor_property('Damage', [w['damage'] for w in W]); cdo.set_editor_property('Meshes', meshes)
+    if 'Speed' in have: cdo.set_editor_property('Speed', [float(w['speed']) for w in W])
     EAL.save_asset(path); log.append('defaults: %d weapons, %d meshes found' % (len(W), sum(1 for m in meshes if m)))
 else:
     log.append('BPVars not pasted yet: paste VARIABLES_BPVar.txt on BPC_WeaponKit, compile, then run this again for the defaults')
