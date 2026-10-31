@@ -1,9 +1,10 @@
 {
- "working": "#337 wound caps + blood particle materials",
- "tokens": 370000,
+ "working": "#337 waiting on blood Niagara + BP_Zombie export; next: #333 prep",
+ "tokens": 420000,
  "ctx": 1000000,
  "since": "2026-10-31T15:21:27Z",
  "done": [
+  "#337 wound caps + particle materials (scripts, lookdev, pbr OK) [58% tokens left]",
   "#322 v2 keeps Master's bite 15; #337 part 1 blood decals (atlas, lookdev, import script) [63% tokens left]",
   "#334 part A handed off; pick-up table updated [70% tokens left]",
   "#339 plan posted (owner pick pending) [73% tokens left]",
@@ -12,8 +13,7 @@
   "#296 side-by-side read + --swap-entrance line (waits owner OK) [94% tokens left]",
   "next-session prompt written [6% tokens left · 5h plan 32% left]",
   "#296 --auto one-step cave rock [12% tokens left · 5h plan 29% left]",
-  "#293 part 2 handed off [16% tokens left · 5h plan 27% left]",
-  "#316 part A handed off [19% tokens left · 5h plan 26% left]"
+  "#293 part 2 handed off [16% tokens left · 5h plan 27% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T16:18:56Z",
+ "asOf": "2026-10-31T16:25:14Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
