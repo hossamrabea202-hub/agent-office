@@ -17,8 +17,11 @@ R0, G0 = 18.0, 30.0                # kit rise / going, cm
 CLASSES = (120, 200, 300, 400)     # kit widths, cm
 eas = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 log = lambda m: unreal.log('[stair279%s] %s' % (' DRY' if DRY_RUN else '', m))
+if not DRY_RUN and not UNDO:                                          # #301: v1 placement withdrawn by the owner (half flights,
+    unreal.log_error('[stair279] live placement is withdrawn until v2 (see #301); only DRY_RUN / UNDO run')   # over-hiding)
+    raise SystemExit
 actors = eas.get_all_level_actors()
-tagged = lambda t: [a for a in actors if t in [str(x) for x in a.tags]]
+tagged =lambda t: [a for a in actors if t in [str(x) for x in a.tags]]
 if UNDO:
     for a in tagged('Stair279_New'):
         if not DRY_RUN: eas.destroy_actor(a)
