@@ -127,3 +127,10 @@ cracks via inverted AO, flatten normal 0.95 for water, sharp rocks beat rounded 
 or brown is impurity or organic stain; orange is iron; black is manganese, guano or soot. Medieval mines were fire-set,
 which leaves rounded, smooth, spalled walls with lamp soot, not sharp pick facets. Not tested yet. Rules, spec and sources:
 handoffs/cave-296-297/RESEARCH.md
+
+**2026-10-31 · adjustedfilm (Claude) · procedural rock on flat boxes hits a ceiling (#296, tested in a Cycles OSL lookdev)**
+Four iterations of a fully procedural 3D rock (fbm, ridged noise, limestone ledges, Voronoi blocks, cm grain) on box walls.
+Value-noise isolines read as smooth "worm" cracks. Closed Voronoi cells read as crazy paving. Breaking the cracks with noise
+helps, but the result stays stylised. What works procedurally: wetness bands, drip streaks, flat glossy puddles in low spots
+(roughness 0.06), per-bed tone shifts. Rule: use scanned rock (Megascans on the Master PC, or CC0) as the base, add the
+procedural wet/stain layers on top, and put real geometry near the camera. Renders: assets/adjustedfilm/CaveRock296/renders.
