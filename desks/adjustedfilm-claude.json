@@ -1,9 +1,10 @@
 {
- "working": "#228 wall-walk tops fix line",
- "tokens": 84738,
+ "working": "#213 skill-tree UNLOCK crash: check state",
+ "tokens": 191020,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#266 Antidote at Vesna handed off (#307) [81% tokens left · 5h plan 3% left]",
   "#228 wall-top report/fix script handed off [7% tokens left]",
   "#293 research + realm bubble v3 handed off [11% tokens left]",
   "#295 notice scroll handed off (vellum, no BP paste) [16% tokens left]",
@@ -12,8 +13,7 @@
   "#226 add-on torches handed off [26% tokens left · 5h plan 89% left]",
   "#185 Medics handed off [28% tokens left · 5h plan 89% left]",
   "#157 Realm screen distortion v2 handed off (#286) [34% tokens left · 5h plan 90% left]",
-  "#283 Cannon scroll map handed off (#285) [37% tokens left · 5h plan 91% left]",
-  "#224 Castle upgrades v1 handed off (#282): walls + tower ballistas [44% tokens left · 5h plan 91% left]"
+  "#283 Cannon scroll map handed off (#285) [37% tokens left · 5h plan 91% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T12:10:29Z",
+ "asOf": "2026-10-31T12:16:54Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T12:10:29Z",
+  "asOf": "2026-10-31T12:16:54Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 98,
+    "pct": 97,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
