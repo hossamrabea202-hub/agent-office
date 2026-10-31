@@ -16,7 +16,8 @@ AR = unreal.AssetRegistryHelpers.get_asset_registry()
 SDS = unreal.get_engine_subsystem(unreal.SubobjectDataSubsystem)
 LIB = unreal.SubobjectDataBlueprintFunctionLibrary
 NAMES = ['BP_BloodBurst', 'BP_Zombie', 'BP_ZombieRisen', 'BP_SoldierSword', 'BPC_TentacleStrike', 'BP_Cannonball', 'BP_WallBreachSpot',
-         'M_JellyBlob', 'BP_ThirdPersonCharacter', 'BPC_Weather', 'BP_NoticeHUD', 'BP_ZombieHUD', 'BPC_MotionFX', 'BP_FleshBrute']
+         'M_JellyBlob', 'BP_ThirdPersonCharacter', 'BPC_Weather', 'BP_NoticeHUD', 'BP_ZombieHUD', 'BPC_MotionFX', 'BP_FleshBrute',
+         'BP_DayNight', 'BP_ZombieWaveManager', 'BPC_Survivors', 'BPC_CastleUpgrades']   # + #364 living keep
 log = []
 everything = AR.get_assets(unreal.ARFilter(package_paths=['/Game'], recursive_paths=True))
 by_name = {}
