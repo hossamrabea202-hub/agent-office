@@ -1,9 +1,10 @@
 {
- "working": "waiting on #308 cave dump, Master's report",
- "tokens": 270000,
+ "working": "waiting on Master: #269 diag, #308, #304, #291, #228 report",
+ "tokens": 300000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#269 diag script + Master asks [70% tokens left · 5h plan 5% left]",
   "#296 cave realism research [73% tokens left · 5h plan 5% left]",
   "#297 part 1 cave door handed off [76% tokens left · 5h plan 4% left]",
   "#266 Antidote at Vesna handed off (#307) [81% tokens left · 5h plan 3% left]",
@@ -12,8 +13,7 @@
   "#295 notice scroll handed off (vellum, no BP paste) [16% tokens left]",
   "#302 Multi-User kit written (handoffs/multi-user) [18% tokens left]",
   "#292 Muddy footprints handed off (#298) [22% tokens left]",
-  "#226 add-on torches handed off [26% tokens left · 5h plan 89% left]",
-  "#185 Medics handed off [28% tokens left · 5h plan 89% left]"
+  "#226 add-on torches handed off [26% tokens left · 5h plan 89% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T12:41:27Z",
+ "asOf": "2026-10-31T12:43:31Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T12:41:27Z",
+  "asOf": "2026-10-31T12:43:31Z",
   "meters": [
    {
     "k": "5h",
