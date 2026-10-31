@@ -7,6 +7,9 @@
 #        nothing.  <folder> = a content path from scan_list.txt, e.g. /Game/Megascans/Surfaces/Rough_Rock_xyz
 #   py ".../setup_caverock296_ue.py" --apply <ActorLabelPrefix> <MI name> [--dry-run]   ONLY after the owner's before/after OK
 #   py ".../setup_caverock296_ue.py" --revert                                            puts every logged material back
+#   py ".../setup_caverock296_ue.py" --auto [--dry-run]   ONE STEP (owner: "do it yourself"): picks the best rock scan in the
+#        project, builds the materials, imports the rock/timber split entrance with the scan on the rock slot only, and places
+#        a side-by-side copy (CaveRockLookdev) 11 m beside Mine_01 for the before/after. Swaps nothing live.
 # Makes in /Game/CastleDefender/Environment/Cave:
 #   M_CaveRock  the scan, world-projected on 3 axes (no UV stretching; whiteout normal blend), sampled twice (1x and 0.37x,
 #               blended by noise) so it doesn't repeat; procedural limestone beds and large forms add relief and a tone shift
@@ -17,7 +20,7 @@
 import os, sys, unreal
 
 A = sys.argv[1:]
-DRY, APPLY, REVERT, LIST = '--dry-run' in A, '--apply' in A, '--revert' in A, '--list-scans' in A
+DRY, APPLY, REVERT, LIST, AUTO = '--dry-run' in A, '--apply' in A, '--revert' in A, '--list-scans' in A, '--auto' in A
 SCAN = A[A.index('--scan') + 1] if '--scan' in A and A.index('--scan') + 1 < len(A) else None
 try: HERE = os.path.dirname(os.path.abspath(__file__))
 except NameError: HERE = r'C:\Users\hossa\Documents\agent-office\handoffs\cave-296-297'
@@ -288,6 +291,54 @@ elif APPLY:
     rest = [x for x in A[A.index('--apply') + 1:] if not x.startswith('--')]
     if len(rest) < 2: raise SystemExit('usage: --apply <ActorLabelPrefix> <MI name>')
     apply(rest[0], rest[1])
+elif AUTO:
+    # owner 2026-10-31: "do the megascans yourself" -> pick the scan, build, and set up the entrance lookdev in one go
+    found = scans()
+    def score(f):
+        n = f.lower(); sc = 0
+        for w, pts in (('cave', 6), ('limestone', 6), ('rock', 5), ('cliff', 5), ('boulder', 4), ('stone', 3), ('rough', 1), ('wet', 1), ('mossy', -2),
+                       ('brick', -6), ('wall', -4), ('plaster', -6), ('tile', -6), ('wood', -8), ('metal', -8), ('ground', -2), ('soil', -3), ('sand', -3)):
+            if w in n: sc += pts
+        return sc
+    ranked = sorted(found, key=lambda f: (-score(f), f))
+    for f in ranked[:8]: log.append('  candidate %3d  %s' % (score(f), f))
+    if not ranked or score(ranked[0]) <= 0: raise SystemExit('no rock-like scan found (see the candidates above): run --scan <folder> by hand')
+    SCAN = ranked[0]; tex = found[SCAN]
+    log.append('AUTO picked %s: %s' % (SCAN, ', '.join('%s=%s' % (k_, v.split('.')[-1]) for k_, v in sorted(tex.items()))))
+    instances(build(tex))
+    # the split mine entrance (rock slot 0 / timber slot 1) and a side-by-side lookdev copy next to Mine_01
+    fbx = os.path.normpath(os.path.join(HERE, '..', '..', 'assets', 'adjustedfilm', 'MineEntranceSplit296', 'SM_Camp_MineEntrance_Split.fbx'))
+    ME = '/Game/CastleDefender/Environment/Mine/MineEntrance'
+    log.append('import ' + ME + '/SM_Camp_MineEntrance_Split' + ('' if os.path.exists(fbx) else ' (MISSING ' + fbx + ')'))
+    if not DRY and os.path.exists(fbx):
+        t = unreal.AssetImportTask()
+        for k_, v in (('filename', fbx), ('destination_path', ME), ('destination_name', 'SM_Camp_MineEntrance_Split'), ('replace_existing', True), ('automated', True), ('save', True)):
+            t.set_editor_property(k_, v)
+        o = unreal.FbxImportUI(); o.set_editor_property('import_mesh', True); o.set_editor_property('import_as_skeletal', False)
+        o.set_editor_property('import_materials', False); o.set_editor_property('import_textures', False)
+        o.static_mesh_import_data.set_editor_property('combine_meshes', True)
+        o.static_mesh_import_data.set_editor_property('normal_import_method', unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS_AND_TANGENTS)
+        t.set_editor_property('options', o); AT.import_asset_tasks([t])
+        sm = unreal.load_asset(ME + '/SM_Camp_MineEntrance_Split')
+        old = unreal.load_asset(ME + '/SM_Camp_MineEntrance')
+        if sm and old:
+            bs = old.get_editor_property('body_setup'); nb = sm.get_editor_property('body_setup')
+            if bs and nb: nb.set_editor_property('collision_trace_flag', bs.get_editor_property('collision_trace_flag'))
+            sm.set_material(0, unreal.load_asset(DST + '/MI_CaveRock_Natural'))
+            om = old.get_material(0)
+            if om: sm.set_material(1, om)
+            EAL.save_asset(ME + '/SM_Camp_MineEntrance_Split')
+    mine = [a for a in EAS.get_all_level_actors() if a.get_actor_label() == 'Mine_01']
+    if mine:
+        m0 = mine[0]; loc = m0.get_actor_location() + m0.get_actor_right_vector() * 1100.0
+        log.append('lookdev copy CaveRockLookdev 11 m to the side of Mine_01 at %s (same rotation)' % loc)
+        if not DRY:
+            for a in EAS.get_all_level_actors():
+                if a.get_actor_label() == 'CaveRockLookdev': EAS.destroy_actor(a)
+            act = EAS.spawn_actor_from_class(unreal.StaticMeshActor, loc, m0.get_actor_rotation()); act.set_actor_label('CaveRockLookdev')
+            act.static_mesh_component.set_static_mesh(unreal.load_asset(ME + '/SM_Camp_MineEntrance_Split'))
+            unreal.EditorLevelLibrary.save_current_level()
+    else: log.append('Mine_01 not found: place SM_Camp_MineEntrance_Split by hand for the before/after')
 elif SCAN:
     tex = scans().get(SCAN.rstrip('/'))
     if not tex: raise SystemExit('no B + N + ORM textures in %s (see --list-scans)' % SCAN)
