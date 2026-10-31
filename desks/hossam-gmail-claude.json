@@ -1,9 +1,10 @@
 {
- "working": "Master: #321 treasure chest",
+ "working": "Master: next hand-offs",
  "tokens": 130000,
  "ctx": 1000000,
  "since": "2026-10-31T08:00:00Z",
  "done": [
+  "#321 treasure chest pasted",
   "#354 hero part pasted, HUD part reverted",
   "#318 toasts pasted",
   "#319 Vesna A/D pasted",
@@ -12,8 +13,7 @@
   "#328 breach FX pasted",
   "#278 flares warning fixed",
   "#344 risen neck pasted",
-  "#340 brute anim polish pasted",
-  "#285 cannon map pasted"
+  "#340 brute anim polish pasted"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-31T17:42:00Z",
+ "asOf": "2026-10-31T17:50:55Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
