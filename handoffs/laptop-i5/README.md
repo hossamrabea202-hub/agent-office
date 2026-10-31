@@ -161,3 +161,17 @@ one after another without asking. Characters stay stand-ins until the MetaHuman 
 - the wetness layer (needs the owner's before/after OK);
 - wall mesh variants for #224 (TGA);
 - the #283 in-engine screenshot.
+
+### adjustedfilm, 2026-10-31 afternoon (added before context ran out)
+
+| Card | Hand-off | Where | State |
+|---|---|---|---|
+| #292 muddy footprints (owner W:) | #298 | `handoffs/mud-prints-292` | waits on the Master; first Play check: prints sideways -> `MI_MudPrint` Swap = 1 |
+| #295 nightfall scroll looks plastic (W:) | filed | `handoffs/scroll-295` | one script, M_NoticeBanner rebuilt in place (backup kept), no BP paste |
+| #293 blobs / mines / realm realism (W:) | part 1 filed | `handoffs/blob-realism-293` | research done; realm bubble v3 (apply only after owner OK); **part 2 flesh-slime waits on the material export request**, spec in RESEARCH.md §3 |
+| #302 Multi-User editing across PCs | kit | `handoffs/multi-user` | owner runs `check_pc.ps1` on each PC and picks seats; this laptop is NOT a seat (2 GB VRAM, 58 GB free) |
+| #296 / #297 cave texturing + dungeon teleport (W:) | - | - | assigned to laptop2, not started |
+| #294 realm bounces cannonballs (W:) | TGA #299 | `handoffs/realm-284` | TGA |
+
+- **New owner rule: `AR` = "according to our studio office rules"** (AGENTS.md rule 6), next to `W:` = card first.
+- TGA's queue (set 2026-10-31): #294 done, #225 art done, #279 staircases in progress.
