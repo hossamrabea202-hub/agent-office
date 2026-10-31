@@ -1,22 +1,24 @@
 # #296 Cave rock (adjustedfilm, 2026-10-31). UE 5.3 Python, safe to re-run. Rules: handoffs/cave-296-297/RESEARCH.md.
-#   py "<repo>/handoffs/cave-296-297/setup_caverock296_ue.py" --dry-run                  (only reports)
-#   py "<repo>/handoffs/cave-296-297/setup_caverock296_ue.py"                            (makes the assets, swaps nothing)
-#   py ".../setup_caverock296_ue.py" --apply <ActorLabelPrefix> <MI name> [--dry-run]     (ONLY after the owner's OK)
-#   py ".../setup_caverock296_ue.py" --revert                                             (puts every logged material back)
+# Owner decision (2026-10-31): the rock base is a Megascans scan from the Master's PC; my procedural layers go on top
+# (a fully procedural rock stayed stylised in 4 lookdev rounds, see KNOWLEDGE_LOG).
+#   py "<repo>/handoffs/cave-296-297/setup_caverock296_ue.py" --list-scans                 READ-ONLY: every scanned surface in
+#        the project (folders with BaseColor + Normal + ORM-type textures) -> scan_list.txt (push it / paste it on #296)
+#   py ".../setup_caverock296_ue.py" --scan <folder> [--dry-run]                         makes the assets with that scan, swaps
+#        nothing.  <folder> = a content path from scan_list.txt, e.g. /Game/Megascans/Surfaces/Rough_Rock_xyz
+#   py ".../setup_caverock296_ue.py" --apply <ActorLabelPrefix> <MI name> [--dry-run]   ONLY after the owner's before/after OK
+#   py ".../setup_caverock296_ue.py" --revert                                            puts every logged material back
 # Makes in /Game/CastleDefender/Environment/Cave:
-#   M_CaveRock          fully procedural 3D rock: no textures, so no tiling, no UV stretching, no licence questions.
-#                       Height = fbm + ridged fractures + limestone strata bands, normal from 4 height taps (world space).
-#                       Layers in physical order: cavity dirt -> calcite bloom on drip lines -> iron runs under seams ->
-#                       soot on ceilings (mine) -> moss near the mouth only -> wetness (darker x0.5 on porous rock, gloss
-#                       first) -> flat puddles in low spots on the floor (roughness 0.06, normal flattened 0.95).
-#                       Albedo clamped to >= 30 sRGB (KB rule 1); metallic 0; specular 0.5.
-#   MI_CaveRock_Natural natural cave: sharp fractures, strata, iron + calcite, moss at the mouth (set MossOrigin)
-#   MI_CaveRock_Mine    medieval fire-set mine: rounded smooth walls (low bumpiness), lamp soot on the ceiling, drier walls
-#   MI_CaveRock_Floor   tunnel floor: more puddles, more grit
+#   M_CaveRock  the scan, world-projected on 3 axes (no UV stretching; whiteout normal blend), sampled twice (1x and 0.37x,
+#               blended by noise) so it doesn't repeat; procedural limestone beds and large forms add relief and a tone shift
+#               per bed; then, in physical order: calcite bloom on drip lines -> iron runs -> soot on ceilings (mine) -> moss
+#               near the mouth only -> wetness (porous rock x0.5 darker, gloss first) -> flat puddles in low floor spots
+#               (roughness 0.06, normal flattened 0.95). Albedo kept >= 30 sRGB (KB rule 1); metallic 0; specular 0.5.
+#   MI_CaveRock_Natural / MI_CaveRock_Mine (fire-set: smoother, soot on the ceiling, drier) / MI_CaveRock_Floor (puddles)
 import os, sys, unreal
 
 A = sys.argv[1:]
-DRY, APPLY, REVERT = '--dry-run' in A, '--apply' in A, '--revert' in A
+DRY, APPLY, REVERT, LIST = '--dry-run' in A, '--apply' in A, '--revert' in A, '--list-scans' in A
+SCAN = A[A.index('--scan') + 1] if '--scan' in A and A.index('--scan') + 1 < len(A) else None
 try: HERE = os.path.dirname(os.path.abspath(__file__))
 except NameError: HERE = r'C:\Users\hossa\Documents\agent-office\handoffs\cave-296-297'
 DST = '/Game/CastleDefender/Environment/Cave'
@@ -24,6 +26,7 @@ SWAPLOG = os.path.join(HERE, 'caverock296_swaps.txt')
 EAL, MEL = unreal.EditorAssetLibrary, unreal.MaterialEditingLibrary
 AT = unreal.AssetToolsHelpers.get_asset_tools()
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+AR = unreal.AssetRegistryHelpers.get_asset_registry()
 log = ['#296 cave rock' + (' (DRY RUN, nothing written)' if DRY else '')]
 
 
@@ -31,6 +34,40 @@ def enum(cls, *names):
     for n in names:
         if hasattr(cls, n): return getattr(cls, n)
     raise RuntimeError('%s has none of %s' % (cls.__name__, names))
+
+
+# ------------------------------------------------------------------------------------------------ scans
+def role(name):
+    n = name.lower()
+    for suf, r in (('_b', 'B'), ('_basecolor', 'B'), ('_d', 'B'), ('_albedo', 'B'), ('_diffuse', 'B'), ('_n', 'N'), ('_normal', 'N'),
+                   ('_orm', 'ORM'), ('_arm', 'ORM'), ('_ordp', 'ORM'), ('_ord', 'ORM')):
+        if n.endswith(suf): return r
+    return None
+
+
+def scans():
+    """{folder: {'B': tex, 'N': tex, 'ORM': tex}} for every folder that has all three."""
+    out = {}
+    flt = unreal.ARFilter(class_paths=[unreal.TopLevelAssetPath('/Script/Engine', 'Texture2D')], package_paths=['/Game'], recursive_paths=True)
+    for ad in AR.get_assets(flt):
+        r = role(str(ad.asset_name))
+        if r: out.setdefault(str(ad.package_path), {})[r] = '%s.%s' % (ad.package_name, ad.asset_name)
+    return {k: v for k, v in out.items() if len(v) == 3}
+
+
+def list_scans():
+    rows = sorted(scans().items(), key=lambda kv: (not any(w in kv[0].lower() for w in ('rock', 'cliff', 'cave', 'stone', 'boulder', 'lime')), kv[0]))
+    lines = ['%s | %s' % (f, ', '.join('%s=%s' % (k, v.split('.')[-1]) for k, v in sorted(t.items()))) for f, t in rows]
+    open(os.path.join(HERE, 'scan_list.txt'), 'w').write('#296 scanned surfaces (rock-like first)\n' + '\n'.join(lines) + '\n')
+    log.append('%d scanned surfaces -> scan_list.txt (push it, or paste it on card #296)' % len(lines))
+
+
+def stype(tex):
+    cs = str(tex.get_editor_property('compression_settings')).upper()
+    if 'NORMAL' in cs: return unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL
+    if 'MASK' in cs: return unreal.MaterialSamplerType.SAMPLERTYPE_MASKS
+    if 'GRAYSCALE' in cs: return unreal.MaterialSamplerType.SAMPLERTYPE_GRAYSCALE if tex.get_editor_property('srgb') else unreal.MaterialSamplerType.SAMPLERTYPE_LINEAR_GRAYSCALE
+    return unreal.MaterialSamplerType.SAMPLERTYPE_COLOR if tex.get_editor_property('srgb') else unreal.MaterialSamplerType.SAMPLERTYPE_LINEAR_COLOR
 
 
 # ------------------------------------------------------------------------------------------------ HLSL (struct trick = functions)
@@ -43,45 +80,53 @@ struct CRk {
                 lerp(lerp(h1(i + float3(0,0,1)), h1(i + float3(1,0,1)), f.x), lerp(h1(i + float3(0,1,1)), h1(i + float3(1,1,1)), f.x), f.y), f.z);
   }
   float fbm(float3 p) { float a = 0.5, s = 0.0; for (int o = 0; o < 4; o++) { s += a * vn(p); p = p * 2.03 + 17.1; a *= 0.5; } return s / 0.9375; }
-  float ridge(float3 p) { float a = 0.5, s = 0.0; for (int o = 0; o < 3; o++) { float r = 1.0 - abs(vn(p) * 2.0 - 1.0); s += a * r * r; p = p * 2.11 + 5.3; a *= 0.5; } return s / 0.875; }
-  float cell(float3 x, out float id) {
-    float3 i = floor(x); float3 f = frac(x); float d1 = 8.0, d2 = 8.0; id = 0.0;
-    for (int a = -1; a <= 1; a++) for (int b = -1; b <= 1; b++) for (int c = -1; c <= 1; c++) {
-      float3 o = float3(a, b, c); float3 q = i + o;
-      float3 r = o + float3(h1(q), h1(q + 19.19), h1(q + 47.3)) - f; float d = dot(r, r);
-      if (d < d1) { d2 = d1; d1 = d; id = h1(q + 71.7); } else if (d < d2) { d2 = d; }
-    }
-    return sqrt(d2) - sqrt(d1);
-  }
   float bed(float3 w, float sc, float strataCm) { return w.z / max(strataCm, 1.0) + fbm(w / sc * 0.4) * 1.6; }
-  float height(float3 w, float sc, float strataCm, float sharp) {
-    float3 p = w / sc;
-    float big = fbm(p);
-    float lay = bed(w, sc, strataCm);
-    float ledge = frac(lay);                                           // sawtooth = each bed overhangs the one below
-    ledge = smoothstep(0.0, 0.12, ledge) * (1.0 - ledge * 0.6);
-    float bid; float e1 = cell(p * 2.2 + vn(p * 3.0) * 0.35, bid);   // angular fracture blocks
-    float fid; float e2 = cell(p * 7.0 + 11.3, fid);                  // finer cracks
-    float crk = ((1.0 - smoothstep(0.0, 0.035, e1)) + (1.0 - smoothstep(0.0, 0.02, e2)) * 0.3) * smoothstep(0.45, 0.62, vn(p * 1.3 + 2.2));   // broken, not closed polygons
-    float block = (bid - 0.5) * 0.22 + smoothstep(0.0, 0.25, e1) * 0.1;   // each block its own plane, edges rounded
-    float grain = fbm(w / 2.2);                                        // centimetre grain
-    return big * 0.55 + ledge * 0.25 * sharp + block * 0.6 * sharp - crk * 0.18 * sharp + grain * 0.12;
+  float macro(float3 w, float sc, float strataCm, float sharp) {      // large forms + limestone ledges only; the scan has the detail
+    float lay = frac(bed(w, sc, strataCm));
+    float ledge = smoothstep(0.0, 0.12, lay) * (1.0 - lay * 0.6);
+    return fbm(w / sc) * 0.7 + ledge * 0.3 * sharp;
   }
+  float3 blendw(float3 n) { float3 b = pow(abs(n), 4.0); return b / (b.x + b.y + b.z); }
 };
 CRk k;
 '''
-# A: perturbed world normal (xyz) + height (w)
-CODE_A = LIB + r'''
-float e = 0.5;                                                   // cm: fine enough for the grain
-float h0 = k.height(WP, Scale, Strata, Sharp);
-float3 g = float3(k.height(WP + float3(e,0,0), Scale, Strata, Sharp) - h0,
-                  k.height(WP + float3(0,e,0), Scale, Strata, Sharp) - h0,
-                  k.height(WP + float3(0,0,e), Scale, Strata, Sharp) - h0) / e;
-g -= dot(g, N) * N;
-float3 n = normalize(N - g * Bump * 6.0);                        // 1.0 height = 6 cm relief
-return float4(n, h0);
+# triplanar sample of a texture object T at scale s (cm per tile): returns the blended float4
+TRI = r'''
+#define TRI(T, S, w, bw, s) (Texture2DSample(T, S, (w).zy / (s)) * (bw).x + Texture2DSample(T, S, (w).xz / (s)) * (bw).y + Texture2DSample(T, S, (w).xy / (s)) * (bw).z)
 '''
-# B: wet, puddle, soot, iron
+# A: world normal (scan whiteout triplanar + procedural macro relief) and H (0..1 "how high / exposed" for cavities + puddles)
+CODE_A = LIB + r'''
+float3 bw = k.blendw(N);
+float3 nx = Texture2DSample(TexN, TexNSampler, WP.zy / ScanCm).xyz * 2.0 - 1.0;
+float3 ny = Texture2DSample(TexN, TexNSampler, WP.xz / ScanCm).xyz * 2.0 - 1.0;
+float3 nz = Texture2DSample(TexN, TexNSampler, WP.xy / ScanCm).xyz * 2.0 - 1.0;
+nx.y *= FlipY; ny.y *= FlipY; nz.y *= FlipY;
+nx.z = sqrt(saturate(1.0 - dot(nx.xy, nx.xy))); ny.z = sqrt(saturate(1.0 - dot(ny.xy, ny.xy))); nz.z = sqrt(saturate(1.0 - dot(nz.xy, nz.xy)));
+nx.xy *= ScanBump; ny.xy *= ScanBump; nz.xy *= ScanBump;
+nx = float3(nx.xy + N.zy, abs(nx.z) * N.x);                        // whiteout blend (Golus)
+ny = float3(ny.xy + N.xz, abs(ny.z) * N.y);
+nz = float3(nz.xy + N.xy, abs(nz.z) * N.z);
+float3 ns = normalize(nx.zyx * bw.x + ny.xzy * bw.y + nz.xyz * bw.z);
+float e = 2.0;
+float h0 = k.macro(WP, Scale, Strata, Sharp);
+float3 g = float3(k.macro(WP + float3(e,0,0), Scale, Strata, Sharp) - h0,
+                  k.macro(WP + float3(0,e,0), Scale, Strata, Sharp) - h0,
+                  k.macro(WP + float3(0,0,e), Scale, Strata, Sharp) - h0) / e;
+g -= dot(g, ns) * ns;
+float3 n = normalize(ns - g * Bump * 8.0);                          // 1.0 macro height = 8 cm relief
+float ao = TRI(TexORM, TexORMSampler, WP, bw, ScanCm).r;
+return float4(n, saturate(h0 * 0.6 + ao * 0.4));
+'''
+# S: scan base colour (rgb, two scales blended by noise = no visible repeat) + scan roughness (a)
+CODE_S = LIB + r'''
+float3 bw = k.blendw(N);
+float3 c1 = TRI(TexB, TexBSampler, WP, bw, ScanCm).rgb;
+float3 c2 = TRI(TexB, TexBSampler, WP, bw, ScanCm * 2.7).rgb;
+float m = smoothstep(0.35, 0.65, k.vn(WP / (ScanCm * 3.0)));
+float r1 = TRI(TexORM, TexORMSampler, WP, bw, ScanCm).g;
+float r2 = TRI(TexORM, TexORMSampler, WP, bw, ScanCm * 2.7).g;
+return float4(lerp(c1, c2, m), lerp(r1, r2, m));
+'''
 CODE_B = LIB + r'''
 float hb = saturate((WP.z - (OP.z - OB.z * 0.5)) / max(OB.z, 1.0));
 float up = saturate(N.z), dn = saturate(-N.z), side = 1.0 - max(up, dn);
@@ -94,7 +139,6 @@ float soot = saturate(dn * 1.2 + side * smoothstep(0.65, 1.0, hb) * 0.6) * Soot 
 float iron = smoothstep(0.72, 0.86, k.vn(float3(WP.x / 22.0, WP.y / 22.0, WP.z / 500.0) + 3.7)) * side * Iron;
 return float4(wet, puddle, soot, iron);
 '''
-# C: calcite, moss
 CODE_C = LIB + r'''
 float up = saturate(N.z), side = 1.0 - max(up, saturate(-N.z));
 float streak = smoothstep(0.58, 0.8, k.vn(float3(WP.x / 35.0, WP.y / 35.0, WP.z / 700.0)));
@@ -103,48 +147,38 @@ float near = saturate(1.0 - distance(WP, MossOrigin.xyz) / max(MossRadius, 1.0))
 float moss = near * saturate(N.z + 0.35) * Moss * smoothstep(0.42, 0.6, k.vn(WP / 55.0) * 0.6 + H * 0.5);
 return float2(calcite, moss);
 '''
-# D: base colour (linear)
 CODE_D = LIB + r'''
-float t = saturate(H * 1.5 - 0.25);
-float3 c = lerp(RockA.xyz, RockB.xyz, t);
-c *= lerp(0.82, 1.15, k.h1(float3(floor(k.bed(WP, Scale, Strata)), 3.1, 7.7)));   // each bed its own tone
-float bid2; float ee = k.cell(WP / Scale * 2.2 + k.vn(WP / Scale * 3.0) * 0.35, bid2);
-c *= lerp(0.86, 1.12, bid2);                                    // blocks differ slightly in tone
-c *= lerp(0.75, 1.0, smoothstep(0.0, 0.04, ee));                // grit / dirt in the cracks
-c *= lerp(0.72, 1.0, saturate(H * 2.2));                       // dirt / shade in cavities
-c = lerp(c, float3(0.45, 0.43, 0.39), MC.x);                    // calcite bloom (pale, ~180 sRGB)
+float3 c = SC.rgb * Tint.rgb;
+c *= lerp(0.85, 1.12, k.h1(float3(floor(k.bed(WP, Scale, Strata)), 3.1, 7.7)));   // each limestone bed its own tone
+c = lerp(c, float3(0.45, 0.43, 0.39), MC.x);                    // calcite bloom
 c = lerp(c, float3(0.16, 0.065, 0.022), MB.w);                  // iron runs
 c = lerp(c, float3(0.035, 0.05, 0.014), MC.y);                  // moss
 c = lerp(c, float3(0.014, 0.013, 0.012), MB.z);                 // soot
 c *= lerp(1.0, 0.5, saturate(Porosity * MB.x));                 // wet porous rock ~x0.5 (Lagarde)
 return max(c, 0.0127);                                          // never below 30 sRGB
 '''
-# E: roughness
 CODE_E = r'''
-float r = lerp(0.9, 0.68, saturate(H));
+float r = saturate(SC.a * RoughMul);
 r = lerp(r, 0.6, MC.y * 0.5);
 r = lerp(r, 0.95, MB.z);
 r = lerp(r, r * 0.42, MB.x);                                   // gloss comes first when wet
 return lerp(r, 0.06, MB.y);                                    // puddles
 '''
-# F: final normal (puddles read flat)
-CODE_F = r'''
-return normalize(lerp(NA.xyz, float3(0, 0, 1), MB.y * 0.95));
-'''
-CODE_AO = r'''return lerp(0.55, 1.0, saturate(H * 1.8));'''
+CODE_F = r'''return normalize(lerp(NA.xyz, float3(0, 0, 1), MB.y * 0.95));'''
+CODE_AO = r'''return lerp(0.55, 1.0, saturate(H * 1.6));'''
 
-SCALARS = [('Scale', 140.0), ('Strata', 38.0), ('Sharp', 1.0), ('Bump', 1.0), ('Wetness', 1.0), ('WetHeight', 0.35),
-           ('DripAmt', 0.6), ('PuddleAmt', 0.8), ('Porosity', 0.9), ('Soot', 0.0), ('Iron', 0.3), ('Calcite', 0.3),
-           ('Moss', 0.0), ('MossRadius', 1500.0)]
-VECTORS = [('RockA', (0.075, 0.068, 0.058, 1)), ('RockB', (0.24, 0.215, 0.18, 1)), ('MossOrigin', (0, 0, 0, 0))]
+SCALARS = [('ScanCm', 220.0), ('ScanBump', 1.0), ('FlipY', 1.0), ('RoughMul', 1.0), ('Scale', 160.0), ('Strata', 38.0),
+           ('Sharp', 1.0), ('Bump', 1.0), ('Wetness', 1.0), ('WetHeight', 0.35), ('DripAmt', 0.6), ('PuddleAmt', 0.8),
+           ('Porosity', 0.9), ('Soot', 0.0), ('Iron', 0.3), ('Calcite', 0.3), ('Moss', 0.0), ('MossRadius', 1500.0)]
+VECTORS = [('Tint', (1, 1, 1, 1)), ('MossOrigin', (0, 0, 0, 0))]
 INSTANCES = {
-    'MI_CaveRock_Natural': {'Sharp': 1.0, 'Bump': 1.1, 'Iron': 0.35, 'Calcite': 0.35, 'Moss': 0.6, 'Soot': 0.0},
-    'MI_CaveRock_Mine': {'Sharp': 0.35, 'Bump': 0.55, 'Scale': 110.0, 'Soot': 0.6, 'Iron': 0.2, 'Calcite': 0.1, 'Wetness': 0.7, 'DripAmt': 0.4},
-    'MI_CaveRock_Floor': {'Sharp': 0.5, 'Bump': 0.6, 'Scale': 90.0, 'PuddleAmt': 1.0, 'Wetness': 1.0, 'Iron': 0.0, 'Calcite': 0.0},
+    'MI_CaveRock_Natural': {'Sharp': 1.0, 'Bump': 1.0, 'Iron': 0.35, 'Calcite': 0.35, 'Moss': 0.6, 'Soot': 0.0},
+    'MI_CaveRock_Mine': {'Sharp': 0.2, 'Bump': 0.5, 'ScanBump': 0.6, 'Soot': 0.6, 'Iron': 0.2, 'Calcite': 0.1, 'Wetness': 0.7, 'DripAmt': 0.4},
+    'MI_CaveRock_Floor': {'Sharp': 0.3, 'Bump': 0.4, 'ScanCm': 160.0, 'PuddleAmt': 1.0, 'Wetness': 1.0, 'Iron': 0.0, 'Calcite': 0.0},
 }
 
 
-def build():
+def build(tex):
     path = DST + '/M_CaveRock'
     if EAL.does_asset_exist(path):
         m = unreal.load_asset(path); log.append('rebuild ' + path)
@@ -157,16 +191,19 @@ def build():
     m.set_editor_property('tangent_space_normal', False)          # the normal is computed in world space
     X = -2400
     E = lambda cls, x, y: MEL.create_material_expression(m, cls, x, y)
-    par = {}
+    src = {}
     for i, (n, v) in enumerate(SCALARS):
-        e = E(unreal.MaterialExpressionScalarParameter, X, -900 + i * 70); e.set_editor_property('parameter_name', n); e.set_editor_property('default_value', v); par[n] = e
+        e = E(unreal.MaterialExpressionScalarParameter, X, -1200 + i * 70); e.set_editor_property('parameter_name', n); e.set_editor_property('default_value', v); src[n] = e
     for i, (n, v) in enumerate(VECTORS):
-        e = E(unreal.MaterialExpressionVectorParameter, X, 200 + i * 160); e.set_editor_property('parameter_name', n); e.set_editor_property('default_value', unreal.LinearColor(*v)); par[n] = e
-    wp = E(unreal.MaterialExpressionWorldPosition, X, 700)
-    nv = E(unreal.MaterialExpressionVertexNormalWS, X, 800)
-    op = E(unreal.MaterialExpressionObjectPositionWS, X, 900)
-    ob = E(unreal.MaterialExpressionObjectBounds, X, 1000)
-    src = dict(par, WP=wp, N=nv, OP=op, OB=ob)
+        e = E(unreal.MaterialExpressionVectorParameter, X, 200 + i * 160); e.set_editor_property('parameter_name', n); e.set_editor_property('default_value', unreal.LinearColor(*v)); src[n] = e
+    for i, (n, key) in enumerate((('TexB', 'B'), ('TexN', 'N'), ('TexORM', 'ORM'))):
+        t = unreal.load_asset(tex[key])
+        e = E(unreal.MaterialExpressionTextureObjectParameter, X, 600 + i * 220)
+        e.set_editor_property('parameter_name', n); e.set_editor_property('texture', t); e.set_editor_property('sampler_type', stype(t)); src[n] = e
+    src['WP'] = E(unreal.MaterialExpressionWorldPosition, X, 1400)
+    src['N'] = E(unreal.MaterialExpressionVertexNormalWS, X, 1500)
+    src['OP'] = E(unreal.MaterialExpressionObjectPositionWS, X, 1600)
+    src['OB'] = E(unreal.MaterialExpressionObjectBounds, X, 1700)
 
     def custom(name, code, ins, otype, x, y):
         e = E(unreal.MaterialExpressionCustom, x, y)
@@ -185,12 +222,13 @@ def build():
         MEL.connect_material_expressions(s, '', e, ''); src[name] = e; return e
 
     F1, F2, F3, F4 = (enum(unreal.CustomMaterialOutputType, n) for n in ('CMOT_FLOAT1', 'CMOT_FLOAT2', 'CMOT_FLOAT3', 'CMOT_FLOAT4'))
-    a = custom('NA', CODE_A, ['WP', 'N', 'Scale', 'Strata', 'Sharp', 'Bump'], F4, -1700, -400)
-    mask(a, 'a', 'H', -1450, -300)
-    b = custom('MB', CODE_B, ['WP', 'N', 'OP', 'OB', 'H', 'WetHeight', 'PuddleAmt', 'Wetness', 'DripAmt', 'Soot', 'Iron'], F4, -1200, 0)
-    c = custom('MC', CODE_C, ['WP', 'N', 'H', 'Calcite', 'Moss', 'MossOrigin', 'MossRadius'], F2, -1200, 300)
-    d = custom('Col', CODE_D, ['WP', 'H', 'MB', 'MC', 'RockA', 'RockB', 'Porosity', 'Scale', 'Strata'], F3, -700, -300)
-    r = custom('Rough', CODE_E, ['H', 'MB', 'MC'], F1, -700, 0)
+    a = custom('NA', CODE_A.replace('CRk k;', 'CRk k;' + TRI), ['WP', 'N', 'TexN', 'TexORM', 'ScanCm', 'ScanBump', 'FlipY', 'Scale', 'Strata', 'Sharp', 'Bump'], F4, -1700, -500)
+    mask(a, 'a', 'H', -1450, -400)
+    custom('SC', CODE_S.replace('CRk k;', 'CRk k;' + TRI), ['WP', 'N', 'TexB', 'TexORM', 'ScanCm'], F4, -1700, -150)
+    custom('MB', CODE_B, ['WP', 'N', 'OP', 'OB', 'H', 'WetHeight', 'PuddleAmt', 'Wetness', 'DripAmt', 'Soot', 'Iron'], F4, -1200, 0)
+    custom('MC', CODE_C, ['WP', 'N', 'H', 'Calcite', 'Moss', 'MossOrigin', 'MossRadius'], F2, -1200, 300)
+    d = custom('Col', CODE_D, ['WP', 'SC', 'MB', 'MC', 'Tint', 'Porosity', 'Scale', 'Strata'], F3, -700, -300)
+    r = custom('Rough', CODE_E, ['SC', 'MB', 'MC', 'RoughMul'], F1, -700, 0)
     n = custom('Nrm', CODE_F, ['NA', 'MB'], F3, -700, 300)
     ao = custom('AO', CODE_AO, ['H'], F1, -700, 500)
     MEL.connect_material_property(d, '', unreal.MaterialProperty.MP_BASE_COLOR)
@@ -214,7 +252,7 @@ def instances(base):
 
 def apply(prefix, miname):
     mi = None if DRY else unreal.load_asset(DST + '/' + miname)
-    if not DRY and not mi: raise SystemExit('missing ' + miname + ': run the script once without --apply first')
+    if not DRY and not mi: raise SystemExit('missing ' + miname + ': run --scan first')
     rows = []
     for a in EAS.get_all_level_actors():
         if not a.get_actor_label().startswith(prefix): continue
@@ -244,13 +282,19 @@ def revert():
     if not DRY: os.rename(SWAPLOG, SWAPLOG + '.reverted'); unreal.EditorLevelLibrary.save_current_level()
 
 
-if REVERT: revert()
+if LIST: list_scans()
+elif REVERT: revert()
 elif APPLY:
     rest = [x for x in A[A.index('--apply') + 1:] if not x.startswith('--')]
     if len(rest) < 2: raise SystemExit('usage: --apply <ActorLabelPrefix> <MI name>')
     apply(rest[0], rest[1])
+elif SCAN:
+    tex = scans().get(SCAN.rstrip('/'))
+    if not tex: raise SystemExit('no B + N + ORM textures in %s (see --list-scans)' % SCAN)
+    log.append('scan %s: %s' % (SCAN, ', '.join('%s=%s' % (k_, v.split('.')[-1]) for k_, v in sorted(tex.items()))))
+    instances(build(tex))
 else:
-    instances(build())
+    raise SystemExit('run --list-scans first, then --scan <folder> (see the header)')
 out = '\n'.join(log)
 if not DRY: open(os.path.join(HERE, 'setup_caverock296.txt'), 'w').write(out)
 unreal.log(out)
