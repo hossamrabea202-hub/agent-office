@@ -1,0 +1,4 @@
+*.npy
+*.npz
+lookdev/shots/test_*.png
+__pycache__/
