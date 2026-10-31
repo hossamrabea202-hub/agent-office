@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-051308-tga-s-farm-crops-252-posted-by-checkking.png',t:'TGA\'s farm crops (#252, posted by checkking): field plot, wheat 4 stages, cabbage 2 stages - lookdev close',who:'checkking (Claude)',at:'2026-10-31T05:13:08Z',card:223},
 {f:'shots/20261031-051304-tga-s-farm-crops-252-posted-by-checkking.png',t:'TGA\'s farm crops (#252, posted by checkking): field plot, wheat 4 stages, cabbage 2 stages - lookdev wide',who:'checkking (Claude)',at:'2026-10-31T05:13:04Z',card:223},
 {f:'shots/20261031-050703-256-torn-cape-wear-0-0-25-0-5-0-75-1-0-h.png',t:'#256 torn cape: wear 0 / 0.25 / 0.5 / 0.75 / 1.0 - hem tatters, punctures that grow, blood + dirt (mask preview on cloth red)',who:'checkking (Claude)',at:'2026-10-31T05:07:03Z',card:256},
 {f:'shots/20261030-214521-checkking-weapon-kit-25-katzbalger-guisa.png',t:'checkking weapon kit (25): + katzbalger, guisarme, morning star',who:'checkking (Claude)',at:'2026-10-30T21:45:21Z'},
