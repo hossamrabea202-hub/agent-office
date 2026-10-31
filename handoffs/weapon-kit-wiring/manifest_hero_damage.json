@@ -1,0 +1,28 @@
+{
+ "blueprint": "BP_ThirdPersonCharacter",
+ "_built_on": "handoffs/exports/master/2026-10-30b/BP_ThirdPersonCharacter_EventGraph.txt",
+ "pastes": [
+  "Hero_WeaponDamage_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "K2Node_CallFunction_XL20.ReturnValue",
+   "to": "WdMulSlash.A"
+  },
+  {
+   "from": "WdMulSlash.ReturnValue",
+   "to": "K2Node_CallFunction_ZX8.BaseDamage",
+   "replace": true
+  },
+  {
+   "from": "WdMulSlash.ReturnValue",
+   "to": "K2Node_CallFunction_ZX9.BaseDamage",
+   "replace": true
+  },
+  {
+   "from": "WdMulHit.ReturnValue",
+   "to": "K2Node_CallFunction_CH7.BaseDamage",
+   "replace": true
+  }
+ ]
+}

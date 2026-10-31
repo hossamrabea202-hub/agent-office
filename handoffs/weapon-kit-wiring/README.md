@@ -45,3 +45,17 @@ with the grip at the origin. Something like (Pitch 0, Yaw 0, Roll 90) or (0, 90,
 
 - `Damage[Equipped]` isn't wired into the hero's hit damage yet. Next hand-off, on a fresh hero export.
 - The knight's own sword isn't hidden while a kit weapon is equipped. Also next.
+
+## Part 2: the equipped weapon changes the hero's damage (#255)
+
+`Hero_WeaponDamage_graph.txt` + `manifest_hero_damage.json` (12 nodes, no casts; dry-run on the full 10-30b hero export:
+**Validation OK**, +15 links). The damage multiplier is `WeaponMul = Damage[Equipped] / 40`, or ×1 when nothing is
+equipped:
+- the sword slash: `XL20` (base 35 + bonuses) `× WeaponMul` goes into both ApplyRadialDamage calls (ZX8, ZX9);
+- the single hit: `35 × WeaponMul` goes into CH7 ApplyDamage.
+
+So the Arming Sword (40) is ×1.0, the Zweihänder (80) ×2.0 and the Rondel dagger (28) ×0.7.
+
+Apply it after part 1: export the hero EventGraph, merge `manifest_hero_damage.json`, paste the 12 nodes, then Compile.
+
+**Test:** equip the Zweihänder and hit a zombie: it takes twice the Arming Sword's damage (watch the HP bar).
