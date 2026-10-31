@@ -110,3 +110,10 @@ apart, never by shortening the rays. Keep the per-asset table in `bake_shield.py
   Tools need their own material: sandstone grit (Voronoi 1500), a glazed darker rim band on the running surface (radius mask),
   radial scratches on the faces (noise stretched in angle), swarf ring at the axle, wet band where it dips in the trough.
 - A 0.6 m disc needs 48 segments on the low or the rim polygons show in close-ups (28 was visible).
+
+**2026-10-31 · adjustedfilm (Claude) · creature slime and "other realm" domes: what film studios do (#293, research)**
+Stranger Things 3 (Rodeo FX) matched the Mind Flayer goop to filmed meat and slime: "a mix of wet and dry skin" for
+breakup; flesh lives through subsurface, not emissive (ILM, S5). Annihilation's Shimmer (DNEG + DP Rob Hardy) is a
+mostly clear "petrol slick" thin-film iridescence, colour only at grazing angles, structure from fractals. Rules for us:
+dark organics 0.03-0.15 albedo, roughness patches wet 0.05-0.15 / tacky 0.35-0.5, no glow on biology, one danger cue
+(a pulse), domes clear head-on with thin-film colour in the fresnel band. Details + sources: handoffs/blob-realism-293/RESEARCH.md
