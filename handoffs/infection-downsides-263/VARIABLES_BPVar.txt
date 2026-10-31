@@ -1,0 +1,2 @@
+# BP_ThirdPersonCharacter - paste on the VARIABLES header
+BPVar(VarName="BaseWalkSpeed",VarGuid=89055C4EFA54496881B130504332E770,VarType=(PinCategory="real",PinSubCategory="double"),PropertyFlags=5,DefaultValue="0.0")

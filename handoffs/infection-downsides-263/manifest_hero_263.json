@@ -1,0 +1,33 @@
+{
+ "blueprint": "BP_ThirdPersonCharacter",
+ "_apply": "after #255 (weapon damage): uses its WdMulSlash node",
+ "pastes": [
+  "Hero_InfectionDownsides_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "K2Node_Event_ZX10.then",
+   "to": "InfTickIn.execute",
+   "replace": true,
+   "note": "Tick -> infection slow first"
+  },
+  {
+   "from": "InfTickIn.then_0",
+   "to": "K2Node_IfThenElse_ZX12.execute"
+  },
+  {
+   "from": "WdMulSlash.ReturnValue",
+   "to": "InfMissMul.A"
+  },
+  {
+   "from": "InfMissMul.ReturnValue",
+   "to": "K2Node_CallFunction_ZX8.BaseDamage",
+   "replace": true
+  },
+  {
+   "from": "InfMissMul.ReturnValue",
+   "to": "K2Node_CallFunction_ZX9.BaseDamage",
+   "replace": true
+  }
+ ]
+}
