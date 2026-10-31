@@ -1,9 +1,10 @@
 {
- "working": "#294 cannonball bounce off the reshaped bubble",
- "tokens": 285000,
+ "working": "#188 recruit progress bar + 3-deep queue",
+ "tokens": 300000,
  "ctx": 1000000,
  "since": "2026-10-31T21:16:34Z",
  "done": [
+  "#294 handed off [70% tokens left]",
   "#381 realm vision v2 handed off [74% tokens left]",
   "#376 realm vision handed off [80% tokens left]",
   "checked #350/#349/#341: no Master result yet [85% tokens left]",
@@ -12,8 +13,7 @@
   "#269 fix handed off (#374) [90% tokens left]",
   "session end: all ready work handed off and pushed [11% tokens left]",
   "fixes: #350 hook v2, #349 gear paste, #341 underground fog [12% tokens left]",
-  "round-up: MineKit scale fix, TODO list updated [17% tokens left]",
-  "#369 quests + daily rewards v1 handed off [20% tokens left]"
+  "round-up: MineKit scale fix, TODO list updated [17% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T22:14:49Z",
+ "asOf": "2026-10-31T22:16:41Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
