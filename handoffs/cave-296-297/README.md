@@ -69,3 +69,41 @@ underground dungens where we see the mine and the tunnels and workers"*.
 ## Also here
 
 `dump_cave_ue.py` is a read-only cave dump for #296 texturing and part 3 placement. It was filed as an export request.
+
+---
+
+## Part 3: the mine dungeon (`place_mine297_ue.py`, adjustedfilm 2026-10-31)
+
+Uses TGA's #309 MineKit (`assets/tga/MineKit`) and its layout (`tools/tga/mine/lookdev_mine.py`).
+
+**Decision:** both doors go in the persistent level. A hard `Target` reference can't cross from a sub-level into the
+persistent level, so the dungeon **art** is in the always-loaded sub-level and the two doors are not.
+
+### Steps (Master)
+
+1. If the kit isn't in yet: `py "<repo>/assets/tga/MineKit/import_mine_ue.py"` (set `DRY_RUN = False` after the dry run).
+2. `py "<repo>/handoffs/cave-296-297/place_mine297_ue.py" --dry-run`. Read the log:
+   - `dungeon origin` is 50 m under Mine_01;
+   - it stops if anything already sits in the dungeon box (then raise `DEPTH` at the top);
+   - `tunnel trace` lines show which side of Mine_01's tunnel is rock.
+3. `py ".../place_mine297_ue.py"`. It makes:
+   - the sub-level `ThirdPersonMap_MineDungeon` (always loaded), with chamber, tunnels, timber, rails, cart, ore veins,
+     spoil heap, door frame, 5 lanterns with warm 400 lm lights, and a NavMeshBoundsVolume;
+   - BP_CaveDoor's door mesh swapped to `SM_Mine_Door`;
+   - `MineDoor_Up` inside Mine_01's tunnel, facing the mouth, and `MineDoor_Down` at the dungeon's dead end, with Targets
+     paired and the "climb back up" prompt.
+
+   It saves the levels and writes `place_mine297.txt`.
+4. Push `place_mine297.txt`, and post a screenshot of each door on #297.
+   - Undo: `--remove` (everything carries the tag `Mine297`).
+   - It's safe to re-run: the last run is removed first.
+   - It only raises Kill Z if the hero would die down there, and logs it.
+
+### Tests (Play)
+
+1. Walk into Mine_01: the old oak door stands at the tunnel's inner end. [E] → fade → you're in the dungeon's dead end,
+   facing up the tunnel.
+2. Lanterns glow and pool warm light. The wet floor shines. Nothing is pitch black around the lanterns.
+3. Walk the tunnels into the chamber: there are no seams and no snagging on timber.
+4. [E] at the dungeon door takes you back up to Mine_01.
+5. If MineDoor_Up ended up in the rock or outside the mouth, move it by hand (a one-minute fix) and note it on #297.
