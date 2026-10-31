@@ -107,3 +107,32 @@ persistent level, so the dungeon **art** is in the always-loaded sub-level and t
 3. Walk the tunnels into the chamber: there are no seams and no snagging on timber.
 4. [E] at the dungeon door takes you back up to Mine_01.
 5. If MineDoor_Up ended up in the rock or outside the mouth, move it by hand (a one-minute fix) and note it on #297.
+
+## Part 4: miners in the dungeon (`mine_workers297_ue.py`)
+
+Owner: *"...where we see the mine and the tunnels and workers"*. They are stand-in miners until the MetaHuman pass,
+built like the soldiers (from the Master's `soldier_components.txt`):
+- a hidden Quinn body plays a looping swing;
+- the knight body follows it, the same way soldiers work;
+- TGA's #247 gear goes on the body: a pick in `hand_r`, the candle helmet on `head`, and the ore satchel on `spine_03`;
+- a real 120 lm candle light sits on the helmet.
+
+They have no AI and no fighting. There are three:
+- two swing at the ore veins, each with its own rhythm;
+- one rests by the cart.
+
+### Steps (Master)
+
+1. If the gear isn't in yet, run `py "<repo>/assets/tga/MinerGear/import_minergear_ue.py"`.
+2. Run part 3 (`place_mine297_ue.py`) first.
+3. `py "<repo>/handoffs/cave-296-297/mine_workers297_ue.py" --dry-run`, then run it without `--dry-run`. It makes
+   `BP_MineWorker` and places `Mine297_Worker_0..2`.
+4. Undo: `place_mine297_ue.py --remove` (they carry the tag `Mine297`).
+
+### Tests
+
+1. Go down: two miners swing at the ore and one rests by the cart. Each has a small warm candle light.
+2. The gear sits in the hand, on the head and at the hip. If a piece sits at the feet, set its **Parent Socket** in
+   BP_MineWorker (`hand_r` / `head` / `spine_03`). That's a one-minute fix.
+3. The swing is the soldier's sword stroke used as a pick stroke (a stand-in). Better: give `AnimToPlay` on the Body a
+   real mining anim later.
