@@ -1,0 +1,2 @@
+# #322 p2 BP_FleshBrute - paste on the VARIABLES header (after ABP_FleshBrute compiled), then Compile
+BPVar(VarName="FBAnim",VarGuid=C10C2F44902E54AFA8DBA58002C808AD,VarType=(PinCategory="object",PinSubCategoryObject="/Script/Engine.AnimBlueprintGeneratedClass'/Game/CastleDefender/Characters/Enemies/FleshBrute/ABP_FleshBrute.ABP_FleshBrute_C'"),FriendlyName="FBAnim",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
