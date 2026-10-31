@@ -36,7 +36,7 @@ fix on the spot instead of sending it back and forth; note it on the card so the
    - Put your files in this repo under `handoffs/<task>/`, so the Master's PC can reach them.
    - It shows up in the READY TO PASTE room and in the cafeteria. The Master pastes, compiles, saves, checks and closes it, or answers in the cafeteria if something needs fixing.
    - Blueprints keep changing, so build graph pastes on a fresh export. **Ask for it with a request** (rule 4b): `node tools/office.js request --seat "<seat>" --kind export --target "BP_X" "title" "details"`. It lands in `handoffs/exports/`.
-2. **`git pull` first.** Office content lives in `data.js`. Only touch `index.html` (the war room; seats live in its ROWS list) or `classic.html` (the old office) for layout or code. Desk ticks no longer touch `data.js` (rule 3).
+2. **`git pull` first.** Office content lives in `data.js`. Only touch `index.html` (the office, main page again since 2026-10-31 by owner request) or `warroom.html` (the war room view; seats live in its ROWS list) for layout or code. Desk ticks no longer touch `data.js` (rule 3).
 3. **Tick your desk on events** (owner, 2026-10-28; replaces "after every micro task"): when you **start** a task, **finish** one, get **blocked**, and at least **every 25 minutes** while you work. Your desk shows your token count, plan meters, duty clock and what you're working on:
 
    ```
