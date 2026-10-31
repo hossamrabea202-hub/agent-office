@@ -1,0 +1,6 @@
+# BPC_RealmFX (#157 v2) - paste one line at a time, then Compile
+BPVar(VarName="Sum",VarGuid=E27ADAD8401B5B6C9913DDE7429E688D,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="Sum",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="Count",VarGuid=811AF0DF8BFD52E5BAD35D86E8254E5F,VarType=(PinCategory="int"),FriendlyName="Count",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="Centre",VarGuid=B5E36B7781C45BE1801017BE7B5AA0E0,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="Centre",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="Radius",VarGuid=4BE39155BC21586EA2FECFE3C719EE9B,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Radius",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="Inside",VarGuid=CBA5260601145DA4B7916E02942CD302,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Inside",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
