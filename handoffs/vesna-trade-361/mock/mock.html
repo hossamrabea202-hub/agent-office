@@ -1,0 +1,100 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Vesna Trade v2 mock-up</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--iron:#1b1816;--bronze:#b08a4e;--bronze2:#e2c27f;--cream:#e9dcc2;--dim:#8d806c;--blood:#8e1b17;--blood2:#c4352b;--venom:#6fae3b;--line:rgba(176,138,78,.45);--obs:#d8b25a}
+*{box-sizing:border-box;margin:0}
+body{width:1600px;height:1000px;overflow:hidden;background:#000;font-family:'Cormorant Garamond',serif;color:var(--cream)}
+.scene{position:absolute;left:0;top:0;width:1600px;height:900px;background:radial-gradient(ellipse at 25% 55%,#6a4220 0,#2d1b0e 35%,#0b0806 75%)}
+.scene:after{content:'';position:absolute;inset:0;backdrop-filter:blur(6px);background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.9))}
+.hdr{position:absolute;left:0;right:0;top:22px;text-align:center}
+.hdr h1{font-family:Cinzel;font-weight:700;font-size:40px;letter-spacing:10px}
+.hdr .sub{font-size:15px;letter-spacing:7px;color:var(--dim);margin-top:2px}
+.tabs{position:absolute;top:110px;left:40px;right:560px;display:flex;justify-content:center;gap:6px;align-items:center}
+.tab{font-family:Cinzel;font-size:17px;letter-spacing:3px;padding:9px 20px;color:var(--dim);border:1px solid transparent;position:relative}
+.tab.on{color:#f3e2b6;border-color:rgba(216,178,90,.6);background:linear-gradient(180deg,rgba(216,178,90,.18),rgba(14,12,11,.7))}
+.tab.on:after{content:'';position:absolute;left:18%;right:18%;bottom:-2px;height:3px;background:var(--obs);box-shadow:0 0 12px var(--obs)}
+.btn{display:inline-grid;place-items:center;min-width:32px;height:23px;padding:0 6px;border:1px solid var(--bronze);border-radius:4px;font-family:Cinzel;font-size:12px;color:var(--bronze2);background:#0e0c0b}
+/* stage */
+.stage{position:absolute;left:40px;top:160px;width:640px;height:470px}
+.plinth{position:absolute;left:120px;right:120px;bottom:6px;height:70px;border-radius:50%;background:radial-gradient(ellipse,rgba(216,178,90,.35),rgba(216,178,90,.05) 60%,transparent 70%);border:1px solid rgba(216,178,90,.35)}
+.hero{position:absolute;left:120px;top:0;width:400px;height:420px;background-size:cover;background-position:center;-webkit-mask-image:radial-gradient(ellipse at 50% 48%,#000 45%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 48%,#000 45%,transparent 70%);filter:contrast(1.08) brightness(1.05)}
+.spin{position:absolute;left:0;right:0;bottom:-2px;text-align:center;font-size:14px;letter-spacing:4px;color:var(--dim)}
+.arrow{position:absolute;top:190px;width:46px;height:46px;border:1px solid var(--line);display:grid;place-items:center;font-family:Cinzel;color:var(--bronze2);background:rgba(14,12,11,.7)}
+/* item card */
+.card{position:absolute;left:40px;top:640px;width:640px;height:190px;border:1px solid rgba(216,178,90,.45);background:linear-gradient(180deg,rgba(14,12,11,.94),rgba(27,24,22,.86));padding:16px 22px}
+.card h2{font-family:Cinzel;font-size:27px;letter-spacing:3px}
+.badge{display:inline-block;font-family:Cinzel;font-size:12px;letter-spacing:3px;color:#120d06;background:var(--obs);padding:3px 8px;margin-left:10px;vertical-align:middle}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:2px 30px;margin-top:8px;font-size:18px}
+.stats div{display:flex;justify-content:space-between;border-bottom:1px dashed rgba(176,138,78,.2);padding:2px 0}
+.stats b{font-family:Cinzel} .up{color:var(--venom)}
+.buyrow{position:absolute;left:22px;right:22px;bottom:14px;display:flex;gap:14px;align-items:center}
+.price{font-family:Cinzel;font-size:24px;color:#f0c35a;min-width:150px}
+.price small{display:block;font-family:'Cormorant Garamond';font-size:14px;color:var(--dim);letter-spacing:1px}
+.buy{flex:1;height:52px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:Cinzel;font-size:20px;letter-spacing:4px;border:1px solid var(--obs);background:#120f0d;position:relative;overflow:hidden}
+.buy .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(216,178,90,.25),rgba(216,178,90,.55))}
+.buy span{position:relative}
+/* carousel strip */
+.strip{position:absolute;left:700px;top:160px;width:340px;height:670px;display:flex;flex-direction:column;gap:8px}
+.th{height:68px;display:grid;grid-template-columns:62px 1fr auto;gap:10px;align-items:center;padding:0 10px;border:1px solid rgba(176,138,78,.18);background:rgba(14,12,11,.75)}
+.th .im{width:52px;height:52px;border-radius:50%;background-size:cover;background-position:center;border:2px solid rgba(216,178,90,.5)}
+.th .n{font-family:Cinzel;font-size:15px;letter-spacing:1px}.th .s{font-size:13px;color:var(--dim)}
+.th.sel{border-color:var(--obs);background:linear-gradient(90deg,rgba(216,178,90,.18),rgba(14,12,11,.75))}
+.th.sel:before{content:'';position:absolute}
+.th.forge{opacity:.45}.th.forge .im{background:repeating-linear-gradient(45deg,#2a241e 0 6px,#1a1612 6px 12px)}
+.st{font-family:Cinzel;font-size:12px;letter-spacing:2px}.own{color:var(--venom)}.worn{color:var(--obs)}
+/* doll */
+.doll{position:absolute;right:40px;top:110px;width:500px;height:720px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(14,12,11,.94),rgba(27,24,22,.86));padding:14px 18px}
+.doll h3{font-family:Cinzel;font-size:20px;letter-spacing:5px;text-align:center}
+.body{position:absolute;left:150px;top:60px;width:200px;height:400px}
+.body svg{width:200px;height:400px}
+.slot{position:absolute;width:62px;height:62px;border:1px solid rgba(176,138,78,.5);background:rgba(10,9,8,.85);display:grid;place-items:center;font-size:11px;letter-spacing:1px;color:var(--dim);text-align:center;line-height:1.1;background-size:cover;background-position:center}
+.slot.ob{border-color:var(--obs);box-shadow:0 0 0 1px rgba(216,178,90,.4),0 0 16px rgba(216,178,90,.35)}
+.slot.drop{border:2px dashed var(--obs);box-shadow:0 0 22px rgba(216,178,90,.6)}
+.slot .l{position:absolute;bottom:-16px;left:-10px;right:-10px;font-size:11px;color:var(--dim)}
+.setbar{position:absolute;left:18px;right:18px;top:500px;padding:10px 12px;border:1px solid rgba(216,178,90,.45);background:rgba(216,178,90,.06)}
+.setbar .t{font-family:Cinzel;font-size:16px;letter-spacing:3px;color:var(--obs);display:flex;justify-content:space-between}
+.segs{display:flex;gap:4px;margin:8px 0 6px}.seg{flex:1;height:8px;background:#3a332c}.seg.on{background:var(--obs);box-shadow:0 0 8px rgba(216,178,90,.6)}.seg.own{background:#6d5a33}
+.setbar p{font-size:15px;color:#cbbd9f;line-height:1.25}
+.pack{position:absolute;left:18px;right:18px;bottom:16px;display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.pk{height:52px;border:1px solid rgba(176,138,78,.25);background:rgba(10,9,8,.8);background-size:cover;background-position:center}
+.res{position:absolute;left:40px;top:846px;font-family:Cinzel;font-size:18px;display:flex;gap:30px;align-items:center}
+.res em{font-style:normal;color:var(--dim);font-size:13px;margin-right:6px;letter-spacing:2px}
+.hints{position:absolute;right:40px;top:850px;font-size:15px;color:var(--dim);display:flex;gap:14px;align-items:center}
+.ghost{position:absolute;width:62px;height:62px;border:2px solid var(--obs);background-size:cover;background-position:center;box-shadow:0 10px 30px rgba(0,0,0,.8),0 0 20px rgba(216,178,90,.6);transform:rotate(-6deg)}
+.tag{position:absolute;right:24px;top:18px;font-family:Cinzel;font-size:14px;letter-spacing:3px;color:var(--bronze);background:rgba(0,0,0,.6);padding:6px 12px;border:1px solid var(--line);z-index:50}
+.note{position:absolute;left:0;top:900px;width:1600px;height:100px;font-size:19px;color:#d8c8a8;background:#0b0908;padding:16px 28px;border-top:1px solid var(--line);border-left:3px solid var(--obs);line-height:1.35}
+</style></head><body>
+<div class="scene"></div>
+<div class="hdr"><h1>VESNA'S TRADE</h1><div class="sub">STEEL · LEATHER · SOVEREIGN BLACK</div></div>
+<div class="tabs"><span class="btn">LB</span><span class="tab">WEAPONS</span><span class="tab">ARMOUR</span><span class="tab on">OBSIDIAN SOVEREIGN</span><span class="tab">SUPPLIES</span><span class="btn">RB</span></div>
+<div class="stage"><div class="hero" id="hero"></div><div class="plinth"></div><div class="arrow" style="left:20px">A</div><div class="arrow" style="right:20px">D</div><div class="spin">◂ DRAG OR RIGHT STICK TO TURN ▸</div></div>
+<div class="card" id="card"></div>
+<div class="strip" id="strip"></div>
+<div class="doll"><h3>THE HERO</h3>
+ <div class="body"><svg viewBox="0 0 200 400"><path d="M100 18c-18 0-26 14-26 30s8 30 26 30 26-14 26-30-8-30-26-30zM62 92c-20 6-30 22-34 44l-14 90 18 4 16-80 8 76-6 160h30l10-140 10 140h30l-6-160 8-76 16 80 18-4-14-90c-4-22-14-38-34-44z" fill="#14110e" stroke="rgba(176,138,78,.35)"/></svg></div>
+ <div id="slots"></div>
+ <div class="setbar"><div class="t"><span>OBSIDIAN SOVEREIGN</span><span id="cnt">3 / 11 WORN</span></div><div class="segs" id="segs"></div>
+ <p><b style="color:var(--obs)">Sovereign's Ember</b> at 11/11: damage taken -15 %, no stagger, ember shockwave on hit (40 dmg, 4 m, every 12 s).</p></div>
+ <div class="pack" id="pack"></div>
+</div>
+<div class="res"><span><em>GOLD</em><b style="color:#f0c35a" id="gold">3 120</b></span><span><em>IRON</em>34</span><span><em>SILVER</em>5</span></div>
+<div class="hints"><span><span class="btn">A</span>/<span class="btn">D</span> swipe</span><span><span class="btn">E</span> hold to buy</span><span><span class="btn">Y</span> wear / take off</span><span><span class="btn">ESC</span> back</span></div>
+<div class="tag" id="tag"></div><div class="note" id="note"></div>
+<script>
+const P=[['chest','CUIRASS','torso','DEF +45 · dmg taken -35 %','worn'],['shoulders','PAULDRONS','shoulders','DEF +12','buy'],['gauntlets','GAUNTLETS','hands','DEF +8 · attack speed +5 %','own'],['boots','SABATONS','feet','DEF +8 · move speed +5 %','worn'],['shins','GREAVES','shins','DEF +10','worn'],[null,'HELMET','head','DEF +15','forge'],[null,'REREBRACES','upper arms','DEF +8','forge'],[null,'VAMBRACES','forearms','DEF +8','forge'],[null,'TASSETS','waist','DEF +10','forge'],[null,'CUISSES','thighs','DEF +12','forge'],[null,'CAPE','back','DEF +4','forge']];
+const f=+(new URLSearchParams(location.search).get('f')||1); const sel=f==1?1:2;
+const img=n=>`url(img/${n}.png)`;
+document.getElementById('strip').innerHTML=P.slice(0,9).map((p,i)=>`<div class="th ${i==sel?'sel':''} ${p[4]=='forge'?'forge':''}"><div class="im" style="${p[0]?'background-image:'+img(p[0]):''}"></div><div><div class="n">${p[1]}</div><div class="s">${p[2]}</div></div><div class="st ${p[4]=='worn'?'worn':p[4]=='own'?'own':''}">${p[4]=='worn'?'WORN':p[4]=='own'?'OWNED':p[4]=='forge'?'FORGING':'2 000 g'}</div></div>`).join('')+`<div class="s" style="text-align:center;color:var(--dim);font-size:14px">+ 2 more · W / S or wheel to scroll</div>`;
+document.getElementById('hero').style.backgroundImage=img(P[sel][0]);
+const S=[['HEAD','HEAD',225,70,null],['SHLD L','SHOULDERS',150,125,null],['TORSO','TORSO',225,150,'chest'],['SHLD R','SHOULDERS',300,125,null],['ARMS','UPPER ARMS',120,210,null],['FOREARMS','FOREARMS',330,210,null],['HANDS','HANDS',95,290,null],['WAIST','WAIST',225,240,null],['OFF','OFF-HAND',355,290,null],['THIGHS','THIGHS',225,320,null],['SHINS','SHINS',165,400,'shins'],['FEET','FEET',285,400,'boots']];
+document.getElementById('slots').innerHTML=S.map(s=>`<div class="slot ${s[4]?'ob':''} ${f==2&&s[1]=='HANDS'?'drop':''}" style="left:${s[2]}px;top:${s[3]}px;${s[4]?'background-image:'+img(s[4]):''}">${s[4]?'':s[0]}</div>`).join('')+(f==2?`<div class="ghost" style="left:130px;top:325px;background-image:${img('gauntlets')}"></div>`:'');
+const worn=f==2?4:3; document.getElementById('cnt').textContent=worn+' / 11 WORN';
+document.getElementById('segs').innerHTML=Array.from({length:11},(_,i)=>`<i class="seg ${i<worn?'on':i<4+(f==2?0:0)?'own':''}"></i>`).join('');
+document.getElementById('pack').innerHTML=Array.from({length:14},(_,i)=>`<div class="pk" style="${i==0&&f==1?'background-image:'+img('gauntlets'):''}${i==1?'background:radial-gradient(circle,#5a5f66,#1a1a1c);':''}"></div>`).join('');
+const card=document.getElementById('card'),tag=document.getElementById('tag'),note=document.getElementById('note');
+if(f==1){card.innerHTML=`<h2>SOVEREIGN PAULDRONS<span class="badge">SET 4 / 11</span></h2><div class="stats"><div><span>Defence</span><b class="up">+12</b></div><div><span>Slot</span><b>shoulders (pair)</b></div><div><span>Set bonus</span><b>4 / 11 → <span class="up">5 / 11</span></b></div><div><span>Look</span><b>black steel, gold laurel</b></div></div><div class="buyrow"><div class="price">2 000 g<small>set piece #5 · next costs more</small></div><div class="buy"><div class="fill" style="width:45%"></div><span class="btn">E</span><span>HOLD TO BUY</span></div></div>`;
+ tag.textContent='FRAME 1 · OBSIDIAN TAB: BUY A PIECE';note.innerHTML='The Obsidian set is <b>its own tab in the carousel</b>, not a side panel. Every piece shows its 3D turntable, stats, slot, set progress and the escalating price (#96 curve). Pieces without art yet show FORGING. The Knight\'s Great Helm is gone from the store. The Inventory is now the hero\'s paper doll on the right, part of the trade screen, so closing it can\'t close the shop.';}
+if(f==2){card.innerHTML=`<h2>SOVEREIGN GAUNTLETS<span class="badge">OWNED</span></h2><div class="stats"><div><span>Defence</span><b class="up">+8</b></div><div><span>Attack speed</span><b class="up">+5 %</b></div><div><span>Set bonus</span><b>3 / 11 → <span class="up">4 / 11</span></b></div><div><span>Replaces</span><b>&nbsp;silver gauntlets → pack</b></div></div><div class="buyrow"><div class="price" style="color:var(--venom)">OWNED<small>in your pack</small></div><div class="buy"><span class="btn">Y</span><span>WEAR</span></div></div>`;
+ tag.textContent='FRAME 2 · WEAR FROM THE PAPER DOLL';note.innerHTML='<b>Wear / take off</b>: drag the piece onto its slot (the slot pulses gold), double-click it, or press Y on the selected item. The old piece drops into the pack. The set bar fills one segment with a gold flash; at 11/11 the whole doll flares and the bar reads SOVEREIGN\'S EMBER. Calls BPC_ObsidianSet SetPieceWorn / BuyPiece and the existing save, so nothing is copied.';}
+</script></body></html>
