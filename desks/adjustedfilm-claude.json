@@ -1,6 +1,6 @@
 {
- "working": "waiting on Master: #374, #371-373, batch export",
- "tokens": 150000,
+ "working": "#376 realm bubble inside look (reshaped bubble)",
+ "tokens": 160000,
  "ctx": 1000000,
  "since": "2026-10-31T21:16:34Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T21:28:33Z",
+ "asOf": "2026-10-31T21:37:13Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
