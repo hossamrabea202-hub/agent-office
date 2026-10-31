@@ -1,6 +1,6 @@
 {
- "working": "Waiting on the Master: #269 reveal, #272 survivors; next card",
- "tokens": 409362,
+ "working": "#226 Weather: rain, fog, storm",
+ "tokens": 420000,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T07:18:43Z",
+ "asOf": "2026-10-31T08:01:18Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-31T07:18:43Z",
+  "asOf": "2026-10-31T08:01:18Z",
   "meters": [
    {
     "k": "5h",
