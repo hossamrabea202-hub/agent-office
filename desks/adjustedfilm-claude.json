@@ -1,9 +1,10 @@
 {
- "working": "#316 wire TGA collapse",
- "tokens": 880000,
+ "working": "context nearly full: next session continues (see NEXT_SESSION_PROMPT.md)",
+ "tokens": 940000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "next-session prompt written [6% tokens left · 5h plan 32% left]",
   "#296 --auto one-step cave rock [12% tokens left · 5h plan 29% left]",
   "#293 part 2 handed off [16% tokens left · 5h plan 27% left]",
   "#316 part A handed off [19% tokens left · 5h plan 26% left]",
@@ -12,8 +13,7 @@
   "#322 part 1 handed off [40% tokens left · 5h plan 16% left]",
   "#8 treasure chest handed off [44% tokens left · 5h plan 14% left]",
   "#315 handed off [50% tokens left · 5h plan 12% left]",
-  "#313 + #314 handed off [52% tokens left · 5h plan 11% left]",
-  "#228 fix line posted; cave rock WIP lookdev [62% tokens left · 5h plan 7% left]"
+  "#313 + #314 handed off [52% tokens left · 5h plan 11% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T15:13:48Z",
+ "asOf": "2026-10-31T15:20:09Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T15:13:48Z",
+  "asOf": "2026-10-31T15:20:09Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 71,
+    "pct": 68,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
