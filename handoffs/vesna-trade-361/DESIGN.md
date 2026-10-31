@@ -54,3 +54,14 @@ Approve this layout:
 - drag, double-click or Y to wear
 
 Then TGA builds #359 and #361 together as one widget family (shared row, button, tab and alert widgets), as a DRY_RUN setup script plus pre-checked pastes.
+
+## v3 (owner instructions 2026-10-31, 20:05): supersedes the layout above
+Mock-up: `mock/mock2.html` (`?f=0` dialogue, `?f=1` shop) · `mock/v3_frame0.png`, `mock/v3_frame1.png`, `mock/side_by_side.jpg`.
+- **Talk, then TRADE, then "SHOP!"**:
+  - The dialogue plate (TALK / TRADE / LEAVE) uses the same kit.
+  - TRADE stamps **SHOP!** on screen with a 400 ms gold flash, and it becomes the window title.
+- **Three windows open together:**
+  1. **INSPECT**: the spinning 3D item, now **smaller** (a 380 px box, so the render target is sharper), with info, price and HOLD TO BUY.
+  2. **VESNA'S WARES** (new): a menu of everything she sells, in collapsible categories: WEAPONS, OBSIDIAN SOVEREIGN (with set progress), SUPPLIES. W / S browse, Q / E jump between categories.
+  3. **THE HERO**: paper doll and pack, now with **13 slots including CAPE** (#362: back slot drawn behind the shoulders, folded-cloak icon; piece id 20, DEF +4). It shows FORGING until the cape art exists. The torn-cape wear (#256 / #258) will show as a frayed icon edge later.
+- **One design system with #359** (owner): the same frames, Cinzel caps, bronze rules, blood-red selection, icon discs, hold-to-buy, burn-in open, cascading rows and alert family. Build plan: a shared kit first (`WBP_UI_Window`, `WBP_UI_Row`, `WBP_UI_HoldButton`, `WBP_UI_Tabs`, `WBP_Alert`), then the Muster and the Shop on top of it.

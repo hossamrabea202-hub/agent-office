@@ -1,0 +1,108 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Vesna Shop v3 mock-up</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* shared "Castle Defender UI kit" tokens: same as the #359 Muster */
+:root{--bronze:#b08a4e;--bronze2:#e2c27f;--cream:#e9dcc2;--dim:#8d806c;--blood:#8e1b17;--blood2:#c4352b;--venom:#6fae3b;--line:rgba(176,138,78,.45);--obs:#d8b25a}
+*{box-sizing:border-box;margin:0}
+body{width:1600px;height:1000px;overflow:hidden;background:#000;font-family:'Cormorant Garamond',serif;color:var(--cream)}
+.scene{position:absolute;left:0;top:0;width:1600px;height:900px;background:radial-gradient(ellipse at 25% 55%,#6a4220 0,#2d1b0e 35%,#0b0806 75%)}
+.scene:after{content:'';position:absolute;inset:0;backdrop-filter:blur(6px);background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.9))}
+.title{position:absolute;left:0;right:0;top:16px;text-align:center;font-family:Cinzel;font-weight:700;font-size:46px;letter-spacing:12px;text-shadow:0 2px 0 #000}
+.sub{position:absolute;left:0;right:0;top:72px;text-align:center;font-size:15px;letter-spacing:7px;color:var(--dim)}
+.rule{position:absolute;left:520px;right:520px;top:98px;height:1px;background:linear-gradient(90deg,transparent,var(--bronze),transparent)}
+.win{position:absolute;top:118px;height:720px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,rgba(14,12,11,.94),rgba(27,24,22,.86))}
+.win h3{font-family:Cinzel;font-size:19px;letter-spacing:5px;text-align:center;padding:12px 0 10px;border-bottom:1px solid rgba(176,138,78,.25)}
+.btn{display:inline-grid;place-items:center;min-width:30px;height:22px;padding:0 6px;border:1px solid var(--bronze);border-radius:4px;font-family:Cinzel;font-size:12px;color:var(--bronze2);background:#0e0c0b}
+/* showcase (small, sharper) */
+.show{left:40px;width:380px}
+.turn{position:relative;height:270px;margin:12px;border:1px solid rgba(176,138,78,.2);background:radial-gradient(ellipse at 50% 60%,rgba(216,178,90,.12),transparent 65%)}
+.turn .im{position:absolute;inset:10px 40px 30px;background-size:cover;background-position:center;-webkit-mask-image:radial-gradient(ellipse at 50% 48%,#000 48%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 48%,#000 48%,transparent 72%)}
+.turn .pl{position:absolute;left:60px;right:60px;bottom:10px;height:34px;border-radius:50%;border:1px solid rgba(216,178,90,.35);background:radial-gradient(ellipse,rgba(216,178,90,.3),transparent 70%)}
+.turn .rot{position:absolute;right:8px;top:8px;font-size:12px;letter-spacing:3px;color:var(--dim)}
+.info{padding:0 18px}
+.info h2{font-family:Cinzel;font-size:22px;letter-spacing:2px}
+.badge{display:inline-block;font-family:Cinzel;font-size:11px;letter-spacing:2px;color:#120d06;background:var(--obs);padding:2px 7px;margin-top:4px}
+.stat{display:flex;justify-content:space-between;font-size:17px;padding:4px 0;border-bottom:1px dashed rgba(176,138,78,.2)}
+.stat b{font-family:Cinzel}.up{color:var(--venom)}
+.price{font-family:Cinzel;font-size:24px;color:#f0c35a;margin:12px 0 2px}.price small{font-family:'Cormorant Garamond';font-size:14px;color:var(--dim);margin-left:8px}
+.buy{position:absolute;left:18px;right:18px;bottom:18px;height:54px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:Cinzel;font-size:20px;letter-spacing:4px;border:1px solid var(--bronze);background:#120f0d;overflow:hidden}
+.buy .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(142,27,23,.85),rgba(196,53,43,.9))}
+.buy span{position:relative}
+/* wares menu */
+.wares{left:440px;width:540px}
+.cat{display:flex;justify-content:space-between;align-items:center;padding:9px 16px;font-family:Cinzel;font-size:15px;letter-spacing:4px;color:var(--bronze2);background:rgba(176,138,78,.08);border-bottom:1px solid rgba(176,138,78,.2)}
+.cat .c{font-size:12px;color:var(--dim);letter-spacing:2px}
+.it{display:grid;grid-template-columns:50px 1fr auto;gap:12px;align-items:center;height:54px;padding:0 16px;border-bottom:1px solid rgba(176,138,78,.08);position:relative}
+.it .d{width:42px;height:42px;border-radius:50%;border:2px solid var(--bronze);background:radial-gradient(circle,#2c2520,#0e0c0b);background-size:cover;background-position:center}
+.it .n{font-family:Cinzel;font-size:15px;letter-spacing:1px}.it .s{font-size:13px;color:var(--dim)}
+.it .p{font-family:Cinzel;font-size:15px;color:#f0c35a;text-align:right}
+.it.sel{background:linear-gradient(90deg,rgba(142,27,23,.3),rgba(27,24,22,.2))}
+.it.sel:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--blood2);box-shadow:0 0 14px var(--blood2)}
+.it.sel .d{border-color:var(--blood2);box-shadow:0 0 12px rgba(196,53,43,.5)}
+.it.forge{opacity:.42}.it.forge .d{background:repeating-linear-gradient(45deg,#2a241e 0 5px,#1a1612 5px 10px)}
+.own{color:var(--venom)!important}.worn{color:var(--obs)!important}
+.it svg{width:22px;height:22px;stroke:var(--cream);fill:none;stroke-width:1.8;margin:8px}
+/* hero */
+.hero{left:1000px;width:560px}
+.body{position:absolute;left:180px;top:58px;width:200px;height:400px}
+.slot{position:absolute;width:58px;height:58px;border:1px solid rgba(176,138,78,.5);background:rgba(10,9,8,.88);display:grid;place-items:center;font-size:10px;letter-spacing:1px;color:var(--dim);text-align:center;background-size:cover;background-position:center}
+.slot.ob{border-color:var(--obs);box-shadow:0 0 14px rgba(216,178,90,.35)}
+.slot.new{border:2px solid var(--blood2);box-shadow:0 0 16px rgba(196,53,43,.55)}
+.slot.new:after{content:'NEW';position:absolute;top:-9px;right:-10px;font-family:Cinzel;font-size:9px;letter-spacing:1px;background:var(--blood2);color:#fff;padding:1px 4px}
+.setbar{position:absolute;left:16px;right:16px;top:486px;padding:9px 12px;border:1px solid rgba(216,178,90,.4);background:rgba(216,178,90,.05)}
+.setbar .t{font-family:Cinzel;font-size:14px;letter-spacing:3px;color:var(--obs);display:flex;justify-content:space-between}
+.segs{display:flex;gap:4px;margin:7px 0 0}.seg{flex:1;height:7px;background:#3a332c}.seg.on{background:var(--obs);box-shadow:0 0 8px rgba(216,178,90,.6)}
+.pack{position:absolute;left:16px;right:16px;bottom:14px;display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
+.pk{height:52px;border:1px solid rgba(176,138,78,.25);background:rgba(10,9,8,.8);background-size:cover;background-position:center}
+.res{position:absolute;left:40px;top:852px;font-family:Cinzel;font-size:18px;display:flex;gap:30px}.res em{font-style:normal;color:var(--dim);font-size:13px;margin-right:6px;letter-spacing:2px}
+.hints{position:absolute;right:40px;top:852px;font-size:15px;color:var(--dim);display:flex;gap:14px;align-items:center}
+/* dialogue frame */
+.dlg{position:absolute;left:380px;right:380px;top:560px;padding:18px 28px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(14,12,11,.95),rgba(27,24,22,.9))}
+.dlg .who{font-family:Cinzel;font-size:20px;letter-spacing:5px;color:var(--bronze2)}
+.dlg p{font-size:21px;font-style:italic;margin:6px 0 14px}
+.opt{display:flex;gap:12px}.opt div{flex:1;height:48px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:Cinzel;font-size:18px;letter-spacing:4px;border:1px solid rgba(176,138,78,.35);color:var(--dim)}
+.opt div.on{border-color:var(--blood2);color:var(--cream);background:linear-gradient(180deg,rgba(142,27,23,.4),rgba(14,12,11,.6));box-shadow:0 0 16px rgba(196,53,43,.35)}
+.shopword{position:absolute;left:0;right:0;top:250px;text-align:center;font-family:Cinzel;font-weight:700;font-size:120px;letter-spacing:30px;color:#f3e2b6;text-shadow:0 0 40px rgba(226,194,127,.55),0 4px 0 #000;opacity:.9}
+.tag{position:absolute;right:24px;top:18px;font-family:Cinzel;font-size:14px;letter-spacing:3px;color:var(--bronze);background:rgba(0,0,0,.6);padding:6px 12px;border:1px solid var(--line);z-index:50}
+.note{position:absolute;left:0;top:900px;width:1600px;height:100px;font-size:19px;color:#d8c8a8;background:#0b0908;padding:16px 28px;border-top:1px solid var(--line);border-left:3px solid var(--blood2);line-height:1.35}
+</style></head><body>
+<div class="scene"></div>
+<div id="shop">
+<div class="title">SHOP!</div><div class="sub">VESNA'S WARES · STEEL · LEATHER · SOVEREIGN BLACK</div><div class="rule"></div>
+<div class="win show"><h3>INSPECT</h3>
+ <div class="turn"><div class="im" id="im"></div><div class="pl"></div><div class="rot">◂ TURN ▸</div></div>
+ <div class="info" id="info"></div>
+ <div class="buy"><div class="fill" style="width:40%"></div><span class="btn">E</span><span>HOLD TO BUY</span></div>
+</div>
+<div class="win wares"><h3>VESNA'S WARES</h3><div id="list"></div></div>
+<div class="win hero"><h3>THE HERO</h3>
+ <div class="body"><svg viewBox="0 0 200 400" width="200" height="400"><path d="M64 96 L40 110 C30 200 34 300 46 380 L154 380 C166 300 170 200 160 110 L136 96 Z" fill="#2a0f0d" stroke="rgba(196,53,43,.35)"/><path d="M100 18c-18 0-26 14-26 30s8 30 26 30 26-14 26-30-8-30-26-30zM62 92c-20 6-30 22-34 44l-14 90 18 4 16-80 8 76-6 160h30l10-140 10 140h30l-6-160 8-76 16 80 18-4-14-90c-4-22-14-38-34-44z" fill="#14110e" stroke="rgba(176,138,78,.35)"/></svg></div>
+ <div id="slots"></div>
+ <div class="setbar"><div class="t"><span>OBSIDIAN SOVEREIGN</span><span>4 / 11 WORN</span></div><div class="segs">%SEGS%</div></div>
+ <div class="pack" id="pack"></div>
+</div>
+<div class="res"><span><em>GOLD</em><b style="color:#f0c35a">3 120</b></span><span><em>IRON</em>34</span><span><em>SILVER</em>5</span></div>
+<div class="hints"><span><span class="btn">W</span>/<span class="btn">S</span> browse</span><span><span class="btn">Q</span>/<span class="btn">E</span> category</span><span><span class="btn">E</span> hold to buy</span><span>drag to the hero to wear</span><span><span class="btn">ESC</span> back</span></div>
+</div>
+<div id="dlg" style="display:none"><div class="dlg"><div class="who">VESNA</div><p>"Coin first, questions after. What do you need, knight?"</p><div class="opt"><div>TALK</div><div class="on"><span class="btn">E</span>TRADE</div><div>LEAVE</div></div></div></div>
+<div class="tag" id="tag"></div><div class="note" id="note"></div>
+<script>
+const img=n=>`url(img/${n}.png)`;
+const IC={sword:'<path d="M20 4 L22 26 L18 26 Z"/><path d="M12 26 H28"/><path d="M20 26 V34"/>',bow:'<path d="M8 32 Q20 2 32 8"/><path d="M8 32 L32 8"/>',cross:'<rect x="16" y="6" width="8" height="28"/><rect x="6" y="16" width="28" height="8"/>',book:'<path d="M8 8 H20 V34 H8 Z M20 8 H32 V34 H20"/>',shield:'<path d="M20 4 L34 10 C34 24 28 32 20 36 C12 32 6 24 6 10 Z"/>'};
+const ic=n=>`<svg viewBox="0 0 40 40">${IC[n]}</svg>`;
+const L=[['cat','WEAPONS','4'],['it','sword','Longsword','main hand · DMG 40','OWNED','own'],['it','bow','Noble Crossbow','UPGRADE to LV2','300 g',''],['it','shield','Heater Shield','off-hand · block 20 %','600 g',''],
+ ['cat','OBSIDIAN SOVEREIGN','set · 4 of 11 worn'],['img','chest','Cuirass','torso · DEF +45','WORN','worn'],['img','shoulders','Pauldrons','shoulders · DEF +12','2 000 g','',1],['img','gauntlets','Gauntlets','hands · DEF +8','WORN','worn'],['img','boots','Sabatons','feet · DEF +8','WORN','worn'],['img','shins','Greaves','shins · DEF +10','WORN','worn'],['forge','','Helmet','head','FORGING',''],['forge','','Cape','back · DEF +4','FORGING',''],
+ ['cat','SUPPLIES','3 · collapsed']];
+document.getElementById('list').innerHTML=L.map(r=>r[0]=='cat'?`<div class="cat"><span>${r[2].includes('collapsed')?'▸':'▾'} ${r[1]}</span><span class="c">${r[2]}</span></div>`:`<div class="it ${r[6]?'sel':''} ${r[0]=='forge'?'forge':''}"><div class="d" style="${r[0]=='img'?'background-image:'+img(r[1]):''}">${r[0]=='it'?ic(r[1]):''}</div><div><div class="n">${r[2].toUpperCase()}</div><div class="s">${r[3]}</div></div><div class="p ${r[5]}">${r[4]}</div></div>`).join('');
+document.getElementById('im').style.backgroundImage=img('shoulders');
+document.getElementById('info').innerHTML=`<h2>SOVEREIGN PAULDRONS</h2><span class="badge">SET PIECE 5 / 11</span><div class="stat" style="margin-top:8px"><span>Defence</span><b class="up">+12</b></div><div class="stat"><span>Slot</span><b>shoulders (pair)</b></div><div class="stat"><span>Set progress</span><b>4 → <span class="up">5</span> / 11</b></div><div class="price">2 000 g<small>next set piece costs more</small></div>`;
+const S=[['HEAD',251,40,0],['CAPE',326,118,'new'],['SHLD L',176,118,0],['TORSO',251,118,'chest'],['SHLD R',401,118,0],['UPPER ARM',146,196,0],['FOREARM',356,196,0],['HANDS',116,274,'gauntlets'],['WAIST',251,226,0],['OFF-HAND',386,274,0],['THIGHS',251,304,0],['SHINS',196,382,'shins'],['FEET',306,382,'boots']];
+document.getElementById('slots').innerHTML=S.map(s=>`<div class="slot ${s[3]=='new'?'new':s[3]?'ob':''}" style="left:${s[1]}px;top:${s[2]}px;${s[3]&&s[3]!='new'?'background-image:'+img(s[3]):''}">${s[3]&&s[3]!='new'?'':s[3]=='new'?'<svg viewBox="0 0 40 40" width="30" height="30" style="stroke:#e9dcc2;fill:none;stroke-width:1.6"><path d="M12 6 H28 L33 34 Q20 30 7 34 Z"/><path d="M12 6 Q20 12 28 6"/></svg>':s[0]}</div>`).join('');
+document.querySelector('.segs').innerHTML=Array.from({length:11},(_,i)=>`<i class="seg ${i<4?'on':''}"></i>`).join('');
+document.getElementById('pack').innerHTML=Array.from({length:16},(_,i)=>`<div class="pk" style="${i==1?'background:radial-gradient(circle,#5a5f66,#1a1a1c);':''}"></div>`).join('');
+const f=+(new URLSearchParams(location.search).get('f')||1),tag=document.getElementById('tag'),note=document.getElementById('note');
+if(f==0){document.getElementById('shop').style.display='none';document.getElementById('dlg').style.display='block';const w=document.createElement('div');w.className='shopword';w.textContent='SHOP!';document.body.appendChild(w);
+ tag.textContent='FRAME 0 · TALK → TRADE → SHOP!';note.innerHTML='At Vesna: the dialogue plate uses the same kit (TALK / <b>TRADE</b> / LEAVE). Pressing TRADE stamps <b>SHOP!</b> on screen (gold ember flash, 400 ms), then it shrinks into the title as the three windows burn in.';}
+else{tag.textContent='FRAME 1 · SHOP: INSPECT · WARES · HERO';note.innerHTML='Three windows open together, as the owner asked. <b>INSPECT</b>: a smaller spinning 3D view (sharper render) plus info and hold-to-buy. <b>VESNA\'S WARES</b>: a new menu listing everything she sells by category (weapons, the Obsidian set, supplies). <b>THE HERO</b>: paper doll plus pack, now with 13 slots including the <b>CAPE</b> (#362, behind the shoulders). Same kit as the #359 Muster.';}
+</script></body></html>
