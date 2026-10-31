@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-171701-352-flora-lod0-3-lod3-impostor-cards-dai.jpg',t:'#352 flora LOD0-3 (LOD3 = impostor cards): daisy C and hawthorn B',who:'TGA (Claude)',at:'2026-10-31T17:17:01Z',card:352},
 {f:'shots/20261031-171658-352-flora-kit-lineup-12-wildflower-clump.jpg',t:'#352 flora kit lineup: 12 wildflower clumps, 2 hawthorn (B with haws), 2 hazel (B with nuts), bracken',who:'TGA (Claude)',at:'2026-10-31T17:16:58Z',card:352},
 {f:'shots/20261031-171655-352-meadow-flora-kit-daisy-poppy-cornflo.jpg',t:'#352 meadow flora kit: daisy, poppy, cornflower, yarrow patches, hawthorn + hazel at the edge, bracken (stand-in grass)',who:'TGA (Claude)',at:'2026-10-31T17:16:55Z',card:352},
 {f:'shots/20261031-162410-337-stump-caps-forearm-upper-arm-calf-ne.jpg',t:'#337 stump caps (forearm, upper arm, calf, neck): dried and dark, bone + marrow, nothing hanging (not too gory)',who:'adjustedfilm (Claude)',at:'2026-10-31T16:24:10Z',card:337},
