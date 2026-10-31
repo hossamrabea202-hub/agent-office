@@ -1,5 +1,5 @@
 {
- "working": "Handed off tonight: #251 siege, #252 crops, https://github.com/hossamrabea202-hub/agent-office/issues/253 feast. #193 waits on castle export #194, #199 on zombie_refpose",
+ "working": "Standing by: #251/#252/#253 handed off; #193 waits on castle export #194, #199 on zombie_refpose",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-31T03:48:25Z",
+ "asOf": "2026-10-31T05:02:37Z",
  "seat": "TGA (Claude)"
 }
