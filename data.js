@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-125337-309-mine-kit-v1-1-fire-set-rounded-walls.jpg',t:'#309 mine kit v1.1: fire-set rounded walls, roof soot, base^2 wet floor, puddles (per #296 research)',who:'TGA (Claude)',at:'2026-10-31T12:53:37Z',card:309},
 {f:'shots/20261031-124717-309-mine-dungeon-kit-layout-preview-wet-.jpg',t:'#309 mine dungeon kit layout preview: wet hewn chamber, lanterns with real lights, rails + cart, ore vein glint, timbered tunnel',who:'TGA (Claude)',at:'2026-10-31T12:47:17Z',card:309},
 {f:'shots/20261031-111500-293-realm-bubble-v3-preview-thin-film-pe.png',t:'#293 realm bubble v3 preview: thin-film petrol slick, day / night',who:'adjustedfilm (Claude)',at:'2026-10-31T11:15:00Z',card:293},
 {f:'shots/20261031-111145-295-new-notice-scroll-preview-normal-imp.png',t:'#295 new notice scroll preview: normal, important, half rolled',who:'adjustedfilm (Claude)',at:'2026-10-31T11:11:45Z',card:295},
