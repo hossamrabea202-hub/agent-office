@@ -62,14 +62,25 @@ if not EAL.does_asset_exist(MASTER):
     vc = E(m, unreal.MaterialExpressionVertexColor, -1100, 760)
     wet = E(m, unreal.MaterialExpressionMultiply, -800, 600); C(vc, 'R', wet, 'A'); C(wetp, '', wet, 'B')
     tb = E(m, unreal.MaterialExpressionMultiply, -800, -350); C(bc, 'RGB', tb, 'A'); C(tint, '', tb, 'B')
-    dk = E(m, unreal.MaterialExpressionMultiply, -600, -200); C(tb, '', dk, 'A'); dk.set_editor_property('const_b', 0.55)   # damp darkens
+    dk = E(m, unreal.MaterialExpressionMultiply, -600, -200); C(tb, '', dk, 'A'); C(tb, '', dk, 'B')     # Naughty Dog: wet = base^2 (KB 1.3)
     col = E(m, unreal.MaterialExpressionLinearInterpolate, -400, -280); C(tb, '', col, 'A'); C(dk, '', col, 'B'); C(wet, '', col, 'Alpha')
     rg = E(m, unreal.MaterialExpressionLinearInterpolate, -400, 150); C(orm, 'G', rg, 'A'); rg.set_editor_property('const_b', 0.15); C(wet, '', rg, 'Alpha')
-    MEL.connect_material_property(col, '', unreal.MaterialProperty.MP_BASE_COLOR)
-    MEL.connect_material_property(rg, '', unreal.MaterialProperty.MP_ROUGHNESS)
+    sootp = P(m, unreal.MaterialExpressionScalarParameter, 'Soot', -1100, 900); sootp.set_editor_property('default_value', 1.0)
+    pudp = P(m, unreal.MaterialExpressionScalarParameter, 'Puddles', -1100, 1000); pudp.set_editor_property('default_value', 1.0)
+    soot = E(m, unreal.MaterialExpressionMultiply, -800, 860); C(vc, 'G', soot, 'A'); C(sootp, '', soot, 'B')     # G = roof lamp soot
+    pud = E(m, unreal.MaterialExpressionMultiply, -800, 960); C(vc, 'B', pud, 'A'); C(pudp, '', pud, 'B')         # B = puddles
+    sc = E(m, unreal.MaterialExpressionConstant3Vector, -400, -120); sc.set_editor_property('constant', unreal.LinearColor(0.016, 0.015, 0.014, 1))  # ~34 sRGB, KB floor 30
+    col2 = E(m, unreal.MaterialExpressionLinearInterpolate, -200, -280); C(col, '', col2, 'A'); C(sc, '', col2, 'B'); C(soot, '', col2, 'Alpha')
+    rg2 = E(m, unreal.MaterialExpressionLinearInterpolate, -200, 150); C(rg, '', rg2, 'A'); rg2.set_editor_property('const_b', 0.95); C(soot, '', rg2, 'Alpha')
+    rg3 = E(m, unreal.MaterialExpressionLinearInterpolate, -50, 150); C(rg2, '', rg3, 'A'); rg3.set_editor_property('const_b', 0.06); C(pud, '', rg3, 'Alpha')
+    up = E(m, unreal.MaterialExpressionConstant3Vector, -400, 620); up.set_editor_property('constant', unreal.LinearColor(0, 0, 1, 1))
+    pf = E(m, unreal.MaterialExpressionMultiply, -400, 1000); C(pud, '', pf, 'A'); pf.set_editor_property('const_b', 0.95)
+    nf = E(m, unreal.MaterialExpressionLinearInterpolate, -200, 500); C(nrm, 'RGB', nf, 'A'); C(up, '', nf, 'B'); C(pf, '', nf, 'Alpha')  # still water is flat
+    MEL.connect_material_property(col2, '', unreal.MaterialProperty.MP_BASE_COLOR)
+    MEL.connect_material_property(rg3, '', unreal.MaterialProperty.MP_ROUGHNESS)
     MEL.connect_material_property(orm, 'B', unreal.MaterialProperty.MP_METALLIC)
     MEL.connect_material_property(orm, 'R', unreal.MaterialProperty.MP_AMBIENT_OCCLUSION)
-    MEL.connect_material_property(nrm, 'RGB', unreal.MaterialProperty.MP_NORMAL)
+    MEL.connect_material_property(nf, '', unreal.MaterialProperty.MP_NORMAL)
     MEL.recompile_material(m); EAL.save_asset(MASTER)
 GLOW = DST + '/M_MineGlow'
 if not EAL.does_asset_exist(GLOW):
@@ -86,7 +97,8 @@ for s in SETS:
     MEL.set_material_instance_parent(mi, unreal.load_asset(MASTER))
     for par, suf in (('BaseColorTex', 'BC'), ('ORMTex', 'ORM'), ('NormalTex', 'N')):
         MEL.set_material_instance_texture_parameter_value(mi, par, unreal.load_asset('%s/T_Mine%s_%s' % (DST, s, suf)))
-    if s != 'Rock': MEL.set_material_instance_scalar_parameter_value(mi, 'Wetness', 0.0)    # only the carved rock carries wetness
+    if s != 'Rock':                                                                          # only the carved rock has vertex colours
+        for par in ('Wetness', 'Soot', 'Puddles'): MEL.set_material_instance_scalar_parameter_value(mi, par, 0.0)
     EAL.save_asset(path); MIS['M_Mine' + s] = mi
 path = DST + '/MI_MineGlow'
 mi = unreal.load_asset(path) if EAL.does_asset_exist(path) else tools.create_asset('MI_MineGlow', DST, unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())

@@ -1,6 +1,6 @@
 # Tileable mine texture sets (#309, TGA): blender -b --factory-startup -P tex_mine.py   (env WORK)
 # Each set is a seamless heightfield "high poly" patch (periodic noise, so it tiles) baked to BC / ORM / N (DirectX):
-#   T_MineRock 2K (hewn wet dark rock, pick-mark facets; KB: wet dark rock albedo 0.1-0.3 linear),
+#   T_MineRock 2K (fire-set mine rock: smooth, rounded, spalled flakes; KB: wet dark rock albedo 0.1-0.3 linear),
 #   T_MineOak 1K (old oak, grain along U, splits), T_MineIron 1K (wrought iron, rust patches: metal 0 where rusted),
 #   T_MineOre 1K (rock with brassy chalcopyrite / iron-ore veins: metallic glints for #201).
 import bpy, numpy as np, os
@@ -44,11 +44,11 @@ def out(name, col, rough, metal, h, tile_m, ao_k):
 # ---- rock 2K, 2 m tile ----
 R = 2048
 facets = ridged(R, 5, 3, 1); big = fbm(R, 3, 4, 2); fine = fbm(R, 48, 3, 3); grit = pn(R, 400, 4)
-pick = np.sin((np.add.outer(np.arange(R), np.arange(R) * 0.5) / R) * 2 * np.pi * 22 + 6 * fbm(R, 6, 2, 5))  # diagonal pick strokes
-h = 0.008 * big + 0.006 * facets + 0.0012 * pick * ss(0.45, 0.7, fbm(R, 4, 2, 6)) + 0.002 * fine + 0.0006 * grit   # big shapes live in the mesh
+spall = np.floor(fbm(R, 6, 3, 5) * 6) / 6                                                     # fire-set spalled flakes (no pick marks)
+h = 0.008 * big + 0.002 * facets + 0.0025 * spall + 0.002 * fine + 0.0006 * grit   # big shapes live in the mesh
 col = mix(lin(92, 86, 78), lin(108, 100, 92), big) * (0.88 + 0.24 * fine)[..., None]          # ~0.08-0.16 linear, KB dark rock
 col = mix(col, lin(112, 98, 78), ss(0.62, 0.9, fbm(R, 8, 3, 7)) * 0.25)                    # ochre iron staining
-col = mix(col, lin(150, 146, 136), ss(0.85, 0.95, facets) * 0.1)                             # fresh pick-struck edges
+col = mix(col, lin(150, 146, 136), ss(0.85, 0.95, facets) * 0.1)                             # pale spalled edges
 rough = 0.82 + 0.08 * (fine - 0.5) - 0.12 * ss(0.82, 0.9, facets)
 out('T_MineRock', col, rough, np.zeros_like(h), h, 2.0, 0.012)
 # ---- oak 1K, 1 m tile, grain along U ----

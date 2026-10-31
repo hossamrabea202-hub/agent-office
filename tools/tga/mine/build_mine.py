@@ -1,7 +1,8 @@
 # Underground mine dungeon kit (#309 for #297, TGA). blender -b --factory-startup -P build_mine.py  -> mine.blend (env WORK)
 # Tunnels are carved: a rock block minus a swept tunnel void (exact boolean, so every piece is a closed watertight solid),
-# voxel-remeshed, hewn-rock displacement (pick facets, calmer floor) that fades to zero at the module faces so pieces join
-# seamlessly on a 4 m grid, then decimated. Vertex colour R = wetness (floor band + gravity drip streaks) drives the
+# voxel-remeshed, fire-set displacement (rounded smooth walls, spalled flakes, calmer floor; RESEARCH.md #296) that fades to zero at the module faces so pieces join
+# seamlessly on a 4 m grid, then decimated. Vertex colour R = wetness (floor band + gravity drip streaks), G = roof soot,
+# B = puddles (flat low floor spots); they drive the
 # material's damp darkening. UV0 = metric box projection (2 m per tile) for the tileable baked rock set.
 # Grid: a module occupies x 0..4, y -2..2 (chamber 0..14, -6..6); tunnels run along the cell centre lines, floor z = 0.
 # Profile 3 m wide, 2.8 m high. Props are modelled at real size with metric UVs on tiling oak / iron / ore / rock sets.
@@ -78,14 +79,18 @@ def carve(name, box, voids, faces, tris, seed, chamber=False):
     fade = ss(0.02, 0.6, dface)                                              # 0 at the module faces: seamless joins
     calm = 1 - 0.8 * ss(0.6, 0.9, N[:, 2]) * ss(0.4, 0.0, P[:, 2])          # the walkable floor stays calmer
     big = 0.4 if chamber else 0.07
-    d = big * (fbm(P, 0.9, 3, seed) - 0.5) + (0.12 if chamber else 0.05) * (1 - np.abs(2 * fbm(P, 3.0, 3, seed + 1) - 1)) + 0.015 * (fbm(P, 11, 2, seed + 2) - 0.5)
+    spall = np.floor(fbm(P, 2.2, 3, seed + 1) * 5) / 5                        # fire-set: rounded walls with shallow spalled flakes
+    d = big * (fbm(P, 0.9, 3, seed) - 0.5) + (0.08 if chamber else 0.035) * (spall - 0.5) + 0.006 * (fbm(P, 9, 2, seed + 2) - 0.5)
     P += N * (d * fade * calm)[:, None]; me.vertices.foreach_set('co', P.ravel()); me.update()
     apply_mod(o, 'DECIMATE', ratio=min(1.0, tris / max(1, len(me.polygons))))
     me = o.data; n = len(me.vertices); P = np.empty(n * 3); me.vertices.foreach_get('co', P); P = P.reshape(-1, 3)
     streak = ss(0.62, 0.8, vn(P * [1, 1, 0.08], 5.0, seed + 3)) * ss(2.9, 1.0, P[:, 2])   # drips run down (stretched in z)
     wet = np.clip(ss(0.7, 0.0, P[:, 2]) * 0.85 + streak * 0.7 + 0.15 * fbm(P, 1.2, 2, seed + 4), 0, 1)
     ca = me.color_attributes.new('Col', 'BYTE_COLOR', 'POINT')
-    cols = np.ones((n, 4)); cols[:, 0] = wet; cols[:, 1] = 0; cols[:, 2] = 0; ca.data.foreach_set('color', cols.ravel())
+    Nn = np.array([v.vector for v in me.vertex_normals])
+    soot = np.clip(ss(1.7, 2.7, P[:, 2]) * (0.55 + 0.6 * (fbm(P, 0.7, 2, seed + 5) - 0.5)), 0, 1)        # lamp soot on the roof (fire-set mine)
+    puddle = ss(0.04, 0.0, P[:, 2]) * ss(0.95, 0.99, Nn[:, 2]) * ss(0.5, 0.62, fbm(P, 0.8, 2, seed + 6))  # flat low floor spots
+    cols = np.ones((n, 4)); cols[:, 0] = wet; cols[:, 1] = soot; cols[:, 2] = puddle; ca.data.foreach_set('color', cols.ravel())
     me.materials.clear(); me.materials.append(mat('M_MineRock')); me.polygons.foreach_set('material_index', np.zeros(len(me.polygons), np.int32))
     uvbox(o, 2.0); bpy.ops.object.shade_smooth()
     return o
@@ -198,7 +203,9 @@ if __name__ == '__main__':
     P += (0.12 * (fbm(P, 2.5, 3, 11)[:, None] - 0.5)) * (P[:, 2] > 0.02)[:, None] * np.array([1, 1, 1])
     P[:, 2] = np.maximum(P[:, 2], 0)
     for v, p in zip(o.data.vertices, P): v.co = Vector(p)
-    apply_mod(o, 'DECIMATE', ratio=0.25); o.data.materials.append(mat('M_MineRock')); uvbox(o, 2.0); bpy.ops.object.shade_smooth(); kit.append(o)
+    apply_mod(o, 'DECIMATE', ratio=0.25); o.data.materials.append(mat('M_MineRock'))
+    hv = np.array([v.co.z for v in o.data.vertices]); ca = o.data.color_attributes.new('Col', 'BYTE_COLOR', 'POINT')   # rock MI reads RGB
+    hc = np.zeros((len(hv), 4)); hc[:, 0] = 0.6 * ss(0.4, 0.0, hv); hc[:, 3] = 1; ca.data.foreach_set('color', hc.ravel()); uvbox(o, 2.0); bpy.ops.object.shade_smooth(); kit.append(o)
     rep = []
     for o in kit:
         bm = bmesh.new(); bm.from_mesh(o.data); open_e = sum(1 for e in bm.edges if not e.is_manifold); bm.free()

@@ -70,6 +70,15 @@ From TGA (Claude), 2026-10-31. This is original procedural work; the sources are
 3. **Lanterns:** they glow, and their light pools on the rock. The ore veins glint when the camera moves.
 4. **Walking:** the hero walks the floor and up the slope, and doesn't snag on the timber props.
 
+## v1.1 (after adjustedfilm's cave research, handoffs/cave-296-297/RESEARCH.md)
+
+- **Fire-set walls:** medieval mines were fire-set, so the walls are now **rounded and smooth with shallow spalled flakes**. There are no pick facets, in the mesh or in the texture.
+- **Wetness, Naughty Dog style:** wet rock = base² (KB §1.3) instead of a flat ×0.55.
+- **Vertex colour G = lamp soot on the roof:** black (about 34 sRGB, never below the KB floor of 30) and rough.
+- **Vertex colour B = puddles in flat, low floor spots:** roughness 0.06, normal flattened 95%.
+- **Material switches:** `Soot` and `Puddles` are parameters. Prop MIs set Wetness, Soot and Puddles to 0.
+- **Rebuilding the master:** if `M_MineSurface` was already imported from v1, delete it first, then re-run the import so it rebuilds.
+
 ## Notes
 
 - **Bake approach (industry standard for modular caves):** the big rock shape lives in the mesh (voxel-sculpted, then decimated), and the fine detail is a tiling set baked from a seamless high-res height patch. One 2K rock set covers every piece at a crisp density, where a per-piece bake would be blurry.

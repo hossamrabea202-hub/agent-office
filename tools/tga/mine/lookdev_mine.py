@@ -19,11 +19,19 @@ def setup(mname, tex, wet=False):
     col, rough = bc.outputs[0], sp.outputs[1]
     if wet:
         va = nt.nodes.new('ShaderNodeVertexColor'); va.layer_name = 'Col'; s2 = nt.nodes.new('ShaderNodeSeparateColor'); nt.links.new(va.outputs[0], s2.inputs[0])
-        mx = nt.nodes.new('ShaderNodeMix'); mx.data_type = 'RGBA'; mx.inputs['B'].default_value = (0, 0, 0, 1)
-        mf = nt.nodes.new('ShaderNodeMath'); mf.operation = 'MULTIPLY'; mf.inputs[1].default_value = 0.45; nt.links.new(s2.outputs[0], mf.inputs[0])
-        nt.links.new(mf.outputs[0], mx.inputs['Factor']); nt.links.new(col, mx.inputs['A']); col = mx.outputs['Result']
-        mr = nt.nodes.new('ShaderNodeMix'); mr.inputs['B'].default_value = 0.15; nt.links.new(s2.outputs[0], mr.inputs['Factor'])
-        nt.links.new(rough, mr.inputs['A']); rough = mr.outputs['Result']
+        def cmix(fac, a, b):                                                   # Mix node, colour sockets 6/7 -> output 2
+            n_ = nt.nodes.new('ShaderNodeMix'); n_.data_type = 'RGBA'; nt.links.new(fac, n_.inputs[0]); nt.links.new(a, n_.inputs[6])
+            if isinstance(b, tuple): n_.inputs[7].default_value = b
+            else: nt.links.new(b, n_.inputs[7])
+            return n_.outputs[2]
+        def fmix(fac, a, b):                                                   # float sockets 2/3 -> output 0
+            n_ = nt.nodes.new('ShaderNodeMix'); n_.data_type = 'FLOAT'; nt.links.new(fac, n_.inputs[0]); nt.links.new(a, n_.inputs[2])
+            n_.inputs[3].default_value = b; return n_.outputs[0]
+        sq = nt.nodes.new('ShaderNodeMix'); sq.data_type = 'RGBA'; sq.blend_type = 'MULTIPLY'; sq.inputs[0].default_value = 1.0
+        nt.links.new(col, sq.inputs[6]); nt.links.new(col, sq.inputs[7])
+        col = cmix(s2.outputs[0], col, sq.outputs[2])                         # R wet: base^2 (Naughty Dog)
+        col = cmix(s2.outputs[1], col, (0.016, 0.015, 0.014, 1))              # G roof soot
+        rough = fmix(s2.outputs[0], rough, 0.15); rough = fmix(s2.outputs[1], rough, 0.95); rough = fmix(s2.outputs[2], rough, 0.06)   # B puddles
     nt.links.new(col, bs.inputs['Base Color']); nt.links.new(rough, bs.inputs['Roughness'])
 setup('M_MineRock', 'T_MineRock', True); setup('M_MineOak', 'T_MineOak'); setup('M_MineIron', 'T_MineIron'); setup('M_MineOre', 'T_MineOre')
 g = bpy.data.materials['M_MineGlow']; g.use_nodes = True; bs = g.node_tree.nodes['Principled BSDF']
