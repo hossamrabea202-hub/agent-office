@@ -17,7 +17,7 @@ Generator: `gen_brute322p2.py` (Blender's Python, `-I`).
   times Heavy 0.92. The rate stays within 0.8–1.2 (INDUSTRY_SECRETS §3.4 rule 2, the ±20 % rule).
 - **Play-rate variety.** Each brute rolls its own rhythm (0.9–1.06) at spawn. Loops start at a random point of the cycle
   (§3.4 rule 9), so a group never walks in step.
-- **HP ×4.** The 3 MaxHP sets (by ZType) go from 260 / 60 / 100 to **1040 / 240 / 400**.
+- **HP ×4 and bite 15** (the same as the Master's live edit after the export, cafeteria 6545691670): MaxHP 1040 / 240 / 400, and every brute type bites for 15. The whole-graph replace keeps both.
 
 ## Pre-checks (done)
 

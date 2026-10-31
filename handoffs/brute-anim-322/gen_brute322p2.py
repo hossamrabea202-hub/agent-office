@@ -337,6 +337,14 @@ for name in order:
         new = re.sub(r'(PinName="MaxHP",[^\n]*?DefaultValue=")([\d.]+)"', lambda m: '%s%.1f"' % (m.group(1), float(m.group(2)) * 4), bl, count=1)
         assert new != bl; byname[name] = new; hp += 1
 assert hp == 3, hp
+# ---- the Master's live edit after the export (cafeteria 6545691670): every brute type bites for 15 (was 25 / 8 / 12)
+bite = 0
+for name in order:
+    bl = byname[name]
+    if 'K2Node_VariableSet' in bl.split('\n')[0] and 'VariableReference=(MemberName="AttackDamage"' in bl:
+        new = re.sub(r'(PinName="AttackDamage",[^\n]*?DefaultValue=")[\d.]+"', r'\g<1>15.0"', bl, count=1)
+        assert new != bl; byname[name] = new; bite += 1
+assert bite == 3, bite
 
 out = ''.join(byname[n] if byname[n].endswith('\n') else byname[n] + '\n' for n in order) + ''.join(added) + r2
 open(os.path.join(HERE, 'BP_FleshBrute_EventGraph_v2.txt'), 'w', newline='\r\n').write(out)
