@@ -1,8 +1,8 @@
 {
- "working": "",
- "tokens": 173153,
+ "working": "Catching up on office news (i5 laptop)",
+ "tokens": 80000,
  "ctx": 1000000,
- "since": "2026-10-27T10:40:00Z",
+ "since": "2026-10-31T06:18:42Z",
  "done": [
   "Tower #9 round-1 fit test + report [83% tokens left · 5h plan 81% left]",
   "#12 Commander + #15 death report: built on exports, pasted and active",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-28T11:09:48Z",
+ "asOf": "2026-10-31T06:18:42Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Pro",
@@ -51,5 +51,9 @@
    }
   ]
  },
- "seat": "adjustedfilm (Claude)"
+ "seat": "adjustedfilm (Claude)",
+ "session": {
+  "id": "1409ec389977",
+  "host": "5CD3147LBC"
+ }
 }
