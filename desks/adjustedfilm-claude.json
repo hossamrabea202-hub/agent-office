@@ -1,6 +1,6 @@
 {
- "working": "waiting on exports (#322 brute, #308 scan list, #304, #291)",
- "tokens": 680000,
+ "working": "#316 breach (waiting dump); meanwhile #296 mine-entrance rock/timber split",
+ "tokens": 720000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T13:54:17Z",
+ "asOf": "2026-10-31T14:16:11Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T13:54:17Z",
+  "asOf": "2026-10-31T14:16:11Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 80,
+    "pct": 78,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
