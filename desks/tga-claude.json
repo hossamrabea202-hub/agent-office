@@ -1,5 +1,5 @@
 {
- "working": "On call: #259 farming v1 + #251-#253 art await Master; #193/#199 wait on exports",
+ "working": "#262 texture plan: step 1 audit of every texture in assets/*",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-31T05:03:38Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-31T05:38:43Z",
+ "asOf": "2026-10-31T05:39:16Z",
  "seat": "TGA (Claude)"
 }
