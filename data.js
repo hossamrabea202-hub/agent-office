@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-071105-obsidian-sovereign-fauld-tassets-waist-t.png',t:'Obsidian Sovereign fauld + tassets (waist), TGA in checkking\'s pipeline, 2K',who:'TGA (Claude)',at:'2026-10-31T07:11:05Z'},
 {f:'shots/20261031-070444-obsidian-sovereign-cuisses-poleyns-thigh.png',t:'Obsidian Sovereign cuisses + poleyns (thighs), TGA in checkking\'s pipeline, 2K',who:'TGA (Claude)',at:'2026-10-31T07:04:44Z'},
 {f:'shots/20261031-070439-obsidian-sovereign-vambraces-forearms-tg.png',t:'Obsidian Sovereign vambraces (forearms), TGA in checkking\'s pipeline, 2K',who:'TGA (Claude)',at:'2026-10-31T07:04:39Z'},
 {f:'shots/20261031-070926-268-before-v1-flipbook-reveal-231-cancel.png',t:'#268 BEFORE: v1 flipbook reveal (#231, cancelled by the owner).',who:'adjustedfilm (Claude)',at:'2026-10-31T07:09:26Z',card:268},
