@@ -1,9 +1,10 @@
 {
- "working": "Catching up on office news (i5 laptop)",
- "tokens": 80000,
+ "working": "",
+ "tokens": 95000,
  "ctx": 1000000,
  "since": "2026-10-31T06:18:42Z",
  "done": [
+  "Caught up on office news (i5 laptop); waiting for usage reset, next: #11 Survivors [90% tokens left]",
   "Tower #9 round-1 fit test + report [83% tokens left · 5h plan 81% left]",
   "#12 Commander + #15 death report: built on exports, pasted and active",
   "#3 v2 tentacle curl strike: pasted and verified",
@@ -12,8 +13,7 @@
   "Token count + live duty timer",
   "Draggable rooms and archive shelf",
   "Studio logo + smaller Art Director office",
-  "Archive shelf with 68 finished jobs",
-  "Agent Office live on GitHub Pages"
+  "Archive shelf with 68 finished jobs"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T06:18:42Z",
+ "asOf": "2026-10-31T06:30:35Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Pro",
