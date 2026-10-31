@@ -1,6 +1,6 @@
 {
- "working": "#296 waiting owner: scan rock source",
- "tokens": 380000,
+ "working": "#296 waiting scan_list from Master; next #293 blob materials",
+ "tokens": 400000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T13:05:58Z",
+ "asOf": "2026-10-31T13:14:03Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T13:05:58Z",
+  "asOf": "2026-10-31T13:14:03Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 93,
+    "pct": 92,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
