@@ -81,6 +81,55 @@ if not DRY:
         MEL.set_material_instance_parent(mi, m); EAL.save_asset(MI)
     log.append('made M_BloodDecal_337 + MI_BloodDecal_337')
 
-out = '\n'.join(log)
+# ---- wound caps (caps/): SM_WoundCap_<Part>_337 + T_WoundCap_<Part>_337_BC/ORM/N, one master M_WoundCap_337 + an MI per cap.
+# Cap faces +X, pivot in the cut centre (attach to the cut bone, no rotation). No collision (it rides on the limb / stump).
+CAPS = ('Forearm', 'UpperArm', 'Calf', 'Neck')
+CD = DST + '/WoundCaps'
+CM = CD + '/M_WoundCap_337'
+for part in CAPS:
+    log.append('cap ' + part + ('' if os.path.exists(os.path.join(HERE, 'caps', 'SM_WoundCap_%s_337.fbx' % part)) else ' (MISSING fbx)'))
+if not DRY:
+    for part in CAPS:
+        for suf, srgb, comp in (('BC', True, unreal.TextureCompressionSettings.TC_DEFAULT), ('ORM', False, unreal.TextureCompressionSettings.TC_MASKS),
+                                ('N', False, unreal.TextureCompressionSettings.TC_NORMALMAP)):
+            n = 'T_WoundCap_%s_337_%s' % (part, suf); t = unreal.AssetImportTask()
+            for k, v in (('filename', os.path.join(HERE, 'caps', n + '.png')), ('destination_path', CD), ('automated', True), ('save', True), ('replace_existing', True)):
+                t.set_editor_property(k, v)
+            AT.import_asset_tasks([t])
+            tx = unreal.load_asset(CD + '/' + n); tx.set_editor_property('srgb', srgb); tx.set_editor_property('compression_settings', comp)
+            tx.set_editor_property('max_texture_size', 512); EAL.save_asset(CD + '/' + n)
+    m = unreal.load_asset(CM) if EAL.does_asset_exist(CM) else AT.create_asset('M_WoundCap_337', CD, unreal.Material, unreal.MaterialFactoryNew())
+    MEL.delete_all_material_expressions(m)
+    def tp(name, st, x, y):
+        e = MEL.create_material_expression(m, unreal.MaterialExpressionTextureSampleParameter2D, x, y)
+        e.set_editor_property('parameter_name', name); e.set_editor_property('sampler_type', st)
+        e.set_editor_property('texture', unreal.load_asset(CD + '/T_WoundCap_Forearm_337_' + name[:-3])); return e
+    bc = tp('BCTex', unreal.MaterialSamplerType.SAMPLERTYPE_COLOR, -600, -200)
+    orm = tp('ORMTex', unreal.MaterialSamplerType.SAMPLERTYPE_MASKS, -600, 100)
+    nm = tp('NTex', unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL, -600, 400)
+    MEL.connect_material_property(bc, 'RGB', unreal.MaterialProperty.MP_BASE_COLOR)
+    MEL.connect_material_property(orm, 'R', unreal.MaterialProperty.MP_AMBIENT_OCCLUSION)
+    MEL.connect_material_property(orm, 'G', unreal.MaterialProperty.MP_ROUGHNESS)
+    MEL.connect_material_property(nm, 'RGB', unreal.MaterialProperty.MP_NORMAL)
+    MEL.recompile_material(m); EAL.save_asset(CM)
+    for part in CAPS:
+        mi_p = CD + '/MI_WoundCap_%s_337' % part
+        mi = unreal.load_asset(mi_p) if EAL.does_asset_exist(mi_p) else AT.create_asset('MI_WoundCap_%s_337' % part, CD, unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
+        MEL.set_material_instance_parent(mi, m)
+        for pn, suf in (('BCTex', 'BC'), ('ORMTex', 'ORM'), ('NTex', 'N')):
+            MEL.set_material_instance_texture_parameter_value(mi, pn, unreal.load_asset(CD + '/T_WoundCap_%s_337_%s' % (part, suf)))
+        EAL.save_asset(mi_p)
+        t = unreal.AssetImportTask()
+        for k, v in (('filename', os.path.join(HERE, 'caps', 'SM_WoundCap_%s_337.fbx' % part)), ('destination_path', CD), ('automated', True), ('save', True), ('replace_existing', True)):
+            t.set_editor_property(k, v)
+        o = unreal.FbxImportUI(); o.set_editor_property('import_mesh', True); o.set_editor_property('import_as_skeletal', False)
+        o.set_editor_property('import_materials', False); o.set_editor_property('import_textures', False)
+        o.static_mesh_import_data.set_editor_property('auto_generate_collision', False)
+        t.set_editor_property('options', o); AT.import_asset_tasks([t])
+        sm = unreal.load_asset(CD + '/SM_WoundCap_%s_337' % part)
+        if sm: sm.set_material(0, mi); EAL.save_asset(CD + '/SM_WoundCap_%s_337' % part)
+    log.append('made 4 wound caps + M_WoundCap_337 + 4 MIs in ' + CD)
+
+out ='\n'.join(log)
 if not DRY: open(os.path.join(HERE, 'import_blood337.txt'), 'w').write(out)
 unreal.log(out); print(out)

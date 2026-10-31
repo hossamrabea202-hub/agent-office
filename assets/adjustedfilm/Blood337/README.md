@@ -44,3 +44,20 @@ Index / Dry / Fade set per decal and a world cap of 48.
 
 Rules applied (INDUSTRY_SECRETS): §0 rule 1 (calibrated values), §1 (measured blood optics), §3.5 (gore without C++),
 §4 (VFX: lit, wet, no glow). KB: lookdev with locked exposure, real light behind every highlight.
+
+## Wound caps (stumps), "not too gory"
+
+`caps/`, from `source/make_caps.py`: `SM_WoundCap_Forearm_337` (Ø 9 cm, radius + ulna), `_UpperArm` (Ø 12 cm, humerus),
+`_Calf` (Ø 13 cm, tibia + fibula) and `_Neck` (Ø 14 cm, vertebra). Each comes with 512 px BC / ORM / N.
+
+**Look:** a dried cut, dark and calm, with nothing hanging off it:
+- muscle bundles in dark red-brown, with faint fascia between them;
+- a thin yellowed fat layer and a thin grey-green skin lip;
+- a solid off-white bone section with dark marrow;
+- 2–3 wet spots (roughness 0.15) on rough 0.6 flesh.
+
+pbr_check: all 4 OK.
+
+**Placement:** each cap faces +X with its pivot in the cut centre, so it attaches to the cut bone with no rotation. The
+gore Blueprint picks the cap by bone. The import script makes `M_WoundCap_337` and one MI per cap, with no collision.
+Lookdev: `caps/renders/woundcaps_lookdev.jpg`.
