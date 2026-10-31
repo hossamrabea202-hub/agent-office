@@ -55,5 +55,9 @@
  "session": {
   "id": "58d7ed629018",
   "host": "5CD3147LBC"
+ },
+ "ask": {
+  "text": "No editor driver online: #183: screenshot + name of the BP that draws the skill-gain pop-up (https://github.com/hossamrabea202-hub/agent-office/issues/291)",
+  "at": "2026-10-31T08:41:43Z"
  }
 }
