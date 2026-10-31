@@ -1,0 +1,2 @@
+# #24 BP_ThirdPersonCharacter - paste on the VARIABLES header, then Compile
+BPVar(VarName="DeathText",VarGuid=3FCF5AADA90752DB865BC55CB32D5B48,VarType=(PinCategory="string"),FriendlyName="DeathText",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="YOU HAVE FALLEN")

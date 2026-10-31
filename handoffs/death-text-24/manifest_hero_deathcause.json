@@ -1,0 +1,29 @@
+{
+ "blueprint": "BP_ThirdPersonCharacter",
+ "note": "#24: remember what hit the hero, for the death screen",
+ "pastes": [
+  {
+   "file": "Hero_DeathCause_graph.txt"
+  }
+ ],
+ "rewires": [
+  {
+   "from": "K2Node_Event_PH0.then",
+   "to": "DeathIn.execute",
+   "replace": true,
+   "note": "was -> K2Node_CallFunction_15"
+  },
+  {
+   "from": "DeathOut.then_0",
+   "to": "K2Node_CallFunction_15.execute"
+  },
+  {
+   "from": "K2Node_Event_PH0.DamageCauser",
+   "to": "dtCauserValid13.Object"
+  },
+  {
+   "from": "K2Node_Event_PH0.DamageCauser",
+   "to": "dtCauserName1.Object"
+  }
+ ]
+}
