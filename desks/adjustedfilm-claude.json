@@ -1,9 +1,10 @@
 {
- "working": "#322 p2 brute animation polish",
- "tokens": 60000,
+ "working": "#297 p3 mine dungeon placement",
+ "tokens": 200000,
  "ctx": 1000000,
  "since": "2026-10-31T15:21:27Z",
  "done": [
+  "#322 p2 brute anim polish handed off [80% tokens left]",
   "#296 side-by-side read + --swap-entrance line (waits owner OK) [94% tokens left]",
   "next-session prompt written [6% tokens left · 5h plan 32% left]",
   "#296 --auto one-step cave rock [12% tokens left · 5h plan 29% left]",
@@ -12,8 +13,7 @@
   "#296 entrance rock/timber split [24% tokens left · 5h plan 24% left]",
   "#44 zombie towers handed off [32% tokens left · 5h plan 20% left]",
   "#322 part 1 handed off [40% tokens left · 5h plan 16% left]",
-  "#8 treasure chest handed off [44% tokens left · 5h plan 14% left]",
-  "#315 handed off [50% tokens left · 5h plan 12% left]"
+  "#8 treasure chest handed off [44% tokens left · 5h plan 14% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T15:22:43Z",
+ "asOf": "2026-10-31T15:33:39Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
