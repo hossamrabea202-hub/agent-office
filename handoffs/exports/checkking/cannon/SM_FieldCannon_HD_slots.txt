@@ -1,0 +1,3 @@
+0 Metal /Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/Metal.Metal
+1 Wood /Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/Wood.Wood
+asset: /Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/SM_FieldCannon_HD.SM_FieldCannon_HD
