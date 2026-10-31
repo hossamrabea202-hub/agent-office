@@ -1,0 +1,27 @@
+{
+ "blueprint": "BP_NoticeHUD",
+ "_apply": "after #307 (antidote: AntIn..AntOut). The toast draws after the antidote panel and before the #31 banner.",
+ "pastes": [
+  "NoticeHUD_ToastHook_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "AntOut.then_0",
+   "to": "ToastIn.execute",
+   "replace": true,
+   "note": "was -> NoticeIn"
+  },
+  {
+   "from": "ToastOut.then_0",
+   "to": "NoticeIn.execute"
+  },
+  {
+   "from": "CX_1.SizeX",
+   "to": "ToastSizeX.A"
+  },
+  {
+   "from": "CX_1.SizeY",
+   "to": "ToastSizeY.A"
+  }
+ ]
+}

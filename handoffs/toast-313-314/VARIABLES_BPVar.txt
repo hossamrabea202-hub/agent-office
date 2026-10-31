@@ -1,0 +1,10 @@
+# BPC_Toast - paste one line at a time on the VARIABLES header of My Blueprint, then Compile
+BPVar(VarName="ToastText",VarGuid=FB6F80124B585D38A7E3EC83B0D1E18C,VarType=(PinCategory="string"),FriendlyName="ToastText",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="ToastT0",VarGuid=127400A51F4E54138FEDB1EE4E2983E6,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ToastT0",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="-100.0")
+BPVar(VarName="ToastDur",VarGuid=5B6E37A3BF995BB9A6FBD38BBD477148,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ToastDur",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="3.0")
+BPVar(VarName="NextRemind",VarGuid=0B6DD521B86355E7A1C8DFF14C9A1EC5,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="NextRemind",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="-1.0")
+BPVar(VarName="RemindEvery",VarGuid=21D2A419F4D85C2E843E13194EAD6C78,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="RemindEvery",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="600.0")
+BPVar(VarName="CannonsFull",VarGuid=42BF1284DEF1523E9CC5C4CB09D356F5,VarType=(PinCategory="bool"),FriendlyName="CannonsFull",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="CnFull",VarGuid=6A547D6167015D56A0EE8C633C3C43F0,VarType=(PinCategory="bool"),FriendlyName="CnFull",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="CnTaken",VarGuid=A4F874A1F5D75AF7997C095993D7982E,VarType=(PinCategory="bool"),FriendlyName="CnTaken",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="CannonReach",VarGuid=8932F39BFC705C15ABDD91A4927AC5E1,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="CannonReach",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="500.0")

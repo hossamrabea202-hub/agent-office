@@ -1,0 +1,33 @@
+{
+ "blueprint": "BP_BarracksHUD",
+ "_apply": "after BPC_Toast exists (#314 setup + BPVars + graph). Built on the 10-30b export; on a fresh export check that the 6 live names still exist.",
+ "pastes": [
+  "BarracksHUD_CannonFull_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_548.then",
+   "to": "CnIf.execute",
+   "replace": true,
+   "note": "was -> CX_549 (Man a cannon handler)"
+  },
+  {
+   "from": "CnToOrder.then_0",
+   "to": "CX_549.execute"
+  },
+  {
+   "from": "CnToNext.then_0",
+   "to": "CX_595.execute"
+  },
+  {
+   "from": "CX_1321.ReturnValue",
+   "to": "CnColIn.A"
+  },
+  {
+   "from": "CnSel.ReturnValue",
+   "to": "CX_1333.TextColor",
+   "replace": true,
+   "note": "was <- CX_1321"
+  }
+ ]
+}
