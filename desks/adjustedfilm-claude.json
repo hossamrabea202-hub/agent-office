@@ -1,8 +1,8 @@
 {
- "working": "context nearly full: next session continues (see NEXT_SESSION_PROMPT.md)",
- "tokens": 940000,
+ "working": "#322 p2 brute animation polish",
+ "tokens": 30000,
  "ctx": 1000000,
- "since": "2026-10-31T12:10:29Z",
+ "since": "2026-10-31T15:21:27Z",
  "done": [
   "next-session prompt written [6% tokens left · 5h plan 32% left]",
   "#296 --auto one-step cave rock [12% tokens left · 5h plan 29% left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T15:20:09Z",
+ "asOf": "2026-10-31T15:21:27Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "931364c3dc10",
+  "id": "1609adbb75a5",
   "host": "5CD3147LBC"
  },
  "ask": {
