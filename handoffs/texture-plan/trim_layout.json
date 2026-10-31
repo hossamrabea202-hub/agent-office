@@ -1,0 +1,251 @@
+{
+ "res": 2048,
+ "texel_density_px_per_m": 512,
+ "gutter_px": 8,
+ "sheets": {
+  "WoodIron": [
+   {
+    "strip": "OakPlank_Clean",
+    "y0": 0,
+    "y1": 256,
+    "height_px": 256,
+    "height_cm": 50.0,
+    "v0": 0.875,
+    "v1": 1.0,
+    "note": "oak board face, 50 cm wide"
+   },
+   {
+    "strip": "OakPlank_Worn",
+    "y0": 264,
+    "y1": 520,
+    "height_px": 256,
+    "height_cm": 50.0,
+    "v0": 0.746094,
+    "v1": 0.871094,
+    "note": "same board, edge wear + dirt in grain"
+   },
+   {
+    "strip": "PinePlank",
+    "y0": 528,
+    "y1": 784,
+    "height_px": 256,
+    "height_cm": 50.0,
+    "v0": 0.617188,
+    "v1": 0.742188,
+    "note": "pine board, lighter, resin knots"
+   },
+   {
+    "strip": "Plank_Charred",
+    "y0": 792,
+    "y1": 984,
+    "height_px": 192,
+    "height_cm": 37.5,
+    "v0": 0.519531,
+    "v1": 0.613281,
+    "note": "fire-blackened board, 37.5 cm"
+   },
+   {
+    "strip": "Beam_Side",
+    "y0": 992,
+    "y1": 1248,
+    "height_px": 256,
+    "height_cm": 50.0,
+    "v0": 0.390625,
+    "v1": 0.515625,
+    "note": "squared beam face, 50 cm"
+   },
+   {
+    "strip": "Beam_EndGrain",
+    "y0": 1256,
+    "y1": 1384,
+    "height_px": 128,
+    "height_cm": 25.0,
+    "v0": 0.324219,
+    "v1": 0.386719,
+    "note": "end-grain squares, 128 px each (25 cm)"
+   },
+   {
+    "strip": "IronStrap",
+    "y0": 1392,
+    "y1": 1456,
+    "height_px": 64,
+    "height_cm": 12.5,
+    "v0": 0.289062,
+    "v1": 0.320312,
+    "note": "flat iron band, 12.5 cm"
+   },
+   {
+    "strip": "IronStrap_Rivets",
+    "y0": 1464,
+    "y1": 1528,
+    "height_px": 64,
+    "height_cm": 12.5,
+    "v0": 0.253906,
+    "v1": 0.285156,
+    "note": "band with rivet row"
+   },
+   {
+    "strip": "NailRow",
+    "y0": 1536,
+    "y1": 1568,
+    "height_px": 32,
+    "height_cm": 6.2,
+    "v0": 0.234375,
+    "v1": 0.25,
+    "note": "nail heads on a 6 cm strip"
+   },
+   {
+    "strip": "Hinge",
+    "y0": 1576,
+    "y1": 1672,
+    "height_px": 96,
+    "height_cm": 18.8,
+    "v0": 0.183594,
+    "v1": 0.230469,
+    "note": "strap hinge with knuckle, 19 cm"
+   },
+   {
+    "strip": "Rope",
+    "y0": 1680,
+    "y1": 1744,
+    "height_px": 64,
+    "height_cm": 12.5,
+    "v0": 0.148438,
+    "v1": 0.179688,
+    "note": "twisted rope, 12.5 cm (cylinder UV around)"
+   },
+   {
+    "strip": "LeatherStrap",
+    "y0": 1752,
+    "y1": 1816,
+    "height_px": 64,
+    "height_cm": 12.5,
+    "v0": 0.113281,
+    "v1": 0.144531,
+    "note": "stitched leather strap, 12.5 cm"
+   },
+   {
+    "strip": "Spare",
+    "y0": 1824,
+    "y1": 2040,
+    "height_px": 216,
+    "height_cm": 42.2,
+    "v0": 0.003906,
+    "v1": 0.109375,
+    "note": "unique details: brackets, bolts, lock plates (no tiling)"
+   }
+  ],
+  "StonePlaster": [
+   {
+    "strip": "Ashlar_Block",
+    "y0": 0,
+    "y1": 256,
+    "height_px": 256,
+    "height_cm": 50.0,
+    "v0": 0.875,
+    "v1": 1.0,
+    "note": "cut stone course, 50 cm"
+   },
+   {
+    "strip": "Ashlar_Worn",
+    "y0": 264,
+    "y1": 520,
+    "height_px": 256,
+    "height_cm": 50.0,
+    "v0": 0.746094,
+    "v1": 0.871094,
+    "note": "same course, chipped arrises + moss line"
+   },
+   {
+    "strip": "Moulding_Ogee",
+    "y0": 528,
+    "y1": 656,
+    "height_px": 128,
+    "height_cm": 25.0,
+    "v0": 0.679688,
+    "v1": 0.742188,
+    "note": "carved ogee moulding profile, 25 cm"
+   },
+   {
+    "strip": "Sill",
+    "y0": 664,
+    "y1": 792,
+    "height_px": 128,
+    "height_cm": 25.0,
+    "v0": 0.613281,
+    "v1": 0.675781,
+    "note": "window sill / coping top, 25 cm"
+   },
+   {
+    "strip": "Arch_Voussoir",
+    "y0": 800,
+    "y1": 992,
+    "height_px": 192,
+    "height_cm": 37.5,
+    "v0": 0.515625,
+    "v1": 0.609375,
+    "note": "wedge stones for arches, 37.5 cm"
+   },
+   {
+    "strip": "Plaster_Limewash",
+    "y0": 1000,
+    "y1": 1256,
+    "height_px": 256,
+    "height_cm": 50.0,
+    "v0": 0.386719,
+    "v1": 0.511719,
+    "note": "limewashed plaster, flat"
+   },
+   {
+    "strip": "Plaster_Edge",
+    "y0": 1264,
+    "y1": 1392,
+    "height_px": 128,
+    "height_cm": 25.0,
+    "v0": 0.320312,
+    "v1": 0.382812,
+    "note": "plaster broken edge showing stone, 25 cm"
+   },
+   {
+    "strip": "Brick_Course",
+    "y0": 1400,
+    "y1": 1528,
+    "height_px": 128,
+    "height_cm": 25.0,
+    "v0": 0.253906,
+    "v1": 0.316406,
+    "note": "two brick courses, 25 cm"
+   },
+   {
+    "strip": "Mortar_Line",
+    "y0": 1536,
+    "y1": 1568,
+    "height_px": 32,
+    "height_cm": 6.2,
+    "v0": 0.234375,
+    "v1": 0.25,
+    "note": "recessed mortar joint, 6 cm"
+   },
+   {
+    "strip": "Cobble_Edge",
+    "y0": 1576,
+    "y1": 1704,
+    "height_px": 128,
+    "height_cm": 25.0,
+    "v0": 0.167969,
+    "v1": 0.230469,
+    "note": "kerb / step edge, 25 cm"
+   },
+   {
+    "strip": "Spare",
+    "y0": 1712,
+    "y1": 2024,
+    "height_px": 312,
+    "height_cm": 60.9,
+    "v0": 0.011719,
+    "v1": 0.164062,
+    "note": "unique details: keystones, carvings (no tiling)"
+   }
+  ]
+ }
+}

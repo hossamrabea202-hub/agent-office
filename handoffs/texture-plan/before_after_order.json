@@ -1,0 +1,29 @@
+{
+ "checkking": [
+  "checkking/Obsidian-Sovereign",
+  "checkking/Weapons"
+ ],
+ "laptop2": [
+  "laptop2/BarracksProps",
+  "laptop2/CampKit",
+  "laptop2/FireBallista",
+  "laptop2/FloraKit",
+  "laptop2/MineKit",
+  "laptop2/Obsidian-Sovereign",
+  "laptop2/SiegeBarricadeKit",
+  "laptop2/SiegeGate",
+  "laptop2/WeaponPack"
+ ],
+ "tga": [
+  "tga/Feast",
+  "tga/HalfHorseZombie",
+  "tga/MedicGear",
+  "tga/MinerGear",
+  "tga/OreShed",
+  "tga/RealmCrack",
+  "tga/RealmWasp",
+  "tga/SiegeEngines",
+  "tga/Signs",
+  "tga/Trough"
+ ]
+}
