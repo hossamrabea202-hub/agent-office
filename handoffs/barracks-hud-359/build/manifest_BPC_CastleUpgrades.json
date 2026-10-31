@@ -1,0 +1,34 @@
+{
+ "blueprint": "BPC_CastleUpgrades",
+ "_note": "Muster #359 add-on: HudBuyWalls, HudBuyTowers",
+ "pastes": [
+  {
+   "file": "../../castle-upgrades-224/BPC_CastleUpgrades_graph.txt"
+  },
+  {
+   "file": "addon_BPC_CastleUpgrades_graph.txt",
+   "offset": [
+    0,
+    -1500
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "HudBuyWalls.then",
+   "to": "cuIfMaxWalls66.execute",
+   "note": "enters right after the key check"
+  },
+  {
+   "from": "HudBuyTowers.then",
+   "to": "cuIfMaxTowers135.execute",
+   "note": "enters right after the key check"
+  },
+  {
+   "from": "cuIfOffer36.then",
+   "to": "cuSetNearShop54.execute",
+   "replace": true,
+   "note": "skip the once-per-visit key notice (owner)"
+  }
+ ]
+}

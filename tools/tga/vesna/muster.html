@@ -1,0 +1,145 @@
+<!doctype html>
+<!-- The Muster frame (#359), generated from chrome.html by make_muster_html.py. ?m=chrome  -> the static frame texture (transparent portrait hole), rendered at 1920x1080
+                                ?m=mock    -> frame + live layer with sample data (what the game draws), for the check
+                                ?m=overlay -> mock over the owner's target at 50 %, for alignment
+     Coordinates come from layout.js (layout.py), in target pixels. -->
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="layout_mu.js"></script>
+<style>
+:root{--gold:#d9b46a;--gold2:#f0d391;--bronze:#7a6034;--line:#5a4628;--cream:#ece2cf;--dim:#9b9080;--green:#9bd85a;--panel:rgba(15,14,13,.94)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1672px;height:941px;overflow:hidden;background:transparent}
+#root{position:absolute;inset:0;font-family:'Cormorant Garamond',serif;color:var(--cream)}
+.a{position:absolute}
+.cz{font-family:Cinzel,serif}
+.bg{position:absolute;inset:0;background:
+  radial-gradient(120% 80% at 50% 0%,rgba(60,22,18,.35),transparent 60%),
+  radial-gradient(60% 50% at 50% 55%,#141312,#0a0909 70%,#070606);}
+.noise{position:absolute;inset:0;opacity:.35;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+.panel{position:absolute;background:linear-gradient(180deg,rgba(22,20,18,.96),rgba(12,11,10,.97));border:1px solid var(--line);
+  box-shadow:inset 0 0 0 3px rgba(0,0,0,.6),inset 0 0 0 4px rgba(122,96,52,.18),0 6px 24px rgba(0,0,0,.7)}
+.corner{position:absolute;width:16px;height:16px;border-color:var(--gold);border-style:solid;opacity:.75}
+.box{position:absolute;border:1px solid rgba(122,96,52,.55);background:linear-gradient(180deg,rgba(30,27,24,.85),rgba(16,15,14,.9));box-shadow:inset 0 1px 0 rgba(255,220,150,.05)}
+.rule{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--bronze),transparent)}
+.key{position:absolute;display:grid;place-items:center;border:1px solid var(--gold);border-radius:3px;background:rgba(10,9,8,.9);
+  font-family:Cinzel;color:var(--cream);font-weight:600}
+.lbl{position:absolute;white-space:nowrap;line-height:1}
+svg.i{position:absolute;overflow:visible}
+</style></head><body><div id="root"></div>
+<script>
+const M = new URLSearchParams(location.search).get('m') || 'chrome';
+const R = document.getElementById('root');
+function el(tag, cls, css, html){const e=document.createElement(tag); if(cls)e.className=cls; if(css)e.style.cssText=css; if(html!=null)e.innerHTML=html; R.appendChild(e); return e;}
+function text(x,y,s,css,anchor){ // y = vertical centre of the caps / x-height band
+  const e=el('div','lbl',css+';top:'+y+'px;left:'+x+'px'); e.textContent=s;
+  e.style.transform='translate('+(anchor==='c'?'-50%':anchor==='r'?'-100%':'0')+',-50%)'; return e;}
+function panel(r){const p=el('div','panel',`left:${r.x}px;top:${r.y}px;width:${r.w}px;height:${r.h}px`);
+  const c=(h,v)=>el('div','corner',`left:${h==='l'?r.x+4:r.x+r.w-20}px;top:${v==='t'?r.y+4:r.y+r.h-20}px;border-width:${v==='t'?'1px':'0'} ${h==='r'?'1px':'0'} ${v==='b'?'1px':'0'} ${h==='l'?'1px':'0'}`);
+  c('l','t');c('r','t');c('l','b');c('r','b'); return p;}
+function box(x,y,w,h,css){return el('div','box',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;${css||''}`);}
+function svg(x,y,w,h,body,css){const s=document.createElementNS('http://www.w3.org/2000/svg','svg'); s.setAttribute('class','i');
+  s.setAttribute('width',w); s.setAttribute('height',h); s.setAttribute('viewBox',`0 0 ${w} ${h}`); s.style.cssText=`left:${x-w/2}px;top:${y-h/2}px;${css||''}`;
+  s.innerHTML=body; R.appendChild(s); return s;}
+const G='#d9b46a', GS=`fill="none" stroke="${G}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"`;
+const ICON = {
+  helm:`<path ${GS} d="M4 22V12a10 10 0 0 1 20 0v10l-4 3h-12z M14 4v19 M8 14h12"/>`,
+  knight:`<path ${GS} d="M14 3a4 4 0 0 1 4 4v3h-8V7a4 4 0 0 1 4-4z M8 12h12l2 8-3 1-1 7h-8l-1-7-3-1z M4 10l4 2 M24 10l-4 2"/>`,
+  flask:`<path ${GS} d="M11 3h6 M12 3v6l-6 11a3 3 0 0 0 3 5h10a3 3 0 0 0 3-5l-6-11V3 M8 18h12"/>`,
+  shield:`<path ${GS} d="M14 3l10 4v7c0 7-5 11-10 13C9 25 4 21 4 14V7z M14 3v24"/>`,
+  swords:`<path ${GS} d="M4 4l15 15 M24 4L9 19 M17 21l4-4 M11 21l-4-4 M5 23l3-3 M23 23l-3-3"/>`,
+  foot:`<path ${GS} d="M4 18c6 0 9-3 11-7l3-6 3 1-2 8h5l1 4H6z M2 12h7 M1 15h6"/>`,
+  heart:`<path fill="${G}" d="M14 25C5 18 3 14 3 10a5.5 5.5 0 0 1 11-1 5.5 5.5 0 0 1 11 1c0 4-2 8-11 15z"/>`,
+  laurel:`<g ${GS}><path d="M10 34C3 28 2 18 8 8 M30 34c7-6 8-16 2-26"/><path d="M6 30c-3 0-5-2-5-4 3-1 5 1 5 4z M4 23c-3-1-4-3-3-5 3 0 4 3 3 5z M4 16c-2-2-2-4 0-6 2 1 2 4 0 6z M7 10c-1-3 0-5 2-6 1 2 0 5-2 6z M34 30c3 0 5-2 5-4-3-1-5 1-5 4z M36 23c3-1 4-3 3-5-3 0-4 3-3 5z M36 16c2-2 2-4 0-6-2 1-2 4 0 6z M33 10c1-3 0-5-2-6-1 2 0 5 2 6z"/><path d="M14 36h12"/></g>`,
+  coin:`<circle cx="14" cy="14" r="10" fill="#c8963a" stroke="#f3d27c" stroke-width="1.5"/><circle cx="14" cy="14" r="6.5" fill="none" stroke="#7a5418" stroke-width="1.2"/>`,
+  ingot:`<path d="M3 20l6-10h16l-6 10z" fill="#8f949a" stroke="#d8dde2" stroke-width="1"/><path d="M19 20l6-10v5l-6 10z" fill="#5d6268"/><path d="M3 20h16v5H3z" fill="#71767c"/>`,
+  ore:`<path d="M4 22l4-10 6-4 7 3 4 8-5 5H9z" fill="#aab3bd" stroke="#e9eef3" stroke-width="1"/><path d="M8 12l6 4 7-5 M14 16l-1 9" stroke="#6c747c" fill="none"/>`,
+  mouseL:`<rect x="7" y="2" width="14" height="24" rx="7" ${GS}/><path ${GS} d="M14 2v9 M7 11h14"/><path d="M8 10V9a6 6 0 0 1 6-7v9z" fill="${G}" opacity=".6"/>`,
+  mouseW:`<rect x="7" y="2" width="14" height="24" rx="7" ${GS}/><path ${GS} d="M14 5v6"/>`,
+  chev:`<path ${GS} stroke-width="2.4" d="M4 8l8 8 8-8"/>`,
+  arrowL:`<path ${GS} stroke-width="2.6" d="M14 3L5 14l9 11"/>`, arrowR:`<path ${GS} stroke-width="2.6" d="M6 3l9 11-9 11"/>`,
+  cannon:`<path ${GS} d="M3 17l17-7 2 5-17 7z M20 11l4-2 2 5-4 2 M7 22a3 3 0 1 0 .1 0z M13 22a3 3 0 1 0 .1 0z"/>`,
+  tower:`<path ${GS} d="M8 26V11h12v15z M6 11V6h4v3h3V6h3v3h3V6h3v5z"/>`,
+  copper:`<path d="M4 20l5-9h14l-5 9z" fill="#b8733a" stroke="#f0b27a"/><path d="M4 20h14v4H4z" fill="#8c5426"/>`,
+  goldore:`<path d="M5 22l3-9 6-4 7 3 3 8-5 4H9z" fill="#c9a13a" stroke="#ffe08a"/>`,
+  crest:`<g ${GS}><path d="M20 4v26 M14 10c0 6 3 10 6 12 3-2 6-6 6-12 M8 16c4 0 8 3 12 8 4-5 8-8 12-8 M20 4l-3 4h6z"/></g>`,
+};
+function ico(name,x,y,sz,css){return svg(x,y,sz||28,sz||28,ICON[name],css);}
+
+// ---------------------------------------------------------------- background + header
+if(M!=='chrome' || true){ el('div','bg'); el('div','noise'); }
+// banners + candle glow behind the header (decor, static)
+[[350,0,70,120],[1105,0,80,130],[1440,0,60,96],[205,0,40,60]].forEach(([x,y,w,h])=>el('div','a',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;
+  background:linear-gradient(180deg,#3a0f0e,#250a09 80%,transparent);clip-path:polygon(0 0,100% 0,100% 82%,50% 100%,0 82%);opacity:.75`));
+el('div','a','left:0;top:0;width:1672px;height:190px;background:linear-gradient(180deg,rgba(8,7,6,.0),rgba(8,7,6,.55) 70%,rgba(8,7,6,.0))');
+[[95,38],[250,70]].forEach(([x,y])=>el('div','a',`left:${x-60}px;top:${y-60}px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,170,70,.45),rgba(255,120,40,.12) 40%,transparent 70%)`));
+// portrait hole (frame mode) or a stand-in silhouette (mock)
+const P=L.portrait;
+el('div','a',`left:${P.x}px;top:${P.y}px;width:${P.w}px;height:${P.h}px;`+(M==='chrome'?'background:transparent':'background:radial-gradient(70% 90% at 62% 40%,#3a2a20,#120d0a 70%)'))
+  .id='portrait';
+// header title
+svg(836,18,40,34,ICON.crest);
+text(L.title.cx+4,L.title.y,'THE MUSTER','font-family:Cinzel;font-weight:700;font-size:40px;letter-spacing:7px;color:#efe3c8;text-shadow:0 2px 2px #000,0 0 18px rgba(255,200,120,.15)','c');
+text(L.sub.cx,L.sub.y,'RECRUIT  •  ARTILLERY  •  FORTIFY  •  SUPPLIES','font-family:Cinzel;font-size:15px;letter-spacing:4.5px;color:#c9bfa9','c');
+el('div','rule',`left:520px;top:93px;width:56px`); el('div','rule',`left:1096px;top:93px;width:56px`);
+el('div','rule',`left:620px;top:12px;width:180px`); el('div','rule',`left:872px;top:12px;width:180px`);
+// purse
+const pu=L.purse; el('div','a',`left:${pu.x}px;top:${pu.y}px;width:${pu.w}px;height:${pu.h}px;border:1.5px solid var(--gold);border-radius:22px;background:rgba(8,7,6,.82);box-shadow:inset 0 0 0 3px rgba(0,0,0,.5)`);
+ico('coin',pu.gold[0],pu.cy,26); ico('ingot',pu.iron[0],pu.cy,30); ico('ore',pu.silver[0],pu.cy,30);
+// tab bar
+const tb=L.tabbar;
+el('div','a',`left:0;top:${tb.y+22}px;width:1672px;height:1px;background:linear-gradient(90deg,transparent,var(--bronze) 10%,var(--bronze) 90%,transparent)`);
+el('div','a',`left:${tb.x}px;top:${tb.y}px;width:${tb.w}px;height:${tb.h}px;background:linear-gradient(180deg,#191715,#0e0d0c);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  clip-path:polygon(28px 0,calc(100% - 28px) 0,100% 50%,calc(100% - 28px) 100%,28px 100%,0 50%)`);
+el('div','a',`left:${tb.x+2}px;top:${tb.y+4}px;width:${tb.w-4}px;height:${tb.h-8}px;border-top:1px solid rgba(122,96,52,.35);border-bottom:1px solid rgba(122,96,52,.35)`);
+[[tb.lb,'LB'],[tb.rb,'RB']].forEach(([[x,y],s])=>{const k=el('div','key',`left:${x-19}px;top:${y-14}px;width:38px;height:28px;font-size:13px`); k.textContent=s;});
+L.tabs.forEach((t,i)=>{ text(t.lx,tb.cy,L.tabnames[i],'font-family:Cinzel;font-size:17px;letter-spacing:3px;color:#cfc4ad','c');
+  if(t.icon) ico(['', 'cannon','tower','flask'][i],t.icon,tb.cy,28,'opacity:.85'); });
+
+// ---------------------------------------------------------------- left: the set list
+panel(L.left);
+const lh=L.lhead; el('div','a',`left:${lh.x}px;top:${lh.y+lh.h+2}px;width:${lh.w}px;height:1px;background:var(--line)`);
+ico('swords',lh.laurel,lh.cy,30);
+text(lh.text,lh.cy,'THE BARRACKS','font-family:Cinzel;font-size:21px;letter-spacing:2px;color:var(--gold2)');
+ico('chev',lh.chev,lh.cy,24);
+const rw=L.rows;
+for(let i=0;i<rw.n;i++){ const y=rw.y0+i*rw.step; box(rw.x,y,rw.w,rw.h); box(rw.icon[0],y+1,rw.icon[1]-rw.icon[0],rw.h-2,'background:radial-gradient(circle at 50% 45%,#2a2724,#121110)'); }
+el('div','a',`left:${L.scroll.x}px;top:${L.scroll.y}px;width:${L.scroll.w}px;height:${L.scroll.h}px;background:rgba(122,96,52,.18);border-radius:3px`);
+
+// ---------------------------------------------------------------- centre: the item
+panel(L.mid);
+const tn=L.turn; el('div','a',`left:${tn.cx-330}px;top:${tn.cy-200}px;width:660px;height:400px;background:radial-gradient(50% 50% at 50% 50%,rgba(70,82,104,.42),rgba(40,46,60,.18) 45%,transparent 72%)`);
+el('div','a',`left:${tn.cx-200}px;top:${tn.cy+105}px;width:400px;height:40px;background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.65),transparent 70%)`);
+svg(L.arrows.l,L.arrows.cy,22,30,ICON.arrowL); svg(L.arrows.r,L.arrows.cy,22,30,ICON.arrowR);
+const c=L.cmp; box(c.x,c.y,c.w,c.h); el('div','a',`left:${c.div}px;top:${c.y+6}px;width:1px;height:${c.h-12}px;background:var(--line)`);
+ico('coin',c.shield[0],c.shield[1],30);
+text(616,609,'Cost','font-size:17px;font-weight:600;color:var(--cream)');
+text(826,604,'Treasury','font-size:17px;font-weight:600;color:var(--cream)');
+const bn=L.bonus; box(bn.x,bn.y,bn.w,bn.h); el('div','a',`left:${bn.x+8}px;top:${bn.y+38}px;width:${bn.w-16}px;height:1px;background:var(--line)`);
+text(557,bn.head_y,'What it does','font-size:21px;font-weight:600;color:var(--cream)');
+const bu=L.buy; el('div','a',`left:${bu.x}px;top:${bu.y}px;width:${bu.w}px;height:${bu.h}px;border:1px solid rgba(217,180,106,.5);background:rgba(10,9,8,.6)`);
+
+// ---------------------------------------------------------------- right: the hero
+panel(L.right);
+const rt=L.rtabs; el('div','a',`left:${L.right.x+12}px;top:${rt.y+rt.h}px;width:${L.right.w-24}px;height:1px;background:var(--line)`);
+text(1291,rt.y+rt.h/2+1,'GARRISON','font-family:Cinzel;font-size:16px;letter-spacing:2.5px;color:#cfc4ad','c');
+text(1528,rt.y+rt.h/2+1,'CASTLE','font-family:Cinzel;font-size:16px;letter-spacing:2.5px;color:#cfc4ad','c');
+const hr=L.hero; el('div','a',`left:${hr.x-40}px;top:${hr.y}px;width:${hr.w+80}px;height:${hr.h}px;background:radial-gradient(45% 55% at 50% 50%,rgba(80,62,40,.22),transparent 70%)`);
+const st=L.stats; box(st.x,st.y,st.w,st.h);
+svg(1578,758,110,130,`<g fill="none" stroke="#d9b46a" stroke-width="3" opacity=".16"><path d="M55 5v120 M40 30h30 M48 20l7-15 7 15"/><path d="M15 110C0 80 5 45 30 25 M95 110c15-30 10-65-15-85"/></g>`);
+[['ingot','Iron'],['copper','Copper'],['ore','Silver'],['goldore','Gold ore']].forEach(([ic,lb],i)=>{ const y=st.rows[i];
+  ico(ic,st.icon,y,24); text(st.label,y,lb,'font-size:18px;font-weight:600;color:var(--cream)');
+  if(i<3) el('div','a',`left:${st.x+12}px;top:${y+18}px;width:${st.w-24}px;height:1px;background:rgba(122,96,52,.22)`); });
+
+// ---------------------------------------------------------------- bottom hints
+const ft=L.foot; el('div','a',`left:0;top:${ft.y}px;width:1672px;height:${ft.h}px;background:linear-gradient(180deg,#0e0d0c,#090808);border-top:1px solid var(--line)`);
+const hint=(x,keys,label,lx)=>{ let cx=x; keys.forEach(k=>{ if(k.startsWith('mouse')){ ico(k,cx+14,ft.cy,28); cx+=36; }
+  else { const w=k.length>1?54:30; const e=el('div','key',`left:${cx}px;top:${ft.cy-15}px;width:${w}px;height:30px;font-size:15px`); e.textContent=k; cx+=w+6; } });
+  text(lx,ft.cy,label,'font-size:18px;font-weight:600;color:var(--cream)'); };
+hint(45,['ESC'],'Close',118); hint(280,['A','D'],'Navigate',370); hint(528,['E'],'Recruit / Buy',577); hint(790,['LB','RB'],'Tabs',916);
+hint(1040,['Q'],'Garrison / Castle',1082); hint(1320,['mouseW'],'Scroll',1357); hint(1490,['mouseL'],'Select',1535);
+
+// ---------------------------------------------------------------- live layer (mock only): what BPC_VesnaTrade draws
+if(M!=='chrome'){ const s=document.createElement('script'); s.src='live_mu.js'; document.body.appendChild(s); }
+if(false){ const o=el('img','a','left:0;top:0;width:1672px;height:941px;opacity:.5;z-index:99'); o.src='../../../handoffs/vesna-trade-361/owner_target.png'; }
+</script></body></html>

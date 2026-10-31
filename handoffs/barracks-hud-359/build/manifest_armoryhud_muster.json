@@ -1,0 +1,37 @@
+{
+ "blueprint": "BP_ArmoryHUD",
+ "_note": "after #380 (manifest_trade.json), which puts the #222/#66 hook in",
+ "pastes": [
+  {
+   "file": "../../obsidian-set-v2/ArmoryHUD_ObsHook_graph.txt"
+  },
+  {
+   "file": "ArmoryHUD_MusterHook_graph.txt",
+   "offset": [
+    -200,
+    -3400
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "ObsHookSeq.then_2",
+   "to": "MusterSeq.execute",
+   "replace": true,
+   "note": "was -> ohHookIfFX9 (reveal)"
+  },
+  {
+   "from": "MusterSeq.then_1",
+   "to": "ohHookIfFX9.execute",
+   "note": "the reveal still draws last, on top"
+  },
+  {
+   "from": "HookSizeX.ReturnValue",
+   "to": "MusterDraw.SizeX"
+  },
+  {
+   "from": "HookSizeY.ReturnValue",
+   "to": "MusterDraw.SizeY"
+  }
+ ]
+}

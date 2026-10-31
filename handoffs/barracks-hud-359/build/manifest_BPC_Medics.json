@@ -1,0 +1,29 @@
+{
+ "blueprint": "BPC_Medics",
+ "_note": "Muster #359 add-on: HudBuy",
+ "pastes": [
+  {
+   "file": "../../medics-185/BPC_Medics_graph.txt"
+  },
+  {
+   "file": "addon_BPC_Medics_graph.txt",
+   "offset": [
+    0,
+    -1500
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "HudBuy.then",
+   "to": "mdIfFull45.execute",
+   "note": "enters right after the key check"
+  },
+  {
+   "from": "mdIfOffer19.then",
+   "to": "mdSetNearShop32.execute",
+   "replace": true,
+   "note": "skip the once-per-visit key notice (owner)"
+  }
+ ]
+}

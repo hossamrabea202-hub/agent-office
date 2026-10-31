@@ -3,7 +3,7 @@
      Rendered at device scale S on a transparent page -> 2048 x 2048. ?grid=1 shows cell borders. -->
 <html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-<script src="layout.js"></script>
+<script>document.write('<script src="'+(new URLSearchParams(location.search).get('L')=='mu'?'layout_mu.js':'layout.js')+'"><\/script>');</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1783px;height:1783px;overflow:hidden;background:transparent}
@@ -21,6 +21,17 @@ const GL={ // engraved line icons for the pieces that have no art yet (128 cells
  cuisses:'M40 16h48l-6 72H46z M46 88l2 24h32l2-24 M42 40h44 M44 64h40',
  cape:'M30 22h68l6 12-10 82-30-10-30 10-10-82z M64 22v80 M44 40l-6 64 M84 40l6 64',
  shield:'M64 14l42 14v30c0 30-20 46-42 56C42 104 22 88 22 58V28z M64 14v100 M28 58h72',
+ // the Muster (#359)
+ sword:'M64 10l8 10v66H56V20z M40 86h48 M64 90v20 M56 112h16 M64 20v62',
+ xbow:'M20 44c20-16 68-16 88 0 M24 46l40 14 40-14 M64 26v86 M56 104h16v10H56z M64 60l-20 30 M64 60l20 30',
+ banner:'M34 12v104 M34 18h60l-12 18 12 18H34 M30 116h10 M50 30l6 6 8-10',
+ medic:'M22 50h84v54H22z M46 50V38h36v12 M64 62v32 M48 78h32',
+ gear:'M64 30l8 2 4-8 10 4-2 9 7 6 8-3 4 10-8 4v9l8 4-4 10-8-3-7 6 2 9-10 4-4-8-8 2-8-2-4 8-10-4 2-9-7-6-8 3-4-10 8-4v-9l-8-4 4-10 8 3 7-6-2-9 10-4 4 8z M64 54a10 10 0 1 0 .1 0z',
+ cannon:'M18 72l70-26 10 20-70 26z M86 50l14-6 8 18-14 6 M30 92a16 16 0 1 0 .1 0z M54 92a16 16 0 1 0 .1 0z',
+ wall:'M14 46h100v64H14z M14 66h100 M14 88h100 M40 46v20 M74 46v20 M26 66v22 M58 66v22 M92 66v22 M40 88v22 M74 88v22 M14 46V30h16v16 M50 46V30h28v16 M98 46V30h16v16',
+ tower:'M36 112V44h56v68z M30 44V26h14v10h12V26h16v10h12V26h14v18z M56 112V88a8 8 0 0 1 16 0v24 M54 58h20',
+ gate:'M24 112V50a40 40 0 0 1 80 0v62z M38 112V56a26 26 0 0 1 52 0v56 M38 72h52 M38 90h52 M52 50v62 M76 50v62',
+ flare:'M64 16c10 14 14 24 0 40-14-16-10-26 0-40z M64 56v56 M50 112h28 M40 36l-10-6 M88 36l10-6 M38 54H26 M90 54h12',
 };
 function cell(k,r){ const d=document.createElement('div'); d.className='c'; d.style.cssText+=`left:${r.x}px;top:${r.y}px;width:${r.w}px;height:${r.h}px;`;
   const t=r.p, cz='font-family:Cinzel;', cg="font-family:'Cormorant Garamond';";
@@ -30,7 +41,7 @@ function cell(k,r){ const d=document.createElement('div'); d.className='c'; d.st
    case 'title':d.style.cssText+=cz+'font-size:26px;font-weight:600;letter-spacing:2.5px;justify-content:center'; d.textContent=t; break;
    case 'tag':  d.style.cssText+='justify-content:center'; d.innerHTML=`<span style="${cz}font-size:12.5px;letter-spacing:1.2px;border:1px solid rgba(255,255,255,.55);padding:4px 14px 4px;background:rgba(255,255,255,.04)">${t}</span>`; break;
    case 'tier': d.style.cssText+=cg+'font-size:17px;font-weight:600'; d.innerHTML=`<svg width="16" height="16" style="margin-right:12px"><path d="M8 1l7 7-7 7-7-7z" fill="none" stroke="#fff" stroke-width="1.6"/></svg>`+t.replace(' ','&nbsp;&nbsp;'); break;
-   case 'tab':  { const i=+k.slice(3); const ic=['','M4 22V12a10 10 0 0 1 20 0v10l-4 3h-12z M14 4v19 M8 14h12','M14 3a4 4 0 0 1 4 4v3h-8V7a4 4 0 0 1 4-4z M8 12h12l2 8-3 1-1 7h-8l-1-7-3-1z','M11 3h6 M12 3v6l-6 11a3 3 0 0 0 3 5h10a3 3 0 0 0 3-5l-6-11V3 M8 18h12'][i];
+   case 'tab':  { const i=+k.slice(3); const ic=(L.tabnames[0]==='RECRUIT'?['','M3 17l17-7 2 5-17 7z M20 11l4-2 2 5-4 2 M7 22a3 3 0 1 0 .1 0z M13 22a3 3 0 1 0 .1 0z','M8 26V11h12v15z M6 11V6h4v3h3V6h3v3h3V6h3v5z','M11 3h6 M12 3v6l-6 11a3 3 0 0 0 3 5h10a3 3 0 0 0 3-5l-6-11V3 M8 18h12'][i]:null)||['','M4 22V12a10 10 0 0 1 20 0v10l-4 3h-12z M14 4v19 M8 14h12','M14 3a4 4 0 0 1 4 4v3h-8V7a4 4 0 0 1 4-4z M8 12h12l2 8-3 1-1 7h-8l-1-7-3-1z','M11 3h6 M12 3v6l-6 11a3 3 0 0 0 3 5h10a3 3 0 0 0 3-5l-6-11V3 M8 18h12'][i];
      d.style.cssText+=`justify-content:center;gap:14px;border:1.5px solid ${G};background:linear-gradient(180deg,#5b4522,#2b2012);box-shadow:inset 0 0 12px rgba(255,210,130,.25)`;
      d.innerHTML=(ic?`<svg width="28" height="28"><path d="${ic}" fill="none" stroke="#f0d391" stroke-width="1.8" stroke-linejoin="round"/></svg>`:'')+`<span style="${cz}font-size:17px;font-weight:700;letter-spacing:3px;color:#f6e7c4">${t}</span>`; break; }
    case 'rtab': d.style.cssText+=`justify-content:center;border:1.5px solid ${G};border-bottom:none;background:linear-gradient(180deg,#5b4522,#2b2012);${cz}font-size:16px;font-weight:700;letter-spacing:2.5px;color:#f6e7c4`; d.textContent=t; break;
@@ -46,6 +57,9 @@ function cell(k,r){ const d=document.createElement('div'); d.className='c'; d.st
    case 'dot': d.innerHTML= t==='on'?`<svg width="12" height="12"><circle cx="6" cy="6" r="5" fill="#f0c66e"/><circle cx="6" cy="6" r="5.6" fill="none" stroke="rgba(255,220,140,.5)"/></svg>`:`<svg width="12" height="12"><circle cx="6" cy="6" r="3" fill="#6f6658"/></svg>`; break;
    case 'coin': d.innerHTML=`<svg width="22" height="22"><circle cx="11" cy="11" r="9" fill="#c8963a" stroke="#f3d27c" stroke-width="1.4"/><circle cx="11" cy="11" r="5.6" fill="none" stroke="#7a5418" stroke-width="1.1"/></svg>`; break;
    case 'msg': d.style.cssText+=cg+'font-size:19px;font-weight:600;font-style:italic;justify-content:center'; d.textContent=t; break;
+   case 'desc': d.style.cssText+=cg+'font-size:17px;font-weight:600'; d.textContent=t; break;
+   case 'pip': d.innerHTML= t==='on'?`<svg width="16" height="16"><path d="M8 1l7 7-7 7-7-7z" fill="#f0c66e" stroke="#ffe2a0"/></svg>`:`<svg width="16" height="16"><path d="M8 2l6 6-6 6-6-6z" fill="none" stroke="#7a6a52" stroke-width="1.4"/></svg>`; break;
+   case 'qslot': d.style.cssText+=`border:1px solid rgba(217,180,106,.55);background:linear-gradient(180deg,#24201c,#141210);box-shadow:inset 0 0 10px rgba(0,0,0,.6)`; break;
    case 'msg2': d.style.cssText+=cz+'font-size:15px;font-weight:600;letter-spacing:1.5px;justify-content:center'; d.textContent=t; break;
    case 'tierrow': d.style.cssText+=`border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.05)`; break;
    case 'glyph': d.innerHTML=`<svg width="128" height="128"><path d="${GL[t]}" fill="rgba(217,180,106,.08)" stroke="#d9b46a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>`; break;

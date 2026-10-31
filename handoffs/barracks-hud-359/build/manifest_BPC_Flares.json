@@ -1,0 +1,29 @@
+{
+ "blueprint": "BPC_Flares",
+ "_note": "Muster #359 add-on: HudBuy",
+ "pastes": [
+  {
+   "file": "../../flares-277/BPC_Flares_graph.txt"
+  },
+  {
+   "file": "addon_BPC_Flares_graph.txt",
+   "offset": [
+    0,
+    -1500
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "HudBuy.then",
+   "to": "fxAsBPZombieHUD36.execute",
+   "note": "enters right after the key check"
+  },
+  {
+   "from": "fxIfShopPrompt70.then",
+   "to": "fxSetNearShop75.execute",
+   "replace": true,
+   "note": "skip the once-per-visit key notice (owner)"
+  }
+ ]
+}

@@ -1,4 +1,4 @@
-﻿# Vesna's Trade (#361): renders the frame, the atlas and the check mock-ups with headless Edge.
+# Vesna's Trade (#361): renders the frame, the atlas and the check mock-ups with headless Edge.
 #   powershell -File render.ps1            -> out/T_VT_Frame.png (1920x1080, portrait hole), out/T_VT_Atlas.png (2048x2048),
 #                                             out/mock.png, out/overlay.png (1672x941, vs the owner's target)
 param([string]$Only = '')
@@ -28,5 +28,9 @@ if (!$Only -or $Only -eq 'frame') { Shot 'chrome.html' '?m=chrome' 1672 941 "$ou
 if (!$Only -or $Only -eq 'atlas') { Shot 'atlas.html' '' 1783 1783 "$out\T_VT_Atlas.png" $S -clear; Fit "$out\T_VT_Atlas.png" 2048 2048
                                     Shot 'atlas.html' '?grid=1' 1783 1783 "$out\atlas_grid.png" 1 }
 if (!$Only -or $Only -eq 'mock')  { Shot 'chrome.html' '?m=mock' 1672 941 "$out\mock.png" 1; Shot 'chrome.html' '?m=overlay' 1672 941 "$out\overlay.png" 1 }
+if (!$Only -or $Only -eq 'muster') { & 'U:\5.2\python\bin\python.exe' (Join-Path $here 'layout_mu.py'); & 'U:\5.2\python\bin\python.exe' (Join-Path $here 'make_muster_html.py')
+  Shot 'muster.html' '?m=chrome' 1672 941 "$out\T_MU_Frame.png" $S -clear; Fit "$out\T_MU_Frame.png" 1920 1080
+  Shot 'atlas.html' '?L=mu' 1783 1783 "$out\T_MU_Atlas.png" $S -clear; Fit "$out\T_MU_Atlas.png" 2048 2048
+  Shot 'muster.html' '?m=mock' 1672 941 "$out\mock_mu.png" 1 }
 Get-ChildItem $out -Filter *.png | ForEach-Object { $i = [System.Drawing.Image]::FromFile($_.FullName); '{0} {1}x{2}' -f $_.Name, $i.Width, $i.Height; $i.Dispose() }
 

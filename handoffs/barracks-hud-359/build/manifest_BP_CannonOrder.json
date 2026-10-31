@@ -1,0 +1,23 @@
+{
+ "blueprint": "BP_CannonOrder",
+ "_note": "Muster #359 add-on: HudOrder",
+ "pastes": [
+  {
+   "file": "../../deploy-cannon-230/BP_CannonOrder_graph.txt"
+  },
+  {
+   "file": "addon_BP_CannonOrder_graph.txt",
+   "offset": [
+    0,
+    -1500
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "HudOrder.then",
+   "to": "coAsZHud15.execute",
+   "note": "enters right after the key check"
+  }
+ ]
+}
