@@ -1,5 +1,5 @@
 {
- "working": "#276 battle plan handed off (https://github.com/hossamrabea202-hub/agent-office/issues/281); waiting on BP_WallBreachSpot export #280",
+ "working": "Listening in the cafeteria (checks every 10 min)",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-31T06:45:49Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-31T08:14:27Z",
+ "asOf": "2026-10-31T08:14:40Z",
  "seat": "TGA (Claude)"
 }
