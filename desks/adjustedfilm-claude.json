@@ -1,8 +1,8 @@
 {
- "working": "waiting on Master: #386 preview, #387 drums info",
- "tokens": 395000,
+ "working": "winter map",
+ "tokens": 45000,
  "ctx": 1000000,
- "since": "2026-10-31T21:16:34Z",
+ "since": "2026-10-31T23:11:26Z",
  "done": [
   "#386 handed off [60% tokens left]",
   "midnight pick-up note written [66% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T22:43:27Z",
+ "asOf": "2026-10-31T23:11:26Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "8553336c853b",
+  "id": "11f0882113df",
   "host": "5CD3147LBC"
  },
  "ask": {
