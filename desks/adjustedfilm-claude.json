@@ -1,9 +1,10 @@
 {
- "working": "#293 blob/realm realism: research",
- "tokens": 840000,
+ "working": "#293 part 2 waits on export; next card",
+ "tokens": 885000,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
+  "#293 research + realm bubble v3 handed off [11% tokens left]",
   "#295 notice scroll handed off (vellum, no BP paste) [16% tokens left]",
   "#302 Multi-User kit written (handoffs/multi-user) [18% tokens left]",
   "#292 Muddy footprints handed off (#298) [22% tokens left]",
@@ -12,8 +13,7 @@
   "#157 Realm screen distortion v2 handed off (#286) [34% tokens left · 5h plan 90% left]",
   "#283 Cannon scroll map handed off (#285) [37% tokens left · 5h plan 91% left]",
   "#224 Castle upgrades v1 handed off (#282): walls + tower ballistas [44% tokens left · 5h plan 91% left]",
-  "#277 Crossbow flares handed off (#278): barracks upgrade, flares only at spotted threats [49% tokens left · 5h plan 92% left]",
-  "#226 Weather v1 handed off (#275): daily roll + forecast, rain, fog, storm, lightning [54% tokens left · 5h plan 93% left]"
+  "#277 Crossbow flares handed off (#278): barracks upgrade, flares only at spotted threats [49% tokens left · 5h plan 92% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T11:11:55Z",
+ "asOf": "2026-10-31T11:15:04Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
