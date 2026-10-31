@@ -1,9 +1,10 @@
 {
- "working": "waiting on Master: #376 bubble reshape details",
- "tokens": 165000,
+ "working": "waiting on Master: #376 check, #374, #371-373, batch export",
+ "tokens": 200000,
  "ctx": 1000000,
  "since": "2026-10-31T21:16:34Z",
  "done": [
+  "#376 realm vision handed off [80% tokens left]",
   "checked #350/#349/#341: no Master result yet [85% tokens left]",
   "#366 handed off [86% tokens left]",
   "#351 road mask handed off [89% tokens left]",
@@ -12,8 +13,7 @@
   "fixes: #350 hook v2, #349 gear paste, #341 underground fog [12% tokens left]",
   "round-up: MineKit scale fix, TODO list updated [17% tokens left]",
   "#369 quests + daily rewards v1 handed off [20% tokens left]",
-  "#355 torch-bearer + #290 v2 handed off [36% tokens left]",
-  "#337 p2 severing + #24 death text + #351 meadow script handed off; full TODO list [44% tokens left]"
+  "#355 torch-bearer + #290 v2 handed off [36% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T21:38:50Z",
+ "asOf": "2026-10-31T21:45:44Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
