@@ -1,9 +1,10 @@
 {
- "working": "Master: waiting for owner Play test",
+ "working": "Master: #221 Obsidian v2 paste",
  "tokens": 130000,
  "ctx": 1000000,
  "since": "2026-10-31T08:00:00Z",
  "done": [
+  "Requests 342/343/345/346 answered",
   "Hero 250 HP (death check + both bars)",
   "Crossbow double fire chain removed; brute bite 15 + HP x4; ballistas removed",
   "#239 deploy cannon pasted",
@@ -12,8 +13,7 @@
   "#289 medics pasted [69% tokens left]",
   "#307 antidote pasted (compiles clean) [70% tokens left]",
   "#290 rain-torches merged [71% tokens left]",
-  "#278 flares pasted [72% tokens left]",
-  "#272 survivors pasted (1 generator fix noted) [73% tokens left]"
+  "#278 flares pasted [72% tokens left]"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-31T16:05:51Z",
+ "asOf": "2026-10-31T16:32:42Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
