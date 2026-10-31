@@ -136,7 +136,7 @@ bl = b.vec(b.brk(base, 3900, 900)['X'], b.brk(base, 3900, 1050)['Y'], g('GroundZ
 mv = b.call_self('K2_SetActorLocationAndRotation', [V('NewLocation'), st('NewRotation', ROT, default='0, 0, 0'), bo('bSweep', default='false'),
                  st('SweepHitResult', HITRES_, out=True), bo('bTeleport', default='true'), bo('ReturnValue', out=True, default='false')], 3900, 0, ACT, tag='Stand')
 b.wire(bl, mv, 'NewLocation'); b.wire(yaw, mv, 'NewRotation'); G.link(sy, 'then', mv, 'execute')
-gc = b.call_self('GetComponentsByClass', [CLSPIN('ComponentClass', CLS('ActorComponent'), '/Script/Engine.SkeletalMeshComponent'), arr(ob('ReturnValue', SKM, out=True))],
+gc = b.call_self('K2_GetComponentsByClass', [CLSPIN('ComponentClass', CLS('ActorComponent'), '/Script/Engine.SkeletalMeshComponent'), arr(ob('ReturnValue', SKM, out=True))],
                  4200, 300, ACT, pure=True, const=True, tag='TierComps')
 st_ = b.set('Tiers', arr(OBJV(SKM)), (gc, 'ReturnValue'), 4200, 0); G.link(mv, 'then', st_, 'execute')
 fe = b.foreach(SKM, 4500, 0); b.wire(g('Tiers', arr(OBJV(SKM)), 4300, 200), fe, 'Array'); G.link(st_, 'then', fe, 'Exec')
