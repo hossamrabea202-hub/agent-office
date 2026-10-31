@@ -1,8 +1,8 @@
 {
- "working": "context nearly out: hand-over notes written",
- "tokens": 925000,
+ "working": "#228 wall-walk tops fix line",
+ "tokens": 84738,
  "ctx": 1000000,
- "since": "2026-10-31T06:39:06Z",
+ "since": "2026-10-31T12:10:29Z",
  "done": [
   "#228 wall-top report/fix script handed off [7% tokens left]",
   "#293 research + realm bubble v3 handed off [11% tokens left]",
@@ -29,31 +29,31 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T11:43:33Z",
+ "asOf": "2026-10-31T12:10:29Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
-  "plan": "Max",
-  "asOf": "2026-10-31T08:41:46Z",
+  "plan": "Ultra",
+  "asOf": "2026-10-31T12:10:29Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 11,
-    "resetsAt": "2026-10-31T10:10:00Z",
+    "pct": 98,
+    "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 34,
-    "resetsAt": "2026-11-06T06:00:00Z",
+    "pct": 65,
+    "resetsAt": "2026-11-06T05:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "58d7ed629018",
+  "id": "931364c3dc10",
   "host": "5CD3147LBC"
  },
  "ask": {
