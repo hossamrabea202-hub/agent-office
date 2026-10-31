@@ -1,9 +1,10 @@
 {
- "working": "W: #313 mount cannon full + #314 press-T reminder",
- "tokens": 430000,
+ "working": "#315 Vesna shop A/D + arrows swipe",
+ "tokens": 480000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#313 + #314 handed off [52% tokens left · 5h plan 11% left]",
   "#228 fix line posted; cave rock WIP lookdev [62% tokens left · 5h plan 7% left]",
   "#269 diag script + Master asks [70% tokens left · 5h plan 5% left]",
   "#296 cave realism research [73% tokens left · 5h plan 5% left]",
@@ -12,8 +13,7 @@
   "#228 wall-top report/fix script handed off [7% tokens left]",
   "#293 research + realm bubble v3 handed off [11% tokens left]",
   "#295 notice scroll handed off (vellum, no BP paste) [16% tokens left]",
-  "#302 Multi-User kit written (handoffs/multi-user) [18% tokens left]",
-  "#292 Muddy footprints handed off (#298) [22% tokens left]"
+  "#302 Multi-User kit written (handoffs/multi-user) [18% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T13:23:37Z",
+ "asOf": "2026-10-31T13:31:55Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T13:23:37Z",
+  "asOf": "2026-10-31T13:31:55Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 91,
+    "pct": 89,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
