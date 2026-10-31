@@ -1,9 +1,10 @@
 {
- "working": "waiting: #316 breach dump, #296 scan list, #323 brute export",
- "tokens": 760000,
+ "working": "#293 M_FleshSlime UE script",
+ "tokens": 810000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#316 part A handed off [19% tokens left · 5h plan 26% left]",
   "#296 entrance rock/timber split [24% tokens left · 5h plan 24% left]",
   "#44 zombie towers handed off [32% tokens left · 5h plan 20% left]",
   "#322 part 1 handed off [40% tokens left · 5h plan 16% left]",
@@ -12,8 +13,7 @@
   "#313 + #314 handed off [52% tokens left · 5h plan 11% left]",
   "#228 fix line posted; cave rock WIP lookdev [62% tokens left · 5h plan 7% left]",
   "#269 diag script + Master asks [70% tokens left · 5h plan 5% left]",
-  "#296 cave realism research [73% tokens left · 5h plan 5% left]",
-  "#297 part 1 cave door handed off [76% tokens left · 5h plan 4% left]"
+  "#296 cave realism research [73% tokens left · 5h plan 5% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,23 +29,23 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T14:18:08Z",
+ "asOf": "2026-10-31T14:22:09Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T14:18:08Z",
+  "asOf": "2026-10-31T14:22:09Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 76,
+    "pct": 74,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 68,
+    "pct": 69,
     "resetsAt": "2026-11-06T05:59:59Z",
     "color": "#d9af65"
    }
