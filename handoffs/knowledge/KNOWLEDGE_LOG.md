@@ -144,3 +144,9 @@ real and less gory. Slash spatter is 1-4 mm (forensics), render 0.25-1.2 cm. Gho
 billboards + ribbons, no meshes, blood from wound and blade. Dying Light 2 severs by hiding the part with a shader, a
 cap mesh, and a spawned limb mesh; it backed off excess. Not tested yet. Spec (counts, colours, chances), sources:
 handoffs/gore-337/RESEARCH.md
+
+- 2026-10-31 adjustedfilm (#366): long skinned meshes (tentacles) with stretched UVs: don't use world triplanar (it
+  swims on animation). Map on **Pre-Skinned Local Position** (pass it through a Vertex Interpolator to the pixel shader),
+  as a cylindrical UV: along = distance along the long axis x actor scale, around = angle x a whole number of tiles.
+  Fix the atan2 mip seam by taking the smaller derivative of the two wrapped UVs (Ben Golus, 2021). Keep the samples that
+  feed WPO on their old UVs (ddx is not allowed in the vertex shader). Script: handoffs/tentacle-skin-366.
