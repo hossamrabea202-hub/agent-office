@@ -59,3 +59,66 @@ licensed textures), #262 texture plan (TGA), #266 **PRIORITY infection cure** (M
 - Characters: AI-made Blender humans aren't AAA. Use MetaHuman (the Master in Unreal) for farmers and villagers.
 - Texture budget: hero armour, enemies and rocks 2K; weapons, props and gear 1K; tiny props 512.
 - The owner likes the tanky last 30 % HP (infection +50 % DEF) but the **cure must always exist** (#266).
+
+## How to work here: the rules (short version; full text in `AGENTS.md`)
+
+**Start of every session**
+1. `git pull`, then read `AGENTS.md` and this page.
+2. `node tools/office.js inbox --seat "<seat>"` (add `--all` for the last 15 cafeteria lines).
+3. `node tools/tick.js --seat "<seat>" --start --tokens <context tokens> --plan Pro --h5 <5h %> --wk <week %> --working "<task>"`.
+   Add `--take-over` only if the old session on this seat is really gone. **One session per seat.**
+4. Start the watcher in the background: `node tools/watch.js --seat "<seat>" --every 5`.
+
+**Ticking and reporting**
+- Tick when you **start**, **finish** (`--done "<task>" --tokens <n>`, required), get **blocked** (`--ask "<what you need>"`),
+  and at least **every 25 minutes**. A desk older than 30 minutes shows offline.
+- Report in the cafeteria (issue #25) on events only: finished, handed off, blocked. Talk about one card on that card
+  (`say --card <n>`).
+- Post a screenshot of every finished visible result: `node tools/shot.js --seat "<seat>" --file <img> --caption "<what>" --card <n>`,
+  1280–1600 px wide.
+
+**Non-stop rule**
+- Work the whiteboard in order (quick, then medium, then large). Unclear? Decide, write `Decision: ...` on the card and
+  keep going.
+- Only stop for: spending money, deleting owner data, overwriting the owner's save, or a blocker only the owner can clear.
+  Then `--ask`, and switch cards.
+- New owner ideas go on the whiteboard as a card first.
+- Before your tokens run out, leave a hand-off note on the card you're in the middle of, and update this page.
+
+**The Master only pastes** (owner, 2026-10-31)
+- Only the Master touches Unreal. Hand back **finished, pre-checked** work:
+  - graph pastes plus an applyall manifest (`fix_impure.py`, then `applyall check` / `merge --dry-run` on the latest export);
+  - BPVar lines (no `add_member_variable` from Python);
+  - editor scripts with a dry-run mode;
+  - an import script, exact steps and a test list.
+- Build on a **fresh export**. Missing data? `node tools/office.js request --kind export ...` and keep working.
+- Exceptions: one-minute fixes (a wrong default, one missing wire) the Master may do on the spot. Cards marked
+  **MASTER ONLY** (licensed textures, MetaHuman) are the Master's.
+- In 5.3, `GetActorOfClass`, `GetAllActorsOfClass`, casts and save-game nodes are impure: wire them into the exec chain.
+  Calls to a Blueprint's own events use `bSelfContext=True`.
+
+**Quality: AAA and real life, not a game**
+- Before any visual work, read `handoffs/knowledge/README.md` and `INDUSTRY_SECRETS.md` (the 10 rules) and apply them. Say
+  which rules you applied in the hand-off.
+- **Calibrated PBR:**
+  - non-metal albedo 30–240 sRGB;
+  - bare metal at least 180 sRGB, metallic 0 or 1;
+  - Specular 0.5;
+  - no lighting baked into the colour.
+  
+  Run `tools/laptop2/pbr_check.py` before every texture hand-off.
+- **Roughness never flat. Wear has a cause, in this order:** edges, cavities, gravity, sun, water. No global grunge.
+- **Judge in lookdev** with locked exposure (a 0.18 grey ball): warm key light, cool rim, weak fill.
+- **Texture budget** (third-person, by camera distance): hero armour, enemies and rocks 2K; weapons, props and gear 1K;
+  tiny props 512.
+- **Hard surfaces** (weapons, armour, props, buildings) are made here in Blender, procedurally, at AAA quality.
+  **Humans and characters**: MetaHuman (Master) or licensed Fab bases. AI-scripted Blender humans aren't AAA.
+- **Never commit licensed assets** (Megascans, Fab, the knight FBX) to the repo. They stay on the owner's PC.
+- **Don't break the decal system:** no DBuffer / decal material edits without the owner's OK. Prefer new material
+  instances over editing live materials.
+- **Keep the look:** changing an existing asset needs a before/after screenshot, and the owner approves it first.
+
+**Owner taste (learned)**
+- Short replies, plain words, no jargon.
+- Wants visible results and agents that keep working without asking.
+- Gameplay: hard but fair (tanky last 30 % HP), but never take away hope (the infection cure must always exist).
