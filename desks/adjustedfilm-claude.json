@@ -1,6 +1,6 @@
 {
- "working": "#296 waiting scan_list from Master; next #293 blob materials",
- "tokens": 400000,
+ "working": "W: #313 mount cannon full + #314 press-T reminder",
+ "tokens": 430000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
@@ -29,23 +29,23 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T13:14:03Z",
+ "asOf": "2026-10-31T13:23:37Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T13:14:03Z",
+  "asOf": "2026-10-31T13:23:37Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 92,
+    "pct": 91,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 65,
+    "pct": 66,
     "resetsAt": "2026-11-06T05:59:59Z",
     "color": "#d9af65"
    }
