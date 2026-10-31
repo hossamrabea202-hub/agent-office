@@ -37,6 +37,7 @@ f = unreal.FbxImportUI()
 f.import_mesh = True; f.import_as_skeletal = False; f.mesh_type_to_import = unreal.FBXImportType.FBXIT_STATIC_MESH
 f.import_materials = False; f.import_textures = False
 d = f.static_mesh_import_data; d.combine_meshes = True; d.auto_generate_collision = False
+d.import_uniform_scale = 100.0   # the FBX comes in 100x too small (Master, #341, 2026-10-31): same fix as the manual re-import
 d.vertex_color_import_option = unreal.VertexColorImportOption.REPLACE                     # R = wetness
 d.normal_import_method = unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS_AND_TANGENTS
 tools.import_asset_tasks([task(os.path.join(SRC, 'fbx', n + '.fbx'), f) for n in MESHES])
