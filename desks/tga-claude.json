@@ -1,8 +1,8 @@
 {
- "working": "Standing by: #251/#252/#253 handed off; #193 waits on castle export #194, #199 on zombie_refpose",
+ "working": "#223 farming system gameplay: reading the paste pipeline + BP_OreCart (mine-201) pattern",
  "tokens": 840000,
  "ctx": 1000000,
- "since": "2026-10-30T07:02:08Z",
+ "since": "2026-10-31T05:03:38Z",
  "done": [
   "Realm gameplay BPs: gate #189, breach #190, blob mine (all pastes Validation OK) [28% tokens left]",
   "BP_RealmBreach pastes (#169 stage 2) [31% tokens left]",
@@ -17,7 +17,7 @@
  ],
  "todo": [],
  "session": {
-  "id": "4e2937fca20c",
+  "id": "45c3b78d2578",
   "host": "TGA-TA07"
  },
  "usage": {
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-31T05:02:37Z",
+ "asOf": "2026-10-31T05:03:38Z",
  "seat": "TGA (Claude)"
 }
