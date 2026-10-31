@@ -1,0 +1,29 @@
+{
+ "blueprint": "BP_Zombie",
+ "note": "#337: gore hook right after the BP_BloodBurst spawn (built on the 10-30b export)",
+ "pastes": [
+  {
+   "file": "Zombie_GoreHook_graph.txt"
+  }
+ ],
+ "rewires": [
+  {
+   "from": "K2Node_SpawnActorFromClass_ZB93.then",
+   "to": "GoreIn.execute",
+   "replace": true,
+   "note": "was -> K2Node_IfThenElse_ZB68"
+  },
+  {
+   "from": "GoreOut.then_0",
+   "to": "K2Node_IfThenElse_ZB68.execute"
+  },
+  {
+   "from": "K2Node_Event_ZB60.Damage",
+   "to": "zgGoreHit5.Damage"
+  },
+  {
+   "from": "K2Node_Event_ZB60.DamageCauser",
+   "to": "zgGoreHit5.Causer"
+  }
+ ]
+}

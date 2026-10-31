@@ -5,8 +5,9 @@
 # Makes in /Game/CastleDefender/VFX/Blood337:
 #   T_BloodSplat_337_BC (sRGB, alpha = opacity), _N (normal), _M (masks, linear: R thickness, G opacity, B dry rim)
 #   M_BloodDecal_337   deferred decal, Translucent blend (GBuffer, works with or without DBuffer). 8 splats in a 4 x 2
-#                      atlas picked by Index (0-7). Dry 0 -> 1 = fresh wet (rough 0.08, dark maroon) -> dried (rough 0.7,
-#                      brown 45,30,20, flatter); Fade 0 -> 1 = gone. Specular 0.28 (blood IOR 1.35). No emissive.
+#                      atlas picked by Index (0-7). It dries by itself from SpawnT (set to the game time at spawn): over
+#                      DryTime (30 s) fresh wet (rough 0.08, dark maroon) -> dried (rough 0.7, brown 45,30,20, flatter), then
+#                      fades out over FadeTime (3 s). Specular 0.28 (blood IOR 1.35). No emissive.
 #   MI_BloodDecal_337  the instance the gore Blueprint will spawn (Index / Dry / Fade set per decal at runtime)
 import os, sys, unreal
 
@@ -61,7 +62,14 @@ if not DRY:
     bc = tex('T_BloodSplat_337_BC', unreal.MaterialSamplerType.SAMPLERTYPE_COLOR, -800, -300)
     nm = tex('T_BloodSplat_337_N', unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL, -800, 300)
     mk = tex('T_BloodSplat_337_M', unreal.MaterialSamplerType.SAMPLERTYPE_MASKS, -800, 0)
-    dry = P('Dry', 0.0, -800, 600); fade = P('Fade', 0.0, -800, 700)
+    # drying runs by itself from the spawn time: Dry = (Time - SpawnT) / DryTime, Fade = (Time - SpawnT - DryTime) / FadeTime
+    age = op(unreal.MaterialExpressionSubtract, E(unreal.MaterialExpressionTime, -1300, 600), P('SpawnT', 0.0, -1300, 700), -1150, 650)
+    dry = E(unreal.MaterialExpressionSaturate, -850, 600)
+    dryt = P('DryTime', 30.0, -1150, 750)
+    MEL.connect_material_expressions(op(unreal.MaterialExpressionDivide, age, dryt, -1000, 600), '', dry, '')
+    fade = E(unreal.MaterialExpressionSaturate, -850, 750)
+    MEL.connect_material_expressions(op(unreal.MaterialExpressionDivide, op(unreal.MaterialExpressionSubtract, age, dryt, -1000, 800),
+                                        P('FadeTime', 3.0, -1150, 950), -900, 850), '', fade, '')
     # colour: wet maroon -> dried brown (45,30,20 sRGB = 0.026, 0.013, 0.007 linear)
     dcol = lerp(bc, C3((0.026, 0.013, 0.007), -500, -200), op(unreal.MaterialExpressionMultiply, dry, C(0.75, -600, -100), -450, -100), -300, -300)
     MEL.connect_material_property(dcol, '', unreal.MaterialProperty.MP_BASE_COLOR)
