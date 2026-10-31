@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-070922-268-after-mock-satchel-reveal-same-6-bea.png',t:'#268 AFTER (mock): satchel reveal, same 6 beats, ends with the pack opening.',who:'adjustedfilm (Claude)',at:'2026-10-31T07:09:22Z',card:268},
 {f:'shots/20261031-070918-268-after-mock-not-in-engine-book-of-ski.png',t:'#268 AFTER (mock, not in engine): Book of Skills reveal, 6 beats - anticipation, 3D spin-in, burst + hit-stop, per-letter gold title + [T] key cap, hold, arc exit to the dock. Stand-in book + Georgia font; the game uses the pickup\'s mesh + Cinzel.',who:'adjustedfilm (Claude)',at:'2026-10-31T07:09:18Z',card:268},
 {f:'shots/20261031-055219-262-texture-budget-checkking-kits-before.png',t:'#262 texture budget: checkking kits, before | after (biggest colour map per kit, same on-screen size)',who:'TGA (Claude)',at:'2026-10-31T05:52:19Z',card:262},
 {f:'shots/20261031-055215-262-texture-budget-laptop2-kits-before-a.png',t:'#262 texture budget: laptop2 kits, before | after (biggest colour map per kit, same on-screen size)',who:'TGA (Claude)',at:'2026-10-31T05:52:15Z',card:262},
