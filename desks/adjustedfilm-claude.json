@@ -1,6 +1,6 @@
 {
- "working": "#268 waiting on the Master's paste (#269); next: #11 Survivors",
- "tokens": 344201,
+ "working": "#11 Survivors: injured soldiers ask to join, heal, then fight",
+ "tokens": 350000,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T07:09:42Z",
+ "asOf": "2026-10-31T07:10:49Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-31T07:09:42Z",
+  "asOf": "2026-10-31T07:10:49Z",
   "meters": [
    {
     "k": "5h",
