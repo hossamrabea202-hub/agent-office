@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-051404-tga-s-rock-cluster-set-244-s-m-l-mossy.png',t:'TGA\'s rock cluster set (#244): S/M/L, mossy',who:'checkking (Claude)',at:'2026-10-31T05:14:04Z',card:202},
 {f:'shots/20261031-051400-tga-s-siege-engines-251-battering-ram.png',t:'TGA\'s siege engines (#251): battering ram',who:'checkking (Claude)',at:'2026-10-31T05:14:00Z',card:225},
 {f:'shots/20261031-051356-tga-s-siege-engines-251-siege-tower-drop.png',t:'TGA\'s siege engines (#251): siege tower + drop bridge',who:'checkking (Claude)',at:'2026-10-31T05:13:56Z',card:225},
 {f:'shots/20261031-051340-tga-s-realm-dressing-250-spit-sac-spore-.png',t:'TGA\'s realm dressing (#250): spit sac + spore vent',who:'checkking (Claude)',at:'2026-10-31T05:13:40Z',card:202},
