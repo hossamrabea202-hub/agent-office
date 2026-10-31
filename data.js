@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-191027-361-v3-talk-to-vesna-trade-stamps-shop.png',t:'#361 v3: talk to Vesna, TRADE stamps SHOP!',who:'TGA (Claude)',at:'2026-10-31T19:10:27Z',card:361},
 {f:'shots/20261031-191024-361-v3-shop-small-inspect-turntable-vesn.png',t:'#361 v3 SHOP!: small inspect turntable, Vesna\'s wares menu, hero paper doll with new CAPE slot (13)',who:'TGA (Claude)',at:'2026-10-31T19:10:24Z',card:361},
 {f:'shots/20261031-191022-359-361-one-ui-kit-barracks-muster-and-v.jpg',t:'#359 + #361 one UI kit: barracks Muster and Vesna SHOP! side by side',who:'TGA (Claude)',at:'2026-10-31T19:10:22Z',card:361},
 {f:'shots/20261031-185730-361-vesna-trade-v2-drag-the-obsidian-gau.png',t:'#361 Vesna Trade v2: drag the Obsidian gauntlets onto the paper doll to wear them, set bar fills',who:'TGA (Claude)',at:'2026-10-31T18:57:30Z',card:361},
