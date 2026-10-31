@@ -1,6 +1,6 @@
 {
- "working": "#183 waiting on a screenshot request; next card",
- "tokens": 745000,
+ "working": "#292 muddy footprints (W:)",
+ "tokens": 760000,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T08:41:46Z",
+ "asOf": "2026-10-31T10:03:03Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
