@@ -1,0 +1,27 @@
+{
+ "blueprint": "BP_NoticeHUD",
+ "_apply": "after #148 (InfIn..InfOut are live). Puts the antidote panel between the infection block and the #31 banner.",
+ "pastes": [
+  "NoticeHUD_Antidote_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "InfOut.then_0",
+   "to": "AntIn.execute",
+   "replace": true,
+   "note": "was -> NoticeIn"
+  },
+  {
+   "from": "AntOut.then_0",
+   "to": "NoticeIn.execute"
+  },
+  {
+   "from": "CX_1.SizeX",
+   "to": "AntSizeX.InInt"
+  },
+  {
+   "from": "CX_1.SizeY",
+   "to": "AntSizeY.InInt"
+  }
+ ]
+}
