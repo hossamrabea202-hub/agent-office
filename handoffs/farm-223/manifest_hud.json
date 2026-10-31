@@ -1,0 +1,19 @@
+{
+ "blueprint": "BP_ZombieHUD",
+ "pastes": [
+  "ZombieHUD_Food_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "orDrawOre32.then",
+   "to": "hfDrawFood14.execute",
+   "replace": true,
+   "note": "after #201 ORE line (was -> K2Node_IfThenElse_H296)"
+  },
+  {
+   "from": "hfDrawFood14.then",
+   "to": "K2Node_IfThenElse_H296.execute",
+   "note": "then the rest of the draw chain"
+  }
+ ]
+}

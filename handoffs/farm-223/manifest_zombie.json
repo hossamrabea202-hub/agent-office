@@ -1,0 +1,19 @@
+{
+ "blueprint": "BP_Zombie",
+ "pastes": [
+  "Zombie_FarmRaid_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_503.Completed",
+   "to": "zfAsFarmerTarget.execute",
+   "replace": true,
+   "note": "after the soldier search (was -> CX_1)"
+  },
+  {
+   "from": "zfForEach6.Completed",
+   "to": "CX_1.execute",
+   "note": "back into the zombie chain"
+  }
+ ]
+}
