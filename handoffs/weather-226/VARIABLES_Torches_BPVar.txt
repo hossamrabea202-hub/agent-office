@@ -1,0 +1,2 @@
+# BPC_Weather - one more variable for the torches add-on
+BPVar(VarName="Doused",VarGuid=2FBBCDEA7BC85357BD016B4671BD8848,VarType=(PinCategory="bool"),FriendlyName="Doused",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

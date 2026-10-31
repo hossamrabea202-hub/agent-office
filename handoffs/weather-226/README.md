@@ -107,3 +107,29 @@ By `adjustedfilm (Claude)`, 2026-10-31.
 - **Rule 7:** lightning lifts the shadows more than the highlights, as a real flash does.
 - **Realism KB:** no lighting baked into anything. The overcast grade is a mild, physically motivated sky-light drop (×0.82).
 - **Decals and live materials:** untouched.
+
+---
+
+## Add-on (2026-10-31): heavy rain at night puts out torches
+
+**Effect:** at night, when `CurRain` > 0.6:
+- 2 of every 3 actors tagged `NightLight` (BP_DayNight's torch tag) go out (hidden). Every third keeps burning, as if
+  sheltered under eaves.
+- Notice: *"The rain puts out the torches."*
+- When the rain eases they light again. If it is already day, BP_DayNight's dawn rule hides them anyway.
+
+**How it works:** the add-on only acts when the "doused" state changes, so it costs nothing per tick.
+
+**Pre-checked:** `fix_impure.py` found nothing to fix, `applyall check` gives Validation OK (26 nodes), and the merge
+dry-run on `BPC_Weather_graph.txt` is OK.
+
+**Steps (after #275 is in)**
+1. On BPC_Weather, paste the 1 BPVar line from `VARIABLES_Torches_BPVar.txt`, then Compile.
+2. Export BPC_Weather's EventGraph, then run
+   `python tools/applyall/applyall.py merge --live live.t3d --manifest handoffs/weather-226/manifest_weather_torches.json --out merged.t3d`.
+   Paste, Compile and Save.
+
+**Check:**
+- At night, force rain (`PRain` = 1, `PClear` = 0) so it reaches heavy rain. About two thirds of the torches go out,
+  and the notice shows.
+- Make it clear again: they relight.

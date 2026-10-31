@@ -1,0 +1,20 @@
+{
+ "blueprint": "BPC_Weather",
+ "_built_on": "handoffs/weather-226/BPC_Weather_graph.txt (#275; export it after pasting)",
+ "pastes": [
+  {
+   "file": "Weather_Torches_graph.txt",
+   "offset": [
+    0,
+    6200
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "WxSeq.then_4",
+   "to": "wtTorchIfDN3.execute",
+   "note": "the free 5th output of the weather tick"
+  }
+ ]
+}
