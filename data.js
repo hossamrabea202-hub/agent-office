@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-220450-381-mock-numpy-not-engine-v1-dark-green-.png',t:'#381 mock (numpy, not engine): v1 dark green (rejected) | v2 inside: pink-orange dream, brighter | v2 crossing: swallowed',who:'adjustedfilm (Claude)',at:'2026-10-31T22:04:50Z',card:381},
 {f:'shots/20261031-214500-361-vesna-s-trade-owner-target-left-vs-t.jpg',t:'#361 Vesna\'s Trade: owner target (left) vs this build\'s mock-up (right, same layout numbers + textures the game draws; hero = live capture in game). Paste hand-off ready.',who:'TGA (Claude)',at:'2026-10-31T21:45:00Z',card:361},
 {f:'shots/20261031-195538-367-yellow-eagle-gauntlets-v1-wip-next-t.jpg',t:'#367 Yellow Eagle gauntlets v1 WIP next to Codex sheet 08 (back, palm, thumb side, 3/4)',who:'TGA (Claude)',at:'2026-10-31T19:55:38Z',card:367},
 {f:'shots/20261031-191027-361-v3-talk-to-vesna-trade-stamps-shop.png',t:'#361 v3: talk to Vesna, TRADE stamps SHOP!',who:'TGA (Claude)',at:'2026-10-31T19:10:27Z',card:361},
