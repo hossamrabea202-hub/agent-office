@@ -1,9 +1,10 @@
 {
- "working": "waiting: breach dump, scan list, brute export; TGA on #327",
- "tokens": 840000,
+ "working": "#316 wire TGA collapse",
+ "tokens": 880000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#296 --auto one-step cave rock [12% tokens left · 5h plan 29% left]",
   "#293 part 2 handed off [16% tokens left · 5h plan 27% left]",
   "#316 part A handed off [19% tokens left · 5h plan 26% left]",
   "#296 entrance rock/timber split [24% tokens left · 5h plan 24% left]",
@@ -12,8 +13,7 @@
   "#8 treasure chest handed off [44% tokens left · 5h plan 14% left]",
   "#315 handed off [50% tokens left · 5h plan 12% left]",
   "#313 + #314 handed off [52% tokens left · 5h plan 11% left]",
-  "#228 fix line posted; cave rock WIP lookdev [62% tokens left · 5h plan 7% left]",
-  "#269 diag script + Master asks [70% tokens left · 5h plan 5% left]"
+  "#228 fix line posted; cave rock WIP lookdev [62% tokens left · 5h plan 7% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,23 +29,23 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T14:23:39Z",
+ "asOf": "2026-10-31T15:13:48Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T14:23:39Z",
+  "asOf": "2026-10-31T15:13:48Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 73,
+    "pct": 71,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 69,
+    "pct": 70,
     "resetsAt": "2026-11-06T05:59:59Z",
     "color": "#d9af65"
    }
