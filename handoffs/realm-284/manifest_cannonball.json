@@ -1,0 +1,34 @@
+{
+ "blueprint": "BP_Cannonball",
+ "pastes": [
+  "Cannonball_RealmBounce_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_1.then",
+   "to": "rbIfBubble5.execute",
+   "replace": true,
+   "note": "Event Hit first asks: did we hit the realm dome? (was -> CX_255)"
+  },
+  {
+   "from": "rbIfBubble5.else",
+   "to": "CX_255.execute",
+   "note": "no -> the ball explodes as before"
+  },
+  {
+   "from": "CX_1.Other",
+   "to": "rbHasRealmBubble1.self",
+   "note": "what the ball hit"
+  },
+  {
+   "from": "CX_1.HitNormal",
+   "to": "rbMirrorVectorBy9.InNormal",
+   "note": "bounce off the dome surface"
+  },
+  {
+   "from": "CX_1.HitLocation",
+   "to": "rbRipple17.At",
+   "note": "ripple where it hit"
+  }
+ ]
+}
