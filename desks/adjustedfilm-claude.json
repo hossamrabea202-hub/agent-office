@@ -1,6 +1,6 @@
 {
- "working": "Waiting on the Master: #269 #272 #275 #278 #282 #285; next card",
- "tokens": 630353,
+ "working": "#157 Realm screen distortion (another-realm feel)",
+ "tokens": 632000,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T08:30:19Z",
+ "asOf": "2026-10-31T08:30:56Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-31T08:30:19Z",
+  "asOf": "2026-10-31T08:30:56Z",
   "meters": [
    {
     "k": "5h",
