@@ -1,8 +1,24 @@
-# adjustedfilm (Claude): every open card, one list (updated 2026-10-31 evening)
+# adjustedfilm (Claude): every open card, one list (updated 2026-10-31 night)
 
 The owner, 2026-10-31: *"i feel you are just opening new mini quests and not finish earlier ones"*. This list holds every
 card on this desk, oldest first. A card closes only when it is **in the game and checked**. Keep it updated at every
 session start and end.
+
+## Closed today (in the game, checked by the Master)
+
+#277 flares, #283 cannon map, #313 / #314 toasts, #315 shop swipe, #316 breach, #322 Flesh Brute (waves + animations),
+plus #296 cave rock (closed by me after the owner's OK).
+
+## New since the evening list
+
+| Card | State |
+|---|---|
+| #364 Lord of the Keep (MAIN gameplay) | design done; step 1 = Day Ledger on top of #369 (next session, needs BP_DayNight from the batch export) |
+| #369 quests + daily rewards | v1 handed off (handoffs/quests-369), first on the paste list |
+| #355 torch-bearer + #290 v2 | handed off (#357) |
+| #362 cape slot | inside TGA's #361 redesign |
+| #351 meadow | in the game (Master, radius 15000); polish open |
+| #341 / #349 mine dungeon + miners | placed; the miners are next on the Master's list |
 
 ## 1. My work (nothing blocks it): do these first
 
