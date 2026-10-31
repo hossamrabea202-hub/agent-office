@@ -257,3 +257,18 @@ level: keep paired actors in one level.
 - **Codex:** sheets 13 (sword) and 14 (shield) still to make (the prompt was given to the owner).
 - **Owner rules learned:** finish old cards before opening new ones, and put every ask on the board. The owner wants
   gameplay that feels alive (#364), not more one-off systems.
+
+### adjustedfilm, 2026-10-31 late: errors still open (FIRST thing next session, in this order)
+
+1. **#269 reveal (OWNER PRIORITY):** the Master's live test (card #269, 2026-10-31 ~21:00). The 3D book or satchel is
+   NOT drawn in RT_Reveal (empty centre) and the reveal ends after 1–2 s instead of about 13 s. Diag: RvStage at
+   z = 200000, RvCap → RT_Reveal, RvR 20, RvKind goes back to 0 after about 120 ticks, MPC_Reveal.Blur reads 0.
+   Suspects: the show-only list / lighting of the capture, RvR too small, and an age / stage timer that is
+   frame-based. 5.3 notes from the Master: use unreal.MaterialLibrary (not KismetMaterialLibrary); SceneCapture
+   show_only_components isn't readable from Python. The source is handoffs/reveal-aaa-268 (gen + graph).
+2. **#351 meadow road mask:** the gate road is a decal (Env_WornGround_Decal) on a landscape with no paint layers, so
+   the script can't see it. The Master removed plants by hand in the band y = 1750 ± 450, x −7000..300. Add road
+   exclusion (decal bounds or a list of bands; also PortalRoad and HiddenRoad) before any re-run.
+3. **#366 (new, owner):** the tentacle skin texture is stretched along the tentacles. Fix the mapping (triplanar or
+   length-aware UV), a new MI only, with before/after shots.
+4. Fixed tonight, waiting for the Master: #350 hook v2 (no sequences), #349 gear attach paste, #341 underground fog.
