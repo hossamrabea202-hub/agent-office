@@ -1,0 +1,177 @@
+[
+ {
+  "folder": "ArmingSword",
+  "name": "Arming Sword",
+  "price": 300,
+  "damage": 40,
+  "speed": 1.1
+ },
+ {
+  "folder": "VikingSword",
+  "name": "Viking Sword",
+  "price": 350,
+  "damage": 44,
+  "speed": 1.05
+ },
+ {
+  "folder": "Falchion",
+  "name": "Falchion",
+  "price": 380,
+  "damage": 48,
+  "speed": 1.0
+ },
+ {
+  "folder": "Messer",
+  "name": "Messer",
+  "price": 400,
+  "damage": 46,
+  "speed": 1.05
+ },
+ {
+  "folder": "Katzbalger",
+  "name": "Katzbalger",
+  "price": 420,
+  "damage": 45,
+  "speed": 1.15
+ },
+ {
+  "folder": "RondelDagger",
+  "name": "Rondel Dagger",
+  "price": 200,
+  "damage": 28,
+  "speed": 1.4
+ },
+ {
+  "folder": "Longsword",
+  "name": "Longsword",
+  "price": 600,
+  "damage": 58,
+  "speed": 0.95
+ },
+ {
+  "folder": "Estoc",
+  "name": "Estoc",
+  "price": 650,
+  "damage": 55,
+  "speed": 1.0
+ },
+ {
+  "folder": "Zweihander",
+  "name": "Zweihander",
+  "price": 1200,
+  "damage": 80,
+  "speed": 0.75
+ },
+ {
+  "folder": "BeardedAxe",
+  "name": "Bearded Axe",
+  "price": 350,
+  "damage": 50,
+  "speed": 0.95
+ },
+ {
+  "folder": "WarAxe",
+  "name": "War Axe",
+  "price": 450,
+  "damage": 52,
+  "speed": 1.0
+ },
+ {
+  "folder": "DaneAxe",
+  "name": "Dane Axe",
+  "price": 900,
+  "damage": 72,
+  "speed": 0.8
+ },
+ {
+  "folder": "Bardiche",
+  "name": "Bardiche",
+  "price": 1000,
+  "damage": 74,
+  "speed": 0.75
+ },
+ {
+  "folder": "LochaberAxe",
+  "name": "Lochaber Axe",
+  "price": 1050,
+  "damage": 76,
+  "speed": 0.75
+ },
+ {
+  "folder": "FlangedMace",
+  "name": "Flanged Mace",
+  "price": 500,
+  "damage": 56,
+  "speed": 0.9
+ },
+ {
+  "folder": "WarHammer",
+  "name": "War Hammer",
+  "price": 550,
+  "damage": 58,
+  "speed": 0.9
+ },
+ {
+  "folder": "MorningStar",
+  "name": "Morning Star",
+  "price": 520,
+  "damage": 60,
+  "speed": 0.85
+ },
+ {
+  "folder": "WingedSpear",
+  "name": "Winged Spear",
+  "price": 500,
+  "damage": 46,
+  "speed": 1.0
+ },
+ {
+  "folder": "BoarSpear",
+  "name": "Boar Spear",
+  "price": 550,
+  "damage": 50,
+  "speed": 0.95
+ },
+ {
+  "folder": "Partisan",
+  "name": "Partisan",
+  "price": 800,
+  "damage": 62,
+  "speed": 0.85
+ },
+ {
+  "folder": "Ranseur",
+  "name": "Ranseur",
+  "price": 850,
+  "damage": 62,
+  "speed": 0.85
+ },
+ {
+  "folder": "Guisarme",
+  "name": "Guisarme",
+  "price": 850,
+  "damage": 64,
+  "speed": 0.85
+ },
+ {
+  "folder": "Glaive",
+  "name": "Glaive",
+  "price": 900,
+  "damage": 66,
+  "speed": 0.8
+ },
+ {
+  "folder": "Halberd",
+  "name": "Halberd",
+  "price": 1100,
+  "damage": 75,
+  "speed": 0.75
+ },
+ {
+  "folder": "Pollaxe",
+  "name": "Pollaxe",
+  "price": 1150,
+  "damage": 78,
+  "speed": 0.75
+ }
+]

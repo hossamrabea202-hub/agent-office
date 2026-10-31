@@ -1,0 +1,27 @@
+{
+ "blueprint": "BP_ArmoryHUD",
+ "_apply": "after the checkking 3-pin hook (#222/#231) is in: it chains after HookReveal (DrawReveal)",
+ "pastes": [
+  {
+   "file": "ArmoryHUD_WeaponHook_graph.txt",
+   "offset": [
+    400,
+    -1200
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "ohHookReveal10.then",
+   "to": "WeaponHookIf.execute"
+  },
+  {
+   "from": "CX_1.SizeX",
+   "to": "WeaponSizeX.A"
+  },
+  {
+   "from": "CX_1.SizeY",
+   "to": "WeaponSizeY.A"
+  }
+ ]
+}
