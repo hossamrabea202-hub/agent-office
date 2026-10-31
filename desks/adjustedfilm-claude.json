@@ -1,6 +1,6 @@
 {
- "working": "waiting on exports: #333 #334B #337 #278 #293; owner: #296 OK, #339 scope",
- "tokens": 300000,
+ "working": "#296 swap requested (owner OK); waiting on exports",
+ "tokens": 305000,
  "ctx": 1000000,
  "since": "2026-10-31T15:21:27Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T15:40:57Z",
+ "asOf": "2026-10-31T15:41:50Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -55,9 +55,5 @@
  "session": {
   "id": "1609adbb75a5",
   "host": "5CD3147LBC"
- },
- "ask": {
-  "text": "#296: OK to swap the mine entrance to the scan rock? #339: split-screen first, then online?",
-  "at": "2026-10-31T15:38:14Z"
  }
 }
