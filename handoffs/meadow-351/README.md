@@ -43,3 +43,24 @@ Options: `--radius 22000` (cm around the castle) and `--seed 351`.
 1. From the wall, the land outside shows lush and thin grass patches, flower patches, and bushes along rocks and walls.
 2. No plants on rock faces, roofs or roads, or inside the castle.
 3. FPS about the same as before. If not, run again with `--radius 15000`.
+
+## Fix 2026-10-31 night: roads stay bare (Master's report on #351)
+
+The gate road is a **decal** (`Env_WornGround_Decal`) on a landscape with no paint layers. The old script could not see
+it, so grass grew on the road and the Master cleared it by hand. The script now builds a road mask first:
+
+1. **Road decals.** A decal counts as a road when its label or material contains road / path / worn / trail / track / dirt.
+   The test uses the decal's own rotated box, plus a 1.5 m verge.
+2. **Road actors.** Any actor labelled `*Road*` or `*Path*` counts, for example **PortalRoad** and **HiddenRoad**.
+   - With a spline, the mask follows the spline, 4.5 m to each side plus the verge.
+   - Without a spline, it uses the actor's bounds.
+3. **Bands.** The band the Master cleared by hand is built in: x −7000..300, y 1750 ± 450. Add more bands with
+   `--band x0,x1,y,halfwidth`.
+
+`--list` and `--dry-run` now print every road zone found and its size, and the dry run counts how many samples stayed
+bare. **Re-run (Master):**
+1. Run `--dry-run`. Check that the `road zones` list names `Env_WornGround_Decal`, PortalRoad and HiddenRoad.
+2. Run the script for real. It replaces Meadow351.
+
+Options: `--road-pad 150` (the verge, in cm).
+Not run in the editor yet. The dry-run list is the check.

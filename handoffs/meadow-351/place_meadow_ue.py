@@ -4,7 +4,13 @@
 #   py "<repo>/handoffs/meadow-351/place_meadow_ue.py" --dry-run     does the whole scatter, places nothing, prints counts
 #   py "<repo>/handoffs/meadow-351/place_meadow_ue.py"               places ONE actor "Meadow351" (instanced meshes)
 #   py ".../place_meadow_ue.py" --remove                             deletes it (= the undo; nothing else is touched)
-# Options: --radius <cm> (default 22000 around the castle), --seed <n>
+# Options: --radius <cm> (default 22000 around the castle), --seed <n>, --band x0,x1,y,halfwidth (more road bands, repeatable),
+#          --road-pad <cm> (default 150: bare verge beside each road)
+# Roads (#351 fix, 2026-10-31 night): the gate road is a DECAL (Env_WornGround_Decal) on a landscape with no paint layers,
+#   so a trace can't see it. Nothing grows on: (1) road-like decals (label or material has road/path/worn/trail/track/dirt),
+#   tested in the decal's own rotated box; (2) actors labelled *Road* / *Path* (PortalRoad, HiddenRoad): along their splines
+#   (half-width 450 cm) or, without a spline, in their bounds; (3) bands: the Master's hand-cleared gate road
+#   (x -7000..300, y 1750 +- 450) plus any --band. --list / --dry-run print every road zone found.
 # Ecology rules (handoffs/knowledge/research_notes/environment_vegetation.md: studios place by maps and rules, not by hand;
 # Naughty Dog: "is there enough light / water for this plant here?"):
 #   grass clumps   everywhere open, density follows a large-scale noise (meadow patches vs thin trampled ground)
@@ -24,6 +30,10 @@ A = sys.argv[1:]
 DRY, LIST, REMOVE = '--dry-run' in A, '--list' in A, '--remove' in A
 arg = lambda k, d: type(d)(A[A.index(k) + 1]) if k in A and A.index(k) + 1 < len(A) else d
 RADIUS, SEED = arg('--radius', 22000.0), arg('--seed', 351)
+ROAD_PAD, ROAD_HW, CELL = arg('--road-pad', 150.0), 450.0, 100.0
+ROAD_WORDS = ('road', 'path', 'worn', 'trail', 'track', 'dirt')
+BANDS = [(-7000.0, 300.0, 1750.0, 450.0)]                         # the gate road the Master cleared by hand (x0, x1, y, half-width)
+BANDS += [tuple(float(v) for v in A[i + 1].split(',')) for i, k in enumerate(A) if k == '--band' and i + 1 < len(A)]
 try: HERE = os.path.dirname(os.path.abspath(__file__))
 except NameError: HERE = r'C:\Users\hossa\Documents\agent-office\handoffs\meadow-351'
 LABEL = 'Meadow351'
@@ -82,6 +92,55 @@ if REMOVE:
         for a in old: EAS.destroy_actor(a)
         unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level()
     print('\n'.join(log)); raise SystemExit
+
+
+def road_cells():
+    """set of (ix, iy) 1 m cells where nothing may grow: road decals, *Road* / *Path* actors, bands (+ ROAD_PAD)."""
+    cells, zones = set(), []
+    def box(x0, x1, y0, y1, test=None):
+        n = 0
+        for ix in range(int(math.floor(x0 / CELL)), int(math.floor(x1 / CELL)) + 1):
+            for iy in range(int(math.floor(y0 / CELL)), int(math.floor(y1 / CELL)) + 1):
+                if test is None or test((ix + 0.5) * CELL, (iy + 0.5) * CELL): cells.add((ix, iy)); n += 1
+        return n
+    for x0, x1, yc, hw in BANDS:
+        zones.append('band x %.0f..%.0f y %.0f +- %.0f: %d cells' % (x0, x1, yc, hw, box(min(x0, x1), max(x0, x1), yc - hw - ROAD_PAD, yc + hw + ROAD_PAD)))
+    for a in EAS.get_all_level_actors():
+        label = a.get_actor_label()
+        for d in a.get_components_by_class(unreal.DecalComponent):
+            mat = d.get_editor_property('decal_material')
+            name = (label + ' ' + (mat.get_name() if mat else '')).lower()
+            if not any(w in name for w in ROAD_WORDS): continue
+            xf = d.get_world_transform(); o, sc = xf.translation, xf.scale3d
+            r = xf.rotation.rotator()
+            ax = [unreal.MathLibrary.get_forward_vector(r), unreal.MathLibrary.get_right_vector(r), unreal.MathLibrary.get_up_vector(r)]
+            sz = d.get_editor_property('decal_size')
+            half = [abs(sz.x * sc.x) + 500.0, abs(sz.y * sc.y) + ROAD_PAD, abs(sz.z * sc.z) + ROAD_PAD]   # depth axis kept loose
+            def inside(x, y, o=o, ax=ax, half=half):
+                dx, dy = x - o.x, y - o.y                                  # ground point, z taken at the decal centre
+                return all(abs(dx * v.x + dy * v.y) <= h for v, h in zip(ax, half))
+            ext = sum(half[1:]) + 10
+            n = box(o.x - ext, o.x + ext, o.y - ext, o.y + ext, inside)
+            zones.append('decal %s (%s): %d cells' % (label, mat.get_name() if mat else '-', n))
+        if not any(w in label.lower() for w in ('road', 'path')) or a.get_components_by_class(unreal.DecalComponent): continue
+        splines = a.get_components_by_class(unreal.SplineComponent)
+        if splines:
+            n0 = len(cells); hw = ROAD_HW + ROAD_PAD
+            for sp in splines:
+                L = sp.get_spline_length(); k = 0.0
+                while k <= L:
+                    q = sp.get_location_at_distance_along_spline(k, unreal.SplineCoordinateSpace.WORLD)
+                    box(q.x - hw, q.x + hw, q.y - hw, q.y + hw, lambda x, y, q=q: (x - q.x) ** 2 + (y - q.y) ** 2 <= hw * hw)
+                    k += CELL
+            zones.append('road spline %s: %d cells' % (label, len(cells) - n0))
+        else:
+            o, e = a.get_actor_bounds(False)
+            zones.append('road bounds %s: %d cells' % (label, box(o.x - e.x - ROAD_PAD, o.x + e.x + ROAD_PAD, o.y - e.y - ROAD_PAD, o.y + e.y + ROAD_PAD)))
+    return cells, zones
+
+
+ROADS, zones = road_cells()
+log += ['road zones (%d cells of 1 m):' % len(ROADS)] + ['  ' + z for z in zones]
 P = plants()
 for k in KINDS: log.append('%-6s %d meshes %s' % (k, len(P.get(k, [])), ', '.join(x.split('.')[-1] for x in P.get(k, [])[:8])))
 if LIST:
@@ -114,7 +173,7 @@ def is_land(actor):
 spec = {k: [] for k in KINDS}
 patch_seed = {p: i * 13 + 5 for i, p in enumerate(P.get('flower', []))}
 x = max(lo[0], CENTRE[0] - RADIUS)
-n_samples = 0
+n_samples = n_road = 0
 while x < min(hi[0], CENTRE[0] + RADIUS):
     y = max(lo[1], CENTRE[1] - RADIUS)
     while y < min(hi[1], CENTRE[1] + RADIUS):
@@ -123,6 +182,7 @@ while x < min(hi[0], CENTRE[0] + RADIUS):
         if (px - CENTRE[0]) ** 2 + (py - CENTRE[1]) ** 2 > RADIUS ** 2: continue
         if CASTLE_MIN[0] < px < CASTLE_MAX[0] and CASTLE_MIN[1] < py < CASTLE_MAX[1]: continue
         n_samples += 1
+        if (int(math.floor(px / CELL)), int(math.floor(py / CELL))) in ROADS: n_road += 1; continue   # bare road + verge
         h = trace(unreal.Vector(px, py, ztop), unreal.Vector(px, py, zbot))
         if not h or not is_land(h[2]): continue                  # rocks, buildings, mesh roads, water: nothing grows there
         loc, nrm = h[0], h[1]
@@ -160,7 +220,7 @@ while x < min(hi[0], CENTRE[0] + RADIUS):
         spec[k].append((mesh, unreal.Transform(loc - unreal.Vector(0, 0, 2), rot, unreal.Vector(s, s, s))))
     x += STEP
 for k in KINDS: log.append('placed %-6s %6d' % (k, len(spec[k])))
-log.append('samples %d' % n_samples)
+log.append('samples %d (on roads, left bare: %d)' % (n_samples, n_road))
 
 if not DRY:
     for a in old: EAS.destroy_actor(a)
