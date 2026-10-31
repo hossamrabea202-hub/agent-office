@@ -1,5 +1,5 @@
 {
- "working": "#223 crop art: field plot + wheat 4 stages + cabbage 2 stages (#193/#199 still wait on exports)",
+ "working": "#223 crop art + #225 siege art handed off (#251, https://github.com/hossamrabea202-hub/agent-office/issues/252); #193 waits on castle export #194, #199 on zombie_refpose",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-31T02:07:35Z",
+ "asOf": "2026-10-31T02:21:47Z",
  "seat": "TGA (Claude)"
 }
