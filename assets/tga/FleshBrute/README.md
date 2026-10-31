@@ -14,9 +14,29 @@ The source is CGTrader "Flesh Mutant Monster" by andrey-ryzhko, under a **Royalt
 to use in the game, but **don't put the FBX or textures in this public repo**. Only this README, the import script
 and the preview renders are here.
 
-The model files are in `FleshBrute_PRIVATE.zip`, which the owner carries to the home PC. Unzip it to:
-`C:\Unreal Backups\Castle Defender\Tools\PrivateExports\2026-10-29\flesh-brute\`
-That gives you `SK_FleshBrute.fbx` and `textures\` (22 PNGs).
+### Starting from the original download (owner request 2026-10-31, #229)
+
+The Master buys and downloads the model himself. Only TGA's changes are in this repo.
+
+1. **Product:** "Flesh Mutant Monster" by **andrey-ryzhko**: game-ready, two skins (clean / bloody), 4K PBR, files BLEND + FBX + an Unreal project, 29,703 polygons.
+   - It was bought on CGTrader. The same model by the same artist is listed at https://www.renderhub.com/andrey-ryzhko/flesh-mutant-monster.
+   - Use the owner's own purchase.
+2. **Files needed from the download** (extract it anywhere):
+   - `Monster_001_FBX/Monster_001.fbx`
+   - from `Monster_001_TEXTURES/Monster_001_Textures/skin_01/`: part_01 and part_02 `BaseColor`, `AO`, `Roughness` and `Normal_DirectX` (4K PNGs)
+   - from `skin_02/`: part_01 and part_02 `BaseColor` and `Roughness`
+
+   The UE 5.8 project, the .blend file, the Metallic maps and the OpenGL normal maps are not needed.
+3. **Re-apply TGA's changes:**
+   ```
+   blender -b -P assets/tga/FleshBrute/source/prepare_from_download.py -- "<extracted download>" "C:\Unreal Backups\Castle Defender\Tools\PrivateExports\2026-10-29\flesh-brute"
+   ```
+   - **Mesh and rig: no changes.** `SK_FleshBrute.fbx` is the artist's `Monster_001.fbx` byte for byte, renamed only. The script checks the SHA-256. Scale (cm), pivot, A-pose, the 86 bones and the 2 material slots are the artist's.
+   - **Textures:** `make_skins.py` writes the 5 skins × 2 parts (Clean and Bloody with the realism pass, plus Rotten, Charred and Drowned) and the 2 normal maps: 22 PNGs.
+   - Tested on the real download: 22 textures + the FBX.
+4. **Import into Unreal:** run `import_fleshbrute_ue.py` (below). It creates the material, the 10 MIs and the default skin.
+
+The old route still works: unzip `FleshBrute_PRIVATE.zip` to the same folder.
 
 The model's own UE package is built for **UE 5.8**, so it can't be opened in our 5.3 project. Use the FBX route below.
 

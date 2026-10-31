@@ -1,7 +1,7 @@
 # Flesh Brute (new heavy enemy; TGA, 2026-10-29): import into UE 5.3.
 # Model: CGTrader "Flesh Mutant Monster" by andrey-ryzhko, Royalty Free licence. The FBX and textures are LICENSED, so
-# they are NOT in this repo: the owner copies FleshBrute_PRIVATE.zip to SRC below (unzipped). Only this script, the
-# README and preview renders are public.
+# they are NOT in this repo. Start from the ORIGINAL download (#229): extract it, then run source/prepare_from_download.py
+# in Blender (it writes SRC below: the artist's FBX renamed + TGA's 5 skins). Or unzip FleshBrute_PRIVATE.zip to SRC.
 # Run in the editor:  py "<repo>/assets/tga/FleshBrute/import_fleshbrute_ue.py"
 # Creates (re-running re-imports the same files):
 #   /Game/CastleDefender/Characters/Enemies/FleshBrute/SK_FleshBrute (+ _Skeleton, _PhysicsAsset)
@@ -18,7 +18,7 @@ SKINS = ('Clean', 'Bloody', 'Rotten', 'Charred', 'Drowned')
 EAL, MEL = unreal.EditorAssetLibrary, unreal.MaterialEditingLibrary
 tools = unreal.AssetToolsHelpers.get_asset_tools()
 if not os.path.isfile(os.path.join(SRC, 'SK_FleshBrute.fbx')):
-    raise RuntimeError('Flesh Brute: unzip FleshBrute_PRIVATE.zip to ' + SRC + ' first')
+    raise RuntimeError('Flesh Brute: first run  blender -b -P <repo>/assets/tga/FleshBrute/source/prepare_from_download.py -- <extracted download> ' + SRC + '  (or unzip FleshBrute_PRIVATE.zip there)')
 
 def task(path, opts=None):
     t = unreal.AssetImportTask()
