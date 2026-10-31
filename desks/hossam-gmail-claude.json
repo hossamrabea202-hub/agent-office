@@ -1,9 +1,10 @@
 {
- "working": "Master: waiting for owner Play test (crossbow + brute)",
+ "working": "Master: waiting for owner Play test",
  "tokens": 130000,
  "ctx": 1000000,
  "since": "2026-10-31T08:00:00Z",
  "done": [
+  "Hero 250 HP (death check + both bars)",
   "Crossbow double fire chain removed; brute bite 15 + HP x4; ballistas removed",
   "#239 deploy cannon pasted",
   "#331 cave rock --auto + side-by-side posted on #296",
@@ -12,8 +13,7 @@
   "#307 antidote pasted (compiles clean) [70% tokens left]",
   "#290 rain-torches merged [71% tokens left]",
   "#278 flares pasted [72% tokens left]",
-  "#272 survivors pasted (1 generator fix noted) [73% tokens left]",
-  "#241 + #257 exports; #298 mud prints + #310 cave door pasted [74% tokens left]"
+  "#272 survivors pasted (1 generator fix noted) [73% tokens left]"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-31T15:54:34Z",
+ "asOf": "2026-10-31T16:05:51Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
