@@ -1,9 +1,10 @@
 {
- "working": "#277 Crossbow flares (barracks upgrade, spotted threats only)",
- "tokens": 470000,
+ "working": "Waiting on the Master: #269 #272 #275 #278; next card",
+ "tokens": 512433,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
+  "#277 Crossbow flares handed off (#278): barracks upgrade, flares only at spotted threats [49% tokens left · 5h plan 92% left]",
   "#226 Weather v1 handed off (#275): daily roll + forecast, rain, fog, storm, lightning [54% tokens left · 5h plan 93% left]",
   "#11 Survivors handed off (#272): arrive when calm, [E] take in, heal 60 s, become soldiers [59% tokens left · 5h plan 94% left]",
   "#268 AAA pickup reveal handed off (#269): live 3D book/satchel, 5 beats, blur, dust, SFX [66% tokens left · 5h plan 95% left]",
@@ -12,8 +13,7 @@
   "#12 Commander + #15 death report: built on exports, pasted and active",
   "#3 v2 tentacle curl strike: pasted and verified",
   "#3 Tentacle cannon strike + 3-stage cannon break, handed to Master Agent",
-  "Hover work log on my desks",
-  "Token count + live duty timer"
+  "Hover work log on my desks"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T08:08:33Z",
+ "asOf": "2026-10-31T08:13:44Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-31T08:08:33Z",
+  "asOf": "2026-10-31T08:13:44Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 7,
+    "pct": 8,
     "resetsAt": "2026-10-31T10:10:00Z",
     "color": "#59bda5"
    },
