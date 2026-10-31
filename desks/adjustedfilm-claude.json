@@ -1,9 +1,10 @@
 {
- "working": "#351 meadow (owner) - waiting on Master run; next #339 slice 2 on owner OK",
- "tokens": 560000,
+ "working": "studio flow report for the owner",
+ "tokens": 640000,
  "ctx": 1000000,
  "since": "2026-10-31T15:21:27Z",
  "done": [
+  "#355 torch-bearer + #290 v2 handed off [36% tokens left]",
   "#337 p2 severing + #24 death text + #351 meadow script handed off; full TODO list [44% tokens left]",
   "#296 closed (swap live); #297 p4 miners handed off [53% tokens left]",
   "#337 decals + caps + particle mats ready; #333 design; #297 p4 workers request [57% tokens left]",
@@ -12,8 +13,7 @@
   "#334 part A handed off; pick-up table updated [70% tokens left]",
   "#339 plan posted (owner pick pending) [73% tokens left]",
   "#297 p3 placement script + #337 research handed off; requests for #278 #293 #333 #334 #337 [74% tokens left]",
-  "#322 p2 brute anim polish handed off [80% tokens left]",
-  "#296 side-by-side read + --swap-entrance line (waits owner OK) [94% tokens left]"
+  "#322 p2 brute anim polish handed off [80% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T17:01:53Z",
+ "asOf": "2026-10-31T17:24:09Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
