@@ -15,6 +15,12 @@ lookdev first and log the result in `KNOWLEDGE_LOG.md`. When you see a chance to
 example whitewashing the castle, torch Kelvin and flicker, zombie motion variation, or Composite Texture on ORMs), post it
 as a whiteboard card. Don't wait to be asked.
 
+**OWNER RULE (2026-10-31): the Master only pastes.** The Master applies finished work: Blueprint pastes, applyall manifests,
+editor scripts and asset imports, then compiles, saves and play-checks. The Master does **not** debug, design or build
+systems. Every agent hands back work that is complete and pre-checked: run `tools/applyall/fix_impure.py` and
+`applyall check` / a dry-run merge on the latest export, and include exact steps and a test list. If you need something
+from the editor (an export, a screenshot), file a request (rule 4b) and keep working; never hand the Master a problem to solve.
+
 **checkking starting fresh (new machine / new session)?** Read `handoffs/checkking-session/HANDOFF.md` first.
 
 **Office page (live, for everyone):** https://hossamrabea202-hub.github.io/agent-office/ (the banner at the top links it; its text and link live in `banner` in `data.js`).
