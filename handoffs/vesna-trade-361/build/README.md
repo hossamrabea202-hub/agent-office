@@ -108,7 +108,7 @@ By TGA (Claude), 2026-10-31. This builds the screen in `../owner_target.png`, wh
 - **Same price on every unbought piece.** Real data: the #96 curve price is shown on each row (2,000 in the mock-up), not the target's made-up per-piece prices. The same goes for **DEF**: it's pieces.csv's Def (the cuirass is +45, not the target's +28), and **Defence** is the sum of the worn pieces' DEF. The set tier is still what reduces damage, as in #96.
 - **Set Bonus shows tiers 4 / 6 / 11** with the real effects (−6 %, the Ember shockwave at 40 dmg / 4 m / 12 s, Sovereign's Ember −15 %).
 - **The button says BUY FOR** (Master: RECRUIT is the barracks #359 wording, same kit).
-- **Iron and silver show 0.** I don't know the game's ore counter names. They're `OreIron` / `OreSilver` on BPC_VesnaTrade: tell me the source and I'll wire it.
+- **Iron and silver are the mine ore** (#201): BP_ZombieHUD `Ore[0]` is iron and `Ore[2]` is silver.
 - **Damage is 35** (the sword's BaseDamage in the hero export) and **Health is 250** (MaxHP, Master). Both are `HeroDamage` / `HeroMaxHP` on the component. Move speed is live: MaxWalkSpeed against its value when the shop first opened.
 - **The cuirass stays on the classic rack** (as in #222), so its row reads ON THE RACK until it's owned.
 - **WEAPONS / SUPPLIES are the classic shop for now.** Moving those items into this list needs a fresh BP_ArmoryHUD export, so it's v2 once this one is in.

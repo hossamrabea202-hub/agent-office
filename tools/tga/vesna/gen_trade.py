@@ -423,8 +423,10 @@ fd = draw_tabs(fd)
 # purse
 PU = L['purse']
 text(fd, group(GOLD_), PU['gold'][1], PU['cy'], 30, CREAM, tag='Gold')
-text(fd, istr(get('OreIron', INT)), PU['iron'][1], PU['cy'], 30, CREAM, tag='Iron')
-text(fd, istr(get('OreSilver', INT)), PU['silver'][1], PU['cy'], 30, CREAM, tag='Silver')
+ORE = b.getm('Ore', ZHUD, arr(INT), ZH, *P())                     # BP_ZombieHUD Ore[0] iron, [1] copper, [2] silver, [3] gold ore (#201)
+text(fd, istr(b.item(ORE, INT, None, *P())), PU['iron'][1], PU['cy'], 30, CREAM, tag='Iron')
+so_ = b.item(ORE, INT, None, *P()); G.nodes[-1][3][1]['default'] = '2'
+text(fd, istr(so_), PU['silver'][1], PU['cy'], 30, CREAM, tag='Silver')
 # left header count
 LH = L['lhead']
 text(fd, catn('(', istr(WCOUNT), ' / 11)'), 322, LH['cy'] + 1, 27, GOLD, tag='SetCount')
@@ -681,7 +683,7 @@ json.dump(man, open(os.path.join(OUT, 'manifest_trade.json'), 'w'), indent=1)
 VARS = dict(Tab=('int', 1), RTab=('int', 0), Sel=('int', 1), Scroll=('int', 0), Yaw=('double', 0.0), Zoom=('double', 1.0), Spin=('bool', True),
             Compare=('bool', True), WasOpen=('bool', False), Covering=('bool', False), MsgUntil=('double', 0.0), FlashUntil=('double', 0.0),
             LastT=('double', 0.0), Dragging=('bool', False), DragX=('double', 0.0), HeroYaw=('double', 0.0), BaseSpeed=('double', 0.0),
-            HeroDamage=('int', 35), HeroMaxHP=('int', 250), OreIron=('int', 0), OreSilver=('int', 0), CurDef=('int', 0),
+            HeroDamage=('int', 35), HeroMaxHP=('int', 250), CurDef=('int', 0),
             CapDist=('double', 330.0), CapHeight=('double', 20.0))
 ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots']          # tools/tga/vesna/turntable.py, 128 px cells in 1024 x 256
 pcs = L['pieces']
