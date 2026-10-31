@@ -1,0 +1,37 @@
+{
+ "blueprint": "BP_SkillTreeHUD",
+ "_built_on": "handoffs/exports/master/2026-10-30b/BP_SkillTreeHUD_EventGraph.txt",
+ "pastes": [
+  "SkillTreeHUD_SwipeAD_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_14.ReturnValue",
+   "to": "SwipeKeyA.self"
+  },
+  {
+   "from": "CX_14.ReturnValue",
+   "to": "SwipeKeyD.self"
+  },
+  {
+   "from": "CX_1375.ReturnValue",
+   "to": "SwipeOrA.A"
+  },
+  {
+   "from": "SwipeOrA.ReturnValue",
+   "to": "CX_1376.B",
+   "replace": true,
+   "note": "was <- CX_1375 (Left)"
+  },
+  {
+   "from": "CX_1379.ReturnValue",
+   "to": "SwipeOrD.A"
+  },
+  {
+   "from": "SwipeOrD.ReturnValue",
+   "to": "CX_1380.B",
+   "replace": true,
+   "note": "was <- CX_1379 (Right)"
+  }
+ ]
+}
