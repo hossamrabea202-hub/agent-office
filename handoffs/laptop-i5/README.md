@@ -175,3 +175,17 @@ one after another without asking. Characters stay stand-ins until the MetaHuman 
 
 - **New owner rule: `AR` = "according to our studio office rules"** (AGENTS.md rule 6), next to `W:` = card first.
 - TGA's queue (set 2026-10-31): #294 done, #225 art done, #279 staircases in progress.
+
+### adjustedfilm, 2026-10-31 midday session
+
+| Card | Hand-off | Where | State |
+|---|---|---|---|
+| #266 PRIORITY infection cure | #307 | `handoffs/antidote-266` | Antidote at Vesna (the missing #148 step 5): APOTHECARY panel drawn by BP_NoticeHUD, 108-node paste + 4 links + icon import; dry-run merge OK on the 10-30b NoticeHUD export |
+| #297 cave door (W:) | see cafeteria (part 1) | `handoffs/cave-296-297` | BP_CaveDoor pair, [E] fade + teleport; part 3 (sub-level + placing) waits on request #308 (cave dump) and TGA's #309 |
+| #309 mine dungeon art kit | - | card for TGA | tunnels, timber supports, mine chamber, mine door |
+| #296 cave texturing (W:) | - | - | claimed; waits on request #308 (`dump_cave_ue.py`, read-only) |
+
+Still waiting: #228 report (`handoffs/walltops-228/walltops228_report.txt`), #293 part 2 (request #304), #183 (request #291).
+#213 part 2 ("UNLOCK - 2 PTS" boxes): the text is in **no** Blueprint export (searched every export for UNLOCK / PTS /
+{0}), so it comes from a widget, a material or a texture. It needs an editor search (checkking's card).
+Lesson: `from bpkit import *` overwrites `HERE`. Set it again after the import, or the outputs land in tools/laptop2/bpgen.
