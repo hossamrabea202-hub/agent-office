@@ -1,0 +1,804 @@
+{
+ "blueprints": {
+  "/Game/CastleDefender/Gameplay/Tentacle/Jelly/BP_JellyBlob": [
+   {
+    "component": "Blob_GEN_VARIABLE",
+    "mesh": "/Engine/BasicShapes/Sphere.Sphere",
+    "materials": [
+     {
+      "path": "/Game/CastleDefender/VFX/JellyBubble/MI_JellyBlob.MI_JellyBlob",
+      "parent": "/Game/CastleDefender/VFX/JellyBubble/M_JellyBlob.M_JellyBlob",
+      "scalars": {
+       "LandT": -1.0,
+       "HatchT": -1.0,
+       "Inten": 1.0,
+       "ZShield": 120.0,
+       "Roughness": 0.05999999865889549,
+       "Specular": 0.699999988079071
+      },
+      "vectors": {
+       "Green": "<Struct 'LinearColor' (0x00000282CF394C60) {r: 0.360000, g: 0.520000, b: 0.270000, a: 1.000000}>"
+      },
+      "textures": {}
+     }
+    ]
+   },
+   {
+    "component": "Blob_GEN_VARIABLE",
+    "mesh": "/Engine/BasicShapes/Sphere.Sphere",
+    "materials": [
+     {
+      "path": "/Game/CastleDefender/VFX/JellyBubble/MI_JellyBlob.MI_JellyBlob",
+      "parent": "/Game/CastleDefender/VFX/JellyBubble/M_JellyBlob.M_JellyBlob",
+      "scalars": {
+       "LandT": -1.0,
+       "HatchT": -1.0,
+       "Inten": 1.0,
+       "ZShield": 120.0,
+       "Roughness": 0.05999999865889549,
+       "Specular": 0.699999988079071
+      },
+      "vectors": {
+       "Green": "<Struct 'LinearColor' (0x00000282CF38D6A0) {r: 0.360000, g: 0.520000, b: 0.270000, a: 1.000000}>"
+      },
+      "textures": {}
+     }
+    ]
+   }
+  ],
+  "/Game/CastleDefender/Realm/BP_BlobMine": [
+   {
+    "component": "Mine_GEN_VARIABLE",
+    "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+    "materials": [
+     {
+      "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+      "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+      "scalars": {
+       "SubsurfaceAmount": 0.6000000238418579,
+       "WindIntensity": 0.6000000238418579,
+       "WindWeight": 1.0,
+       "WindSpeed": 1.0,
+       "EmissiveBoost": 6.0
+      },
+      "vectors": {},
+      "textures": {
+       "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+       "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+       "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+       "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+      }
+     }
+    ]
+   },
+   {
+    "component": "Mine_GEN_VARIABLE",
+    "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+    "materials": [
+     {
+      "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+      "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+      "scalars": {
+       "SubsurfaceAmount": 0.6000000238418579,
+       "WindIntensity": 0.6000000238418579,
+       "WindWeight": 1.0,
+       "WindSpeed": 1.0,
+       "EmissiveBoost": 6.0
+      },
+      "vectors": {},
+      "textures": {
+       "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+       "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+       "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+       "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+      }
+     }
+    ]
+   }
+  ],
+  "/Game/Codex/CastleAftermath_v1/BPC_BlobMorph164": []
+ },
+ "level_actors": [
+  {
+   "actor": "Blend_PropBlob_Prop_barrel_24_11",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sand_11_1",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_04",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_05",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_16",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sand_14_18",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_09",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_03",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_Contact_GongBlob",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_14",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Castle_WellBase_0",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sand_25_12",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_chest_201_3",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_11",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_06",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_barrel_23_0",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_17",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Castle_StoneBench_3",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_00",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_barrel_25_15",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_barrel_1_17",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_10",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_barrel_21_4",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_08",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_12",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Castle_StoneBench_1",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_20",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_02",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sbarrel_22_5",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sbarrel_3_20",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_18",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_15",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_21",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sbarrel_6_14",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sand_26_9",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sbarrel_24_2",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_01",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_barrel_5_6",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Blend_PropBlob_Prop_sand_13_7",
+   "component": "StaticMeshComponent0",
+   "mesh": "/Engine/BasicShapes/Plane.Plane",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard"
+    }
+   ]
+  },
+  {
+   "actor": "Realm_BlobMine_13",
+   "component": "Mine",
+   "mesh": "/Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine.SM_Flora_BlobMine",
+   "materials": [
+    {
+     "path": "/Game/CastleDefender/Environment/Flora/BlobMine/MI_Flora_BlobMine.MI_Flora_BlobMine",
+     "parent": "/Game/CastleDefender/Environment/Flora/M_LP2FoliageGlow.M_LP2FoliageGlow",
+     "scalars": {
+      "SubsurfaceAmount": 0.6000000238418579,
+      "WindIntensity": 0.6000000238418579,
+      "WindWeight": 1.0,
+      "WindSpeed": 1.0,
+      "EmissiveBoost": 6.0
+     },
+     "vectors": {},
+     "textures": {
+      "BaseColor": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor.T_Flora_BlobMine_BaseColor",
+      "ORM": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM.T_Flora_BlobMine_ORM",
+      "Normal": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX.T_Flora_BlobMine_Normal_DirectX",
+      "Emissive": "/Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive.T_Flora_BlobMine_Emissive"
+     }
+    }
+   ]
+  }
+ ],
+ "realm_dome": []
+}
