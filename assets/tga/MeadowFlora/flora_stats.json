@@ -1,104 +1,104 @@
 {
  "SM_Flower_Daisy_A": {
-  "LOD0": 1662,
-  "LOD1": 974,
-  "LOD2": 330,
+  "LOD0": 3552,
+  "LOD1": 2068,
+  "LOD2": 726,
   "LOD3": 4
  },
  "SM_Flower_Daisy_B": {
-  "LOD0": 2626,
-  "LOD1": 1570,
-  "LOD2": 518,
+  "LOD0": 4598,
+  "LOD1": 2690,
+  "LOD2": 962,
   "LOD3": 4
  },
  "SM_Flower_Daisy_C": {
-  "LOD0": 3590,
-  "LOD1": 2166,
-  "LOD2": 706,
+  "LOD0": 6078,
+  "LOD1": 3574,
+  "LOD2": 1284,
   "LOD3": 4
  },
  "SM_Flower_Poppy_A": {
-  "LOD0": 1260,
-  "LOD1": 608,
-  "LOD2": 356,
+  "LOD0": 3088,
+  "LOD1": 1516,
+  "LOD2": 886,
   "LOD3": 4
  },
  "SM_Flower_Poppy_B": {
-  "LOD0": 1884,
-  "LOD1": 924,
-  "LOD2": 554,
+  "LOD0": 4140,
+  "LOD1": 2036,
+  "LOD2": 1206,
   "LOD3": 4
  },
  "SM_Flower_Poppy_C": {
-  "LOD0": 1876,
-  "LOD1": 920,
-  "LOD2": 552,
+  "LOD0": 4952,
+  "LOD1": 2460,
+  "LOD2": 1478,
   "LOD3": 4
  },
  "SM_Flower_Yarrow_A": {
-  "LOD0": 1710,
-  "LOD1": 848,
-  "LOD2": 408,
+  "LOD0": 3832,
+  "LOD1": 1920,
+  "LOD2": 900,
   "LOD3": 4
  },
  "SM_Flower_Yarrow_B": {
-  "LOD0": 2216,
-  "LOD1": 1104,
-  "LOD2": 528,
+  "LOD0": 4724,
+  "LOD1": 2372,
+  "LOD2": 1110,
   "LOD3": 4
  },
  "SM_Flower_Yarrow_C": {
-  "LOD0": 3228,
-  "LOD1": 1616,
-  "LOD2": 768,
+  "LOD0": 6062,
+  "LOD1": 3050,
+  "LOD2": 1425,
   "LOD3": 4
  },
  "SM_Flower_Cornflower_A": {
-  "LOD0": 1006,
-  "LOD1": 736,
-  "LOD2": 323,
+  "LOD0": 3075,
+  "LOD1": 1709,
+  "LOD2": 1239,
   "LOD3": 4
  },
  "SM_Flower_Cornflower_B": {
-  "LOD0": 1645,
-  "LOD1": 898,
-  "LOD2": 428,
+  "LOD0": 4441,
+  "LOD1": 2565,
+  "LOD2": 1376,
   "LOD3": 4
  },
  "SM_Flower_Cornflower_C": {
-  "LOD0": 3396,
-  "LOD1": 1259,
-  "LOD2": 722,
+  "LOD0": 5714,
+  "LOD1": 3151,
+  "LOD2": 1780,
   "LOD3": 4
  },
  "SM_Bush_Hawthorn_A": {
-  "LOD0": 4072,
-  "LOD1": 2396,
-  "LOD2": 854,
+  "LOD0": 5628,
+  "LOD1": 3172,
+  "LOD2": 1170,
   "LOD3": 4
  },
  "SM_Bush_Hawthorn_B": {
-  "LOD0": 5738,
-  "LOD1": 3364,
-  "LOD2": 1157,
+  "LOD0": 7942,
+  "LOD1": 4476,
+  "LOD2": 1625,
   "LOD3": 4
  },
  "SM_Bush_Hazel_A": {
-  "LOD0": 6294,
-  "LOD1": 3474,
-  "LOD2": 1436,
+  "LOD0": 6930,
+  "LOD1": 3738,
+  "LOD2": 1516,
   "LOD3": 4
  },
  "SM_Bush_Hazel_B": {
-  "LOD0": 7946,
-  "LOD1": 4378,
-  "LOD2": 1796,
+  "LOD0": 8990,
+  "LOD1": 4850,
+  "LOD2": 1968,
   "LOD3": 4
  },
  "SM_Fern_Bracken_A": {
-  "LOD0": 6360,
-  "LOD1": 3084,
-  "LOD2": 568,
+  "LOD0": 7700,
+  "LOD1": 3894,
+  "LOD2": 636,
   "LOD3": 4
  }
 }

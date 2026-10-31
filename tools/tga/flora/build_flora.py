@@ -118,9 +118,20 @@ def flower_stems(m, sp, var, lod, heads, hmin, hmax, rad, spread):
         tube(m, pts, [rad * (1 - 0.35 * i / (n - 1)) for i in range(n)], LOD[lod]['sides'], 7, R, G)
         out.append((pts, ld, G, q, h))
     return out
+def fallen(m, tile, n, key, L, W, lod, spread=0.15):                           # v2: a few dropped petals on the ground
+    if lod == 2: return
+    for i in range(n if lod == 0 else n // 2):
+        q = rng(key, 'fall', i); a = q.random() * 6.28; rr = spread * math.sqrt(q.random()); d = V3(math.cos(a + 1.3), math.sin(a + 1.3), 0.05)
+        blade(m, V3(rr * math.cos(a), rr * math.sin(a), 0.004), d, perp(nz(d)), L, lambda s_, W=W: W * (0.5 + 0.5 * math.sin(math.pi * min(1, s_ * 0.8 + 0.2))),
+              3, 3, tile, 1.0, 1.0, 0.0, droop=0.15, fold=-0.2, twist=q.normal(0, 0.4))
 def daisy(var, lod):
-    m = Mesh(); heads = {'A': 3, 'B': 5, 'C': 7}[var]; rosette(m, None, lod, 9, 0.09, 0.013, spoon, 6, H('dz' + var))
-    for pts, ld, G, q, h in flower_stems(m, 'daisy', var, lod, heads, 0.32, 0.6, 0.0022, 0.06):
+    m = Mesh(); heads = {'A': 8, 'B': 11, 'C': 15}[var]; rosette(m, None, lod, 12, 0.09, 0.013, spoon, 6, H('dz' + var))
+    fallen(m, 0, 6, 'dz' + var, 0.018, 0.0022, lod, 0.16)
+    for k, (pts, ld, G, q, h) in enumerate(flower_stems(m, 'daisy', var, lod, heads, 0.28, 0.6, 0.0022, 0.12)):
+        if k % 5 == 4:                                                           # closed bud: green bracts round a white tip
+            top = pts[-1]; hd = head_dir(q, ld)
+            lathe(m, top - hd * 0.003, hd, [(0, 0.002), (0.004, 0.0055), (0.008, 0.005), (0.011, 0.002)], LOD[lod]['sides'] + 1, 15, 0.0, G)
+            lathe(m, top + hd * 0.005, hd, [(0, 0.004), (0.003, 0.0035), (0.0045, 0.0005)], LOD[lod]['sides'] + 1, 0, 0.0, G); continue
         for j in range(3):                                                       # clasping stem leaves
             if not keep(j, 3, lod) or lod == 2: continue
             s = 0.15 + 0.2 * j; p = pts[int(s * (len(pts) - 1))]; a = q.random() * 6.28; d = nz(V3(math.cos(a), math.sin(a), 0.9))
@@ -128,18 +139,19 @@ def daisy(var, lod):
         top = pts[-1]; hd = head_dir(q, ld)
         lathe(m, top - hd * 0.004, hd, [(0, 0.002), (0.004, 0.007), (0.007, 0.0085)], LOD[lod]['sides'] + 2, 15, 0.0, G)
         disc(m, top + hd * 0.007, hd, 0.009, 10 if lod < 2 else 6, 2 if lod == 0 else 1, 1, 0.0, G, dome=0.35)
-        np_ = {0: 22, 1: 16, 2: 11}[lod]; u = perp(hd); w = np.cross(hd, u)
+        np_ = {0: 18, 1: 13, 2: 9}[lod]; u = perp(hd); w = np.cross(hd, u)
         for i in range(np_):
             a = 2 * math.pi * (i + 0.3 * q.random()) / np_; rd = u * math.cos(a) + w * math.sin(a); pb = top + hd * 0.006 + rd * 0.008
-            d = nz(rd + hd * (0.15 + 0.2 * q.random())); W = 0.0022 * (22 / np_) ** 0.7
+            d = nz(rd + hd * (0.15 + 0.2 * q.random())); W = 0.0024 * (18 / np_) ** 0.7
             blade(m, pb, d, np.cross(hd, rd), 0.019 * (0.9 + 0.2 * q.random()), lambda s_, W=W: W * (0.55 + 0.45 * math.sin(math.pi * min(1, s_ * 0.7 + 0.3))),
                   4 if lod < 2 else 3, 3 if lod < 2 else 2, 0, 0.0, 0.0, G, droop=0.25 + 0.35 * q.random(), fold=-0.15, tips=0.12, B0=0.5)
     return m
 def poppy(var, lod):
-    m = Mesh(); nf, nb = {'A': (2, 1), 'B': (3, 2), 'C': (4, 1)}[var]; rosette(m, None, lod, 7, 0.13, 0.022, lobed, 6, H('pp' + var))
-    st = flower_stems(m, 'poppy', var, lod, nf + nb, 0.35, 0.65, 0.0026, 0.07)
+    m = Mesh(); nf, nb = {'A': (5, 3), 'B': (7, 4), 'C': (9, 5)}[var]; rosette(m, None, lod, 10, 0.13, 0.022, lobed, 6, H('pp' + var))
+    fallen(m, 2, 5, 'pp' + var, 0.03, 0.02, lod, 0.18)
+    st = flower_stems(m, 'poppy', var, lod, nf + nb, 0.3, 0.65, 0.0026, 0.12)
     for k, (pts, ld, G, q, h) in enumerate(st):
-        if k < 2 and lod < 2:                                                   # one stem leaf on the first stems
+        if k < 4 and lod < 2:                                                 # one stem leaf on the first stems
             p = pts[len(pts) // 3]; d = nz(V3(-ld[0], -ld[1], 0.8))
             blade(m, p, d, perp(d), 0.07, lambda s_: 0.012 * lobed(s_), nlod(6, lod), 3, 6, 0.7, 0.3, G, droop=0.7, fold=0.2)
         top = pts[-1]; hd = head_dir(q, ld)
@@ -159,8 +171,8 @@ def poppy(var, lod):
                   crumple=0.25 if lod == 0 else 0.0, seed=H('pt') + k * 7 + i, B0=0.4)
     return m
 def yarrow(var, lod):
-    m = Mesh(); heads = {'A': 3, 'B': 4, 'C': 6}[var]; rosette(m, None, lod, 8, 0.11, 0.009, feather, 6, H('ya' + var))
-    for pts, ld, G, q, h in flower_stems(m, 'yarrow', var, lod, heads, 0.3, 0.58, 0.0024, 0.05):
+    m = Mesh(); heads = {'A': 8, 'B': 10, 'C': 13}[var]; rosette(m, None, lod, 11, 0.11, 0.009, feather, 6, H('ya' + var))
+    for pts, ld, G, q, h in flower_stems(m, 'yarrow', var, lod, heads, 0.26, 0.58, 0.0024, 0.1):
         for j in range(3):
             if lod == 2 or not keep(j, 3, lod): continue
             p = pts[int((0.2 + 0.2 * j) * (len(pts) - 1))]; a = q.random() * 6.28; d = nz(V3(math.cos(a), math.sin(a), 0.7))
@@ -170,20 +182,20 @@ def yarrow(var, lod):
             a = 2 * math.pi * i / nray + q.random(); rr = 0.012 + 0.012 * q.random(); e = top + V3(math.cos(a) * rr, math.sin(a) * rr, 0.025 + 0.008 * q.random())
             tube(m, [top - V3(0, 0, 0.02), top + V3(math.cos(a) * rr * 0.3, math.sin(a) * rr * 0.3, 0.012), e], [0.0012, 0.001, 0.0008], 3, 7, [0.05, 0.02, 0.0], G)
             ends.append(e)
-        nfl = {0: 46, 1: 24, 2: 12}[lod]; rad = 0.0026 * math.sqrt(46 / nfl); ctr = top + V3(0, 0, 0.032)
+        nfl = {0: 34, 1: 18, 2: 9}[lod]; rad = 0.003 * math.sqrt(34 / nfl); ctr = top + V3(0, 0, 0.032)
         for i in range(nfl):                                                    # florets on a dome, golden-angle spiral
             rr = 0.03 * math.sqrt((i + 0.5) / nfl); a = i * 2.39996; p = ctr + V3(math.cos(a) * rr, math.sin(a) * rr, -18 * rr * rr + q.normal(0, 0.0015))
             n_ = nz(V3(math.cos(a) * rr * 8, math.sin(a) * rr * 8, 1)); disc(m, p, n_, rad, 5, 1, 5, 0.0, G, dome=0.15)
     return m
 def cornflower(var, lod):
-    m = Mesh(); heads = {'A': 2, 'B': 3, 'C': 5}[var]; rosette(m, None, lod, 5, 0.08, 0.005, lance, 6, H('cf' + var))
-    for pts, ld, G, q, h in flower_stems(m, 'cornflower', var, lod, heads, 0.4, 0.72, 0.0018, 0.05):
+    m = Mesh(); heads = {'A': 8, 'B': 11, 'C': 14}[var]; rosette(m, None, lod, 8, 0.08, 0.005, lance, 6, H('cf' + var))
+    for pts, ld, G, q, h in flower_stems(m, 'cornflower', var, lod, heads, 0.35, 0.72, 0.0018, 0.1):
         for j in range(4):                                                      # narrow linear stem leaves
             if not keep(j, 4, lod): continue
             p = pts[int((0.1 + 0.18 * j) * (len(pts) - 1))]; a = q.random() * 6.28; d = nz(V3(math.cos(a), math.sin(a), 1.4))
             blade(m, p, d, perp(d), 0.07 - 0.01 * j, lambda s_: 0.0028 * lance(s_), nlod(5, lod), 3 if lod < 2 else 2, 6, 0.8 - 0.15 * j, 0.3, G, droop=0.5, fold=0.4)
         tops = [(pts[-1], ld)]
-        if q.random() < 0.7:                                                    # side branch with a second (bud or flower) head
+        if q.random() < 0.4:                                                    # side branch with a second (bud or flower) head
             b0 = pts[int(0.65 * (len(pts) - 1))]; bl = V3(-ld[1], ld[0], 0) * (1 if q.random() < 0.5 else -1)
             bp = stem_pts(b0, 0.14, bl, 0.35, 0.05, nlod(6, lod)); bp = [p + V3(0, 0, b0[2]) for p in bp]
             tube(m, bp, [0.0014] * len(bp), max(3, LOD[lod]['sides'] - 1), 7, [0.35 * (1 - i / (len(bp) - 1)) for i in range(len(bp))], G)
@@ -191,34 +203,34 @@ def cornflower(var, lod):
         for t_i, (top, l2) in enumerate(tops):
             hd = head_dir(q, l2); lathe(m, top, hd, [(0, 0.0015), (0.004, 0.0042), (0.010, 0.0058), (0.0135, 0.0042)], LOD[lod]['sides'] + 2, 15, 0.0, G)
             if t_i == 1 and q.random() < 0.5: continue                          # bud only
-            u = perp(hd); w = np.cross(hd, u); nfl = {0: 9, 1: 7, 2: 5}[lod]; c = top + hd * 0.012
+            u = perp(hd); w = np.cross(hd, u); nfl = {0: 8, 1: 6, 2: 5}[lod]; c = top + hd * 0.012
             disc(m, c, hd, 0.0045, 7, 1, 4, 0.0, G, dome=0.6)
             for i in range(nfl):
                 a = 2 * math.pi * i / nfl + q.normal(0, 0.1); rd = u * math.cos(a) + w * math.sin(a); d = nz(rd + hd * (0.35 + 0.2 * q.random()))
                 blade(m, c + rd * 0.003, d, np.cross(hd, rd), 0.016 * (0.9 + 0.2 * q.random()), lambda s_: 0.0012 + 0.0042 * s_ ** 1.3,
-                      4 if lod < 2 else 3, 5 if lod == 0 else 3, 4, 0.0, 0.0, G, droop=0.3, fold=0.5, tips=0.25 if lod == 0 else 0.0, B0=0.5)
+                      4 if lod < 2 else 3, 3, 4, 0.0, 0.0, G, droop=0.3, fold=0.5, tips=0.25 if lod == 0 else 0.0, B0=0.5)
     return m
 def bracken(var, lod):
-    m = Mesh(); nfr = 6
+    m = Mesh(); nfr = 11
     for k in range(nfr):
-        if lod == 2 and k % 3 == 2: continue
+        if lod == 2 and k % 2 == 1: continue
         q = rng('bracken', var, k); a = 2 * math.pi * k / nfr + q.normal(0, 0.3); ld = V3(math.cos(a), math.sin(a), 0)
-        base = ld * 0.06 * q.random(); hs = 0.35 + 0.25 * q.random(); n = nlod(8, lod)
-        sp = stem_pts(base, hs, ld, 0.25, 0.2, n, 0.0); G = q.random()
+        base = ld * 0.1 * q.random(); hs = 0.3 + 0.25 * q.random(); n = nlod(8, lod)
+        sp = stem_pts(base, hs, ld, 0.35 + 0.3 * q.random(), 0.25, n, 0.0); G = q.random()
         tube(m, sp, [0.0045 * (1 - 0.5 * i / (n - 1)) for i in range(n)], max(3, LOD[lod]['sides'] - 1), 14, [1 - 0.5 * i / (n - 1) for i in range(n)], G)
         # blade: rachis arching outwards, near horizontal
-        L = 0.55 + 0.25 * q.random(); nr = nlod(10, lod); rp = [sp[-1]]; d = nz(ld * 0.9 + V3(0, 0, 0.5))
-        for i in range(1, nr): d = rot(d, np.cross(d, V3(0, 0, 1)), -0.06); rp.append(rp[-1] + d * L / (nr - 1))
+        L = 0.65 + 0.35 * q.random(); nr = nlod(10, lod); rp = [sp[-1]]; d = nz(ld * 0.8 + V3(0, 0, 0.75))
+        for i in range(1, nr): d = rot(d, np.cross(d, V3(0, 0, 1)), -0.11); rp.append(rp[-1] + d * L / (nr - 1))
         tube(m, rp, [0.0025 * (1 - 0.7 * i / (nr - 1)) for i in range(nr)], 3, 14, [0.5 - 0.5 * i / (nr - 1) for i in range(nr)], G)
-        npair = {0: 9, 1: 7, 2: 5}[lod]
+        npair = {0: 8, 1: 6, 2: 4}[lod]
         for i in range(npair):
             s = 0.08 + 0.85 * i / npair; idx = s * (nr - 1); p = rp[int(idx)] + (rp[min(int(idx) + 1, nr - 1)] - rp[int(idx)]) * (idx % 1)
             dd = nz(rp[min(int(idx) + 1, nr - 1)] - rp[int(idx)]); side = nz(np.cross(dd, V3(0, 0, 1))); Lp = L * 0.42 * (1 - s) ** 0.8 + 0.03
             for sgn in (-1, 1):
                 pd = nz(side * sgn + dd * 0.55); ps = nz(np.cross(V3(0, 0, 1), pd))
                 if np.dot(np.cross(pd, ps), V3(0, 0, 1)) < 0: ps = -ps
-                blade(m, p, pd, ps, Lp, lambda s_, w0=0.018 * (1 - 0.5 * s): w0 * (1 - s_) ** 0.7 * (0.55 + 0.45 * abs(math.sin(s_ * math.pi * 7))) + 0.0015,
-                      {0: 14, 1: 9, 2: 6}[lod], 3 if lod < 2 else 2, 10, 0.5 * (1 - s), 0.0, G, droop=0.35, fold=-0.15, twist=0.25 * sgn, B0=0.3)
+                blade(m, p, pd, ps, Lp, lambda s_, w0=0.045 * (1 - 0.45 * s): w0 * (1 - s_) ** 0.6 * (0.6 + 0.4 * abs(math.sin(s_ * math.pi * 8))) + 0.0015,
+                      {0: 10, 1: 7, 2: 5}[lod], 3 if lod < 2 else 2, 10, 0.5 * (1 - s), 0.0, G, droop=0.35, fold=-0.15, twist=0.25 * sgn, B0=0.3)
     return m
 # ---- bushes: branch skeleton (bark tubes) + leaf-spray cards from atlas 2 (8x8 cells of 256; sprays = 2x2 cells on rows 6-7)
 def spray_uv(k, s, t): return ((2 * k + 0.02 + s * 1.96) / 8, (6 + 0.02 + t * 1.96) / 8)
@@ -246,22 +258,24 @@ def bush(sp, var, lod):
         branch(base, d, Hh * (0.75 + 0.2 * q.random()) * (1.0 if hz else 0.55), (0.022 if hz else 0.035) * (0.8 + 0.3 * q.random()), 0, q.random(), ('b', k))
     # leaf-spray cards on twigs: count by LOD, survivors scaled up; bent normals toward an ellipsoid around the crown
     allpts = np.array([t[0] for t in twigs]); ctr = allpts.mean(0); ext = np.maximum(allpts.max(0) - allpts.min(0), 0.3) * 0.5
-    cnt = {0: 260, 1: 165, 2: 85}; want = cnt[lod] * (1.15 if var == 'B' else 1.0); step = len(twigs) / want; scl = math.sqrt(cnt[0] / cnt[lod])
-    i = 0.0; c = 0
-    while int(i) < len(twigs):
-        p, d, depth, G = twigs[int(i)]; q = rng(sp, var, 'card', c); c += 1; i += step
-        k = (2 if hz else 0) + (1 if q.random() < (0.4 if var == 'B' else 0.2) else 0)
-        # card lies on the crown surface (geometric normal ~ outward, so the bent normal and the face agree), tilted 35 % outward
-        out = nz((p - ctr) / ext + V3(0, 0, 0.4)); fwd = nz(d - out * np.dot(d, out) + out * 0.35 + V3(*q.normal(0, 0.3, 3)))
+    # v2: many small real-size spray cards filling the crown volume (outer shell denser); survivors of a LOD grow to keep coverage
+    n0 = (420 if var == 'A' else 560) if hz else (650 if var == 'A' else 850); kf = {0: 1.0, 1: 0.55, 2: 0.25}[lod]; scl = 1 / math.sqrt(kf); cs = CARD[hz]
+    for c in range(n0):
+        if (c * 0.618034) % 1.0 >= kf: continue
+        q = rng(sp, var, 'card2', c); p, d, depth, G = twigs[int(q.integers(len(twigs)))]
+        rel = (p - ctr) / ext; out = nz(rel + V3(0, 0, 0.3))
+        p = p - d * 0.08 * q.random() + out * 0.07 * q.random() + V3(*q.normal(0, 0.025, 3))
+        k = (2 if hz else 0) + (1 if q.random() < (0.45 if var == 'B' else 0.15) else 0)
+        # card lies on the crown surface (geometric normal ~ outward, so the bent normal and the face agree)
+        fwd = nz(d - out * np.dot(d, out) + out * 0.3 + V3(*q.normal(0, 0.35, 3)))
         sd = nz(np.cross(out, fwd)); nn = np.cross(fwd, sd)
-        W = (0.30 if hz else 0.26) * scl * (0.85 + 0.3 * q.random()); Lc = W * 1.0
-        fold = 0.18 * W; verts, uvs, cols, nrms = [], [], [], []
-        for a_i, a in enumerate((-1, 0, 1)):
-            for b_i, b in enumerate((0, 1)):
-                pt = p - fwd * 0.04 + fwd * Lc * b + sd * a * W * 0.5 + nn * fold * (1 - abs(a)) - V3(0, 0, 0.05 * b * b)
+        W = cs * scl * (0.85 + 0.3 * q.random()); Lc = W; fold = 0.15 * W; verts, uvs, cols, nrms = [], [], [], []
+        for a in (-1, 0, 1):
+            for b in (0, 1):
+                pt = p - fwd * 0.08 * Lc + fwd * Lc * b + sd * a * W * 0.5 + nn * fold * (1 - abs(a)) - V3(0, 0, 0.15 * Lc * b)
                 verts.append(pt); uvs.append(spray_uv(k, b, (a + 1) / 2))
-                bn = nz(0.25 * nn + 0.75 * nz((pt - ctr) / ext)); nrms.append(tuple(bn)); cols.append((0.25 * (1 - b), G, 0.4 + 0.6 * b, 1.0))
-        # vertex order: a-major (3) x b (2) -> grid rows = a, cols = b
+                bn = nz(0.15 * nn + 0.85 * nz((pt - ctr) / ext + V3(0, 0, 0.25))); nrms.append(tuple(bn))   # spherical crown normals: inner leaves lit, not black
+                cols.append((0.25 * (1 - b), G, 0.4 + 0.6 * b, 1.0))
         m.add(verts, grid_faces(3, 2), uvs, cols, mat=1, nrms=nrms)
     return m
 SPECIES = [('Flower_Daisy', daisy, 'ABC'), ('Flower_Poppy', poppy, 'ABC'), ('Flower_Yarrow', yarrow, 'ABC'), ('Flower_Cornflower', cornflower, 'ABC'),
@@ -355,39 +369,41 @@ TMP = os.path.join(D, 'out', 'bake'); os.makedirs(TMP, exist_ok=True)
 # ---- leaf sprays (real leaf geometry -> card): k 0 hawthorn, 1 hawthorn + haws, 2 hazel, 3 hazel + nuts. card space: x along (0..1), y across (-0.5..0.5)
 def hawleaf(s): return (0.2 + 0.8 * math.sin(math.pi * min(1, s * 1.05)) ** 0.7) * (0.35 + 0.65 * abs(math.cos(s * math.pi * 2.5)) ** 0.6) * (s < 0.99) + 0.01
 def hazleaf(s): return (math.sin(math.pi * min(1, 0.15 + s * 0.95)) ** 0.6) * (1 + 0.06 * math.sin(s * 70)) * (s < 0.985) + 0.01
+CARD = {False: 0.2, True: 0.34}                                                # v2 spray card size (m): hawthorn / hazel, leaves at real size
 def spray(k):
-    m = Mesh(); q = rng('spray', k); hz = k >= 2; tw = [V3(0, 0, 0)]
-    for i in range(1, 7): tw.append(tw[-1] + nz(V3(1, q.normal(0, 0.12), 0)) * 0.09)
-    tube(m, tw, [0.010 * (1 - 0.6 * i / 6) for i in range(7)], 6, 12 if hz else 11, [1] * 7, 0.0)
-    shoots = [(tw[0], V3(1, 0, 0), 0.54)]                                       # main twig + 2 side shoots: the spray fills its square card
-    for j, (s0, sg) in enumerate(((0.3, 1), (0.5, -1))):
-        b0 = tw[int(s0 * 6)]; dd = nz(V3(math.cos(0.65 * sg), math.sin(0.65 * sg), 0)); pts = [b0]
-        for i in range(4): pts.append(pts[-1] + dd * 0.07)
-        tube(m, pts, [0.006 * (1 - 0.5 * i / 4) for i in range(5)], 5, 12 if hz else 11, [1] * 5, 0.0); shoots.append((b0, dd, 0.28))
+    """real-size leaf spray in metres: hawthorn leaves 3-6 cm (~34), hazel 8-12 cm (~15); x = along the card, y = across"""
+    m = Mesh(); q = rng('spray2', k); hz = k >= 2; cs = CARD[hz]; tw = [V3(0, 0, 0)]
+    for i in range(1, 7): tw.append(tw[-1] + nz(V3(1, q.normal(0, 0.1), 0)) * cs * 0.13)
+    tube(m, tw, [cs * 0.022 * (1 - 0.6 * i / 6) for i in range(7)], 6, 12 if hz else 11, [1] * 7, 0.0)
+    shoots = [(tw[0], V3(1, 0, 0), cs * 0.78)]
+    for s0, sg in ((0.25, 1), (0.45, -1), (0.62, 1)):
+        b0 = tw[int(s0 * 6)]; dd = nz(V3(math.cos(0.75 * sg), math.sin(0.75 * sg), 0)); pts = [b0]
+        for i in range(3): pts.append(pts[-1] + dd * cs * 0.11)
+        tube(m, pts, [cs * 0.012 * (1 - 0.5 * i / 3) for i in range(4)], 5, 12 if hz else 11, [1] * 4, 0.0); shoots.append((b0, dd, cs * 0.33))
     for sh, (o0, dd, Ls) in enumerate(shoots):
-        nleaf = (8 if hz else 16) if sh == 0 else (4 if hz else 8); sdv = nz(np.cross(V3(0, 0, 1), dd))
+        nleaf = (6 if hz else 14) if sh == 0 else (3 if hz else 7); sdv = nz(np.cross(V3(0, 0, 1), dd))
         for i in range(nleaf):
-            s = 0.15 + 0.85 * i / nleaf; p = o0 + dd * s * Ls; side = 1 if i % 2 else -1
-            a = side * (0.6 + 0.6 * q.random()) + (0 if hz else q.normal(0, 0.3)); d = nz(dd * math.cos(a) * 0.8 + sdv * math.sin(a) + V3(0, 0, q.normal(0, 0.1)))
-            L = (0.15 + 0.05 * q.random()) * (0.8 + 0.3 * s) if hz else (0.08 + 0.04 * q.random())
-            blade(m, p, d, -nz(np.cross(V3(0, 0, 1), d)), L, (lambda s_, L=L: 0.38 * L * hazleaf(s_)) if hz else (lambda s_, L=L: 0.42 * L * hawleaf(s_)),
-                  8, 5, 9 if hz else 8, 0, 0, 0, droop=q.normal(0, 0.15), fold=0.12, twist=q.normal(0, 0.4))
-    if k == 1:                                                                  # clusters of haws
-        for c in range(4):
-            cp = V3(0.18 + 0.17 * c, q.normal(0, 0.1), 0.03)
-            for b in range(5):
-                bp = cp + V3(*q.normal(0, 0.018, 2), 0.01); tube(m, [cp - V3(0, 0, 0.01), bp], [0.0015, 0.0012], 3, 11, [0, 0], 0)
-                lathe(m, bp, V3(0, 0, 1), [(0, 0.0005), (0.002, 0.0055), (0.006, 0.0065), (0.010, 0.005), (0.012, 0.002)], 8, 13, 0, 0)
-    if k == 3:                                                                  # hazelnuts in their leafy husks
+            s = 0.12 + 0.88 * i / nleaf; p = o0 + dd * s * Ls; side = 1 if i % 2 else -1
+            a = side * (0.7 + 0.5 * q.random()) + q.normal(0, 0.25); d = nz(dd * math.cos(a) + sdv * math.sin(a) + V3(0, 0, q.normal(0, 0.12)))
+            L = (0.08 + 0.04 * q.random()) if hz else (0.03 + 0.03 * q.random())
+            blade(m, p, d, -nz(np.cross(V3(0, 0, 1), d)), L, (lambda s_, L=L: 0.4 * L * hazleaf(s_)) if hz else (lambda s_, L=L: 0.45 * L * hawleaf(s_)),
+                  7, 5, 9 if hz else 8, 0, 0, 0, droop=q.normal(0, 0.2), fold=0.12, twist=q.normal(0, 0.4))
+    if k == 1:                                                                  # clusters of haws (1 cm berries)
         for c in range(3):
-            cp = V3(0.3 + 0.22 * c, q.normal(0, 0.08), 0.04)
+            cp = V3(cs * (0.2 + 0.22 * c), q.normal(0, cs * 0.12), 0.02)
+            for b in range(5):
+                bp = cp + V3(*q.normal(0, 0.012, 2), 0.008); tube(m, [cp - V3(0, 0, 0.008), bp], [0.0012, 0.001], 3, 11, [0, 0], 0)
+                lathe(m, bp, V3(0, 0, 1), [(0, 0.0005), (0.002, 0.0045), (0.005, 0.0052), (0.008, 0.004), (0.0095, 0.0016)], 8, 13, 0, 0)
+    if k == 3:                                                                  # hazelnuts in their leafy husks
+        for c in range(2):
+            cp = V3(cs * (0.3 + 0.3 * c), q.normal(0, cs * 0.1), 0.03)
             lathe(m, cp, V3(0, 0, 1), [(0, 0.001), (0.004, 0.008), (0.012, 0.0085), (0.018, 0.005), (0.02, 0.001)], 10, 12, 0, 0)
             for h_ in range(5):
                 a = h_ * 1.256; d = nz(V3(math.cos(a), math.sin(a), 1.2))
                 blade(m, cp + V3(0, 0, 0.004), d, perp(d), 0.026, lambda s_: 0.008 * math.sin(math.pi * min(1, 0.3 + s_)) + 0.002, 4, 3, 15, 0, 0, 0, droop=-0.4, fold=0.3)
     o = to_obj(m, 'Spray_%d' % k, [MF]); return o
 for k in range(4):
-    o = spray(k); res = shoot([o], 512, (0.4, 0, 0), 0.86, 'top', os.path.join(TMP, 'spray%d_' % k)); place(res, 2 * k, 6, 512)
+    cs = CARD[k >= 2]; o = spray(k); res = shoot([o], 512, (cs * 0.42, 0, 0), cs, 'top', os.path.join(TMP, 'spray%d_' % k)); place(res, 2 * k, 6, 512)
     bpy.data.objects.remove(o)
 print('SPRAYS OK', flush=True)
 def save_atlas(name, a, alpha):

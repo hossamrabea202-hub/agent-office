@@ -6,15 +6,20 @@ Made 2026-10-31 by TGA (Claude). Original and procedural, with no third-party as
 This kit is for adjustedfilm's `place_meadow_ue.py`, which scatters the meadow outside the castle walls. That script finds the meshes by these names in
 `/Game/CastleDefender/Environment/Flora/Meadow`.
 
+**v2 (2026-10-31, after adjustedfilm's review):**
+- Clumps are denser: 8–15 stems with buds, fallen petals and bigger rosettes.
+- Bushes are built from about 420–850 small real-size leaf-spray cards: hawthorn leaves 3–6 cm, hazel 8–12 cm. The cards fill the whole crown, and spherical crown normals keep the inner leaves lit.
+- Bracken has 11 wide, arching fronds.
+
 | Mesh | What | LOD0 tris | Height |
 |---|---|---|---|
-| `SM_Flower_Daisy_A/B/C` | Ox-eye daisy: 3, 5 or 7 heads with 22 rays each, a toothed spoon-leaf rosette and clasping stem leaves | 1.7k / 2.6k / 3.6k | 0.3–0.6 m |
-| `SM_Flower_Poppy_A/B/C` | Red poppy: 2–4 crumpled four-petal flowers with a dark basal blotch and capsule, nodding hairy buds, a lobed rosette. C also has a ripe seed capsule | 1.3k / 1.9k / 1.9k | 0.35–0.65 m |
-| `SM_Flower_Yarrow_A/B/C` | Yarrow: flat corymbs of about 46 florets on spreading rays, feathery leaves | 1.7k / 2.2k / 3.2k | 0.3–0.6 m |
-| `SM_Flower_Cornflower_A/B/C` | Cornflower: scaly involucre, toothed blue funnel florets around a violet centre, a side branch with a bud, linear leaves | 1.0k / 1.6k / 3.4k | 0.4–0.75 m |
-| `SM_Bush_Hawthorn_A/B` | Hawthorn: low twiggy shrub, grey fissured bark with lichen, lobed glossy leaves. B carries clusters of red haws | about 4k / 5.7k | 0.9 / 1.4 m |
-| `SM_Bush_Hazel_A/B` | Hazel: coppice of straight stems, broad serrated leaves turning yellow (late October). B carries nuts in husks | about 6.3k / 7.9k | 1.5 / 1.9 m |
-| `SM_Fern_Bracken_A` | Bracken: 6 fronds; brown stipes rise into near-horizontal lobed pinnae that brown towards the tips | about 6k | 0.6 m tall, 1.6 m wide |
+| `SM_Flower_Daisy_A/B/C` | Ox-eye daisy: 8, 11 or 15 stems (every 5th a closed bud), 18 rays per head, toothed spoon-leaf rosette, dropped petals | 3.6k / 4.6k / 6.1k | 0.3–0.6 m |
+| `SM_Flower_Poppy_A/B/C` | Red poppy: 5–9 crumpled four-petal flowers with a dark basal blotch and capsule, 3–5 nodding hairy buds, lobed rosette, dropped petals. C also has a ripe seed capsule | 3.1k / 4.1k / 5.0k | 0.3–0.65 m |
+| `SM_Flower_Yarrow_A/B/C` | Yarrow: 8–13 flat corymbs of florets on spreading rays, feathery leaves | 3.8k / 4.7k / 6.1k | 0.26–0.6 m |
+| `SM_Flower_Cornflower_A/B/C` | Cornflower: 8–14 stems with scaly involucres and toothed blue florets round a violet centre; some side buds | 3.1k / 4.4k / 5.7k | 0.35–0.75 m |
+| `SM_Bush_Hawthorn_A/B` | Hawthorn: low twiggy shrub with grey fissured bark and lichen, about 650 / 850 small lobed-leaf sprays. B carries clusters of red haws | 5.6k / 7.9k | 0.9 / 1.4 m |
+| `SM_Bush_Hazel_A/B` | Hazel: coppice of straight stems, about 420 / 560 sprays of broad serrated leaves yellowing for late October. B carries nuts in husks | 6.9k / 9.0k | 1.5 / 1.9 m |
+| `SM_Fern_Bracken_A` | Bracken: 11 wide arching fronds; brown stipes, lobed pinnae browning towards the tips | 7.7k | 0.7 m tall, about 2 m wide |
 
 - **Geometry.** Flowers and bracken are real geometry with no alpha. Bushes use real bark branches plus masked leaf-spray cards. Each card was rendered from about 20 real leaf meshes, with haws or nuts on the B variants. The cards lie on the crown surface and have normals bent outward, so the crown shades as one soft volume.
 - **LODs.** LOD1 and LOD2 rebuild each plant with fewer segments and elements; the elements that remain grow to keep coverage. LOD3 is two crossed impostor cards baked from LOD0. Screen sizes:
