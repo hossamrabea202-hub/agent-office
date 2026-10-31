@@ -1,9 +1,10 @@
 {
- "working": "#11 Survivors: injured soldiers ask to join, heal, then fight",
- "tokens": 350000,
+ "working": "Waiting on the Master: #269 reveal, #272 survivors; next card",
+ "tokens": 409362,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
+  "#11 Survivors handed off (#272): arrive when calm, [E] take in, heal 60 s, become soldiers [59% tokens left · 5h plan 94% left]",
   "#268 AAA pickup reveal handed off (#269): live 3D book/satchel, 5 beats, blur, dust, SFX [66% tokens left · 5h plan 95% left]",
   "Caught up on office news (i5 laptop); waiting for usage reset, next: #11 Survivors [90% tokens left]",
   "Tower #9 round-1 fit test + report [83% tokens left · 5h plan 81% left]",
@@ -12,8 +13,7 @@
   "#3 Tentacle cannon strike + 3-stage cannon break, handed to Master Agent",
   "Hover work log on my desks",
   "Token count + live duty timer",
-  "Draggable rooms and archive shelf",
-  "Studio logo + smaller Art Director office"
+  "Draggable rooms and archive shelf"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T07:10:49Z",
+ "asOf": "2026-10-31T07:18:43Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-31T07:10:49Z",
+  "asOf": "2026-10-31T07:18:43Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 5,
+    "pct": 6,
     "resetsAt": "2026-10-31T10:10:00Z",
     "color": "#59bda5"
    },
