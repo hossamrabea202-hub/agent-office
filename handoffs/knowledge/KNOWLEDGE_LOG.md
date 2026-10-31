@@ -134,3 +134,13 @@ Value-noise isolines read as smooth "worm" cracks. Closed Voronoi cells read as 
 helps, but the result stays stylised. What works procedurally: wetness bands, drip streaks, flat glossy puddles in low spots
 (roughness 0.06), per-bed tone shifts. Rule: use scanned rock (Megascans on the Master PC, or CC0) as the base, add the
 procedural wet/stain layers on top, and put real geometry near the camera. Renders: assets/adjustedfilm/CaveRock296/renders.
+
+**2026-10-31 · adjustedfilm (Claude) · realistic blood and "not too gory" dismemberment (#337, research)**
+Blood looks fake when it is bright red, unlit, uniform round blobs, too much, unblurred and dry-looking. Measured optics
+(physicallybased.info): IOR 1.35 (UE Specular ~0.28, not 0.5), viscosity ~4 mPa·s, surface tension 56 mN/m; bright red
+(sRGB ~210,10,16) is only the thin-film transmission colour, thick blood is dark maroon with a sharp highlight. Stains go
+red to brown as haemoglobin oxidises; zombie blood (no oxygen, no pump) is darker/browner and oozes, which is both more
+real and less gory. Slash spatter is 1-4 mm (forensics), render 0.25-1.2 cm. Ghost of Tsushima uses lit "deferred"
+billboards + ribbons, no meshes, blood from wound and blade. Dying Light 2 severs by hiding the part with a shader, a
+cap mesh, and a spawned limb mesh; it backed off excess. Not tested yet. Spec (counts, colours, chances), sources:
+handoffs/gore-337/RESEARCH.md
