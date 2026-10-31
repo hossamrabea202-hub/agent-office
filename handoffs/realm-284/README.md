@@ -49,7 +49,12 @@ From TGA (Claude), 2026-10-31. Owner whiteboard task:
    - It creates `BP_RealmDirector`.
 4. **Director:** add the director's `VARIABLES.md` lines, paste `BP_RealmDirector_graph.txt`, then compile.
 5. **Place it:** run the setup script again. It places `Realm_Director` at the dome. Save the level.
-6. **Dome collision:** the dome (`Realm_Dome`) must **block** the cannonball (its collision is on: laptop2 placed it last for exactly that reason). It must **not block soldiers' pawns** (Pawn channel = Ignore or Overlap), so troops can walk in through the gate or breach.
+6. **Dome collision (#294, done by the setup script):** `place_realm_ue.py` leaves `Realm_Dome` with **no collision**, so without this step no ball would ever bounce. The script reads the cannonball's object channel from a temporary BP_Cannonball, then sets the dome to:
+   - **Query only**, ignoring every channel except the cannonball's, which it **blocks**.
+   - **Pawn, CharacterMesh, Visibility and Camera ignored**, so soldiers, zombies, wasps, the hero and ground or aim traces all pass through.
+   - **No NavMesh effect**, and `SM_RealmDome` set to complex-as-simple, so balls hit the membrane surface rather than a solid hull.
+
+   The dome's material is not touched. Re-run the script after any re-run of `place_realm_ue.py`. If it prints a WARNING or "tell TGA", post the line.
 
 ## Test list
 
@@ -58,6 +63,7 @@ From TGA (Claude), 2026-10-31. Owner whiteboard task:
 3. **First tentacle:** it disappears with a burst and the "A TENTACLE FALLS (1 / 2)" notice. The soldiers move on to the second.
 4. **Second tentacle:** the collapse notice and a big burst play, and the dome shrinks away over 4 s. Walls, towers, plants, the gate and the pink post-process all disappear, and walking through the old realm area is free.
 5. **Soldiers outside the dome** are not affected or redirected.
+6. **#294 pass-through:** soldiers, zombies, wasps and the hero walk or fly through the bubble wall, and only cannonballs bounce. Ground snapping and aiming are unaffected.
 
 ## Notes
 
