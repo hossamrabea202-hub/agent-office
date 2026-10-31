@@ -1,5 +1,5 @@
 {
- "working": "Waiting on Master pastes + cape/cannon exports",
+ "working": "",
  "tokens": 995000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-31T05:56:36Z",
+ "asOf": "2026-10-31T06:04:02Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
