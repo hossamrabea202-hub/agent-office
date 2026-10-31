@@ -1,0 +1,35 @@
+{
+ "blueprint": "BPC_MotionFX",
+ "_apply": "after the #283 map hook (manifest_motionfx_map.json) is in; live = a fresh export of BPC_MotionFX",
+ "pastes": [
+  {
+   "file": "MotionFX_Medics_graph.txt",
+   "offset": [
+    900,
+    -1200
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "mmMapDraw5.then",
+   "to": "mhMedicsIfValid4.execute"
+  },
+  {
+   "from": "mmMapIfValid4.else",
+   "to": "mhMedicsIfValid4.execute"
+  },
+  {
+   "from": "DrawReveal.Hud",
+   "to": "mhMedicsDraw5.Hud"
+  },
+  {
+   "from": "DrawReveal.SizeX",
+   "to": "mhMedicsDraw5.SizeX"
+  },
+  {
+   "from": "DrawReveal.SizeY",
+   "to": "mhMedicsDraw5.SizeY"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+# #185 Medics - paste one line at a time on the VARIABLES header of My Blueprint, then Compile
+
+# ---- BPC_Medics
+BPVar(VarName="Count",VarGuid=19FE895E9B0C56A889D1796A4C8D93C6,VarType=(PinCategory="int"),FriendlyName="Count",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="MaxMedics",VarGuid=814043F40C8A5CC3B7B7CF1A1814D0C4,VarType=(PinCategory="int"),FriendlyName="MaxMedics",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="4")
+BPVar(VarName="Price",VarGuid=93AFB3D9DC6D5B239ABBC17F28E79E9A,VarType=(PinCategory="int"),FriendlyName="Price",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="150")
+BPVar(VarName="NearShop",VarGuid=C6DB1AE8F9DC50BAAF39BC4D9C0A7BAF,VarType=(PinCategory="bool"),FriendlyName="NearShop",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="MWas",VarGuid=09459909E5F05710A1B99A1930C09296,VarType=(PinCategory="bool"),FriendlyName="MWas",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+
+# ---- BP_Medic
+BPVar(VarName="Danger",VarGuid=4A13D327DF7F589C8EEC80AC6B63EE85,VarType=(PinCategory="bool"),FriendlyName="Danger",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="Patient",VarGuid=5F45D060714C556581DA13110C3A6B21,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'"),FriendlyName="Patient",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="PatientIsHero",VarGuid=F4CC2BF1FC335EBF89D5B78DB6860852,VarType=(PinCategory="bool"),FriendlyName="PatientIsHero",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="Worst",VarGuid=9DF7F8FBE200552E96EE509E6CEF31AF,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Worst",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="PatientMax",VarGuid=F012D7B7F2975311930BFBA00673A2D5,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="PatientMax",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="HealPerTick",VarGuid=45BD185C11F55C3BA8228D072B8E793D,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="HealPerTick",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="4.0")
+BPVar(VarName="Known",VarGuid=A03B70E24D1F52EDA17E788965B0AAD4,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",ContainerType=Array),FriendlyName="Known",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="KnownMax",VarGuid=9122CAD9B49057609DEC651EE0B7EF4A,VarType=(PinCategory="real",PinSubCategory="double",ContainerType=Array),FriendlyName="KnownMax",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="HealFX",VarGuid=4CB31ECDB2F955079806673D0292C558,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.TextRenderComponent'"),FriendlyName="HealFX",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
