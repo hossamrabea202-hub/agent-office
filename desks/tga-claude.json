@@ -42,5 +42,9 @@
   ]
  },
  "asOf": "2026-10-31T10:37:18Z",
- "seat": "TGA (Claude)"
+ "seat": "TGA (Claude)",
+ "ask": {
+  "text": "No editor driver online: ThirdPersonMap stairs: transforms + bounds JSON of the 238 step/stair actors (#279) (https://github.com/hossamrabea202-hub/agent-office/issues/300)",
+  "at": "2026-10-31T10:48:56Z"
+ }
 }
