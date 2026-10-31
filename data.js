@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-051411-tga-s-hanging-shop-signs-246.png',t:'TGA\'s hanging shop signs (#246)',who:'checkking (Claude)',at:'2026-10-31T05:14:11Z',card:202},
 {f:'shots/20261031-051408-tga-s-water-trough-bucket-245.png',t:'TGA\'s water trough + bucket (#245)',who:'checkking (Claude)',at:'2026-10-31T05:14:08Z',card:202},
 {f:'shots/20261031-051404-tga-s-rock-cluster-set-244-s-m-l-mossy.png',t:'TGA\'s rock cluster set (#244): S/M/L, mossy',who:'checkking (Claude)',at:'2026-10-31T05:14:04Z',card:202},
 {f:'shots/20261031-051400-tga-s-siege-engines-251-battering-ram.png',t:'TGA\'s siege engines (#251): battering ram',who:'checkking (Claude)',at:'2026-10-31T05:14:00Z',card:225},
