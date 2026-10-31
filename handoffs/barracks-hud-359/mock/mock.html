@@ -1,0 +1,127 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Barracks Muster HUD mock-up</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e0c0b;--iron:#1b1816;--iron2:#26211d;--bronze:#b08a4e;--bronze2:#e2c27f;--cream:#e9dcc2;--dim:#8d806c;--blood:#8e1b17;--blood2:#c4352b;--venom:#6fae3b;--line:rgba(176,138,78,.45)}
+*{box-sizing:border-box;margin:0}
+body{width:1600px;height:1000px;overflow:hidden;background:#000;font-family:'Cormorant Garamond',serif;color:var(--cream)}
+.scene{position:absolute;left:0;top:0;width:1600px;height:900px;background:radial-gradient(ellipse at 30% 60%,#5a3a1c 0,#2a1a0e 35%,#0b0806 75%);}
+.scene:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.25) 0 2px,transparent 2px 90px),linear-gradient(180deg,transparent 55%,rgba(0,0,0,.7));}
+.blur{position:absolute;inset:0;backdrop-filter:blur(6px) saturate(.45) brightness(.55)}
+.vign{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(0,0,0,.85))}
+/* NPC */
+.npc{position:absolute;left:40px;top:120px;width:330px;height:640px}
+.npc .sil{position:absolute;left:40px;top:40px;width:250px;height:560px;border-radius:120px 120px 20px 20px;background:radial-gradient(ellipse at 50% 18%,#7b5a3c 0 14%,#2b1d14 15% 30%,#3d2a1e 31%,#1a120d 70%);filter:drop-shadow(0 0 30px rgba(226,194,127,.15));opacity:.9}
+.npc .name{position:absolute;bottom:72px;left:0;right:0;text-align:center;font-family:Cinzel;font-weight:700;font-size:26px;letter-spacing:4px;color:var(--bronze2)}
+.npc .role{position:absolute;bottom:52px;left:0;right:0;text-align:center;font-size:15px;letter-spacing:5px;color:var(--dim)}
+.say{position:absolute;z-index:3;left:0px;top:-95px;width:330px;padding:14px 18px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(14,12,11,.92),rgba(27,24,22,.86));font-size:19px;font-style:italic;line-height:1.3}
+.say:after{content:'';position:absolute;left:150px;bottom:-9px;width:16px;height:16px;background:#1b1816;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+/* frame */
+.panel{position:absolute;left:400px;top:90px;width:1160px;height:780px}
+.title{position:absolute;left:0;right:0;top:0;text-align:center;font-family:Cinzel;font-weight:700;font-size:44px;letter-spacing:10px;color:var(--cream);text-shadow:0 2px 0 #000}
+.sub{position:absolute;left:0;right:0;top:58px;text-align:center;font-size:16px;letter-spacing:7px;color:var(--dim)}
+.rule{position:absolute;left:280px;right:280px;top:86px;height:1px;background:linear-gradient(90deg,transparent,var(--bronze),transparent)}
+.tabs{position:absolute;top:104px;left:0;right:0;display:flex;justify-content:center;gap:10px;align-items:center}
+.tab{font-family:Cinzel;font-size:19px;letter-spacing:4px;padding:10px 26px;color:var(--dim);border:1px solid transparent;position:relative}
+.tab.on{color:var(--cream);border-color:var(--line);background:linear-gradient(180deg,rgba(142,27,23,.35),rgba(14,12,11,.6))}
+.tab.on:after{content:'';position:absolute;left:20%;right:20%;bottom:-2px;height:3px;background:var(--blood2);box-shadow:0 0 12px var(--blood2)}
+.btn{display:inline-grid;place-items:center;min-width:34px;height:24px;padding:0 6px;border:1px solid var(--bronze);border-radius:4px;font-family:Cinzel;font-size:12px;color:var(--bronze2);background:#0e0c0b}
+/* list */
+.list{position:absolute;left:0;top:170px;width:640px}
+.row{display:grid;grid-template-columns:74px 1fr 150px;gap:14px;align-items:center;height:92px;padding:0 16px;margin-bottom:8px;border:1px solid rgba(176,138,78,.18);background:linear-gradient(90deg,rgba(14,12,11,.85),rgba(27,24,22,.55));position:relative;opacity:0;transform:translateX(-40px)}
+.row.sel{border-color:var(--bronze);background:linear-gradient(90deg,rgba(142,27,23,.28),rgba(27,24,22,.6))}
+.row.sel:before{content:'';position:absolute;left:-1px;top:-1px;bottom:-1px;width:4px;background:var(--blood2);box-shadow:0 0 14px var(--blood2)}
+.row.lock{filter:grayscale(1) brightness(.6)}
+.disc{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--bronze);background:radial-gradient(circle,#2c2520,#0e0c0b);box-shadow:inset 0 0 0 5px #0e0c0b,inset 0 0 0 6px rgba(176,138,78,.5)}
+.row.sel .disc{border-color:var(--blood2);box-shadow:inset 0 0 0 5px #0e0c0b,inset 0 0 0 6px var(--blood2),0 0 18px rgba(196,53,43,.5)}
+.disc svg{width:34px;height:34px;stroke:var(--cream);fill:none;stroke-width:1.8}
+.nm{font-family:Cinzel;font-weight:700;font-size:21px;letter-spacing:2px}
+.ds{font-size:16px;color:var(--dim);margin-top:2px}
+.pips{margin-top:5px;display:flex;gap:5px}.pip{width:18px;height:5px;background:#3a332c}.pip.on{background:var(--bronze2)}
+.price{text-align:right;font-family:Cinzel;font-size:18px}
+.price .g{color:#f0c35a}.price .o{color:#9db3c2;font-size:15px}
+.lockr{font-size:14px;color:var(--blood2);letter-spacing:1px}
+/* detail */
+.det{position:absolute;right:0;top:170px;width:490px;height:500px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(14,12,11,.92),rgba(27,24,22,.8));padding:24px 28px;opacity:0;transform:translateY(20px)}
+.det .big{height:190px;display:grid;place-items:center;border-bottom:1px solid rgba(176,138,78,.25);margin-bottom:16px;position:relative}
+.det .big svg{width:150px;height:150px;stroke:var(--bronze2);fill:none;stroke-width:1.2;filter:drop-shadow(0 0 18px rgba(226,194,127,.25))}
+.det h2{font-family:Cinzel;font-size:28px;letter-spacing:3px}
+.det p{font-size:18px;color:#cbbd9f;margin:6px 0 14px;line-height:1.3}
+.stat{display:flex;justify-content:space-between;font-size:18px;padding:6px 0;border-bottom:1px dashed rgba(176,138,78,.2)}
+.stat b{font-family:Cinzel;color:var(--cream)} .stat i{font-style:normal;color:var(--venom)}
+.buy{position:absolute;left:28px;right:28px;bottom:22px;height:58px;display:flex;align-items:center;justify-content:center;gap:14px;font-family:Cinzel;font-size:22px;letter-spacing:4px;border:1px solid var(--bronze);background:#120f0d;overflow:hidden}
+.buy .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,rgba(142,27,23,.85),rgba(196,53,43,.9))}
+.buy span,.buy .btn{position:relative}
+.ring{width:30px;height:30px;position:relative}
+/* footer */
+.res{position:absolute;left:0;right:0;bottom:0;height:54px;display:flex;justify-content:center;gap:34px;align-items:center;border-top:1px solid var(--line);font-family:Cinzel;font-size:19px}
+.res em{font-style:normal;color:var(--dim);font-size:14px;margin-right:6px;letter-spacing:2px}
+.hints{position:absolute;right:0;bottom:66px;font-size:15px;color:var(--dim);display:flex;gap:16px;align-items:center}
+/* ember burn-in */
+.burn{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,transparent 0,transparent var(--r),rgba(255,140,40,.9) calc(var(--r) + 6px),rgba(60,10,0,.95) calc(var(--r) + 30px),#000 calc(var(--r) + 60px));--r:0px}
+/* coin burst */
+.coin{position:absolute;width:10px;height:10px;border-radius:50%;background:#f0c35a;box-shadow:0 0 8px #f0c35a;opacity:0}
+/* ALERT FAMILY */
+.alert{position:absolute;left:40px;top:40px;width:560px;min-height:96px;display:grid;grid-template-columns:96px 1fr;border:1px solid rgba(196,53,43,.7);background:linear-gradient(90deg,rgba(40,6,5,.95),rgba(14,12,11,.88) 70%,rgba(14,12,11,.0));overflow:hidden;opacity:0}
+.alert .ico{display:grid;place-items:center;background:radial-gradient(circle,rgba(196,53,43,.45),transparent 70%)}
+.alert .ico svg{width:52px;height:52px;stroke:#ff8a7a;fill:none;stroke-width:1.8}
+.alert .t{font-family:Cinzel;font-weight:700;font-size:28px;letter-spacing:6px;color:#ffd6cc;margin-top:12px}
+.alert .b{font-size:18px;color:#d9c6b4;margin:2px 0 10px}
+.alert .bar{position:absolute;left:96px;right:0;bottom:0;height:3px;background:var(--blood2);transform-origin:left}
+.veins{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(110,8,6,.55) 85%,rgba(60,0,0,.85))}
+.chip{position:absolute;left:150px;bottom:34px;display:flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border:1px solid rgba(196,53,43,.7);background:rgba(20,6,5,.9);font-family:Cinzel;font-size:15px;letter-spacing:2px;opacity:0}
+.chip svg{width:22px;height:22px;stroke:#ff8a7a;fill:none;stroke-width:2}
+.hp{position:absolute;left:40px;bottom:30px;width:100px;height:14px;border:1px solid var(--bronze);background:#300}
+.hp i{position:absolute;inset:1px;width:26%;background:linear-gradient(90deg,#7a120e,#c4352b)}
+.tag{position:absolute;right:24px;top:18px;font-family:Cinzel;font-size:14px;letter-spacing:3px;color:var(--bronze);background:rgba(0,0,0,.6);padding:6px 12px;border:1px solid var(--line);z-index:50}
+.note{position:absolute;left:0;top:900px;width:1600px;height:100px;font-size:19px;color:#d8c8a8;background:#0b0908;padding:16px 28px;border-top:1px solid var(--line);border-left:3px solid var(--blood2);z-index:50;line-height:1.35}
+</style></head><body>
+<div class="scene"></div>
+<div id="hud">
+  <div class="blur"></div><div class="vign"></div>
+  <div class="npc"><div class="say" id="say">"Gold buys steel, steel buys dawn. What does the wall need tonight, captain?"</div><svg class="sil2" viewBox="0 0 250 560" style="position:absolute;left:40px;top:60px;width:250px;height:560px;filter:drop-shadow(0 0 30px rgba(226,194,127,.18))"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a3626"/><stop offset=".5" stop-color="#241911"/><stop offset="1" stop-color="#0e0a07"/></linearGradient><radialGradient id="f" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#8a6a4c"/><stop offset="1" stop-color="#3b2a1d"/></radialGradient></defs><path d="M125 30 C80 30 70 80 72 120 C60 150 58 175 60 190 L40 220 C20 240 10 300 12 560 L238 560 C240 300 230 240 210 220 L190 190 C192 175 190 150 178 120 C180 80 170 30 125 30 Z" fill="url(#g)" stroke="rgba(176,138,78,.35)"/><ellipse cx="125" cy="128" rx="30" ry="38" fill="url(#f)"/><path d="M60 300 L190 470 M75 280 L205 450" stroke="#6b4a2a" stroke-width="10"/><circle cx="125" cy="250" r="9" fill="#b08a4e"/></svg><div class="name">QUARTERMASTER</div><div class="role">BARRACKS</div></div>
+  <div class="panel">
+    <div class="title">THE MUSTER</div><div class="sub">RECRUIT · ARM · FORTIFY</div><div class="rule"></div>
+    <div class="tabs"><span class="btn">LB</span><span class="tab on" data-t="0">RECRUIT</span><span class="tab" data-t="1">ARTILLERY</span><span class="tab" data-t="2">FORTIFY</span><span class="tab" data-t="3">SUPPLIES</span><span class="btn">RB</span></div>
+    <div class="list" id="list"></div>
+    <div class="det" id="det"></div>
+    <div class="hints"><span><span class="btn">A</span> / <span class="btn">E</span> hold to buy</span><span><span class="btn">B</span> / <span class="btn">ESC</span> back</span></div>
+    <div class="res"><span><em>GOLD</em><b id="gold" style="color:#f0c35a">2 480</b></span><span><em>IRON</em>34</span><span><em>COPPER</em>12</span><span><em>SILVER</em>5</span><span><em>GOLD ORE</em>2</span></div>
+  </div>
+  <div class="burn" id="burn" style="display:none"></div>
+</div>
+<div id="alerts">
+  <div class="veins" id="veins" style="opacity:0"></div>
+  <div class="alert" id="al"><div class="ico"><svg viewBox="0 0 40 40"><path d="M8 14 L14 26 L20 14 L26 26 L32 14"/><path d="M6 12 Q20 4 34 12"/><circle cx="20" cy="30" r="2"/></svg></div><div><div class="t">BITTEN</div><div class="b">The rot is in your blood. Find the apothecary's antidote before it turns.</div></div><div class="bar" id="albar"></div></div>
+  <div class="hp"><i></i></div>
+  <div class="chip" id="chip"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 3 10 2-5h7"/></svg>INFECTED · 2:41</div>
+</div>
+<div class="tag" id="tag"></div><div class="note" id="note"></div>
+<script>
+const I={sword:'<path d="M20 4 L22 26 L18 26 Z"/><path d="M12 26 H28"/><path d="M20 26 V34"/><circle cx="20" cy="36" r="2"/>',cross:'<rect x="16" y="6" width="8" height="28"/><rect x="6" y="16" width="28" height="8"/>',wrench:'<path d="M26 6a7 7 0 0 0-7 9L7 27a3 3 0 0 0 4 4l12-12a7 7 0 0 0 9-7l-4 3-4-1-1-4z"/>',banner:'<path d="M12 4 V36"/><path d="M12 6 H30 L26 13 L30 20 H12"/>',bow:'<path d="M8 32 Q20 2 32 8"/><path d="M8 32 L32 8"/><path d="M14 26 L30 10"/>',cannon:'<circle cx="13" cy="28" r="6"/><path d="M15 23 L34 12 L36 17 L18 29"/><path d="M6 34 H22"/>',wall:'<path d="M4 34 V14 H10 V10 H16 V14 H24 V10 H30 V14 H36 V34 Z"/><path d="M4 22 H36 M14 22 V34 M26 22 V34 M20 14 V22"/>',gate:'<path d="M8 36 V16 Q20 2 32 16 V36"/><path d="M14 36 V18 M20 36 V12 M26 36 V18 M10 24 H30 M10 30 H30"/>',tower:'<path d="M12 36 L14 12 H26 L28 36 Z"/><path d="M11 12 V6 H15 V9 H18 V6 H22 V9 H25 V6 H29 V12"/><rect x="18" y="18" width="4" height="7"/>',flare:'<path d="M20 36 V20"/><circle cx="20" cy="12" r="5"/><path d="M20 2 V5 M10 12 H13 M27 12 H30 M13 5 L15 7 M27 5 L25 7"/>'};
+const svg=n=>`<svg viewBox="0 0 40 40">${I[n]}</svg>`;
+const TABS=[
+ [['sword','Swordsman','Holds the breach. 120 HP, shield wall.','120','',2,4,''],['bow','Crossbowman','Walls only. Headshots, fires flares if bought.','150','',1,4,''],['cross','Field Medic','Heals soldiers and you in 6 m. Carries antidote.','220','2 copper',0,2,''],['wrench','Mechanic','Repairs walls and gate between waves.','260','4 iron',0,2,''],['banner','Commander','Rallies 6 men: +20 % damage. Queues 3x longer.','600','2 silver',0,1,'Needs Walls II']],
+ [['cannon','Field Cannon','Cart convoy with 2 crew drives to a free wall pad.','800','6 iron',1,3,''],['cannon','Fire Shot','Cannons fire burning shot. Kills crawlers.','400','3 copper',0,1,'Needs a cannon']],
+ [['wall','Stone Walls','Colossus needs more smashes to breach.','900','10 iron',1,3,''],['gate','Iron Gate Bands','Gate holds the ram longer.','700','8 iron',2,3,''],['tower','Tower Ballistas','Auto-fire spears, colossus first.','1 200','4 silver',0,2,'']],
+ [['flare','Crossbow Flares','At night crossbowmen light spotted threats.','400','',1,1,'OWNED'],['cross','Antidote Crate','3 doses. Cures infection.','350','1 silver',0,3,'']]];
+const DET={0:['cross','FIELD MEDIC','Walks behind the line and heals soldiers and you within 6 m. Carries one antidote dose.',[['Heal','8 HP / s'],['Recruit time','12 s'],['Queue','2 / 3']]],
+ 2:['wall','STONE WALLS II','Thicker courses and iron cramps. The colossus needs more blows at every breach spot.',[['Wall life','x1.75 → <i>x2.5</i>'],['Breach repair','<i>-20 %</i>'],['Level','1 → <i>2</i> / 3']]],
+ 1:['cannon','FIELD CANNON','A cart convoy with two crew rolls to the nearest free wall pad and deploys a cannon.',[['Damage','260 splash'],['Reload','6 s'],['Pads free','2 / 4']]]};
+function rows(t,sel){const L=document.getElementById('list');L.innerHTML=TABS[t].map((r,i)=>`<div class="row ${i==sel?'sel':''} ${r[7]&&r[7]!='OWNED'?'lock':''}"><div class="disc">${svg(r[0])}</div><div><div class="nm">${r[1].toUpperCase()}</div><div class="ds">${r[2]}</div><div class="pips">${Array.from({length:r[6]},(_,k)=>`<i class="pip ${k<r[5]?'on':''}"></i>`).join('')}</div></div><div class="price">${r[7]=='OWNED'?'<span style="color:var(--venom)">OWNED</span>':`<span class="g">${r[3]} g</span><br><span class="o">${r[4]}</span>`}${r[7]&&r[7]!='OWNED'?`<div class="lockr">${r[7]}</div>`:''}</div></div>`).join('');
+ document.querySelectorAll('.tab').forEach(e=>e.classList.toggle('on',+e.dataset.t==t));}
+function det(k){const d=DET[k];document.getElementById('det').innerHTML=`<div class="big">${`<svg viewBox="0 0 40 40">${I[d[0]]}</svg>`}</div><h2>${d[1]}</h2><p>${d[2]}</p>${d[3].map(s=>`<div class="stat"><span>${s[0]}</span><b>${s[1]}</b></div>`).join('')}<div class="buy"><div class="fill" id="fill"></div><span class="btn">A</span><span>HOLD TO BUY</span></div>`;}
+const ease=t=>1-Math.pow(1-t,3);
+function show(time){ // cascade: rows 40 ms apart, 220 ms each; detail at 160 ms
+ document.querySelectorAll('.row').forEach((r,i)=>{const t=Math.min(1,Math.max(0,(time-i*40)/220));r.style.opacity=t;r.style.transform=`translateX(${-40*(1-ease(t))}px)`});
+ const t=Math.min(1,Math.max(0,(time-160)/260)),d=document.getElementById('det');d.style.opacity=t;d.style.transform=`translateY(${20*(1-ease(t))}px)`;}
+const f=+(new URLSearchParams(location.search).get('f')||1);
+const tag=document.getElementById('tag'),note=document.getElementById('note');
+if(f==1){rows(0,2);det(0);show(80);const b=document.getElementById('burn');b.style.display='block';b.style.setProperty('--r','430px');tag.textContent='FRAME 1 · OPEN (0.12 s)';note.innerHTML='Press E at the Quartermaster: time slows to 0.2, the world blurs and desaturates, and the panel <b>burns in</b> from the centre (ember dissolve on a UMG material, reusing the #140 reveal textures). Rows cascade in 40 ms apart.';}
+if(f==2){rows(0,2);det(0);show(2000);tag.textContent='FRAME 2 · RECRUIT TAB (0.5 s)';note.innerHTML='One list per tab: icon disc in the skill-tree style, name, what it does, level pips, gold + ore price, and the <b>reason a row is locked</b>. LB / RB or Q / E switch tabs; the D-pad or mouse moves the selection.';}
+if(f==3){rows(2,0);det(2);show(2000);document.getElementById('fill').style.width='68%';document.getElementById('gold').textContent='1 580';
+ const det_=document.getElementById('det');for(let i=0;i<14;i++){const c=document.createElement('div');c.className='coin';const a=i/14*6.28;c.style.left=(245+Math.cos(a)*(60+i*4))+'px';c.style.top=(470+Math.sin(a)*(30+i*2))+'px';c.style.opacity=.9-i*.04;det_.appendChild(c);}
+ tag.textContent='FRAME 3 · FORTIFY: HOLD TO BUY';note.innerHTML='<b>Hold to buy</b> (0.6 s fill, so a stray press never spends 900 gold). On release: coin burst, the gold counter <b>counts down</b>, the level pip fills, and the Quartermaster says a line. It calls BPC_CastleUpgrades, it does not copy it.';}
+if(f==4){document.getElementById('hud').style.display='none';document.getElementById('al').style.opacity=1;document.getElementById('veins').style.opacity=.9;document.getElementById('albar').style.transform='scaleX(.55)';document.getElementById('chip').style.opacity=.35;
+ tag.textContent='FRAME 4 · ALERT FAMILY: INFECTION';note.innerHTML='Replaces the grey "Click to continue" box. Blood-vein vignette pulses with a <b>heartbeat</b> (2 beats), the banner slides in from the left in 180 ms, the bar drains over 5 s, then it <b>shrinks into a status chip</b> beside the health bar with a cure timer. The game never stops. Cure uses the same frame in green, and a normal notice uses it in bronze.';}
+</script></body></html>
