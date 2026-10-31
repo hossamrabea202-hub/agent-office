@@ -223,3 +223,22 @@ Lessons:
 | #269 reveal bug | `diag_reveal268_ue.py --replay` | wait for `diag_reveal268.txt` |
 
 Keep TGA busy: TGA's queue now is #327. Next ideas for TGA: #187 gold pile / coin drop art, #186 forge station model.
+
+### adjustedfilm, 2026-10-31 evening: pick up here
+
+| Card | State | Next step |
+|---|---|---|
+| #296 cave rock (owner PRIORITY) | side-by-side read; `--swap-entrance` added to `setup_caverock296_ue.py` | waits on the owner's OK, then the Master runs `--swap-entrance` (dry-run first) |
+| #322 p2 brute anim | handed off (`handoffs/brute-anim-322`): ABP_FleshBrute crossfade, gait ±20 %, per-brute rhythm, HP ×4 | wait for the Master's paste/test |
+| #297 p3 mine dungeon | handed off: `handoffs/cave-296-297/place_mine297_ue.py` (sub-level, TGA layout, paired doors) | wait for `place_mine297.txt` + door screenshots |
+| #334 risen soldier (W:) | part A handed off (`handoffs/risen-334`, retarget fixes the neck) | part B (corpses fade) when the BP_ZombieRisen + BP_SoldierSword export lands |
+| #333 tentacle scorpion strike (W:) | card + export request | build when the fresh BPC_TentacleStrike export lands |
+| #337 gore + blood (W:) | research done (`handoffs/gore-337/RESEARCH.md`) | build when the blood Niagara name + BP_Zombie export + bones.txt land |
+| #339 multiplayer (W:) | PLAN.md + AUDIT.md (134 player-0 calls in 37 BPs) | owner: split-screen first? then slice 2 (team ownership) |
+| #338 wasps | card for TGA (AAA remodel) + note: swarm only after the wave-5 breach | check with the Master that #190 / #174 are in |
+| #278 flares warning | asked the Master for the warning text on the card | fix when it's posted |
+| #293 p3 blob | export request for M_JellyBlob | keep LandT, HatchT, ZShield, TScale, BornT, Green |
+
+Lessons: `fix_impure.py` also splits casts that are **already** wired into the exec chain (and leaves one-way links), so
+check its splits by hand on a whole-graph replace. A hard actor reference can't cross from a sub-level into the persistent
+level: keep paired actors in one level.
