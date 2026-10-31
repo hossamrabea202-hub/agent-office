@@ -1,9 +1,10 @@
 {
- "working": "Master: requests check, then #239 deploy cannon",
+ "working": "Master: #239 deploy cannon next",
  "tokens": 130000,
  "ctx": 1000000,
  "since": "2026-10-31T08:00:00Z",
  "done": [
+  "#331 cave rock --auto + side-by-side posted on #296",
   "#282 castle upgrades pasted + ballistas placed",
   "#289 medics pasted [69% tokens left]",
   "#307 antidote pasted (compiles clean) [70% tokens left]",
@@ -12,8 +13,7 @@
   "#272 survivors pasted (1 generator fix noted) [73% tokens left]",
   "#241 + #257 exports; #298 mud prints + #310 cave door pasted [74% tokens left]",
   "Requests #323 #280 #287 #300 answered [75% tokens left]",
-  "Requests done: #323 #280 #287 #300 (+#308 #304 #312 earlier) [76% tokens left]",
-  "#286 realm screen distortion + #275 weather pasted, compile clean [77% tokens left]"
+  "Requests done: #323 #280 #287 #300 (+#308 #304 #312 earlier) [76% tokens left]"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-31T15:13:39Z",
+ "asOf": "2026-10-31T15:16:11Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
