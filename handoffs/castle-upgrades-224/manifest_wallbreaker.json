@@ -1,0 +1,20 @@
+{
+ "blueprint": "BP_ZombieWallBreaker",
+ "_built_on": "handoffs/exports/master/2026-10-30b/BP_ZombieWallBreaker_EventGraph.txt",
+ "pastes": [
+  {
+   "file": "WallBreaker_Walls_graph.txt",
+   "offset": [
+    -1200,
+    -900
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "wuDivide_DoubleD9.ReturnValue",
+   "to": "SM_Dmg.BaseDamage",
+   "note": "was the constant 500: smash damage on the breach spot / (1 + 0.75 Walls)"
+  }
+ ]
+}

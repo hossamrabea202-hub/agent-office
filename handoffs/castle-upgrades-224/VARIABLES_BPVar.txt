@@ -1,0 +1,20 @@
+# #224 Castle upgrades - paste one line at a time on the VARIABLES header of My Blueprint, then Compile
+
+# ---- BPC_CastleUpgrades
+BPVar(VarName="Walls",VarGuid=1436A6685FAC5AF4893DEBE88BE5AFA0,VarType=(PinCategory="int"),FriendlyName="Walls",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="Towers",VarGuid=3EB5B5B4F36B52E992CD0BFE996EA57A,VarType=(PinCategory="int"),FriendlyName="Towers",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="NearShop",VarGuid=1B6918879D49553AAD50813C011ADD56,VarType=(PinCategory="bool"),FriendlyName="NearShop",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="JWas",VarGuid=6C847529DF0F5F1FB691E066C81F80C3,VarType=(PinCategory="bool"),FriendlyName="JWas",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="KWas",VarGuid=DD69B3732BA357EF8A96B21053A37CCE,VarType=(PinCategory="bool"),FriendlyName="KWas",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+
+# ---- BP_TowerBallista
+BPVar(VarName="Frame",VarGuid=BF5A93D17265519889C4B89F215D45A1,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'"),FriendlyName="Frame",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="Spear",VarGuid=F2A241FCFB8E5F7F9302F996791E981E,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'"),FriendlyName="Spear",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="Coals",VarGuid=5D39EC75320A536DACEDBA2B40B25188,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.PointLightComponent'"),FriendlyName="Coals",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="Target",VarGuid=D768470DD2CA5E51A8316A35DFD5D5CC,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'"),FriendlyName="Target",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="BestScore",VarGuid=49ADC2D5B8AD5E57B1E7370B2135F319,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="BestScore",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="NextShot",VarGuid=9652072155EF5F13828083B5E21BCC33,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="NextShot",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="ShotT0",VarGuid=69437047023C5C8F9803101E79FD7D2F,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ShotT0",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")
+BPVar(VarName="ShotFrom",VarGuid=5DD63054D33353858B598DBCC47FF356,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="ShotFrom",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="ShotTo",VarGuid=706527E72ED05BA18F32BA2AF21BE865,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="ShotTo",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="Range",VarGuid=0CF75DEF53895363AEC84F9F633933C9,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Range",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="5000.0")
