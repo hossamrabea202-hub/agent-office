@@ -1,9 +1,10 @@
 {
- "working": "#268 AAA satchel + Book of Skills pickup reveal (3D showcase)",
- "tokens": 105000,
+ "working": "#268 waiting on the Master's paste (#269); next: #11 Survivors",
+ "tokens": 344201,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
+  "#268 AAA pickup reveal handed off (#269): live 3D book/satchel, 5 beats, blur, dust, SFX [66% tokens left · 5h plan 95% left]",
   "Caught up on office news (i5 laptop); waiting for usage reset, next: #11 Survivors [90% tokens left]",
   "Tower #9 round-1 fit test + report [83% tokens left · 5h plan 81% left]",
   "#12 Commander + #15 death report: built on exports, pasted and active",
@@ -12,8 +13,7 @@
   "Hover work log on my desks",
   "Token count + live duty timer",
   "Draggable rooms and archive shelf",
-  "Studio logo + smaller Art Director office",
-  "Archive shelf with 68 finished jobs"
+  "Studio logo + smaller Art Director office"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,23 +29,23 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T06:41:37Z",
+ "asOf": "2026-10-31T07:09:42Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-31T06:41:37Z",
+  "asOf": "2026-10-31T07:09:42Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 2,
+    "pct": 5,
     "resetsAt": "2026-10-31T10:10:00Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 32,
+    "pct": 33,
     "resetsAt": "2026-11-06T06:00:00Z",
     "color": "#d9af65"
    }
