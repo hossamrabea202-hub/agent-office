@@ -1,0 +1,9 @@
+Niagara systems named blood/gore/hit/impact:
+/Game/CastleDefender/VFX/TentacleShock/NS_TentacleShock_White
+
+BP_Zombie direct deps that look like FX:
+/Game/CastleDefender/Props/GateBreach/Audio/SFX_impactWood_heavy_002
+/Game/Audio/Kenney/SFX_impactMetal_heavy_003
+/Game/Audio/Kenney/SFX_impactPunch_heavy_002
+/Game/CastleDefender/VFX/BP_BloodBurst
+/Game/CastleDefender/VFX/Smoke/P_Smoke_Burst

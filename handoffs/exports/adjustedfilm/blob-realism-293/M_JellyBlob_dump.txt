@@ -1,0 +1,14 @@
+/Game/CastleDefender/VFX/JellyBubble/M_JellyBlob.M_JellyBlob  blend=<BlendMode.BLEND_TRANSLUCENT: 2> shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1>
+expression count 19
+MP_BASE_COLOR <- MaterialExpressionCustom_3
+MP_EMISSIVE_COLOR <- MaterialExpressionCustom_3
+MP_ROUGHNESS <- MaterialExpressionScalarParameter_10
+MP_NORMAL <- None
+MP_OPACITY <- MaterialExpressionCustom_3
+MP_OPACITY_MASK <- None
+MP_METALLIC <- None
+MP_SPECULAR <- MaterialExpressionScalarParameter_11
+MP_SUBSURFACE_COLOR <- None
+scalar params: ["LandT", "HatchT", "Inten", "ZShield", "Roughness", "Specular"]
+vector params: ["Green"]
+texture params: []
