@@ -147,7 +147,15 @@ footer{margin-top:34px;color:var(--faint);font-size:12px;text-align:center}
 @media (max-width:1100px){.s4,.s5,.s6{grid-column:span 6}.s3{grid-column:span 6}.cols{grid-template-columns:1fr}.rowS{padding:14px 10px 6px}.rowS .plaque{position:static;transform:none;width:100%;max-width:none;background:transparent;border:0;box-shadow:none;padding:0 0 2px}.rowS::before{display:none}}
 @media (max-width:620px){.wrap{padding:0 12px 40px}.hd{padding:8px 12px}.radio .in{padding:6px 12px}.brand h1{font-size:17px}.search{order:5;min-width:100%}.hide-sm{display:none}
   .s4,.s5,.s6,.s3{grid-column:span 12}.bezel{padding:7px;border-radius:14px}.chart{height:90px}.chart span{display:none}.seat{width:86px}.seat .nm,.seat .st{max-width:86px}.seat .av{width:44px;height:44px;font-size:14px}.chair{width:66px}}
-</style></head>
+</style><script>(()=>{const q=new URLSearchParams(location.search).get('embed');if(!q)return;
+document.documentElement.classList.add('embed');
+const keep={timeline:'chron',gallery:'gal',quests:'quests',requests:'reqs',desks:'seats'}[q]||q;
+const st=document.createElement('style');st.textContent='html.embed body>a[href="index.html"]{display:none!important}html.embed .embed-hide{display:none!important}';document.head.appendChild(st);
+addEventListener('DOMContentLoaded',()=>{const el=document.getElementById(keep);if(!el)return;
+ let n=el;while(n&&n.parentElement&&n.parentElement!==document.body){[...n.parentElement.children].forEach(c=>{if(c!==n&&!c.contains(el)&&c.tagName!=='DIALOG'&&c.tagName!=='SCRIPT')c.classList.add('embed-hide')});n=n.parentElement}
+ [...document.body.children].forEach(c=>{if(c!==n&&c.tagName!=='DIALOG'&&c.tagName!=='SCRIPT')c.classList.add('embed-hide')});
+});})();</script>
+</head>
 <body>
 <a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:9999;padding:8px 14px;border-radius:8px;background:#2a2118;color:#f1d39a;border:1px solid #8a6a3a;font:600 13px system-ui,sans-serif;text-decoration:none">&larr; Back to the office</a>
 
