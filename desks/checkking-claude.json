@@ -1,9 +1,10 @@
 {
- "working": "Waiting on owner: build weapon equip/shop wiring? + #241 export",
+ "working": "#256 waits on cape material export",
  "tokens": 995000,
  "ctx": 1000000,
  "since": "2026-10-30T18:14:58Z",
  "done": [
+  "#256 torn cape masks [0% tokens left]",
   "Weapon batch 5, kit 25 [1% tokens left]",
   "Weapon batch 4 (estoc, zweihander, Lochaber axe), kit 22 [3% tokens left]",
   "Weapon batch 3 (Viking sword, ranseur, pollaxe), kit 19 [5% tokens left]",
@@ -12,8 +13,7 @@
   "#230 deploy cannon handed off (#239) [17% tokens left]",
   "Night fixes #213 #214 #216 #217 #219 #220 handed off (#232-#238), weapon kit 13 (#233) [24% tokens left · 5h plan 70% left]",
   "Motion graphics #66/#86/#139/#140/#141: reveals + cards + infection look, hand-off #231 [44% tokens left · 5h plan 91% left]",
-  "Filed owner's 3 new systems as cards #224-#226 [66% tokens left]",
-  "Filed owner's farming idea as card #223 [66% tokens left]"
+  "Filed owner's 3 new systems as cards #224-#226 [66% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-10-31T04:41:32Z",
+ "asOf": "2026-10-31T05:07:06Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "004e1e5b7b5d",
