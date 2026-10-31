@@ -1,6 +1,6 @@
 {
- "working": "waiting on Master: #381, #294, #188 test",
- "tokens": 315000,
+ "working": "#385 Day Ledger (W:)",
+ "tokens": 330000,
  "ctx": 1000000,
  "since": "2026-10-31T21:16:34Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T22:17:57Z",
+ "asOf": "2026-10-31T22:20:41Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
