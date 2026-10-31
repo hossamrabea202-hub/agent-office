@@ -1,9 +1,10 @@
 {
- "working": "#157 Realm screen distortion (another-realm feel)",
- "tokens": 632000,
+ "working": "Waiting on the Master: #269 #272 #275 #278 #282 #285 #286; next card",
+ "tokens": 660000,
  "ctx": 1000000,
  "since": "2026-10-31T06:39:06Z",
  "done": [
+  "#157 Realm screen distortion v2 handed off (#286) [34% tokens left · 5h plan 90% left]",
   "#283 Cannon scroll map handed off (#285) [37% tokens left · 5h plan 91% left]",
   "#224 Castle upgrades v1 handed off (#282): walls + tower ballistas [44% tokens left · 5h plan 91% left]",
   "#277 Crossbow flares handed off (#278): barracks upgrade, flares only at spotted threats [49% tokens left · 5h plan 92% left]",
@@ -12,8 +13,7 @@
   "#268 AAA pickup reveal handed off (#269): live 3D book/satchel, 5 beats, blur, dust, SFX [66% tokens left · 5h plan 95% left]",
   "Caught up on office news (i5 laptop); waiting for usage reset, next: #11 Survivors [90% tokens left]",
   "Tower #9 round-1 fit test + report [83% tokens left · 5h plan 81% left]",
-  "#12 Commander + #15 death report: built on exports, pasted and active",
-  "#3 v2 tentacle curl strike: pasted and verified"
+  "#12 Commander + #15 death report: built on exports, pasted and active"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T08:30:56Z",
+ "asOf": "2026-10-31T08:33:29Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Max",
-  "asOf": "2026-10-31T08:30:56Z",
+  "asOf": "2026-10-31T08:33:29Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 9,
+    "pct": 10,
     "resetsAt": "2026-10-31T10:10:00Z",
     "color": "#59bda5"
    },
