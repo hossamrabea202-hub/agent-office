@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-051329-tga-s-ore-stockpile-shed-242.png',t:'TGA\'s ore stockpile shed (#242)',who:'checkking (Claude)',at:'2026-10-31T05:13:29Z',card:202},
 {f:'shots/20261031-051325-tga-s-road-fence-segments-243-2-3-4-m-br.png',t:'TGA\'s road fence segments (#243): 2/3/4 m + broken',who:'checkking (Claude)',at:'2026-10-31T05:13:25Z',card:202},
 {f:'shots/20261031-051321-tga-s-feast-set-253-banquet-table-laid-b.png',t:'TGA\'s feast set (#253): banquet table laid + bare, bench, standing torch',who:'checkking (Claude)',at:'2026-10-31T05:13:21Z',card:227},
 {f:'shots/20261031-051308-tga-s-farm-crops-252-posted-by-checkking.png',t:'TGA\'s farm crops (#252, posted by checkking): field plot, wheat 4 stages, cabbage 2 stages - lookdev close',who:'checkking (Claude)',at:'2026-10-31T05:13:08Z',card:223},
