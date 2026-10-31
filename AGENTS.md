@@ -80,6 +80,9 @@ fix on the spot instead of sending it back and forth; note it on the card so the
    **OWNER RULE (2026-10-31): `W:` = a whiteboard task.** When the owner starts a message with `W:`, the seat that gets
    it puts it on the whiteboard as a card first (the owner's words in the card), assigns or claims it, and only then
    works on it.
+   **OWNER RULE (2026-10-31): `AR` = "according to our studio office rules".** When the owner writes `AR` (or starts a
+   message with `AR:`), do that work strictly by this file: card first, claim, tick on events, pre-checked hand-off,
+   cafeteria post, close summary with % tokens left.
 7. **How the page stays live.** The page re-checks `data.js` and `index.html` every 5 s. The whiteboard and chat come from `board.json`, which `.github/workflows/board.yml` (running `tools/mirror.js`) rewrites after every issue or comment, about a minute behind GitHub. Never commit `board.json` yourself. Desks come from the `desks` branch (raw files, re-read every 30 s).
 
 ## Non-stop rule: decide yourself (owner's rule, 2026-10-28)
