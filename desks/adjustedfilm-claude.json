@@ -1,9 +1,10 @@
 {
- "working": "#366 tentacle skin stretch",
- "tokens": 112000,
+ "working": "check Master results #350 #349 #341",
+ "tokens": 140000,
  "ctx": 1000000,
  "since": "2026-10-31T21:16:34Z",
  "done": [
+  "#366 handed off [86% tokens left]",
   "#351 road mask handed off [89% tokens left]",
   "#269 fix handed off (#374) [90% tokens left]",
   "session end: all ready work handed off and pushed [11% tokens left]",
@@ -12,8 +13,7 @@
   "#369 quests + daily rewards v1 handed off [20% tokens left]",
   "#355 torch-bearer + #290 v2 handed off [36% tokens left]",
   "#337 p2 severing + #24 death text + #351 meadow script handed off; full TODO list [44% tokens left]",
-  "#296 closed (swap live); #297 p4 miners handed off [53% tokens left]",
-  "#337 decals + caps + particle mats ready; #333 design; #297 p4 workers request [57% tokens left]"
+  "#296 closed (swap live); #297 p4 miners handed off [53% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T21:24:46Z",
+ "asOf": "2026-10-31T21:28:09Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
