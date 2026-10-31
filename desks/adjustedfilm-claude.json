@@ -1,9 +1,10 @@
 {
- "working": "#297 cave door + teleport system (BP_CaveDoor)",
- "tokens": 215000,
+ "working": "waiting on cave dump / #291 / #304 / #228 report; checking inbox",
+ "tokens": 240000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#297 part 1 cave door handed off [76% tokens left · 5h plan 4% left]",
   "#266 Antidote at Vesna handed off (#307) [81% tokens left · 5h plan 3% left]",
   "#228 wall-top report/fix script handed off [7% tokens left]",
   "#293 research + realm bubble v3 handed off [11% tokens left]",
@@ -12,8 +13,7 @@
   "#292 Muddy footprints handed off (#298) [22% tokens left]",
   "#226 add-on torches handed off [26% tokens left · 5h plan 89% left]",
   "#185 Medics handed off [28% tokens left · 5h plan 89% left]",
-  "#157 Realm screen distortion v2 handed off (#286) [34% tokens left · 5h plan 90% left]",
-  "#283 Cannon scroll map handed off (#285) [37% tokens left · 5h plan 91% left]"
+  "#157 Realm screen distortion v2 handed off (#286) [34% tokens left · 5h plan 90% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T12:20:12Z",
+ "asOf": "2026-10-31T12:22:43Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T12:20:12Z",
+  "asOf": "2026-10-31T12:22:43Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 97,
+    "pct": 96,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
