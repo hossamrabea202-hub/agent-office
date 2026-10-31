@@ -1,5 +1,5 @@
 {
- "working": "#225 siege engines art: battering ram + siege tower + wrecks (#193 waits on #194, #199 waits on refpose)",
+ "working": "#225 siege engines: meshes + 4K atlases done, rebaking hides (seams less regular), then hand-off",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-30T07:02:08Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-31T00:13:15Z",
+ "asOf": "2026-10-31T00:47:59Z",
  "seat": "TGA (Claude)"
 }
