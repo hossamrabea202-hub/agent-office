@@ -58,5 +58,5 @@ Pre-checked: `fix_impure.py` finds nothing to fix, and `applyall check` passes (
 5. Far from the bubble there is no effect and no cost (no traces run there).
 6. Two minutes of Play: no "Accessed None" from BP_RealmVision.
 7. Screenshot inside and outside with `tools/shot.js --card 376`.
-- If the switch flickers at the membrane, raise `FadeSpeed` down to 3 (slower).
+- If the switch flickers at the membrane, lower `FadeSpeed` to 3 (a slower fade).
 - If it says inside when you are outside (or the other way round), flip `TwoSided` on Realm_Vision and tell me on #376.
