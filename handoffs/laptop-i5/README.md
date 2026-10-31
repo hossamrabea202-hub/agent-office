@@ -189,3 +189,23 @@ Still waiting: #228 report (`handoffs/walltops-228/walltops228_report.txt`), #29
 #213 part 2 ("UNLOCK - 2 PTS" boxes): the text is in **no** Blueprint export (searched every export for UNLOCK / PTS /
 {0}), so it comes from a widget, a material or a texture. It needs an editor search (checkking's card).
 Lesson: `from bpkit import *` overwrites `HERE`. Set it again after the import, or the outputs land in tools/laptop2/bpgen.
+
+### adjustedfilm, 2026-10-31 afternoon (second session)
+
+| Card | Folder | State |
+|---|---|---|
+| #269 reveal not showing (Master report) | `handoffs/reveal-aaa-268/diag_reveal268_ue.py` | waits on the Master running the PIE diagnostic (`--replay`) |
+| #228 wall-walk tops | card comment | fix line posted: `--fix MI_Castle_WalkFlag_World --size 230` (dry-run first) |
+| #296 cave rock | `handoffs/cave-296-297` (RESEARCH.md, setup_caverock296_ue.py) | owner picked the Master's Megascans; waits on `--list-scans` output (`scan_list.txt`) |
+| #293 p2 blob flesh | `assets/adjustedfilm/FleshSlime293` | WIP lookdev (3 rounds, muted organic, no glow); the blob needs M_JellyBlob's params kept (LandT/HatchT/ZShield/TScale/BornT/Green) |
+| #313 + #314 | `handoffs/toast-313-314` | handed off: BPC_Toast, press-T reminder, cannons-full dim + toast |
+| #315 A/D swipe | `handoffs/shop-swipe-315` | handed off (the arrows already worked) |
+| #8 treasure chest | `handoffs/chest-8` | handed off: E, ray reveal, ka-ching, +1500, saved, guards along the East Front tunnel |
+| #322 brutes in waves | `handoffs/brute-waves-322` | part 1 handed off; part 2 (animation polish) waits on the BP_FleshBrute export request |
+| #44 zombie towers | `handoffs/zombie-towers-44` | handed off (the owner's "game changer" pick; #201 was already built by laptop2) |
+| new rule | AGENTS.md | `M:` = material task (research first, before/after, swap on OK) |
+
+Lessons:
+- **fix_impure's cast split** leaves a one-way link when the cast's CastFailed is wired. Use one cast per consumer.
+- **The BP_BarracksHUD export carries 3,936 unlinked duplicate nodes.** Strip them in a temp copy before a dry-run merge.
+- **Python can't open paths over 260 characters** (the session scratchpad). Copy helper scripts to `~/ckw` first.
