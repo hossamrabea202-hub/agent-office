@@ -1,0 +1,37 @@
+/Game/CastleDefender/VFX/JellyBubble/M_JellyBlob Material
+/Game/CastleDefender/VFX/JellyBubble/MI_JellyBlob MaterialInstanceConstant
+/Game/CastleDefender/Gameplay/Tentacle/Jelly/BP_JellyBlob Blueprint
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_Fog1.MI_TentacleJellyShell_Fog1') x1
+used ('StaticMeshActor', 'StaticMeshComponent0', '/Game/CastleDefender/VFX/JellyBubble/MI_JellyBubble_Gate.MI_JellyBubble_Gate') x10
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_02.MI_TentacleJellyShell_02') x1
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_03.MI_TentacleJellyShell_03') x1
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_5.MI_TentacleJellyShell_5') x1
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_4.MI_TentacleJellyShell_4') x1
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_Fog3.MI_TentacleJellyShell_Fog3') x1
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_Fog2.MI_TentacleJellyShell_Fog2') x1
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_04.MI_TentacleJellyShell_04') x1
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_01.MI_TentacleJellyShell_01') x1
+used ('SkeletalMeshActor', 'JellyShell', '/Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_05.MI_TentacleJellyShell_05') x1
+used ('BP_JellyTrailManager_C', 'ISM_Trail', '/Game/CastleDefender/VFX/JellyTrail/M_JellyTrail_v3.M_JellyTrail_v3') x1
+== /Game/CastleDefender/VFX/JellyBubble/M_JellyBlob blend <BlendMode.BLEND_TRANSLUCENT: 2> shading <MaterialShadingModel.MSM_DEFAULT_LIT: 1> twosided False
+# MP_BASE_COLOR
+  MaterialExpressionCustom CODE:// shared helpers (UE Custom nodes need helper functions inside a struct) struct JellyFn {     float2 h2(float2 p)     {         float3 q = frac(float3(p.xyx) * float3(0.1031, 0.1030, 0.0973));         q += dot(q, q.yzx + 33.33);         return frac((q.xx + q.yz) * q.zy);     }     float3 h3(float3 p)     {         p = frac(p * float3(0.1031, 0.1030, 0.0973));         p += dot(p, p.yxz + 33.33);         return frac((p.xxy + p.yxx) * p.zyx);     }     // 3D cells: x = F1, y = F2 - F1 (small on membrane walls). Feature points drift with tt.     float2 vor3(float3 x, float tt)     {         float3 i = floor(x); float3 f = frac(x);         float d1 = 8.0; float d2 = 8.0;         [unroll] for (int z = -1; z <= 1; z++)         [unroll] for (int y = -1; y <= 1; y++)         [unroll] for (int k = -1; k <= 1; k++)         {             float3 g = float3(k, y, z);             float3 o = 0.5 + 0.38 * sin(tt + 6.2831853 * h3(i + g));             float3 r = g + o - f;             float d = dot(r, r);             if (d < d1) { d2 = d1; d1 = d; } else if (d < d2) { d2 = d; }         }         d1 = sqrt(d1); return float2(d1, sqrt(d2) - d1);     }     // 2D cells, periodic in x with period P (wraps around the tentacle girth without a seam)     float2 vor2(float2 x, float P, float tt)     {         float2 i = floor(x); float2 f = frac(x);         float d1 = 8.0; float d2 = 8.0;         [unroll] for (int y = -1; y <= 1; y++)         [unroll] for (int k = -1; k <= 1; k++)         {             float2 g = float2(k, y);             float2 id = i + g; id.x -= P * floor(id.x / P);             float2 o = 0.5 + 0.38 * sin(tt + 6.2831853 * h2(id));             float2 r = g + o - f;             float d = dot(r, r);             if (d < d1) { d2 = d1; d1 = d; } else if (d < d2) { d2 = d; }         }         d1 = sqrt(d1); return float2(d1, sqrt(d2) - d1);     }     // value noise, periodic in x with period P     float vn(float2 p, float P)     {         float2 i = floor(p); float2 f = frac(p);         float2 u = f * f * (3.0 - 2.0 * f);         float2 i1 = i + 1.0;         float x0 = i.x - P * floor(i.x / P); float x1 = i1.x - P * floor(i1.x / P);         float a = h2(float2(x0, i.y)).x; float b = h2(float2(x1, i.y)).x;         float c = h2(float2(x0, i1.y)).x; float d = h2(float2(x1, i1.y)).x;         return lerp(lerp(a, b, u.x), lerp(c, d, u.x), u.y);     } }; JellyFn J;  // JellyBlobPS: thick shield gel (colour = the tentacle's shield). Main output = emissive. Extra: BC, Op, Rf. fl
+    MaterialExpressionPixelNormalWS
+    MaterialExpressionCameraVectorWS
+    MaterialExpressionTime
+    MaterialExpressionVertexInterpolator
+      MaterialExpressionCustom CODE:// JellyBlobVS: blob of shield gel thrown off a tentacle. Main output = WORLD offset. Extra: LP (local pos after deform, to PS). // LandT < 0: in flight (jiggle). After landing: splat into a puddle (0-0.35 s), simmer, then rise into a man-high // column (0.8-1.6 s) that the zombie is born from. HatchT >= 0: column slumps back down after the zombie hatches. float3 P = LP0;                                   // local position, engine sphere radius 50 float wob = sin(T * 9.0 + P.x * 0.08) * sin(T * 7.0 + P.y * 0.07 + P.z * 0.05); float3 Q = P * (1.0 + 0.10 * wob); if (LandT >= 0.0) {     float a = T - LandT;     float squash = smoothstep(0.0, 0.35, a) * (1.0 - smoothstep(0.8, 1.2, a));     float rise = smoothstep(0.8, 1.6, a);     if (HatchT >= 0.0) rise *= 1.0 - smoothstep(0.0, 0.7, T - HatchT);     float boil = sin(T * 6.0 + P.x * 0.2) * sin(T * 5.0 + P.y * 0.2);     float3 puddle = float3(P.xy * (1.9 + 0.08 * boil), P.z * 0.28 - 36.0);     float h = saturate((P.z + 50.0) / 100.0);                    // 0 bottom .. 1 top     float neck = 1.0 - 0.35 * exp(-pow((h - 0.78) * 7.0, 2.0));  // a head-and-shoulders pinch near the top     float3 column = float3(P.xy * 0.55 * neck * (1.0 + 0.6 * (1.0 - h) * (1.0 - h)), (P.z + 50.0) * 3.0 - 50.0);     column.xy += float2(sin(T * 3.0 + h * 6.0), cos(T * 2.6 + h * 5.0)) * 4.0 * h;     Q = lerp(lerp(Q, puddle, smoothstep(0.0, 0.35, a)), column, rise); } LP = Q; return Q - P; 
+        MaterialExpressionTransformPosition
+          MaterialExpressionWorldPosition
+        MaterialExpressionScalarParameter LandT=-1.0
+        MaterialExpressionScalarParameter HatchT=-1.0
+    MaterialExpressionVectorParameter Green=<Struct 'LinearColor' (0x000005DA177FBC78) {r: 0.360000, g: 0.520000, b: 0.270000, a: 1.000000}>
+    MaterialExpressionDepthFade
+    MaterialExpressionScalarParameter Inten=1.0
+# MP_EMISSIVE_COLOR
+# MP_OPACITY
+# MP_ROUGHNESS
+  MaterialExpressionScalarParameter Roughness=0.05999999865889549
+# MP_SPECULAR
+  MaterialExpressionScalarParameter Specular=0.699999988079071
+# MP_REFRACTION
