@@ -1,9 +1,10 @@
 {
- "working": "game changer: #201 mine + supply carts",
- "tokens": 600000,
+ "working": "waiting on exports (#322 brute, #308 scan list, #304, #291)",
+ "tokens": 680000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#44 zombie towers handed off [32% tokens left · 5h plan 20% left]",
   "#322 part 1 handed off [40% tokens left · 5h plan 16% left]",
   "#8 treasure chest handed off [44% tokens left · 5h plan 14% left]",
   "#315 handed off [50% tokens left · 5h plan 12% left]",
@@ -12,8 +13,7 @@
   "#269 diag script + Master asks [70% tokens left · 5h plan 5% left]",
   "#296 cave realism research [73% tokens left · 5h plan 5% left]",
   "#297 part 1 cave door handed off [76% tokens left · 5h plan 4% left]",
-  "#266 Antidote at Vesna handed off (#307) [81% tokens left · 5h plan 3% left]",
-  "#228 wall-top report/fix script handed off [7% tokens left]"
+  "#266 Antidote at Vesna handed off (#307) [81% tokens left · 5h plan 3% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,23 +29,23 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T13:47:23Z",
+ "asOf": "2026-10-31T13:54:17Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T13:47:23Z",
+  "asOf": "2026-10-31T13:54:17Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 84,
+    "pct": 80,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 67,
+    "pct": 68,
     "resetsAt": "2026-11-06T05:59:59Z",
     "color": "#d9af65"
    }
