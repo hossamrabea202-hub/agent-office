@@ -1,0 +1,16 @@
+#296 cave rock
+  candidate  10  /Game/Fab/Megascans/Surfaces/Layered_Rock_Cliff_tjtmcg3g/Medium
+  candidate   5  /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Massive_Tundra_Rock_Formation_wcrmbiar/Raw
+  candidate   3  /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Mossy_Forest_Rock_vimrfjsaw/Raw
+  candidate   0  /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw
+  candidate   0  /Game/CastleDefender/Props/GateBreach/Textures
+  candidate   0  /Game/Fab/Megascans/Surfaces/Nordic_Moss_se4rwei/Low
+  candidate  -1  /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium
+  candidate  -1  /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_vdbhdju/Medium
+AUTO picked /Game/Fab/Megascans/Surfaces/Layered_Rock_Cliff_tjtmcg3g/Medium: B=T_tjtmcg3g_2K_B, N=T_tjtmcg3g_2K_N, ORM=T_tjtmcg3g_2K_ORM
+create /Game/CastleDefender/Environment/Cave/M_CaveRock
+create /Game/CastleDefender/Environment/Cave/MI_CaveRock_Natural  Sharp=1.0, Bump=1.0, Iron=0.35, Calcite=0.35, Moss=0.6, Soot=0.0
+create /Game/CastleDefender/Environment/Cave/MI_CaveRock_Mine  Sharp=0.2, Bump=0.5, ScanBump=0.6, Soot=0.6, Iron=0.2, Calcite=0.1, Wetness=0.7, DripAmt=0.4
+create /Game/CastleDefender/Environment/Cave/MI_CaveRock_Floor  Sharp=0.3, Bump=0.4, ScanCm=160.0, PuddleAmt=1.0, Wetness=1.0, Iron=0.0, Calcite=0.0
+import /Game/CastleDefender/Environment/Mine/MineEntrance/SM_Camp_MineEntrance_Split
+lookdev copy CaveRockLookdev 11 m to the side of Mine_01 at <Struct 'Vector' (0x00000282D277B0B0) {x: -286.033429, y: -3432.884158, z: -150.101184}> (same rotation)
