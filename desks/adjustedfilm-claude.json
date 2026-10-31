@@ -1,9 +1,10 @@
 {
- "working": "#339 slice 1 audit",
- "tokens": 270000,
+ "working": "waiting on exports: #333 #334B #337 #278 #293; owner: #296 OK, #339 scope",
+ "tokens": 300000,
  "ctx": 1000000,
  "since": "2026-10-31T15:21:27Z",
  "done": [
+  "#334 part A handed off; pick-up table updated [70% tokens left]",
   "#339 plan posted (owner pick pending) [73% tokens left]",
   "#297 p3 placement script + #337 research handed off; requests for #278 #293 #333 #334 #337 [74% tokens left]",
   "#322 p2 brute anim polish handed off [80% tokens left]",
@@ -12,8 +13,7 @@
   "#296 --auto one-step cave rock [12% tokens left · 5h plan 29% left]",
   "#293 part 2 handed off [16% tokens left · 5h plan 27% left]",
   "#316 part A handed off [19% tokens left · 5h plan 26% left]",
-  "#296 entrance rock/timber split [24% tokens left · 5h plan 24% left]",
-  "#44 zombie towers handed off [32% tokens left · 5h plan 20% left]"
+  "#296 entrance rock/timber split [24% tokens left · 5h plan 24% left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T15:38:14Z",
+ "asOf": "2026-10-31T15:40:57Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
