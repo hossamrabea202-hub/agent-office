@@ -1,0 +1,9 @@
+# #297 BP_CaveDoor - paste one line at a time on the VARIABLES header of My Blueprint, then Compile
+BPVar(VarName="Target",VarGuid=921E15429A09585CB23CB0B17D5783D8,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'"),FriendlyName="Target",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="Prompt",VarGuid=EF7684DB995856E186162C591DA547D9,VarType=(PinCategory="string"),FriendlyName="Prompt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="[E] Go down into the mine")
+BPVar(VarName="UseRange",VarGuid=41F219F57B135D67B7D437034825ABED,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="UseRange",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="220.0")
+BPVar(VarName="ExitDist",VarGuid=73D258AB4BA95F6C98DB2C8EA7E4A022,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ExitDist",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="150.0")
+BPVar(VarName="Busy",VarGuid=3CA3DC29D258593CAD1AB28D0FF742FE,VarType=(PinCategory="bool"),FriendlyName="Busy",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="EWas",VarGuid=C530A3A4B3995E93B9B313CC0C546DF2,VarType=(PinCategory="bool"),FriendlyName="EWas",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="Shown",VarGuid=EECC0A19235152FD9E4DF292F6233ED6,VarType=(PinCategory="bool"),FriendlyName="Shown",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="PressNow",VarGuid=3214D2EF93DB5EE3AEB4F23D79EFDE13,VarType=(PinCategory="bool"),FriendlyName="PressNow",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
