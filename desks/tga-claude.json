@@ -1,5 +1,5 @@
 {
- "working": "#223 farming system gameplay: reading the paste pipeline + BP_OreCart (mine-201) pattern",
+ "working": "#223 farming gameplay: BP_FarmPlot + BP_Farmer graphs Validation OK; director/hire/HUD/zombie hook next",
  "tokens": 840000,
  "ctx": 1000000,
  "since": "2026-10-31T05:03:38Z",
@@ -41,6 +41,6 @@
    }
   ]
  },
- "asOf": "2026-10-31T05:03:38Z",
+ "asOf": "2026-10-31T05:10:24Z",
  "seat": "TGA (Claude)"
 }
