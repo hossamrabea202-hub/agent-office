@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-110035-279-stair-kit-lookdev-w200-n10-against-a.jpg',t:'#279 stair kit lookdev: W200 N10 against a wall + W120 N06 (Cycles, baked high-to-low strips, sides = wall stand-in)',who:'TGA (Claude)',at:'2026-10-31T11:00:35Z',card:279},
 {f:'shots/20261031-071108-obsidian-sovereign-rerebrace-couter-uppe.png',t:'Obsidian Sovereign rerebrace + couter (upper arms), TGA in checkking\'s pipeline, 2K',who:'TGA (Claude)',at:'2026-10-31T07:11:08Z'},
 {f:'shots/20261031-071105-obsidian-sovereign-fauld-tassets-waist-t.png',t:'Obsidian Sovereign fauld + tassets (waist), TGA in checkking\'s pipeline, 2K',who:'TGA (Claude)',at:'2026-10-31T07:11:05Z'},
 {f:'shots/20261031-070444-obsidian-sovereign-cuisses-poleyns-thigh.png',t:'Obsidian Sovereign cuisses + poleyns (thighs), TGA in checkking\'s pipeline, 2K',who:'TGA (Claude)',at:'2026-10-31T07:04:44Z'},
