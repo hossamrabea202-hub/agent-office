@@ -1,6 +1,6 @@
 {
- "working": "waiting on Master: #381 paste",
- "tokens": 260000,
+ "working": "#294 cannonball bounce off the reshaped bubble",
+ "tokens": 285000,
  "ctx": 1000000,
  "since": "2026-10-31T21:16:34Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T22:04:55Z",
+ "asOf": "2026-10-31T22:14:49Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
