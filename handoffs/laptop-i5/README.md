@@ -242,3 +242,18 @@ Keep TGA busy: TGA's queue now is #327. Next ideas for TGA: #187 gold pile / coi
 Lessons: `fix_impure.py` also splits casts that are **already** wired into the exec chain (and leaves one-way links), so
 check its splits by hand on a whole-graph replace. A hard actor reference can't cross from a sub-level into the persistent
 level: keep paired actors in one level.
+
+### adjustedfilm, 2026-10-31 night: pick up here (context nearly used up)
+
+- **Main gameplay track (owner):** #364 "Lord of the Keep" (handoffs/living-keep/DESIGN.md). #369 quests + daily rewards
+  v1 is handed off (handoffs/quests-369). Next: the names for soldiers and survivors (step 2), then the Day Ledger
+  (3 duties a day + a dawn report) on top of BPC_Quests. That needs the batch export (BP_DayNight).
+- **Waiting on the Master:** one run of `handoffs/laptop-i5/batch_exports_adjustedfilm_ue.py`. It covers #333, #334B,
+  #337 burst, #293 HLSL, #291 and #364. Paste order: `handoffs/laptop-i5/PASTE_ORDER_adjustedfilm.md`. Full card list:
+  `TODO_adjustedfilm.md`.
+- **TGA:** #367 Yellow Eagle Knight (brief + Codex sheets in handoffs/knight-set-yellow), #359 / #361 HUDs (one design;
+  13 slots with CAPE #362; "SHOP!"; Vesna's wares window), then the quest map art for #369. A prompt for a fresh TGA
+  session was given to the owner.
+- **Codex:** sheets 13 (sword) and 14 (shield) still to make (the prompt was given to the owner).
+- **Owner rules learned:** finish old cards before opening new ones, and put every ask on the board. The owner wants
+  gameplay that feels alive (#364), not more one-off systems.

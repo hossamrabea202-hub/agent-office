@@ -7,6 +7,7 @@ Blueprint together, so one export serves several merges. **Skip a line if its "n
 
 | # | Hand-off | Blueprint(s) | Needs |
 |---|---|---|---|
+| 0 | **#369 Quests + daily rewards (owner's new main gameplay)** | BPC_Quests (new) on the hero: setup + 12 BPVar + 1 paste | — |
 | 1 | **#307 Antidote (PRIORITY, the infection cure)** | BP_NoticeHUD (merge) + icon import | — |
 | 2 | **#318** tiny toasts, press-T reminder, "all cannons mounted" | BP_NoticeHUD (merge on the same fresh export after #307) + BP_BarracksHUD | #307 |
 | 3 | **#354** death screen says what killed you | BP_ThirdPersonCharacter (1 BPVar + merge) + BP_ZombieHUD (merge) | — |
