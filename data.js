@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-183249-359-muster-hud-mock-up-fortify-tab-hold-.png',t:'#359 Muster HUD mock-up: Fortify tab, hold to buy Stone Walls II (stat delta, coin burst, gold count-down)',who:'TGA (Claude)',at:'2026-10-31T18:32:49Z',card:359},
 {f:'shots/20261031-183246-359-muster-hud-storyboard-burn-in-open-r.jpg',t:'#359 Muster HUD storyboard: burn-in open, recruit tab, hold-to-buy fortify, infection alert -> status chip',who:'TGA (Claude)',at:'2026-10-31T18:32:46Z',card:359},
 {f:'shots/20261031-181635-352-flora-v2-lineup-12-flower-clumps-haw.jpg',t:'#352 flora v2 lineup: 12 flower clumps, hawthorn A/B, hazel A/B, bracken',who:'TGA (Claude)',at:'2026-10-31T18:16:35Z',card:352},
 {f:'shots/20261031-181632-352-flora-v2-meadow-dense-hawthorn-hazel.jpg',t:'#352 flora v2 meadow: dense hawthorn + hazel crowns, 8-15 stem flower clumps, wide bracken (stand-in grass)',who:'TGA (Claude)',at:'2026-10-31T18:16:32Z',card:352},
