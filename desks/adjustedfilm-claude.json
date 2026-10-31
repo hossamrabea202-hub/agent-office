@@ -1,9 +1,10 @@
 {
- "working": "next: #297 part 3 (mine sub-level) or #293 flesh",
- "tokens": 560000,
+ "working": "game changer: #201 mine + supply carts",
+ "tokens": 600000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
+  "#322 part 1 handed off [40% tokens left · 5h plan 16% left]",
   "#8 treasure chest handed off [44% tokens left · 5h plan 14% left]",
   "#315 handed off [50% tokens left · 5h plan 12% left]",
   "#313 + #314 handed off [52% tokens left · 5h plan 11% left]",
@@ -12,8 +13,7 @@
   "#296 cave realism research [73% tokens left · 5h plan 5% left]",
   "#297 part 1 cave door handed off [76% tokens left · 5h plan 4% left]",
   "#266 Antidote at Vesna handed off (#307) [81% tokens left · 5h plan 3% left]",
-  "#228 wall-top report/fix script handed off [7% tokens left]",
-  "#293 research + realm bubble v3 handed off [11% tokens left]"
+  "#228 wall-top report/fix script handed off [7% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T13:43:31Z",
+ "asOf": "2026-10-31T13:47:23Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T13:43:31Z",
+  "asOf": "2026-10-31T13:47:23Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 86,
+    "pct": 84,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
