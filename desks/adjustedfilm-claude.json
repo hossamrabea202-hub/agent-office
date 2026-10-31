@@ -1,8 +1,8 @@
 {
- "working": "",
- "tokens": 890000,
+ "working": "#269 reveal: empty capture + early stop",
+ "tokens": 45000,
  "ctx": 1000000,
- "since": "2026-10-31T15:21:27Z",
+ "since": "2026-10-31T21:16:34Z",
  "done": [
   "session end: all ready work handed off and pushed [11% tokens left]",
   "fixes: #350 hook v2, #349 gear paste, #341 underground fog [12% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T21:13:42Z",
+ "asOf": "2026-10-31T21:16:34Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "1609adbb75a5",
+  "id": "8553336c853b",
   "host": "5CD3147LBC"
  }
 }
