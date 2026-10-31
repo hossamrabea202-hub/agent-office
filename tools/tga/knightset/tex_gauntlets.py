@@ -57,25 +57,36 @@ def build(mat, kind):
         scr = ramp(noise(900, 1, 0.5, dist=12.0), 0.7, 0.74)   # fine scratches
         n3 = noise(38, 5, 0.6, dist=1.5)
         oxide = math_('MAXIMUM', ramp(math_('ADD', math_('ADD', cav, math_('MULTIPLY', n1, 0.45)), math_('MULTIPLY', n3, 0.35)), 0.5, 0.68), math_('MULTIPLY', mud, 0.9))
-        base = mixc(n3, lin(168, 166, 162), lin(192, 190, 186)); base = mixc(math_('MULTIPLY', pit, 0.5), base, lin(156, 154, 150))   # aged, hammered
-        base = mixc(math_('MAXIMUM', edge, math_('MULTIPLY', scr, 0.6)), base, lin(212, 210, 206))
-        col = mixc(oxide, base, mixc(n2, lin(70, 56, 44), lin(104, 76, 50)))     # oxide / grime: non-metal brown-black
+        # v2 (sheet: dark blued plate, mottled): a fire-scale patina film over about half the plate, rust-gold speckle;
+        # bright metal only where edges / high spots rub it off. Patina and speckle are non-metal (KB: metal is 0 or 1).
+        patina = math_('MULTIPLY', ramp(math_('ADD', noise(170, 6, 0.6, dist=0.5), math_('MULTIPLY', n1, 0.5)), 0.6, 0.66), math_('SUBTRACT', 1.0, edge))
+        speck = math_('MULTIPLY', ramp(noise(320, 3, 0.65), 0.63, 0.69), 0.85)
+        oxide = math_('MAXIMUM', math_('MAXIMUM', oxide, patina), speck)
+        base = mixc(n3, lin(162, 164, 170), lin(184, 184, 188)); base = mixc(math_('MULTIPLY', pit, 0.5), base, lin(156, 156, 160))   # blued, hammered
+        base = mixc(math_('MAXIMUM', edge, math_('MULTIPLY', scr, 0.6)), base, lin(206, 204, 200))
+        film = mixc(n3, lin(44, 46, 52), lin(60, 60, 64))                         # fire scale, blue-black
+        rust = mixc(n2, lin(118, 78, 40), lin(150, 108, 56))                      # rust-gold speckle
+        dirt = mixc(n2, lin(66, 54, 42), lin(92, 70, 48))
+        col = mixc(math_('GREATER_THAN', oxide, 0.4999), base, mixc(speck, mixc(patina, dirt, film), rust))   # hard switch with the binary metal mask
         metal = math_('LESS_THAN', oxide, 0.5)                                 # binary metal mask (KB: 0 or 1)
-        rgh = math_('ADD', math_('ADD', math_('MULTIPLY', n1, 0.14), math_('MULTIPLY', n3, 0.22)), 0.3); rgh = math_('SUBTRACT', rgh, math_('MULTIPLY', edge, 0.12))
-        rgh = math_('ADD', rgh, math_('MULTIPLY', pit, 0.15)); rgh = math_('ADD', rgh, math_('MULTIPLY', oxide, 0.45), v=True)
+        rgh = math_('ADD', math_('ADD', math_('MULTIPLY', n1, 0.14), math_('MULTIPLY', n3, 0.22)), 0.4); rgh = math_('SUBTRACT', rgh, math_('MULTIPLY', edge, 0.12))
+        rgh = math_('ADD', rgh, math_('MULTIPLY', pit, 0.15)); rgh = math_('ADD', rgh, math_('ADD', math_('MULTIPLY', oxide, 0.12), math_('MULTIPLY', speck, 0.3)), v=True)   # v2: the film keeps a satin sheen
         L(math_('ADD', math_('MULTIPLY', pit, -0.6), math_('MULTIPLY', scr, -0.3)), bump.inputs['Height'])
     elif kind == 'brass':
         tar = ramp(math_('ADD', cav, math_('MULTIPLY', n1, 0.4)), 0.5, 0.8)
-        col = mixc(tar, mixc(edge, lin(200, 160, 76), lin(222, 188, 104)), lin(92, 74, 44)); metal = math_('LESS_THAN', tar, 0.5)
+        col = mixc(math_('GREATER_THAN', tar, 0.4999), mixc(edge, lin(214, 174, 90), lin(228, 194, 110)), lin(92, 74, 44)); metal = math_('LESS_THAN', tar, 0.5)
         rgh = math_('ADD', math_('MULTIPLY', tar, 0.45), math_('ADD', math_('MULTIPLY', n2, 0.12), 0.26), v=True)
         L(math_('MULTIPLY', n2, 0.2), bump.inputs['Height'])
     else:                                                                       # leather glove + strap
         crease = ramp(noise(90, 6, 0.65, dist=2.5), 0.55, 0.75); grain = noise(700, 2, 0.7)
-        col = mixc(n1, lin(64, 43, 29), lin(54, 37, 26)); col = mixc(math_('MULTIPLY', cav, 0.7), col, lin(42, 31, 24))
+        quilt = N('ShaderNodeTexWave'); quilt.wave_type = 'RINGS'; quilt.inputs['Scale'].default_value = 9.0; quilt.inputs['Distortion'].default_value = 7.0; quilt.inputs['Detail'].default_value = 3.0; L(tc.outputs['Object'], quilt.inputs['Vector'])
+        seam = ramp(quilt.outputs['Fac'], 0.03, 0.08)                           # v2: quilted / stitched palm (dark seam lines)
+        col = mixc(n1, lin(72, 48, 31), lin(58, 39, 27)); col = mixc(math_('MULTIPLY', cav, 0.7), col, lin(42, 31, 24))
+        col = mixc(math_('MULTIPLY', math_('SUBTRACT', 1.0, seam), 0.7), col, lin(44, 31, 22))
         col = mixc(math_('MULTIPLY', crease, 0.35), col, lin(58, 42, 31)); col = mixc(math_('MULTIPLY', mud, 0.8), col, lin(70, 60, 48))
         metal = math_('MULTIPLY', n1, 0.0)
         rgh = math_('ADD', math_('ADD', math_('MULTIPLY', grain, 0.18), 0.55), math_('MULTIPLY', crease, -0.12), v=True)
-        L(math_('ADD', math_('MULTIPLY', crease, -0.8), math_('MULTIPLY', grain, 0.25)), bump.inputs['Height'])
+        L(math_('ADD', math_('ADD', math_('MULTIPLY', crease, -0.8), math_('MULTIPLY', grain, 0.25)), math_('MULTIPLY', seam, 0.9)), bump.inputs['Height'])
     L(geo.outputs['Normal'], bump.inputs['Normal'])
     L(col, bs.inputs['Base Color']); L(metal, bs.inputs['Metallic']); L(rgh, bs.inputs['Roughness']); L(bump.outputs[0], bs.inputs['Normal'])
     L(bs.outputs[0], out.inputs['Surface'])
@@ -95,6 +106,15 @@ def bake(key, btype, emitter=None):
     bpy.ops.object.bake(type=btype, normal_space='TANGENT') if btype == 'NORMAL' else bpy.ops.object.bake(type=btype)
     print('BAKED', key, flush=True)
 bake('BC', 'EMIT', 'E_BC'); bake('ORM', 'EMIT', 'E_ORM'); bake('N', 'NORMAL')
+# v2: texels on a metal / patina border bake an averaged (darker) colour but end up metal after the 0 / 1 threshold:
+# lift them to the KB metal floor (luminance 150 sRGB = 0.305 linear) so bare metal never reads as dull grey-brown.
+om = np.empty(R * R * 4, np.float32); IM['ORM'].pixels.foreach_get(om); om = om.reshape(-1, 4)[:, 2] > 0.5
+bc = np.empty(R * R * 4, np.float32); IM['BC'].pixels.foreach_get(bc); bc = bc.reshape(-1, 4)
+lin = np.where(bc[:, :3] <= 0.04045, bc[:, :3] / 12.92, ((bc[:, :3] + 0.055) / 1.055) ** 2.4)      # byte image: pixels are sRGB-encoded
+Y = lin @ np.array([0.2126, 0.7152, 0.0722], np.float32); low = om & (Y > 1e-4) & (Y < 0.32)
+lin[low] = np.clip(lin[low] * (0.32 / Y[low])[:, None], 0, 1)
+bc[:, :3] = np.where(lin <= 0.0031308, lin * 12.92, 1.055 * lin ** (1 / 2.4) - 0.055)
+IM['BC'].pixels.foreach_set(bc.ravel()); print('LIFTED', int(low.sum()), 'metal border texels', flush=True)
 for k, im in IM.items():
     if k == 'ORM':                                                              # KB: metallic strictly 0 / 1 (the bake's AA softens mask edges)
         px = np.empty(R * R * 4, np.float32); im.pixels.foreach_get(px); px = px.reshape(-1, 4); px[:, 2] = (px[:, 2] > 0.5).astype(np.float32); im.pixels.foreach_set(px.ravel())

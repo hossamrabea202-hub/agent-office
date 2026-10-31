@@ -88,9 +88,9 @@ prof.append([V3(np.sign(math.cos(a)) * abs(math.cos(a)) ** 0.85 * hw * 0.85, np.
 verts = [p for r in prof for p in r]; faces = grid(len(prof), nseg, wrap=True); c = len(verts); verts.append(V3(0, 0, -9.7))
 faces += [[(len(prof) - 1) * nseg + k, (len(prof) - 1) * nseg + (k + 1) % nseg, c] for k in range(nseg)]
 leather.add(verts, faces)
-FING = {'index': (3.45, -8.9, (4.2, 2.6, 2.0), 0.95, 4), 'middle': (1.15, -9.2, (4.6, 2.9, 2.1), 1.0, 0), 'ring': (-1.15, -9.0, (4.3, 2.7, 2.0), 0.92, -3),
-        'little': (-3.35, -8.4, (3.4, 2.1, 1.8), 0.82, -7)}
-CURL = (math.radians(14), math.radians(22), math.radians(16))
+FING = {'index': (3.45, -8.9, (5.0, 3.1, 2.4), 0.95, 4), 'middle': (1.15, -9.2, (5.5, 3.5, 2.5), 1.0, 0), 'ring': (-1.15, -9.0, (5.2, 3.25, 2.4), 0.92, -3),
+        'little': (-3.35, -8.4, (4.1, 2.5, 2.15), 0.82, -7)}       # v2: +20 % (the sheet's fingers are ~11 cm)
+CURL = (math.radians(8), math.radians(14), math.radians(10))        # v2: the sheet's fingers are nearly straight
 fingers = {}
 for name, (x, zb, segs, r, spread) in FING.items():
     d = rot(V3(0, 0, -1), V3(0, 1, 0), math.radians(-spread)); p = V3(x, 0.15, zb + 0.6); joints = [p]; dirs = []
@@ -118,6 +118,8 @@ ring_profile(steel, CUFF, 40)
 ring_bead(brass, 9.2, 6.6, 0.82, 0.26, 40); ring_bead(brass, -0.25, 4.6, 0.82, 0.2, 40)       # rolled edges, brass-bound as on the sheet
 for k in range(12):                                                               # rivets round the upper band
     a = 2 * math.pi * (k + 0.5) / 12; p = V3(6.2 * math.cos(a), 6.2 * 0.82 * math.sin(a), 8.25); rivet(brass, p + nz(V3(math.cos(a), math.sin(a), 0)) * 0.12, V3(math.cos(a), math.sin(a) / 0.82, 0.25))
+for k in range(24):                                                               # v2: a close row of small rivets under the rim (sheet)
+    a = 2 * math.pi * k / 24; p = V3(6.45 * math.cos(a), 6.45 * 0.82 * math.sin(a), 8.85); rivet(brass, p + nz(V3(math.cos(a), math.sin(a), 0)) * 0.1, V3(math.cos(a), math.sin(a) / 0.82, 0.3), r=0.12, sides=6)
 for k in range(4):                                                                # and a few on the waist of the cuff (lining rivets)
     a = math.radians(-90 + (k - 1.5) * 40); p = V3(4.38 * math.cos(a), 4.38 * 0.82 * math.sin(a), 2.4); rivet(brass, p + V3(math.cos(a), math.sin(a), 0) * 0.1, V3(math.cos(a), math.sin(a) / 0.82, 0))
 # wrist lames + metacarpal lames + knuckle lame: elliptical arcs over the back (-Y)
@@ -145,13 +147,14 @@ for fx in (4.6, -4.5):
     rivet(brass, V3(fx, -1.55, -7.9), V3(np.sign(fx) * 0.6, -1, 0))
 # finger lames: 3 shells per finger following the curl, tip domes, a rivet on each side of each lame
 for name, (joints, dirs, r) in fingers.items():
-    for k in range(3):
-        p0 = joints[k] - dirs[k] * (0.32 if k else 0.15); p1 = joints[k + 1] + dirs[k] * (0.05 if k < 2 else -0.15)
+    segs4 = [(joints[0], joints[0] + (joints[1] - joints[0]) * 0.52, 0), (joints[0] + (joints[1] - joints[0]) * 0.46, joints[1], 0), (joints[1], joints[2], 1), (joints[2], joints[3], 2)]
+    for q, (ja, jb, k) in enumerate(segs4):                                      # v2: 4 lames (the proximal one split in two)
+        p0 = ja - dirs[k] * (0.32 if q else 0.15); p1 = jb + dirs[k] * (0.05 if q < 3 else -0.15)
         dor = nz(V3(0, -1, 0) - dirs[k] * np.dot(V3(0, -1, 0), dirs[k]))
         rr = r * (1 - 0.08 * k) + 0.22
         shell(steel, p0, p1, dor, rr, rr * 1.03, math.radians(100), na=12, nl=3, flare=0.14)
         side = nz(np.cross(dirs[k], dor)); mid = (p0 + p1) / 2
-        if k < 2:
+        if q < 3:
             for sgn in (-1, 1): rivet(brass, mid + (dor * math.cos(math.radians(80)) + side * sgn * math.sin(math.radians(80))) * (rr + 0.04), dor * math.cos(math.radians(80)) + side * sgn * math.sin(math.radians(80)), r=0.12, sides=6)
     jd = joints[3]; d = dirs[2]; dor = nz(V3(0, -1, 0) - d * np.dot(V3(0, -1, 0), d)); rr = r * 0.84 + 0.22
     verts = []                                                                  # tip dome over the nail
