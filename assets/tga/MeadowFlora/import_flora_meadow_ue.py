@@ -6,7 +6,7 @@
 #   M_MeadowFlora (opaque) / M_MeadowCards (masked), both Two Sided Foliage, subsurface = BaseColor x SubsurfaceAmount, wind:
 #   SimpleGrassWind with weight (1 - R)^2 + leaf flutter along the normal (B mask, G phase). Vertex colour: R stiffness, G phase, B flutter.
 # No collision (walk-through foliage; give bushes a capsule on the scatter if gameplay wants it). Nanite off (masked cards).
-import os
+import os, sys
 import unreal
 
 DRY_RUN = True
@@ -36,53 +36,11 @@ for n, srgb, comp in TEX:
     if n.endswith('_N'): t.set_editor_property('flip_green_channel', False)     # already DirectX
     EAL.save_loaded_asset(t)
 
-def P(m, cls, name, x, y, tex=None, sampler=None):
-    e = MEL.create_material_expression(m, cls, x, y); e.set_editor_property('parameter_name', name)
-    if tex: e.set_editor_property('texture', unreal.load_asset(tex))
-    if sampler: e.set_editor_property('sampler_type', sampler)
-    return e
-def E(m, cls, x, y): return MEL.create_material_expression(m, cls, x, y)
-def S(m, name, v, x, y): e = P(m, unreal.MaterialExpressionScalarParameter, name, x, y); e.set_editor_property('default_value', v); return e
-C = MEL.connect_material_expressions
-def foliage(name, atlas, masked):
-    path = '%s/%s' % (DST, name)
-    if EAL.does_asset_exist(path): return
-    m = tools.create_asset(name, DST, unreal.Material, unreal.MaterialFactoryNew())
-    m.set_editor_property('shading_model', unreal.MaterialShadingModel.MSM_TWOSIDED_FOLIAGE); m.set_editor_property('two_sided', True)
-    if masked:
-        m.set_editor_property('blend_mode', unreal.BlendMode.BLEND_MASKED); m.set_editor_property('opacity_mask_clip_value', 0.4)
-    bc = P(m, unreal.MaterialExpressionTextureSampleParameter2D, 'BaseColorTex', -1100, -300, '%s/%s_BC' % (DST, atlas))
-    orm = P(m, unreal.MaterialExpressionTextureSampleParameter2D, 'ORMTex', -1100, 50, '%s/%s_ORM' % (DST, atlas), unreal.MaterialSamplerType.SAMPLERTYPE_MASKS)
-    nrm = P(m, unreal.MaterialExpressionTextureSampleParameter2D, 'NormalTex', -1100, 380, '%s/%s_N' % (DST, atlas), unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL)
-    tint = P(m, unreal.MaterialExpressionVectorParameter, 'Tint', -1100, -520); tint.set_editor_property('default_value', unreal.LinearColor(1, 1, 1, 1))
-    col = E(m, unreal.MaterialExpressionMultiply, -800, -380); C(bc, 'RGB', col, 'A'); C(tint, '', col, 'B')
-    ssa = S(m, 'SubsurfaceAmount', 0.6, -800, -200); ssc = E(m, unreal.MaterialExpressionMultiply, -550, -250); C(col, '', ssc, 'A'); C(ssa, '', ssc, 'B')
-    MEL.connect_material_property(col, '', unreal.MaterialProperty.MP_BASE_COLOR)
-    MEL.connect_material_property(ssc, '', unreal.MaterialProperty.MP_SUBSURFACE_COLOR)
-    MEL.connect_material_property(orm, 'G', unreal.MaterialProperty.MP_ROUGHNESS)
-    MEL.connect_material_property(orm, 'R', unreal.MaterialProperty.MP_AMBIENT_OCCLUSION)
-    MEL.connect_material_property(nrm, 'RGB', unreal.MaterialProperty.MP_NORMAL)
-    if masked: MEL.connect_material_property(bc, 'A', unreal.MaterialProperty.MP_OPACITY_MASK)
-    # wind: SimpleGrassWind, weight = (1 - R)^2, + flutter = normal * sin(time * speed + G) * B * amount
-    vc = E(m, unreal.MaterialExpressionVertexColor, -1100, 800)
-    om = E(m, unreal.MaterialExpressionOneMinus, -850, 760); C(vc, 'R', om, '')
-    wt = E(m, unreal.MaterialExpressionMultiply, -650, 760); C(om, '', wt, 'A'); C(om, '', wt, 'B')
-    tm = E(m, unreal.MaterialExpressionTime, -1100, 1000); fs = S(m, 'FlutterSpeed', 2.5, -1100, 1080)
-    ts = E(m, unreal.MaterialExpressionMultiply, -850, 1000); C(tm, '', ts, 'A'); C(fs, '', ts, 'B')
-    ph = E(m, unreal.MaterialExpressionAdd, -650, 1000); C(ts, '', ph, 'A'); C(vc, 'G', ph, 'B')
-    sn = E(m, unreal.MaterialExpressionSine, -500, 1000); C(ph, '', sn, '')
-    fa = S(m, 'FlutterAmount', 0.8, -500, 1120)                                 # cm
-    f1 = E(m, unreal.MaterialExpressionMultiply, -350, 1000); C(sn, '', f1, 'A'); C(vc, 'B', f1, 'B')
-    f2 = E(m, unreal.MaterialExpressionMultiply, -220, 1060); C(f1, '', f2, 'A'); C(fa, '', f2, 'B')
-    vn = E(m, unreal.MaterialExpressionVertexNormalWS, -350, 1200)
-    f3 = E(m, unreal.MaterialExpressionMultiply, -100, 1100); C(f2, '', f3, 'A'); C(vn, '', f3, 'B')
-    wind = E(m, unreal.MaterialExpressionMaterialFunctionCall, -100, 800)
-    wind.set_editor_property('material_function', unreal.load_asset('/Engine/Functions/Engine_MaterialFunctions01/WorldPositionOffset/SimpleGrassWind'))
-    wi = S(m, 'WindIntensity', 0.25, -500, 640); ws = S(m, 'WindSpeed', 0.15, -500, 700)
-    C(wi, '', wind, 'WindIntensity'); C(wt, '', wind, 'WindWeight'); C(ws, '', wind, 'WindSpeed'); C(f3, '', wind, 'AdditionalWPO')
-    MEL.connect_material_property(wind, '', unreal.MaterialProperty.MP_WORLD_POSITION_OFFSET)
-    MEL.recompile_material(m); EAL.save_asset(path)
-foliage('M_MeadowFlora', 'T_MeadowFlora', False); foliage('M_MeadowCards', 'T_MeadowCards', True)
+# materials: UE 5.3-safe builder shared with fix_wind_53.py (two-sided foliage enum, instanced flag, wind on WPO)
+sys.path.insert(0, SRC)
+import meadow_mat53
+for _n, _a, _m in (('M_MeadowFlora', 'T_MeadowFlora', False), ('M_MeadowCards', 'T_MeadowCards', True)):
+    log('%s: route %s' % (_n, meadow_mat53.build(DST, _n, _a, _m, log)[1]))
 MIS = {}
 for nm, par in (('MI_MeadowFlora', 'M_MeadowFlora'), ('MI_MeadowCards', 'M_MeadowCards')):
     path = '%s/%s' % (DST, nm)
@@ -94,6 +52,7 @@ f.import_materials = False; f.import_textures = False
 d = f.static_mesh_import_data; d.combine_meshes = True; d.auto_generate_collision = False; d.generate_lightmap_u_vs = False
 d.vertex_color_import_option = unreal.VertexColorImportOption.REPLACE                     # wind masks
 d.normal_import_method = unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS_AND_TANGENTS  # bent normals on the cards
+d.import_uniform_scale = 100.0                                                             # Blender FBX: metre vertices + UnitScaleFactor 100 (#356 / #311)
 tools.import_asset_tasks([task(os.path.join(FBX, n + '.fbx'), f) for n in MESHES])
 for n in MESHES:
     sm = unreal.load_asset('%s/%s' % (DST, n))
