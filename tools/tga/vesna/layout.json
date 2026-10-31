@@ -1,0 +1,999 @@
+{
+ "TW": 1672,
+ "TH": 941,
+ "S": 1.1483253588516746,
+ "title": {
+  "cx": 836,
+  "y": 56
+ },
+ "sub": {
+  "cx": 836,
+  "y": 93
+ },
+ "portrait": {
+  "x": 0,
+  "y": 0,
+  "w": 345,
+  "h": 152
+ },
+ "purse": {
+  "x": 1288,
+  "y": 38,
+  "w": 367,
+  "h": 44,
+  "gold": [
+   1328,
+   1355
+  ],
+  "iron": [
+   1473,
+   1500
+  ],
+  "silver": [
+   1588,
+   1612
+  ],
+  "cy": 60
+ },
+ "tabbar": {
+  "x": 240,
+  "y": 124,
+  "w": 1182,
+  "h": 50,
+  "cy": 148,
+  "lb": [
+   316,
+   148
+  ],
+  "rb": [
+   1356,
+   148
+  ]
+ },
+ "tabs": [
+  {
+   "cx": 459,
+   "lx": 459,
+   "x0": 380,
+   "x1": 540,
+   "icon": null
+  },
+  {
+   "cx": 655,
+   "lx": 681,
+   "x0": 553,
+   "x1": 755,
+   "icon": 597
+  },
+  {
+   "cx": 855,
+   "lx": 877,
+   "x0": 775,
+   "x1": 935,
+   "icon": 821
+  },
+  {
+   "cx": 1060,
+   "lx": 1079,
+   "x0": 962,
+   "x1": 1158,
+   "icon": 1003
+  }
+ ],
+ "left": {
+  "x": 25,
+  "y": 200,
+  "w": 472,
+  "h": 645
+ },
+ "lhead": {
+  "x": 40,
+  "y": 212,
+  "w": 440,
+  "h": 46,
+  "cy": 234,
+  "laurel": 78,
+  "text": 120,
+  "chev": 448
+ },
+ "rows": {
+  "x": 45,
+  "y0": 275,
+  "step": 80,
+  "h": 68,
+  "w": 427,
+  "n": 6,
+  "icon": [
+   47,
+   122
+  ],
+  "name": [
+   137,
+   293
+  ],
+  "deff": [
+   137,
+   322
+  ],
+  "state": [
+   457,
+   308
+  ]
+ },
+ "rsel": {
+  "dx": -10,
+  "dy": -3,
+  "w": 447,
+  "h": 74
+ },
+ "scroll": {
+  "x": 484,
+  "y": 275,
+  "w": 5,
+  "h": 470
+ },
+ "mid": {
+  "x": 520,
+  "y": 200,
+  "w": 585,
+  "h": 655
+ },
+ "ititle": {
+  "cx": 813,
+  "y": 230
+ },
+ "tags": {
+  "y": 267,
+  "slot_cx": 743,
+  "piece_cx": 911,
+  "h": 22
+ },
+ "turn": {
+  "cx": 815,
+  "cy": 430,
+  "w": 420,
+  "h": 280
+ },
+ "arrows": {
+  "l": 543,
+  "r": 1080,
+  "cy": 445
+ },
+ "dots": {
+  "cx": 819,
+  "y": 563,
+  "step": 19
+ },
+ "cmp": {
+  "x": 540,
+  "y": 590,
+  "w": 545,
+  "h": 72,
+  "div": 793,
+  "shield": [
+   581,
+   625
+  ],
+  "plus": [
+   616,
+   637
+  ],
+  "cur": [
+   917,
+   637
+  ],
+  "arr": 953,
+  "after": [
+   1037,
+   637
+  ]
+ },
+ "bonus": {
+  "x": 540,
+  "y": 668,
+  "w": 545,
+  "h": 122,
+  "head_y": 687,
+  "count_r": 1066,
+  "lines": [
+   723,
+   748,
+   771
+  ],
+  "diamond": 570,
+  "text": 589
+ },
+ "buy": {
+  "x": 547,
+  "y": 802,
+  "w": 530,
+  "h": 44,
+  "key": [
+   655,
+   824
+  ],
+  "text": 697,
+  "cy": 824
+ },
+ "right": {
+  "x": 1128,
+  "y": 200,
+  "w": 520,
+  "h": 648
+ },
+ "rtabs": {
+  "y": 200,
+  "h": 38,
+  "eq": [
+   1198,
+   1400
+  ],
+  "sp": [
+   1400,
+   1640
+  ]
+ },
+ "hero": {
+  "x": 1250,
+  "y": 242,
+  "w": 280,
+  "h": 423
+ },
+ "slot": {
+  "lx": 1207,
+  "rx": 1585,
+  "cy0": 274,
+  "step": 72,
+  "size": 58
+ },
+ "stats": {
+  "x": 1150,
+  "y": 668,
+  "w": 485,
+  "h": 157,
+  "rows": [
+   691,
+   728,
+   764,
+   800
+  ],
+  "icon": 1186,
+  "label": 1213,
+  "val": 1376,
+  "arr": 1422,
+  "after": 1440
+ },
+ "foot": {
+  "y": 870,
+  "h": 71,
+  "cy": 898
+ },
+ "atlas": {
+  "name10": {
+   "x": 18,
+   "y": 18,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Cuirass"
+  },
+  "def10": {
+   "x": 236,
+   "y": 18,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+45 DEF"
+  },
+  "title10": {
+   "x": 364,
+   "y": 18,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN CUIRASS"
+  },
+  "tag10": {
+   "x": 852,
+   "y": 18,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "CHEST"
+  },
+  "name11": {
+   "x": 1070,
+   "y": 18,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Pauldrons"
+  },
+  "def11": {
+   "x": 1288,
+   "y": 18,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+12 DEF"
+  },
+  "title11": {
+   "x": 18,
+   "y": 76,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN PAULDRONS"
+  },
+  "tag11": {
+   "x": 506,
+   "y": 76,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "SHOULDERS (PAIR)"
+  },
+  "name12": {
+   "x": 724,
+   "y": 76,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Gauntlets"
+  },
+  "def12": {
+   "x": 942,
+   "y": 76,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+8 DEF"
+  },
+  "title12": {
+   "x": 1070,
+   "y": 76,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN GAUNTLETS"
+  },
+  "tag12": {
+   "x": 1558,
+   "y": 76,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "HANDS (PAIR)"
+  },
+  "name17": {
+   "x": 18,
+   "y": 134,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Vambraces"
+  },
+  "def17": {
+   "x": 236,
+   "y": 134,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+8 DEF"
+  },
+  "title17": {
+   "x": 364,
+   "y": 134,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN VAMBRACES"
+  },
+  "tag17": {
+   "x": 852,
+   "y": 134,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "FOREARMS (PAIR)"
+  },
+  "name16": {
+   "x": 1070,
+   "y": 134,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Rerebraces"
+  },
+  "def16": {
+   "x": 1288,
+   "y": 134,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+8 DEF"
+  },
+  "title16": {
+   "x": 18,
+   "y": 192,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN REREBRACES"
+  },
+  "tag16": {
+   "x": 506,
+   "y": 192,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "UPPER ARMS (PAIR)"
+  },
+  "name18": {
+   "x": 724,
+   "y": 192,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Fauld"
+  },
+  "def18": {
+   "x": 942,
+   "y": 192,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+10 DEF"
+  },
+  "title18": {
+   "x": 1070,
+   "y": 192,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN FAULD"
+  },
+  "tag18": {
+   "x": 1558,
+   "y": 192,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "WAIST"
+  },
+  "name19": {
+   "x": 18,
+   "y": 250,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Cuisses"
+  },
+  "def19": {
+   "x": 236,
+   "y": 250,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+12 DEF"
+  },
+  "title19": {
+   "x": 364,
+   "y": 250,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN CUISSES"
+  },
+  "tag19": {
+   "x": 852,
+   "y": 250,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "THIGHS (PAIR)"
+  },
+  "name14": {
+   "x": 1070,
+   "y": 250,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Greaves"
+  },
+  "def14": {
+   "x": 1288,
+   "y": 250,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+10 DEF"
+  },
+  "title14": {
+   "x": 18,
+   "y": 308,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN GREAVES"
+  },
+  "tag14": {
+   "x": 506,
+   "y": 308,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "SHINS (PAIR)"
+  },
+  "name13": {
+   "x": 724,
+   "y": 308,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Sabatons"
+  },
+  "def13": {
+   "x": 942,
+   "y": 308,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+8 DEF"
+  },
+  "title13": {
+   "x": 1070,
+   "y": 308,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN SABATONS"
+  },
+  "tag13": {
+   "x": 1558,
+   "y": 308,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "FEET (PAIR)"
+  },
+  "name15": {
+   "x": 18,
+   "y": 366,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Helmet"
+  },
+  "def15": {
+   "x": 236,
+   "y": 366,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+15 DEF"
+  },
+  "title15": {
+   "x": 364,
+   "y": 366,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN HELM"
+  },
+  "tag15": {
+   "x": 852,
+   "y": 366,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "HEAD"
+  },
+  "name20": {
+   "x": 1070,
+   "y": 366,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Cape"
+  },
+  "def20": {
+   "x": 1288,
+   "y": 366,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+4 DEF"
+  },
+  "title20": {
+   "x": 18,
+   "y": 424,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "SOVEREIGN CAPE"
+  },
+  "tag20": {
+   "x": 506,
+   "y": 424,
+   "w": 200,
+   "h": 24,
+   "kind": "tag",
+   "p": "BACK"
+  },
+  "tier0": {
+   "x": 724,
+   "y": 424,
+   "w": 500,
+   "h": 24,
+   "kind": "tier",
+   "p": "(4)\u2003+6% Damage Reduction"
+  },
+  "tier1": {
+   "x": 1242,
+   "y": 424,
+   "w": 500,
+   "h": 24,
+   "kind": "tier",
+   "p": "(6)\u2003Ember Shockwave on hit (40 dmg, 4 m, 12 s)"
+  },
+  "tier2": {
+   "x": 18,
+   "y": 482,
+   "w": 500,
+   "h": 24,
+   "kind": "tier",
+   "p": "(11)\u2003Sovereign's Ember: +15% Damage Reduction"
+  },
+  "tab0": {
+   "x": 536,
+   "y": 482,
+   "w": 202,
+   "h": 50,
+   "kind": "tab",
+   "p": "WEAPONS"
+  },
+  "tab1": {
+   "x": 756,
+   "y": 482,
+   "w": 202,
+   "h": 50,
+   "kind": "tab",
+   "p": "ARMOUR"
+  },
+  "tab2": {
+   "x": 976,
+   "y": 482,
+   "w": 202,
+   "h": 50,
+   "kind": "tab",
+   "p": "SETS"
+  },
+  "tab3": {
+   "x": 1196,
+   "y": 482,
+   "w": 202,
+   "h": 50,
+   "kind": "tab",
+   "p": "SUPPLIES"
+  },
+  "rtab0": {
+   "x": 1416,
+   "y": 482,
+   "w": 202,
+   "h": 38,
+   "kind": "rtab",
+   "p": "EQUIPMENT"
+  },
+  "rtab1": {
+   "x": 18,
+   "y": 550,
+   "w": 240,
+   "h": 38,
+   "kind": "rtab",
+   "p": "SET PROGRESS"
+  },
+  "rsel": {
+   "x": 276,
+   "y": 550,
+   "w": 447,
+   "h": 74,
+   "kind": "rsel",
+   "p": ""
+  },
+  "slotsel": {
+   "x": 741,
+   "y": 550,
+   "w": 70,
+   "h": 70,
+   "kind": "slotsel",
+   "p": ""
+  },
+  "setpiece": {
+   "x": 829,
+   "y": 550,
+   "w": 108,
+   "h": 24,
+   "kind": "setpiece",
+   "p": "SET PIECE"
+  },
+  "owned": {
+   "x": 955,
+   "y": 550,
+   "w": 100,
+   "h": 26,
+   "kind": "state",
+   "p": "OWNED"
+  },
+  "worn": {
+   "x": 1073,
+   "y": 550,
+   "w": 100,
+   "h": 26,
+   "kind": "state",
+   "p": "WORN"
+  },
+  "forging": {
+   "x": 1191,
+   "y": 550,
+   "w": 110,
+   "h": 26,
+   "kind": "state",
+   "p": "FORGING"
+  },
+  "btn_on": {
+   "x": 18,
+   "y": 642,
+   "w": 530,
+   "h": 44,
+   "kind": "btn",
+   "p": "on"
+  },
+  "btn_off": {
+   "x": 566,
+   "y": 642,
+   "w": 530,
+   "h": 44,
+   "kind": "btn",
+   "p": "off"
+  },
+  "key_e": {
+   "x": 1114,
+   "y": 642,
+   "w": 36,
+   "h": 26,
+   "kind": "key",
+   "p": "E"
+  },
+  "dot_on": {
+   "x": 1168,
+   "y": 642,
+   "w": 12,
+   "h": 12,
+   "kind": "dot",
+   "p": "on"
+  },
+  "dot_off": {
+   "x": 1198,
+   "y": 642,
+   "w": 12,
+   "h": 12,
+   "kind": "dot",
+   "p": "off"
+  },
+  "coin": {
+   "x": 1228,
+   "y": 642,
+   "w": 22,
+   "h": 22,
+   "kind": "coin",
+   "p": ""
+  },
+  "nogold": {
+   "x": 1268,
+   "y": 642,
+   "w": 330,
+   "h": 26,
+   "kind": "msg",
+   "p": "Not enough gold, hunter."
+  },
+  "forgemsg": {
+   "x": 18,
+   "y": 704,
+   "w": 420,
+   "h": 30,
+   "kind": "msg2",
+   "p": "IN VESNA\u2019S FORGE \u2014 NOT YET FOR SALE"
+  },
+  "tierrow": {
+   "x": 456,
+   "y": 704,
+   "w": 470,
+   "h": 30,
+   "kind": "tierrow",
+   "p": ""
+  },
+  "glyph15": {
+   "x": 944,
+   "y": 704,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "helm"
+  },
+  "glyph16": {
+   "x": 1090,
+   "y": 704,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "rerebrace"
+  },
+  "glyph17": {
+   "x": 1236,
+   "y": 704,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "vambrace"
+  },
+  "glyph18": {
+   "x": 1382,
+   "y": 704,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "fauld"
+  },
+  "glyph19": {
+   "x": 1528,
+   "y": 704,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "cuisses"
+  },
+  "glyph20": {
+   "x": 18,
+   "y": 850,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "cape"
+  },
+  "glyph-1": {
+   "x": 164,
+   "y": 850,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "shield"
+  }
+ },
+ "pieces": [
+  {
+   "id": 10,
+   "name": "Cuirass",
+   "title": "SOVEREIGN CUIRASS",
+   "tag": "CHEST",
+   "deff": 45,
+   "art": "Chest"
+  },
+  {
+   "id": 11,
+   "name": "Pauldrons",
+   "title": "SOVEREIGN PAULDRONS",
+   "tag": "SHOULDERS (PAIR)",
+   "deff": 12,
+   "art": "Shoulders"
+  },
+  {
+   "id": 12,
+   "name": "Gauntlets",
+   "title": "SOVEREIGN GAUNTLETS",
+   "tag": "HANDS (PAIR)",
+   "deff": 8,
+   "art": "Gauntlets"
+  },
+  {
+   "id": 17,
+   "name": "Vambraces",
+   "title": "SOVEREIGN VAMBRACES",
+   "tag": "FOREARMS (PAIR)",
+   "deff": 8,
+   "art": null
+  },
+  {
+   "id": 16,
+   "name": "Rerebraces",
+   "title": "SOVEREIGN REREBRACES",
+   "tag": "UPPER ARMS (PAIR)",
+   "deff": 8,
+   "art": null
+  },
+  {
+   "id": 18,
+   "name": "Fauld",
+   "title": "SOVEREIGN FAULD",
+   "tag": "WAIST",
+   "deff": 10,
+   "art": null
+  },
+  {
+   "id": 19,
+   "name": "Cuisses",
+   "title": "SOVEREIGN CUISSES",
+   "tag": "THIGHS (PAIR)",
+   "deff": 12,
+   "art": null
+  },
+  {
+   "id": 14,
+   "name": "Greaves",
+   "title": "SOVEREIGN GREAVES",
+   "tag": "SHINS (PAIR)",
+   "deff": 10,
+   "art": "Shins"
+  },
+  {
+   "id": 13,
+   "name": "Sabatons",
+   "title": "SOVEREIGN SABATONS",
+   "tag": "FEET (PAIR)",
+   "deff": 8,
+   "art": "Boots"
+  },
+  {
+   "id": 15,
+   "name": "Helmet",
+   "title": "SOVEREIGN HELM",
+   "tag": "HEAD",
+   "deff": 15,
+   "art": null
+  },
+  {
+   "id": 20,
+   "name": "Cape",
+   "title": "SOVEREIGN CAPE",
+   "tag": "BACK",
+   "deff": 4,
+   "art": null
+  }
+ ],
+ "slotsL": [
+  15,
+  11,
+  16,
+  17,
+  12,
+  -1
+ ],
+ "slotsR": [
+  20,
+  10,
+  18,
+  19,
+  14,
+  13
+ ],
+ "tiers": [
+  {
+   "n": 4,
+   "t": "+6% Damage Reduction"
+  },
+  {
+   "n": 6,
+   "t": "Ember Shockwave on hit (40 dmg, 4 m, 12 s)"
+  },
+  {
+   "n": 11,
+   "t": "Sovereign's Ember: +15% Damage Reduction"
+  }
+ ],
+ "tabnames": [
+  "WEAPONS",
+  "ARMOUR",
+  "SETS",
+  "SUPPLIES"
+ ]
+}
