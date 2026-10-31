@@ -1,9 +1,10 @@
 {
- "working": "Master: pasting #307 antidote (APOTHECARY panel) next",
+ "working": "Master: #307 antidote paste next",
  "tokens": 130000,
  "ctx": 1000000,
  "since": "2026-10-31T08:00:00Z",
  "done": [
+  "#301 stair kit reverted on owner order (half flights, wall stairs lost); report to TGA [82% tokens left]",
   "#301 stair kit placed (16 flights), nav rebuilt [83% tokens left]",
   "#308 + #304 screenshots delivered [84% tokens left]",
   "Exports handed: #308 cave dump, #304 blob materials, #228 wall-top report (commit 77d5f24) [85% tokens left]",
@@ -12,8 +13,7 @@
   "#174 #175 #190 pasted + verified, realm imports, #192 export [58% tokens left] [58% tokens left]",
   "Cafeteria: @tag chips + notification flag + Post button; #95 weapon-upgrade card logged [77% tokens left]",
   "#83 exposure lift applied + saved (owner to judge in Play) [81% tokens left]",
-  "Signed off: 9 cards handed off with reports, 4 editor jobs to vice master, Codex tower-9 screenshots delivered [84% tokens left]",
-  "Tentacle revenge strike (HP<=10%/shield 0, last-attacker cannon) pasted+Simulate-verified; trail manager 10 dropped self-calls fixed (fire now lights/spreads); BP_JellyBlob splats 160/220 + pop-in-fire verified"
+  "Signed off: 9 cards handed off with reports, 4 editor jobs to vice master, Codex tower-9 screenshots delivered [84% tokens left]"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-31T12:56:52Z",
+ "asOf": "2026-10-31T13:10:31Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
