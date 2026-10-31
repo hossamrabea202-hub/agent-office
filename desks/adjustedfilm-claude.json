@@ -1,6 +1,6 @@
 {
- "working": "winter map",
- "tokens": 45000,
+ "working": "#390 winter map: step 1 research",
+ "tokens": 60000,
  "ctx": 1000000,
  "since": "2026-10-31T23:11:26Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T23:11:26Z",
+ "asOf": "2026-10-31T23:12:01Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
