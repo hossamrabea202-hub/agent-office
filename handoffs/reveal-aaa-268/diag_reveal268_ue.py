@@ -2,6 +2,7 @@
 # Run it WHILE PLAYING (PIE), after picking up the book (or any time):
 #   py "<repo>/handoffs/reveal-aaa-268/diag_reveal268_ue.py"              (only reports)
 #   py "<repo>/handoffs/reveal-aaa-268/diag_reveal268_ue.py" --replay     (also forces the book reveal to play again now)
+#   py "<repo>/handoffs/reveal-aaa-268/diag_reveal268_ue.py" --probe      (#269: captures once and counts the item's pixels in RT_Reveal)
 # Writes <repo>/handoffs/reveal-aaa-268/diag_reveal268.txt -> commit + push it (or paste the Output Log lines on #269).
 # Changes nothing in assets. --replay only touches the running game (BookOpened = false, MPC_SkillTree.BookAge = 0.1).
 import os, sys
@@ -9,6 +10,7 @@ import unreal
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPLAY = '--replay' in sys.argv
+PROBE = '--probe' in sys.argv
 out = ['#269 reveal diagnostic' + (' (+ replay)' if REPLAY else '')]
 P = lambda *a: out.append(' '.join(str(x) for x in a))
 
@@ -35,25 +37,41 @@ else:
         except Exception: pass
         if cap:
             P('  capture target RT:', cap.get_editor_property('texture_target'))
-            P('  capture show-only count:', len(cap.get_editor_property('show_only_components')))
+            P('  capture source:', cap.get_editor_property('capture_source'), '| loc', cap.get_relative_location(), '| fov', cap.get_editor_property('fov_angle'))
+            # #269 probe: capture now and count the RT pixels the item covers (alpha = depth after --fix269, < 3000 cm)
+            rt = cap.get_editor_property('texture_target')
+            if PROBE and rt:
+                cap.capture_scene()
+                hit, N = 0, 16
+                for iy in range(N):
+                    for ix in range(N):
+                        c = unreal.RenderingLibrary.read_render_target_raw_uv(world, rt, (ix + 0.5) / N, (iy + 0.5) / N, False)
+                        if c.a < 3000.0: hit += 1
+                cc = unreal.RenderingLibrary.read_render_target_raw_uv(world, rt, 0.5, 0.5, False)
+                P('  PROBE item covers %d / %d samples of RT_Reveal; centre pixel %s' % (hit, N * N, cc))
+                P('  (0 = still empty; 20-150 = item drawn. Run it ~1 s after --replay, while the reveal plays.)')
     st = unreal.load_class(None, '/Game/CastleDefender/UI/Reveal/BP_RevealStage.BP_RevealStage_C')
     stages = GS.get_all_actors_of_class(world, st) if st else []
     P('BP_RevealStage class loaded:', bool(st), '| stages in world:', len(stages))
     for s in stages[:2]:
         P('  stage at', s.get_actor_location())
         for c in s.get_components_by_class(unreal.ActorComponent):
-            P('   comp %-12s tags=%s' % (c.get_name(), [str(t) for t in c.get_editor_property('component_tags')]))
+            extra = ''
+            if isinstance(c, unreal.PrimitiveComponent):
+                o, e, r = unreal.SystemLibrary.get_component_bounds(c)
+                extra = ' visible=%s mob=%s radius=%.1f at %s' % (c.is_visible(), c.get_editor_property('mobility'), r, c.get_world_location())
+            P('   comp %-12s tags=%s%s' % (c.get_name(), [str(t) for t in c.get_editor_property('component_tags')], extra))
     mpc = unreal.load_asset('/Game/CastleDefender/UI/SkillTree/MPC_SkillTree')
     for p in ('BookAge', 'BagAge'):
-        P('MPC_SkillTree.%s =' % p, unreal.KismetMaterialLibrary.get_scalar_parameter_value(world, mpc, p) if mpc else 'MPC missing')
+        P('MPC_SkillTree.%s =' % p, unreal.MaterialLibrary.get_scalar_parameter_value(world, mpc, p) if mpc else 'MPC missing')
     rmpc = unreal.load_asset('/Game/CastleDefender/UI/Reveal/MPC_Reveal')
-    P('MPC_Reveal.Blur =', unreal.KismetMaterialLibrary.get_scalar_parameter_value(world, rmpc, 'Blur') if rmpc else 'MPC_Reveal missing')
+    P('MPC_Reveal.Blur =', unreal.MaterialLibrary.get_scalar_parameter_value(world, rmpc, 'Blur') if rmpc else 'MPC_Reveal missing')
     pc = GS.get_player_controller(world, 0)
     hud = pc.get_hud() if pc else None
     P('HUD class:', hud.get_class().get_name() if hud else None)
     if REPLAY and fx and mpc:
         fx.set_editor_property('BookOpened', False)
-        unreal.KismetMaterialLibrary.set_scalar_parameter_value(world, mpc, 'BookAge', 0.1)
+        unreal.MaterialLibrary.set_scalar_parameter_value(world, mpc, 'BookAge', 0.1)
         P('REPLAY: BookOpened = false, BookAge = 0.1 -> the book reveal should start on the next HUD frame.')
         P('  If it does not: DrawReveal is not being called (the ArmoryHUD hook HookReveal is missing or not linked).')
 

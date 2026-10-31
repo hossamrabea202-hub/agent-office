@@ -1,6 +1,11 @@
 # #268 AAA pickup reveal, editor setup (adjustedfilm, 2026-10-31). UE 5.3 Python, safe to re-run.
 #   py "<repo>/handoffs/reveal-aaa-268/setup_reveal268_ue.py" --dry-run     (only reports what it would do)
 #   py "<repo>/handoffs/reveal-aaa-268/setup_reveal268_ue.py"               (does it)
+#   py "<repo>/handoffs/reveal-aaa-268/setup_reveal268_ue.py" --fix269 [--dry-run]
+#       #269 fix only: RT_Reveal, M_RevealItem and BP_RevealStage again (no sounds, no hero edit). The item was not in
+#       RT_Reveal: the capture now writes scene DEPTH in alpha (M_RevealItem keys the item by depth, so the HDR alpha
+#       convention can't hide it), the meshes drop 'visible in scene capture only' and Nanite (both can keep a mesh out
+#       of a show-only capture), and every stage part is Movable (a Static pivot/mesh can't be moved or spun at runtime).
 # Makes, under /Game/CastleDefender/UI/Reveal (next to the v1 textures, which stay untouched):
 #   RT_Reveal          1024x1024 RGBA16F render target (the live 3D item)
 #   MPC_Reveal         one scalar "Blur" (0..1) the reveal writes every frame
@@ -21,6 +26,7 @@ try:
 except NameError:
     HERE = os.path.join(REPO, 'handoffs', 'reveal-aaa-268')
 DRY = '--dry-run' in sys.argv
+FIX = '--fix269' in sys.argv
 SFX_DIR = os.path.normpath(os.path.join(HERE, '..', '..', 'assets', 'adjustedfilm', 'Reveal268', 'sfx'))
 DEST = '/Game/CastleDefender/UI/Reveal'
 HERO = '/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter'
@@ -30,7 +36,7 @@ EAL, MEL = unreal.EditorAssetLibrary, unreal.MaterialEditingLibrary
 AT = unreal.AssetToolsHelpers.get_asset_tools()
 sds = unreal.get_engine_subsystem(unreal.SubobjectDataSubsystem)
 SDL = unreal.SubobjectDataBlueprintFunctionLibrary
-log = ['#268 reveal setup' + (' (DRY RUN, nothing written)' if DRY else '')]
+log = ['#268 reveal setup' + (' #269 fix' if FIX else '') + (' (DRY RUN, nothing written)' if DRY else '')]
 
 
 def enum(cls, *names):
@@ -125,7 +131,7 @@ float3 c = max(Tex.rgb, 0.0) * Exposure;
 c = (c * (2.51 * c + 0.03)) / (c * (2.43 * c + 0.59) + 0.14);
 c = saturate(c);
 c = lerp(c, float3(1.0, 0.86, 0.62), saturate(Flash) * 0.35);
-float a = saturate(1.0 - Tex.a) * Alpha;
+float a = saturate((MaxDepth - Tex.a) / max(MaxDepth * 0.02, 1.0)) * Alpha;   // #269: A = scene depth (cm); empty = far
 return float4(c, a);
 '''
 
@@ -200,7 +206,7 @@ rt, _ = fresh('RT_Reveal', unreal.TextureRenderTarget2D, unreal.TextureRenderTar
 if rt:
     rt.set_editor_property('size_x', 1024); rt.set_editor_property('size_y', 1024)
     rt.set_editor_property('render_target_format', enum(unreal.TextureRenderTargetFormat, 'RTF_RGBA16F'))
-    rt.set_editor_property('clear_color', unreal.LinearColor(0, 0, 0, 1))
+    rt.set_editor_property('clear_color', unreal.LinearColor(0, 0, 0, 60000))   # #269: alpha = depth, cleared = far = transparent
     rt.set_editor_property('address_x', unreal.TextureAddress.TA_CLAMP); rt.set_editor_property('address_y', unreal.TextureAddress.TA_CLAMP)
     EAL.save_asset(DEST + '/RT_Reveal')
 
@@ -222,17 +228,18 @@ if m:
     tx.set_editor_property('parameter_name', 'RT')
     tx.set_editor_property('sampler_type', enum(unreal.MaterialSamplerType, 'SAMPLERTYPE_LINEAR_COLOR'))
     if rt: tx.set_editor_property('texture', rt)
-    cu = custom(m, ITEM_HLSL, ['Tex', 'Exposure', 'Alpha', 'Flash'], F4, -300, 0)
+    cu = custom(m, ITEM_HLSL, ['Tex', 'Exposure', 'Alpha', 'Flash', 'MaxDepth'], F4, -300, 0)
     MEL.connect_material_expressions(tx, 'RGBA', cu, 'Tex')
     MEL.connect_material_expressions(scalar(m, 'Exposure', 1.0, -700, 300), '', cu, 'Exposure')
     MEL.connect_material_expressions(scalar(m, 'Alpha', 0.0, -700, 400), '', cu, 'Alpha')
     MEL.connect_material_expressions(scalar(m, 'Flash', 0.0, -700, 500), '', cu, 'Flash')
+    MEL.connect_material_expressions(scalar(m, 'MaxDepth', 3000.0, -700, 600), '', cu, 'MaxDepth')
     MEL.connect_material_property(mask(m, cu, '', (True, True, True, False), 0, 0), '', EMIS)
     MEL.connect_material_property(mask(m, cu, '', (False, False, False, True), 0, 200), '', OPAC)
     MEL.recompile_material(m); EAL.save_asset(DEST + '/M_RevealItem')
 
 # ---- M_RevealScreen
-m = new_material('M_RevealScreen')
+m = new_material('M_RevealScreen') if not FIX else None
 if m:
     m.set_editor_property('material_domain', UI); m.set_editor_property('blend_mode', TRANS)
     ins = ['UV', 'T', 'Aspect', 'Center', 'Rad', 'Bg', 'Glow', 'Burst', 'Ring', 'Dust', 'Layer', 'Dock', 'DockR', 'ItemA']
@@ -249,7 +256,7 @@ if m:
     MEL.recompile_material(m); EAL.save_asset(DEST + '/M_RevealScreen')
 
 # ---- M_RevealBlur (post process, after tonemapping)
-m = new_material('M_RevealBlur')
+m = new_material('M_RevealBlur') if not FIX else None
 if m:
     m.set_editor_property('material_domain', PP)
     m.set_editor_property('blendable_location', enum(unreal.BlendableLocation, 'BL_AFTER_TONEMAPPING', 'BL_SCENE_COLOR_AFTER_TONEMAPPING'))
@@ -268,7 +275,7 @@ if m:
 
 # ---- sounds
 tasks = []
-for n in ('SFX_Reveal_Whoosh', 'SFX_Reveal_Hit', 'SFX_Reveal_Shimmer'):
+for n in (() if FIX else ('SFX_Reveal_Whoosh', 'SFX_Reveal_Hit', 'SFX_Reveal_Shimmer')):
     f = os.path.join(SFX_DIR, n + '.wav')
     if not os.path.exists(f): log.append('MISSING ' + f); continue
     t = unreal.AssetImportTask()
@@ -315,6 +322,11 @@ def pickup_mesh(path):
     return best
 
 
+def movable(c):
+    try: c.set_editor_property('mobility', unreal.ComponentMobility.MOVABLE)
+    except Exception as e: log.append('  (mobility %s skipped: %s)' % (c.get_name(), e))
+
+
 CH1 = unreal.LightingChannels(); CH1.set_editor_property('channel0', False); CH1.set_editor_property('channel1', True)
 look = lambda loc: unreal.MathLibrary.find_look_at_rotation(loc, unreal.Vector(0, 0, 0))
 LIGHTS = [  # name, location (cm from the item), candela, Kelvin, source radius: warm key, cool rim, weak fill (rule 5)
@@ -340,7 +352,9 @@ if stage:
         h, fail = sds.add_new_subobject(unreal.AddNewSubobjectParams(parent_handle=parent, new_class=cls, blueprint_context=stage))
         if not fail.is_empty(): raise RuntimeError('add %s: %s' % (name, fail))
         sds.rename_subobject(h, unreal.Text(name)); by[name] = h; log.append('  stage + ' + name); return h, True
+    movable(comp(root))
     piv, _ = add('Pivot', unreal.SceneComponent, root)
+    movable(comp(piv))
     comp(piv).set_editor_property('component_tags', [unreal.Name('RevealPivot')])
     for tag, info in meshes.items():
         if info is None: continue
@@ -356,15 +370,20 @@ if stage:
         c.set_editor_property('relative_scale3d', sc)
         c.set_editor_property('component_tags', [unreal.Name(tag)])
         c.set_editor_property('lighting_channels', CH1)
-        c.set_editor_property('visible_in_scene_capture_only', True)
+        c.set_editor_property('visible_in_scene_capture_only', False)   # #269: 2 km up and hidden when idle is enough
+        movable(c)
+        if isinstance(c, unreal.StaticMeshComponent):
+            try: c.set_editor_property('force_disable_nanite', True)        # #269: plain mesh in the capture
+            except Exception as e: log.append('  (force_disable_nanite skipped: %s)' % e)
         c.set_editor_property('visible', False)
         c.set_editor_property('cast_shadow', True)
         c.set_collision_profile_name('NoCollision')
     hc, _ = add('Capture', unreal.SceneCaptureComponent2D, root)
     cap = comp(hc)
+    movable(cap)
     cap.set_editor_property('component_tags', [unreal.Name('RevealCapture')])
     if rt: cap.set_editor_property('texture_target', rt)
-    cap.set_editor_property('capture_source', enum(unreal.SceneCaptureSource, 'SCS_SCENE_COLOR_HDR'))
+    cap.set_editor_property('capture_source', enum(unreal.SceneCaptureSource, 'SCS_SCENE_COLOR_SCENE_DEPTH'))
     cap.set_editor_property('primitive_render_mode', enum(unreal.SceneCapturePrimitiveRenderMode, 'PRM_USE_SHOW_ONLY_LIST'))
     cap.set_editor_property('capture_every_frame', False); cap.set_editor_property('capture_on_movement', False)
     cap.set_editor_property('always_persist_rendering_state', True)
@@ -386,6 +405,7 @@ if stage:
     for name, loc, cd, kelvin, srad in LIGHTS:
         h, _ = add(name, unreal.SpotLightComponent, root)
         L = comp(h)
+        movable(L)
         L.set_editor_property('relative_location', loc); L.set_editor_property('relative_rotation', look(loc))
         L.set_editor_property('intensity_units', enum(unreal.LightUnits, 'CANDELAS')); L.set_editor_property('intensity', cd)
         L.set_editor_property('use_temperature', True); L.set_editor_property('temperature', float(kelvin))
@@ -397,7 +417,7 @@ if stage:
 # ------------------------------------------------------------------------------------------------ hero cameras: blur blendable
 blur = unreal.load_asset(DEST + '/M_RevealBlur') if EAL.does_asset_exist(DEST + '/M_RevealBlur') else None
 hero = unreal.load_asset(HERO)
-cams = [c for c in (comp(h) for h in handles_of(hero)[0]) if isinstance(c, unreal.CameraComponent)]
+cams = [] if FIX else [c for c in (comp(h) for h in handles_of(hero)[0]) if isinstance(c, unreal.CameraComponent)]
 log.append('hero cameras: %s' % [c.get_name() for c in cams])
 for c in cams:
     pps = c.get_editor_property('post_process_settings')
@@ -414,5 +434,5 @@ if cams and not DRY:
     unreal.BlueprintEditorLibrary.compile_blueprint(hero); EAL.save_asset(HERO)
 
 out = '\n'.join(log) + '\nNext: README step 3 (BPVar lines on BPC_MotionFX, then the graph paste).'
-if not DRY: open(os.path.join(HERE, 'setup_reveal268.txt'), 'w').write(out)
+if not DRY: open(os.path.join(HERE, 'setup_reveal269fix.txt' if FIX else 'setup_reveal268.txt'), 'w').write(out)
 unreal.log(out)

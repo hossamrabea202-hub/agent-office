@@ -13,9 +13,9 @@
 #     0.12-0.47  reveal: ease-out expo to full size, spins in from -160 deg, ~6 % overshoot that settles by 0.9 s  (whoosh)
 #     0.47       peak: light burst + anamorphic streak + ring, 3 deg camera push, 70 ms hit-stop                      (low hit)
 #     0.55-1.25  title: per-letter slide-in, 35 ms stagger, gold shine sweep 1.0-1.6 s; how-to line with a key cap  (shimmer)
-#     1.85-2.25  exit: the item flies on an arc into the dock bottom-right, the blur and the title fade
-#     2.25       BookOpenNow / BagOpenNow true for one frame -> the skill tree / pack opens (T / I path); dock ring pulse
-#     3.10       done
+#     3.20-3.60  exit (#269 v3; was 1.85-2.25): the item flies on an arc into the dock bottom-right, the blur and the title fade
+#     3.60       BookOpenNow / BagOpenNow true for one frame -> the skill tree / pack opens (T / I path); dock ring pulse
+#     4.45       done
 #   skip: mouse click, Space, Enter, E, Esc (after 0.35 s) jumps to the exit
 import math, os, sys, uuid
 sys.dont_write_bytecode = True
@@ -44,7 +44,8 @@ OBJV = lambda c: ob('v', c)
 def col(r, g, b_, a=1.0): return '(R=%f,G=%f,B=%f,A=%f)' % (r, g, b_, a)
 
 GOLD, SHINE, INK = (1.0, 0.72, 0.30), (1.0, 0.95, 0.80), (0.92, 0.86, 0.74)
-T_PEAK, T_HOLD, T_EXIT, T_OPEN, T_END = 0.47, 0.07, 1.85, 2.25, 3.10
+# #269 v3: the item now holds on screen until 3.2 s (v2 left at 1.85 s, the Master read that as 'ends early')
+T_PEAK, T_HOLD, T_EXIT, T_OPEN, T_END = 0.47, 0.07, 3.20, 3.60, 4.45
 BOOK_TITLE, BAG_TITLE = 'BOOK OF SKILLS', 'SATCHEL OF HOLDING'
 BOOK_LINE, BAG_LINE = 'Open the skill tree', 'Open your pack'
 
@@ -261,7 +262,10 @@ sf = b.set('RvFlat', BOOL, flat, X + 3300, Y)
 # capture distance: fit the item's sphere in a 30 deg FOV with 25 % margin (R / tan 15 deg * 1.25)
 dist = b.mul(g('RvR', DBL, X + 3500, Y + 1000), None, X + 3700, Y + 1000, db='%.4f' % (1.25 / math.tan(math.radians(15))))
 cl = b.setloc('K2_SetRelativeLocation', cap(X + 3700, Y + 300), b.vec(b.mul(dist, None, X + 3900, Y + 1000, db='-1.0'), None, None, X + 4100, Y + 1000), X + 3600, Y, 'CapDist')
-b.chain(sk, st0, ssn, sbo, sgo, sbp, sgp, v1, v2, sr, sf, cl)
+# #269 v3: refresh the capture's show-only list at every start (the item was just made visible)
+so2 = b.call(SCENEC, 'ShowOnlyActorComponents', [ob('InActor', ACT), bo('bIncludeFromChildActors', default='false')], X + 3900, Y, target=cap(X + 3800, Y + 300), tag='ShowOnly2')
+b.wire(stage(X + 3800, Y + 400), so2, 'InActor')
+b.chain(sk, st0, ssn, sbo, sgo, sbp, sgp, v1, v2, sr, sf, cl, so2)
 
 # ---- then_1: the running reveal
 Y = Y0 + 2600
@@ -324,7 +328,7 @@ s_in = b.self_(b.sub(None, b.mul(pa, None, 1500, CY, db='0.06'), 1700, CY, da='0
 xo = b.lin(tl, T_EXIT, T_OPEN - T_EXIT, 300, CY + 600)               # exit progress
 ein = b.smooth(xo, 900, CY + 600)
 SCL = b.mul(s_in, b.sub(None, b.mul(ein, None, 2100, CY + 600, db='0.9'), 2300, CY + 600, da='1.0'), 2500, CY + 300)
-itemA = b.mul(b.lin(tl, 0.0, 0.06, 300, CY + 850), b.one_minus(b.lin(tl, 2.15, 0.10, 900, CY + 950), 1500, CY + 950), 1700, CY + 900)
+itemA = b.mul(b.lin(tl, 0.0, 0.06, 300, CY + 850), b.one_minus(b.lin(tl, T_OPEN - 0.10, 0.10, 900, CY + 950), 1500, CY + 950), 1700, CY + 900)
 burst = b.self_(b.lin(tl, 0.40, 0.07, 300, CY + 1100),
                 b.exp(b.mul(b.sub(tl, None, 900, CY + 1250, db=repr(T_PEAK)), None, 1100, CY + 1250, db='-6.0'), 1300, CY + 1250),
                 b.cmp('Less_DoubleDouble', tl, None, 1300, CY + 1400, db=repr(T_PEAK)), 1500, CY + 1150)
@@ -334,8 +338,8 @@ bg = b.mul(b.lin(tl, 0.0, 0.3, 300, CY + 1800), b.one_minus(xo, 900, CY + 1900),
 glow = b.mul(bg, b.add(b.mul(burst, None, 1300, CY + 1950, db='0.8'), None, 1500, CY + 1950, db='0.6'), 1700, CY + 1900)
 ta = b.one_minus(b.lin(tl, T_EXIT, 0.2, 300, CY + 2100), 900, CY + 2100)               # title alpha (fade at exit)
 la = b.mul(b.lin(tl, 0.95, 0.25, 300, CY + 2250), ta, 900, CY + 2250)                  # how-to line alpha
-dockA = b.mul(b.lin(tl, 2.2, 0.08, 300, CY + 2400), b.one_minus(b.lin(tl, 2.5, 0.6, 900, CY + 2500), 1500, CY + 2500), 1700, CY + 2450)
-dockR = b.add(b.mul(b.lin(tl, 2.2, 0.5, 300, CY + 2650), None, 900, CY + 2650, db='0.03'), None, 1100, CY + 2650, db='0.012')
+dockA = b.mul(b.lin(tl, T_OPEN - 0.05, 0.08, 300, CY + 2400), b.one_minus(b.lin(tl, T_OPEN + 0.25, 0.6, 900, CY + 2500), 1500, CY + 2500), 1700, CY + 2450)
+dockR = b.add(b.mul(b.lin(tl, T_OPEN - 0.05, 0.5, 300, CY + 2650), None, 900, CY + 2650, db='0.03'), None, 1100, CY + 2650, db='0.012')
 isbk = b.icmp('EqualEqual_IntInt', kind(300, CY + 2800), None, 500, CY + 2800, db='1')
 yaw0 = b.self_(g('RvBookYaw0', DBL, 700, CY + 2800), g('RvBagYaw0', DBL, 700, CY + 2900), isbk, 900, CY + 2850)
 idle_ = b.mul(b.sin(b.mul(b.sub(tl, None, 900, CY + 3000, db=repr(T_PEAK)), None, 1100, CY + 3000, db='1.3'), 1300, CY + 3000), b.lin(tl, T_PEAK, 0.6, 900, CY + 3100), 1500, CY + 3050)
@@ -466,8 +470,8 @@ if bad: raise SystemExit('bad links: %s' % bad[:10])
 names = [n[0] for n in G.nodes]
 dup = {n for n in names if names.count(n) > 1}
 if dup: raise SystemExit('duplicate node names: %s' % sorted(dup)[:10])
-open(os.path.join(HERE, 'BPC_MotionFX_v2_graph.txt'), 'w', newline='\r\n').write(G.render())
-print('BPC_MotionFX v2: nodes %d, links %d' % (len(G.nodes), len(G.links)))
+open(os.path.join(HERE, 'BPC_MotionFX_v3_graph.txt'), 'w', newline='\r\n').write(G.render())
+print('BPC_MotionFX v3: nodes %d, links %d' % (len(G.nodes), len(G.links)))
 
 # ---- BPVar lines (the v1 variables BookOpened / BagOpened / BookOpenNow / BagOpenNow are already on the component)
 def bpvar(name, vt, default):
