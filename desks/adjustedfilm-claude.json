@@ -1,6 +1,6 @@
 {
- "working": "#213 skill-tree UNLOCK crash: check state",
- "tokens": 191020,
+ "working": "#297 cave door + teleport system (BP_CaveDoor)",
+ "tokens": 215000,
  "ctx": 1000000,
  "since": "2026-10-31T12:10:29Z",
  "done": [
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-10-31T12:16:54Z",
+ "asOf": "2026-10-31T12:20:12Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T12:16:54Z",
+  "asOf": "2026-10-31T12:20:12Z",
   "meters": [
    {
     "k": "5h",
