@@ -287,3 +287,25 @@ Python on this laptop: Blender's (`C:\Program Files\Blender Foundation\Blender 4
 Lessons:
 - `office.js handoff` fails with "needs a title" when the details text starts with `--`.
 - Scene-capture alpha: key the item by depth (`SCS_SceneColorSceneDepth`), not by the HDR inverse-opacity alpha.
+
+### adjustedfilm, 2026-10-31 midnight: pick up here (session ended: context too long, I started confusing things)
+
+**Start fresh. Facts only:**
+
+| Card | State |
+|---|---|
+| #381 / #382 realm vision v2 | **In the game** (Master 23:10). Waits on the owner: Play test, then OK for the jelly bubble swap. Master's 5.3 patches: `MP_WORLD_POSITION_OFFSET` isn't in Python (he wires the jelly WPO by hand); World Partition levels save with modify + `save_dirty_packages`, not `save_current_level`. Use both in every new script. |
+| #376 / #379 realm vision v1 | In the game, owner tested (inside test works). Superseded by v2. |
+| #294 cannonball bounce | Handed off (`handoffs/realm-bounce-294`). Not pasted yet. |
+| #188 recruit bar + queue | **Already in the game since 10-30** (laptop2's build). Play-test request filed; close the card on a pass. Do NOT rebuild. |
+| #269 / #374 reveal fix, #351 meadow roads, #366 tentacle skin | Handed off, no Master result yet. |
+| #371 / #372 / #373 | No Master result yet. |
+| Batch export | Not run yet; still blocks #333, #334B, #337 burst, #293 p3. |
+
+**Owner asks still open:**
+- `W: day ledger` (the Day Ledger, step 1 of #364). **Build it on #364.** I wrongly opened a duplicate card, **#385**; close it as a duplicate of #364 and copy the owner's words there.
+- BP_DayNight was generated in this repo (`handoffs/day-night/gen_daynight.py`), so read its variables there; check against the batch export when it lands.
+
+**Not ours:** sheets 13 (sword) and 14 (shield) for #367 are an image-generation prompt from Codex; Codex or the owner makes them.
+
+**Owner feedback (keep):** finish old cards before opening new ones; put every ask on the existing card if one exists; short, simple replies; start a new session before the context gets long.

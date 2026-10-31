@@ -20,6 +20,12 @@ plus #296 cave rock (closed by me after the owner's OK).
 | #351 meadow | in the game (Master, radius 15000); polish open |
 | #341 / #349 mine dungeon + miners | placed; the miners are next on the Master's list |
 
+## Midnight status (see the README pick-up section for details)
+
+- In the game: #381 realm vision v2 (owner Play test + jelly swap OK pending), #188 recruit queue (play test pending).
+- Handed off, not pasted: #294 cannonball bounce.
+- Next for me: Day Ledger on #364 (close the duplicate #385).
+
 ## Fixed tonight (late night session), waiting for the Master
 
 | Card | Hand-off | State |
