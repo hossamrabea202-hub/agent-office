@@ -1,9 +1,10 @@
 {
- "working": "Master: #341 mine dungeon",
+ "working": "#341 mine dungeon placed under Mine_01; fixing mine kit scale (came in 100x small)",
  "tokens": 130000,
  "ctx": 1000000,
  "since": "2026-10-31T08:00:00Z",
  "done": [
+  "#311 kit, #341 placement",
   "#311 mine kit imported",
   "#330 breach collapse pasted",
   "#321 treasure chest pasted",
@@ -12,8 +13,7 @@
   "#319 Vesna A/D pasted",
   "#324 brute waves pasted",
   "#320 colossus fix pasted",
-  "#328 breach FX pasted",
-  "#278 flares warning fixed"
+  "#328 breach FX pasted"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-31T17:59:48Z",
+ "asOf": "2026-10-31T18:09:25Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
