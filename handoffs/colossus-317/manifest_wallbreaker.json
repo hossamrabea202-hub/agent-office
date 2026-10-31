@@ -1,0 +1,39 @@
+{
+ "blueprint": "BP_ZombieWallBreaker",
+ "pastes": [
+  "BP_ZombieWallBreaker_Fix317_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "czDivide_DoubleD2.ReturnValue",
+   "to": "BP_CapS.InRadius",
+   "note": "capsule radius 45 / GiantScale (was 32 -> 125-186 cm when scaled)"
+  },
+  {
+   "from": "TK_IfFar.then",
+   "to": "czIfSlow6.execute",
+   "replace": true,
+   "note": "still far: check if stuck first (was -> MV_Go)"
+  },
+  {
+   "from": "czIfStuck12.else",
+   "to": "MV_Go.execute",
+   "note": "not stuck long enough: keep walking"
+  },
+  {
+   "from": "czSetStuckTicks24.then",
+   "to": "MV_Go.execute",
+   "note": "moving fine: keep walking"
+  },
+  {
+   "from": "TK_APL.ReturnValue",
+   "to": "czSubtract_Vecto14.B",
+   "note": "AttackPoint location"
+  },
+  {
+   "from": "TK_APL.ReturnValue",
+   "to": "czAdd_VectorVect17.B",
+   "note": "AttackPoint location"
+  }
+ ]
+}
