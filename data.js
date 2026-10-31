@@ -19,7 +19,8 @@ banner:{text:'Knowledge base: read before any asset work (realism standard, phot
 {t:'🎨 Photoreal asset playbook',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/handoffs/knowledge/Photoreal%20game%20asset%20playbook.md'},
 {t:'📏 Realism STANDARD',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/handoffs/laptop2-realism/STANDARD.md'},
 {t:'📋 Whiteboard',go:'wb'},{t:'📥 Ready to paste',go:'pasteTray'},{t:'📸 Screenshots',go:'shotsSec'},{t:'🔔 Waiting on owner',go:'asks'},
-{t:'📖 Agent rules',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/AGENTS.md'}]},
+{t:'📖 Agent rules',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/AGENTS.md'},
+{t:'💻 Laptop i5',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/handoffs/laptop-i5/README.md'}]},
 // Plan-limit snapshot (account-wide). Refresh from get_usage.
 usage:{who:'hossam gmail (Claude)',plan:'Max',asOf:'2026-10-27T10:21:00Z',meters:[{k:'5h',label:'Session (5-hour)',pct:0,resetsAt:'2026-10-27T15:10:00Z',color:'#59bda5'},{k:'wk',label:'Weekly (all models)',pct:82,resetsAt:'2026-10-30T06:00:00Z',color:'#d9af65'}]},
 // Per-agent token count, duty start, last 10 done, still to do.
