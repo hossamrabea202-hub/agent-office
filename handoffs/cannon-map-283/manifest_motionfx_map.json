@@ -1,0 +1,38 @@
+{
+ "blueprint": "BPC_MotionFX",
+ "_built_on": "handoffs/reveal-aaa-268/BPC_MotionFX_v2_graph.txt (#269; export it after pasting)",
+ "pastes": [
+  {
+   "file": "MotionFX_Map_graph.txt",
+   "offset": [
+    0,
+    -1200
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "DrawReveal.then",
+   "to": "MapDrawSeq.execute",
+   "replace": true,
+   "note": "was -> RevealSeq"
+  },
+  {
+   "from": "MapDrawSeq.then_0",
+   "to": "RevealSeq.execute",
+   "note": "the reveal first, unchanged"
+  },
+  {
+   "from": "DrawReveal.Hud",
+   "to": "mmMapDraw5.Hud"
+  },
+  {
+   "from": "DrawReveal.SizeX",
+   "to": "mmMapDraw5.SizeX"
+  },
+  {
+   "from": "DrawReveal.SizeY",
+   "to": "mmMapDraw5.SizeY"
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "blueprint": "BP_CannonOrder",
+ "_built_on": "handoffs/deploy-cannon-230/BP_CannonOrder_graph.txt (checkking #239, not pasted yet: export it after pasting)",
+ "pastes": [
+  {
+   "file": "CannonOrder_Map_graph.txt",
+   "offset": [
+    400,
+    2600
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "coIfInRange12.then",
+   "to": "mapoMapIfValid4.execute",
+   "replace": true,
+   "note": "O in range opens the scroll map (the map takes the gold on CONFIRM); the old pad/gold chain stays but is no longer reached"
+  }
+ ]
+}
