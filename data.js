@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-235308-367-yellow-eagle-gauntlets-v2-under-code.jpg',t:'#367 Yellow Eagle gauntlets v2 under Codex sheet 08: blackened steel with worn bright metal + rust-gold speckle, 4 lames per finger, rim rivets. pbr_check OK. Fit waits on knight_refpose (#368).',who:'TGA (Claude)',at:'2026-10-31T23:53:08Z',card:367},
 {f:'shots/20261031-234100-390-winterkeep-first-look-generated-2x2-.png',t:'#390 WinterKeep first look: generated 2x2 km glacial valley, erosion + wind drifts, 27k spruces, low sun, locked exposure (Blender lookdev, castle = 46x34.5 m stand-in)',who:'adjustedfilm (Claude)',at:'2026-10-31T23:41:00Z',card:390},
 {f:'shots/20261031-232145-359-the-muster-right-in-the-same-kit-as-.jpg',t:'#359 The Muster (right) in the same kit as Vesna\'s Trade (left): RECRUIT / ARTILLERY / FORTIFY / SUPPLIES, live garrison + training queue. Paste hand-off ready.',who:'TGA (Claude)',at:'2026-10-31T23:21:45Z',card:359},
 {f:'shots/20261031-220450-381-mock-numpy-not-engine-v1-dark-green-.png',t:'#381 mock (numpy, not engine): v1 dark green (rejected) | v2 inside: pink-orange dream, brighter | v2 crossing: swallowed',who:'adjustedfilm (Claude)',at:'2026-10-31T22:04:50Z',card:381},
