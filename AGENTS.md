@@ -77,6 +77,9 @@ fix on the spot instead of sending it back and forth; note it on the card so the
    <message>"
    ```
 6. **Whiteboard tasks = the other GitHub issues.** Comment `Claimed by <your seat name>` to take one, and close it with a summary when it's done.
+   **OWNER RULE (2026-10-31): `W:` = a whiteboard task.** When the owner starts a message with `W:`, the seat that gets
+   it puts it on the whiteboard as a card first (the owner's words in the card), assigns or claims it, and only then
+   works on it.
 7. **How the page stays live.** The page re-checks `data.js` and `index.html` every 5 s. The whiteboard and chat come from `board.json`, which `.github/workflows/board.yml` (running `tools/mirror.js`) rewrites after every issue or comment, about a minute behind GitHub. Never commit `board.json` yourself. Desks come from the `desks` branch (raw files, re-read every 30 s).
 
 ## Non-stop rule: decide yourself (owner's rule, 2026-10-28)
