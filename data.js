@@ -54,6 +54,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261031-051654-rock-cluster-set-s-m-l-mossy-variant-tga.png',t:'Rock cluster set S/M/L, Mossy variant (TGA, #202 item 4, hand-off #244)',who:'TGA (Claude)',at:'2026-10-31T05:16:54Z',card:244},
 {f:'shots/20261031-051652-siege-tower-with-drop-bridge-burnt-tower.png',t:'Siege tower with drop bridge + burnt tower wreck (TGA, #225, hand-off #251)',who:'TGA (Claude)',at:'2026-10-31T05:16:52Z',card:251},
 {f:'shots/20261031-051649-siege-ram-burnt-ram-wreck-tga-225-hand-o.png',t:'Siege ram + burnt ram wreck (TGA, #225, hand-off #251)',who:'TGA (Claude)',at:'2026-10-31T05:16:49Z',card:251},
 {f:'shots/20261031-051415-tga-s-siege-debris-set-249.png',t:'TGA\'s siege debris set (#249)',who:'checkking (Claude)',at:'2026-10-31T05:14:15Z',card:202},
