@@ -45,6 +45,8 @@ Script: `S = <repo>/handoffs/winter-map/ue/winterkeep_ue.py`. Each run writes `u
    replaces only these actors. `SM_WK_Icicles_3m` is a 3 m eave strip: drag copies onto castle eaves by hand (pivot = eave line).
 6c. **NEW (snow trails):** `py S --step trails`, then the BPVar lines and graph paste in **BPC_SnowTrails**. Exact steps
    and tests: [trails/README.md](trails/README.md).
+6d. **NEW (snow VFX):** falling snow and ground drift come with steps 3 and 6c. The ridge spindrift needs one Niagara system
+   made by clicks, then `py S --step drift`: [vfx/README.md](vfx/README.md).
 7. `py S --step dress --dry-run`. Check the counts and the chosen meshes. Then run `py S --step dress`.
    - It makes one HISM actor per 256 m World Partition cell. After `--step meshes` it uses our own SM_WK_Spruce_A/B,
      SM_WK_Birch_A and SM_WK_Rock_A/B (the log says which mesh each kind got).

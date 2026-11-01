@@ -70,7 +70,14 @@ G.node(cl, 'K2Node_CallArrayFunction', ['FunctionReference=(MemberParent=%s,Memb
        [ex(), ex('then', True), selfpin(KARR, hidden=True), {'name': 'TargetArray', 'cat': 'wildcard', 'container': 'Array', 'ref': True}], 550, Y)
 b.wire(b.get('Chars', CHARS, 400, Y + 200), cl, 'TargetArray')
 fe = b.foreach(CHARC, 800, Y); G.link(ga, 'OutActors', fe, 'Array')
-b.chain('Refresh', ga, cl, (fe, 'Exec'))
+# the snowfall shells of BP_WK_Snow ride on the camera (re-attaching each second is a no-op once attached)
+own = b.name('Owner'); callfn(G, own, COMP, 'GetOwner', [ob('ReturnValue', ACT, out=True)], pure=True, const=True, x=-200, y=Y - 250, self_hidden=True)
+cam = b.lib(GS, 'GetPlayerCameraManager', [WC(), it('PlayerIndex', default='0'), ob('ReturnValue', CLS('PlayerCameraManager'), out=True)], -200, Y - 400, pure=True, tag='Cam')
+RULE = lambda n, d: {'name': n, 'cat': 'byte', 'obj': '"/Script/CoreUObject.Enum\'/Script/Engine.EAttachmentRule\'"', 'default': d}
+att = b.call(ACT, 'K2_AttachToActor', [ob('ParentActor', ACT), NAME_('SocketName', 'None'), RULE('LocationRule', 'SnapToTarget'), RULE('RotationRule', 'KeepWorld'),
+             RULE('ScaleRule', 'KeepWorld'), bo('bWeldSimulatedBodies', default='false'), bo('ReturnValue', out=True, default='false')], 100, Y - 300, target=(own, 'ReturnValue'), tag='RideCam')
+b.wire((cam, 'ReturnValue'), att, 'ParentActor')
+b.chain('Refresh', att, ga, cl, (fe, 'Exec'))
 dist = b.call(ACT, 'GetDistanceTo', [ob('OtherActor', ACT), F('ReturnValue', out=True)], 1000, Y + 250, target=(fe, 'Array Element'), pure=True, const=True, tag='Dist')
 b.wire(pawn(800, Y + 400), dist, 'OtherActor')
 near = b.dcmp('Less_DoubleDouble', (dist, 'ReturnValue'), None, 1250, Y + 250, db='3000.0')

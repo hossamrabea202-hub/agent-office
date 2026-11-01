@@ -10,6 +10,7 @@
   py ".../winterkeep_ue.py" --step props       places the bridge, the frozen falls and 3 farmsteads (assets/out/props.json)
   py ".../winterkeep_ue.py" --step dress       HISM dressing per 256 m cell (trees, rocks, shrubs, drifts; uses SM_WK_* if imported)
   py ".../winterkeep_ue.py" --step trails      BPC_SnowTrails + BP_WK_Snow (host actor) placed in WinterKeep; then BPVar + graph paste
+  py ".../winterkeep_ue.py" --step drift       places NS_WK_Spindrift (vfx/README.md clicks) on 24 ridge crests (drift.json)
   py ".../winterkeep_ue.py" --step light --preset overcast|lowsun|blizzard|night
   py ".../winterkeep_ue.py" --step remove      deletes ONLY actors tagged WK390 in the WinterKeep level
 
@@ -187,6 +188,96 @@ float hx = Texture2DSample(Tex, TexSampler, UV + float2(e, 0)).r - Texture2DSamp
 float hy = Texture2DSample(Tex, TexSampler, UV + float2(0, e)).r - Texture2DSample(Tex, TexSampler, UV - float2(0, e)).r;
 float k = Depth / (2.0 * e * Size) * win;
 return normalize(float3(N.xy - float2(hx, hy) * k, N.z));'''
+# falling snow (the #226 rain curtain method, but real 3D flakes): camera-centred two-sided cylinders, one per slab
+# 1-2, 2-4, 4-8, 8-16 m. Each pixel tests 4 cells of a world-space jittered flake field along its ray inside its slab, the
+# field is advected by the wind (MPC WindYaw = FROM bearing, X east / Y south) + 1.1 m/s fall, flakes flutter +-4 cm and
+# streak over a 1/60 s shutter (energy kept). Lit translucent (volumetric non-directional): grey against an overcast sky,
+# dark at night, like real flakes. Density = SnowFall. Beyond 16 m the height fog carries the white-out.
+SNOW_RADII = (100, 200, 400, 800)
+SNOWFALL_HLSL = '''float3 dir = normalize(WP - Cam);
+float hl = max(length(dir.xy), 0.15);
+float t0 = R / hl, t1 = 2.0 * R / hl;
+float c = R / 6.0;
+float b = radians(Yaw + 180.0);
+float3 V = float3(sin(b) * Spd * 100.0, -cos(b) * Spd * 100.0, -110.0);
+float3 O = Cam - V * T;
+float rv = max(0.8, R * 0.0025);
+float3 Vs = V / 60.0;
+float p = saturate(Snow);
+float a = 0.0;
+[unroll] for (int i = 0; i < 6; i++) {
+  float3 q = O + dir * lerp(t0, t1, (i + 0.5) / 6.0);
+  float3 cell = floor(q / c);
+  float h1 = frac(sin(dot(cell, float3(127.1, 311.7, 74.7))) * 43758.5453);
+  float h2 = frac(sin(dot(cell, float3(269.5, 183.3, 246.1))) * 43758.5453);
+  float h3 = frac(sin(dot(cell, float3(113.5, 271.9, 124.6))) * 43758.5453);
+  float h4 = frac(h1 * 91.7 + h2 * 13.3 + h3 * 7.1);
+  if (h4 > p) continue;
+  float ph = T * (1.3 + 2.0 * h4) + h1 * 6.2831;
+  float3 F = (cell + 0.15 + 0.7 * float3(h1, h2, h3)) * c + float3(sin(ph), cos(ph * 0.8), 0.0) * 4.0;
+  float3 w = F - O;
+  float tt = dot(w, dir);
+  if (tt < t0 || tt > t1) continue;
+  float3 dp = w - dir * tt;
+  float3 vp = Vs - dir * dot(Vs, dir);
+  float k = saturate(-dot(dp, vp) / max(dot(vp, vp), 1e-4));
+  float dd = length(dp + vp * k);
+  float e = 2.0 * rv / (2.0 * rv + length(vp));
+  a = 1.0 - (1.0 - a) * (1.0 - smoothstep(rv, rv * 0.4, dd) * e);
+}
+return a * 0.9;'''
+def build_snowfall(mpc):
+    m = new_material('M_WK_Snowfall')
+    for k, v in (('blend_mode', unreal.BlendMode.BLEND_TRANSLUCENT), ('two_sided', True),
+                 ('translucency_lighting_mode', unreal.TranslucencyLightingMode.TLM_VOLUMETRIC_NON_DIRECTIONAL), ('has_pixel_animation', True)):
+        try: m.set_editor_property(k, v)
+        except Exception as e: say('skip', k, e)
+    r = X(m, unreal.MaterialExpressionScalarParameter, -900, 600, parameter_name='R', default_value=float(SNOW_RADII[0]))
+    ins = [('WP', (X(m, unreal.MaterialExpressionWorldPosition, -900, 0), '')), ('Cam', (X(m, unreal.MaterialExpressionCameraPositionWS, -900, 100), '')),
+           ('T', (X(m, unreal.MaterialExpressionTime, -900, 200, period=900.0), '')), ('Yaw', (P_(m, mpc, 'WindYaw', -900, 300), '')),
+           ('Spd', (P_(m, mpc, 'WindSpeed', -900, 400), '')), ('Snow', (P_(m, mpc, 'SnowFall', -900, 500), '')), ('R', (r, ''))]
+    cu = custom(m, SNOWFALL_HLSL, ins, unreal.CustomMaterialOutputType.CMOT_FLOAT1, -400, 0, 'snowfall: 3D flakes in one slab')
+    alb = X(m, unreal.MaterialExpressionConstant3Vector, -400, -200, constant=unreal.LinearColor(0.82, 0.84, 0.86, 1))   # fresh snow, never 1.0
+    MEL.connect_material_property(alb, '', unreal.MaterialProperty.MP_BASE_COLOR)
+    MEL.connect_material_property(cu, '', unreal.MaterialProperty.MP_OPACITY)
+    MEL.recompile_material(m); EAL.save_loaded_asset(m)
+    for rad in SNOW_RADII[1:]:
+        full = ROOT + '/Materials/MI_WK_Snowfall_%d' % rad
+        mi = unreal.load_asset(full) if EAL.does_asset_exist(full) else AT.create_asset('MI_WK_Snowfall_%d' % rad, ROOT + '/Materials', unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
+        MEL.set_material_instance_parent(mi, m); MEL.set_material_instance_scalar_parameter_value(mi, 'R', float(rad)); EAL.save_loaded_asset(mi)
+    say('snowfall: M_WK_Snowfall (R 100) + MI_WK_Snowfall_200/400/800')
+    # spindrift sprite: soft lit puff of snow grains (Niagara Particle Color alpha x radial falloff), lit like the flakes
+    m = new_material('M_WK_SnowPuff')
+    for k, v in (('blend_mode', unreal.BlendMode.BLEND_TRANSLUCENT), ('used_with_niagara_sprites', True),
+                 ('translucency_lighting_mode', unreal.TranslucencyLightingMode.TLM_VOLUMETRIC_NON_DIRECTIONAL), ('has_pixel_animation', True)):
+        try: m.set_editor_property(k, v)
+        except Exception as e: say('skip', k, e)
+    pc = X(m, unreal.MaterialExpressionParticleColor, -900, 0)
+    uv = X(m, unreal.MaterialExpressionTextureCoordinate, -900, 200)
+    cu = custom(m, 'float r = length(UV - 0.5) * 2.0; float g = frac(sin(dot(floor(UV * 9.0), float2(12.9898, 78.233))) * 43758.5453);\n'
+                   'return A * saturate(1.0 - r * r) * lerp(0.55, 1.0, g);',
+                [('UV', (uv, '')), ('A', (pc, 'A'))], unreal.CustomMaterialOutputType.CMOT_FLOAT1, -500, 100, 'puff: soft disc, grainy')
+    MEL.connect_material_property(pc, '', unreal.MaterialProperty.MP_BASE_COLOR)
+    MEL.connect_material_property(cu, '', unreal.MaterialProperty.MP_OPACITY)
+    MEL.recompile_material(m); EAL.save_loaded_asset(m); say('M_WK_SnowPuff (Niagara sprite material) built')
+# ground drift ("snow snakes"): wisps of loose snow streaming over the surface along the wind, only on snow layers and
+# only above ~5 m/s (snow transport threshold). Brighter loose snow (0.86), matte, softens the ripple / track normal.
+DRIFT_HLSL = '''float b = radians(Yaw + 180.0); float2 wd = float2(sin(b), -cos(b));
+float gate = saturate((Spd - 5.0) / 6.0) * Snow * SW;
+if (gate <= 0.0) return 0.0;
+float2 q = float2(dot(WP, wd) - Spd * 60.0 * T, dot(WP, float2(-wd.y, wd.x)));
+float n = 0.0, amp = 0.6;
+float2 g = q / float2(320.0, 26.0);
+for (int o = 0; o < 2; o++) {
+  float2 i0 = floor(g); float2 f = frac(g); f = f * f * (3.0 - 2.0 * f);
+  float a = frac(sin(dot(i0, float2(127.1, 311.7))) * 43758.5453);
+  float c = frac(sin(dot(i0 + float2(1, 0), float2(127.1, 311.7))) * 43758.5453);
+  float d = frac(sin(dot(i0 + float2(0, 1), float2(127.1, 311.7))) * 43758.5453);
+  float e = frac(sin(dot(i0 + float2(1, 1), float2(127.1, 311.7))) * 43758.5453);
+  n += amp * lerp(lerp(a, c, f.x), lerp(d, e, f.x), f.y);
+  g = g * 2.3 + float2(5.2, 1.3); amp *= 0.45;
+}
+return smoothstep(0.52, 0.82, n) * gate;'''
 def build_trail_assets():
     mpc = mpc_snow(); ra, rb = make_rt('RT_WK_TrailA'), make_rt('RT_WK_TrailB')
     F1, F2, F3 = (unreal.CustomMaterialOutputType.CMOT_FLOAT1, unreal.CustomMaterialOutputType.CMOT_FLOAT2, unreal.CustomMaterialOutputType.CMOT_FLOAT3)
@@ -204,6 +295,7 @@ def build_trail_assets():
             cu = custom(m, UPDATE_HLSL, ins, F1, -400, 0, 'trail update: shift + refill + 16 foot stamps')
             MEL.connect_material_property(cu, '', unreal.MaterialProperty.MP_EMISSIVE_COLOR)
         MEL.recompile_material(m); EAL.save_loaded_asset(m)
+    build_snowfall(mpc)
     say('trail assets: MPC_WK_Snow, RT_WK_TrailA/B (2048 R16F, clear white), M_WK_TrailUpdate, M_WK_TrailCopy')
     return mpc, ra, (F1, F2, F3)
 def trail_branch(m, mpc, ra, F, uvw, ws, bc, rough, nl):
@@ -236,7 +328,16 @@ def trail_branch(m, mpc, ra, F, uvw, ws, bc, rough, nl):
     bc2 = X(m, unreal.MaterialExpressionLinearInterpolate, -550, 2850); C(bc, '', bc2, 'A'); C(alb, '', bc2, 'B'); C(pks, '', bc2, 'Alpha')
     r2 = X(m, unreal.MaterialExpressionLinearInterpolate, -550, 3000, const_b=LAYERS[1][2]); C(rough, '', r2, 'A'); C(pks, '', r2, 'Alpha')
     ao = X(m, unreal.MaterialExpressionLinearInterpolate, -550, 3150, const_a=1.0, const_b=0.7); C(d, '', ao, 'Alpha')   # pressed bottom: self-occluded
-    return bc2, r2, n, ao
+    drift = custom(m, DRIFT_HLSL, [('WP', (w2, '')), ('T', (X(m, unreal.MaterialExpressionTime, -1300, 3700), '')), ('Yaw', (P_(m, mpc, 'WindYaw', -1300, 3800), '')),
+                   ('Spd', (P_(m, mpc, 'WindSpeed', -1300, 3900), '')), ('Snow', (P_(m, mpc, 'SnowFall', -1300, 4000), '')), ('SW', (sw, ''))],
+                   F1, -1000, 3700, 'ground drift: snow snakes along the wind')
+    loose = X(m, unreal.MaterialExpressionConstant3Vector, -800, 3700, constant=unreal.LinearColor(0.84, 0.86, 0.88, 1))
+    da = X(m, unreal.MaterialExpressionMultiply, -800, 3800, const_b=0.6); C(drift, '', da, 'A')
+    bc3 = X(m, unreal.MaterialExpressionLinearInterpolate, -400, 2850); C(bc2, '', bc3, 'A'); C(loose, '', bc3, 'B'); C(da, '', bc3, 'Alpha')
+    r3 = X(m, unreal.MaterialExpressionLinearInterpolate, -400, 3000, const_b=0.8); C(r2, '', r3, 'A'); C(drift, '', r3, 'Alpha')
+    up = X(m, unreal.MaterialExpressionConstant3Vector, -800, 3900, constant=unreal.LinearColor(0, 0, 1, 0))
+    n3 = X(m, unreal.MaterialExpressionLinearInterpolate, -400, 3200); C(n, '', n3, 'A'); C(up, '', n3, 'B'); C(da, '', n3, 'Alpha')
+    return bc3, r3, n3, ao
 
 def X(m, cls, x, y, **props):
     e = MEL.create_material_expression(m, cls, x, y)
@@ -536,12 +637,42 @@ def step_trails():
         h, why = SDS.add_new_subobject(unreal.AddNewSubobjectParams(parent_handle=hs[0], new_class=comp.generated_class(), blueprint_context=host))
         if not LIB.is_handle_valid(h): say('FAIL add SnowTrails to BP_WK_Snow:', why); return
         SDS.rename_subobject(h, unreal.Text('SnowTrails'))
-    unreal.BlueprintEditorLibrary.compile_blueprint(host); EAL.save_asset(BPDIR + '/BP_WK_Snow'); say('BP_WK_Snow has the SnowTrails component')
+    have = {str(LIB.get_variable_name(SDS.k2_find_subobject_data_from_handle(h))): h for h in SDS.k2_gather_subobject_data_for_blueprint(host)}
+    cyl = unreal.load_asset('/Engine/BasicShapes/Cylinder')
+    for rad in SNOW_RADII:        # snowfall shells: the graph attaches WK_Snow to the camera, so they ride with it
+        name = 'Snowfall_%d' % rad
+        if name in have: c = LIB.get_object(SDS.k2_find_subobject_data_from_handle(have[name]))
+        else:
+            h, why = SDS.add_new_subobject(unreal.AddNewSubobjectParams(parent_handle=SDS.k2_gather_subobject_data_for_blueprint(host)[0], new_class=unreal.StaticMeshComponent, blueprint_context=host))
+            if not LIB.is_handle_valid(h): say('FAIL add', name, why); continue
+            SDS.rename_subobject(h, unreal.Text(name)); c = LIB.get_object(SDS.k2_find_subobject_data_from_handle(h))
+        c.set_editor_property('static_mesh', cyl); s_ = 2.0 * rad / 100.0 * 1.02
+        c.set_editor_property('relative_scale3d', unreal.Vector(s_, s_, 40.0))          # 40 m tall: looking up/down still hits a shell
+        mat = ROOT + '/Materials/' + ('M_WK_Snowfall' if rad == SNOW_RADII[0] else 'MI_WK_Snowfall_%d' % rad)
+        c.set_editor_property('override_materials', [unreal.load_asset(mat)]); c.set_editor_property('cast_shadow', False)
+        c.set_collision_profile_name('NoCollision'); c.set_editor_property('translucency_sort_priority', -rad)
+    unreal.BlueprintEditorLibrary.compile_blueprint(host); EAL.save_asset(BPDIR + '/BP_WK_Snow'); say('BP_WK_Snow: SnowTrails + 4 snowfall shells')
     if not in_winterkeep(): say('open', LEVEL, 'and run --step trails again to place BP_WK_Snow'); return
     for a in EAS.get_all_level_actors():
         if a.get_actor_label() == 'WK_Snow' and unreal.Name(TAG) in a.tags: EAS.destroy_actor(a)
     act = EAS.spawn_actor_from_class(host.generated_class(), unreal.Vector(0, 0, 30000), unreal.Rotator(0, 0, 0))
     act.set_actor_label('WK_Snow'); act.tags = [unreal.Name(TAG)]; save_level(); say('placed WK_Snow (BP_WK_Snow)')
+
+# ------------------------------------------------------------------ spindrift plumes on ridge crests (terrain/gen_drift.py -> drift.json)
+NS_SPIN = ROOT + '/VFX/NS_WK_Spindrift'
+def step_drift():
+    """places one NS_WK_Spindrift (made by the vfx/README.md clicks) on each of the 24 ridge spots, plume toward the SE."""
+    if not in_winterkeep(): say('open', LEVEL, 'first'); return
+    D = json.load(open(os.path.join(OUT, 'drift.json')))['spots']
+    ns = unreal.load_asset(NS_SPIN) if EAL.does_asset_exist(NS_SPIN) else None
+    say('spindrift spots:', len(D), '| NS_WK_Spindrift', 'OK' if ns else 'MISS (make it with vfx/README.md first)', '(dry run)' if DRY else '')
+    if DRY or not ns: return
+    for a in EAS.get_all_level_actors():
+        if a.get_actor_label().startswith('WK_Spindrift_') and unreal.Name(TAG) in a.tags: EAS.destroy_actor(a)
+    for i, t in enumerate(D):
+        act = EAS.spawn_actor_from_object(ns, unreal.Vector(*t['loc']), unreal.Rotator(0, 0, t['yaw']))
+        act.set_actor_label('WK_Spindrift_%02d' % i); act.tags = [unreal.Name(TAG)]
+    save_level(); say('placed', len(D), 'WK_Spindrift actors')
 
 # ------------------------------------------------------------------ lighting presets (locked exposure)
 PRESETS = {  # sun pitch, yaw (UE: direction the light TRAVELS; X east, Y south), lux, Kelvin, skylight, fog, EV100 locked, note
@@ -550,7 +681,8 @@ PRESETS = {  # sun pitch, yaw (UE: direction the light TRAVELS; X east, Y south)
     'blizzard': (-45, -135, 6000, 7000, 0.9, 0.22, 11.0, 'sight lines cut to ~80-150 m'),
     'night':    (-35, -110, 0.26, 4000, 0.15, 0.03, -2.5, 'moon 0.26 lux from the SSE; blue by Purkinje, on purpose'),
 }
-SNOWFALL = {'overcast': 0.3, 'lowsun': 0.0, 'blizzard': 1.0, 'night': 0.15}
+SNOWFALL = {'overcast': 0.3, 'lowsun': 0.0, 'blizzard': 1.0, 'night': 0.15}      # MPC SnowFall (0..1)
+WINDSPD = {'overcast': 3.0, 'lowsun': 2.0, 'blizzard': 14.0, 'night': 2.0}       # MPC WindSpeed m/s, always from 315 (NW)
 def step_light():
     if not in_winterkeep(): say('open', LEVEL, 'first'); return
     p = PRESETS[PRESET]; say('preset', PRESET, p)
@@ -581,8 +713,9 @@ def step_light():
     if mpc:
         sc = list(mpc.get_editor_property('scalar_parameters'))
         for q in sc:
-            if str(q.get_editor_property('parameter_name')) == 'SnowFall': q.set_editor_property('default_value', SNOWFALL[PRESET])
-        mpc.set_editor_property('scalar_parameters', sc); EAL.save_loaded_asset(mpc); say('MPC_WK_Snow SnowFall =', SNOWFALL[PRESET])
+            pn = str(q.get_editor_property('parameter_name'))
+            if pn in ('SnowFall', 'WindSpeed'): q.set_editor_property('default_value', (SNOWFALL if pn == 'SnowFall' else WINDSPD)[PRESET])
+        mpc.set_editor_property('scalar_parameters', sc); EAL.save_loaded_asset(mpc); say('MPC_WK_Snow SnowFall =', SNOWFALL[PRESET], 'WindSpeed =', WINDSPD[PRESET])
     say('locked EV100 =', p[6], '|', p[7]); save_level()
 
 def step_remove():
@@ -603,5 +736,5 @@ elif DRY and not STEP:
     say('presets:', list(PRESETS))
 else:
     {'assets': step_assets, 'meshes': step_meshes, 'props': step_props, 'level': step_level, 'check': step_check, 'dress': step_dress,
-     'light': step_light, 'remove': step_remove, 'trails': step_trails}[STEP]()
+     'light': step_light, 'remove': step_remove, 'trails': step_trails, 'drift': step_drift}[STEP]()
 out = os.path.join(HERE, 'wk390_log.txt'); open(out, 'w').write('\n'.join(LOG)); say('log ->', out)

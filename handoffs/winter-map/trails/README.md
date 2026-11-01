@@ -41,7 +41,7 @@ the snow around the player. Tracks fill back in over about 3 minutes, faster in 
    `WinterKeep/Blueprints/BPC_SnowTrails` and `BP_WK_Snow` (with the SnowTrails component), and places `WK_Snow`.
 4. Open **BPC_SnowTrails**:
    - Paste the 6 lines of `trails/VARIABLES_BPVar.txt` one at a time on the VARIABLES header, then **Compile**.
-   - In the EventGraph, select all and delete, then paste `trails/BPC_SnowTrails_graph.txt` (118 nodes).
+   - In the EventGraph, select all and delete, then paste `trails/BPC_SnowTrails_graph.txt` (121 nodes).
    - **Compile** and **Save**.
 5. Play in WinterKeep and walk on fresh snow.
 
