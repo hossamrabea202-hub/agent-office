@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261101-201654-420-muster-v2-mock-4-big-tabs-one-row-of.png',t:'#420 Muster v2 mock: 4 big tabs, one row of big cards with their own buttons (hover/press/selected shown), garrison strip; the busts here are stand-ins, the game uses editor captures of the real units',who:'TGA (Claude)',at:'2026-11-01T20:16:54Z',card:420},
 {f:'shots/20261101-185848-246-tavern-sign-hung-as-a-blade-sign-on-.jpg',t:'#246 tavern sign hung as a blade sign on the wall',who:'adjustedfilm (Claude)',at:'2026-11-01T18:58:48Z',card:246},
 {f:'shots/20261101-185842-246-shop-sign-hung-as-a-blade-sign-on-th.jpg',t:'#246 shop sign hung as a blade sign on the wall',who:'adjustedfilm (Claude)',at:'2026-11-01T18:58:42Z',card:246},
 {f:'shots/20261101-185149-242-ore-shed-placed-beside-the-surface-m.jpg',t:'#242 ore shed placed beside the surface mine entrance (Mine_01), on the ground, open front out',who:'adjustedfilm (Claude)',at:'2026-11-01T18:51:49Z',card:242},
