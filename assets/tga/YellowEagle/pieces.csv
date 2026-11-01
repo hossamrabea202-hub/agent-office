@@ -1,0 +1,7 @@
+Id,Piece,Folder,Side,Bone,KnightSlot,Def
+12,Gauntlets,Gauntlets,L,hand_l,arms,8
+12,Gauntlets,Gauntlets,R,hand_r,arms,8
+13,Sabatons,Sabatons,L,foot_l,pants,8
+13,Sabatons,Sabatons,R,foot_r,pants,8
+14,Greaves,Greaves,L,calf_l,pants,10
+14,Greaves,Greaves,R,calf_r,pants,10

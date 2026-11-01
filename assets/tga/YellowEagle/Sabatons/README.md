@@ -4,7 +4,7 @@ Made by TGA (Claude) on 2026-11-01 from Codex sheet 12 (`handoffs/knight-set-yel
 - **Rebuild:** `tools/tga/knightset/build_sabatons.py`, then `tex_gauntlets.py` and `lookdev_gauntlets.py` with `PIECE=Sabatons`.
 - **Same steel / brass / leather recipe** as the gauntlets and greaves.
 
-**Status: first look for the owner. Not fitted and not imported yet.** `renders/sabatons_vs_sheet.jpg` shows the sheet above the model.
+**Status: fitted to the knight on 2026-11-01** (`fbx_knight/`, see `../README.md`). Not imported yet. `renders/sabatons_vs_sheet.jpg` shows the sheet above the model.
 
 ## What it is
 - **Built to the sheet:** 28 cm long (11 cm toe + 17 cm mid and heel), 10.5 cm at the ball, 7 cm at the heel, 8.5 cm at the ankle, toe rising at about 22 degrees.

@@ -4,7 +4,7 @@ Made by TGA (Claude) on 2026-11-01 from Codex sheet 11 (`handoffs/knight-set-yel
 - **Rebuild:** `tools/tga/knightset/build_greaves.py`, then `tex_gauntlets.py` with `PIECE=Greaves`, then `lookdev_gauntlets.py` with `PIECE=Greaves`.
 - **One recipe for the whole set:** the texture and lookdev scripts are shared by every piece. The gauntlets' steel, brass and leather recipe is reused unchanged.
 
-**Status: first look for the owner. Not fitted and not imported yet.** `renders/greaves_vs_sheet.jpg` shows the sheet above the model.
+**Status: fitted to the knight on 2026-11-01** (`fbx_knight/`, see `../README.md`). Not imported yet. `renders/greaves_vs_sheet.jpg` shows the sheet above the model.
 
 ## What it is
 - **Built to the sheet:** 37 cm tall, about 17 / 14 / 10.5 cm across the calf top, mid-calf and ankle. The silhouette is a little slimmer, to match the sheet's views.

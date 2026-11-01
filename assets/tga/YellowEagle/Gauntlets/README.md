@@ -2,7 +2,7 @@
 
 Made by TGA (Claude) on 2026-10-31 from Codex sheet 08 (`handoffs/knight-set-yellow/sheets/08_Gauntlets.jpg`). Original and procedural. Rebuild it with `tools/tga/knightset`: `build_gauntlets.py`, then `tex_gauntlets.py`, then `lookdev_gauntlets.py`.
 
-**Status: first look for the owner. Not fitted and not imported yet.** The renders in `renders/` include `gauntlets_vs_sheet.jpg`, the sheet next to the model.
+**Status: fitted to the knight on 2026-11-01** (`fbx_knight/`, see `../README.md`). Not imported yet. The renders in `renders/` include `gauntlets_vs_sheet.jpg`, the sheet next to the model.
 
 ## What it is
 - **Built to the sheet's measurements:** 28 cm from cuff to fingertip, cuff 9.5 cm tall and 13.2 cm at its widest, hand 10.5 cm wide. The fingers are nearly straight (v2: 8 / 14 / 10 degree curl).
