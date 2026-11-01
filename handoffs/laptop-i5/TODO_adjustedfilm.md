@@ -13,7 +13,7 @@ the real meshes, snow glints, rock texture, blizzard multiple scattering, 3 prop
 Next, in order: (1) fix from the Master's log `ue/wk390_log.txt` (meshes/props/dress steps are untested in UE);
 (2) BPC_SnowTrails (RT trail mask + packed layer + POM in M_WK_Landscape; RESEARCH.md section 4) - needs a T3D or a
 setup script, ask for no export (new BP); (3) snow Niagara from the #226 rain (request an export of the rain system
-first); (4) blizzard still needs a check in the new lookdev; (5) spruce snow cushions are a bit round, falls texture streaky.
+first); (4) blizzard still needs a check in the new lookdev; (5) spruce snow cushions are a bit round, falls texture streaky; (6) grey terrain wall at the WEST bridge end (road cut clip, see gate_overcast.png); (7) when the background renders finish, post gate lowsun/blizzard/night + bridge/farm/falls shots (lookdev/shots) and a before/after sheet (lookdev/make_sheet.py).
 
 ## Closed today (in the game, checked by the Master)
 
