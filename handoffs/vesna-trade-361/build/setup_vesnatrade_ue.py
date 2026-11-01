@@ -147,21 +147,27 @@ def apply():
     else:
         f = unreal.BlueprintFactory(); f.set_editor_property('parent_class', unreal.ActorComponent)
         bp = at.create_asset(COMP, COMP_DIR, unreal.Blueprint, f); log.append('created ' + path)
-    # 5.3 Python has no BEL.get_basic_type_by_name / get_struct_type / get_object_reference_type / get_array_type:
-    # build the EdGraphPinType structs directly (Master patch 2026-11-01).
-    def _pin(cat, sub='', obj=None, arr=False):
-        t = unreal.EdGraphPinType(); t.set_editor_property('pin_category', cat)
-        if sub: t.set_editor_property('pin_sub_category', sub)
-        if obj is not None: t.set_editor_property('pin_sub_category_object', obj)
-        if arr: t.set_editor_property('container_type', unreal.PinContainerType.ARRAY)
-        return t
-    I, Dd, Bo = _pin('int'), _pin('real', 'double'), _pin('bool')
-    LCT = _pin('struct', obj=unreal.LinearColor.static_struct())
-    OBJ = lambda cls: _pin('object', obj=(cls if isinstance(cls, unreal.Class) else cls.static_class()))
-    def ARR(t):
-        n = unreal.EdGraphPinType()
-        for k in ('pin_category', 'pin_sub_category', 'pin_sub_category_object'): n.set_editor_property(k, t.get_editor_property(k))
-        n.set_editor_property('container_type', unreal.PinContainerType.ARRAY); return n
+    # UE 5.8: BlueprintEditorLibrary type helpers exist again (Master 2026-11-01). 5.3 fallback kept below.
+    if hasattr(BEL, 'get_basic_type_by_name'):
+        I, Dd, Bo = BEL.get_basic_type_by_name('int'), BEL.get_basic_type_by_name('real'), BEL.get_basic_type_by_name('bool')
+        Dd.set_editor_property('pin_sub_category', 'double')
+        LCT = BEL.get_struct_type(unreal.LinearColor.static_struct())
+        OBJ = lambda cls: BEL.get_object_reference_type(cls if isinstance(cls, unreal.Class) else cls.static_class())
+        ARR = BEL.get_array_type
+    else:
+        def _pin(cat, sub='', obj=None, arr=False):
+            t = unreal.EdGraphPinType(); t.set_editor_property('pin_category', cat)
+            if sub: t.set_editor_property('pin_sub_category', sub)
+            if obj is not None: t.set_editor_property('pin_sub_category_object', obj)
+            if arr: t.set_editor_property('container_type', unreal.PinContainerType.ARRAY)
+            return t
+        I, Dd, Bo = _pin('int'), _pin('real', 'double'), _pin('bool')
+        LCT = _pin('struct', obj=unreal.LinearColor.static_struct())
+        OBJ = lambda cls: _pin('object', obj=(cls if isinstance(cls, unreal.Class) else cls.static_class()))
+        def ARR(t):
+            n = unreal.EdGraphPinType()
+            for k in ('pin_category', 'pin_sub_category', 'pin_sub_category_object'): n.set_editor_property(k, t.get_editor_property(k))
+            n.set_editor_property('container_type', unreal.PinContainerType.ARRAY); return n
     TYPES = {'int': I, 'double': Dd, 'bool': Bo}
     VARS = {n: TYPES[t] for n, (t, _) in D['vars'].items()}
     VARS.update({'Set': OBJ(setbp.generated_class()), 'Cap': OBJ(unreal.SceneCaptureComponent2D),
