@@ -1,0 +1,184 @@
+<!doctype html>
+<!-- The Muster v2 (#420). ?m=chrome -> T_MU2_Frame (static frame, 1920x1080)   ?m=atlas -> T_MU2_Atlas (2048, cells from layout_mu2.js)
+     ?m=mock -> frame + what the game draws (sample data, RECRUIT tab, card 1 hovered, card 0 selected). Coordinates: layout_mu2.py. -->
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="layout_mu2.js"></script>
+<style>
+:root{--gold:#d9b46a;--gold2:#f0d391;--bronze:#7a6034;--line:#5a4628;--cream:#ece2cf;--dim:#9b9080;--green:#9bd85a;--red:#e05c47}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1672px;height:941px;overflow:hidden;background:transparent}
+body.atlas{width:1783px;height:1783px}
+#root{position:absolute;inset:0;font-family:'Cormorant Garamond',serif;color:var(--cream)}
+.cz{font-family:Cinzel,serif}
+.bg{position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 0%,rgba(70,26,18,.42),transparent 60%),radial-gradient(70% 60% at 50% 55%,#151311,#0a0909 70%,#060505)}
+.noise{position:absolute;inset:0;opacity:.32;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+.panel{position:absolute;background:linear-gradient(180deg,rgba(24,21,19,.97),rgba(12,11,10,.98));border:1px solid var(--line);
+  box-shadow:inset 0 0 0 3px rgba(0,0,0,.6),inset 0 0 0 4px rgba(122,96,52,.2),0 8px 26px rgba(0,0,0,.75)}
+.corner{position:absolute;width:18px;height:18px;border-color:var(--gold);border-style:solid;opacity:.8}
+.rule{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--bronze),transparent)}
+.key{position:absolute;display:grid;place-items:center;border:1px solid var(--gold);border-radius:4px;background:rgba(10,9,8,.92);font-family:Cinzel;color:var(--cream);font-weight:600}
+.lbl{position:absolute;white-space:nowrap;line-height:1}
+svg.i{position:absolute;overflow:visible}
+.cell{position:absolute;overflow:hidden}
+</style></head><body><div id="root"></div>
+<script>
+const M = new URLSearchParams(location.search).get('m') || 'chrome';
+if (M === 'atlas') document.body.className = 'atlas';
+const R = document.getElementById('root');
+let HOST = R;
+function el(tag, cls, css, html){const e=document.createElement(tag); if(cls)e.className=cls; if(css)e.style.cssText=css; if(html!=null)e.innerHTML=html; HOST.appendChild(e); return e;}
+function text(x,y,s,css,anchor){const e=el('div','lbl',(css||'')+';top:'+y+'px;left:'+x+'px'); e.textContent=s;
+  e.style.transform='translate('+(anchor==='c'?'-50%':anchor==='r'?'-100%':'0')+',-50%)'; return e;}
+function corners(x,y,w,h,inset){const i=inset||4; const c=(hh,v)=>el('div','corner',`left:${hh==='l'?x+i:x+w-18-i}px;top:${v==='t'?y+i:y+h-18-i}px;border-width:${v==='t'?'1px':'0'} ${hh==='r'?'1px':'0'} ${v==='b'?'1px':'0'} ${hh==='l'?'1px':'0'}`);
+  c('l','t');c('r','t');c('l','b');c('r','b');}
+function panel(x,y,w,h){el('div','panel',`left:${x}px;top:${y}px;width:${w}px;height:${h}px`); corners(x,y,w,h);}
+function svg(x,y,w,h,body,css){const s=document.createElementNS('http://www.w3.org/2000/svg','svg'); s.setAttribute('class','i');
+  s.setAttribute('width',w); s.setAttribute('height',h); s.setAttribute('viewBox',`0 0 ${w} ${h}`); s.style.cssText=`left:${x-w/2}px;top:${y-h/2}px;${css||''}`;
+  s.innerHTML=body; HOST.appendChild(s); return s;}
+const G='#d9b46a', GS=`fill="none" stroke="${G}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"`;
+const ICON={
+  helm:`<path ${GS} d="M4 22V12a10 10 0 0 1 20 0v10l-4 3h-12z M14 4v19 M8 14h12"/>`,
+  cannon:`<path ${GS} d="M3 17l17-7 2 5-17 7z M20 11l4-2 2 5-4 2 M7 22a3 3 0 1 0 .1 0z M13 22a3 3 0 1 0 .1 0z"/>`,
+  tower:`<path ${GS} d="M8 26V11h12v15z M6 11V6h4v3h3V6h3v3h3V6h3v5z"/>`,
+  flask:`<path ${GS} d="M11 3h6 M12 3v6l-6 11a3 3 0 0 0 3 5h10a3 3 0 0 0 3-5l-6-11V3 M8 18h12"/>`,
+  coin:`<circle cx="14" cy="14" r="10" fill="#c8963a" stroke="#f3d27c" stroke-width="1.5"/><circle cx="14" cy="14" r="6.5" fill="none" stroke="#7a5418" stroke-width="1.2"/>`,
+  ingot:`<path d="M3 20l6-10h16l-6 10z" fill="#8f949a" stroke="#d8dde2" stroke-width="1"/><path d="M19 20l6-10v5l-6 10z" fill="#5d6268"/><path d="M3 20h16v5H3z" fill="#71767c"/>`,
+  ore:`<path d="M4 22l4-10 6-4 7 3 4 8-5 5H9z" fill="#aab3bd" stroke="#e9eef3" stroke-width="1"/><path d="M8 12l6 4 7-5 M14 16l-1 9" stroke="#6c747c" fill="none"/>`,
+  mouseL:`<rect x="7" y="2" width="14" height="24" rx="7" ${GS}/><path ${GS} d="M14 2v9 M7 11h14"/><path d="M8 10V9a6 6 0 0 1 6-7v9z" fill="${G}" opacity=".6"/>`,
+  x:`<path ${GS} stroke-width="2.4" d="M6 6l16 16 M22 6L6 22"/>`,
+};
+function ico(n,x,y,s){return svg(x,y,s,s,`<g transform="scale(${s/28})">${ICON[n]}</g>`);}
+const GL={ // engraved line glyphs (128 box), same set as the v1 atlas
+ sword:'M64 10l8 10v66H56V20z M40 86h48 M64 90v20 M56 112h16 M64 20v62',
+ xbow:'M20 44c20-16 68-16 88 0 M24 46l40 14 40-14 M64 26v86 M56 104h16v10H56z M64 60l-20 30 M64 60l20 30',
+ banner:'M34 12v104 M34 18h60l-12 18 12 18H34 M30 116h10 M50 30l6 6 8-10',
+ medic:'M22 50h84v54H22z M46 50V38h36v12 M64 62v32 M48 78h32',
+ gear:'M64 30l8 2 4-8 10 4-2 9 7 6 8-3 4 10-8 4v9l8 4-4 10-8-3-7 6 2 9-10 4-4-8-8 2-8-2-4 8-10-4 2-9-7-6-8 3-4-10 8-4v-9l-8-4 4-10 8 3 7-6-2-9 10-4 4 8z M64 54a10 10 0 1 0 .1 0z',
+ cannon:'M18 72l70-26 10 20-70 26z M86 50l14-6 8 18-14 6 M30 92a16 16 0 1 0 .1 0z M54 92a16 16 0 1 0 .1 0z',
+ wall:'M14 46h100v64H14z M14 66h100 M14 88h100 M40 46v20 M74 46v20 M26 66v22 M58 66v22 M92 66v22 M40 88v22 M74 88v22 M14 46V30h16v16 M50 46V30h28v16 M98 46V30h16v16',
+ tower:'M36 112V44h56v68z M30 44V26h14v10h12V26h16v10h12V26h14v18z M56 112V88a8 8 0 0 1 16 0v24 M54 58h20',
+ gate:'M24 112V50a40 40 0 0 1 80 0v62z M38 112V56a26 26 0 0 1 52 0v56 M38 72h52 M38 90h52 M52 50v62 M76 50v62',
+ flare:'M64 16c10 14 14 24 0 40-14-16-10-26 0-40z M64 56v56 M50 112h28 M40 36l-10-6 M88 36l10-6 M38 54H26 M90 54h12',
+};
+let UID=0;
+// ---------------------------------------------------------------- cell painters (atlas and mock share them)
+function paintCell(k, x, y, c){
+  const w=c.w, h=c.h, p=c.p, id='g'+(UID++);
+  if (c.kind==='name') return text(x+w/2,y+h/2,p,`font-family:Cinzel;font-weight:700;font-size:${p.length>13?21:25}px;letter-spacing:${p.length>13?1.5:2.5}px;color:#f1e6cf;text-shadow:0 2px 6px #000`,'c');
+  if (c.kind==='tag')  return text(x+w/2,y+h/2,p,`font-family:Cinzel;font-weight:600;font-size:14px;letter-spacing:3px;color:#cfae6c`,'c');
+  if (c.kind==='desc') return text(x+w/2,y+h/2,p,`font-weight:600;font-size:${p.length>42?14.5:p.length>38?15.5:17}px;color:#ddd3c0`,'c');
+  if (c.kind==='card'){
+    if (p==='bg'){ const d=el('div','cell',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;border:1px solid #5a4628;
+        background:linear-gradient(180deg,#1d1a17 0%,#141210 55%,#0f0d0c 100%);box-shadow:inset 0 0 0 3px rgba(0,0,0,.55),inset 0 0 0 4px rgba(122,96,52,.22)`);
+      corners(x,y,w,h,5); el('div','rule',`left:${x+30}px;top:${y+336}px;width:${w-60}px`); return d; }
+    const glow = p==='hover' ? 'rgba(240,211,145,.55)' : 'rgba(255,225,150,.9)';
+    const bw = p==='hover' ? 2 : 3;
+    return el('div','cell',`left:${x+6-bw}px;top:${y+6-bw}px;width:${w-12+2*bw}px;height:${h-12+2*bw}px;border:${bw}px solid ${p==='hover'?'#c9a560':'#f0d391'};
+      box-shadow:0 0 ${p==='hover'?10:16}px ${glow},inset 0 0 ${p==='hover'?14:22}px ${p==='hover'?'rgba(217,180,106,.18)':'rgba(240,211,145,.28)'};border-radius:2px`);
+  }
+  if (c.kind==='vignette') return el('div','cell',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;
+      background:radial-gradient(75% 70% at 50% 42%,transparent 55%,rgba(8,7,6,.85) 100%),linear-gradient(180deg,transparent 70%,rgba(14,12,11,.95));box-shadow:inset 0 0 0 1px rgba(122,96,52,.6)`);
+  if (c.kind==='btn'){
+    const S={on:['#e9c77b','#b88a3c','#2a1a08','#f6dc9a'],hover:['#f6db97','#cf9e47','#2a1a08','#fff0c4'],press:['#b88a3c','#8a6428','#1e1206','#d9b46a'],off:['#3a332b','#26211c','#9b9080','#5a4628']}[p];
+    return el('div','cell',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;border:1px solid ${S[3]};border-radius:3px;
+      background:linear-gradient(180deg,${S[0]},${S[1]});box-shadow:inset 0 1px 0 rgba(255,255,255,${p==='off'?.04:.35}),inset 0 -2px 0 rgba(0,0,0,.25)${p==='hover'?',0 0 14px rgba(240,211,145,.55)':''}`);
+  }
+  if (c.kind==='tab'){
+    if (p==='on') return el('div','cell',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;border:1px solid #f0d391;
+      background:linear-gradient(180deg,rgba(217,180,106,.42),rgba(122,96,52,.30));box-shadow:inset 0 0 18px rgba(240,211,145,.35),0 0 12px rgba(217,180,106,.35)`);
+    return el('div','cell',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;border:1px solid #b8955a;background:rgba(217,180,106,.12);box-shadow:inset 0 0 12px rgba(217,180,106,.2)`);
+  }
+  if (c.kind==='close') return el('div','cell',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;border:1px solid #f0d391;border-radius:3px;background:rgba(217,180,106,.16);box-shadow:0 0 10px rgba(217,180,106,.4)`);
+  if (c.kind==='coin') return ico('coin',x+w/2,y+h/2,w);
+  if (c.kind==='qslot') return el('div','cell',`left:${x}px;top:${y}px;width:${w}px;height:${h}px;border:1px solid #5a4628;background:#0e0d0c;box-shadow:inset 0 0 10px #000`);
+  if (c.kind==='pip') return svg(x+w/2,y+h/2,w,h,`<path d="M8 1l7 7-7 7-7-7z" fill="${p==='on'?'#f0d391':'none'}" stroke="#d9b46a" stroke-width="1.3"/>`);
+  if (c.kind==='medal'){
+    return svg(x+w/2,y+h/2,w,h,`<defs><radialGradient id="${id}" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#2c2620"/><stop offset=".7" stop-color="#15120f"/><stop offset="1" stop-color="#0b0a09"/></radialGradient>
+      <linearGradient id="${id}s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dc9a"/><stop offset="1" stop-color="#a87d34"/></linearGradient></defs>
+      <circle cx="100" cy="100" r="94" fill="url(#${id})" stroke="#7a6034" stroke-width="2"/><circle cx="100" cy="100" r="86" fill="none" stroke="#d9b46a" stroke-width="1.2" opacity=".7"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#d9b46a" stroke-width=".6" stroke-dasharray="2 5" opacity=".6"/>
+      <g transform="translate(36 36)"><path d="${GL[p]}" fill="none" stroke="#000" stroke-width="6" opacity=".55" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="${GL[p]}" fill="none" stroke="url(#${id}s)" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/></g>`);
+  }
+  if (c.kind==='mini') return svg(x+w/2,y+h/2,w,h,`<g transform="scale(${w/128})"><path d="${GL[p]}" fill="none" stroke="#d9b46a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>`);
+}
+// ---------------------------------------------------------------- the static frame
+function frame(){
+  el('div','bg'); el('div','noise');
+  text(836,50,'THE MUSTER','font-family:Cinzel;font-weight:700;font-size:44px;letter-spacing:9px;color:#f1e6cf;text-shadow:0 3px 12px #000','c');
+  el('div','rule',`left:520px;top:86px;width:632px`);
+  text(836,98,'THE BARRACKS  •  CHOOSE A CARD, THEN RECRUIT','font-family:Cinzel;font-weight:600;font-size:13px;letter-spacing:4px;color:#b59a66','c');
+  const cl=L.close; el('div','panel',`left:${cl.x}px;top:${cl.y}px;width:${cl.w}px;height:${cl.h}px`);
+  ico('x',cl.x+28,cl.y+cl.h/2,20); text(cl.x+50,cl.y+cl.h/2+1,'CLOSE','font-family:Cinzel;font-weight:700;font-size:17px;letter-spacing:3px');
+  el('div','key',`left:${cl.x+cl.w+10}px;top:${cl.y+13}px;width:40px;height:24px;font-size:11px`,'ESC');
+  const pu=L.purse; el('div','panel',`left:${pu.x}px;top:${pu.y}px;width:${pu.w}px;height:${pu.h}px;border-radius:26px`);
+  ico('coin',pu.x+30,pu.y+pu.h/2,26); ico('ingot',pu.x+170,pu.y+pu.h/2,24); ico('ore',pu.x+268,pu.y+pu.h/2,24);
+  L.tabs.forEach((t,i)=>{ el('div','cell',`left:${t.x}px;top:${t.y}px;width:${t.w}px;height:${t.h}px;border:1px solid #4a3a22;background:linear-gradient(180deg,#1b1815,#110f0d);box-shadow:inset 0 0 0 2px rgba(0,0,0,.5)`);
+    ico(L.tabicons[i],t.x+64,t.y+t.h/2,26); text(t.x+92,t.y+t.h/2+1,L.tabnames[i],'font-family:Cinzel;font-weight:700;font-size:21px;letter-spacing:4px');
+    el('div','key',`left:${t.x+t.w-40}px;top:${t.y+t.h/2-12}px;width:26px;height:24px;font-size:13px`,String(i+1)); });
+  el('div','key',`left:${L.tabs[0].x-50}px;top:${TABY()-12}px;width:38px;height:24px;font-size:12px`,'LB');
+  el('div','key',`left:${L.tabs[3].x+L.tabs[3].w+12}px;top:${TABY()-12}px;width:38px;height:24px;font-size:12px`,'RB');
+  const s=L.strip; panel(s.x,s.y,s.w,s.h);
+  text(s.x+24,s.y+18,'GARRISON','font-family:Cinzel;font-weight:700;font-size:13px;letter-spacing:4px;color:#b59a66');
+  text(s.qx0-14,s.y+18,'IN TRAINING','font-family:Cinzel;font-weight:700;font-size:13px;letter-spacing:4px;color:#b59a66','r');
+  for(let q=0;q<3;q++) el('div','cell',`left:${s.qx0+q*s.qstep}px;top:${s.y+(s.h-s.qh)/2}px;width:${s.qw}px;height:${s.qh}px;border:1px solid #5a4628;background:#0e0d0c;box-shadow:inset 0 0 10px #000`);
+  const hy=L.hints_y; let hx=300;
+  const hint=(keys,label)=>{ keys.forEach(k=>{ if(k==='mouseL'){ ico('mouseL',hx+12,hy,26); hx+=30;} else { const w=k.length>2?44:30; el('div','key',`left:${hx}px;top:${hy-13}px;width:${w}px;height:26px;font-size:${k.length>2?11:13}px`,k); hx+=w+6; } });
+    hx+=6; const e=text(hx,hy,label,'font-weight:600;font-size:19px'); hx+=e.getBoundingClientRect().width+44; };
+  hint(['ESC'],'Close'); hint(['mouseL'],'Pick a card'); hint(['mouseL','mouseL'],'Double-click to recruit'); hint(['E'],'Recruit / Buy'); hint(['A','D'],'Move'); hint(['LB','RB'],'Tabs');
+}
+function TABY(){ return L.tabs[0].y+L.tabs[0].h/2; }
+// ---------------------------------------------------------------- atlas
+function atlas(){
+  if (new URLSearchParams(location.search).get('grid')) el('div','',`position:absolute;inset:0;background:#333`);
+  for (const k in L.atlas){ const c=L.atlas[k]; paintCell(k,c.x,c.y,c); }
+}
+// ---------------------------------------------------------------- mock: what the game draws over the frame
+function bustStandIn(x,y,w,h,kind){ // mock only: the game shows the busts captured in the editor (setup_muster2_ue.py)
+  const id='b'+(UID++), helm=kind!=='medic';
+  svg(x+w/2,y+h/2,w,h,`<defs><radialGradient id="${id}" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#4a3b2a"/><stop offset=".5" stop-color="#1b1612"/><stop offset="1" stop-color="#080706"/></radialGradient>
+   <linearGradient id="${id}m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9aa0a6"/><stop offset=".45" stop-color="#4a4e53"/><stop offset="1" stop-color="#16181a"/></linearGradient></defs>
+   <rect width="${w}" height="${h}" fill="url(#${id})"/>
+   <path d="M${w*.12} ${h} C${w*.14} ${h*.72} ${w*.3} ${h*.64} ${w*.5} ${h*.62} C${w*.7} ${h*.64} ${w*.86} ${h*.72} ${w*.88} ${h}z" fill="url(#${id}m)"/>
+   ${helm?`<path d="M${w*.34} ${h*.6} V${h*.3} a${w*.16} ${w*.18} 0 0 1 ${w*.32} 0 V${h*.6} l-${w*.06} ${h*.05} h-${w*.2}z" fill="url(#${id}m)" stroke="#c9ced3" stroke-width="1" stroke-opacity=".35"/>
+     <path d="M${w*.38} ${h*.4} h${w*.24}" stroke="#050505" stroke-width="5"/><path d="M${w*.5} ${h*.2} v${h*.42}" stroke="#d9b46a" stroke-width="2" opacity=".5"/>`:
+     `<ellipse cx="${w*.5}" cy="${h*.4}" rx="${w*.13}" ry="${h*.17}" fill="#6b5240"/><path d="M${w*.33} ${h*.38} q${w*.17} -${h*.32} ${w*.34} 0 v${h*.06} q-${w*.17} -${h*.16} -${w*.34} 0z" fill="#3a2a1e"/>
+      <path d="M${w*.44} ${h*.76} h${w*.12} M${w*.5} ${h*.7} v${h*.12}" stroke="#b03a2e" stroke-width="5"/>`}
+   <text x="${w-8}" y="${h-8}" text-anchor="end" font-family="Cinzel" font-size="10" fill="#9b9080" opacity=".7">mock stand-in</text>`);
+}
+function cardAt(cx, item, state){ // state: {sel, hover, press, st, price, sub, note}
+  const c=L.card, A=L.atlas, y=c.y;
+  paintCell('card_bg',cx,y,A.card_bg);
+  const px=cx+c.por.dx, py=y+c.por.dy;
+  if (item.bust) bustStandIn(px,py,c.por.w,c.por.h,item.key); else { el('div','cell',`left:${px}px;top:${py}px;width:${c.por.w}px;height:${c.por.h}px;background:#0d0c0b`); paintCell('',px+c.por.w/2-100,py+c.por.h/2-100,A['med_'+item.glyph]); }
+  paintCell('',px,py,A.vignette);
+  paintCell('',cx+10,y+c.name-17,A['name_'+item.key]); paintCell('',cx+10,y+c.tag-11,A['tag_'+item.key]);
+  paintCell('',cx+12,y+c.d1-11,A['d1_'+item.key]); paintCell('',cx+12,y+c.d2-11,A['d2_'+item.key]);
+  text(cx+c.w/2,y+c.sub,state.sub,'font-family:Cinzel;font-weight:600;font-size:15px;letter-spacing:2px;color:#d9b46a','c');
+  if (state.st===0){ const e=text(cx+c.w/2+16,y+c.cost,state.price+' G','font-family:Cinzel;font-weight:700;font-size:22px;color:'+(state.afford?'#9bd85a':'#e05c47'),'c');
+    const r=e.getBoundingClientRect(); ico('coin',r.left-18,y+c.cost,22); }
+  else text(cx+c.w/2,y+c.cost,state.note,'font-family:Cinzel;font-weight:600;font-size:13px;letter-spacing:1px;color:'+(state.st===1?'#9bd85a':'#e05c47'),'c');
+  const b=c.btn, on=state.st===0&&state.afford;
+  paintCell('',cx+b.dx,y+b.dy,A[on?(state.press?'btn_press':state.bhover?'btn_hover':'btn_on'):'btn_off']);
+  text(cx+c.w/2,y+b.dy+b.h/2+1,state.label,'font-family:Cinzel;font-weight:700;font-size:19px;letter-spacing:3px;color:'+(on?'#2a1a08':'#cfc4b0'),'c');
+  if (state.sel) paintCell('',cx-6,y-6,A.card_sel); else if (state.hover) paintCell('',cx-6,y-6,A.card_hover);
+}
+function mock(){
+  frame();
+  const pu=L.purse; text(pu.x+50,pu.y+pu.h/2,'3,120','font-family:Cinzel;font-weight:600;font-size:22px');
+  text(pu.x+188,pu.y+pu.h/2,'34','font-family:Cinzel;font-weight:600;font-size:22px'); text(pu.x+286,pu.y+pu.h/2,'5','font-family:Cinzel;font-weight:600;font-size:22px');
+  paintCell('',L.tabs[0].x,L.tabs[0].y,L.atlas.tab_on); paintCell('',L.tabs[2].x,L.tabs[2].y,L.atlas.tab_hover);
+  const items=L.items.filter(i=>i.tab===0), x0=Math.round(836-(items.length*L.card.w+(items.length-1)*16)/2);
+  const S=[{sel:1,st:0,price:'40',afford:1,sub:'ARMY  4 / 6',label:'RECRUIT'},{hover:1,bhover:1,st:0,price:'60',afford:1,sub:'ARMY  4 / 6',label:'RECRUIT'},
+           {st:0,price:'300',afford:1,sub:'ONE PER ARMY',label:'RECRUIT'},{st:0,price:'150',afford:1,sub:'MEDICS  1 / 4',label:'HIRE'},
+           {st:3,sub:'IN TRAINING',note:'THE WORKSHOP IS NOT BUILT YET',label:'LOCKED'}];
+  items.forEach((it,k)=>cardAt(x0+k*L.card.step,it,S[k]));
+  const s=L.strip, cy=s.y+s.h/2+8, vals=[['sword','SWORDSMEN','2'],['xbow','CROSSBOWMEN','1'],['banner','COMMANDER','—'],['medic','MEDICS','1 / 4'],['gate','ARMY','4 / 6']];
+  vals.forEach(([g,l,v],k)=>{ paintCell('',s.cols[k]-24,cy-20,L.atlas['mini_'+g]); const e=text(s.cols[k]+24,cy,l,'font-family:Cinzel;font-weight:600;font-size:15px;letter-spacing:2px');
+    text(e.getBoundingClientRect().right+10,cy,v,'font-family:Cinzel;font-weight:700;font-size:19px;color:#f0d391'); });
+  paintCell('',s.qx0+s.qw/2-20,s.y+s.h/2-20,L.atlas.mini_sword);
+  el('div','cell',`left:${s.qx0+4}px;top:${s.y+(s.h+s.qh)/2-7}px;width:${(s.qw-8)*.45}px;height:4px;background:#f0c873`);
+}
+if (M==='atlas') atlas(); else if (M==='mock') mock(); else frame();
+</script></body></html>

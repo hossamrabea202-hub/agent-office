@@ -32,6 +32,11 @@ if (!$Only -or $Only -eq 'muster') { & 'U:\5.2\python\bin\python.exe' (Join-Path
   Shot 'muster.html' '?m=chrome' 1672 941 "$out\T_MU_Frame.png" $S -clear; Fit "$out\T_MU_Frame.png" 1920 1080
   Shot 'atlas.html' '?L=mu' 1783 1783 "$out\T_MU_Atlas.png" $S -clear; Fit "$out\T_MU_Atlas.png" 2048 2048
   Shot 'muster.html' '?m=mock' 1672 941 "$out\mock_mu.png" 1 }
+if (!$Only -or $Only -eq 'muster2') { & 'U:\5.2\python\bin\python.exe' (Join-Path $here 'layout_mu2.py')
+  Shot 'muster2.html' '?m=chrome' 1672 941 "$out\T_MU2_Frame.png" $S -clear; Fit "$out\T_MU2_Frame.png" 1920 1080
+  Shot 'muster2.html' '?m=atlas' 1783 1783 "$out\T_MU2_Atlas.png" $S -clear; Fit "$out\T_MU2_Atlas.png" 2048 2048
+  Shot 'muster2.html' '?m=atlas&grid=1' 1783 1783 "$out\atlas_mu2_grid.png" 1
+  Shot 'muster2.html' '?m=mock' 1672 941 "$out\mock_mu2.png" 1 }
 if (!$Only -or $Only -eq 'skill') { & 'U:\5.2\python\bin\python.exe' (Join-Path $here 'layout_sk.py'); & 'U:\5.2\python\bin\python.exe' (Join-Path $here 'make_skill_html.py')
   Shot 'skilltree.html' '?m=chrome' 1672 941 "$out\T_SK_Frame.png" $S -clear; Fit "$out\T_SK_Frame.png" 1920 1080
   Shot 'atlas.html' '?L=sk' 1783 1783 "$out\T_SK_Atlas.png" $S -clear; Fit "$out\T_SK_Atlas.png" 2048 2048
