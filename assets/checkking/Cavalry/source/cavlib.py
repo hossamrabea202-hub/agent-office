@@ -112,9 +112,9 @@ def lookdev(out, cam_loc, target, lens=35, sun_rot=215, sun_el=35, res=(1600, 10
             top = bpy_extras.object_utils.world_to_camera_view(sc, cam, balls[0].location + Vector((0, 0, 0.16)))
             rp = max(3.0, abs(top.y * H - cy)); yy, xx = np.mgrid[0:H, 0:W]
             disc = (xx - cx) ** 2 + (yy - cy) ** 2 < (0.8 * rp) ** 2
-            # the lit side of the ball (75th percentile of the disc), so a back-lit ball doesn't blow the exposure
+            # the hot side of the ball (95th percentile of the disc) ~ a grey card facing the sun: that reads 118 sRGB
             if disc.sum() < 5: print('METER: ball not in view, keeping exposure', flush=True); break
-            v = float(np.percentile(px[disc][:, :3].mean(1), 75)) * 255
+            v = float(np.percentile(px[disc][:, :3].mean(1), 95)) * 255
             print('METER grey ball (lit side) %.0f sRGB at exposure %.2f' % (v, sc.view_settings.exposure), flush=True)
             if abs(v - 118) < 4: break
             L = lambda s: ((s / 255 + 0.055) / 1.055) ** 2.4

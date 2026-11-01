@@ -1,0 +1,6 @@
+PBR T_Destrier_Bay_BC.png | non-metal p5/p50/p95 sRGB = 50/70/76 | metal 0% (p50 nan) | rough p5/p95 0.53/0.80 | OK
+PBR T_Destrier_Grey_BC.png | non-metal p5/p50/p95 sRGB = 73/146/159 | metal 0% (p50 nan) | rough p5/p95 0.51/0.80 | OK
+PBR T_Destrier_Black_BC.png | non-metal p5/p50/p95 sRGB = 39/43/72 | metal 0% (p50 nan) | rough p5/p95 0.47/0.80 | OK
+PBR T_DestrierTack_BC.png | non-metal p5/p50/p95 sRGB = 42/140/150 | metal 3% (p50 193) | rough p5/p95 0.50/0.95 | OK
+PBR T_Lance_BC.png | non-metal p5/p50/p95 sRGB = 43/143/147 | metal 16% (p50 194) | rough p5/p95 0.31/0.90 | OK
+PBR T_RiderLegs_BC.png | non-metal p5/p50/p95 sRGB = 42/80/150 | metal 27% (p50 191) | rough p5/p95 0.27/0.90 | OK

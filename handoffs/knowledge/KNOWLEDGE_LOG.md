@@ -210,3 +210,29 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
 - **Polearm hafts were ash, oiled with linseed,** which darkens and yellows over time, so it is mid amber-brown (≈128, 96, 64 sRGB), not pale. Hand zones are darker and smoother, and the butt is dirtier. [myArmoury citing Waldman; Roman Army Talk; conservation list] **[inference: no measured albedo for aged oiled ash]**
 - **Grip leather:** never uniform wear; keep its value clearly apart from the wood. [Polycount]
 - **Not found:** no public AAA (Warhorse / KCD) weapon-texturing breakdown. Full notes: `handoffs/weapon-kit-aaa/RESEARCH.md`.
+
+### 2026-11-01 · checkking (Claude) · #400 stables, destrier, cavalry kit (tested in lookdev)
+- **Meter the grey ball on its sun side, not its centre. [tested]** A centre-pixel (or 75th-percentile) reading of the
+  0.18 ball under-reads whenever the sun is beside or behind the ball, and the "locked" exposure comes out ~2 stops too
+  bright (my first stable shots: EV −3.4 instead of −5.34). Use the 95th percentile of the ball's disc (≈ a grey card
+  facing the sun → 118 sRGB), meter once in a front-lit setup, then lock that EV for every exterior shot (rule 10:
+  one exposure per zone; interiors get their own). `assets/checkking/Cavalry/source/cavlib.py` `lookdev()` does this.
+- **Tiling textures + vertex-colour wear for buildings. [tested]** 2 m tiling sets (1024 px/m) carry grain and small
+  cavities; the big, cause-driven wear goes in a vertex colour baked per building: R = Cycles AO (bake target
+  Color Attributes, AO distance 1.2 m), G = wet muck splashed up the bottom 30–50 cm of boards (higher inside stalls),
+  urine behind each horse, the gully; B = sun bleach on up/out-facing unoccluded faces. No stain repeats, and the
+  master material applies it: muck → lerp(base, lerp(base², muck, 0.5)), roughness → 0.35 (wet dung is dark and glossy).
+  Up-facing floors get muck only in patches, or the whole floor reads wet.
+- **fbm averaging flattens roughness. [tested]** Several averaged noise octaves gave std 0.01–0.04 (pbr_check flags
+  < 0.05). Add a macro term at 2–3 cycles per tile, then stretch the existing variation around its mean to std 0.06.
+- **Cloth caparison without simulation. [tested]** Shrink-wrap a superellipse "tent" over the body (offset 3.5 cm),
+  then hang every column straight down from its widest line (smooth that line over neighbours, or the hem steps)
+  with a small flare and folds. Reads as hanging cloth; body-shell selections give ragged edges instead. Clean straps,
+  plates and flaps come from ray-cast patches (a u/v grid projected onto the body + offset), not from copied faces.
+- **Props that must follow an animation: skin them to a bone, don't socket them. [tested in Blender]** The lance is a
+  separate skeletal mesh skinned 100 % to a `lance` bone that the horse clips animate (upright at the walk, couched in
+  the gallop), used with SetLeaderPoseComponent. No guessing the bone axes after FBX import.
+- **Medieval warhorses were ~14–15 hands** (Exeter, 1,964 bones, 2022): our destrier is 1.52 m at the withers.
+  Medieval stables are an "archaeological black hole" (Worsley); the usable evidence is pad-stones under the posts,
+  stall divisions and drainage gullies (Manorland), dung/straw floor layers (Veselí). Full notes:
+  `handoffs/cavalry-400/RESEARCH.md`.

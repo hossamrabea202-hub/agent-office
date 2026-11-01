@@ -44,8 +44,8 @@ The big wear is **not** in the tiles but in the vertex colour `Wear`, so no stai
 | Cobble | 54 / 107 / 132 | 0.48 / 0.70 |
 | Iron | oxide 67–73, bare metal 192, metallic 0/1 | 0.78 / 0.89 |
 
-Lookdev: Cycles, Nishita sky, sun 35°, 0.18 grey ball metered to 118 sRGB on its lit side, AgX at that **locked**
-exposure; the interior is its own light zone (metered on a ball inside, rule 10). Renders in `renders/`.
+Lookdev: Cycles, Nishita sky, sun 35°, 0.18 grey ball metered to 118 sRGB on its sun side (EV **locked at −5.34** for
+every exterior shot), AgX; the interior is its own light zone (metered on a ball inside, rule 10). Renders in `renders/`.
 
 ## Unreal (Master)
 
