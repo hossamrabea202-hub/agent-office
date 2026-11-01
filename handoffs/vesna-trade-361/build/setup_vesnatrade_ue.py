@@ -150,7 +150,7 @@ def apply():
     # UE 5.8: BlueprintEditorLibrary type helpers exist again (Master 2026-11-01). 5.3 fallback kept below.
     if hasattr(BEL, 'get_basic_type_by_name'):
         I, Dd, Bo = BEL.get_basic_type_by_name('int'), BEL.get_basic_type_by_name('real'), BEL.get_basic_type_by_name('bool')
-        Dd.set_editor_property('pin_sub_category', 'double')
+        # ('real' is already double in UE5; EdGraphPinType fields are not writable from Python)
         LCT = BEL.get_struct_type(unreal.LinearColor.static_struct())
         OBJ = lambda cls: BEL.get_object_reference_type(cls if isinstance(cls, unreal.Class) else cls.static_class())
         ARR = BEL.get_array_type
