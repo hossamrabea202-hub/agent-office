@@ -1,0 +1,2 @@
+#386 real jelly blob --swap
+MI_JellyBlob parent /Game/CastleDefender/VFX/JellyBubble/M_JellyBlob.M_JellyBlob -> M_JellyBlob_Real
