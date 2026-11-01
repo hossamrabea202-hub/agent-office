@@ -236,3 +236,21 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
   Medieval stables are an "archaeological black hole" (Worsley); the usable evidence is pad-stones under the posts,
   stall divisions and drainage gullies (Manorland), dung/straw floor layers (Veselí). Full notes:
   `handoffs/cavalry-400/RESEARCH.md`.
+
+### 2026-11-01 · checkking (Claude) · #410 rain wetness: stone, flags, cobbles, dirt, wood, puddles, mud (research, not tested)
+- **Albedo:** keep the ND form `lerp(base, base², porosity × Wet)`; with porosity 0.55 it reproduces the measured soil
+  0.15 → 0.08. Lagarde 3b equivalent: `Diffuse *= lerp(1, lerp(1, 0.2, porosity), Wet)`. Porosity masks: limestone /
+  whitewashed wall 0.45–0.6, worn flags 0.3–0.4, granite cobbles 0.15–0.25, dirt 0.55–0.7, weathered wood 0.5–0.7,
+  metal 0. Clamp wet albedo ≥ 30 sRGB. **[UNVERIFIED masks]**
+- **Roughness:** porous surfaces × lerp(1, 0.5, Wet) (Lagarde 3b gives ×0.6 at porosity 1); standing water 0.04, film
+  0.1–0.15, mud band 0.2–0.4. Specular 0.5 → 0.25 (water F0 0.02) only in puddles; barely visible.
+- **Puddles:** water = up-mask (VertexNormalWS.z > ~0.8) × saturate((Level − Height)/0.08); Level starts at Wet 0.55;
+  Height = heightmap or 1−AO mixed 30 % with 4–8 m world noise so puddles don't tile. Flatten normal 25 % for a film,
+  100 % above water 0.98. Ripples only in water: Lagarde's 4-layer ripple texture (time mul 1/0.85/0.93/1.13, offsets
+  0/0.2/0.45/0.7, ×1.6), distance-faded because mips kill them.
+- **Timing (Lagarde 2b):** drying ~5× slower than wetting, puddles ~4× slower than surfaces; shine leaves before the
+  darkening (use sqrt(Wet) for darkening, Wet for roughness). Ours: wet-up 30–60 s, dry 3–5 min, puddles 10–15 min, so
+  puddles need a second MPC value. Wall streaks stay subtle ("the exception", Lagarde): drip lines under sills only.
+- **Pitfalls:** decals writing roughness leave dry patches (decal change needs the owner's OK); Lumen Max Roughness To
+  Trace (~0.4) sits right on wet-stone roughness, raise it in the rain PPV. Full design (`MF_RainWet`) and sources:
+  `handoffs/rain-wet-410/RESEARCH.md`.
