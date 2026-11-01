@@ -31,6 +31,7 @@ DRY, LIST, REMOVE = '--dry-run' in A, '--list' in A, '--remove' in A
 arg = lambda k, d: type(d)(A[A.index(k) + 1]) if k in A and A.index(k) + 1 < len(A) else d
 RADIUS, SEED = arg('--radius', 22000.0), arg('--seed', 351)
 ROAD_PAD, ROAD_HW, CELL = arg('--road-pad', 150.0), 450.0, 100.0
+ROAD_MAX_HALF = 2500.0                                            # #375: wider than 50 m on both axes = not a road
 ROAD_WORDS = ('road', 'path', 'worn', 'trail', 'track', 'dirt')
 BANDS = [(-7000.0, 300.0, 1750.0, 450.0)]                         # the gate road the Master cleared by hand (x0, x1, y, half-width)
 BANDS += [tuple(float(v) for v in A[i + 1].split(',')) for i, k in enumerate(A) if k == '--band' and i + 1 < len(A)]
@@ -119,10 +120,15 @@ def road_cells():
             def inside(x, y, o=o, ax=ax, half=half):
                 dx, dy = x - o.x, y - o.y                                  # ground point, z taken at the decal centre
                 return all(abs(dx * v.x + dy * v.y) <= h for v, h in zip(ax, half))
+            if min(half[0], half[1]) > ROAD_MAX_HALF:
+                zones.append('skip decal %s: %.0f x %.0f cm too wide for a road' % (label, 2 * half[0], 2 * half[1])); continue
             ext = sum(half[1:]) + 10
             n = box(o.x - ext, o.x + ext, o.y - ext, o.y + ext, inside)
             zones.append('decal %s (%s): %d cells' % (label, mat.get_name() if mat else '-', n))
         if not any(w in label.lower() for w in ('road', 'path')) or a.get_components_by_class(unreal.DecalComponent): continue
+        cls = a.get_class().get_name()
+        if 'Volume' in cls or 'Bounds' in label:   # #375 (5.8): NavBounds_PortalRoad is a nav volume, not a road; it bared the whole map
+            zones.append('skip %s (%s): a volume, not a road' % (label, cls)); continue
         splines = a.get_components_by_class(unreal.SplineComponent)
         if splines:
             n0 = len(cells); hw = ROAD_HW + ROAD_PAD
@@ -135,6 +141,8 @@ def road_cells():
             zones.append('road spline %s: %d cells' % (label, len(cells) - n0))
         else:
             o, e = a.get_actor_bounds(False)
+            if min(e.x, e.y) > ROAD_MAX_HALF:          # a road is long and narrow; a box this wide on both sides is not one
+                zones.append('skip %s: bounds %.0f x %.0f cm too wide for a road' % (label, 2 * e.x, 2 * e.y)); continue
             zones.append('road bounds %s: %d cells' % (label, box(o.x - e.x - ROAD_PAD, o.x + e.x + ROAD_PAD, o.y - e.y - ROAD_PAD, o.y + e.y + ROAD_PAD)))
     return cells, zones
 
@@ -221,8 +229,13 @@ while x < min(hi[0], CENTRE[0] + RADIUS):
     x += STEP
 for k in KINDS: log.append('placed %-6s %6d' % (k, len(spec[k])))
 log.append('samples %d (on roads, left bare: %d)' % (n_samples, n_road))
+total = sum(len(v) for v in spec.values())
+SAFE = total > 0 and n_road <= 0.5 * max(n_samples, 1)            # #375: never wipe the old meadow for an empty or road-swamped run
+if not SAFE:
+    log.append('STOP: placed %d, %d of %d samples on roads. The old %s was NOT touched. Check the road zones above.'
+               % (total, n_road, n_samples, LABEL))
 
-if not DRY:
+if not DRY and SAFE:
     for a in old: EAS.destroy_actor(a)
     act = EAS.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(0, 0, 0), unreal.Rotator(0, 0, 0))   # empty container
     act.set_actor_label(LABEL); act.tags = [unreal.Name(LABEL)]
