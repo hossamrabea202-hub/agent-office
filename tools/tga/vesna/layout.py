@@ -21,6 +21,10 @@ PIECES = [  # id, row name, title, slot tag, DEF, art folder (turntable) or None
     (13, 'Sabatons',   'SOVEREIGN SABATONS',   'FEET (PAIR)',        8, 'Boots'),
     (15, 'Helmet',     'SOVEREIGN HELM',       'HEAD',              15, None),
     (20, 'Cape',       'SOVEREIGN CAPE',       'BACK',               4, None),
+    # #418 shields (BPC_ShieldKit index = id - 27; ids 27-29 keep their bits clear of the set's 10-20)
+    (27, 'Round Shield',  'ROUND SHIELD',           'OFF-HAND  ·  LINDEN',    0, 'RoundShield'),
+    (28, 'Heater Shield', "KNIGHT'S HEATER SHIELD", 'OFF-HAND  ·  PAINTED',   0, 'HeaterShield'),
+    (29, 'Gilded Shield', 'GILDED SHIELD',          'OFF-HAND  ·  GILT STEEL', 0, None),
 ]
 # paper-doll slots round the hero: (piece id or -1 = shield), left column then right column, top to bottom
 SLOTS_L = [15, 11, 16, 17, 12, -1]
@@ -66,12 +70,13 @@ L = dict(
 
 # ---- atlas T_VT_Atlas (2048 x 2048 at 1080p scale): text cells are WHITE (tinted at draw time), sprites are in colour.
 # cell = (key, w, h, kind, payload). Shelf-packed below; rects are in target px (texture px = rect * S).
-GLYPHS = {15: 'helm', 16: 'rerebrace', 17: 'vambrace', 18: 'fauld', 19: 'cuisses', 20: 'cape', -1: 'shield'}
+GLYPHS = {15: 'helm', 16: 'rerebrace', 17: 'vambrace', 18: 'fauld', 19: 'cuisses', 20: 'cape', -1: 'shield', 29: 'shield'}
+SHIELD_BLOCK = {27: 12, 28: 15, 29: 20}     # % block chance, the same numbers as BPC_ShieldKit (gen_shieldkit.py)
 def cells():
     c = []
     for p in PIECES:
         i = p[0]
-        c += [('name%d' % i, 200, 30, 'name', p[1]), ('def%d' % i, 110, 24, 'def', '+%d DEF' % p[4]),
+        c += [('name%d' % i, 200, 30, 'name', p[1]), ('def%d' % i, 110, 24, 'def', ('%d%% BLOCK' % SHIELD_BLOCK[i]) if i in SHIELD_BLOCK else '+%d DEF' % p[4]),
               ('title%d' % i, 470, 40, 'title', p[2]), ('tag%d' % i, 200, 24, 'tag', p[3])]
     for k, t in enumerate(TIERS): c.append(('tier%d' % k, 500, 24, 'tier', '(%d) %s' % t))
     for k, n in enumerate(TABS): c.append(('tab%d' % k, 202, 50, 'tab', n))

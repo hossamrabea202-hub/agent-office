@@ -1,0 +1,29 @@
+{
+ "shields": [
+  {
+   "name": "Round Shield",
+   "price": 180,
+   "block": 0.12,
+   "mult": 0.5,
+   "mesh": "/Game/CastleDefender/Weapons/RoundShield/SM_RoundShield",
+   "art": "RoundShield"
+  },
+  {
+   "name": "Knight's Heater Shield",
+   "price": 250,
+   "block": 0.15,
+   "mult": 0.5,
+   "mesh": "/Game/CastleDefender/Weapons/HeaterShield/SM_HeaterShield",
+   "art": "HeaterShield"
+  },
+  {
+   "name": "Gilded Shield",
+   "price": 450,
+   "block": 0.2,
+   "mult": 0.45,
+   "mesh": "/Game/CastleDefender/Equipment/Weapons/Shield/SM_Shield",
+   "art": null
+  }
+ ],
+ "slot": "ShieldKit"
+}

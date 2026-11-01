@@ -26,7 +26,7 @@ MESHES = '/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign'
 PIECES = {16: 'UpperArms', 17: 'Forearms', 18: 'Waist', 19: 'Thighs'}
 TEXTURES = ['T_VT_Icons'] + ['T_VT_Turn_' + f for f in PIECES.values()]
 EAL = unreal.EditorAssetLibrary
-D = json.load(open(os.path.join(ROOT, 'handoffs', 'vesna-trade-361', 'build', 'trade_data.json')))['data']
+D = json.load(open(os.path.join(ROOT, 'handoffs', 'vesna-trade-361', 'build', 'trade_data.json')))['data']   # the 11 set pieces (v1 graph)
 log = ['DRY_RUN = %s' % DRY_RUN]
 missing = []
 

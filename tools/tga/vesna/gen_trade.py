@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.join(REPO, 'tools', 'laptop2', 'bpgen'))
 import bpkit
 from bpkit import *
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(REPO, 'handoffs', 'vesna-trade-361', 'build')
+OUT = os.path.join(REPO, 'handoffs', 'shop-v2-418', 'trade')        # v2 (#418: shields + click fix); v1 stays in vesna-trade-361/build
 os.makedirs(OUT, exist_ok=True)
 L = json.load(open(os.path.join(HERE, 'layout.json')))
 SC0, A = L['S'], L['atlas']
@@ -30,6 +30,7 @@ TEX2D = CLS('Texture2D')
 CAPC = CLS('SceneCaptureComponent2D')
 SETC = BPC('/Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet', 'BPC_ObsidianSet')
 TRADEC = BPC('/Game/CastleDefender/Gameplay/Castle/BPC_VesnaTrade', 'BPC_VesnaTrade')
+KITC = BPC('/Game/CastleDefender/Gameplay/Castle/BPC_ShieldKit', 'BPC_ShieldKit')   # #418 shields
 ZHUD = BPC('/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD', 'BP_ZombieHUD')
 MPC = '/Game/CastleDefender/UI/SkillTree/MPC_SkillTree.MPC_SkillTree'
 FONT = '/Game/CastleDefender/UI/Fonts/Font_Cinzel.Font_Cinzel'
@@ -275,7 +276,24 @@ SBIT = bit(SELID)
 S_OWN = has(b.i2('Or_IntInt', OWNED, WORN, *P()), SBIT)
 S_WORN, S_AV = has(WORN, SBIT), has(AVAIL, SBIT)
 S_CUIRASS = icmp('EqualEqual_IntInt', SELID, 10)
+# #418 shields: list rows 27-29 are BPC_ShieldKit[id - 27]; their set bits (17-19) are never in the set's masks, so every
+# set test above is false for them and the kit terms below decide instead
+KITV = get('Kit', ob('v', KITC)); KIT_OK = b.valid(KITV, *P())
+K_OWNED, K_WORN = b.getm('Owned', KITC, INT, KITV, *P()), b.getm('Worn', KITC, INT, KITV, *P())
+K_PRICES = b.getm('Prices', KITC, arr(INT), KITV, *P())
+def iskit(idv): return AND(icmp('GreaterEqual_IntInt', idv, 27), icmp('LessEqual_IntInt', idv, 29))
+def kk(idv): return iop('Subtract_IntInt', idv, 27)
+def k_own(idv): return has(K_OWNED, rnd(b.math('MultiplyMultiply_FloatFloat', [(D('Base', default='2.0'), None), (D('Exp', default='0.0'), i2d(kk(idv)))], D('ReturnValue', out=True), *P())))
+def k_worn(idv): return icmp('EqualEqual_IntInt', K_WORN, kk(idv))
+def k_price(idv): return b.item(K_PRICES, INT, b.math('Max', [(it('A', default='0'), kk(idv)), (it('B', default='0'), None)], it('ReturnValue', out=True), *P()), *P())
+S_SH = AND(iskit(SELID), KIT_OK)
+S_OWN = OR(S_OWN, AND(S_SH, k_own(SELID))); S_WORN = OR(S_WORN, AND(S_SH, k_worn(SELID))); S_AV = OR(S_AV, S_SH)
+PRICE_SET = PRICE
+PRICE = seli(k_price(SELID), PRICE_SET, S_SH)          # the selected row's price (the set's next price, or the shield's)
 AFFORD = icmp('GreaterEqual_IntInt', GOLD_, PRICE)
+# clicks (#420 lesson): own press edge from IsInputKeyDown, PrevDown is written at the end of the input below
+LDOWN = key('LeftMouseButton', down=True)
+CLICK = AND(LDOWN, NOT(get('PrevDown', BOOL)))
 
 # =====================================================================================================================
 # PASS 0. On open (first frame): reset the screen and find the set + the capture. Then input, then draw.
@@ -290,6 +308,20 @@ ownn = b.name('Owner'); callfn(G, ownn, COMP, 'GetOwner', [ob('ReturnValue', ACT
 gs = b.call(ACT, 'GetComponentByClass', [CLSPIN('ComponentClass', COMP, '/Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet.BPC_ObsidianSet_C'), ob('ReturnValue', SETC, out=True)],
             *P(), target=OWNER, pure=True, const=True, tag='FindSet')
 setvar(fo, 'Set', SETV, (gs, 'ReturnValue'))
+gk = b.call(ACT, 'GetComponentByClass', [CLSPIN('ComponentClass', COMP, '/Game/CastleDefender/Gameplay/Castle/BPC_ShieldKit.BPC_ShieldKit_C'), ob('ReturnValue', KITC, out=True)],
+            *P(), target=OWNER, pure=True, const=True, tag='FindKit')
+setvar(fo, 'Kit', ob('v', KITC), (gk, 'ReturnValue'))
+def input_mode(gameui):
+    if gameui:
+        n = b.lib(UMG('WidgetBlueprintLibrary'), 'SetInputMode_GameAndUIEx', [ob('PlayerController', PCON), ob('InWidgetToFocus', UMG('Widget')),
+                  {'name': 'InMouseLockMode', 'cat': 'byte', 'obj': ENUM('EMouseLockMode'), 'default': 'DoNotLock'},
+                  bo('bHideCursorDuringCapture', default='false'), dict(bo('bFlushInput', default='false'), advanced=True)], *P(), tag='InputGameUI')
+    else:
+        n = b.lib(UMG('WidgetBlueprintLibrary'), 'SetInputMode_GameOnly', [ob('PlayerController', PCON), dict(bo('bFlushInput', default='false'), advanced=True)], *P(), tag='InputGame')
+    b.wire(pc, n, 'PlayerController'); return n
+fo.go(input_mode(True)); setvar(fo, 'ModeUI', BOOL, None, 'true'); setvar(fo, 'PrevDown', BOOL, None, 'true')
+# closed again (whoever closed it): back to Game Only once
+fmo, _nmo = fclosed.iff(get('ModeUI', BOOL), 'IfModeUI'); fmo.go(input_mode(False)); setvar(fmo, 'ModeUI', BOOL, None, 'false')
 gc = b.call(ACT, 'GetComponentsByTag', [CLSPIN('ComponentClass', COMP, '/Script/Engine.SceneCaptureComponent2D'), NAME_('Tag', 'VTCapture'), arr(ob('ReturnValue', COMP, out=True))],
             *P(), target=OWNER, const=True, pure=True, tag='FindCap')
 capc = cast(G, 'AsCap', CAPC, 'AsScene Capture Component 2D', *P(), pure=True)
@@ -380,6 +412,14 @@ BU = L['buy']
 act = OR(anykey('E', 'Gamepad_FaceButton_Bottom'), AND(CLICK, inside(BU['x'], BU['y'], BU['w'], BU['h'])))
 fa, fna = fl2.iff(act, 'IfAction')
 fav, fnav = fa.iff(AND(S_AV, NOT(S_CUIRASS)), 'IfBuyable')
+fks, fav = fav.iff(S_SH, 'IfShieldSel')
+fko, fkn = fks.iff(S_OWN, 'IfShieldOwned')
+kw = b.call(KITC, 'Wear', [it('Index', default='0')], *P(), target=KITV, tag='CallKitWear'); b.wire(kk(SELID), kw, 'Index'); fko.go(kw); snd(fko, 'Swipe')
+fkg, fkng = fkn.iff(AFFORD, 'IfShieldAfford')
+fkg.go(b.setm('Gold', ZHUD, INT, iop('Subtract_IntInt', GOLD_, PRICE), ZH, *P()))
+kb = b.call(KITC, 'Buy', [it('Index', default='0')], *P(), target=KITV, tag='CallKitBuy'); b.wire(kk(SELID), kb, 'Index'); fkg.go(kb)
+setvar(fkg, 'FlashUntil', DBL, dop('Add_DoubleDouble', NOW, 0.6)); snd(fkg, 'Buy')
+setvar(fkng, 'MsgUntil', DBL, dop('Add_DoubleDouble', NOW, 1.5)); snd(fkng, 'Fail')
 fo_, fno = fav.iff(S_OWN, 'IfOwnedSel')
 tw = b.call(SETC, 'ToggleWear', [it('Id', default='0')], *P(), target=get('Set', SETV), tag='CallToggleWear'); b.wire(SELID, tw, 'Id'); fo_.go(tw); snd(fo_, 'Swipe')
 fg, fng = fno.iff(AFFORD, 'IfAfford')
@@ -388,7 +428,8 @@ bp_ = b.call(SETC, 'BuyPiece', [it('Id', default='0')], *P(), target=get('Set', 
 setvar(fg, 'FlashUntil', DBL, dop('Add_DoubleDouble', NOW, 0.6)); snd(fg, 'Buy')
 setvar(fng, 'MsgUntil', DBL, dop('Add_DoubleDouble', NOW, 1.5)); snd(fng, 'Fail')
 snd(fnav, 'Fail')
-fl2 = fo_.join(fg, fng, fnav, fna)
+fl2 = fo_.join(fg, fng, fnav, fna, fko, fkg, fkng)
+setvar(fl2, 'PrevDown', BOOL, LDOWN)              # the press edge for the next frame
 
 # Esc: close the shop (Shop.R = 0, unpause, hide the cursor)
 fesc, fne = fl2.iff(key('Escape'), 'IfEsc')
@@ -397,7 +438,7 @@ mk = b.math('MakeColor', [(fl('R', default='0.0'), None), (fl('G', default='0.0'
 sp = b.lib(MATL, 'SetVectorParameterValue', [WC(), dict(ob('Collection', MPC_CLS), dobj=MPC), NAME_('ParameterName', 'Shop'), st('ParameterValue', LC)], *P(), tag='CloseShop')
 b.wire(mk, sp, 'ParameterValue'); fesc.go(sp)
 fesc.go(b.lib(GS, 'SetGamePaused', [WC(), bo('bPaused', default='false'), bo('ReturnValue', out=True, default='false')], *P(), tag='Unpause'))
-fesc.go(b.setm('bShowMouseCursor', PCON, BOOL, None, pc, *P()))
+fesc.go(b.setm('bShowMouseCursor', PCON, BOOL, None, pc, *P())); fesc.go(input_mode(False)); setvar(fesc, 'ModeUI', BOOL, None, 'false')
 setvar(fesc, 'WasOpen', BOOL, None, 'false'); setvar(fesc, 'Covering', BOOL, None, 'false')
 fdraw, _ = fne.iff(True if False else get('Covering', BOOL), 'IfStillOpen')   # Esc ends the frame here
 
@@ -438,7 +479,9 @@ idx = iop('Add_IntInt', get('Scroll', INT), ri)
 ry = dop('Add_DoubleDouble', float(R['y0']), dop('Multiply_DoubleDouble', i2d(ri), float(R['step'])))     # row top (target px)
 rcy = dop('Add_DoubleDouble', ry, R['h'] / 2.0)
 rid = getarr('PieceIds', INT, idx); rbit = bit(rid)
-r_av, r_own, r_worn = has(AVAIL, rbit), has(b.i2('Or_IntInt', OWNED, WORN, *P()), rbit), has(WORN, rbit)
+r_sh = AND(iskit(rid), KIT_OK)
+r_av, r_own, r_worn = OR(has(AVAIL, rbit), r_sh), OR(has(b.i2('Or_IntInt', OWNED, WORN, *P()), rbit), AND(r_sh, k_own(rid))), OR(has(WORN, rbit), AND(r_sh, k_worn(rid)))
+r_price = seli(k_price(rid), PRICE_SET, r_sh)
 fsel, fns = fr.iff(icmp('EqualEqual_IntInt', idx, get('Sel', INT)), 'IfRowSel')
 rs = L['rsel']
 sprite(fsel, 'AtlasTex', R['x'] + rs['dx'], dop('Add_DoubleDouble', ry, float(rs['dy'])), rs['w'], rs['h'], cell_uv('rsel'), tag='RowSel')
@@ -464,8 +507,8 @@ fo2, fno2 = fnw.iff(r_own, 'IfRowOwned'); cell(fo2, 'owned', sx_, sy_, anchor='r
 ff, fnf = fno2.iff(NOT(r_av), 'IfRowForging'); cell(ff, 'forging', sx_, sy_, anchor='r')
 fcu, fncu = fnf.iff(icmp('EqualEqual_IntInt', rid, 10), 'IfRowRack')        # the cuirass is sold on the classic rack
 text(fcu, 'ON THE RACK', sx_, sy_, 22, DIM, anchor='r', tag='RowRack')
-pr = catn(group(PRICE), ' G')
-tp = text(fncu, pr, sx_, sy_, 25, selc(GOLD, RED, AFFORD), anchor='r', tag='RowPrice')
+pr = catn(group(r_price), ' G')
+tp = text(fncu, pr, sx_, sy_, 25, selc(GOLD, RED, icmp('GreaterEqual_IntInt', GOLD_, r_price)), anchor='r', tag='RowPrice')
 mw = b.call(HUDC, 'GetTextSize', [S('Text'), F('OutWidth', out=True), F('OutHeight', out=True), dict(ob('Font', FONTC), dobj=FONT), F('Scale', default='1.0')], *P(), target=hud, pure=True, const=True, tag='PriceW')
 b.wire(pr, mw, 'Text'); b.wire(tscale(25), mw, 'Scale')
 coinx = dop('Subtract_DoubleDouble', dop('Subtract_DoubleDouble', float(sx_), dop('Divide_DoubleDouble', (mw, 'OutWidth'), T)), 30.0)
@@ -515,7 +558,8 @@ setvar(fwl, 'CurDef', INT, iop('Add_IntInt', get('CurDef', INT), getarr('PieceDe
 SDEF = getarr('PieceDef', INT, get('Sel', INT))
 gain = seli(0, SDEF, S_WORN)
 after = iop('Add_IntInt', get('CurDef', INT), gain)
-text(fd, catn('+', istr(SDEF)), CM['plus'][0], CM['plus'][1], 36, GREEN, tag='DefPlus')
+K_BLOCK = b.item(b.getm('BlockChance', KITC, arr(DBL), KITV, *P()), DBL, b.math('Max', [(it('A', default='0'), kk(SELID)), (it('B', default='0'), None)], it('ReturnValue', out=True), *P()), *P())
+text(fd, sels(catn(istr(rnd(dop('Multiply_DoubleDouble', K_BLOCK, 100.0))), '% BLOCK'), catn('+', istr(SDEF)), S_SH), CM['plus'][0], CM['plus'][1], 36, GREEN, tag='DefPlus')
 text(fd, istr(get('CurDef', INT)), CM['cur'][0], CM['cur'][1], 29, CREAM, anchor='c', tag='DefCur')
 fcm, fncm = fd.iff(get('Compare', BOOL), 'IfCompare')
 text(fcm, istr(after), CM['after'][0], CM['after'][1], 29, GREEN, anchor='c', tag='DefAfter')
@@ -579,8 +623,9 @@ syy = dop('Add_DoubleDouble', float(SL['cy0']), dop('Multiply_DoubleDouble', i2d
 srow = getarr('SlotRow', INT, si)                    # list index of the slot's piece (-1 = shield)
 isshield = icmp('Less_IntInt', sid, 0)
 sbit = bit(sid)
-s_own = OR(AND(isshield, icmp('Greater_IntInt', SHIELD, 0)), AND(NOT(isshield), has(b.i2('Or_IntInt', OWNED, WORN, *P()), sbit)))
-s_worn = OR(AND(isshield, icmp('Greater_IntInt', SHIELD, 0)), AND(NOT(isshield), has(WORN, sbit)))
+kitworn = AND(KIT_OK, icmp('GreaterEqual_IntInt', K_WORN, 0))
+s_own = OR(AND(isshield, OR(icmp('Greater_IntInt', SHIELD, 0), kitworn)), AND(NOT(isshield), has(b.i2('Or_IntInt', OWNED, WORN, *P()), sbit)))
+s_worn = OR(AND(isshield, OR(icmp('Greater_IntInt', SHIELD, 0), kitworn)), AND(NOT(isshield), has(WORN, sbit)))
 stint = selc(WHITE, selc(col(.75, .72, .66, .85), col(.45, .43, .40, .55), s_own), s_worn)
 ssz = 46
 fsg, fsi = fs.iff(OR(isshield, getarr('IconFromAtlas', BOOL, seli(0, srow, isshield))), 'IfSlotGlyph')
@@ -684,8 +729,8 @@ VARS = dict(Tab=('int', 1), RTab=('int', 0), Sel=('int', 1), Scroll=('int', 0), 
             Compare=('bool', True), WasOpen=('bool', False), Covering=('bool', False), MsgUntil=('double', 0.0), FlashUntil=('double', 0.0),
             LastT=('double', 0.0), Dragging=('bool', False), DragX=('double', 0.0), HeroYaw=('double', 0.0), BaseSpeed=('double', 0.0),
             HeroDamage=('int', 35), HeroMaxHP=('int', 250), CurDef=('int', 0),
-            CapDist=('double', 330.0), CapHeight=('double', 20.0))
-ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots', 'Forearms', 'UpperArms', 'Waist', 'Thighs']   # turntable.py, 128 px cells, 8 per row, 1024 x 256
+            CapDist=('double', 330.0), CapHeight=('double', 20.0), PrevDown=('bool', False), ModeUI=('bool', False))
+ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots', 'Forearms', 'UpperArms', 'Waist', 'Thighs', 'HeaterShield', 'RoundShield']   # turntable.py, 128 px cells, 8 per row, 1024 x 256
 pcs = L['pieces']
 def icon_uv(p):
     if p['art']: r_, c_ = divmod(ICON_ORDER.index(p['art']), 8); return (c_ * 128 / 1024.0, r_ * 128 / 256.0, 128 / 1024.0, 128 / 256.0)

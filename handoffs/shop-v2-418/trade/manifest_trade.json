@@ -1,0 +1,81 @@
+{
+ "blueprint": "BP_ArmoryHUD",
+ "_built_on": "handoffs/exports/master/2026-10-30b/BP_ArmoryHUD_EventGraph.txt (+ the #222/#66 hook, matched by PinIds when already merged)",
+ "pastes": [
+  {
+   "file": "../../obsidian-set-v2/ArmoryHUD_ObsHook_graph.txt",
+   "offset": [
+    -200,
+    -1200
+   ]
+  },
+  {
+   "file": "ArmoryHUD_TradeHook_graph.txt",
+   "offset": [
+    -200,
+    -2600
+   ]
+  }
+ ],
+ "rewires": [
+  {
+   "from": "CX_2.then",
+   "to": "ObsHookSeq.execute",
+   "replace": true,
+   "note": "#222 hook (already linked when it is in)"
+  },
+  {
+   "from": "CX_1.SizeX",
+   "to": "HookSizeX.A"
+  },
+  {
+   "from": "CX_1.SizeY",
+   "to": "HookSizeY.A"
+  },
+  {
+   "from": "ObsHookSeq.then_0",
+   "to": "TradeSeq.execute",
+   "replace": true,
+   "note": "was -> CX_26 (classic shop draw)"
+  },
+  {
+   "from": "TradeShopIfV.else",
+   "to": "CX_26.execute"
+  },
+  {
+   "from": "TradeShopIfC.else",
+   "to": "CX_26.execute",
+   "note": "classic shop only when not Covering"
+  },
+  {
+   "from": "ObsHookSeq.then_1",
+   "to": "TradeObsIfV.execute",
+   "replace": true,
+   "note": "was -> HookIf (old Obsidian panel)"
+  },
+  {
+   "from": "TradeObsIfV.else",
+   "to": "ohHookIf4.execute"
+  },
+  {
+   "from": "TradeObsIfC.else",
+   "to": "ohHookIf4.execute"
+  },
+  {
+   "from": "HookSizeX.ReturnValue",
+   "to": "TradeDraw0.SizeX"
+  },
+  {
+   "from": "HookSizeY.ReturnValue",
+   "to": "TradeDraw0.SizeY"
+  },
+  {
+   "from": "HookSizeX.ReturnValue",
+   "to": "TradeDraw1.SizeX"
+  },
+  {
+   "from": "HookSizeY.ReturnValue",
+   "to": "TradeDraw1.SizeY"
+  }
+ ]
+}
