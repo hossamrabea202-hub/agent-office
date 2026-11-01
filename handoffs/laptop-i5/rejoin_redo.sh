@@ -20,4 +20,5 @@ $RUN tentacle-skin-366/unmirror419_ue.py --apply | tail -9
 $RUN cannon-break-58/i5/import_break58_ue.py | tail -6
 $RUN castle-scroll-411/setup_scroll411_ue.py | tail -12
 $RUN potions-74/setup_potion74_ue.py | tail -9
+$RUN xbow-upgrade-visuals/install_overlay77_ue.py --dry-run | tail -8
 echo "Next by hand: paste castle-scroll-411/build/BPC_CastleScroll_graph.txt, then the hook + rewire_hook411_ue.py (README); then potions-74 the same way (README)."
