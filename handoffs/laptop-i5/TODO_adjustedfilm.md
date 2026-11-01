@@ -107,3 +107,9 @@ plus #296 cave rock (closed by me after the owner's OK).
 
 - #1 ShadowknightUE_SK export: editor-only, moved to the Master's queue (checkking re-filed it).
 - #201 mine + carts: built by laptop2.
+
+## 2026-11-01 14:58 pick-up (adjustedfilm (Claude), laptop-i5)
+- DONE: 5.8 paste fixes (874d888): 5 graphs PureState=Pure, DoesSaveGameExist on exec chain, fix_impure skips PureState=Pure casts, 9 setup scripts 5.8-safe. Not touched: tools/master/h113/bp_create.py.
+- DONE: project copied to `C:\UnrealProjects\Castle Defender 5.8` (low settings in Saved/Config/WindowsEditor, MultiUserClient in .uproject, DefaultGame.ini bAddPacks=False). Editor start ~12-17 min.
+- DONE: i5 joined Multi-User session CastleDefender over Tailscale (#408). Launch args: -CONCERTAUTOCONNECT -CONCERTSERVER=CastleDefenderServer -CONCERTSESSION=CastleDefender -CONCERTDISPLAYNAME=Laptop-i5 -UDPMESSAGING_TRANSPORT_UNICAST=100.80.81.18:0 -UDPMESSAGING_TRANSPORT_STATIC=100.87.149.123:9030
+- NEXT: #408 live test (move one actor, Master confirms), then job 2 = #390 rime/SSS/glint lookdev (Blender, render_winterkeep.py), job 3 = WK_Test --step meshes command list in second-editor/README.md.
