@@ -1,9 +1,10 @@
 {
- "working": "file-side fixes (editor crashes on the live sync)",
- "tokens": 315706,
+ "working": "next small card / tentacle script once i9 names the fix",
+ "tokens": 481924,
  "ctx": 1000000,
  "since": "2026-11-01T14:13:24Z",
  "done": [
+  "i5: #383 bounce, #370 quests (hero attach left to i9), #357 torches (5.8 fixes); fresh session CastleDefender2 [52% tokens left]",
   "i5: #372 #373 #238 pasted; 21 already-in cards closed; script fixes #374 #375 #377 + #306 named + #389 pre-checked [68% tokens left]",
   "#408 i5 joined live session CastleDefender [78% tokens left]",
   "#399 step 2: Multi-User enabled, editor up [81% tokens left]",
@@ -12,8 +13,7 @@
   "#390 bridge-end wall + frozen falls v3 (9bc1084) [82% tokens left]",
   "#390 blizzard white-out + shots [80% tokens left]",
   "#390 snow VFX handed off [83% tokens left]",
-  "#390 v2 renders posted (presets + props) [74% tokens left]",
-  "#390 snow trails handed off [90% tokens left]"
+  "#390 v2 renders posted (presets + props) [74% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T15:18:32Z",
+ "asOf": "2026-11-01T16:08:41Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-01T15:18:32Z",
+  "asOf": "2026-11-01T16:08:41Z",
   "meters": [
    {
     "k": "5h",
@@ -45,8 +45,8 @@
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 65,
-    "resetsAt": "2026-11-06T05:59:59Z",
+    "pct": 66,
+    "resetsAt": "2026-11-06T06:00:00Z",
     "color": "#d9af65"
    }
   ]
