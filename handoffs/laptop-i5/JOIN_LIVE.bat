@@ -1,11 +1,11 @@
 @echo off
 rem JOIN_LIVE.bat - open Castle Defender on this laptop and join the Master's live Multi-User session.
 rem Put this file next to CastleDefender.uproject, then double-click it.
-rem   JOIN_LIVE.bat              -> Master on the ZBook's Mobile Hotspot (192.168.137.1)
-rem   JOIN_LIVE.bat 100.x.y.z    -> Master's Tailscale IP (when not on the hotspot)
+rem   JOIN_LIVE.bat              -> Master over Tailscale (ZBook = 100.87.149.123)
+rem   JOIN_LIVE.bat 192.168.137.1 -> Master on the ZBook Mobile Hotspot instead
 setlocal
 set MASTER=%~1
-if "%MASTER%"=="" set MASTER=192.168.137.1
+if "%MASTER%"=="" set MASTER=100.87.149.123
 set UE=C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
 set PROJ=%~dp0CastleDefender.uproject
 if not exist "%UE%" (echo Unreal Engine 5.8 not found at "%UE%" & pause & exit /b 1)
