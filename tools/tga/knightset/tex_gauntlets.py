@@ -1,19 +1,22 @@
-# Yellow Eagle gauntlets (#367, TGA): UVs + procedural material bake -> 2K BC / ORM / N (DirectX), LODs, R mirror, FBX.
-#   blender -b gauntlets.blend -P tex_gauntlets.py      (env WORK) -> WORK/out/{tex,fbx}, saves gauntlets_tex.blend
+# Yellow Eagle set (#367, TGA): UVs + procedural material bake -> 2K BC / ORM / N (DirectX), LODs, R mirror, FBX. One recipe
+# for every piece (env PIECE, default Gauntlets; e.g. Greaves):
+#   blender -b <piece>.blend -P tex_gauntlets.py      (env WORK, PIECE) -> WORK/out/{tex,fbx}, saves <piece>_tex.blend
 # Materials from sheet 08's swatches, calibrated to the KB: bare steel 180-200 sRGB metallic 1 (aged by darker oxide and
 # grime that are NON-metal in seams / cavities), brass rivets ~#C8A24D metal with tarnish in recesses, glove leather
 # #4B3526, strap #2A1B12 (lifted to >= 40 sRGB). Wear by cause: AO (cavities, under lames) -> oxide + grime, bevel edge
 # mask -> polished bright edges and scratches on high points (knuckles, cuff rim), mud low on the fingers.
 import bpy, os, math, numpy as np
+PIECE = os.environ.get('PIECE', 'Gauntlets'); NAME = 'SM_Eagle' + PIECE
+MUDZ = {'Gauntlets': (-0.12, -0.16), 'Greaves': (0.07, 0.015)}.get(PIECE, (-1, -2))   # object Z (m): mud starts / is full
 D = os.environ.get('WORK') or os.path.dirname(bpy.data.filepath); OUT = os.path.join(D, 'out'); TEX = os.path.join(OUT, 'tex'); FBX = os.path.join(OUT, 'fbx')
 for p in (TEX, FBX): os.makedirs(p, exist_ok=True)
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 16
-g = bpy.data.objects['SM_EagleGauntlets_L']; bpy.context.view_layer.objects.active = g; g.select_set(True)
+g = bpy.data.objects[NAME + '_L']; bpy.context.view_layer.objects.active = g; g.select_set(True)
 bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
 bpy.ops.uv.smart_project(angle_limit=math.radians(60), island_margin=0.004, scale_to_bounds=False)
 bpy.ops.uv.pack_islands(margin=0.004); bpy.ops.object.mode_set(mode='OBJECT')
 R = 2048
-IM = {k: bpy.data.images.new('T_EagleGauntlets_' + k, R, R, alpha=False, float_buffer=(k == 'N')) for k in ('BC', 'ORM', 'N')}
+IM = {k: bpy.data.images.new('T_Eagle%s_' % PIECE + k, R, R, alpha=False, float_buffer=(k == 'N')) for k in ('BC', 'ORM', 'N')}
 for k, im in IM.items(): im.colorspace_settings.name = 'sRGB' if k == 'BC' else 'Non-Color'
 def lin(*c): return tuple(((x / 255 + 0.055) / 1.055) ** 2.4 for x in c) + (1,)
 def build(mat, kind):
@@ -49,7 +52,7 @@ def build(mat, kind):
     edge = ramp(math_('SUBTRACT', 1.0, dp.outputs['Value']), 0.004, 0.06)       # 1 on rolled edges / lame borders
     cav = ramp(math_('SUBTRACT', 1.0, ao.outputs['AO']), 0.25, 0.75)            # 1 deep in seams, under lames
     sep = N('ShaderNodeSeparateXYZ'); L(tc.outputs['Object'], sep.inputs[0])
-    mud = math_('MULTIPLY', ramp(sep.outputs['Z'], -0.12, -0.16), ramp(noise(55, 3), 0.45, 0.7))   # fingertips (object -Z)
+    mud = math_('MULTIPLY', ramp(sep.outputs['Z'], MUDZ[0], MUDZ[1]), ramp(noise(55, 3), 0.45, 0.7))   # fingertips (object -Z)
     n1, n2 = noise(14, 5), noise(260, 2, 0.6)
     bump = N('ShaderNodeBump'); bump.inputs['Distance'].default_value = 0.0004
     if kind == 'steel':
@@ -124,7 +127,7 @@ for k, im in IM.items():
 # final shading material: textures (for the lookdev and the FBX slot names)
 for m in g.data.materials:
     nt = m.node_tree; out = next(n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL'); bs = next(n for n in nt.nodes if n.type == 'BSDF_PRINCIPLED'); nt.links.new(bs.outputs[0], out.inputs['Surface'])
-mt = bpy.data.materials.new('MI_EagleGauntlets'); mt.use_nodes = True; nt = mt.node_tree; b = nt.nodes['Principled BSDF']
+mt = bpy.data.materials.new('MI_Eagle' + PIECE); mt.use_nodes = True; nt = mt.node_tree; b = nt.nodes['Principled BSDF']
 def ti(k, cs):
     n = nt.nodes.new('ShaderNodeTexImage'); n.image = IM[k]; n.image.colorspace_settings.name = cs; return n
 bc, orm, nm = ti('BC', 'sRGB'), ti('ORM', 'Non-Color'), ti('N', 'Non-Color'); sp = nt.nodes.new('ShaderNodeSeparateColor'); nt.links.new(orm.outputs[0], sp.inputs[0])
@@ -138,17 +141,17 @@ def dup(src, name):
     o = src.copy(); o.data = src.data.copy(); o.name = name; o.data.name = name; sc.collection.objects.link(o); return o
 objs = [g]
 for i, ratio in ((1, 0.5), (2, 0.25), (3, 0.12)):
-    o = dup(g, 'SM_EagleGauntlets_L_LOD%d' % i); m_ = o.modifiers.new('D', 'DECIMATE'); m_.ratio = ratio
+    o = dup(g, NAME + '_L_LOD%d' % i); m_ = o.modifiers.new('D', 'DECIMATE'); m_.ratio = ratio
     bpy.context.view_layer.objects.active = o; bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.ops.object.modifier_apply(modifier='D'); objs.append(o)
 for o in list(objs):
     r = dup(o, o.name.replace('_L', '_R', 1)); r.scale = (-1, 1, 1)
     bpy.ops.object.select_all(action='DESELECT'); r.select_set(True); bpy.context.view_layer.objects.active = r
     bpy.ops.object.transform_apply(scale=True); bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT'); bpy.ops.mesh.flip_normals(); bpy.ops.object.mode_set(mode='OBJECT')
 stats = {}
-for o in [x for x in sc.objects if x.name.startswith('SM_EagleGauntlets')]:
+for o in [x for x in sc.objects if x.name.startswith(NAME)]:
     stats[o.name] = sum(len(p.vertices) - 2 for p in o.data.polygons)
     bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
     bpy.ops.export_scene.fbx(filepath=os.path.join(FBX, o.name + '.fbx'), use_selection=True, object_types={'MESH'}, mesh_smooth_type='FACE', use_tspace=True,
                              apply_scale_options='FBX_SCALE_UNITS', add_leaf_bones=False, bake_anim=False)
 print('STATS', stats, flush=True)
-bpy.ops.wm.save_as_mainfile(filepath=os.path.join(D, 'gauntlets_tex.blend')); print('TEX OK gauntlets', flush=True)
+bpy.ops.wm.save_as_mainfile(filepath=os.path.join(D, PIECE.lower() + '_tex.blend')); print('TEX OK', PIECE, flush=True)
