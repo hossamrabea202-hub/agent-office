@@ -254,7 +254,7 @@ def world(preset):
     elif preset in ('overcast', 'blizzard'):
         bg.inputs['Color'].default_value = (0.62, 0.66, 0.72, 1); bg.inputs['Strength'].default_value = 1.0 if preset == 'overcast' else 0.8
         sun = bpy.data.lights.new('Sun', 'SUN'); sun.energy = 0.35; sun.angle = math.radians(25); sun.color = (0.95, 0.97, 1.0)   # 2:1 overcast ratio
-        exposure = -0.35 if preset == 'overcast' else -0.2
+        exposure = -0.35 if preset == 'overcast' else 0.9   # blizzard: bright white-out (snow scatters, it doesn't absorb)
     else:  # night: grey-blue, moon on snow (blue is a stylistic choice, made on purpose: Purkinje)
         bg.inputs['Color'].default_value = (0.010, 0.014, 0.024, 1); bg.inputs['Strength'].default_value = 1.0
         sun = bpy.data.lights.new('Moon', 'SUN'); sun.energy = 0.05; sun.angle = math.radians(0.57); sun.color = (0.72, 0.82, 1.0)
@@ -263,11 +263,11 @@ def world(preset):
         so = bpy.data.objects.new(sun.name, sun); sc.collection.objects.link(so)
         so.rotation_euler = (math.radians(90 - (9 if preset == 'lowsun' else 35 if preset == 'night' else 50)), 0, math.radians(215 - 90 if preset != 'night' else 160))
     # fog lives in a bounded box (a world volume blocks the infinitely far sky in Cycles: the frame goes black)
-    dens = {'blizzard': 0.0065, 'overcast': 0.00035, 'lowsun': 0.00022, 'night': 0.0004}[preset]
+    dens = {'blizzard': 0.0042, 'overcast': 0.00035, 'lowsun': 0.00022, 'night': 0.0004}[preset]
     bpy.ops.mesh.primitive_cube_add(size=1, location=(0, 0, 300)); fb = bpy.context.active_object; fb.name = 'FogBox'; fb.scale = (5000, 5000, 1000)
     fm = bpy.data.materials.new('M_Fog'); fnt = fm.node_tree if fm.use_nodes else None; fm.use_nodes = True; fnd, fln = fm.node_tree.nodes, fm.node_tree.links; fnd.clear()
     fo = fnd.new('ShaderNodeOutputMaterial'); vol = fnd.new('ShaderNodeVolumePrincipled'); vol.inputs['Density'].default_value = dens
-    vol.inputs['Color'].default_value = (0.85, 0.88, 0.93, 1); vol.inputs['Anisotropy'].default_value = 0.5 if preset == 'blizzard' else 0.7
+    vol.inputs['Color'].default_value = (0.97, 0.98, 1.0, 1) if preset == 'blizzard' else (0.85, 0.88, 0.93, 1); vol.inputs['Anisotropy'].default_value = 0.3 if preset == 'blizzard' else 0.7
     # height falloff: fog thicker in the valley (low), thinner over the ridges
     tc = fnd.new('ShaderNodeTexCoord'); sep = fnd.new('ShaderNodeSeparateXYZ'); fln.new(tc.outputs['Object'], sep.inputs['Vector'])
     mr = fnd.new('ShaderNodeMapRange'); mr.inputs['From Min'].default_value = -0.3; mr.inputs['From Max'].default_value = 0.1

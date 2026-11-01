@@ -309,3 +309,12 @@ Lessons:
 **Not ours:** sheets 13 (sword) and 14 (shield) for #367 are an image-generation prompt from Codex; Codex or the owner makes them.
 
 **Owner feedback (keep):** finish old cards before opening new ones; put every ask on the existing card if one exists; short, simple replies; start a new session before the context gets long.
+
+### adjustedfilm, 2026-11-01: pick up here (session ended at ~240k tokens)
+
+**One job: #390 WinterKeep**, a new 2x2 km winter map. The owner said the whole map is mine. Read
+`handoffs/winter-map/README.md`, then `DESIGN.md`. The terrain regenerates with `terrain/gen_terrain.py` (~70 s), then
+`terrain/gen_scatter.py`. Lookdev: `lookdev/render_winterkeep.py`. The UE script has NOT been run in the editor yet:
+wait for the Master's `--dry-run` log, fix, then continue with the TODO list (trails, snow VFX, Blender winter assets).
+Lessons: a world volume in Cycles blacks out the sky (use a fog box); np.roll wraps map edges (use edge-padded shifts);
+a road graded to a smoothed profile makes embankments (clip cut/fill to the terrain).

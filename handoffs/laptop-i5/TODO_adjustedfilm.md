@@ -4,6 +4,14 @@ The owner, 2026-10-31: *"i feel you are just opening new mini quests and not fin
 card on this desk, oldest first. A card closes only when it is **in the game and checked**. Keep it updated at every
 session start and end.
 
+## FOCUS 2026-11-01: #390 WinterKeep (owner: "everything on the map is your job now")
+
+Hand-off filed: `handoffs/winter-map/README.md` (steps 1-9 for the Master). Done: research, design map, terrain,
+weight maps, scatter, UE script (assets/level/check/dress/light/remove, --dry-run), Blender lookdev of 4 presets.
+Next, in order: (1) fix from the Master's dry-run log `ue/wk390_log.txt`; (2) BPC_SnowTrails (RT trail mask + POM);
+(3) snow Niagara from the #226 rain; (4) Blender assets: snow-loaded spruce, icicles, frozen falls, bridge, farmsteads;
+(5) blizzard lookdev is still too dark/murky (should be a bright white-out) and falling snow does not read.
+
 ## Closed today (in the game, checked by the Master)
 
 #277 flares, #283 cannon map, #313 / #314 toasts, #315 shop swipe, #316 breach, #322 Flesh Brute (waves + animations),
