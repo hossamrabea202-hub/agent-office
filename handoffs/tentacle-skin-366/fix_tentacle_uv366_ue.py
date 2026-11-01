@@ -57,7 +57,13 @@ def mesh_axes():
     return unit(k), unit(side[0]), unit(side[1]), 0.5 * (e[side[0]] + e[side[1]]) * 0.5, 'XYZ'[k], e   # mean radius ~ half the mean half-extent (it tapers)
 
 
-PROPS = [getattr(unreal.MaterialProperty, n) for n in dir(unreal.MaterialProperty) if n.startswith('MP_')]
+# UE 5.8: get_material_property_input_node crashes the editor (null read in MaterialEditor) on internal properties
+# such as MP_MAX, so walk only the real output pins (i5 core, 2026-11-01).
+PROPS = [getattr(unreal.MaterialProperty, n) for n in (
+    'MP_BASE_COLOR', 'MP_METALLIC', 'MP_SPECULAR', 'MP_ROUGHNESS', 'MP_ANISOTROPY', 'MP_EMISSIVE_COLOR', 'MP_OPACITY',
+    'MP_OPACITY_MASK', 'MP_NORMAL', 'MP_TANGENT', 'MP_WORLD_POSITION_OFFSET', 'MP_SUBSURFACE_COLOR',
+    'MP_AMBIENT_OCCLUSION', 'MP_REFRACTION', 'MP_PIXEL_DEPTH_OFFSET', 'MP_CUSTOM_DATA0', 'MP_CUSTOM_DATA1')
+    if hasattr(unreal.MaterialProperty, n)]
 WPO = [getattr(unreal.MaterialProperty, n) for n in ('MP_WORLD_POSITION_OFFSET',) if hasattr(unreal.MaterialProperty, n)]
 
 

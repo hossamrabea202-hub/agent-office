@@ -46,10 +46,22 @@ def enum(cls, *names):
     raise RuntimeError('%s has none of %s' % (cls.__name__, names))
 
 
+REBUILD = ('RT_Reveal', 'M_RevealItem', 'BP_RevealStage')   # --fix269 deletes these first (#374, UE 5.8: a reused copy kept the old setup)
+
+
+def wipe(name):
+    """--fix269: delete our own asset so it is rebuilt from scratch. BPC_MotionFX's v3 paste re-links it by path."""
+    path = '%s/%s' % (DEST, name)
+    if not (FIX and name in REBUILD and EAL.does_asset_exist(path)): return
+    log.append('delete + rebuild ' + path)
+    if not DRY and not EAL.delete_asset(path): log.append('  (could not delete %s, reusing it)' % path)
+
+
 def fresh(name, cls, factory):
     """create the asset, or return the existing one (re-run)."""
     path = '%s/%s' % (DEST, name)
-    if EAL.does_asset_exist(path):
+    wipe(name)
+    if EAL.does_asset_exist(path) and not (DRY and FIX and name in REBUILD):
         log.append('reusing ' + path); return unreal.load_asset(path), False
     log.append('create ' + path)
     if DRY: return None, True
@@ -313,6 +325,8 @@ def pickup_mesh(path):
         else:
             continue
         if mesh is None: continue
+        if mesh.get_path_name().startswith('/Engine/'):   # #374: skip glow cards / basic shapes (picked a Plane on 5.8)
+            log.append('  skip %s %s' % (c.get_name(), mesh.get_path_name())); continue
         sc = c.get_editor_property('relative_scale3d')
         r = mesh.get_bounds().sphere_radius * max(abs(sc.x), abs(sc.y), abs(sc.z))
         if best is None or r > best[4]:
@@ -334,7 +348,8 @@ LIGHTS = [  # name, location (cm from the item), candela, Kelvin, source radius:
     ('RimLight', unreal.Vector(110, 95, 70), 30.0, 8500, 6.0),
     ('FillLight', unreal.Vector(-105, 130, -15), 2.5, 6000, 40.0)]
 STAGE = DEST + '/BP_RevealStage'
-if EAL.does_asset_exist(STAGE):
+wipe('BP_RevealStage')
+if EAL.does_asset_exist(STAGE) and not (DRY and FIX):
     stage = unreal.load_asset(STAGE); log.append('reusing ' + STAGE)
 else:
     log.append('create ' + STAGE)
@@ -345,7 +360,8 @@ else:
 meshes = {tag: pickup_mesh(p) for tag, p in PICKUPS.items()}
 if stage:
     hs, by = handles_of(stage)
-    root = hs[0]
+    # UE 5.8 (#374): hs[0] is the actor itself (mobility can't be set there); use the root scene component.
+    root = next((h for h in hs if isinstance(comp(h), unreal.SceneComponent)), hs[0])
 
     def add(name, cls, parent):
         if name in by: return by[name], False
@@ -373,8 +389,10 @@ if stage:
         c.set_editor_property('visible_in_scene_capture_only', False)   # #269: 2 km up and hidden when idle is enough
         movable(c)
         if isinstance(c, unreal.StaticMeshComponent):
-            try: c.set_editor_property('force_disable_nanite', True)        # #269: plain mesh in the capture
-            except Exception as e: log.append('  (force_disable_nanite skipped: %s)' % e)
+            for prop in ('disallow_nanite', 'force_disable_nanite'):        # #269: plain mesh in the capture (5.8 name first)
+                try: c.set_editor_property(prop, True); break
+                except Exception: pass
+            else: log.append('  (no Nanite opt-out property on %s)' % c.get_name())
         c.set_editor_property('visible', False)
         c.set_editor_property('cast_shadow', True)
         c.set_collision_profile_name('NoCollision')
