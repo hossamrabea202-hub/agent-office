@@ -10,9 +10,9 @@ from mathutils import Vector, Matrix
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 OUT = argv[0] if argv else os.path.join(os.path.dirname(__file__), 'out')
 _A = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'assets'))
-SRCS = [os.path.join(_A, 'checkking', 'Obsidian-Sovereign'), os.path.join(_A, 'tga', 'Obsidian-Sovereign')]   # #418: TGA's forearms / upper arms / waist / thighs
+SRCS = [os.path.join(_A, 'checkking', 'Obsidian-Sovereign'), os.path.join(_A, 'tga', 'Obsidian-Sovereign'), os.path.join(_A, 'laptop2', 'WeaponPack')]   # + #418 shields   # #418: TGA's forearms / upper arms / waist / thighs
 def src(folder): return next(s for s in SRCS if os.path.isdir(os.path.join(s, folder)))
-ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots', 'Forearms', 'UpperArms', 'Waist', 'Thighs']
+ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots', 'Forearms', 'UpperArms', 'Waist', 'Thighs', 'HeaterShield', 'RoundShield']
 BASE_ICONS = os.path.join(_A, 'tga', 'VesnaTrade', 'textures', 'T_VT_Icons.png')   # cells of pieces not rendered now are kept from here
 PIECES = argv[1:] or ICON_ORDER
 FW, FH, COLS, ROWS, N = 512, 340, 4, 6, 24
@@ -37,6 +37,7 @@ def tex(nt, path, cs):
 
 def material(folder):
     t = os.path.join(src(folder), folder, 'textures', 'T_ObsidianSovereign_%s_' % folder)
+    if not os.path.exists(t + 'BaseColor.png'): t = os.path.join(src(folder), folder, 'textures', 'T_%s_' % folder)   # weapon pack naming
     m = bpy.data.materials.new('M_' + folder); m.use_nodes = True; nt = m.node_tree
     bsdf = nt.nodes['Principled BSDF']
     bc = tex(nt, t + 'BaseColor.png', 'sRGB'); orm = tex(nt, t + 'ORM.png', 'Non-Color'); nm = tex(nt, t + 'Normal_DirectX.png', 'Non-Color')
