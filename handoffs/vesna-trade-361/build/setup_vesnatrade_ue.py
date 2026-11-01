@@ -159,7 +159,13 @@ def apply():
                  'HeroMat': OBJ(unreal.MaterialInterface), 'TurnTex': ARR(OBJ(unreal.Texture2D)),
                  'PieceIds': ARR(I), 'PieceDef': ARR(I), 'SlotIds': ARR(I), 'SlotRow': ARR(I), 'IconFromAtlas': ARR(Bo),
                  'NameUV': ARR(LCT), 'DefUV': ARR(LCT), 'TitleUV': ARR(LCT), 'TagUV': ARR(LCT), 'IconUV': ARR(LCT), 'ShieldUV': LCT})
-    have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+    try:
+        have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+    except Exception:   # 5.3 Python: no 'new_variables'; probe the class defaults instead (Master patch 2026-11-01)
+        _cdo0 = unreal.get_default_object(bp.generated_class()); have = set()
+        for _n in VARS:
+            try: _cdo0.get_editor_property(_n); have.add(_n)
+            except Exception: pass
     for n, t in VARS.items():
         if n not in have:
             if not BEL.add_member_variable(bp, n, t): raise RuntimeError('could not add ' + n)
