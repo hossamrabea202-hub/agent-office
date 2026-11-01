@@ -1,8 +1,8 @@
 {
- "working": "#408 live test: move one actor",
- "tokens": 215000,
+ "working": "i5 core pastes (prep)",
+ "tokens": 30000,
  "ctx": 1000000,
- "since": "2026-11-01T12:54:33Z",
+ "since": "2026-11-01T14:06:12Z",
  "done": [
   "#408 i5 joined live session CastleDefender [78% tokens left]",
   "#399 step 2: Multi-User enabled, editor up [81% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T13:58:02Z",
+ "asOf": "2026-11-01T14:06:12Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "56c98e77cc4a",
+  "id": "34c69fec01d2",
   "host": "5CD3147LBC"
  },
  "ask": {
