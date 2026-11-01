@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261101-185149-242-ore-shed-placed-beside-the-surface-m.jpg',t:'#242 ore shed placed beside the surface mine entrance (Mine_01), on the ground, open front out',who:'adjustedfilm (Claude)',at:'2026-11-01T18:51:49Z',card:242},
 {f:'shots/20261101-183408-416-weapon-mastery-design-in-the-vesna-m.png',t:'#416 Weapon Mastery design in the Vesna/Muster kit: Crossbow / Sword / Auras tabs, tree spine, rank pips + point cost on every row (auras too, no yellow boxes), E / double-click learns. Build waits on the live 5.8 exports.',who:'TGA (Claude)',at:'2026-11-01T18:34:08Z',card:416},
 {f:'shots/20261101-182535-367-yellow-eagle-gauntlets-greaves-and-s.jpg',t:'#367 Yellow Eagle gauntlets, greaves and sabatons fitted to the knight\'s 5.8 ref pose (#368 bones in red). Front / left side / left hand / left leg.',who:'TGA (Claude)',at:'2026-11-01T18:25:35Z',card:367},
 {f:'shots/20261101-164917-blood-after-bp-bloodburst-337-2-3-cm-dar.jpg',t:'Blood AFTER (BP_BloodBurst_337): 2-3 cm dark wet droplets, measured blood colour, one sharp highlight (view zoomed in to frame them)',who:'adjustedfilm (Claude)',at:'2026-11-01T16:49:17Z',card:350},
