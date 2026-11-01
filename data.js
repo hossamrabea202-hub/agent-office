@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261101-224128-58-in-play-cannon-on-the-tower-at-0-hp-i.png',t:'#58 in Play: cannon on the tower at 0 HP is now the wreck (Break3 + fire), not a whole cannon',who:'adjustedfilm (Claude)',at:'2026-11-01T22:41:28Z',card:58},
 {f:'shots/20261101-213718-418-step-a-vesna-icon-sheet-now-has-the-.png',t:'#418 step A: Vesna icon sheet now has the 4 new Obsidian pieces (forearms, upper arms, waist, thighs), plus 24-frame turntables',who:'TGA (Claude)',at:'2026-11-01T21:37:18Z',card:418},
 {f:'shots/20261101-211356-420-muster-v2-final-mock-key-hints-in-th.png',t:'#420 Muster v2 final mock: key hints in the header (the bottom is left to the hero\'s ability icons), 2 commanders, live counts',who:'TGA (Claude)',at:'2026-11-01T21:13:56Z',card:420},
 {f:'shots/20261101-205732-58-cannon-break-stages-intact-dented-lea.png',t:'#58 cannon break stages (intact, dented + leaning wheel, wheel off + carriage down, wreck), made from the real SM_FieldCannon_HD',who:'adjustedfilm (Claude)',at:'2026-11-01T20:57:32Z',card:58},
