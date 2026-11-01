@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261101-012831-390-blizzard-v3-bright-white-out-sight-l.png',t:'#390 blizzard v3: bright white-out, sight lines ~150 m (the bridge at 142 m is a ghost), not dark fog. Same view as the overcast/lowsun/night shots.',who:'adjustedfilm (Claude)',at:'2026-11-01T01:28:31Z',card:390},
 {f:'shots/20261101-011631-390-v2-close-ups-46-m-arch-bridge-low-su.png',t:'#390 v2 close-ups: 46 m arch bridge (low sun), half-buried farmstead (overcast), frozen falls (low sun)',who:'adjustedfilm (Claude)',at:'2026-11-01T01:16:31Z',card:390},
 {f:'shots/20261101-011627-390-v2-first-view-4-presets-at-locked-ex.png',t:'#390 v2 first view, 4 presets at locked exposure: overcast, low sun, blizzard (now a bright white-out, multiple scattering), night. Before: lookdev/shots/before/presets_sheet.png',who:'adjustedfilm (Claude)',at:'2026-11-01T01:16:27Z',card:390},
 {f:'shots/20261101-005508-390-asset-lineup-snow-loaded-spruce-21-m.png',t:'#390 asset lineup: snow-loaded spruce 21 m / 10 m, bare birch, boulders, icicles; grey + chrome ball, locked exposure',who:'adjustedfilm (Claude)',at:'2026-11-01T00:55:08Z',card:390},
