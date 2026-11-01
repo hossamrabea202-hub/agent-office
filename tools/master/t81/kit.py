@@ -68,7 +68,7 @@ def varset(G, name, parent, member, cls_pin, val_pin, x=0, y=0, self_ctx=False):
 def branch(G, name, x=0, y=0):
     return G.node(name, 'K2Node_IfThenElse', [], [ex(), bo('Condition', default='true'), ex('then', True), ex('else', True)], x, y)
 def cast(G, name, target_cls, out_name, x=0, y=0, pure=False):
-    props = ['TargetType=%s' % target_cls] + (['bIsPureCast=True'] if pure else [])
+    props = ['TargetType=%s' % target_cls] + (['PureState=Pure'] if pure else [])
     pins = ([] if pure else [ex(), ex('then', True), ex('CastFailed', True)]) + [ob('Object', '"/Script/CoreUObject.Class\'/Script/CoreUObject.Object\'"'), ob(out_name, target_cls, out=True), {'name': 'bSuccess', 'cat': 'bool', 'out': True, 'hidden': True}]
     return G.node(name, 'K2Node_DynamicCast', props, pins, x, y)
 def sequence(G, name, n, x=0, y=0):
