@@ -1,8 +1,8 @@
 {
- "working": "waiting on Master: #390 dry-run log",
- "tokens": 240000,
+ "working": "#390 polish",
+ "tokens": 30000,
  "ctx": 1000000,
- "since": "2026-10-31T23:11:26Z",
+ "since": "2026-11-01T00:15:37Z",
  "done": [
   "#390 WinterKeep hand-off v1 (research, design, terrain, UE script, presets) [76% tokens left]",
   "#386 handed off [60% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T00:09:37Z",
+ "asOf": "2026-11-01T00:15:37Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "11f0882113df",
+  "id": "4ab42008d1ae",
   "host": "5CD3147LBC"
  },
  "ask": {
