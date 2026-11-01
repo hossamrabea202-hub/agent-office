@@ -1,16 +1,19 @@
-# Vesna's Trade (#361): turntable atlases + list icons for the Obsidian pieces that have art (checkking's meshes/textures).
+﻿# Vesna's Trade (#361): turntable atlases + list icons for the Obsidian pieces that have art (checkking's meshes/textures).
 #   blender -b --factory-startup -P turntable.py -- <out dir> [piece ...]
 # Per piece: T_VT_Turn_<Folder>.png = 24 frames (4 x 6 cells of 512 x 340, 15 deg apart, frame 0 = 3/4 view) on alpha.
 # All pieces: T_VT_Icons.png = 1024 x 256, 8 cells of 128 (order = ICON_ORDER), the frame-0 view cropped square.
 # Look follows the owner's target: dark studio, warm key, cool back glow, gold rim.
 import bpy, sys, os, math
 import numpy as np
-from mathutils import Vector
+from mathutils import Vector, Matrix
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 OUT = argv[0] if argv else os.path.join(os.path.dirname(__file__), 'out')
-SRC = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'assets', 'checkking', 'Obsidian-Sovereign'))
-ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots']
+_A = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'assets'))
+SRCS = [os.path.join(_A, 'checkking', 'Obsidian-Sovereign'), os.path.join(_A, 'tga', 'Obsidian-Sovereign')]   # #418: TGA's forearms / upper arms / waist / thighs
+def src(folder): return next(s for s in SRCS if os.path.isdir(os.path.join(s, folder)))
+ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots', 'Forearms', 'UpperArms', 'Waist', 'Thighs']
+BASE_ICONS = os.path.join(_A, 'tga', 'VesnaTrade', 'textures', 'T_VT_Icons.png')   # cells of pieces not rendered now are kept from here
 PIECES = argv[1:] or ICON_ORDER
 FW, FH, COLS, ROWS, N = 512, 340, 4, 6, 24
 os.makedirs(OUT, exist_ok=True)
@@ -33,7 +36,7 @@ def tex(nt, path, cs):
     n = nt.nodes.new('ShaderNodeTexImage'); n.image = bpy.data.images.load(path); n.image.colorspace_settings.name = cs; return n
 
 def material(folder):
-    t = os.path.join(SRC, folder, 'textures', 'T_ObsidianSovereign_%s_' % folder)
+    t = os.path.join(src(folder), folder, 'textures', 'T_ObsidianSovereign_%s_' % folder)
     m = bpy.data.materials.new('M_' + folder); m.use_nodes = True; nt = m.node_tree
     bsdf = nt.nodes['Principled BSDF']
     bc = tex(nt, t + 'BaseColor.png', 'sRGB'); orm = tex(nt, t + 'ORM.png', 'Non-Color'); nm = tex(nt, t + 'Normal_DirectX.png', 'Non-Color')
@@ -52,15 +55,38 @@ def area(name, loc, energy, color, size, target):
     o.rotation_euler = (Vector(target) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler(); return o
 
 def load(folder):
-    files = sorted(f for f in os.listdir(os.path.join(SRC, folder)) if f.lower().endswith('.fbx'))
+    files = sorted(f for f in os.listdir(os.path.join(src(folder), folder)) if f.lower().endswith('.fbx'))
     before = set(bpy.data.objects)
-    for f in files: bpy.ops.import_scene.fbx(filepath=os.path.join(SRC, folder, f))
+    groups = []
+    for f in files:
+        b4 = set(bpy.data.objects); bpy.ops.import_scene.fbx(filepath=os.path.join(src(folder), folder, f))
+        groups.append([o for o in bpy.data.objects if o not in b4 and o.type == 'MESH'])
     objs = [o for o in bpy.data.objects if o not in before and o.type == 'MESH']
     for o in bpy.data.objects:
         if o not in before and o.type != 'MESH': bpy.data.objects.remove(o)
     m = material(folder)
     for o in objs:
         o.data.materials.clear(); o.data.materials.append(m)
+    # pairs modelled in knight space sit an arm-span apart at the A-pose tilt (#418): stand each side up along its main
+    # axis (top = the end that is higher on the knight) and set the two side by side
+    if len(groups) == 2 and all(groups):
+        bpy.context.view_layer.update()
+        for grp in groups:
+            vs = np.array([tuple(o.matrix_world @ v.co) for o in grp for v in list(o.data.vertices)[::7]])
+            c = vs.mean(0); w, U = np.linalg.eigh(np.cov((vs - c).T)); ax = U[:, -1]
+            if ax[2] < 0: ax = -ax
+            q = Vector(ax).rotation_difference(Vector((0, 0, 1))).to_matrix().to_4x4()
+            M = Matrix.Translation(Vector(c)) @ q @ Matrix.Translation(-Vector(c))
+            for o in grp: o.matrix_world = M @ o.matrix_world
+        bpy.context.view_layer.update()
+        bbs = []
+        for grp in groups:
+            q_ = [o.matrix_world @ Vector(cc) for o in grp for cc in o.bound_box]
+            bbs.append((Vector([min(v[i_] for v in q_) for i_ in range(3)]), Vector([max(v[i_] for v in q_) for i_ in range(3)])))
+        gap = 0.10 * max((hi - lo).x for lo, hi in bbs)
+        for grp, (lo, hi), sgn in zip(groups, bbs, (-1, 1)):
+            cc = (lo + hi) / 2; w_ = (hi - lo).x
+            for o in grp: o.matrix_world = Matrix.Translation(Vector((sgn * (w_ / 2 + gap / 2) - cc.x, -cc.y, -cc.z))) @ o.matrix_world
     # normalise: centre on the bbox, biggest side = 2 units, pivot = an empty at the origin that turns
     bpy.context.view_layer.update()
     pts = [o.matrix_world @ Vector(c) for o in objs for c in o.bound_box]
@@ -78,7 +104,7 @@ def setup_camera(size):
     cam = bpy.data.objects.new('Cam', bpy.data.cameras.new('Cam')); bpy.context.scene.collection.objects.link(cam)
     cam.data.lens = 60; bpy.context.scene.camera = cam
     # fit the turning piece: its horizontal extent can reach the bbox diagonal on X/Y
-    reach = max(math.hypot(size.x, size.y), size.z * FW / FH) * 0.5 * 1.04
+    reach = max(math.hypot(size.x, size.y), size.z * FW / FH) * 0.5 * 1.16   # #418: tall pieces (fauld) were cut at the bottom
     dist = reach / math.tan(cam.data.angle_x / 2) + max(size) * 0.18
     el = math.radians(12)
     cam.location = (0, -dist * math.cos(el), dist * math.sin(el)); cam.rotation_euler = (math.pi / 2 - el, 0, 0)
@@ -117,7 +143,7 @@ for folder in PIECES:
     save(atlas, os.path.join(OUT, 'T_VT_Turn_%s.png' % folder)); print('TURN', folder, atlas.shape)
 
 # icons: square crop round the alpha bbox of frame 0, downsampled to 128 (box filter)
-ic = np.zeros((256, 1024, 4), np.float32)
+ic = px(BASE_ICONS) if os.path.exists(BASE_ICONS) else np.zeros((256, 1024, 4), np.float32)
 for k, folder in enumerate(ICON_ORDER):
     if folder not in icons: continue
     a = icons[folder]; ys, xs = np.where(a[..., 3] > 0.02)
@@ -136,3 +162,4 @@ for k, folder in enumerate(ICON_ORDER):
     r, c = divmod(k, 8)
     ic[(1 - r) * 128:(2 - r) * 128, c * 128:(c + 1) * 128] = small   # row 0 at the top
 save(ic, os.path.join(OUT, 'T_VT_Icons.png')); print('ICONS', ICON_ORDER)
+

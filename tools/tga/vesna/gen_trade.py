@@ -685,10 +685,10 @@ VARS = dict(Tab=('int', 1), RTab=('int', 0), Sel=('int', 1), Scroll=('int', 0), 
             LastT=('double', 0.0), Dragging=('bool', False), DragX=('double', 0.0), HeroYaw=('double', 0.0), BaseSpeed=('double', 0.0),
             HeroDamage=('int', 35), HeroMaxHP=('int', 250), CurDef=('int', 0),
             CapDist=('double', 330.0), CapHeight=('double', 20.0))
-ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots']          # tools/tga/vesna/turntable.py, 128 px cells in 1024 x 256
+ICON_ORDER = ['Chest', 'Shoulders', 'Gauntlets', 'Shins', 'Boots', 'Forearms', 'UpperArms', 'Waist', 'Thighs']   # turntable.py, 128 px cells, 8 per row, 1024 x 256
 pcs = L['pieces']
 def icon_uv(p):
-    if p['art']: k_ = ICON_ORDER.index(p['art']); return (k_ * 128 / 1024.0, 0.0, 128 / 1024.0, 128 / 256.0)
+    if p['art']: r_, c_ = divmod(ICON_ORDER.index(p['art']), 8); return (c_ * 128 / 1024.0, r_ * 128 / 256.0, 128 / 1024.0, 128 / 256.0)
     return cell_uv('glyph%d' % p['id'])
 row_of = {p['id']: i for i, p in enumerate(pcs)}
 DATA = dict(

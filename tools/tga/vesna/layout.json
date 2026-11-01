@@ -901,7 +901,7 @@
    "title": "SOVEREIGN VAMBRACES",
    "tag": "FOREARMS (PAIR)",
    "deff": 8,
-   "art": null
+   "art": "Forearms"
   },
   {
    "id": 16,
@@ -909,7 +909,7 @@
    "title": "SOVEREIGN REREBRACES",
    "tag": "UPPER ARMS (PAIR)",
    "deff": 8,
-   "art": null
+   "art": "UpperArms"
   },
   {
    "id": 18,
@@ -917,7 +917,7 @@
    "title": "SOVEREIGN FAULD",
    "tag": "WAIST",
    "deff": 10,
-   "art": null
+   "art": "Waist"
   },
   {
    "id": 19,
@@ -925,7 +925,7 @@
    "title": "SOVEREIGN CUISSES",
    "tag": "THIGHS (PAIR)",
    "deff": 12,
-   "art": null
+   "art": "Thighs"
   },
   {
    "id": 14,
