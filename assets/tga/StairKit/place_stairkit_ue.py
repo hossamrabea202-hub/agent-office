@@ -67,6 +67,15 @@ def kit_orient(path):
     if not sm: orient[path] = None; return None
     b = sm.get_bounds(); orient[path] = (1 if b.origin.x >= 0 else -1, 1 if b.origin.y >= 0 else -1, sm); return orient[path]
 
+maxn = {}
+def kit_max(wc):
+    """#301 fix: the longest N imported for this width (the kit stops at N16; v2 asked for N32 at 2 m and found nothing).
+    Longer runs (the castle's N20 / N31) are chained from several pieces on the same treads."""
+    if wc not in maxn:
+        maxn[wc] = next((m for m in range(32, 1, -1) if unreal.EditorAssetLibrary.does_asset_exist(KIT % (wc, STYLE, m))), 2)
+        log('kit W%03d: longest flight N%02d' % (wc, maxn[wc]))
+    return maxn[wc]
+
 rep, k, hide_all = [], 0, []
 for ch in chains:
     T = [treads[i] for i in ch]; n = len(T)
@@ -80,7 +89,7 @@ for ch in chains:
     w = unreal.Vector(-d.y, d.x, 0)
     pieces, s0 = [], 0
     while s0 < n:
-        m = min(32 if wc == 200 else 16, n - s0)                                   # 2 m kit goes to 32 steps: one piece
+        m = min(kit_max(wc), n - s0)                                               # longest flight the imported kit really has (#301: N16)
         if n - s0 - m == 1: m -= 1
         pieces.append((s0, m)); s0 += m
     plan, ok = [], True
@@ -104,7 +113,7 @@ for ch in chains:
         plan.append((path, sm, loc, yaw, scale, m, err))
         if err > TOL: ok = False
     if not ok:
-        log('SKIP %s..%s: kit misfit %.0f cm > %.0f, left as is' % (T[0]['lab'], T[-1]['lab'], max(p[6] for p in plan) if plan else -1, TOL)); continue
+        log('SKIP %s..%s: %s, left as is' % (T[0]['lab'], T[-1]['lab'], ('kit misfit %.0f cm > %.0f' % (max(p[6] for p in plan), TOL)) if plan else 'no kit piece found')); continue
     base, ztop = T[0]['top'] - rise, T[-1]['top']                                  # this flight's own volume
     reach = (plan[0][5] - 0.5) * going                                             # blocks only under the FIRST piece (its solid
                                                                                    # body reaches the ground; later pieces only replace treads)
