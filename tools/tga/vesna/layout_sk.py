@@ -19,12 +19,16 @@ ITEMS = [
     ('aheal',   2, 'Healer Aura',   'HEALER AURA',    'PASSIVE  •  KEY 5', 'aheal', ('Key 5: 12 s, +2 s per rank, then it recharges.',), 'AuraHeal', '5'),
     ('aburn',   2, 'Selfburn Aura', 'SELFBURN AURA',  'PASSIVE  •  KEY 6', 'aburn', ('Key 6: 12 s, +2 s per rank, then it recharges.',), 'AuraBurn', '6'),
 ]
+# cost multiplier (next rank costs mult x (rank + 1)) and prerequisite (the skill before it in the chain needs rank >= 1),
+# both read from the live branches: CX_3498 x1, CX_3674 x5, CX_4098 x1, CX_4260 x5, CX_4429 x10; CX_3613 / 4207 / 4376 gates
+MULT = {'blast': 1, 'charge': 5, 'whirl': 1, 'quake': 5, 'fissure': 10}
+PREREQ = {'charge': 'blast', 'quake': 'whirl', 'fissure': 'quake'}
 SEALED = {0: 3, 1: 2, 2: 0}          # sealed slots under each tab (the tree's ??? rows), drawn after the real ones
 ROWS_PER_TAB = 5
 
 L = dict(LT)
 L.update(dict(
-    TW=TW, TH=TH, S=S, tabnames=TABS, sealed=SEALED, maxrank=3,
+    TW=TW, TH=TH, S=S, tabnames=TABS, sealed=SEALED, maxrank=3, mult=MULT, prereq=PREREQ,
     tabs=[dict(cx=530, lx=560, x0=420, x1=640, icon=470), dict(cx=830, lx=850, x0=725, x1=935, icon=790),
           dict(cx=1130, lx=1150, x0=1020, x1=1240, icon=1090)],
     rows=dict(LT['rows'], n=5),
@@ -51,7 +55,7 @@ def cells():
           ('rsel', 447, 74, 'rsel', ''), ('maxed', 130, 26, 'state', 'MASTERED'), ('sealed', 110, 26, 'state', 'SEALED'),
           ('btn_on', 530, 44, 'btn', 'on'), ('btn_off', 530, 44, 'btn', 'off'), ('key_e', 36, 26, 'key', 'E'),
           ('pip_on', 16, 16, 'pip', 'on'), ('pip_off', 16, 16, 'pip', 'off'), ('bigpip_on', 26, 26, 'bigpip', 'on'), ('bigpip_off', 26, 26, 'bigpip', 'off'),
-          ('spt', 26, 26, 'spt', ''), ('nopts', 380, 26, 'msg', 'Not enough skill points, hunter.'),
+          ('spt', 26, 26, 'spt', ''), ('needs', 130, 26, 'state', 'LOCKED'), ('nopts', 380, 26, 'msg', 'Not enough skill points, hunter.'),
           ('ring', 64, 64, 'ring', ''), ('ring_on', 64, 64, 'ring', 'on')]
     for g in sorted({i[5] for i in ITEMS} | {'lock'}): c.append(('glyph_' + g, 128, 128, 'glyph', g))
     return c

@@ -19,7 +19,9 @@ const CREAM='#ede3cf', DIM='#9e9485', GOLD='#f0cc85', GREEN='#9edb5c', RED='#e05
 const level=12, spent=4, free=level-spent, tab=1, sel=1;
 const rank={blast:1,charge:0,whirl:1,quake:0,fissure:0,adef:1,aheal:0,aburn:0};
 const items=L.items, inTab=t=>items.filter(i=>i.tab===t);
-const cost=it=>rank[it.key]+1;                                   // live rule: next rank costs rank + 1 points
+const cost=it=>(L.mult[it.key]||2)*(rank[it.key]+1);            // live rule: mult x (rank + 1); auras 2 x (rank + 1) (old screen, to verify)
+const locked=it=>{ const p=L.prereq[it.key]; return !!p && rank[it.key]===0 && rank[p]===0; };
+const nameOf=k=>items.find(i=>i.key===k).name.toUpperCase();
 // header
 const t=L.tabs[tab]; cell('tab'+tab,(t.x0+t.x1)/2,L.tabbar.cy,null,'c');
 txt(free+'  POINTS',L.purse.gold[1],L.purse.cy,26,CREAM); txt('LEVEL '+level,L.purse.iron[1]+40,L.purse.cy,24,CREAM);
@@ -37,9 +39,10 @@ for(let i=0;i<nAll;i++){ const ry=R.y0+i*R.step, cy=ry+R.h/2, it=rows[i];
   const rk=rank[it.key]; cellC(rk>0?'ring_on':'ring',dx,cy,60); cellC('glyph_'+it.glyph,dx,cy,40,rk>0?'#f3d58e':GLY);
   cell('name_'+it.key,R.name[0],ry+R.name[1]-R.y0,CREAM);
   for(let p=0;p<3;p++) cell(p<rk?'pip_on':'pip_off',R.deff[0]+p*20,ry+R.deff[1]-R.y0);
-  txt('RANK '+rk+' / 3',R.deff[0]+70,ry+R.deff[1]-R.y0,17,DIM);
+  txt(locked(it)?'NEEDS '+nameOf(L.prereq[it.key]):'RANK '+rk+' / 3',R.deff[0]+70,ry+R.deff[1]-R.y0,17,locked(it)?'#c0705c':DIM);
   const sy=ry+R.state[1]-R.y0;
   if(rk>=3) cell('maxed',R.state[0],sy,null,'r');
+  else if(locked(it)) cell('needs',R.state[0],sy,null,'r');
   else { const c=cost(it), e=txt(String(c),R.state[0],sy,28,free>=c?GOLD:RED,'r'); cell('spt',R.state[0]-e.getBoundingClientRect().width-32,sy); } }
 // centre: the selected skill
 const it=rows[sel], rk=rank[it.key], c=cost(it);

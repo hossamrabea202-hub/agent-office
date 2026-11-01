@@ -61,10 +61,23 @@ These are from the shipped games themselves (my own notes, no new sources):
   | Fissure | `RkB.A` |
 
   The tree is open while `St.R` > 0.5, and the points spent are in `St.A`.
-- Rank rules: max rank 3. The next rank costs rank + 1 points. Free points = Level − St.A. The upgrade branches are CX_4791 / 4803 / 4815 / 4829 / 4843.
+- Rank rules, read from the live branches (CX_4791 / 4803 / 4815 / 4829 / 4843):
+  - max rank 3;
+  - the next rank costs **mult × (rank + 1)** points, with mult ×1 for Blast Bolt and Whirlwind, ×5 for Charged Shot and Quake Slam, and ×10 for Fissure;
+  - **prerequisite:** Charged Shot needs Blast Bolt, Quake Slam needs Whirlwind, and Fissure needs Quake Slam (rank ≥ 1, unless the skill already has a rank);
+  - free points = Level − St.A.
+- A learned rank writes three params:
+
+  | Param | What it gets |
+  |---|---|
+  | `Rk*` | its channel + 1 |
+  | `St` | (1, St.G, skill index 0–4, St.A + cost) |
+  | `Fx` | (skill index, real time, Fx.B, Fx.A); this fires the unlock book |
+
+  BPC_SkillTome writes exactly the same values.
 - **To verify on the live export:**
-  - the skill ↔ channel mapping above;
-  - the aura costs and how auras store their ranks (BP_HeroAuras `AuraDef` / `AuraHeal` / `AuraBurn`);
+  - that these rules haven't changed since 10-30;
+  - the aura costs and how auras store their ranks (BP_HeroAuras `AuraDef` / `AuraHeal` / `AuraBurn`). The old screen showed 2 × (rank + 1), which the mock uses;
   - whether the active skills have hotkeys to show. The mock leaves those out rather than guess.
 
 ## 5. Build plan (same pattern as the Muster, which is installed and compiles in 5.8.4)
