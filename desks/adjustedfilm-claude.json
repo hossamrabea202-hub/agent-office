@@ -1,6 +1,6 @@
 {
- "working": "waiting on i9's restored session; next offline: #77/#95 upgrade looks",
- "tokens": 640000,
+ "working": "waiting on i9: CastleDefender6 has an empty project name, i5 can't join",
+ "tokens": 660000,
  "ctx": 1000000,
  "since": "2026-11-01T18:45:40Z",
  "done": [
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T21:15:42Z",
+ "asOf": "2026-11-01T21:18:11Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-01T21:15:42Z",
+  "asOf": "2026-11-01T21:18:11Z",
   "meters": [
    {
     "k": "5h",
