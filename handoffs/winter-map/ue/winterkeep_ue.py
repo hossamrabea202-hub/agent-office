@@ -579,6 +579,15 @@ def step_meshes():
             bo = mi.get_editor_property('base_property_overrides'); bo.set_editor_property('override_two_sided', True); bo.set_editor_property('two_sided', True)
             mi.set_editor_property('base_property_overrides', bo)
         EAL.save_loaded_asset(mi); MI[slot] = mi
+    # UE 5.8 imports FBX through Interchange and ignores FbxImportUI; switch it off for this run, restore after (#399)
+    ic = 'Interchange.FeatureFlags.Import.FBX'
+    try: ic_old = unreal.SystemLibrary.get_console_variable_int_value(ic)
+    except Exception: ic_old = None
+    if ic_old is not None: unreal.SystemLibrary.execute_console_command(None, ic + ' 0')
+    try: _import_meshes(MI)
+    finally:
+        if ic_old is not None: unreal.SystemLibrary.execute_console_command(None, '%s %d' % (ic, ic_old))
+def _import_meshes(MI):
     for m in MESHES:
         t = unreal.AssetImportTask(); t.filename = os.path.join(AST, 'fbx', m + '.fbx'); t.destination_path = ROOT + '/Meshes'; t.destination_name = m
         t.automated = True; t.save = False; t.replace_existing = True
