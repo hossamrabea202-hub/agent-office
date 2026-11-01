@@ -32,5 +32,10 @@ if (!$Only -or $Only -eq 'muster') { & 'U:\5.2\python\bin\python.exe' (Join-Path
   Shot 'muster.html' '?m=chrome' 1672 941 "$out\T_MU_Frame.png" $S -clear; Fit "$out\T_MU_Frame.png" 1920 1080
   Shot 'atlas.html' '?L=mu' 1783 1783 "$out\T_MU_Atlas.png" $S -clear; Fit "$out\T_MU_Atlas.png" 2048 2048
   Shot 'muster.html' '?m=mock' 1672 941 "$out\mock_mu.png" 1 }
+if (!$Only -or $Only -eq 'skill') { & 'U:\5.2\python\bin\python.exe' (Join-Path $here 'layout_sk.py'); & 'U:\5.2\python\bin\python.exe' (Join-Path $here 'make_skill_html.py')
+  Shot 'skilltree.html' '?m=chrome' 1672 941 "$out\T_SK_Frame.png" $S -clear; Fit "$out\T_SK_Frame.png" 1920 1080
+  Shot 'atlas.html' '?L=sk' 1783 1783 "$out\T_SK_Atlas.png" $S -clear; Fit "$out\T_SK_Atlas.png" 2048 2048
+  Shot 'atlas.html' '?L=sk&grid=1' 1783 1783 "$out\atlas_sk_grid.png" 1
+  Shot 'skilltree.html' '?m=mock' 1672 941 "$out\mock_sk.png" 1 }
 Get-ChildItem $out -Filter *.png | ForEach-Object { $i = [System.Drawing.Image]::FromFile($_.FullName); '{0} {1}x{2}' -f $_.Name, $i.Width, $i.Height; $i.Dispose() }
 
