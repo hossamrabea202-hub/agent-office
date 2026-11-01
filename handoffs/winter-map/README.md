@@ -17,6 +17,10 @@ Script: `S = <repo>/handoffs/winter-map/ue/winterkeep_ue.py`. Each run writes `u
    - **M_WK_SnowProp** and **MI_WK_DriftSnow**
    
    Open M_WK_Landscape once; it must compile with no errors.
+3b. **NEW (polish v2):** `py S --step meshes`. It imports the 9 winter meshes (`assets/out/fbx`, Nanite on) and 27 textures
+   (`assets/out/tex`) to `/Game/CastleDefender/WinterKeep/Meshes` and `/Textures`, and makes 9 `MI_WK_*` instances of
+   M_WK_SnowProp (SnowAmount per slot, needles two-sided, ORM gets Composite Texture = its normal map). Every line should
+   say `OK`. Then open **SM_WK_Spruce_A** once: snow clumps sit on top of the branches only, needles are dark green.
 4. `py S --step level`. This creates and opens **WinterKeep** (a World Partition level) and removes the template's small
    landscape.
 5. **Landscape import. Python can't create a sized landscape in 5.3, so use these clicks.** Landscape mode (Shift+2),
@@ -35,8 +39,13 @@ Script: `S = <repo>/handoffs/winter-map/ue/winterkeep_ue.py`. Each run writes `u
    7. Click **Import**. Then save with **File, Save All**.
 6. `py S --step check`. It verifies location and scale (it fixes them if they're off) and the material, and prints spot
    heights. **Expected:** castle about 6200, lake about 365, bridge about 5250 cm.
+6b. **NEW:** `py S --step props --dry-run`, then `py S --step props`. It places **WK_Bridge** (one 46 m stone arch over the
+   gorge, deck 6.5 m at the road height, walkable), **WK_IceFalls** (the frozen waterfall on the 13.6 m rock step) and
+   **WK_Farm_East / WK_Farm_Road / WK_Farm_North** (half-buried log farmsteads, drift on the SE lee side). Re-running
+   replaces only these actors. `SM_WK_Icicles_3m` is a 3 m eave strip: drag copies onto castle eaves by hand (pivot = eave line).
 7. `py S --step dress --dry-run`. Check the counts and the chosen meshes. Then run `py S --step dress`.
-   - It makes one HISM actor per 256 m World Partition cell.
+   - It makes one HISM actor per 256 m World Partition cell. After `--step meshes` it uses our own SM_WK_Spruce_A/B,
+     SM_WK_Birch_A and SM_WK_Rock_A/B (the log says which mesh each kind got).
    - Expect about 13.6k spruce, 2.4k young spruce, 1.0k birch, 6.1k rocks, 1.6k dead shrubs and 600 drift mounds.
 8. `py S --step light --preset overcast`. Other presets: `lowsun`, `blizzard`, `night`. Each one sets the sun, sky,
    fog and an unbound post process with **locked exposure** (Histogram, Min EV100 = Max EV100):
@@ -54,7 +63,17 @@ Script: `S = <repo>/handoffs/winter-map/ue/winterkeep_ue.py`. Each run writes `u
 **Undo:** `py S --step remove` deletes only the actors tagged WK390 in WinterKeep. The level itself is new, so deleting
 it removes everything.
 
-## Tests
+## Tests (polish v2 additions first)
+
+- A1. Bridge: walk across the deck; the road meets both ends with no step. Snow cushions on the parapets, icicles under
+  the string course, voussoir blocks proud of the face. Nothing floats; the abutments vanish into the gorge sides.
+- A2. Frozen falls: from the river ice below, the curtain has an irregular outline (no square slab), white-blue bubbly
+  ice with clear streaks, an ice cone at the foot. No dark gaps between the ice and the rock.
+- A3. Farmsteads: snow load on the roof (thin on the NW side, deep with a cornice on the SE side), drift to the eaves on
+  the SE side, a dug-out trench to the door, icicles on the NW eave.
+- A4. Trees: no square or flat-plate look; snow only on top of branches; WPO is off, shadows Rigid (no VSM cost).
+- A5. Snow is never clipped white under the overcast preset (BC p50 230 sRGB = 0.80 linear).
+
 
 1. The landscape is 2017², and the gate road and river match the design map. There are no seams or clipped peaks.
 2. Snow is never pure white. Under the overcast preset, compare snow on the grey ball: snow should be about 4.5× the 0.18
@@ -93,6 +112,33 @@ it removes everything.
   | post | 1.5 ms |
 
   If shadows go over budget, first drop spruce shadows beyond 300 m.
+
+## Polish v2 (2026-11-01): real assets instead of stand-ins
+
+Built by `assets/build_wk_assets.py` (Blender 4.5, procedural, seeds fixed): `blender -b --factory-startup -P assets/build_wk_assets.py`.
+
+| Mesh | What | Tris | Slots |
+|---|---|---|---|
+| SM_WK_Spruce_A / B | snow-loaded Norway spruce, 21 m / 10 m: branch whorls, drooping fronds, hanging branchlets, snow cushions on top of every branch | 63k / 33k | SpruceBark, Needles, Snow |
+| SM_WK_Birch_A | bare silver birch 14 m: white bark, dark fissured base, weeping fine twigs, snow lines on limbs | 63k | BirchBark, BirchDark, Snow |
+| SM_WK_Rock_A / B | glacial boulders 4.4 m / 1.2 m: fractured planes + modelled snow cap | 7k | Rock, Snow |
+| SM_WK_Icicles_3m | eave strip, heavy-tailed lengths, ripple rings | 3k | Ice |
+| SM_WK_IceFalls | frozen waterfall 18 m: organ-pipe columns, lip, spray cone, leans up the rock step | 33k | Ice |
+| SM_WK_Bridge | 76 m stone bridge, one 46 m arch (14th-c. Céret type), voussoirs, parapets, deck snow with ruts | 28k | Stone, Snow, Ice |
+| SM_WK_Farmstead | log house 12 x 7 m, interlocked corners, roof snow load + cornice, drift field, door trench, woodpile, fence | 25k | Wood, Stone, Snow, Ice |
+
+**Textures** (`assets/out/tex`, 1024², BC sRGB / ORM linear / N OpenGL 16-bit): all 9 BC/ORM pairs pass `pbr_check`
+(`assets/out/pbr_check.txt`). Albedo: snow 0.80 (p50 230 sRGB), needles p50 55, spruce bark 76, birch 186, stone 116,
+logs 98, rock 74. Nothing is 1.0 white, no AO baked into BC.
+
+**Terrain fix:** the old "gorge" under the bridge was the road embankment (a 30 m fill with 1 m walls and 46 m spikes).
+`gen_terrain.py` now never fills the gorge (the bridge spans it), despikes the bridge area and lets a short stone
+causeway meet the deck. Spot heights: bridge deck 5247 cm (unchanged), river ice under it about 2180 cm.
+
+**Lookdev:** `lookdev/render_winterkeep.py` now uses the real meshes and the exact `scatter.json` instances UE gets,
+textured snow with glints (random-facet sparkle), box-projected rock texture, multiple scattering in the blizzard fog,
+and 3 new shots: `--shot bridge|farm|falls`. `lookdev/render_assets.py` renders the asset lineup with the grey and chrome
+balls. Old shots are in `lookdev/shots/before/`.
 
 ## Not done yet (next session, in this order)
 

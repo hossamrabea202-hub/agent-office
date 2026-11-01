@@ -1,0 +1,114 @@
+{
+ "SM_WK_Spruce_A": {
+  "tris": 62912,
+  "slots": [
+   "WK_SpruceBark",
+   "WK_Needles",
+   "WK_Snow"
+  ],
+  "size_m": [
+   7.81,
+   7.43,
+   21.66
+  ]
+ },
+ "SM_WK_Spruce_B": {
+  "tris": 32764,
+  "slots": [
+   "WK_SpruceBark",
+   "WK_Needles",
+   "WK_Snow"
+  ],
+  "size_m": [
+   3.8,
+   3.64,
+   10.22
+  ]
+ },
+ "SM_WK_Birch_A": {
+  "tris": 63408,
+  "slots": [
+   "WK_Snow",
+   "WK_BirchBark",
+   "WK_BirchDark"
+  ],
+  "size_m": [
+   7.32,
+   6.33,
+   14.68
+  ]
+ },
+ "SM_WK_Rock_A": {
+  "tris": 6523,
+  "slots": [
+   "WK_Snow",
+   "WK_Rock"
+  ],
+  "size_m": [
+   4.39,
+   3.27,
+   2.09
+  ]
+ },
+ "SM_WK_Rock_B": {
+  "tris": 7184,
+  "slots": [
+   "WK_Snow",
+   "WK_Rock"
+  ],
+  "size_m": [
+   1.19,
+   0.94,
+   0.69
+  ]
+ },
+ "SM_WK_Icicles_3m": {
+  "tris": 2664,
+  "slots": [
+   "WK_Ice"
+  ],
+  "size_m": [
+   3.0,
+   0.11,
+   0.9
+  ]
+ },
+ "SM_WK_IceFalls": {
+  "tris": 33122,
+  "slots": [
+   "WK_Ice"
+  ],
+  "size_m": [
+   18.0,
+   18.27,
+   17.6
+  ]
+ },
+ "SM_WK_Bridge": {
+  "tris": 27562,
+  "slots": [
+   "WK_Snow",
+   "WK_Ice",
+   "WK_Stone"
+  ],
+  "size_m": [
+   76.9,
+   7.92,
+   37.63
+  ]
+ },
+ "SM_WK_Farmstead": {
+  "tris": 24792,
+  "slots": [
+   "WK_Snow",
+   "WK_Ice",
+   "WK_Stone",
+   "WK_Wood"
+  ],
+  "size_m": [
+   32.0,
+   39.0,
+   8.06
+  ]
+ }
+}

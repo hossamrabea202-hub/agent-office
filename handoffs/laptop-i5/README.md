@@ -318,3 +318,11 @@ Lessons:
 wait for the Master's `--dry-run` log, fix, then continue with the TODO list (trails, snow VFX, Blender winter assets).
 Lessons: a world volume in Cycles blacks out the sky (use a fog box); np.roll wraps map edges (use edge-padded shifts);
 a road graded to a smoothed profile makes embankments (clip cut/fill to the terrain).
+
+### adjustedfilm, 2026-11-01 (later): pick up here (#390 polish v2 done, session ended at ~250k tokens)
+
+Read `handoffs/winter-map/README.md`, section "Polish v2", and the TODO focus block. Assets rebuild with
+`blender -b --factory-startup -P handoffs/winter-map/assets/build_wk_assets.py` (~20 s; `--only tex|mesh`). Terrain
+changed (gorge fix): after any terrain change also re-run `gen_scatter.py` and the asset build (props.json reads the
+heightmap). Lessons: Blender `-P` with a wrong relative path fails silently with no Traceback (check for `wrote`);
+the Bash tool breaks on `'''` inside heredocs (write patch scripts to a file). Next: trails, snow Niagara (TODO).

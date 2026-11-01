@@ -159,3 +159,18 @@ is the realism tell. Place snow by the Winstral Sx shelter index (max upwind hor
 GoW Ragnarok rebuilt snow displacement for scale; our pick is a player-centred render-target mask + POM in the landscape
 material (no WPO, no VHM: no collision, RVT writes lag). Tested in Blender: a world volume in Cycles blocks the infinitely
 far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/winter-map/RESEARCH.md
+
+## 2026-11-01 — WinterKeep polish v2: snow-loaded trees, ice, terrain (adjustedfilm, tested in Blender lookdev)
+- **Norway spruce reads real only with hanging branchlets.** Flat or V-shaped fronds alone read as stacked plates. The
+  "comb" habit (narrow needle strips hanging under each branch) plus snow cushions on top of each branch (15-37 cm,
+  lumpy, only on top) made it read as a snow-loaded spruce at once. Tested: lineup render `winter-map/lookdev/shots/assets_trees.png`.
+- **Single-octave value noise thresholded = star shapes.** A speckle mask from 1 octave of value noise makes repeating
+  X/star blobs on rock. Use 3+ octaves before thresholding. Tested.
+- **Dense fog in Cycles goes dark with volume bounces 0** (the default). A white-out needs multiple scattering:
+  `cycles.volume_bounces` 3-4. Snow fog is bright because light scatters many times, not because the fog is white.
+- **Check a "gorge" is terrain, not a road fill.** Our gorge under the bridge was a 30 m road embankment with 1 px
+  spikes. Never fill a river crossing to deck height in the heightmap; let the bridge mesh span it.
+- **Real big single arches exist:** Pont du Diable at Céret (1341) spans about 45 m and stands 22 m high, so one 46 m
+  segmental arch over a 30 m gorge is authentic, not fantasy. [source: Wikipedia, Pont du Diable (Céret)]
+- **Frozen falls:** mostly bubbly white-blue ice (albedo ~0.5) with a few clear dark streaks; an irregular outline and a
+  spray cone at the foot. A full-width square curtain reads as a slab.

@@ -6,7 +6,9 @@
   py ".../winterkeep_ue.py" --step level       NEW level /Game/CastleDefender/Maps/WinterKeep (World Partition)
      (then the Landscape import clicks in README.md)
   py ".../winterkeep_ue.py" --step check       verifies the landscape (size, scale, location, material, layers)
-  py ".../winterkeep_ue.py" --step dress       HISM dressing per 256 m cell (trees, rocks, shrubs, drifts)
+  py ".../winterkeep_ue.py" --step meshes      imports the WinterKeep assets (assets/out: 9 FBX + 27 textures) + MI_WK_* (Nanite)
+  py ".../winterkeep_ue.py" --step props       places the bridge, the frozen falls and 3 farmsteads (assets/out/props.json)
+  py ".../winterkeep_ue.py" --step dress       HISM dressing per 256 m cell (trees, rocks, shrubs, drifts; uses SM_WK_* if imported)
   py ".../winterkeep_ue.py" --step light --preset overcast|lowsun|blizzard|night
   py ".../winterkeep_ue.py" --step remove      deletes ONLY actors tagged WK390 in the WinterKeep level
 
@@ -21,6 +23,7 @@ DRY = '--dry-run' in ARGS
 def arg(k, d=None): return ARGS[ARGS.index(k) + 1] if k in ARGS else d
 STEP, PRESET = arg('--step'), arg('--preset', 'overcast')
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.normpath(os.path.join(HERE, '..', 'terrain', 'out'))
+AST = os.path.normpath(os.path.join(HERE, '..', 'assets', 'out'))
 ROOT = '/Game/CastleDefender/WinterKeep'; LEVEL = '/Game/CastleDefender/Maps/WinterKeep'; TAG = 'WK390'
 AT = unreal.AssetToolsHelpers.get_asset_tools(); EAL = unreal.EditorAssetLibrary; MEL = unreal.MaterialEditingLibrary
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem); LES = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
@@ -55,7 +58,10 @@ def api_check():
             'LevelEditorSubsystem.new_level_from_template': hasattr(LES, 'new_level_from_template'),
             'HierarchicalInstancedStaticMeshComponent': hasattr(unreal, 'HierarchicalInstancedStaticMeshComponent'),
             'LandscapeProxy (find landscape)': hasattr(unreal, 'LandscapeProxy'),
-            'files: layout.json / scatter.json': os.path.exists(os.path.join(OUT, 'scatter.json'))}
+            'files: layout.json / scatter.json': os.path.exists(os.path.join(OUT, 'scatter.json')),
+            'files: assets/out/props.json': os.path.exists(os.path.join(AST, 'props.json')),
+            'CompositeTextureMode (ORM composite)': hasattr(unreal, 'CompositeTextureMode'),
+            'StaticMesh.set_material': hasattr(unreal.StaticMesh, 'set_material')}
     for k, v in need.items(): say(('OK   ' if v else 'MISS ') + k)
     say('Landscape creation is NOT scriptable in 5.3 -> README clicks (Landscape mode > Import from File).')
     return all(need.values())
@@ -243,6 +249,8 @@ def step_check():
     if not DRY: save_level()
 
 # ------------------------------------------------------------------ dressing (HISM per 256 m World Partition cell)
+OWN = {'Spruce': ('SM_WK_Spruce_A', 1.0), 'Spruce_Young': ('SM_WK_Spruce_B', 2.2), 'Birch': ('SM_WK_Birch_A', 1.0),
+       'Rock_Large': ('SM_WK_Rock_A', 1.0), 'Rock_Small': ('SM_WK_Rock_B', 1.0)}     # our own meshes win over project ones
 DRESS = {  # kind: (asset kind, prefer words, base scale, cull start/end cm, shadows)
     'Spruce': ('conifer', ('spruce', 'fir', 'pine'), 1.0, 25000, 60000, True),
     'Spruce_Young': ('conifer', ('young', 'small', 'spruce'), 0.55, 12000, 30000, True),
@@ -259,6 +267,7 @@ def step_dress():
     total = 0
     for kind, (akind, prefer, base, c0, c1, shadow) in DRESS.items():
         mesh = '/Engine/BasicShapes/Sphere' if akind is None else pick(found, akind, prefer)
+        if kind in OWN and EAL.does_asset_exist(ROOT + '/Meshes/' + OWN[kind][0]): mesh, base = ROOT + '/Meshes/' + OWN[kind][0], OWN[kind][1]
         cells = data['kinds'].get(kind, {}); n = sum(len(v) for v in cells.values())
         say('%-12s %6d instances in %3d cells  mesh=%s' % (kind, n, len(cells), mesh)); total += n
         if DRY or not mesh: continue
@@ -271,6 +280,8 @@ def step_dress():
             comp = [c for c in act.get_components_by_class(unreal.HierarchicalInstancedStaticMeshComponent)][0]
             comp.set_static_mesh(sm); comp.set_collision_profile_name('NoCollision' if kind not in ('Spruce', 'Rock_Large') else 'BlockAll')
             comp.set_editor_property('cast_shadow', shadow); comp.set_cull_distances(c0, c1)
+            try: comp.set_editor_property('shadow_cache_invalidation_behavior', unreal.ShadowCacheInvalidationBehavior.RIGID)   # INDUSTRY_SECRETS 4.4
+            except Exception: pass
             if kind == 'Drift_Mound': comp.set_material(0, unreal.load_asset(ROOT + '/Materials/MI_WK_DriftSnow'))
             for x, y, z, yaw, s in pts:
                 sc = (s * base * 9, s * base * 4.5, s * base * 1.2) if kind == 'Drift_Mound' else (s * base,) * 3
@@ -280,6 +291,88 @@ def step_dress():
     if not DRY: save_level()
     missing = [k for k, (a, *_r) in DRESS.items() if a and not pick(found, a)]
     if missing: say('NO project mesh for', missing, '-> skipped; see README "missing assets"')
+
+# ------------------------------------------------------------------ WinterKeep assets (built in Blender: assets/build_wk_assets.py)
+SLOTS = {  # FBX slot: (texture set, SnowAmount for the top mask, two-sided)
+    'WK_SpruceBark': ('SpruceBark', 0.15, False), 'WK_Needles': ('Needles', 0.12, True), 'WK_Snow': ('Snow', 0.0, False),
+    'WK_BirchBark': ('BirchBark', 0.15, False), 'WK_BirchDark': ('BirchDark', 0.15, False), 'WK_Ice': ('Ice', 0.3, False),
+    'WK_Stone': ('Stone', 0.35, False), 'WK_Wood': ('Wood', 0.35, False), 'WK_Rock': ('Rock', 0.4, False)}
+MESHES = ['SM_WK_Spruce_A', 'SM_WK_Spruce_B', 'SM_WK_Birch_A', 'SM_WK_Rock_A', 'SM_WK_Rock_B', 'SM_WK_Icicles_3m', 'SM_WK_IceFalls', 'SM_WK_Bridge', 'SM_WK_Farmstead']
+WALKABLE = ('SM_WK_Bridge', 'SM_WK_Farmstead', 'SM_WK_IceFalls', 'SM_WK_Rock_A')     # complex-as-simple collision
+def import_asset_tex(tset, kind):
+    name = 'T_WK_%s_%s' % (tset, kind); full = ROOT + '/Textures/' + name
+    if EAL.does_asset_exist(full): return unreal.load_asset(full)
+    t = unreal.AssetImportTask(); t.filename = os.path.join(AST, 'tex', name + '.png'); t.destination_path = ROOT + '/Textures'; t.destination_name = name
+    t.automated = True; t.save = False; t.replace_existing = False; AT.import_asset_tasks([t]); tex = unreal.load_asset(full)
+    if kind == 'ORM':
+        tex.set_editor_property('srgb', False); tex.set_editor_property('compression_settings', unreal.TextureCompressionSettings.TC_MASKS)
+    elif kind == 'N':
+        tex.set_editor_property('compression_settings', unreal.TextureCompressionSettings.TC_NORMALMAP); tex.set_editor_property('srgb', False)
+        tex.set_editor_property('flip_green_channel', True)                    # files are OpenGL (Blender); UE wants DirectX
+    else:
+        try: tex.set_editor_property('mip_gen_settings', unreal.TextureMipGenSettings.TMGS_SHARPEN4)   # INDUSTRY_SECRETS 1.3.6
+        except Exception: pass
+    EAL.save_loaded_asset(tex); return tex
+def step_meshes():
+    missing = [m for m in MESHES if not os.path.exists(os.path.join(AST, 'fbx', m + '.fbx'))]
+    say('assets folder', AST, '| FBX missing:', missing or 'none')
+    if DRY:
+        say('would import', len(SLOTS) * 3, 'textures to', ROOT + '/Textures', 'and', len(MESHES), 'meshes to', ROOT + '/Meshes (Nanite on)')
+        say('would create MIs (parent M_WK_SnowProp):', ', '.join('MI_' + k for k in SLOTS)); return
+    parent = unreal.load_asset(ROOT + '/Materials/M_WK_SnowProp')
+    if not parent: say('FAIL run --step assets first (M_WK_SnowProp missing)'); return
+    MI = {}
+    for slot, (tset, amt, two) in SLOTS.items():
+        bc, orm, nrm = (import_asset_tex(tset, k) for k in ('BC', 'ORM', 'N'))
+        try:                                                                    # Composite Texture: normal variance into roughness (rule 2)
+            orm.set_editor_property('composite_texture', nrm); orm.set_editor_property('composite_texture_mode', unreal.CompositeTextureMode.CTM_NORMAL_ROUGHNESS_TO_GREEN)
+            orm.set_editor_property('composite_power', 1.0); EAL.save_loaded_asset(orm)
+        except Exception as e: say('skip composite on', tset, e)
+        full = ROOT + '/Materials/MI_' + slot
+        if EAL.does_asset_exist(full): EAL.delete_asset(full)                 # only ever our own WK assets
+        mi = AT.create_asset('MI_' + slot, ROOT + '/Materials', unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
+        MEL.set_material_instance_parent(mi, parent)
+        for pn, tx in (('BaseColor', bc), ('ORM', orm), ('Normal', nrm)): MEL.set_material_instance_texture_parameter_value(mi, pn, tx)
+        MEL.set_material_instance_scalar_parameter_value(mi, 'SnowAmount', amt)
+        if two:
+            bo = mi.get_editor_property('base_property_overrides'); bo.set_editor_property('override_two_sided', True); bo.set_editor_property('two_sided', True)
+            mi.set_editor_property('base_property_overrides', bo)
+        EAL.save_loaded_asset(mi); MI[slot] = mi
+    for m in MESHES:
+        t = unreal.AssetImportTask(); t.filename = os.path.join(AST, 'fbx', m + '.fbx'); t.destination_path = ROOT + '/Meshes'; t.destination_name = m
+        t.automated = True; t.save = False; t.replace_existing = True
+        ui = unreal.FbxImportUI(); ui.set_editor_property('import_mesh', True); ui.set_editor_property('import_materials', False)
+        ui.set_editor_property('import_textures', False); ui.set_editor_property('import_as_skeletal', False)
+        sd = ui.get_editor_property('static_mesh_import_data')
+        for k, v in (('combine_meshes', True), ('generate_lightmap_u_vs', False), ('auto_generate_collision', m not in WALKABLE),
+                     ('normal_import_method', unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS_AND_TANGENTS), ('build_nanite', True)):
+            try: sd.set_editor_property(k, v)
+            except Exception as e: say('skip import option', k, e)
+        t.options = ui; AT.import_asset_tasks([t]); sm = unreal.load_asset(ROOT + '/Meshes/' + m)
+        if not sm: say('FAIL import', m); continue
+        for i, sm_mat in enumerate(sm.get_editor_property('static_materials')):
+            slot = str(sm_mat.get_editor_property('material_slot_name'))
+            if slot in MI: sm.set_material(i, MI[slot])
+            else: say('WARN', m, 'slot', slot, 'has no MI')
+        if m in WALKABLE:
+            bs = sm.get_editor_property('body_setup'); bs.set_editor_property('collision_trace_flag', unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+        EAL.save_loaded_asset(sm); say('OK  ', m, [str(x.get_editor_property('material_slot_name')) for x in sm.get_editor_property('static_materials')])
+def step_props():
+    if not in_winterkeep(): say('open', LEVEL, 'first'); return
+    P = json.load(open(os.path.join(AST, 'props.json')))
+    for name, lst in P.items():
+        if not name.startswith('SM_WK_'): continue
+        sm = unreal.load_asset(ROOT + '/Meshes/' + name) if EAL.does_asset_exist(ROOT + '/Meshes/' + name) else None
+        for t in lst:
+            label = 'WK_' + t.get('name', name.replace('SM_WK_', ''))
+            say('%-22s loc %s yaw %.1f' % (label, t['loc'], t['yaw']), '(dry run)' if DRY else '')
+            if DRY: continue
+            if not sm: say('FAIL', name, 'not imported: run --step meshes'); break
+            for a in EAS.get_all_level_actors():
+                if a.get_actor_label() == label and unreal.Name(TAG) in a.tags: EAS.destroy_actor(a)   # re-run safe: only our own actor
+            act = EAS.spawn_actor_from_object(sm, unreal.Vector(*t['loc']), unreal.Rotator(0, 0, t['yaw']))
+            act.set_actor_label(label); act.tags = [unreal.Name(TAG)]
+    if not DRY: save_level()
 
 # ------------------------------------------------------------------ lighting presets (locked exposure)
 PRESETS = {  # sun pitch, yaw (UE: direction the light TRAVELS; X east, Y south), lux, Kelvin, skylight, fog, EV100 locked, note
@@ -329,9 +422,10 @@ if '--list' in ARGS:
     for k, v in find_assets().items(): say(k, len(v), v[:12])
 elif DRY and not STEP:
     api_check()
-    for s in (step_assets, step_level): s()
+    for s in (step_assets, step_meshes, step_level): s()
     say('scatter kinds:', {k: sum(len(v) for v in c.values()) for k, c in json.load(open(os.path.join(OUT, 'scatter.json')))['kinds'].items()})
     say('presets:', list(PRESETS))
 else:
-    {'assets': step_assets, 'level': step_level, 'check': step_check, 'dress': step_dress, 'light': step_light, 'remove': step_remove}[STEP]()
+    {'assets': step_assets, 'meshes': step_meshes, 'props': step_props, 'level': step_level, 'check': step_check, 'dress': step_dress,
+     'light': step_light, 'remove': step_remove}[STEP]()
 out = os.path.join(HERE, 'wk390_log.txt'); open(out, 'w').write('\n'.join(LOG)); say('log ->', out)

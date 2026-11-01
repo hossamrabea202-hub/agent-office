@@ -6,11 +6,14 @@ session start and end.
 
 ## FOCUS 2026-11-01: #390 WinterKeep (owner: "everything on the map is your job now")
 
-Hand-off filed: `handoffs/winter-map/README.md` (steps 1-9 for the Master). Done: research, design map, terrain,
-weight maps, scatter, UE script (assets/level/check/dress/light/remove, --dry-run), Blender lookdev of 4 presets.
-Next, in order: (1) fix from the Master's dry-run log `ue/wk390_log.txt`; (2) BPC_SnowTrails (RT trail mask + POM);
-(3) snow Niagara from the #226 rain; (4) Blender assets: snow-loaded spruce, icicles, frozen falls, bridge, farmsteads;
-(5) blizzard lookdev is still too dark/murky (should be a bright white-out) and falling snow does not read.
+Polish v2 done 2026-11-01 (committed, posted on #390): real Blender assets (spruce A/B, birch, 2 boulders, icicles,
+frozen falls, 46 m arch bridge, half-buried farmstead), FBX + pbr-checked textures in `winter-map/assets/out`; UE
+`--step meshes` + `--step props`; dress uses our meshes; terrain gorge fix (the old gorge was a road fill); lookdev uses
+the real meshes, snow glints, rock texture, blizzard multiple scattering, 3 prop shots.
+Next, in order: (1) fix from the Master's log `ue/wk390_log.txt` (meshes/props/dress steps are untested in UE);
+(2) BPC_SnowTrails (RT trail mask + packed layer + POM in M_WK_Landscape; RESEARCH.md section 4) - needs a T3D or a
+setup script, ask for no export (new BP); (3) snow Niagara from the #226 rain (request an export of the rain system
+first); (4) blizzard still needs a check in the new lookdev; (5) spruce snow cushions are a bit round, falls texture streaky.
 
 ## Closed today (in the game, checked by the Master)
 

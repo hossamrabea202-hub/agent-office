@@ -232,24 +232,33 @@ def grade_road(h, pts, width, maxgrade, deep):
     if span.any() and (~span).any():                                 # level deck at the mean of the two abutments
         i0, i1 = idx[span].min(), idx[span].max()
         ends = [terr[j] for j in (i0 - 1, i1 + 1) if 0 <= j < nS]
-        prof[span] = float(np.mean(ends))
+        prof[span] = float(np.mean(ends))                             # deck level between the gorge rims (one big arch spans it)
+        log('road span', int(span.sum()), 'samples, ends', [round(float(e), 1) for e in ends], 'span min', round(float(terr[span].min()), 1), '-> deck', round(float(prof[span][0]), 1))
     r = 10; k = np.ones(2 * r + 1) / (2 * r + 1)
     for _ in range(2): prof = np.convolve(np.pad(prof, r, mode='edge'), k, 'valid')
     fw = prof.copy(); bw = prof.copy()                               # grade limit both ways, then average (no drag)
     for i in range(1, nS): fw[i] = np.clip(fw[i], fw[i - 1] - maxgrade, fw[i - 1] + maxgrade)
     for i in range(nS - 2, -1, -1): bw[i] = np.clip(bw[i], bw[i + 1] - maxgrade, bw[i + 1] + maxgrade)
     prof = 0.5 * (fw + bw)
-    near_br = np.exp(-(np.hypot(sx - BRIDGE[0], sy - BRIDGE[1]) / 60.0) ** 2)  # a short stone causeway is allowed at the bridge only
-    prof = np.where(span, prof, np.clip(prof, terr - 8.0, terr + 2.5 + 5.0 * near_br))   # cut <= 8 m (hollow way into the rock), fill <= 2.5 m: no embankments
+    near_br = np.exp(-(np.hypot(sx - BRIDGE[0], sy - BRIDGE[1]) / 75.0) ** 2)  # a short stone causeway is allowed at the bridge only
+    prof = np.where(span, prof, np.clip(prof, terr - 8.0, terr + 2.5 + 14.0 * near_br))   # cut <= 8 m (hollow way into the rock), fill <= 2.5 m: no embankments
     road_h = np.interp(t * L, np.arange(nS), prof).astype(np.float32) - deep * np.clip(1 - d / width, 0, 1) ** 2 * 0.0
     crown = -0.12 * (d / width) ** 2
     w = np.clip((d - width) / 9.0, 0, 1); w = w * w * (3 - 2 * w)
-    return np.where(d < width + 9, (road_h + crown) * (1 - w) + h * w, h), d, t, sx, sy, prof
+    out = np.where(d < width + 9, (road_h + crown) * (1 - w) + h * w, h)
+    gorge = (rd < river_w + 20) & (out > h + 3.0)                     # never fill the gorge to deck height (SM_WK_Bridge spans it)
+    return np.where(gorge, h, out), d, t, sx, sy, prof
 
 h, road_d, road_t, road_sx, road_sy, road_prof = grade_road(h, ROAD, 3.5, 0.11, 0)
 h, mine_d2, _, mine_sx, mine_sy, mine_prof = grade_road(h, MINE_ROAD, 2.6, 0.13, 0)
 # the bridge: road deck is a mesh; keep the riverbed under it, abutments on both banks
 h = np.where((rd < river_w + 1) & (road_d < 6), np.minimum(h, river_bed + 0.3), h)
+# despike the gorge under the bridge: the deck profile left 1-2 px pillars of deck height (35-46 m) on the 22 m floor
+by_, bx_ = int(BRIDGE[1]), int(BRIDGE[0]); y0_, x0_ = max(0, by_ - 50), max(0, bx_ - 50)
+for _ in range(3):
+    win = h[y0_:by_ + 50, x0_:bx_ + 50]; pad = np.pad(win, 2, mode='edge')
+    med = np.median(np.stack([pad[2 + dy:2 + dy + win.shape[0], 2 + dx:2 + dx + win.shape[1]] for dy in range(-2, 3) for dx in range(-2, 3)]), 0)
+    spike = win > med + 4.0; log('bridge gorge despike: %d px' % int(spike.sum())); win[spike] = med[spike]
 # farms: small flat yards
 for (fx_, fy_) in FARMS.values():
     fdist = np.hypot(xx - fx_, yy - fy_); fk = np.clip((fdist - 18) / 30, 0, 1); fk = fk * fk * (3 - 2 * fk)

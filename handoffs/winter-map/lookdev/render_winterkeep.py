@@ -19,6 +19,8 @@ TER = os.path.join(HERE, '..', 'terrain', 'out')
 OUTP = arg('--out', os.path.join(HERE, 'shots', '%s_%s.png' % (SHOT, PRESET)))
 os.makedirs(os.path.dirname(OUTP), exist_ok=True)
 L = json.load(open(os.path.join(TER, 'layout.json')))
+AST = os.path.join(HERE, '..', 'assets', 'out'); PROPS = json.load(open(os.path.join(AST, 'props.json')))
+TEXD = os.path.join(AST, 'tex')
 H = np.load(os.path.join(TER, 'height_m.npy')); N = H.shape[0]; HALF = (N - 1) / 2
 LAY = np.load(os.path.join(TER, 'layers.npz'))
 rng = np.random.default_rng(390)
@@ -58,17 +60,32 @@ def principled(nd, col, rough, **kw):
 def attr(nd, name):
     a = nd.new('ShaderNodeAttribute'); a.attribute_name = name; return a.outputs['Fac']
 
+def img(nd, ln, name, kind, scale, box=False):
+    t = nd.new('ShaderNodeTexImage'); t.image = bpy.data.images.load(os.path.join(TEXD, 'T_WK_%s_%s.png' % (name, kind)), check_existing=True)
+    t.image.colorspace_settings.name = 'sRGB' if kind == 'BC' else 'Non-Color'
+    tc = nd.new('ShaderNodeTexCoord'); mp = nd.new('ShaderNodeMapping'); mp.inputs['Scale'].default_value = (scale,) * 3
+    ln.new(tc.outputs['Object'], mp.inputs['Vector']); ln.new(mp.outputs['Vector'], t.inputs['Vector'])
+    if box: t.projection = 'BOX'; t.projection_blend = 0.35
+    return t
+class _Glint:                                    # wraps a principled so the mix chain can use .outputs['BSDF']
+    def __init__(s, sock): s.outputs = {'BSDF': sock}
 def snow_bsdf(nd, ln, tint=(0.80, 0.82, 0.85), rough=0.62):
-    """Snow: albedo ~0.82 (not white), strong forward scatter -> subsurface, tiny grazing sparkle via a 2nd lobe."""
+    """Snow: albedo ~0.82 (not white), subsurface (blue goes deepest), T_WK_Snow normal/roughness (2 m tile), and
+    glints: sparse ice-grain facets with random tilt; only the few facing the sun flash (reads at grazing angles)."""
     p = principled(nd, tint, rough, **{'Subsurface Weight': 0.25, 'Subsurface Scale': 0.02})
-    p.inputs['Subsurface Radius'].default_value = (0.9, 1.0, 1.25)          # blue goes deepest in real snow
-    # sparkle: sharp coat lobe masked by fine noise, weak (rule: only at grazing angles, subtle)
-    nz = nd.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 900; nz.inputs['Detail'].default_value = 0
-    mr = nd.new('ShaderNodeMapRange'); mr.inputs['From Min'].default_value = 0.72; mr.inputs['From Max'].default_value = 0.78
-    mr.inputs['To Max'].default_value = 0.35
-    ln.new(nz.outputs['Fac'], mr.inputs['Value']); ln.new(mr.outputs['Result'], p.inputs['Coat Weight'])
-    p.inputs['Coat Roughness'].default_value = 0.03
-    return p
+    p.inputs['Subsurface Radius'].default_value = (0.9, 1.0, 1.25)
+    n = img(nd, ln, 'Snow', 'N', 0.5); nm = nd.new('ShaderNodeNormalMap'); ln.new(n.outputs['Color'], nm.inputs['Color']); ln.new(nm.outputs['Normal'], p.inputs['Normal'])
+    o = img(nd, ln, 'Snow', 'ORM', 0.5); sp = nd.new('ShaderNodeSeparateColor'); ln.new(o.outputs['Color'], sp.inputs['Color'])
+    rr = nd.new('ShaderNodeMath'); rr.operation = 'ADD'; ln.new(sp.outputs['Green'], rr.inputs[0]); rr.inputs[1].default_value = rough - 0.66; ln.new(rr.outputs['Value'], p.inputs['Roughness'])
+    tc = nd.new('ShaderNodeTexCoord'); vo = nd.new('ShaderNodeTexVoronoi'); vo.inputs['Scale'].default_value = 40; ln.new(tc.outputs['Object'], vo.inputs['Vector'])
+    pts = nd.new('ShaderNodeMapRange'); pts.inputs['From Min'].default_value = 0.09; pts.inputs['From Max'].default_value = 0.05; ln.new(vo.outputs['Distance'], pts.inputs['Value'])
+    jit = nd.new('ShaderNodeVectorMath'); jit.operation = 'MULTIPLY_ADD'; ln.new(vo.outputs['Color'], jit.inputs[0]); jit.inputs[1].default_value = (1.6,) * 3; jit.inputs[2].default_value = (-0.8,) * 3
+    geo = nd.new('ShaderNodeNewGeometry'); ad = nd.new('ShaderNodeVectorMath'); ad.operation = 'ADD'; ln.new(geo.outputs['Normal'], ad.inputs[0]); ln.new(jit.outputs['Vector'], ad.inputs[1])
+    nr = nd.new('ShaderNodeVectorMath'); nr.operation = 'NORMALIZE'; ln.new(ad.outputs['Vector'], nr.inputs[0])
+    g = nd.new('ShaderNodeBsdfGlossy'); g.inputs['Roughness'].default_value = 0.05; ln.new(nr.outputs['Vector'], g.inputs['Normal'])
+    mul = nd.new('ShaderNodeMath'); mul.operation = 'MULTIPLY'; mul.inputs[1].default_value = 0.35; ln.new(pts.outputs['Result'], mul.inputs[0])
+    mx = nd.new('ShaderNodeMixShader'); ln.new(mul.outputs['Value'], mx.inputs['Fac']); ln.new(p.outputs['BSDF'], mx.inputs[1]); ln.new(g.outputs['BSDF'], mx.inputs[2])
+    return _Glint(mx.outputs['Shader'])
 
 def mat_terrain():
     m = bpy.data.materials.new('M_WinterLandscape_Lookdev'); nt, nd, ln = nodes(m)
@@ -84,7 +101,10 @@ def mat_terrain():
     rmr = nd.new('ShaderNodeMapRange'); rmr.inputs['From Min'].default_value = 0.5; rmr.inputs['From Max'].default_value = 0.7
     rmr.inputs['To Min'].default_value = 0.05; rmr.inputs['To Max'].default_value = 0.45
     ln.new(rnz.outputs['Fac'], rmr.inputs['Value'])
-    rockmix = nd.new('ShaderNodeMixRGB'); rockmix.inputs['Color1'].default_value = (0.055, 0.058, 0.062, 1); rockmix.inputs['Color2'].default_value = (0.55, 0.58, 0.62, 1)
+    rockmix = nd.new('ShaderNodeMixRGB'); rockmix.inputs['Color2'].default_value = (0.55, 0.58, 0.62, 1)
+    rbc = img(nd, ln, 'Rock', 'BC', 0.25, True); ln.new(rbc.outputs['Color'], rockmix.inputs['Color1'])
+    rn = img(nd, ln, 'Rock', 'N', 0.25, True); rnm = nd.new('ShaderNodeNormalMap'); rnm.inputs['Strength'].default_value = 1.5
+    ln.new(rn.outputs['Color'], rnm.inputs['Color']); ln.new(rnm.outputs['Normal'], rock.inputs['Normal'])
     ln.new(rmr.outputs['Result'], rockmix.inputs['Fac']); ln.new(rockmix.outputs['Color'], rock.inputs['Base Color'])
     # lake / river ice: dark (clear ice over deep water), glossy, white cracks + bubbles scatter light
     ice = principled(nd, (0.012, 0.018, 0.024), 0.06, **{'IOR': 1.31})
@@ -108,7 +128,7 @@ def mat_terrain():
     bump = nd.new('ShaderNodeBump'); bump.inputs['Strength'].default_value = 0.15
     wav = nd.new('ShaderNodeTexWave'); wav.inputs['Scale'].default_value = 0.6; wav.inputs['Distortion'].default_value = 6
     wav.bands_direction = 'DIAGONAL'; ln.new(wav.outputs['Fac'], bump.inputs['Height'])
-    for sh in (fresh, packed): ln.new(bump.outputs['Normal'], sh.inputs['Normal'])
+    pass                                                          # snow normals now come from T_WK_Snow_N
     return m
 
 def mat_topsnow(name, base, rough, thresh=0.55):
@@ -123,44 +143,13 @@ def mat_topsnow(name, base, rough, thresh=0.55):
     mx = nd.new('ShaderNodeMixShader'); ln.new(mr.outputs['Result'], mx.inputs['Fac']); ln.new(b.outputs['BSDF'], mx.inputs[1]); ln.new(s.outputs['BSDF'], mx.inputs[2])
     ln.new(mx.outputs['Shader'], out.inputs['Surface']); return m
 
-# ------------------------------------------------------------------ trees (snow-loaded spruce, bare birch) via geometry nodes
-def spruce_mesh():
-    import bmesh
-    bm = bmesh.new()
-    bmesh.ops.create_cone(bm, cap_ends=True, segments=8, radius1=0.022, radius2=0.015, depth=0.3, matrix=__import__('mathutils').Matrix.Translation((0, 0, 0.15)))
-    tiers = 7
-    for i in range(tiers):
-        t = i / tiers; r = 0.19 * (1 - t) ** 1.05 + 0.02; z0 = 0.12 + 0.82 * t
-        bmesh.ops.create_cone(bm, cap_ends=True, segments=9, radius1=r, radius2=0.01, depth=0.20 * (1 - 0.4 * t) + 0.05,
-                              matrix=__import__('mathutils').Matrix.Translation((0, 0, z0 + 0.12)))
-    me = bpy.data.meshes.new('Spruce'); bm.to_mesh(me); bm.free()
-    ob = bpy.data.objects.new('Spruce', me); sc.collection.objects.link(ob); ob.hide_render = True; ob.hide_viewport = True
-    me.materials.append(mat_topsnow('M_Spruce_TopSnow', (0.018, 0.032, 0.024), 0.8, thresh=0.82)); return ob
-def birch_mesh():
-    import bmesh, mathutils
-    bm = bmesh.new()
-    bmesh.ops.create_cone(bm, cap_ends=True, segments=6, radius1=0.018, radius2=0.004, depth=1.0, matrix=mathutils.Matrix.Translation((0, 0, 0.5)))
-    for i in range(9):
-        a = i * 2.4; z = 0.35 + i * 0.07; m = mathutils.Matrix.Translation((0, 0, z)) @ mathutils.Matrix.Rotation(a, 4, 'Z') @ mathutils.Matrix.Rotation(0.75, 4, 'X') @ mathutils.Matrix.Translation((0, 0, 0.14))
-        bmesh.ops.create_cone(bm, cap_ends=False, segments=4, radius1=0.006, radius2=0.001, depth=0.3 * (1 - i / 12), matrix=m)
-    me = bpy.data.meshes.new('Birch'); bm.to_mesh(me); bm.free()
-    ob = bpy.data.objects.new('Birch', me); sc.collection.objects.link(ob); ob.hide_render = True; ob.hide_viewport = True
-    me.materials.append(mat_topsnow('M_Birch', (0.42, 0.40, 0.37), 0.75, thresh=0.7)); return ob
-
-def scatter(name, mask, density, proto, hmin, hmax, sink):
-    """Points from a 0..255 mask (clumped by the mask itself), instanced with geometry nodes."""
-    m = LAY['M_' + mask].astype(np.float32) / 255.0
-    cell = 5
-    ys, xs = np.mgrid[0:N - 1:cell, 0:N - 1:cell]
-    xs = xs + rng.uniform(0, cell, xs.shape); ys = ys + rng.uniform(0, cell, ys.shape)
-    xs = np.clip(xs, 0, N - 1.01); ys = np.clip(ys, 0, N - 1.01)
-    p = m[ys.astype(int), xs.astype(int)] * density
-    keep = rng.uniform(0, 1, p.shape) < p
-    xs, ys = xs[keep], ys[keep]
-    z = H[ys.astype(int), xs.astype(int)] - sink
-    co = np.stack([xs - HALF, HALF - ys, z], -1).astype(np.float32)
+SCAT = json.load(open(os.path.join(TER, 'scatter.json')))['kinds']
+def scatter(name, kind, base, proto):
+    """The SAME instances UE gets (terrain/out/scatter.json, UE cm), instanced with geometry nodes."""
+    a = np.array([p for c in SCAT[kind].values() for p in c], np.float64)
+    co = np.stack([a[:, 0] / 100, -a[:, 1] / 100, a[:, 2] / 100], -1).astype(np.float32)        # UE (x east, y south) -> Blender
     me = bpy.data.meshes.new(name + '_pts'); me.vertices.add(len(co)); me.vertices.foreach_set('co', co.ravel())
-    sca = rng.uniform(hmin, hmax, len(co)).astype(np.float32); rot = rng.uniform(0, 6.283, len(co)).astype(np.float32)
+    sca = (a[:, 4] * base).astype(np.float32); rot = (-np.radians(a[:, 3])).astype(np.float32)
     me.attributes.new('scale', 'FLOAT', 'POINT').data.foreach_set('value', sca)
     me.attributes.new('rot', 'FLOAT', 'POINT').data.foreach_set('value', rot)
     ob = bpy.data.objects.new(name, me); sc.collection.objects.link(ob)
@@ -201,28 +190,20 @@ def castle():
     box('KeepRoof', (bx - 6, by + 3, cz + 25), (17, 15, 2), roof)
     gx, gy, gz = ue_to_img(L['gate']); g = to_b(gx, gy, cz)
     box('Gatehouse', (g[0] - 4, g[1] + 4, cz + 7), (10, 9, 16), lime)        # behind the camera on the wall-walk
-    for name, p in L['farms'].items():
-        fx, fy, fz = ue_to_img(p); f = to_b(fx, fy, fz)
-        wood = mat_topsnow('M_FarmWood', (0.13, 0.11, 0.09), 0.85)
-        o = box(name, (f[0], f[1], fz + 1.2), (12, 7, 4.5), wood, rotz=0.4)
-        r = box(name + '_roof', (f[0], f[1], fz + 4.2), (13, 8.5, 0.6), roof, rotz=0.4); r.rotation_euler[0] = 0.0
-        # drift: buried to the eaves on the lee (SE) side
-        bpy.ops.mesh.primitive_uv_sphere_add(radius=1, location=(f[0] + 5, f[1] - 5, fz)); d = bpy.context.active_object
-        d.scale = (9, 5, 2.6); d.rotation_euler[2] = -0.7; d.data.materials.append(bpy.data.materials['M_WinterLandscape_Lookdev'] if False else mat_topsnow('M_Drift', (0.8, 0.82, 0.85), 0.7, thresh=-2))
-    bx_, by_, bz_ = ue_to_img(L['bridge']); b = to_b(bx_, by_, bz_)
-    stone = mat_topsnow('M_BridgeStone', (0.22, 0.21, 0.2), 0.85)
-    rs = np.array(L['road_spline_cm']) / 100.0; k = int(np.argmin(np.hypot(rs[:, 0] - L['bridge'][0] / 100, rs[:, 1] - L['bridge'][1] / 100)))
-    d = rs[min(k + 1, len(rs) - 1)] - rs[max(k - 1, 0)]                  # road direction at the bridge (UE: x east, y south)
-    yaw = math.atan2(-d[1], d[0])                                        # Blender: y north
-    br = box('Bridge', (b[0], b[1], bz_ - 0.6), (52, 6.5, 1.6), stone, rotz=yaw)        # deck along the road, spans the banks
-    for side in (-1, 1):
-        pr = box('BridgeParapet', (b[0] - math.sin(yaw) * side * 3.0, b[1] + math.cos(yaw) * side * 3.0, bz_ + 0.6), (52, 0.5, 1.0), stone, rotz=yaw)
-    pier = box('BridgePier', (b[0], b[1], bz_ - 14), (4, 5.5, 26), stone, rotz=yaw)
-    # frozen waterfall: an icy curtain on the rock step
-    fx, fy, fz = ue_to_img(L['frozen_falls']); f = to_b(fx, fy + 4, fz - 6)
-    icem = bpy.data.materials.new('M_FallsIce'); nt, nd, ln = nodes(icem); o = nd.new('ShaderNodeOutputMaterial')
-    p = principled(nd, (0.5, 0.6, 0.66), 0.25, **{'Subsurface Weight': 0.6, 'Subsurface Scale': 0.5}); ln.new(p.outputs['BSDF'], o.inputs['Surface'])
-    box('FrozenFalls', f, (16, 3, 14), icem)
+
+# ------------------------------------------------------------------ real assets (assets/build_wk_assets.py) + placements (props.json)
+def load_assets():
+    with bpy.data.libraries.load(os.path.join(AST, 'wk_assets.blend')) as (src, dst): dst.objects = [n for n in src.objects if n.startswith('SM_WK_')]
+    P = {}
+    for o in dst.objects:
+        sc.collection.objects.link(o); o.hide_render = True; o.hide_viewport = True; o.location = (0, 0, -5000); P[o.name] = o
+    return P
+def place_props(P):
+    for name, lst in PROPS.items():
+        if not name.startswith('SM_WK_'): continue
+        for t in lst:
+            x, y, z = ue_to_img(t['loc']); o = P[name].copy(); sc.collection.objects.link(o); o.hide_render = False; o.hide_viewport = False
+            o.location = to_b(x, y, z); o.rotation_euler = (0, 0, -math.radians(t['yaw'])); print('prop', name, t.get('name', ''), tuple(round(v, 1) for v in o.location))
 
 def realm_steam():
     rx, ry, rz = ue_to_img(L['realm_melt']['centre']); c = to_b(rx, ry, rz + 20); r = L['realm_melt']['radius_m']
@@ -287,8 +268,8 @@ def falling_snow(cam, count, preset):
         v = cam.matrix_world @ mathutils.Vector((a * d, b * d, -d)); co.append(v)
     me.vertices.add(len(co)); me.vertices.foreach_set('co', np.array(co, np.float32).ravel())
     ob = bpy.data.objects.new('Flakes', me); sc.collection.objects.link(ob)
-    bpy.ops.mesh.primitive_uv_sphere_add(segments=6, ring_count=4, radius=0.012 if preset == 'blizzard' else 0.009); fl = bpy.context.active_object
-    fl.scale = (1, 1, 6 if preset == 'blizzard' else 2.5); fl.rotation_euler = (0.5, 0.6, 0) if preset == 'blizzard' else (0.1, 0, 0)
+    bpy.ops.mesh.primitive_uv_sphere_add(segments=6, ring_count=4, radius=0.006 if preset == 'blizzard' else 0.005); fl = bpy.context.active_object
+    fl.scale = (1, 1, 14 if preset == 'blizzard' else 4); fl.rotation_euler = (0.5, 0.6, 0) if preset == 'blizzard' else (0.1, 0, 0)
     m = bpy.data.materials.new('M_Flake'); nt, nd, ln = nodes(m); o = nd.new('ShaderNodeOutputMaterial'); p = principled(nd, (0.85, 0.87, 0.9), 0.9)
     ln.new(p.outputs['BSDF'], o.inputs['Surface']); fl.data.materials.append(m)
     ob.instance_type = 'VERTS'; fl.parent = ob; fl.location = (0, 0, 0)
@@ -309,6 +290,22 @@ def camera(shot):
     elif shot == 'lake':                                            # from the lake shore toward the castle
         lx, ly, lz = ue_to_img(L['lake']['centre']); cx, cy, cz = ue_to_img(L['castle_centre'])
         eye = to_b(lx - 120, ly + 90, lz + 6); tgt = to_b(cx, cy, cz + 15); cam.lens = 40
+    elif shot in ('bridge', 'farm', 'falls'):
+        if shot == 'bridge':
+            t = PROPS['SM_WK_Bridge'][0]; bx, by, bz = ue_to_img(t['loc']); a = math.radians(t['yaw']); d = (math.cos(a), math.sin(a)); pp = (-d[1], d[0])
+            best = None
+            for sg in (-1, 1):
+                ex, ey = bx + pp[0] * 60 * sg + d[0] * 10, by + pp[1] * 60 * sg + d[1] * 10
+                if best is None or hz(ex, ey) < best[2]: best = (ex, ey, hz(ex, ey))
+            eye = to_b(best[0], best[1], max(best[2] + 4, 30)); tgt = to_b(bx, by, bz - 13); cam.lens = 26
+        elif shot == 'farm':
+            t = [q for q in PROPS['SM_WK_Farmstead'] if q['name'] == 'Farm_North'][0]; fx, fy, fz = ue_to_img(t['loc']); yw = math.radians(t['yaw'])
+            ex, ey = fx + math.cos(yw) * 19 + math.sin(yw) * 7, fy + math.sin(yw) * 19 - math.cos(yw) * 7      # the door gable (local +X), a little windward
+            eye = to_b(ex, ey, hz(ex, ey) + 3.0); tgt = to_b(fx, fy, fz + 1.5); cam.lens = 32
+        else:
+            t = PROPS['SM_WK_IceFalls'][0]; fx, fy, fz = ue_to_img(t['loc']); yw = math.radians(t['yaw'])   # local +Y front -> image (sin, -cos)
+            ex, ey = fx + math.sin(yw) * 34 + math.cos(yw) * 6, fy - math.cos(yw) * 34 + math.sin(yw) * 6
+            eye = to_b(ex, ey, hz(ex, ey) + 2.5); tgt = to_b(fx, fy, fz + 7); cam.lens = 30
     co.location = eye
     d = mathutils.Vector(tgt) - mathutils.Vector(eye); co.rotation_euler = d.to_track_quat('-Z', 'Y').to_euler()
     return co
@@ -316,9 +313,10 @@ def camera(shot):
 # ------------------------------------------------------------------ build + render
 ter = terrain(); ter.data.materials.append(mat_terrain())
 castle(); realm_steam()
-sp = spruce_mesh(); bi = birch_mesh()
-n_sp = scatter('Spruces', 'Forest', 0.85, sp, 16, 27, 0.6)
-n_bi = scatter('Birches', 'Birch', 0.25, bi, 9, 15, 0.3)
+AS = load_assets(); place_props(AS)
+n_sp = scatter('Spruces', 'Spruce', 1.0, AS['SM_WK_Spruce_A']); scatter('SprucesYoung', 'Spruce_Young', 2.2, AS['SM_WK_Spruce_B'])
+n_bi = scatter('Birches', 'Birch', 1.0, AS['SM_WK_Birch_A'])
+scatter('RocksL', 'Rock_Large', 1.0, AS['SM_WK_Rock_A']); scatter('RocksS', 'Rock_Small', 1.0, AS['SM_WK_Rock_B'])
 exp = world(PRESET); cam = camera(SHOT)
 if SHOT != 'top' and PRESET in ('blizzard', 'overcast'): falling_snow(cam, 9000 if PRESET == 'blizzard' else 2500, PRESET)
 sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.use_denoising = True
@@ -333,7 +331,7 @@ if '--gpu' in A:
                 sc.cycles.device = 'GPU'; break
         except Exception: pass
   except Exception: pass
-sc.cycles.volume_step_rate = 4; sc.cycles.max_bounces = 6
+sc.cycles.volume_step_rate = 4; sc.cycles.max_bounces = 8; sc.cycles.volume_bounces = 4 if PRESET == 'blizzard' else 1
 sc.render.resolution_x = RES; sc.render.resolution_y = RES if SHOT == 'top' else int(RES * 9 / 16)
 sc.render.filepath = OUTP; sc.render.image_settings.file_format = 'PNG'
 print('render', SHOT, PRESET, 'exposure', exp, 'spruces', n_sp, 'birches', n_bi, 'device', sc.cycles.device)

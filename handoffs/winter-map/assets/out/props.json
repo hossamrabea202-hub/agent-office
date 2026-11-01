@@ -1,0 +1,61 @@
+{
+ "note": "UE world cm, yaw deg (UE), uniform scale. Computed by build_wk_assets.py from height_m.npy.",
+ "SM_WK_Bridge": [
+  {
+   "loc": [
+    9200.0,
+    8700.0,
+    5247.3
+   ],
+   "yaw": -134.78,
+   "scale": 1.0,
+   "note": "deck top = graded road height at the bridge (layout.json)"
+  }
+ ],
+ "SM_WK_IceFalls": [
+  {
+   "loc": [
+    24276.7,
+    -76460.2,
+    1230.3
+   ],
+   "yaw": 189.46,
+   "scale": 1.0,
+   "lean": 0.404,
+   "drop_m": 13.6,
+   "note": "pivot at the foot of the rock step; the curtain leans back up the step; front faces downstream"
+  }
+ ],
+ "SM_WK_Farmstead": [
+  {
+   "name": "Farm_East",
+   "loc": [
+    47200.0,
+    -14800.0,
+    7103.3
+   ],
+   "yaw": 135.0,
+   "scale": 1.0
+  },
+  {
+   "name": "Farm_Road",
+   "loc": [
+    49200.0,
+    44200.0,
+    9323.9
+   ],
+   "yaw": 135.0,
+   "scale": 1.0
+  },
+  {
+   "name": "Farm_North",
+   "loc": [
+    -800.0,
+    -44800.0,
+    5074.0
+   ],
+   "yaw": 135.0,
+   "scale": 1.0
+  }
+ ]
+}
