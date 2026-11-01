@@ -1,9 +1,10 @@
 {
- "working": "i5 whiteboard: #242 ore shed",
- "tokens": 30000,
+ "working": "#411 castle-scroll HUD",
+ "tokens": 233000,
  "ctx": 1000000,
  "since": "2026-11-01T18:45:40Z",
  "done": [
+  "#242 ore shed, #246 signs, #418 shop step 1 (Emberoath row) [77% tokens left]",
   "i5: blood, tentacle shell, jelly, #259 gate tag, #237 rock, #368 dump, #374 setup; pick-up note handoffs/laptop-i5/PICKUP_i5_2026-11-01_evening.md [20% tokens left]",
   "i5: #383 bounce, #370 quests (hero attach left to i9), #357 torches (5.8 fixes); fresh session CastleDefender2 [52% tokens left]",
   "i5: #372 #373 #238 pasted; 21 already-in cards closed; script fixes #374 #375 #377 + #306 named + #389 pre-checked [68% tokens left]",
@@ -12,8 +13,7 @@
   "5.8 paste fixes (5 graphs + 9 setup scripts, 874d888) [83% tokens left]",
   "#390 spruce snow pads (1aeb4a7) [81% tokens left]",
   "#390 bridge-end wall + frozen falls v3 (9bc1084) [82% tokens left]",
-  "#390 blizzard white-out + shots [80% tokens left]",
-  "#390 snow VFX handed off [83% tokens left]"
+  "#390 blizzard white-out + shots [80% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T18:45:40Z",
+ "asOf": "2026-11-01T19:10:55Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-01T18:44:34Z",
+  "asOf": "2026-11-01T19:10:55Z",
   "meters": [
    {
     "k": "5h",
@@ -45,7 +45,7 @@
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 68,
+    "pct": 31,
     "resetsAt": "2026-11-06T06:00:00Z",
     "color": "#d9af65"
    }
