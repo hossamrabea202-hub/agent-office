@@ -1,8 +1,8 @@
 {
- "working": "",
- "tokens": 995000,
+ "working": "W: stables, horses, knights, heavy cavalry: cards + research",
+ "tokens": 119662,
  "ctx": 1000000,
- "since": "2026-10-30T18:14:58Z",
+ "since": "2026-11-01T08:49:29Z",
  "done": [
   "Texture budget script handed off [0% tokens left]",
   "#256 torn cape masks [0% tokens left]",
@@ -23,8 +23,8 @@
  ],
  "usage": {
   "who": "checkking (Claude)",
-  "plan": "Pro",
-  "asOf": "2026-10-30T20:52:44Z",
+  "plan": "Ultra",
+  "asOf": "2026-11-01T08:49:29Z",
   "meters": [
    {
     "k": "5h",
@@ -36,16 +36,16 @@
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 85,
-    "resetsAt": "2026-11-01T06:00:00Z",
+    "pct": 58,
+    "resetsAt": "2026-11-06T05:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-10-31T06:04:02Z",
+ "asOf": "2026-11-01T08:49:29Z",
  "seat": "checkking (Claude)",
  "session": {
-  "id": "004e1e5b7b5d",
+  "id": "d3e5fdbea530",
   "host": "5CD3147LBC"
  },
  "ask": {
