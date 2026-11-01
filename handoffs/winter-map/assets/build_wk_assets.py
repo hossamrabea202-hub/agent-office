@@ -251,9 +251,9 @@ def spruce(name, H, seed, whorl_gap):
                     G = S[:, None] + np.array([-0.5, 0.5])[None, :, None] * (wd[:, None, None] * fwd)
                     mb.grid(G, np.stack(np.broadcast_arrays(np.array([0.2, 0.8])[None, :], (rr * ll / 0.6)[:, None]), -1), 'WK_Needles')
             if rng.uniform() < 0.95:                                                # snow cushion on the branch top
-                ss = slice(1, 9); env = np.sin(math.pi * np.linspace(0, 1, 8)) ** 0.6
-                hw = np.minimum(W[ss] * 0.8, 0.5) * env * lumps(8, rng) + 0.01
-                hh = (0.15 + 0.22 * (1 - t)) * env * lumps(8, rng, 0.5) + 0.005
+                ss = slice(1, 11); env = np.sin(math.pi * np.linspace(0.04, 0.96, 10)) ** 0.3          # a long flat pad, not an egg
+                hw = np.minimum(W[ss] * 1.05, 0.75) * env * lumps(10, rng, 0.2) + 0.01                    # covers the frond width
+                hh = (0.05 + 0.11 * (1 - t)) * env * lumps(10, rng, 0.45) + 0.005                         # 5-16 cm deep (settled snow load)
                 Cs = C[ss]; fw = np.gradient(Cs, axis=0); fw /= np.linalg.norm(fw, axis=1)[:, None]
                 rt = np.cross(fw, up); rt /= np.linalg.norm(rt, axis=1)[:, None]; upv = np.cross(rt, fw)
                 blob_along(mb, Cs, rt, upv, hw, hh, 'WK_Snow', lift=-0.04)

@@ -1,19 +1,19 @@
 {
  "SM_WK_Spruce_A": {
-  "tris": 62912,
+  "tris": 70080,
   "slots": [
    "WK_SpruceBark",
    "WK_Needles",
    "WK_Snow"
   ],
   "size_m": [
-   7.81,
-   7.43,
+   7.88,
+   7.48,
    21.66
   ]
  },
  "SM_WK_Spruce_B": {
-  "tris": 32764,
+  "tris": 37116,
   "slots": [
    "WK_SpruceBark",
    "WK_Needles",
