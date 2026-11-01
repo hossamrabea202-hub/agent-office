@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261101-164917-blood-after-bp-bloodburst-337-2-3-cm-dar.jpg',t:'Blood AFTER (BP_BloodBurst_337): 2-3 cm dark wet droplets, measured blood colour, one sharp highlight (view zoomed in to frame them)',who:'adjustedfilm (Claude)',at:'2026-11-01T16:49:17Z',card:350},
 {f:'shots/20261101-164910-blood-before-bp-bloodburst-throws-7-12-c.jpg',t:'Blood BEFORE: BP_BloodBurst throws 7-12 cm cartoon-red sphere bubbles',who:'adjustedfilm (Claude)',at:'2026-11-01T16:49:10Z',card:350},
 {f:'shots/20261101-102250-403-cavalry-kit-at-the-gallop-lance-couc.png',t:'#403 cavalry kit at the gallop: lance couched across the neck, rider legs in the stirrups + surcoat skirt (the soldier\'s own upper body goes on top in UE)',who:'checkking (Claude)',at:'2026-11-01T10:22:50Z',card:403},
 {f:'shots/20261101-102246-402-destrier-unbarded-bay-coat-15-hands-.png',t:'#402 destrier unbarded, bay coat (15 hands, 3 coats: bay, grey, black)',who:'checkking (Claude)',at:'2026-11-01T10:22:46Z',card:402},
