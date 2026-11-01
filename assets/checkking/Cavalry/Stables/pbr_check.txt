@@ -1,0 +1,6 @@
+PBR T_StableOak_BC.png | non-metal p5/p50/p95 sRGB = 95/105/111 | metal 0% (p50 nan) | rough p5/p95 0.69/0.89 | OK
+PBR T_StableDaub_BC.png | non-metal p5/p50/p95 sRGB = 165/171/173 | metal 0% (p50 nan) | rough p5/p95 0.76/0.95 | OK
+PBR T_StableShingle_BC.png | non-metal p5/p50/p95 sRGB = 68/103/116 | metal 0% (p50 nan) | rough p5/p95 0.73/0.92 | OK
+PBR T_StableStraw_BC.png | non-metal p5/p50/p95 sRGB = 93/125/159 | metal 0% (p50 nan) | rough p5/p95 0.54/0.74 | OK
+PBR T_StableCobble_BC.png | non-metal p5/p50/p95 sRGB = 54/107/132 | metal 0% (p50 nan) | rough p5/p95 0.48/0.70 | OK
+PBR T_StableIron_BC.png | non-metal p5/p50/p95 sRGB = 67/69/73 | metal 1% (p50 192) | rough p5/p95 0.78/0.89 | OK
