@@ -20,11 +20,12 @@ if not DRY:
     mats = {'Metal': unreal.load_asset(SRC + '/Metal'), 'Wood': unreal.load_asset(SRC + '/Wood')}
     tasks = []
     for f in fbx:
+        if EAL.does_asset_exist('%s/%s' % (DST, os.path.basename(f)[:-4])): continue   # already imported (re-run after a crash)
         t = unreal.AssetImportTask(); t.filename = f; t.destination_path = DST; t.automated = True; t.save = False; t.replace_existing = True
         o = unreal.FbxImportUI(); o.import_materials = False; o.import_textures = False; o.import_as_skeletal = False
         o.static_mesh_import_data.combine_meshes = True; o.static_mesh_import_data.auto_generate_collision = True
         t.options = o; tasks.append(t)
-    unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks(tasks)
+    if tasks: unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks(tasks)
     meshes = []
     for i in (1, 2, 3):
         p = '%s/SM_FieldCannon_HD_Break%d' % (DST, i)
@@ -37,6 +38,8 @@ if not DRY:
         EAL.save_asset(p); meshes.append(m)
         log.append('%s: slots %s' % (m.get_name(), [str(s.material_slot_name) for s in m.static_materials]))
     cdo.set_editor_property('StageMeshes', meshes)
-    BEL.compile_blueprint(bp); EAL.save_asset(BPC, only_if_is_dirty=False)
+    # no compile here: compiling right after the import crashed UE 5.8 on i5 (UObjectAnnotation assert, 2026-11-01);
+    # a default-value change needs no recompile, the package is saved as is
+    bp.modify(); EAL.save_asset(BPC, only_if_is_dirty=False)
     log.append('StageMeshes = %s' % [m.get_name() for m in cdo.get_editor_property('StageMeshes')])
 print('\n'.join(log))

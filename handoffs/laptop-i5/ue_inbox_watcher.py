@@ -35,10 +35,23 @@ def _run(path):
     unreal.log('i5 inbox: ran %s (%s)' % (os.path.basename(path), 'OK' if ok else 'FAILED'))
 
 
+def _connected():
+    # 2026-11-01: queued scripts ran at startup before the Multi-User join (frame 8), wrote to i5's disk copy and the
+    # editor crashed. Scripts wait until the session is joined and 20 s have passed; names starting with nomu_ run anyway.
+    try: ok = unreal.MultiUserClientStatics.get_multi_user_connection_status_detail() == unreal.MultiUserConnectionStatus.CONNECTED
+    except Exception: ok = False
+    if not ok: _state['since'] = None; return False
+    if _state.get('since') is None: _state['since'] = time.time()
+    return time.time() - _state['since'] > 20.0
+
+
 def _tick(dt):
     _state['t'] += dt
     if _state['t'] < 1.0: return
     _state['t'] = 0.0
+    if not _connected():
+        for p in sorted(glob.glob(INBOX + '/nomu_*.py'), key=os.path.getmtime): _run(p.replace('\\', '/'))
+        return
     for p in sorted(glob.glob(INBOX + '/*.py'), key=os.path.getmtime):
         _run(p.replace('\\', '/'))
 
