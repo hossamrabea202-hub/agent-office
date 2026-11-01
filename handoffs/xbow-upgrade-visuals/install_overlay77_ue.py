@@ -22,7 +22,8 @@ for bpp in ('/Game/CastleDefender/Gameplay/Crossbow/BP_Crossbow', '/Game/CastleD
         if not isinstance(o, unreal.MeshComponent): continue
         m = o.get_editor_property('static_mesh') if isinstance(o, unreal.StaticMeshComponent) else o.get_editor_property('skeletal_mesh_asset') if isinstance(o, unreal.SkeletalMeshComponent) else None
         nm = (m.get_name() if m else '') + ' ' + o.get_name()
-        k = 'Sovereign' if 'sovereign' in nm.lower() else 'Noble' if 'noble' in nm.lower() or 'crossbow' in (m.get_name().lower() if m else '') else None
+        mn = m.get_name().lower() if m else ''
+        k = 'Sovereign' if 'golden_sovereign' in mn else 'Noble' if 'noble_crossbow' in mn or ('crossbow' in mn and 'bolt' not in mn) else None   # crossbow meshes only (not the Obsidian Sovereign chest)
         if not k: continue
         log.append('%s: %s (%s) -> MI_XbowElectric_%s' % (bp.get_name(), o.get_name(), m.get_name() if m else None, k)); hits += 1
         if not DRY and mi[k]: o.set_editor_property('overlay_material', mi[k])
