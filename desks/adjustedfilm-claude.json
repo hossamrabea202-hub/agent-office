@@ -1,8 +1,8 @@
 {
- "working": "#399 second editor: waiting on owner disk cleanup + UE 5.8.4 install",
- "tokens": 222000,
+ "working": "5.8 paste fixes: PureState=Pure in 5 graphs",
+ "tokens": 96000,
  "ctx": 1000000,
- "since": "2026-11-01T00:57:53Z",
+ "since": "2026-11-01T12:54:33Z",
  "done": [
   "#390 spruce snow pads (1aeb4a7) [81% tokens left]",
   "#390 bridge-end wall + frozen falls v3 (9bc1084) [82% tokens left]",
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T11:56:44Z",
+ "asOf": "2026-11-01T12:54:33Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-10-31T15:20:09Z",
+  "asOf": "2026-11-01T12:54:33Z",
   "meters": [
    {
     "k": "5h",
@@ -45,15 +45,15 @@
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 70,
-    "resetsAt": "2026-11-06T05:59:59Z",
+    "pct": 63,
+    "resetsAt": "2026-11-06T06:00:00Z",
     "color": "#d9af65"
    }
   ]
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "b7d33fc6e0d1",
+  "id": "56c98e77cc4a",
   "host": "5CD3147LBC"
  },
  "ask": {
