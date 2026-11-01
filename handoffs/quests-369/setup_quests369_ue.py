@@ -18,9 +18,11 @@ if not DRY:
         f = unreal.BlueprintFactory(); f.set_editor_property('parent_class', unreal.ActorComponent)
         bp = AT.create_asset(NAME, DST, unreal.Blueprint, f)
     BEL.compile_blueprint(bp); EAL.save_asset(path)
-    hero = unreal.load_asset(HERO)
-    have = [str(LIB.get_variable_name(SDS.k2_find_subobject_data_from_handle(h))) for h in SDS.k2_gather_subobject_data_for_blueprint(hero)]
-    if 'Quests' in have: log.append('hero already has Quests')
+    NOHERO = '--no-hero' in sys.argv   # i5 core: build the component only; the Master adds it to the hero (run without the flag)
+    hero = None if NOHERO else unreal.load_asset(HERO)
+    have = [] if NOHERO else [str(LIB.get_variable_name(SDS.k2_find_subobject_data_from_handle(h))) for h in SDS.k2_gather_subobject_data_for_blueprint(hero)]
+    if NOHERO: log.append('--no-hero: hero NOT touched; run again without --no-hero to add Quests to the hero')
+    elif 'Quests' in have: log.append('hero already has Quests')
     else:
         h, why = SDS.add_new_subobject(unreal.AddNewSubobjectParams(parent_handle=SDS.k2_gather_subobject_data_for_blueprint(hero)[0], new_class=bp.generated_class(), blueprint_context=hero))
         if not LIB.is_handle_valid(h): raise SystemExit('could not add Quests to the hero: %s' % why)
