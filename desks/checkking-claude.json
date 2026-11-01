@@ -1,9 +1,10 @@
 {
- "working": "#404 heavy cavalry gameplay (BP_Cavalry: charge, lance, wheel)",
- "tokens": 456184,
+ "working": "",
+ "tokens": 578051,
  "ctx": 1000000,
  "since": "2026-11-01T08:49:29Z",
  "done": [
+  "#404 heavy cavalry handed off (#407); #400 closed [42% tokens left]",
   "#402 destrier + #403 knight kit handed off (#406) [54% tokens left]",
   "#401 stables built + handed off (#405) [72% tokens left]",
   "Texture budget script handed off [0% tokens left]",
@@ -12,8 +13,7 @@
   "Weapon batch 4 (estoc, zweihander, Lochaber axe), kit 22 [3% tokens left]",
   "Weapon batch 3 (Viking sword, ranseur, pollaxe), kit 19 [5% tokens left]",
   "Weapon kit v2: 16 weapons rebaked + pushed (#233 updated) [8% tokens left]",
-  "#58 automatic cannon break-stage script (waits on SM_FieldCannon_HD export) [10% tokens left]",
-  "#230 deploy cannon handed off (#239) [17% tokens left]"
+  "#58 automatic cannon break-stage script (waits on SM_FieldCannon_HD export) [10% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -24,7 +24,7 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-01T10:23:30Z",
+  "asOf": "2026-11-01T10:34:31Z",
   "meters": [
    {
     "k": "5h",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-01T10:23:30Z",
+ "asOf": "2026-11-01T10:34:31Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "d3e5fdbea530",
