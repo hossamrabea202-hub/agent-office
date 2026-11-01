@@ -63,7 +63,16 @@ if not DRY:
     k.set_editor_property('anim_class', unreal.load_class(None, KABP + '.ABP_KnightFollow_C')); k.set_collision_profile_name('NoCollision')
     t = add(bp, unreal.StaticMeshComponent, 'Taper', mesh_h)
     if torch: t.set_editor_property('static_mesh', unreal.load_asset(torch[0]))
-    t.set_editor_property('attach_socket_name', 'hand_r'); t.set_editor_property('relative_scale3d', unreal.Vector(0.6, 0.6, 0.6))
+    try: t.set_editor_property('attach_socket_name', 'hand_r')
+    except Exception:   # UE 5.8 (i5 core): the socket lives on the Blueprint's SCS node, not on the component template
+        ok = False
+        try:
+            for nd in bp.get_editor_property('simple_construction_script').get_all_nodes():
+                if str(nd.get_editor_property('internal_variable_name')) == 'Taper':
+                    nd.set_editor_property('attach_to_name', 'hand_r'); ok = True
+        except Exception as e: log.append('  (socket via SCS failed: %s)' % e)
+        log.append('  Taper socket hand_r ' + ('set on the SCS node' if ok else 'NOT set: pick hand_r as Parent Socket on Taper by hand'))
+    t.set_editor_property('relative_scale3d', unreal.Vector(0.6, 0.6, 0.6))
     t.set_collision_profile_name('NoCollision')
     fl = add(bp, unreal.PointLightComponent, 'Flame', comps(bp)['Taper'])
     fl.set_editor_property('intensity_units', unreal.LightUnits.LUMENS); fl.set_editor_property('intensity', 300.0)
