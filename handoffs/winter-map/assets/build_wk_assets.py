@@ -108,9 +108,12 @@ def textures(n):
     bc = col((0.80, 0.82, 0.86), n) * (0.965 + 0.025 * np.tanh(big)[..., None] + 0.008 * grain[..., None])
     save_set('Snow', bc, 0.66 + 0.05 * big + 0.04 * grain, big * 1.0 + grain * 0.06, n / 900, ao_k=1.5)
     # --- frozen-falls ice (2 m tile, v = down the flow): clear blue-black streaks vs white bubbly ice
-    st = vnoise(n, 20, 2, 14, 5); drips = vnoise(n, 12, 6, 15, 4); bub = sstep(-0.2, 0.9, st + 0.3 * drips)
-    bc = mix(col((0.20, 0.30, 0.36), n), col((0.55, 0.63, 0.68), n), 0.25 + 0.75 * bub)   # mostly bubbly white-blue, a few clear streaks
-    save_set('Ice', bc, 0.06 + 0.32 * bub, st * 0.6 + drips * 0.3, n / 120, ao_k=1.0)
+    st = vnoise(n, 6, 1, 14, 4); drips = vnoise(n, 12, 4, 15, 4); lump = vnoise(n, 8, 5, 18, 3)   # broad flow lanes, bulbous lumps
+    clear = sstep(0.55, 1.1, st + 0.35 * drips - 0.3 * lump)                                    # few clear lanes, not pinstripes
+    frost = sstep(-0.4, 0.8, lump + 0.3 * drips)                                                  # rime + hoar on the bulges
+    bc = mix(col((0.50, 0.59, 0.64), n), col((0.66, 0.72, 0.75), n), frost)                         # milky bubbly ice, frosted bulges
+    bc = mix(bc, col((0.18, 0.30, 0.37), n), clear * 0.85)                                         # clear blue-black lanes
+    save_set('Ice', bc, 0.12 + 0.38 * frost * (1 - clear) + 0.02 * drips, lump * 0.8 + st * 0.25 + drips * 0.2, n / 120, ao_k=1.0)
     # --- bridge ashlar (2 m tile, 5 courses of 0.4 m; blocks 0.6-1.2 m; lime mortar)
     r = np.random.default_rng(16); v, u = np.mgrid[0:n, 0:n].astype(np.float32) / n
     row = np.minimum((v * 5).astype(int), 4); ly = v * 5 - row
@@ -318,13 +321,16 @@ def ice_falls(name, W=18.0, Hh=15.5, seed=7, lean=0.0):
         t += prof * np.exp(-((X - xc) / sg) ** 2) * (1 + 0.15 * np.sin(Z * f + ph))
     t += 1.1 * np.exp(-((Z - (Hh - 1.6)) / 1.3) ** 2) * (1 + 0.3 * np.sin(X * 1.7))      # bulging lip at the top
     t += 3.6 * np.exp(-np.clip(Z, 0, None) / 2.4) * (1 + 0.2 * np.sin(X * 0.9))          # spray cone at the bottom
-    hw = W / 2 * (0.62 + 0.25 * np.sin(Z * 0.45 + 0.8) + 0.13 * np.sin(Z * 1.3 + 2.0))         # the curtain narrows and widens
+    u = np.clip(Z / Hh, 0, 1); hw = W / 2 * (0.93 - 0.8 * u * (1 - u) + 0.05 * np.sin(Z * 1.3 + 2.0))   # wide lip, a waist, a flared apron
+    hw = hw + 0.7 * np.sin(X * 2.1 + 0.5) * np.sin(X * 0.8)                                      # ragged column edges (vertical, like real curtains)
     lip = Hh - 1.2 - 1.3 * (0.5 + 0.5 * np.sin(X * 0.9 + 0.4)) * (0.5 + 0.5 * np.sin(X * 0.37 + 2.2))
     mask = sstep(hw, hw - 1.6, np.abs(X)) * sstep(lip + 0.6, lip - 0.4, Z) + sstep(1.0, -0.5, Z) * sstep(W / 2, W / 2 - 3, np.abs(X))
     t = t * np.clip(mask, 0, 1)
-    Yb = -lean * np.clip(Z, 0, None); F = np.dstack([X, Yb - 4.0 + t * 1.0 + 2.5 * np.clip(mask, 0, 1), Z]); U = np.dstack([X / 2.0, -Z / 2.0])   # unmasked parts sink 4 m into the rock
+    m = np.clip(mask, 0, 1); Yb = -lean * np.clip(Z, 0, None)
+    Zs = Z - 3.0 * (1 - m) * sstep(Hh - 4.0, Hh, Z)                                                # unmasked parts sink 4 m back AND down: nothing pokes above the lip
+    F = np.dstack([X, Yb - 4.0 + t * 1.0 + 2.5 * m, Zs]); U = np.dstack([X / 6.0 + 0.13 * np.sin(Z * 0.7), -Z / 6.0])   # 6 m tile, wobbled: no visible repeat
     mb.grid(F, U, 'WK_Ice', want=np.array([0, 1.0, 0]))
-    B = np.dstack([X, Yb - 4.6, Z]); mb.grid(B, U, 'WK_Ice', want=np.array([0, -1.0, 0]))   # back (Lumen: closed)
+    B = np.dstack([X, Yb - 4.6, Zs]); mb.grid(B, U, 'WK_Ice', want=np.array([0, -1.0, 0]))   # back (Lumen: closed), follows the sunk top
     for e in (0, -1):                                                                                      # sides
         S = np.stack([F[:, e], B[:, e]], 1); mb.grid(S, np.dstack([S[..., 1] / 2, -S[..., 2] / 2]), 'WK_Ice', want=np.array([np.sign(x[e]), 0, 0]))
     Tp = np.stack([F[-1], B[-1]], 0); mb.grid(Tp, np.dstack([Tp[..., 0] / 2, Tp[..., 1] / 2]), 'WK_Ice', want=np.array([0, 0, 1.0]))

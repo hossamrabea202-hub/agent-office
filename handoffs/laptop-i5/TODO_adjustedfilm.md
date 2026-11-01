@@ -16,7 +16,9 @@ scripted 3D snowfall shells riding the camera, landscape snow snakes, Niagara sp
 spots); blizzard = extinction 0.026/m (Blender) / UE fog at castle height, falloff 0.03, white albedo.
 Next, in order: (1) fix whatever the Master logs in `ue/wk390_log.txt` / on #390 #393 #394 (nothing yet; all UE steps are
 untested); (2) re-render + post the 4 presets if not posted (`lookdev/render_winterkeep.py`, make_sheet.py); (3) spruce snow
-cushions a bit round, falls texture streaky; (4) grey terrain wall at the WEST bridge end (road cut clip).
+cushions a bit round. DONE 2026-11-01 morning: falls (no square back plate, wide lip + flared apron, milky ice
+with blue flow lanes, 6 m tile) and the bridge-end wall (spill-through embankment cone, gen_terrain.py; heightmap + scatter
+regenerated, deck z unchanged 5247.3).
 
 ## Closed today (in the game, checked by the Master)
 

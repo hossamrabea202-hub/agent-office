@@ -244,10 +244,16 @@ def grade_road(h, pts, width, maxgrade, deep):
     prof = np.where(span, prof, np.clip(prof, terr - 8.0, terr + 2.5 + 14.0 * near_br))   # cut <= 8 m (hollow way into the rock), fill <= 2.5 m: no embankments
     road_h = np.interp(t * L, np.arange(nS), prof).astype(np.float32) - deep * np.clip(1 - d / width, 0, 1) ** 2 * 0.0
     crown = -0.12 * (d / width) ** 2
-    w = np.clip((d - width) / 9.0, 0, 1); w = w * w * (3 - 2 * w)
-    out = np.where(d < width + 9, (road_h + crown) * (1 - w) + h * w, h)
-    gorge = (rd < river_w + 20) & (out > h + 3.0)                     # never fill the gorge to deck height (SM_WK_Bridge spans it)
-    return np.where(gorge, h, out), d, t, sx, sy, prof
+    near_px = np.exp(-(np.hypot(xx - BRIDGE[0], yy - BRIDGE[1]) / 75.0) ** 2)
+    vw = 9.0 + 14.0 * near_px                                        # causeway sides ~33 deg, not a 1 px wall
+    w = np.clip((d - width) / vw, 0, 1); w = w * w * (3 - 2 * w)
+    out = np.where(d < width + vw, (road_h + crown) * (1 - w) + h * w, h)
+    if BRIDGE in [tuple(p) for p in pts]:                             # SM_WK_Bridge spans the gorge: no fill under the span,
+        cum = np.concatenate([[0], np.cumsum(seg)]); lb = float(cum[[tuple(p) for p in pts].index(BRIDGE)])
+        cone = np.clip((np.abs(t * L - lb) - 24.0) * 0.75, 0, None)    # spill-through abutment: the embankment end slopes ~37 deg
+        out = np.where(out > h, h + np.minimum(out - h, cone), out)      # down into the gorge under the bridge (buried abutment), no wall
+        log('bridge: embankment end cone from 24 m (0 m fill) to 38 m (10.5 m fill); verge %.0f m at the bridge' % (9 + 14))
+    return out, d, t, sx, sy, prof
 
 h, road_d, road_t, road_sx, road_sy, road_prof = grade_road(h, ROAD, 3.5, 0.11, 0)
 h, mine_d2, _, mine_sx, mine_sy, mine_prof = grade_road(h, MINE_ROAD, 2.6, 0.13, 0)
