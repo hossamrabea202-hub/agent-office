@@ -698,6 +698,16 @@ def step_light():
     sky = get(unreal.SkyLight, 'WK_SkyLight'); sky.light_component.set_editor_property('real_time_capture', True); sky.light_component.set_intensity(p[4])
     fog = get(unreal.ExponentialHeightFog, 'WK_Fog'); fc = fog.component
     fc.set_editor_property('fog_density', p[5]); fc.set_editor_property('enable_volumetric_fog', True); fc.set_editor_property('volumetric_fog_scattering_distribution', 0.9)
+    # Decision: the fog actor sits at castle height (62 m) in every preset, so p[5] is the density AT the castle.
+    # blizzard: near-uniform with height (the whole valley is inside the snow cloud), white albedo (snow scatters, it doesn't
+    # absorb), wide-angle scattering. 0.22 -> ~0.022/m extinction -> 5 % contrast at ~135 m (sight lines 80-150 m), bright not dark.
+    fog.set_actor_location(unreal.Vector(0, 0, 6200), False, False)
+    bl = PRESET == 'blizzard'
+    for k, v in (('fog_height_falloff', 0.03 if bl else 0.2), ('fog_max_opacity', 1.0), ('start_distance', 0.0),
+                 ('volumetric_fog_albedo', unreal.Color(252, 253, 255, 255) if bl else unreal.Color(255, 255, 255, 255)),
+                 ('volumetric_fog_scattering_distribution', 0.35 if bl else 0.9)):
+        try: fc.set_editor_property(k, v)
+        except Exception as e: say('skip fog', k, e)
     pp = get(unreal.PostProcessVolume, 'WK_PostProcess'); pp.set_editor_property('unbound', True); s = pp.settings
     # knowledge base: locked exposure = Histogram with Min EV100 = Max EV100 (UE5 extended luminance range: values are EV100)
     for k, v in (('override_auto_exposure_method', True), ('auto_exposure_method', unreal.AutoExposureMethod.AEM_HISTOGRAM),

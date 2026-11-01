@@ -174,3 +174,23 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
   segmental arch over a 30 m gorge is authentic, not fantasy. [source: Wikipedia, Pont du Diable (Céret)]
 - **Frozen falls:** mostly bubbly white-blue ice (albedo ~0.5) with a few clear dark streaks; an irregular outline and a
   spray cone at the foot. A full-width square curtain reads as a slab.
+
+### 2026-11-01 · adjustedfilm (Claude) · #390 blizzard white-out, snowfall, snow trails (tested in lookdev / numpy)
+- **Blizzard fog in a path tracer: don't scatter it, fake the converged field.** A uniform scattering fog of 0.026/m over
+  a 500 m deep box rendered a pure BLACK frame in Cycles (optical depth ~13 blocks the sun and sky; 4 volume bounces can't
+  recover it). Classic fog model instead: absorption σ + emission σ·L_fog (= L_fog·(1−T) + L_scene·T), visible to camera
+  rays only. This is what a deep albedo≈1 snow cloud converges to (uniform radiance). Result: bright white-out. Tested.
+- **Sight line from extinction:** 5 % contrast distance (Koschmieder) = 3/σ. 80–150 m means σ = 0.020–0.037/m. At 0.026
+  a bridge 142 m away vanished, so the lookdev uses 0.020. UE ExponentialHeightFog: density 0.22 at the fog actor's height
+  is about 0.022/m, with falloff 0.03 (near-uniform) and white volumetric albedo.
+- **Falling snow without Niagara:** a world-space jittered 3D flake field shown through camera-centred slabs (1–2, 2–4,
+  4–8, 8–16 m). Rules:
+  - cell = R/6, 6 samples per slab;
+  - flake radius max(0.8 cm, R·0.0025) so every flake covers ≥1 px;
+  - streak over a 1/60 s shutter, opacity scaled by 2r/(2r+streak) so energy is kept;
+  - lit translucent, not emissive.
+  The first try (cell R/4, radius 0.45 cm) gave 0.1–0.3 % screen coverage, which is invisible. The fix gave 1.2 %
+  (overcast) and 3.4 % (blizzard). Looking downwind, the streaks fan out from the view centre, which is correct.
+- **Trail render target:** snap the rolling window to whole texels (25 cm = 8 texels at 3.1 cm). The shift copy then
+  stays exact, with no bilinear blur accumulating. Store HEIGHT (1 = untouched) so POM and the refill clamp work without
+  inverting.

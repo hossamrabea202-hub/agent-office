@@ -10,10 +10,13 @@ Polish v2 done 2026-11-01 (committed, posted on #390): real Blender assets (spru
 frozen falls, 46 m arch bridge, half-buried farmstead), FBX + pbr-checked textures in `winter-map/assets/out`; UE
 `--step meshes` + `--step props`; dress uses our meshes; terrain gorge fix (the old gorge was a road fill); lookdev uses
 the real meshes, snow glints, rock texture, blizzard multiple scattering, 3 prop shots.
-Next, in order: (1) fix from the Master's log `ue/wk390_log.txt` (meshes/props/dress steps are untested in UE);
-(2) BPC_SnowTrails (RT trail mask + packed layer + POM in M_WK_Landscape; RESEARCH.md section 4) - needs a T3D or a
-setup script, ask for no export (new BP); (3) snow Niagara from the #226 rain (request an export of the rain system
-first); (4) blizzard white-out DONE in lookdev (posted); (5) spruce snow cushions are a bit round, falls texture streaky; (6) grey terrain wall at the WEST bridge end (road cut clip, see gate_overcast.png); (7) all v2 renders posted.
+Session 3 (2026-11-01): snow trails handed off (#394: MPC_WK_Snow, RT_WK_TrailA/B, own POM branch in M_WK_Landscape,
+BPC_SnowTrails 121-node graph on the level actor BP_WK_Snow, `--step trails`); snow VFX handed off (#395, vfx/README.md:
+scripted 3D snowfall shells riding the camera, landscape snow snakes, Niagara spindrift clicks + `--step drift` on 24 ridge
+spots); blizzard = extinction 0.026/m (Blender) / UE fog at castle height, falloff 0.03, white albedo.
+Next, in order: (1) fix whatever the Master logs in `ue/wk390_log.txt` / on #390 #393 #394 (nothing yet; all UE steps are
+untested); (2) re-render + post the 4 presets if not posted (`lookdev/render_winterkeep.py`, make_sheet.py); (3) spruce snow
+cushions a bit round, falls texture streaky; (4) grey terrain wall at the WEST bridge end (road cut clip).
 
 ## Closed today (in the game, checked by the Master)
 

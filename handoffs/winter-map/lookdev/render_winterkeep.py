@@ -233,7 +233,8 @@ def world(preset):
         sun = bpy.data.lights.new('Sun', 'SUN'); sun.energy = 0.0                                    # the sky's own sun disc lights the scene
         exposure = -3.6
     elif preset in ('overcast', 'blizzard'):
-        bg.inputs['Color'].default_value = (0.62, 0.66, 0.72, 1); bg.inputs['Strength'].default_value = 1.0 if preset == 'overcast' else 0.8
+        # blizzard: the sky IS the snow cloud: brighter, neutral (white-out), not a dark grey dome
+        bg.inputs['Color'].default_value = (0.62, 0.66, 0.72, 1) if preset == 'overcast' else (0.80, 0.83, 0.87, 1); bg.inputs['Strength'].default_value = 1.0
         sun = bpy.data.lights.new('Sun', 'SUN'); sun.energy = 0.35; sun.angle = math.radians(25); sun.color = (0.95, 0.97, 1.0)   # 2:1 overcast ratio
         exposure = -0.35 if preset == 'overcast' else 0.9   # blizzard: bright white-out (snow scatters, it doesn't absorb)
     else:  # night: grey-blue, moon on snow (blue is a stylistic choice, made on purpose: Purkinje)
@@ -244,7 +245,8 @@ def world(preset):
         so = bpy.data.objects.new(sun.name, sun); sc.collection.objects.link(so)
         so.rotation_euler = (math.radians(90 - (9 if preset == 'lowsun' else 35 if preset == 'night' else 50)), 0, math.radians(215 - 90 if preset != 'night' else 160))
     # fog lives in a bounded box (a world volume blocks the infinitely far sky in Cycles: the frame goes black)
-    dens = {'blizzard': 0.0042, 'overcast': 0.00035, 'lowsun': 0.00022, 'night': 0.0004}[preset]
+    # blizzard: extinction 0.020/m = 5 % contrast at 3/0.020 = 150 m (sight lines 80-150 m; 0.026 hid the bridge at 142 m), uniform with height (whole valley in it)
+    dens = {'blizzard': 0.020, 'overcast': 0.00035, 'lowsun': 0.00022, 'night': 0.0004}[preset]
     bpy.ops.mesh.primitive_cube_add(size=1, location=(0, 0, 300)); fb = bpy.context.active_object; fb.name = 'FogBox'; fb.scale = (5000, 5000, 1000)
     fm = bpy.data.materials.new('M_Fog'); fnt = fm.node_tree if fm.use_nodes else None; fm.use_nodes = True; fnd, fln = fm.node_tree.nodes, fm.node_tree.links; fnd.clear()
     fo = fnd.new('ShaderNodeOutputMaterial'); vol = fnd.new('ShaderNodeVolumePrincipled'); vol.inputs['Density'].default_value = dens
@@ -252,9 +254,21 @@ def world(preset):
     # height falloff: fog thicker in the valley (low), thinner over the ridges
     tc = fnd.new('ShaderNodeTexCoord'); sep = fnd.new('ShaderNodeSeparateXYZ'); fln.new(tc.outputs['Object'], sep.inputs['Vector'])
     mr = fnd.new('ShaderNodeMapRange'); mr.inputs['From Min'].default_value = -0.3; mr.inputs['From Max'].default_value = 0.1
-    mr.inputs['To Min'].default_value = dens * (1.0 if preset == 'blizzard' else 2.5); mr.inputs['To Max'].default_value = dens * 0.3
+    mr.inputs['To Min'].default_value = dens * (1.0 if preset == 'blizzard' else 2.5); mr.inputs['To Max'].default_value = dens * (1.0 if preset == 'blizzard' else 0.3)
     fln.new(sep.outputs['Z'], mr.inputs['Value']); fln.new(mr.outputs['Result'], vol.inputs['Density'])
-    fln.new(vol.outputs['Volume'], fo.inputs['Volume']); fb.data.materials.append(fm)
+    if preset == 'blizzard':
+        # deep snow cloud, albedo ~1: after many scatters the radiance inside is uniform, so use the classic fog model
+        # L = L_fog * (1 - T) + L_scene * T (absorption + emission), seen by camera rays only: 500 m of 0.02/m above the
+        # valley would otherwise block every sun / sky ray (optical depth ~13 = black frame, tested 2026-11-01)
+        ab = fnd.new('ShaderNodeVolumeAbsorption'); ab.inputs['Color'].default_value = (0, 0, 0, 1)
+        em = fnd.new('ShaderNodeEmission'); em.inputs['Color'].default_value = (0.80, 0.83, 0.87, 1)
+        ms = fnd.new('ShaderNodeMath'); ms.operation = 'MULTIPLY'; ms.inputs[1].default_value = 1.0
+        fln.new(mr.outputs['Result'], ab.inputs['Density']); fln.new(mr.outputs['Result'], ms.inputs[0]); fln.new(ms.outputs['Value'], em.inputs['Strength'])
+        add = fnd.new('ShaderNodeAddShader'); fln.new(ab.outputs['Volume'], add.inputs[0]); fln.new(em.outputs['Emission'], add.inputs[1])
+        fln.new(add.outputs['Shader'], fo.inputs['Volume'])
+        for k in ('visible_diffuse', 'visible_glossy', 'visible_transmission', 'visible_volume_scatter', 'visible_shadow'): setattr(fb, k, False)
+    else: fln.new(vol.outputs['Volume'], fo.inputs['Volume'])
+    fb.data.materials.append(fm)
     sc.view_settings.view_transform = 'AgX'; sc.view_settings.look = 'AgX - Base Contrast'
     sc.view_settings.exposure = exposure                       # LOCKED: one number per preset, written in the README
     return exposure

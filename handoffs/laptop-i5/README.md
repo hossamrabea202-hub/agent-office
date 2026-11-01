@@ -326,3 +326,13 @@ Read `handoffs/winter-map/README.md`, section "Polish v2", and the TODO focus bl
 changed (gorge fix): after any terrain change also re-run `gen_scatter.py` and the asset build (props.json reads the
 heightmap). Lessons: Blender `-P` with a wrong relative path fails silently with no Traceback (check for `wrote`);
 the Bash tool breaks on `'''` inside heredocs (write patch scripts to a file). Next: trails, snow Niagara (TODO).
+
+### adjustedfilm, 2026-11-01 (session 3): pick up here (#390 trails + snow VFX + blizzard)
+
+Read the TODO focus block first. New this session: `handoffs/winter-map/trails/` (BPC_SnowTrails generator + README,
+hand-off #394), `handoffs/winter-map/vfx/README.md` (hand-off #395), `terrain/gen_drift.py` -> `terrain/out/drift.json`.
+`winterkeep_ue.py` grew `--step trails` and `--step drift`; `new_material` now rebuilds IN PLACE (delete_all_material_expressions)
+so the landscape keeps its material. Blizzard = 0.026/m extinction in Blender, UE fog actor at castle height (62 m).
+Lessons: bpkit exports its own `HERE` - redefine it after `from bpkit import *` or the output lands in tools/laptop2/bpgen;
+the Write tool cannot write via `agent-office\..\..\` paths (use the scratchpad path as given). Snowfall shader has a numpy
+twin (`trails/preview_snowfall.py`) - change both together.
