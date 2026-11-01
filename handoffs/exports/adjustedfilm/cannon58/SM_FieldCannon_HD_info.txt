@@ -1,0 +1,14 @@
+asset: /Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/SM_FieldCannon_HD
+exported: True
+bounds min <Struct 'Vector' (0x00000203DE19FFC0) {x: -30.921200, y: -191.696762, z: -4.618421}>, max <Struct 'Vector' (0x00000203DE19FFD8) {x: 224.306320, y: 312.021912, z: 231.015549}>
+triangles LOD0: 2067
+materials: Metal=/Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/Metal.Metal, Wood=/Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/Wood.Wood
+placed in the open level:
+Cannon_old_field_cannon2 / CannonMesh: scale (1.000, 1.000, 1.000)
+Cannon_front_field_N / CannonMesh: scale (1.000, 1.000, 1.000)
+Cannon_front_field_S / CannonMesh: scale (1.000, 1.000, 1.000)
+Cannon_old_field_cannon_bailey / CannonMesh: scale (1.000, 1.000, 1.000)
+Cannon_old_field_cannon3 / CannonMesh: scale (1.000, 1.000, 1.000)
+Cannon_old_field_cannon_bailey / CannonMesh: scale (1.000, 1.000, 1.000)
+Cannon_old_field_cannon4 / CannonMesh: scale (1.000, 1.000, 1.000)
+Cannon_old_field_cannon / CannonMesh: scale (1.000, 1.000, 1.000)
