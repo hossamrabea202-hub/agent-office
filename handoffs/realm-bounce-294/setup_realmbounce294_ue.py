@@ -30,7 +30,9 @@ else:
     if TAG in [str(t) for t in a.tags]: log.append('%s already tagged %s' % (BUBBLE_LABEL, TAG))
     else:
         log.append('tag %s %s' % (BUBBLE_LABEL, TAG))
-        if not DRY: a.tags = list(a.tags) + [unreal.Name(TAG)]; unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level()
+        if not DRY and '--no-tag' not in A:   # --no-tag (i5 core): leave the map to the Master, who adds the tag
+            a.tags = list(a.tags) + [unreal.Name(TAG)]; unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level()
+        elif '--no-tag' in A: log.append('  --no-tag: NOT tagged; the Master adds tag %s to %s' % (TAG, BUBBLE_LABEL))
     others = [x.get_actor_label() for x in EAS.get_all_level_actors() if TAG in [str(t) for t in x.tags] and x != a]
     if others: log.append('WARNING: also tagged %s: %s (the ball uses the FIRST one found; remove the tag from old domes)' % (TAG, others))
     for c in a.get_components_by_class(unreal.StaticMeshComponent):
