@@ -518,7 +518,7 @@
    "w": 270,
    "h": 22,
    "kind": "tag",
-   "p": "LEADER  (ONE)"
+   "p": "LEADER  (TWO)"
   },
   "d1_cmdr": {
    "x": 874,
@@ -765,7 +765,7 @@
    "tab": 0,
    "name": "Commander",
    "title": "COMMANDER",
-   "tag": "LEADER  (ONE)",
+   "tag": "LEADER  (TWO)",
    "glyph": "banner",
    "desc": [
     "Leads a squad into battle and heals every",

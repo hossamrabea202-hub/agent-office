@@ -5,6 +5,7 @@
 import json, os
 from layout import TW, TH, S, pack
 from layout_mu import ITEMS, WALLS, TOWERS, ORES
+ITEMS = [(i[:4] + ('LEADER  (TWO)',) + i[5:]) if i[0] == 'cmdr' else i for i in ITEMS]   # owner 21:02: two commanders per army
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 TABS = ['RECRUIT', 'ARTILLERY', 'FORTIFY', 'SUPPLIES']

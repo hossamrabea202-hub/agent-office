@@ -39,7 +39,11 @@ REPL = [
      "    put('IBlock', STRV, label if not isinstance(label, str) else None, lit=label if isinstance(label, str) else None)"),
     ("item_set(fm, 0, pw(40), state=recstate, note=recnote, sub=armytxt)", "item_set(fm, 0, pw(40), state=recstate, note=recnote, sub=armytxt, label=reclbl)"),
     ("item_set(fm, 1, pw(60), state=recstate, note=recnote, sub=armytxt)", "item_set(fm, 1, pw(60), state=recstate, note=recnote, sub=armytxt, label=reclbl)"),
-    ("sub=sels('IN SERVICE', 'ONE PER ARMY', hascmd))", "sub=sels('IN SERVICE', 'ONE PER ARMY', hascmd), label='QUEUE FULL')"),
+    # commanders: the owner allows TWO per army (#420, 21:02); counted from the live actors + the ones queued (Kind 2)
+    ("hascmd = dcmp('Greater_DoubleDouble', cnt['B'], 0.5)\nitem_set(fm, 2, 300, state=seli(1, seli(4, 0, qfull), hascmd), note=sels('You already have a Commander', sels('Training queue is full (3)', '', qfull), hascmd),\n         sub=sels('IN SERVICE', 'ONE PER ARMY', hascmd))",
+     "ncmd = commanders()\nhascmd = icmp('GreaterEqual_IntInt', ncmd, 2)\n"
+     "item_set(fm, 2, 300, state=seli(2, seli(4, 0, qfull), hascmd), note=sels('Two commanders already lead your army', sels('Training queue is full (3 / 3)', '', qfull), hascmd),\n"
+     "         sub=catn('COMMANDERS  ', istr(ncmd), ' / 2'), label='QUEUE FULL')"),
     ("sub=catn('FREE PADS  ', istr(get('FreePads', INT))))", "sub=catn('FREE PADS  ', istr(get('FreePads', INT))), label='NO FREE PAD')"),
 ]
 for a_, b_ in REPL:
@@ -55,13 +59,24 @@ def input_mode(gameui):
         n = b.lib(UMG('WidgetBlueprintLibrary'), 'SetInputMode_GameOnly', [ob('PlayerController', PCON), dict(bo('bFlushInput', default='false'), advanced=True)], *P(), tag='InputGame')
     b.wire(pc, n, 'PlayerController'); return n
 
+NX = [None, None, None]                                # live crossbowmen, commanders, all soldiers
+def count_class(fl_, path, tag):
+    n = b.lib(GS, 'GetAllActorsOfClass', [WC(), CLSPIN('ActorClass', ACT, cpath(path)), arr(ob('OutActors', ACT, out=True))], *P(), tag='Find' + tag); fl_.go(n)
+    ln = b.name(tag + 'Len'); G.node(ln, 'K2Node_CallArrayFunction', ['bIsPureFunc=True', 'FunctionReference=(MemberParent=%s,MemberName="Array_Length")' % KARR],
+                                     [selfpin(KARR, hidden=True), {'name': 'TargetArray', 'cat': 'wildcard', 'container': 'Array', 'ref': True}, it('ReturnValue', out=True, default='0')], *P())
+    G.link(n, 'OutActors', ln, 'TargetArray'); return (ln, 'ReturnValue')
+def commanders():                                      # live + queued (RQ holds up to 3 kinds)
+    s = NX[1]
+    for q in range(3):
+        k = b.item(rq, INT, None, *P()); G.nodes[-1][3][1]['default'] = str(q)
+        s = iop('Add_IntInt', s, seli(1, 0, AND(icmp('Greater_IntInt', RQN, q), icmp('EqualEqual_IntInt', k, 2))))
+    return s
 def army_and_cap(fl_):
-    sold = b.lib(GS, 'GetAllActorsOfClass', [WC(), CLSPIN('ActorClass', ACT, cpath(P_SOLDIER)), arr(ob('OutActors', ACT, out=True))], *P(), tag='FindSoldiers'); fl_.go(sold)
-    sl = b.name('SoldLen'); G.node(sl, 'K2Node_CallArrayFunction', ['bIsPureFunc=True', 'FunctionReference=(MemberParent=%s,MemberName="Array_Length")' % KARR],
-                                  [selfpin(KARR, hidden=True), {'name': 'TargetArray', 'cat': 'wildcard', 'container': 'Array', 'ref': True}, it('ReturnValue', out=True, default='0')], *P())
-    G.link(sold, 'OutActors', sl, 'TargetArray')
+    sl = count_class(fl_, P_SOLDIER, 'Soldiers')          # BP_SoldierXbow and BP_SoldierCommander are children: all of the army
+    NX[0] = count_class(fl_, '/Game/CastleDefender/Characters/Knight/BP_SoldierXbow', 'Xbows')
+    NX[1] = count_class(fl_, '/Game/CastleDefender/Characters/Knight/BP_SoldierCommander', 'Cmdrs')
     que = mpcb('Que')
-    army = dop('Add_DoubleDouble', i2d((sl, 'ReturnValue')), que['R'])
+    army = dop('Add_DoubleDouble', i2d(sl), que['R']); NX[2] = sl
     cast(G, 'AsHero', HEROC, 'AsBP Third Person Character', *P(), pure=True); b.wire(OWNER, 'AsHero', 'Object')
     lvl = b.getm('Level', HEROC, INT, ('AsHero', 'AsBP Third Person Character'), *P())
     cap = dop('Add_DoubleDouble', dop('Multiply_DoubleDouble', i2d(lvl), 2.0), 4.0)
@@ -221,8 +236,8 @@ fs, fns = fr.iff(isSel, 'IfCardSel'); cell(fs, 'card_sel', dop('Subtract_DoubleD
 fhv, fnhv = fns.iff(inside(cx, CA['y'], CA['w'], CA['h']), 'IfCardHover'); cell(fhv, 'card_hover', dop('Subtract_DoubleDouble', cx, 6.0), cy0 + CA['h'] / 2)
 # garrison strip
 SP = L['strip']; scy = SP['y'] + SP['h'] / 2 + 8
-hascmd = dcmp('Greater_DoubleDouble', cnt['B'], 0.5)
-cols = [('sword', 'SWORDSMEN  ', istr(rint(cnt['R']))), ('xbow', 'CROSSBOWMEN  ', istr(rint(cnt['G']))), ('banner', 'COMMANDER  ', sels('IN SERVICE', '-', hascmd)),
+nsw = iop('Subtract_IntInt', iop('Subtract_IntInt', NX[2], NX[0]), NX[1])
+cols = [('sword', 'SWORDSMEN  ', istr(nsw)), ('xbow', 'CROSSBOWMEN  ', istr(NX[0])), ('banner', 'COMMANDERS  ', catn(istr(NX[1]), ' / 2')),
         ('medic', 'MEDICS  ', catn(istr(mcount), ' / ', istr(mmax))), ('gate', 'ARMY  ', catn(istr(rint(armyn)), ' / ', istr(rint(capn))))]
 for k_, (gl, lab, val) in enumerate(cols):
     cell(fd, 'mini_' + gl, SP['cols'][k_] - 24, scy, tag='GIcon')

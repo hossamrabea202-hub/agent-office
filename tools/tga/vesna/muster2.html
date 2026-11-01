@@ -171,10 +171,10 @@ function mock(){
   paintCell('',L.tabs[0].x,L.tabs[0].y,L.atlas.tab_on); paintCell('',L.tabs[2].x,L.tabs[2].y,L.atlas.tab_hover);
   const items=L.items.filter(i=>i.tab===0), x0=Math.round(836-(items.length*L.card.w+(items.length-1)*16)/2);
   const S=[{sel:1,st:0,price:'40',afford:1,sub:'ARMY  4 / 6',label:'RECRUIT'},{hover:1,bhover:1,st:0,price:'60',afford:1,sub:'ARMY  4 / 6',label:'RECRUIT'},
-           {st:0,price:'300',afford:1,sub:'ONE PER ARMY',label:'RECRUIT'},{st:0,price:'150',afford:1,sub:'MEDICS  1 / 4',label:'HIRE'},
+           {st:0,price:'300',afford:1,sub:'COMMANDERS  0 / 2',label:'RECRUIT'},{st:0,price:'150',afford:1,sub:'MEDICS  1 / 4',label:'HIRE'},
            {st:3,sub:'IN TRAINING',note:'THE WORKSHOP IS NOT BUILT YET',label:'LOCKED'}];
   items.forEach((it,k)=>cardAt(x0+k*L.card.step,it,S[k]));
-  const s=L.strip, cy=s.y+s.h/2+8, vals=[['sword','SWORDSMEN','2'],['xbow','CROSSBOWMEN','1'],['banner','COMMANDER','—'],['medic','MEDICS','1 / 4'],['gate','ARMY','4 / 6']];
+  const s=L.strip, cy=s.y+s.h/2+8, vals=[['sword','SWORDSMEN','2'],['xbow','CROSSBOWMEN','1'],['banner','COMMANDERS','0 / 2'],['medic','MEDICS','1 / 4'],['gate','ARMY','4 / 6']];
   vals.forEach(([g,l,v],k)=>{ paintCell('',s.cols[k]-24,cy-20,L.atlas['mini_'+g]); const e=text(s.cols[k]+24,cy,l,'font-family:Cinzel;font-weight:600;font-size:15px;letter-spacing:2px');
     text(e.getBoundingClientRect().right+10,cy,v,'font-family:Cinzel;font-weight:700;font-size:19px;color:#f0d391'); });
   paintCell('',s.qx0+s.qw/2-20,s.y+s.h/2-20,L.atlas.mini_sword);
