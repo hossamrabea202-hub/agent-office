@@ -1,9 +1,10 @@
 {
- "working": "#390 blizzard lookdev + preset renders",
- "tokens": 168000,
+ "working": "#390 waiting on Master log (#394/#395)",
+ "tokens": 200000,
  "ctx": 1000000,
  "since": "2026-11-01T00:57:53Z",
  "done": [
+  "#390 blizzard white-out + shots [80% tokens left]",
   "#390 snow VFX handed off [83% tokens left]",
   "#390 v2 renders posted (presets + props) [74% tokens left]",
   "#390 snow trails handed off [90% tokens left]",
@@ -12,8 +13,7 @@
   "#386 handed off [60% tokens left]",
   "midnight pick-up note written [66% tokens left]",
   "#188 checked: already pasted, play-test requested [68% tokens left]",
-  "#294 handed off [70% tokens left]",
-  "#381 realm vision v2 handed off [74% tokens left]"
+  "#294 handed off [70% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T01:18:23Z",
+ "asOf": "2026-11-01T01:28:35Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
