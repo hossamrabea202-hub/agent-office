@@ -42,8 +42,8 @@ Tower9_WallGrime_A_20_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefende
 Tower9_WallGrime_B_05_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm50.MI_Tower9_WallBaseGrime_Zm50 | - | - | 
 SM_WalkSlab_87 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_DoorCut_88 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-Tower9_WallGrime_A_19_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
 Realm_Wall_005 | StaticMeshComponent0 | SM_SiegeBarricade_Palisade | 0 | /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Palisade.MI_SiegeBarricade_Palisade | - | BaseColor=T_SiegeBarricade_Palisade_BaseColor, ORM=T_SiegeBarricade_Palisade_ORM, Normal=T_SiegeBarricade_Palisade_Normal_DirectX | 
+Tower9_WallGrime_A_19_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
 Castle_SouthCurtain_Buttress | StaticMeshComponent0 | SM_Bevel_013 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_WallGrime_A_21_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm100.MI_Tower9_WallBaseGrime_Zm100 | - | - | 
 Tower9_LedgeGrime_B_26 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
@@ -79,8 +79,8 @@ EF_Tun_Wall_014_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefe
 SM_WalkSlab_95 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_Grime_B_37 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_LedgeGrime_A_22 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
-CastleStones_2_0_11 | StaticMeshComponent0 | SM_CastleStones_2_0_11 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_GateStep_A1_SMTread | StaticMeshComponent0 | SM_StairTread | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
+CastleStones_2_0_11 | StaticMeshComponent0 | SM_CastleStones_2_0_11 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_FrontRightCurtain | StaticMeshComponent0 | SM_Bevel_014 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_053_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_SouthCurtain_StringCourse_B138A_Mid_Skirt | StaticMeshComponent0 | SM_Bevel_009 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
@@ -88,8 +88,8 @@ Tower9_WallGrime_B_02_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefende
 Castle_GateSpandrel_33 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_StairRamp_A_A | StaticMeshComponent0 | Cube | 0 | /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial | - | - | 
 EF_Tun_Wall_050_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-EF_Tun_Wall_020_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_Grime_A_08 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
+EF_Tun_Wall_020_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_Grime_A_19 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 EF_Tun_Wall_021_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 WallTorch_Iron_04 | StaticMeshComponent0 | SM_IronTorch | 0 | /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K.Iron_Torch___Baked_PBR_1K | - | - | 
@@ -144,19 +144,11 @@ Castle_KeepTurret | StaticMeshComponent0 | SM_Bevel_040 | 0 | /Game/CastleDefend
 Tower9_WallGrime_A_08_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
 Castle_GateSpandrel_11 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 SM_WalkSlab_100 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
-Castle_GateLever_NATIVE | DoorLeftWood | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched | - | - | WOOD ON A WALL ACTOR
-Castle_GateLever_NATIVE | DoorLeftIron | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
-Castle_GateLever_NATIVE | DoorRightWood | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched | - | - | WOOD ON A WALL ACTOR
-Castle_GateLever_NATIVE | DoorRightIron | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
-Castle_GateLever_NATIVE | LeverPedestal | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood | - | - | WOOD ON A WALL ACTOR
-Castle_GateLever_NATIVE | LeverHousing | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
-Castle_GateLever_NATIVE | LeverArm | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
-Castle_GateLever_NATIVE | LeverGrip | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood | - | - | WOOD ON A WALL ACTOR
 SM_WalkSlab_66 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_Grime_B_27 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_B_41_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
-Tower9_LedgeGrime_A_02 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_LedgeGrime_A_60 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
+Tower9_LedgeGrime_A_02 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_LedgeGrime_A_47 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_A_32_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm40.MI_Tower9_WallBaseGrime_Zm40 | - | - | 
 EF_Tun_Wall_002_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
@@ -167,14 +159,14 @@ SM_WalkSlab_38 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/S
 Tower9_Grime_A_21 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 EF_Tun_Wall_042_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_046_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-Castle_FrontRightCurtain_StringCourse | StaticMeshComponent0 | SM_Bevel_017 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_LedgeGrime_A_20 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
+Castle_FrontRightCurtain_StringCourse | StaticMeshComponent0 | SM_Bevel_017 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 SM_WalkSlab_5 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_LedgeGrime_A_11 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 SM_WalkSlab_76 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 EF_Tun_Wall_061_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-EF_Tun_Wall_045_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 WallTorch_Iron_25 | StaticMeshComponent0 | SM_IronTorch | 0 | /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K.Iron_Torch___Baked_PBR_1K | - | - | 
+EF_Tun_Wall_045_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_WallGrime_B_28_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm80.MI_Tower9_WallBaseGrime_Zm80 | - | - | 
 Tower9_GateStep_B2_SM | StaticMeshComponent0 | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_WallGrime_B_08_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
@@ -213,8 +205,8 @@ Castle_CornerTower_Cornice_Skirt | StaticMeshComponent0 | SM_Bevel_019 | 0 | /Ga
 Tower9_WallGrime_B_23_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm110.MI_Tower9_WallBaseGrime_Zm110 | - | - | 
 Castle_Flagpole4 | StaticMeshComponent0 | SM_Cylinder_Nanite | 0 | /Game/CastleDefender/Props/AshenGate/Materials/MI_AshenGate_Iron.MI_AshenGate_Iron | TileSizeCm=70 | BaseColorTex=rusty_metal_04_diff_1k, NormalTex=rusty_metal_04_nor_gl_1k, ARMTex=rusty_metal_04_arm_1k | 
 SM_WalkSlab_97 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
-Tower9_WallGrime_A_36_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm70.MI_Tower9_WallBaseGrime_Zm70 | - | - | 
 Castle_GateTowerRight_ArrowSlit | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_Shadow.M_Shadow | - | - | 
+Tower9_WallGrime_A_36_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm70.MI_Tower9_WallBaseGrime_Zm70 | - | - | 
 Tower9_WallGrime_B_17_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
 Castle_GateLanding_Cap | StaticMeshComponent0 | Cube | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Paving_POM.MI_Castle_Paving_POM | Tiling=4, WorldScale_cm=900 | - | 
 Tower9_Grime_B_23 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
@@ -229,8 +221,8 @@ Tower9_LedgeGrime_A_07 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender
 Tower9_LedgeGrime_B_44 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_B_40_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
 Castle_StandardGoldStripe | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_AntiqueGold.M_AntiqueGold | - | - | 
-EF_Tun_Wall_008_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 WallTorch_Iron_29 | StaticMeshComponent0 | SM_IronTorch | 0 | /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K.Iron_Torch___Baked_PBR_1K | - | - | 
+EF_Tun_Wall_008_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Blend_PropBlob_Castle_WellBase_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard | - | - | 
 Tower9_GateStep_A2_SM | StaticMeshComponent0 | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_GateJamb | StaticMeshComponent0 | SM_BevR_60x100x340_6eacd9 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
@@ -270,8 +262,8 @@ EF_Tun_Wall_056_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefe
 Realm_Wall_Breach_B | StaticMeshComponent0 | SM_SiegeBarricade_Palisade | 0 | /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Palisade.MI_SiegeBarricade_Palisade | - | BaseColor=T_SiegeBarricade_Palisade_BaseColor, ORM=T_SiegeBarricade_Palisade_ORM, Normal=T_SiegeBarricade_Palisade_Normal_DirectX | 
 Tower9_LedgeGrime_B_05 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_B_15_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
-Tower9_LedgeGrime_B_35 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 SM_WalkSlab_32 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
+Tower9_LedgeGrime_B_35 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Castle_BaileyTower | StaticMeshComponent0 | SM_Bevel_018 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_KeepShell_Step_29 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_Grime_B_14 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
@@ -296,6 +288,7 @@ Tower9_WallGrime_A_13_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefende
 Castle_GateSpandrel_30 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_HallWindowSill | StaticMeshComponent0 | SM_Bevel_045 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 SM_WalkSlab_3 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
+Tower9_Torch_A0_TorchMount | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime | - | - | 
 SM_WalkSlab_59 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_WallGrime_A_33_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm40.MI_Tower9_WallBaseGrime_Zm40 | - | - | 
 Realm_Wall_008 | StaticMeshComponent0 | SM_SiegeBarricade_Palisade | 0 | /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Palisade.MI_SiegeBarricade_Palisade | - | BaseColor=T_SiegeBarricade_Palisade_BaseColor, ORM=T_SiegeBarricade_Palisade_ORM, Normal=T_SiegeBarricade_Palisade_Normal_DirectX | 
@@ -383,8 +376,8 @@ EF_Tun_Wall_053_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefe
 Castle_KeepStair | StaticMeshComponent0 | SM_Bevel_054 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_GateArch | StaticMeshComponent0 | SM_Bevel_033 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_GateArch.MI_Castle_GateArch | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM, Arch_BaseColor=T_tinifauaw_2K_B, Arch_Normal=T_tinifauaw_2K_N, Arch_ORM=T_tinifauaw_2K_ORM | 
 EF_Tun_Wall_029_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-Castle_DoorCut_87 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_LedgeGrime_A_55 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
+Castle_DoorCut_87 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_LedgeGrime_A_16 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_LedgeGrime_B_04 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_A_19_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
@@ -392,12 +385,6 @@ EF_Tun_Wall_006_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefe
 SM_WalkSlab_16 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_LedgeGrime_B_01 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_A_09_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
-StoneWallFountain_2 | Basin | SM_StoneWallBasin | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_StoneFountain.MI_StoneFountain | - | - | 
-StoneWallFountain_2 | WaterStream | Cylinder | 0 | /Game/CastleDefender/Props/StoneWallBasin/Water/M_FaucetStream.M_FaucetStream | - | - | 
-StoneWallFountain_2 | WaterSurface | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Water/M_BasinWater_SLW.M_BasinWater_SLW | - | - | 
-StoneWallFountain_2 | AlgaeWall | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Wall.MI_AlgaeStain_Wall | - | - | 
-StoneWallFountain_2 | AlgaeGround | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Ground.MI_AlgaeStain_Ground | MossTiling=1.5 | - | 
-StoneWallFountain_2 | WallHaloA | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_HaloA_Var.MI_AlgaeStain_HaloA_Var | MossTileCm=35 | - | 
 EF_Tun_Wall_029_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 SM_WalkSlab_60 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 EF_Tun_Wall_047_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
@@ -410,9 +397,9 @@ Tower9_LedgeGrime_B_51 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender
 Tower9_LedgeGrime_A_49 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Castle_NorthCurtain_StringCourse | StaticMeshComponent0 | SM_Bevel_009 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_NorthCurtain_StringCourse_B138B_R | StaticMeshComponent0 | SM_Bevel_010 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
-Tower9_WallGrime_A_42_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm70.MI_Tower9_WallBaseGrime_Zm70 | - | - | 
 Realm_Wall_Breach_A | StaticMeshComponent0 | SM_SiegeBarricade_Palisade | 0 | /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Palisade.MI_SiegeBarricade_Palisade | - | BaseColor=T_SiegeBarricade_Palisade_BaseColor, ORM=T_SiegeBarricade_Palisade_ORM, Normal=T_SiegeBarricade_Palisade_Normal_DirectX | 
 Realm_Wall_Breached | StaticMeshComponent0 | SM_SiegeBarricade_Breach | 0 | /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Breach.MI_SiegeBarricade_Breach | - | BaseColor=T_SiegeBarricade_Breach_BaseColor, ORM=T_SiegeBarricade_Breach_ORM, Normal=T_SiegeBarricade_Breach_Normal_DirectX | 
+Tower9_WallGrime_A_42_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm70.MI_Tower9_WallBaseGrime_Zm70 | - | - | 
 WallTorch_Iron_28 | StaticMeshComponent0 | SM_IronTorch | 0 | /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K.Iron_Torch___Baked_PBR_1K | - | - | 
 Tower9_WallGrime_B_36_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Z90.MI_Tower9_WallBaseGrime_Z90 | - | - | 
 Tower9_WallGrime_A_30_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm40.MI_Tower9_WallBaseGrime_Zm40 | - | - | 
@@ -435,9 +422,10 @@ EF_Tun_Wall_039_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefe
 Tower9_WallGrime_B_07_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm80.MI_Tower9_WallBaseGrime_Zm80 | - | - | 
 SM_WalkSlab_86 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Realm_Wall_026 | StaticMeshComponent0 | SM_SiegeBarricade_Palisade | 0 | /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Palisade.MI_SiegeBarricade_Palisade | - | BaseColor=T_SiegeBarricade_Palisade_BaseColor, ORM=T_SiegeBarricade_Palisade_ORM, Normal=T_SiegeBarricade_Palisade_Normal_DirectX | 
-Tower9_B_Floors | StaticMeshComponent0 | SM_Tower09_Floors | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_WallGrime_B_33_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
+Tower9_B_Floors | StaticMeshComponent0 | SM_Tower09_Floors | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_Grime_A_20 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
+Tower9_Grime_B_39 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_Grime_A_10 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_LedgeGrime_A_42 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 EF_Tun_Wall_035_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
@@ -460,6 +448,7 @@ Tower9_WallGrime_B_21_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefende
 Tower9_LedgeGrime_A_06 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 EF_Tun_Wall_035_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_LedgeGrime_A_43 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
+Tower9_Torch_A1_TorchMount | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime | - | - | 
 Tower9_WallGrime_A_14_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
 Tower9_WallGrime_B_29_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm70.MI_Tower9_WallBaseGrime_Zm70 | - | - | 
 EF_Tun_Wall_031_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
@@ -498,8 +487,8 @@ Castle_GateSpandrel_35 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/Castl
 Realm_Wall_000 | StaticMeshComponent0 | SM_SiegeBarricade_Palisade | 0 | /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Palisade.MI_SiegeBarricade_Palisade | - | BaseColor=T_SiegeBarricade_Palisade_BaseColor, ORM=T_SiegeBarricade_Palisade_ORM, Normal=T_SiegeBarricade_Palisade_Normal_DirectX | 
 Castle_GrassSurround | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Ground.MI_Castle_Ground | Noise_scale=0.064, Larger_Grass_Scale=0.614101, Grass_Scale_Blend=0.5, Far_Grass_Scale=0.01, Snow_Scale=0.01 | - | TILING < 1 (stretched); TILING < 1 (stretched); TILING < 1 (stretched); TILING < 1 (stretched); TILING < 1 (stretched)
 Castle_KeepTurret_Crenel7 | StaticMeshComponent0 | SM_Bevel_023 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
-Tower9_Grime_B_12 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Castle_GateTowerRight_Cornice | StaticMeshComponent0 | SM_BevR_420x420x60_37fbd1 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
+Tower9_Grime_B_12 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Realm_Wall_003 | StaticMeshComponent0 | SM_SiegeBarricade_Palisade | 0 | /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Palisade.MI_SiegeBarricade_Palisade | - | BaseColor=T_SiegeBarricade_Palisade_BaseColor, ORM=T_SiegeBarricade_Palisade_ORM, Normal=T_SiegeBarricade_Palisade_Normal_DirectX | 
 Tower9_LedgeGrime_A_21 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_LedgeGrime_B_13 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
@@ -532,8 +521,8 @@ Tower9_Grime_B_08 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shar
 Tower9_Grime_B_11 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Castle_EastCurtain_StringCourse | StaticMeshComponent0 | SM_Bevel_004 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_Grime_B_06 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
-Tower9_WallGrime_B_16_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
 Castle_WellWater | StaticMeshComponent0 | SM_Cylinder_Nanite | 0 | /Game/CastleDefender/Props/CourtyardProps/Materials/MI_FirePit_Embers.MI_FirePit_Embers | - | - | 
+Tower9_WallGrime_B_16_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
 Tower9_WallGrime_B_03_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm40.MI_Tower9_WallBaseGrime_Zm40 | - | - | 
 WallTorch_Iron_07 | StaticMeshComponent0 | SM_IronTorch | 0 | /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K.Iron_Torch___Baked_PBR_1K | - | - | 
 Castle_NorthCurtain_StringCourse_B138B_R | StaticMeshComponent0 | SM_Bevel_011 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
@@ -544,8 +533,8 @@ Castle_SouthCurtain_StringCourse | StaticMeshComponent0 | SM_Bevel_010 | 0 | /Ga
 Tower9_Grime_B_04 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Castle_BaileyEast_SC_B138C_R_Skirt | StaticMeshComponent0 | SM_Bevel_003 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_BaileyTower_Cornice | StaticMeshComponent0 | SM_Bevel_022 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
-Castle_BaileyTower_Cornice | StaticMeshComponent0 | SM_Bevel_021 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_StandardGoldStripe | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_AntiqueGold.M_AntiqueGold | - | - | 
+Castle_BaileyTower_Cornice | StaticMeshComponent0 | SM_Bevel_021 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 EF_Tun_Wall_059_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 SM_WalkSlab_82 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 SM_WalkSlab_70 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
@@ -648,8 +637,8 @@ Realm_Gate_Tower_1 | StaticMeshComponent0 | SM_SiegeBarricade_Watchtower | 0 | /
 Tower9_WallGrime_A_21_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm100.MI_Tower9_WallBaseGrime_Zm100 | - | - | 
 Tower9_Grime_B_28 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 SM_WalkSlab_45 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
-EF_Tun_Wall_001_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_WallGrime_A_37_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | - | - | 
+EF_Tun_Wall_001_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_038_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_058_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 SM_WalkSlab_19 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
@@ -690,12 +679,6 @@ SM_WalkSlab_67 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/S
 Castle_GateSpandrel_28 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_WallGrime_B_25_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm100.MI_Tower9_WallBaseGrime_Zm100 | - | - | 
 Tower9_GateStep_B1_Cube | StaticMeshComponent0 | Cube | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StepCap.MI_Castle_StepCap | TileSize_cm=140 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
-StoneWallFountain_01 | Basin | SM_StoneWallBasin | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_StoneFountain.MI_StoneFountain | - | - | 
-StoneWallFountain_01 | WaterStream | Cylinder | 0 | /Game/CastleDefender/Props/StoneWallBasin/Water/M_FaucetStream.M_FaucetStream | - | - | 
-StoneWallFountain_01 | WaterSurface | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Water/M_BasinWater_SLW.M_BasinWater_SLW | - | - | 
-StoneWallFountain_01 | AlgaeWall | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Wall.MI_AlgaeStain_Wall | - | - | 
-StoneWallFountain_01 | AlgaeGround | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Ground.MI_AlgaeStain_Ground | MossTiling=1.5 | - | 
-StoneWallFountain_01 | WallHaloA | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_HaloA.MI_AlgaeStain_HaloA | MossTileCm=35 | - | 
 Castle_BaileyTower_Cornice | StaticMeshComponent0 | SM_Bevel_020 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_BaileyEast_SC | StaticMeshComponent0 | SM_Bevel_003 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 EF_Tun_Wall_005_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
@@ -752,9 +735,10 @@ EF_Tun_Wall_019_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefe
 Tower9_WallGrime_B_10_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm100.MI_Tower9_WallBaseGrime_Zm100 | - | - | 
 Tower9_LedgeGrime_A_26 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 SM_WalkSlab_62 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
-EF_Tun_Wall_004_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_CornerTower_Cornice | StaticMeshComponent0 | SM_Bevel_022 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
+EF_Tun_Wall_004_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_KeepShell_Step_32 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
+Tower9_Torch_B0_TorchMount | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime | - | - | 
 Tower9_Grime_A_02 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_A_43_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm60.MI_Tower9_WallBaseGrime_Zm60 | - | - | 
 Tower9_LedgeGrime_B_55 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
@@ -762,6 +746,7 @@ Castle_CornerTower_Cornice | StaticMeshComponent0 | SM_Bevel_020 | 0 | /Game/Cas
 Castle_FrontRightCurtain_StringCourse | StaticMeshComponent0 | SM_Bevel_016 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 EF_Tun_Wall_017_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_Grime_B_18 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
+Tower9_Torch_B1_TorchMount | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime | - | - | 
 Castle_DoorCut_89 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_044_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_WallGrime_A_07_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
@@ -821,17 +806,9 @@ Castle_InteractiveGate_Right | InstancedStaticMesh1 | SM_StoneModule | 0 | /Game
 Tower9_WallGrime_A_44_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm60.MI_Tower9_WallBaseGrime_Zm60 | - | - | 
 Castle_KeepStair | StaticMeshComponent0 | SM_Bevel_052 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 WallTorch_Iron_12 | StaticMeshComponent0 | SM_IronTorch | 0 | /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K.Iron_Torch___Baked_PBR_1K | - | - | 
-Castle_GateSpandrel_44 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_WallGrime_B_42_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
+Castle_GateSpandrel_44 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Tower9_LedgeGrime_A_04 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
-Realm_Gate_BP | DoorLeftWood | SM_SiegeGate_LeafL | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched | - | - | WOOD ON A WALL ACTOR
-Realm_Gate_BP | DoorLeftIron | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
-Realm_Gate_BP | DoorRightWood | SM_SiegeGate_LeafR | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched | - | - | WOOD ON A WALL ACTOR
-Realm_Gate_BP | DoorRightIron | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
-Realm_Gate_BP | LeverPedestal | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood | - | - | WOOD ON A WALL ACTOR
-Realm_Gate_BP | LeverHousing | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
-Realm_Gate_BP | LeverArm | SM_SiegeGate_Lever | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
-Realm_Gate_BP | LeverGrip | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood | - | - | WOOD ON A WALL ACTOR
 Tower9_WallGrime_B_37_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
 Castle_KeepTurret_Cornice | StaticMeshComponent0 | SM_Bevel_041 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_LedgeGrime_A_31 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
@@ -899,8 +876,8 @@ Tower9_WallGrime_B_25_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefende
 EF_Tun_Wall_000_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_056_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_008_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-Tower9_LedgeGrime_B_40 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Castle_SouthCurtain_StringCourse_B138A_Mid | StaticMeshComponent0 | SM_Bevel_010 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
+Tower9_LedgeGrime_B_40 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_LedgeGrime_B_53 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_A_44_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm60.MI_Tower9_WallBaseGrime_Zm60 | - | - | 
 CastleStones_1_0_8 | StaticMeshComponent0 | SM_CastleStones_1_0_8 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
@@ -941,8 +918,8 @@ Castle_FrontRightCurtain_StringCourse | StaticMeshComponent0 | SM_Bevel_015 | 0 
 Tower9_LedgeGrime_A_48 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 EF_Tun_Wall_023_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_GateSpandrel_14 | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-Tower9_WallGrime_A_41_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm80.MI_Tower9_WallBaseGrime_Zm80 | - | - | 
 Tower9_WallGrime_A_25_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm100.MI_Tower9_WallBaseGrime_Zm100 | - | - | 
+Tower9_WallGrime_A_41_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm80.MI_Tower9_WallBaseGrime_Zm80 | - | - | 
 Castle_SouthCurtain_StringCourse_B138A_R | StaticMeshComponent0 | SM_Bevel_009 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_Foundation | StaticMeshComponent0 | SM_Bevel_000 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_BaileyEastCurtain_B138C_R | StaticMeshComponent0 | SM_Bevel_002 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
@@ -1028,10 +1005,10 @@ Blend_PropBlob_Castle_StoneBench_0 | StaticMeshComponent0 | Plane | 0 | /Game/Ca
 Tower9_Grime_B_22 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_A_Stairs | StaticMeshComponent0 | SM_Tower09_Stairs | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_013_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-Tower9_LedgeGrime_A_40 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_LedgeGrime_B_48 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
-SM_WalkSlab_49 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
+Tower9_LedgeGrime_A_40 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Castle_GateThreshold | StaticMeshComponent0 | Cube | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Paving_POM.MI_Castle_Paving_POM | Tiling=4, WorldScale_cm=900 | - | 
+SM_WalkSlab_49 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 EF_Tun_Wall_041_R | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_041_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 EF_Tun_Wall_009_L | StaticMeshComponent0 | SM_Cube_Nanite | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
@@ -1093,16 +1070,16 @@ BreachSpot_C | Brk19 | SM_Bevel_008 | 0 | /Game/CastleDefender/Shared/Materials/
 BreachSpot_C | Brk20 | SM_Bevel_008 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_EastCurtain_StringCourse | StaticMeshComponent0 | SM_Bevel_005 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Castle_BaileyEastCurtain_B138C_Mid | StaticMeshComponent0 | SM_Bevel_002 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
-SM_WalkSlab_89 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_WallGrime_B_24_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm110.MI_Tower9_WallBaseGrime_Zm110 | - | - | 
+SM_WalkSlab_89 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_Grime_B_19 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Tower9_WallGrime_A_23_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm100.MI_Tower9_WallBaseGrime_Zm100 | - | - | 
 Blend_PropBlob_Castle_StoneBench_2 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard | - | - | 
 Tower9_Torch_B1_WallTorch | StaticMeshComponent0 | SM_IronTorch | 0 | /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K.Iron_Torch___Baked_PBR_1K | - | - | 
 Tower9_WallGrime_B_22_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm100.MI_Tower9_WallBaseGrime_Zm100 | - | - | 
-Tower9_WallGrime_A_31_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm40.MI_Tower9_WallBaseGrime_Zm40 | - | - | 
-Castle_Bailey_SouthCurtain_Buttress | StaticMeshComponent0 | SM_Bevel_013 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 SM_WalkSlab_28 | StaticMeshComponent0 | SM_WalkSlab | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | TileSize_cm=230 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
+Castle_Bailey_SouthCurtain_Buttress | StaticMeshComponent0 | SM_Bevel_013 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
+Tower9_WallGrime_A_31_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm40.MI_Tower9_WallBaseGrime_Zm40 | - | - | 
 Tower9_LedgeGrime_A_10 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact | - | - | 
 Castle_KeepStair | StaticMeshComponent0 | SM_Bevel_053 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_SouthCurtain_B138A_Mid | StaticMeshComponent0 | SM_Bevel_008 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
@@ -1202,14 +1179,30 @@ Tower9_WallGrime_A_04_1 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefende
 Castle_GateTowerRight | StaticMeshComponent0 | SM_BevR_360x360x860_ff58b3 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | CrackSize_cm=750, TileSize_cm=320 | BaseColor=T_vdbhdju_2K_B, Normal=T_vdbhdju_2K_N, ORM=T_vdbhdju_2K_ORM | 
 Castle_NorthCurtain_StringCourse_Skirt | StaticMeshComponent0 | SM_Bevel_009 | 0 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | TileSize_cm=160, CrackSize_cm=750 | BaseColor=T_tinifauaw_2K_B, Normal=T_tinifauaw_2K_N, ORM=T_tinifauaw_2K_ORM | 
 Tower9_WallGrime_A_04_0 | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | - | - | 
-Tower9_Torch_A0_TorchMount | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime | - | - | 
-Tower9_Torch_A1_TorchMount | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime | - | - | 
-Tower9_Torch_B0_TorchMount | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime | - | - | 
-Tower9_Torch_B1_TorchMount | StaticMeshComponent0 | Plane | 0 | /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime | - | - | 
+Castle_GateLever_NATIVE | DoorLeftWood | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched | - | - | WOOD ON A WALL ACTOR
+Castle_GateLever_NATIVE | DoorLeftIron | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
+Castle_GateLever_NATIVE | DoorRightWood | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched | - | - | WOOD ON A WALL ACTOR
+Castle_GateLever_NATIVE | DoorRightIron | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
+Castle_GateLever_NATIVE | LeverPedestal | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood | - | - | WOOD ON A WALL ACTOR
+Castle_GateLever_NATIVE | LeverHousing | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
+Castle_GateLever_NATIVE | LeverArm | SM_StoneModule | 0 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | - | - | 
+Castle_GateLever_NATIVE | LeverGrip | SM_StoneModule | 0 | /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood | - | - | WOOD ON A WALL ACTOR
+StoneWallFountain_2 | Basin | SM_StoneWallBasin | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_StoneFountain.MI_StoneFountain | - | - | 
+StoneWallFountain_2 | WaterStream | Cylinder | 0 | /Game/CastleDefender/Props/StoneWallBasin/Water/M_FaucetStream.M_FaucetStream | - | - | 
+StoneWallFountain_2 | WaterSurface | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Water/M_BasinWater_SLW.M_BasinWater_SLW | - | - | 
+StoneWallFountain_2 | AlgaeWall | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Wall.MI_AlgaeStain_Wall | - | - | 
+StoneWallFountain_2 | AlgaeGround | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Ground.MI_AlgaeStain_Ground | MossTiling=1.5 | - | 
+StoneWallFountain_2 | WallHaloA | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_HaloA_Var.MI_AlgaeStain_HaloA_Var | MossTileCm=35 | - | 
+StoneWallFountain_01 | Basin | SM_StoneWallBasin | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_StoneFountain.MI_StoneFountain | - | - | 
+StoneWallFountain_01 | WaterStream | Cylinder | 0 | /Game/CastleDefender/Props/StoneWallBasin/Water/M_FaucetStream.M_FaucetStream | - | - | 
+StoneWallFountain_01 | WaterSurface | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Water/M_BasinWater_SLW.M_BasinWater_SLW | - | - | 
+StoneWallFountain_01 | AlgaeWall | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Wall.MI_AlgaeStain_Wall | - | - | 
+StoneWallFountain_01 | AlgaeGround | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Ground.MI_AlgaeStain_Ground | MossTiling=1.5 | - | 
+StoneWallFountain_01 | WallHaloA | Plane | 0 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_HaloA.MI_AlgaeStain_HaloA | MossTileCm=35 | - | 
 
 Materials by use count:
  342  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World
- 206  /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact
+ 207  /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact
  134  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World
  104  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World
   50  /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime
@@ -1229,18 +1222,16 @@ Materials by use count:
   12  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_04.MI_Rock_04
   10  /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm70.MI_Tower9_WallBaseGrime_Zm70
   10  /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm50.MI_Tower9_WallBaseGrime_Zm50
-   8  /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel
    8  /Game/CastleDefender/Shared/Materials/Castle/M_Shadow.M_Shadow
    5  /Game/CastleDefender/Shared/Materials/Decals/M_ContactBlobCard.M_ContactBlobCard
    4  /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial
-   4  /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched
-   4  /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood
    4  /Game/CastleDefender/Props/CourtyardProps/Materials/MI_Bench_Oak_Post.MI_Bench_Oak_Post
    4  /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm110.MI_Tower9_WallBaseGrime_Zm110
    4  /Game/CastleDefender/Shared/Materials/Castle/M_AntiqueGold.M_AntiqueGold
+   4  /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime
    4  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StepCap.MI_Castle_StepCap
    4  /Game/CastleDefender/Shared/Materials/Decals/M_TorchSoot.M_TorchSoot
-   4  /Game/CastleDefender/Shared/Materials/Decals/M_TorchMountGrime.M_TorchMountGrime
+   4  /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel
    3  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Paving_POM.MI_Castle_Paving_POM
    3  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_05.MI_Rock_05
    3  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_06.MI_Rock_06
@@ -1249,22 +1240,24 @@ Materials by use count:
    3  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Planks_World.MI_Castle_Planks_World
    2  /Game/CastleDefender/Props/CourtyardProps/Materials/MI_Bench_Oak_GrainX.MI_Bench_Oak_GrainX
    2  /Game/CastleDefender/Environment/Castle/Drawbridge/MI_Drawbridge_Curb.MI_Drawbridge_Curb
+   2  /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Watchtower.MI_SiegeBarricade_Watchtower
+   2  /Game/CastleDefender/Shared/Materials/Castle/M_Castle_LocalWood.M_Castle_LocalWood
+   2  /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched
+   2  /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood
    2  /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_StoneFountain.MI_StoneFountain
    2  /Game/CastleDefender/Props/StoneWallBasin/Water/M_FaucetStream.M_FaucetStream
    2  /Game/CastleDefender/Props/StoneWallBasin/Water/M_BasinWater_SLW.M_BasinWater_SLW
    2  /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Wall.MI_AlgaeStain_Wall
    2  /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Ground.MI_AlgaeStain_Ground
-   2  /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Watchtower.MI_SiegeBarricade_Watchtower
-   2  /Game/CastleDefender/Shared/Materials/Castle/M_Castle_LocalWood.M_Castle_LocalWood
    1  /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial
    1  /Game/CastleDefender/Shared/Materials/Decals/MI_ArchWeathering_Wall.MI_ArchWeathering_Wall
    1  /Game/CastleDefender/Props/CourtyardProps/Materials/MI_FirePit_Hearth.MI_FirePit_Hearth
-   1  /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_HaloA_Var.MI_AlgaeStain_HaloA_Var
    1  /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Breach.MI_SiegeBarricade_Breach
    1  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Ground.MI_Castle_Ground
    1  /Game/CastleDefender/Props/CourtyardProps/Materials/MI_FirePit_Embers.MI_FirePit_Embers
    1  /Game/CastleDefender/Props/GateLever/M_GateLever.M_GateLever
    1  /Game/CastleDefender/Props/GateLever/MI_GateLever.MI_GateLever
-   1  /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_HaloA.MI_AlgaeStain_HaloA
    1  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Mountains.MI_Castle_Mountains
    1  /Game/CastleDefender/Environment/Castle/Drawbridge/MI_Drawbridge_Deck.MI_Drawbridge_Deck
+   1  /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_HaloA_Var.MI_AlgaeStain_HaloA_Var
+   1  /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_HaloA.MI_AlgaeStain_HaloA
