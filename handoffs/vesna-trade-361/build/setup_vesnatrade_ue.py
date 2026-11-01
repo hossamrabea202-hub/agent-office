@@ -41,7 +41,13 @@ for n in TEXTURES:
     f = os.path.join(TEX_DIR, n + '.png'); log.append('%-8s %s' % ('ok' if os.path.exists(f) else 'MISSING', f))
 setbp = unreal.load_asset(NEEDS[0]) if NEEDS[0] not in missing else None
 if setbp:
-    have = {str(v.get_editor_property('var_name')) for v in setbp.get_editor_property('new_variables')}
+    try:
+        have = {str(v.get_editor_property('var_name')) for v in setbp.get_editor_property('new_variables')}
+    except Exception:   # 5.3 Python has no 'new_variables': read the class defaults instead (Master patch 2026-11-01)
+        _cdo = unreal.get_default_object(setbp.generated_class()); have = set()
+        for _v in ('ObsOwned', 'WornEff', 'AvailMask', 'NextPrice', 'WornCount', 'Tier', 'ShieldLevel'):
+            try: _cdo.get_editor_property(_v); have.add(_v)
+            except Exception: pass
     for v in ('ObsOwned', 'WornEff', 'AvailMask', 'NextPrice', 'WornCount', 'Tier', 'ShieldLevel'):
         log.append('%-8s BPC_ObsidianSet.%s' % ('ok' if v in have else 'MISSING', v))
         if v not in have: missing.append('BPC_ObsidianSet.' + v)
