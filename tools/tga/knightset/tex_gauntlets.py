@@ -7,7 +7,7 @@
 # mask -> polished bright edges and scratches on high points (knuckles, cuff rim), mud low on the fingers.
 import bpy, os, math, numpy as np
 PIECE = os.environ.get('PIECE', 'Gauntlets'); NAME = 'SM_Eagle' + PIECE
-MUDZ = {'Gauntlets': (-0.12, -0.16), 'Greaves': (0.07, 0.015)}.get(PIECE, (-1, -2))   # object Z (m): mud starts / is full
+MUDZ = {'Gauntlets': (-0.12, -0.16), 'Greaves': (0.07, 0.015), 'Sabatons': (0.035, 0.008)}.get(PIECE, (-1, -2))   # object Z (m): mud starts / is full
 D = os.environ.get('WORK') or os.path.dirname(bpy.data.filepath); OUT = os.path.join(D, 'out'); TEX = os.path.join(OUT, 'tex'); FBX = os.path.join(OUT, 'fbx')
 for p in (TEX, FBX): os.makedirs(p, exist_ok=True)
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 16

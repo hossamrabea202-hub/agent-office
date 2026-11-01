@@ -2,9 +2,10 @@
 # Four views like the sheet's orthos on a neutral grey, studio key + rim, AgX. VIEW per piece: rotations, spacing, ortho scale, camera z.
 import bpy, os, math
 PIECE = os.environ.get('PIECE', 'Gauntlets')
-VIEW = {'Gauntlets': ((0, 180, 90, -40), 0.165, 0.7, -0.045), 'Greaves': ((0, 180, -90, 90), 0.215, 1.0, 0.185)}[PIECE]
+VIEW = {'Gauntlets': ((0, 180, 90, -40), 0.165, 0.7, -0.045), 'Greaves': ((0, 180, -90, 90), 0.215, 1.0, 0.185), 'Sabatons': ((0, -90, 90, -35), 0.3, 1.25, 0.075)}[PIECE]
+RES = {'Sabatons': (1800, 540)}.get(PIECE, (1800, 900))
 D = os.environ.get('WORK') or os.path.dirname(bpy.data.filepath)
-sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.samples = int(os.environ.get('SAMPLES', '96')); sc.render.resolution_x, sc.render.resolution_y = 1800, 900
+sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.samples = int(os.environ.get('SAMPLES', '96')); sc.render.resolution_x, sc.render.resolution_y = RES
 sc.view_settings.view_transform = 'AgX'; sc.view_settings.look = 'AgX - Medium High Contrast'
 g = bpy.data.objects['SM_Eagle%s_L' % PIECE]
 for o in sc.objects:
