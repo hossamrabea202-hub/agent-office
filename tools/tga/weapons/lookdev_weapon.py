@@ -49,7 +49,7 @@ cam = bpy.data.objects.new('Cam', cam_d); col.objects.link(cam); sc.camera = cam
 sc.render.engine = 'CYCLES'; sc.cycles.samples = int(os.environ.get('SPP', '96')); sc.cycles.use_denoising = True
 sc.render.resolution_x, sc.render.resolution_y = 1600, 900
 sc.view_settings.view_transform = 'AgX'; sc.view_settings.look = 'None'; sc.view_settings.exposure = 0.0          # locked
-sc.world = bpy.data.worlds.new('W'); sc.world.use_nodes = True; sc.world.node_tree.nodes['Background'].inputs['Strength'].default_value = 0.05
+sc.world = bpy.data.worlds.new('W'); sc.world.use_nodes = True; sc.world.node_tree.nodes['Background'].inputs['Color'].default_value = (0.42, 0.42, 0.43, 1); sc.world.node_tree.nodes['Background'].inputs['Strength'].default_value = float(os.environ.get('WORLD', '0.6'))   # a studio grey to reflect: polished metal must not read black
 sc.render.filepath = out; bpy.ops.render.render(write_still=True); print('LOOKDEV', out)
 # detail: the business end (the top quarter along the weapon: blade near the middle-top, axe / mace / polearm heads)
 vs = [obj.matrix_world @ v.co for v in obj.data.vertices]; top = max(vs, key=lambda v: v.z - v.x * 0.5)
