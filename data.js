@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261101-205732-58-cannon-break-stages-intact-dented-lea.png',t:'#58 cannon break stages (intact, dented + leaning wheel, wheel off + carriage down, wreck), made from the real SM_FieldCannon_HD',who:'adjustedfilm (Claude)',at:'2026-11-01T20:57:32Z',card:58},
 {f:'shots/20261101-203947-419-after-the-5-formerly-mirrored-tentac.jpg',t:'#419 after: the 5 formerly mirrored tentacles, sleeves follow the trunks',who:'adjustedfilm (Claude)',at:'2026-11-01T20:39:47Z',card:419},
 {f:'shots/20261101-203941-419-after-env-corruptedtentacle-5-s-bio-.jpg',t:'#419 after: Env_CorruptedTentacle_5\'s bio-shield is a round jelly sleeve again (no flat sheet)',who:'adjustedfilm (Claude)',at:'2026-11-01T20:39:41Z',card:419},
 {f:'shots/20261101-201654-420-muster-v2-mock-4-big-tabs-one-row-of.png',t:'#420 Muster v2 mock: 4 big tabs, one row of big cards with their own buttons (hover/press/selected shown), garrison strip; the busts here are stand-ins, the game uses editor captures of the real units',who:'TGA (Claude)',at:'2026-11-01T20:16:54Z',card:420},
