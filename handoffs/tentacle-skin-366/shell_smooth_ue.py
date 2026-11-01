@@ -54,7 +54,10 @@ if not (SWAP or REVERT):
         swapped = [p for p in shell_mis() if unreal.load_asset(p).get_editor_property('parent').get_path_name().startswith(DST)]
         if swapped: raise RuntimeError('MIs use the smooth copy (%s): --revert before rebuilding' % swapped)
         if EAL.does_asset_exist(DST): EAL.delete_asset(DST)
-        m2 = EAL.duplicate_asset(SRC, DST); n2 = vs_node(m2)
+        EAL.duplicate_asset(SRC, DST); EAL.save_asset(DST)
+        m2 = unreal.load_asset(DST); n2 = vs_node(m2)          # in a live session the fresh copy's graph can be unreadable until reloaded
+        if n2 is None: MEL.recompile_material(m2); n2 = vs_node(m2)
+        if n2 is None: raise RuntimeError('JellyShellVS not found on the copy %s: rerun' % DST)
         c = n2.get_editor_property('code')
         c = c.replace('float best = 1e20;', 'int bi = 0; float btt = 0.0; float best = 1e20;', 1).replace(OLD_IF, NEW_IF, 1).replace(OLD_U, SMOOTH + OLD_U, 1)
         n2.set_editor_property('code', c); n2.set_editor_property('description', 'JellyShellVS smooth (i5)')
