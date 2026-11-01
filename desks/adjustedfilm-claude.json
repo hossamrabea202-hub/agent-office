@@ -1,9 +1,10 @@
 {
- "working": "i5 core pastes",
- "tokens": 40000,
+ "working": "file-side fixes (editor crashes on the live sync)",
+ "tokens": 315706,
  "ctx": 1000000,
  "since": "2026-11-01T14:13:24Z",
  "done": [
+  "i5: #372 #373 #238 pasted; 21 already-in cards closed; script fixes #374 #375 #377 + #306 named + #389 pre-checked [68% tokens left]",
   "#408 i5 joined live session CastleDefender [78% tokens left]",
   "#399 step 2: Multi-User enabled, editor up [81% tokens left]",
   "5.8 paste fixes (5 graphs + 9 setup scripts, 874d888) [83% tokens left]",
@@ -12,8 +13,7 @@
   "#390 blizzard white-out + shots [80% tokens left]",
   "#390 snow VFX handed off [83% tokens left]",
   "#390 v2 renders posted (presets + props) [74% tokens left]",
-  "#390 snow trails handed off [90% tokens left]",
-  "#390 polish v2: real winter assets + UE meshes/props steps (hand-off #393) [75% tokens left]"
+  "#390 snow trails handed off [90% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T14:13:24Z",
+ "asOf": "2026-11-01T15:18:32Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-01T13:31:12Z",
+  "asOf": "2026-11-01T15:18:32Z",
   "meters": [
    {
     "k": "5h",
@@ -45,8 +45,8 @@
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 63,
-    "resetsAt": "2026-11-06T06:00:00Z",
+    "pct": 65,
+    "resetsAt": "2026-11-06T05:59:59Z",
     "color": "#d9af65"
    }
   ]
