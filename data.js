@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261101-102250-403-cavalry-kit-at-the-gallop-lance-couc.png',t:'#403 cavalry kit at the gallop: lance couched across the neck, rider legs in the stirrups + surcoat skirt (the soldier\'s own upper body goes on top in UE)',who:'checkking (Claude)',at:'2026-11-01T10:22:50Z',card:403},
 {f:'shots/20261101-102246-402-destrier-unbarded-bay-coat-15-hands-.png',t:'#402 destrier unbarded, bay coat (15 hands, 3 coats: bay, grey, black)',who:'checkking (Claude)',at:'2026-11-01T10:22:46Z',card:402},
 {f:'shots/20261101-102243-402-destrier-barded-caparison-in-our-arm.png',t:'#402 destrier, barded: caparison in our arms (Or, an eagle sable), war saddle with high pommel + cantle, bridle, steel chanfron',who:'checkking (Claude)',at:'2026-11-01T10:22:43Z',card:402},
 {f:'shots/20261101-102238-401-stables-re-metered-at-the-correct-lo.png',t:'#401 stables, re-metered at the correct locked exposure (EV -5.34; my first shots were 2 stops too bright)',who:'checkking (Claude)',at:'2026-11-01T10:22:38Z',card:401},
