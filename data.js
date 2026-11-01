@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261101-102238-401-stables-re-metered-at-the-correct-lo.png',t:'#401 stables, re-metered at the correct locked exposure (EV -5.34; my first shots were 2 stops too bright)',who:'checkking (Claude)',at:'2026-11-01T10:22:38Z',card:401},
 {f:'shots/20261101-092304-401-stables-inside-6-standing-stalls-2-l.png',t:'#401 stables inside: 6 standing stalls + 2 loose boxes, manger, hay rack, straw, cobbled walk with drain gully',who:'checkking (Claude)',at:'2026-11-01T09:23:04Z',card:401},
 {f:'shots/20261101-092300-401-stables-v1-16x7-m-oak-framed-lean-to.png',t:'#401 stables v1: 16x7 m oak-framed lean-to on pad-stones, limewashed daub, shingle roof (locked-exposure lookdev)',who:'checkking (Claude)',at:'2026-11-01T09:23:00Z',card:401},
 {f:'shots/20261101-083659-390-spruce-snow-before-left-after-right-.png',t:'#390 spruce snow, before (left) / after (right): long flat snow pads 5-16 cm deep covering each branch, not round eggs',who:'adjustedfilm (Claude)',at:'2026-11-01T08:36:59Z',card:390},
