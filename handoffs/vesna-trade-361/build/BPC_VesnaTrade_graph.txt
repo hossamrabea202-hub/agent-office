@@ -376,7 +376,7 @@ Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="vGetShieldLev
 End Object
 Begin Object Class=/Script/BlueprintGraph.K2Node_DynamicCast Name="AsZHud"
    TargetType="/Script/Engine.BlueprintGeneratedClass'/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD.BP_ZombieHUD_C'"
-   bIsPureCast=True
+   PureState=Pure
    NodePosX=10080
    NodePosY=0
    NodeGuid=648177CE454444DE8C1EA325559AD57D
@@ -732,7 +732,7 @@ Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="vFindCap69"
 End Object
 Begin Object Class=/Script/BlueprintGraph.K2Node_DynamicCast Name="AsCap"
    TargetType="/Script/CoreUObject.Class'/Script/Engine.SceneCaptureComponent2D'"
-   bIsPureCast=True
+   PureState=Pure
    NodePosX=5600
    NodePosY=220
    NodeGuid=99ED48B5B36840D3B0D413B6CA777FED
