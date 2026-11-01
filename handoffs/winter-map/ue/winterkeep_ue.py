@@ -9,6 +9,7 @@
   py ".../winterkeep_ue.py" --step meshes      imports the WinterKeep assets (assets/out: 9 FBX + 27 textures) + MI_WK_* (Nanite)
   py ".../winterkeep_ue.py" --step props       places the bridge, the frozen falls and 3 farmsteads (assets/out/props.json)
   py ".../winterkeep_ue.py" --step dress       HISM dressing per 256 m cell (trees, rocks, shrubs, drifts; uses SM_WK_* if imported)
+  py ".../winterkeep_ue.py" --step trails      BPC_SnowTrails + BP_WK_Snow (host actor) placed in WinterKeep; then BPVar + graph paste
   py ".../winterkeep_ue.py" --step light --preset overcast|lowsun|blizzard|night
   py ".../winterkeep_ue.py" --step remove      deletes ONLY actors tagged WK390 in the WinterKeep level
 
@@ -61,7 +62,13 @@ def api_check():
             'files: layout.json / scatter.json': os.path.exists(os.path.join(OUT, 'scatter.json')),
             'files: assets/out/props.json': os.path.exists(os.path.join(AST, 'props.json')),
             'CompositeTextureMode (ORM composite)': hasattr(unreal, 'CompositeTextureMode'),
-            'StaticMesh.set_material': hasattr(unreal.StaticMesh, 'set_material')}
+            'StaticMesh.set_material': hasattr(unreal.StaticMesh, 'set_material'),
+            'trails: TextureRenderTargetFactoryNew': hasattr(unreal, 'TextureRenderTargetFactoryNew'),
+            'trails: MaterialParameterCollectionFactoryNew': hasattr(unreal, 'MaterialParameterCollectionFactoryNew'),
+            'trails: MaterialExpressionCustom + CustomInput': hasattr(unreal, 'MaterialExpressionCustom') and hasattr(unreal, 'CustomInput'),
+            'trails: MaterialEditingLibrary.delete_all_material_expressions': hasattr(MEL, 'delete_all_material_expressions'),
+            'trails: SubobjectDataSubsystem (add component to BP_WK_Snow)': hasattr(unreal, 'SubobjectDataSubsystem'),
+            'trails: graph file trails/BPC_SnowTrails_graph.txt': os.path.exists(os.path.join(HERE, '..', 'trails', 'BPC_SnowTrails_graph.txt'))}
     for k, v in need.items(): say(('OK   ' if v else 'MISS ') + k)
     say('Landscape creation is NOT scriptable in 5.3 -> README clicks (Landscape mode > Import from File).')
     return all(need.values())
@@ -98,10 +105,138 @@ def import_tex(png, name, kind='gray'):
     tex.set_editor_property('srgb', False); tex.set_editor_property('compression_settings', comp)
     EAL.save_loaded_asset(tex); return tex
 
-def new_material(name):
-    full = ROOT + '/Materials/' + name
-    if EAL.does_asset_exist(full): EAL.delete_asset(full)          # only ever our own WK assets
-    return AT.create_asset(name, ROOT + '/Materials', unreal.Material, unreal.MaterialFactoryNew())
+def new_material(name, folder='/Materials'):
+    full = ROOT + folder + '/' + name
+    if EAL.does_asset_exist(full):                                  # only ever our own WK assets; rebuilt in place so the
+        m = unreal.load_asset(full); MEL.delete_all_material_expressions(m); return m   # landscape / MIs keep their reference
+    return AT.create_asset(name, ROOT + folder, unreal.Material, unreal.MaterialFactoryNew())
+
+# ------------------------------------------------------------------ snow trails (RESEARCH.md section 4): MPC + 2 RTs + 2 draw materials
+# RT_WK_TrailA holds HEIGHT (1 = untouched snow, 0 = pressed 12 cm) for a 64 m window centred on the player (2048^2 = 3.1 cm
+# per texel). BPC_SnowTrails (every 0.05 s): stamps up to 16 feet into MPC Stamp0..15, draws M_WK_TrailUpdate into B
+# (shift by the window move + refill over TrailFade s, faster with SnowFall + stamps), copies B back to A (M_WK_TrailCopy),
+# then sets TrailOrigin. M_WK_Landscape reads A: POM (own march, early-out on flat snow), packed albedo, gradient normal.
+TR = '/Trails'
+TRAIL = {'TrailSize': 6400.0, 'TrailDepth': 12.0, 'TrailFade': 180.0, 'SnowFall': 0.3, 'WindYaw': 315.0, 'WindSpeed': 8.0}
+TRAIL_VEC = ['TrailOrigin', 'TrailParams'] + ['Stamp%d' % i for i in range(16)]
+def mpc_snow():
+    full = ROOT + '/MPC_WK_Snow'
+    mpc = unreal.load_asset(full) if EAL.does_asset_exist(full) else \
+        AT.create_asset('MPC_WK_Snow', ROOT, unreal.MaterialParameterCollection, unreal.MaterialParameterCollectionFactoryNew())
+    sc, vc = list(mpc.get_editor_property('scalar_parameters')), list(mpc.get_editor_property('vector_parameters'))
+    have = [str(p.get_editor_property('parameter_name')) for p in sc + vc]      # add only what is missing: ids stay stable
+    for n, v in TRAIL.items():
+        if n not in have: sc.append(unreal.CollectionScalarParameter(parameter_name=n, default_value=v))
+    for n in TRAIL_VEC:
+        if n not in have: vc.append(unreal.CollectionVectorParameter(parameter_name=n, default_value=unreal.LinearColor(-10, -10, 0, 0) if n.startswith('Stamp') else unreal.LinearColor(0, 0, 0, 0)))
+    mpc.set_editor_property('scalar_parameters', sc); mpc.set_editor_property('vector_parameters', vc); EAL.save_loaded_asset(mpc); return mpc
+def make_rt(name):
+    full = ROOT + TR + '/' + name
+    if EAL.does_asset_exist(full): return unreal.load_asset(full)
+    rt = AT.create_asset(name, ROOT + TR, unreal.TextureRenderTarget2D, unreal.TextureRenderTargetFactoryNew())
+    for k, v in (('size_x', 2048), ('size_y', 2048), ('render_target_format', unreal.TextureRenderTargetFormat.RTF_R16F),
+                 ('clear_color', unreal.LinearColor(1, 1, 1, 1)), ('address_x', unreal.TextureAddress.TA_CLAMP), ('address_y', unreal.TextureAddress.TA_CLAMP)):
+        rt.set_editor_property(k, v)
+    EAL.save_loaded_asset(rt); return rt
+def P_(m, mpc, name, x, y): return X(m, unreal.MaterialExpressionCollectionParameter, x, y, collection=mpc, parameter_name=name)
+def custom(m, code, ins, out_type, x, y, desc):
+    e = X(m, unreal.MaterialExpressionCustom, x, y, code=code, description=desc, output_type=out_type,
+          inputs=[unreal.CustomInput(input_name=n) for n, _ in ins])
+    for n, (src, pin) in ins:
+        if not MEL.connect_material_expressions(src, pin, e, n): say('FAIL connect', desc, n)
+    return e
+UPDATE_HLSL = '''float2 suv = UV + P.xy;
+float h = 1.0;
+if (suv.x > 0.0 && suv.x < 1.0 && suv.y > 0.0 && suv.y < 1.0) h = Texture2DSampleLevel(Prev, PrevSampler, suv, 0).r;
+h = saturate(h + P.z / max(Fade, 1.0) * (1.0 + 3.0 * Snow));
+float4 S[16] = {S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15};
+float2 p = UV * Size;
+for (int i = 0; i < 16; i++) {
+  float4 s = S[i];
+  if (s.x < -1.0) continue;
+  float2 dir = s.zw; dir = dot(dir, dir) < 0.25 ? float2(1.0, 0.0) : normalize(dir);
+  float2 d = p - s.xy * Size;
+  float a = dot(d, dir) / 15.0;
+  float c = dot(d, float2(-dir.y, dir.x)) / 6.5;
+  h = min(h, smoothstep(0.45, 1.0, a * a + c * c));
+}
+return h;'''
+POM_HLSL = '''float2 q = abs(T - 0.5);
+if (max(q.x, q.y) > 0.5 || SW < 0.01) return T;
+float h = Texture2DSampleLevel(Tex, TexSampler, T, 0).r;
+if (h > 0.999) return T;
+float3 v = normalize(V);
+float2 duv = -v.xy / max(v.z, 0.15) * R / 16.0;
+float2 uv = T, puv = T; float ray = 1.0, pray = 1.0, ph = h;
+for (int i = 0; i < 16; i++) {
+  if (h >= ray) break;
+  puv = uv; pray = ray; ph = h;
+  uv += duv; ray -= 1.0 / 16.0;
+  h = Texture2DSampleLevel(Tex, TexSampler, uv, 0).r;
+}
+float a = pray - ph, b = h - ray;
+return lerp(puv, uv, saturate(a / max(a + b, 1e-5)));'''
+DEPTH_HLSL = '''float2 q = abs(T - 0.5);
+float win = saturate((0.5 - max(q.x, q.y)) * 40.0);
+return saturate((1.0 - Texture2DSample(Tex, TexSampler, UV).r) * win * SW);'''
+NORMAL_HLSL = '''float2 q = abs(T - 0.5);
+float win = saturate((0.5 - max(q.x, q.y)) * 40.0) * SW;
+if (win <= 0.0) return N;
+float e = 1.5 / 2048.0;
+float hx = Texture2DSample(Tex, TexSampler, UV + float2(e, 0)).r - Texture2DSample(Tex, TexSampler, UV - float2(e, 0)).r;
+float hy = Texture2DSample(Tex, TexSampler, UV + float2(0, e)).r - Texture2DSample(Tex, TexSampler, UV - float2(0, e)).r;
+float k = Depth / (2.0 * e * Size) * win;
+return normalize(float3(N.xy - float2(hx, hy) * k, N.z));'''
+def build_trail_assets():
+    mpc = mpc_snow(); ra, rb = make_rt('RT_WK_TrailA'), make_rt('RT_WK_TrailB')
+    F1, F2, F3 = (unreal.CustomMaterialOutputType.CMOT_FLOAT1, unreal.CustomMaterialOutputType.CMOT_FLOAT2, unreal.CustomMaterialOutputType.CMOT_FLOAT3)
+    for name, src in (('M_WK_TrailUpdate', ra), ('M_WK_TrailCopy', rb)):
+        m = new_material(name, TR); m.set_editor_property('shading_model', unreal.MaterialShadingModel.MSM_UNLIT)
+        uv = X(m, unreal.MaterialExpressionTextureCoordinate, -900, 0)
+        if name == 'M_WK_TrailCopy':
+            s = X(m, unreal.MaterialExpressionTextureSample, -500, 0, texture=src, sampler_type=unreal.MaterialSamplerType.SAMPLERTYPE_LINEAR_COLOR); C(uv, '', s, 'UVs')
+            MEL.connect_material_property(s, 'R', unreal.MaterialProperty.MP_EMISSIVE_COLOR)
+        else:
+            tob = X(m, unreal.MaterialExpressionTextureObject, -900, 150, texture=src, sampler_type=unreal.MaterialSamplerType.SAMPLERTYPE_LINEAR_COLOR)
+            ins = [('UV', (uv, '')), ('Prev', (tob, '')), ('P', (P_(m, mpc, 'TrailParams', -900, 300), '')), ('Fade', (P_(m, mpc, 'TrailFade', -900, 400), '')),
+                   ('Snow', (P_(m, mpc, 'SnowFall', -900, 500), '')), ('Size', (P_(m, mpc, 'TrailSize', -900, 600), ''))]
+            ins += [('S%d' % i, (P_(m, mpc, 'Stamp%d' % i, -1200, 700 + i * 90), '')) for i in range(16)]
+            cu = custom(m, UPDATE_HLSL, ins, F1, -400, 0, 'trail update: shift + refill + 16 foot stamps')
+            MEL.connect_material_property(cu, '', unreal.MaterialProperty.MP_EMISSIVE_COLOR)
+        MEL.recompile_material(m); EAL.save_loaded_asset(m)
+    say('trail assets: MPC_WK_Snow, RT_WK_TrailA/B (2048 R16F, clear white), M_WK_TrailUpdate, M_WK_TrailCopy')
+    return mpc, ra, (F1, F2, F3)
+def trail_branch(m, mpc, ra, F, uvw, ws, bc, rough, nl):
+    """packed snow + POM where feet pressed the snow. Returns new (basecolor, roughness, normal, ao)."""
+    F1, F2, F3 = F
+    org = P_(m, mpc, 'TrailOrigin', -2200, 2900); size = P_(m, mpc, 'TrailSize', -2200, 3000); dep = P_(m, mpc, 'TrailDepth', -2200, 3100)
+    w2 = X(m, unreal.MaterialExpressionComponentMask, -2000, 2800, r=True, g=True, b=False, a=False); C(uvw, '', w2, '')
+    o2 = X(m, unreal.MaterialExpressionComponentMask, -2000, 2900, r=True, g=True, b=False, a=False); C(org, '', o2, '')
+    sub = X(m, unreal.MaterialExpressionSubtract, -1850, 2850); C(w2, '', sub, 'A'); C(o2, '', sub, 'B')
+    dv = X(m, unreal.MaterialExpressionDivide, -1700, 2850); C(sub, '', dv, 'A'); C(size, '', dv, 'B')
+    tuv = X(m, unreal.MaterialExpressionAdd, -1550, 2850, const_b=0.5); C(dv, '', tuv, 'A')
+    ratio = X(m, unreal.MaterialExpressionDivide, -1700, 3050); C(dep, '', ratio, 'A'); C(size, '', ratio, 'B')
+    # trails only where there is snow to press: fresh 1, packed 0.5, forest floor 0.6 (rock, ice, road, melt: none)
+    sw = None
+    for i, (nm, k) in enumerate((('Snow_Fresh', 1.0), ('Snow_Packed', 0.5), ('ForestFloor', 0.6))):
+        mk = X(m, unreal.MaterialExpressionMultiply, -1700, 3200 + i * 70, const_b=k); C(ws[nm], '', mk, 'A')
+        if sw is None: sw = mk
+        else: ad = X(m, unreal.MaterialExpressionAdd, -1550, 3250); C(sw, '', ad, 'A'); C(mk, '', ad, 'B'); sw = ad
+    cam = X(m, unreal.MaterialExpressionCameraVectorWS, -1850, 3450)
+    vts = X(m, unreal.MaterialExpressionTransform, -1700, 3450, transform_source_type=unreal.MaterialVectorCoordTransformSource.TRANSFORMSOURCE_WORLD,
+            transform_type=unreal.MaterialVectorCoordTransform.TRANSFORM_TANGENT); C(cam, '', vts, '')
+    tob = X(m, unreal.MaterialExpressionTextureObject, -1700, 3600, texture=ra, sampler_type=unreal.MaterialSamplerType.SAMPLERTYPE_LINEAR_COLOR)
+    pom = custom(m, POM_HLSL, [('Tex', (tob, '')), ('T', (tuv, '')), ('V', (vts, '')), ('R', (ratio, '')), ('SW', (sw, ''))], F2, -1300, 3000, 'trail POM (16 steps, early-out)')
+    d = custom(m, DEPTH_HLSL, [('Tex', (tob, '')), ('UV', (pom, '')), ('T', (tuv, '')), ('SW', (sw, ''))], F1, -1000, 3000, 'trail depth 0..1')
+    n = custom(m, NORMAL_HLSL, [('Tex', (tob, '')), ('UV', (pom, '')), ('T', (tuv, '')), ('SW', (sw, '')), ('N', (nl, '')), ('Depth', (dep, '')), ('Size', (size, ''))],
+               F3, -1000, 3200, 'trail normal from the height gradient')
+    pk = X(m, unreal.MaterialExpressionMultiply, -800, 3000, const_b=4.0); C(d, '', pk, 'A')
+    pks = X(m, unreal.MaterialExpressionSaturate, -700, 3000); C(pk, '', pks, '')
+    alb = X(m, unreal.MaterialExpressionConstant3Vector, -800, 2850, constant=unreal.LinearColor(*LAYERS[1][1], 1))   # Snow_Packed 0.66
+    bc2 = X(m, unreal.MaterialExpressionLinearInterpolate, -550, 2850); C(bc, '', bc2, 'A'); C(alb, '', bc2, 'B'); C(pks, '', bc2, 'Alpha')
+    r2 = X(m, unreal.MaterialExpressionLinearInterpolate, -550, 3000, const_b=LAYERS[1][2]); C(rough, '', r2, 'A'); C(pks, '', r2, 'Alpha')
+    ao = X(m, unreal.MaterialExpressionLinearInterpolate, -550, 3150, const_a=1.0, const_b=0.7); C(d, '', ao, 'Alpha')   # pressed bottom: self-occluded
+    return bc2, r2, n, ao
 
 def X(m, cls, x, y, **props):
     e = MEL.create_material_expression(m, cls, x, y)
@@ -109,7 +244,7 @@ def X(m, cls, x, y, **props):
     return e
 def C(a, ao, b, bi): MEL.connect_material_expressions(a, ao, b, bi)
 
-def build_landscape_material(macro, ripple):
+def build_landscape_material(macro, ripple, trail=None):
     m = new_material('M_WK_Landscape')
     uvw = X(m, unreal.MaterialExpressionWorldPosition, -2200, 0)
     # macro variation: world-space, 2 scales, +-12 % on albedo only (kills tiling, keeps calibration)
@@ -127,10 +262,10 @@ def build_landscape_material(macro, ripple):
     rn = X(m, unreal.MaterialExpressionTextureSample, -1700, 400, texture=ripple, sampler_type=unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL); C(rdiv, '', rn, 'UVs')
     flat = X(m, unreal.MaterialExpressionConstant3Vector, -1700, 600, constant=unreal.LinearColor(0, 0, 1, 0))
     # weighted sums: every layer = one LandscapeLayerSample (this also registers the paint layer)
-    col = rough = nstr = None
+    col = rough = nstr = None; ws = {}
     for i, (name, alb, r, rip) in enumerate(LAYERS):
         y = 800 + i * 220
-        w = X(m, unreal.MaterialExpressionLandscapeLayerSample, -1200, y, parameter_name=name, preview_weight=1.0 if i == 0 else 0.0)
+        w = X(m, unreal.MaterialExpressionLandscapeLayerSample, -1200, y, parameter_name=name, preview_weight=1.0 if i == 0 else 0.0); ws[name] = w
         c3 = X(m, unreal.MaterialExpressionConstant3Vector, -1200, y + 100, constant=unreal.LinearColor(*alb, 1))
         mc = X(m, unreal.MaterialExpressionMultiply, -950, y); C(w, '', mc, 'A'); C(c3, '', mc, 'B')
         mr = X(m, unreal.MaterialExpressionMultiply, -950, y + 100, const_b=r); C(w, '', mr, 'A')
@@ -144,6 +279,9 @@ def build_landscape_material(macro, ripple):
             else: a3 = X(m, unreal.MaterialExpressionAdd, -750, y + 160); C(nstr, '', a3, 'A'); C(mn, '', a3, 'B'); nstr = a3
     bc = X(m, unreal.MaterialExpressionMultiply, -500, 300); C(col, '', bc, 'A'); C(var, '', bc, 'B')
     nl = X(m, unreal.MaterialExpressionLinearInterpolate, -500, 500); C(flat, '', nl, 'A'); C(rn, 'RGB', nl, 'B'); C(nstr, '', nl, 'Alpha')
+    if trail:                                   # snow trails: packed snow + POM (no WPO, no tessellation; RESEARCH.md section 4)
+        bc, rough, nl, ao = trail_branch(m, trail[0], trail[1], trail[2], uvw, ws, bc, rough, nl)
+        MEL.connect_material_property(ao, '', unreal.MaterialProperty.MP_AMBIENT_OCCLUSION)
     MEL.connect_material_property(bc, '', unreal.MaterialProperty.MP_BASE_COLOR)
     MEL.connect_material_property(rough, '', unreal.MaterialProperty.MP_ROUGHNESS)
     MEL.connect_material_property(nl, '', unreal.MaterialProperty.MP_NORMAL)
@@ -201,10 +339,12 @@ def build_snow_prop_material(mf):
 def step_assets():
     if DRY:
         say('would import T_WK_MacroNoise, T_WK_SnowRipple_N to', ROOT + '/Textures')
-        say('would build M_WK_Landscape (8 layers: %s), MF_WK_SnowCover, M_WK_SnowProp' % ', '.join(l[0] for l in LAYERS)); return
+        say('would build M_WK_Landscape (8 layers: %s), MF_WK_SnowCover, M_WK_SnowProp' % ', '.join(l[0] for l in LAYERS))
+        say('would build snow trails: MPC_WK_Snow (%d scalars, %d vectors), RT_WK_TrailA/B 2048 R16F, M_WK_TrailUpdate/Copy, POM branch in M_WK_Landscape'
+            % (len(TRAIL), len(TRAIL_VEC))); return
     macro = import_tex('T_WK_MacroNoise.png', 'T_WK_MacroNoise'); ripple = import_tex('T_WK_SnowRipple_N.png', 'T_WK_SnowRipple_N', 'normal')
     import_tex('T_WK_DefaultORM.png', 'T_WK_DefaultORM', 'masks')
-    build_landscape_material(macro, ripple); mf = build_snow_cover_function(); pm = build_snow_prop_material(mf)
+    build_landscape_material(macro, ripple, build_trail_assets()); mf = build_snow_cover_function(); pm = build_snow_prop_material(mf)
     full = ROOT + '/Materials/MI_WK_DriftSnow'
     if EAL.does_asset_exist(full): EAL.delete_asset(full)
     mi = AT.create_asset('MI_WK_DriftSnow', ROOT + '/Materials', unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
@@ -374,6 +514,35 @@ def step_props():
             act.set_actor_label(label); act.tags = [unreal.Name(TAG)]
     if not DRY: save_level()
 
+# ------------------------------------------------------------------ snow trails Blueprint (BPC_SnowTrails on a level actor BP_WK_Snow)
+BPDIR = ROOT + '/Blueprints'
+def step_trails():
+    """BPC_SnowTrails (ActorComponent, empty: the Master pastes 6 BPVar lines + the graph) inside a new actor BP_WK_Snow,
+    one BP_WK_Snow placed in WinterKeep (tagged WK390). The hero Blueprint is not touched (decision: level actor, not hero)."""
+    for need in ('/MPC_WK_Snow', TR + '/RT_WK_TrailA', TR + '/M_WK_TrailUpdate'):
+        say(('OK   ' if EAL.does_asset_exist(ROOT + need) else 'MISS ') + ROOT + need + ('' if EAL.does_asset_exist(ROOT + need) else '  (run --step assets first)'))
+    say('BPC_SnowTrails', 'exists' if EAL.does_asset_exist(BPDIR + '/BPC_SnowTrails') else 'would be created' if DRY else 'created', '|',
+        'BP_WK_Snow', 'exists' if EAL.does_asset_exist(BPDIR + '/BP_WK_Snow') else 'would be created' if DRY else 'created')
+    if DRY: say('would place 1 BP_WK_Snow in', LEVEL, '(re-run replaces it)'); return
+    def bp(name, parent):
+        full = BPDIR + '/' + name
+        if EAL.does_asset_exist(full): return unreal.load_asset(full)
+        f = unreal.BlueprintFactory(); f.set_editor_property('parent_class', parent)
+        b = AT.create_asset(name, BPDIR, unreal.Blueprint, f); unreal.BlueprintEditorLibrary.compile_blueprint(b); EAL.save_asset(full); return b
+    comp, host = bp('BPC_SnowTrails', unreal.ActorComponent), bp('BP_WK_Snow', unreal.Actor)
+    SDS, LIB = unreal.get_engine_subsystem(unreal.SubobjectDataSubsystem), unreal.SubobjectDataBlueprintFunctionLibrary
+    hs = SDS.k2_gather_subobject_data_for_blueprint(host)
+    if 'SnowTrails' not in [str(LIB.get_variable_name(SDS.k2_find_subobject_data_from_handle(h))) for h in hs]:
+        h, why = SDS.add_new_subobject(unreal.AddNewSubobjectParams(parent_handle=hs[0], new_class=comp.generated_class(), blueprint_context=host))
+        if not LIB.is_handle_valid(h): say('FAIL add SnowTrails to BP_WK_Snow:', why); return
+        SDS.rename_subobject(h, unreal.Text('SnowTrails'))
+    unreal.BlueprintEditorLibrary.compile_blueprint(host); EAL.save_asset(BPDIR + '/BP_WK_Snow'); say('BP_WK_Snow has the SnowTrails component')
+    if not in_winterkeep(): say('open', LEVEL, 'and run --step trails again to place BP_WK_Snow'); return
+    for a in EAS.get_all_level_actors():
+        if a.get_actor_label() == 'WK_Snow' and unreal.Name(TAG) in a.tags: EAS.destroy_actor(a)
+    act = EAS.spawn_actor_from_class(host.generated_class(), unreal.Vector(0, 0, 30000), unreal.Rotator(0, 0, 0))
+    act.set_actor_label('WK_Snow'); act.tags = [unreal.Name(TAG)]; save_level(); say('placed WK_Snow (BP_WK_Snow)')
+
 # ------------------------------------------------------------------ lighting presets (locked exposure)
 PRESETS = {  # sun pitch, yaw (UE: direction the light TRAVELS; X east, Y south), lux, Kelvin, skylight, fog, EV100 locked, note
     'overcast': (-50, -135, 15000, 6500, 1.0, 0.035, 12.0, 'from the NW-ish high, soft (source angle 8), 2:1 key-to-shade'),
@@ -381,6 +550,7 @@ PRESETS = {  # sun pitch, yaw (UE: direction the light TRAVELS; X east, Y south)
     'blizzard': (-45, -135, 6000, 7000, 0.9, 0.22, 11.0, 'sight lines cut to ~80-150 m'),
     'night':    (-35, -110, 0.26, 4000, 0.15, 0.03, -2.5, 'moon 0.26 lux from the SSE; blue by Purkinje, on purpose'),
 }
+SNOWFALL = {'overcast': 0.3, 'lowsun': 0.0, 'blizzard': 1.0, 'night': 0.15}
 def step_light():
     if not in_winterkeep(): say('open', LEVEL, 'first'); return
     p = PRESETS[PRESET]; say('preset', PRESET, p)
@@ -407,6 +577,12 @@ def step_light():
         try: s.set_editor_property(k, v)
         except Exception as e: say('skip', k, e)
     pp.set_editor_property('settings', s)
+    mpc = unreal.load_asset(ROOT + '/MPC_WK_Snow')          # weather drives trails refill + snow Niagara (via NPC_WK_Snow)
+    if mpc:
+        sc = list(mpc.get_editor_property('scalar_parameters'))
+        for q in sc:
+            if str(q.get_editor_property('parameter_name')) == 'SnowFall': q.set_editor_property('default_value', SNOWFALL[PRESET])
+        mpc.set_editor_property('scalar_parameters', sc); EAL.save_loaded_asset(mpc); say('MPC_WK_Snow SnowFall =', SNOWFALL[PRESET])
     say('locked EV100 =', p[6], '|', p[7]); save_level()
 
 def step_remove():
@@ -422,10 +598,10 @@ if '--list' in ARGS:
     for k, v in find_assets().items(): say(k, len(v), v[:12])
 elif DRY and not STEP:
     api_check()
-    for s in (step_assets, step_meshes, step_level): s()
+    for s in (step_assets, step_meshes, step_level, step_trails): s()
     say('scatter kinds:', {k: sum(len(v) for v in c.values()) for k, c in json.load(open(os.path.join(OUT, 'scatter.json')))['kinds'].items()})
     say('presets:', list(PRESETS))
 else:
     {'assets': step_assets, 'meshes': step_meshes, 'props': step_props, 'level': step_level, 'check': step_check, 'dress': step_dress,
-     'light': step_light, 'remove': step_remove}[STEP]()
+     'light': step_light, 'remove': step_remove, 'trails': step_trails}[STEP]()
 out = os.path.join(HERE, 'wk390_log.txt'); open(out, 'w').write('\n'.join(LOG)); say('log ->', out)

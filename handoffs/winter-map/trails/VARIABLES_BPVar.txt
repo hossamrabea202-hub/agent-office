@@ -1,0 +1,7 @@
+# #390 BPC_SnowTrails - paste one line at a time on the VARIABLES header, then Compile
+BPVar(VarName="Chars",VarGuid=AB320C394E6C52DDAA18E1F61FC7989E,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Character'",ContainerType=Array),FriendlyName="Chars",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")
+BPVar(VarName="Origin",VarGuid=5191BB6803025ED48E7C9429C3F575CD,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="Origin",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")
+BPVar(VarName="Slot",VarGuid=AB8CC41680235D75B3C0E29FB1CF5034,VarType=(PinCategory="int"),FriendlyName="Slot",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")
+BPVar(VarName="FootL",VarGuid=0CC6FAF5FDE65659930866EAFE0D8612,VarType=(PinCategory="name"),FriendlyName="FootL",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="foot_l")
+BPVar(VarName="FootR",VarGuid=A8FF7E84F01F57AF993A2203DAFA993E,VarType=(PinCategory="name"),FriendlyName="FootR",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="foot_r")
+BPVar(VarName="PlantZ",VarGuid=09E8BF593B51598396CABF76302ABAC6,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="PlantZ",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="14.0")

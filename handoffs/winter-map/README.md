@@ -43,6 +43,8 @@ Script: `S = <repo>/handoffs/winter-map/ue/winterkeep_ue.py`. Each run writes `u
    gorge, deck 6.5 m at the road height, walkable), **WK_IceFalls** (the frozen waterfall on the 13.6 m rock step) and
    **WK_Farm_East / WK_Farm_Road / WK_Farm_North** (half-buried log farmsteads, drift on the SE lee side). Re-running
    replaces only these actors. `SM_WK_Icicles_3m` is a 3 m eave strip: drag copies onto castle eaves by hand (pivot = eave line).
+6c. **NEW (snow trails):** `py S --step trails`, then the BPVar lines and graph paste in **BPC_SnowTrails**. Exact steps
+   and tests: [trails/README.md](trails/README.md).
 7. `py S --step dress --dry-run`. Check the counts and the chosen meshes. Then run `py S --step dress`.
    - It makes one HISM actor per 256 m World Partition cell. After `--step meshes` it uses our own SM_WK_Spruce_A/B,
      SM_WK_Birch_A and SM_WK_Rock_A/B (the log says which mesh each kind got).
@@ -142,8 +144,7 @@ balls. Old shots are in `lookdev/shots/before/`.
 
 ## Not done yet (next session, in this order)
 
-1. **Footprints and tracks:** a player-centred render-target trail mask plus POM in M_WK_Landscape (decision in
-   RESEARCH.md §4). Writing it needs a small Blueprint (BPC_SnowTrails).
+1. ~~Footprints and tracks~~ **done 2026-11-01:** [trails/README.md](trails/README.md) (RT mask, own POM, BPC_SnowTrails).
 2. **Blowing-snow VFX:** Python can't author Niagara. Duplicate the rain Niagara from the weather system (#226), make it
    snow, and add ground drift. Exact steps will follow.
 3. **Missing winter assets:**
