@@ -1,9 +1,10 @@
 {
- "working": "#390 next: spruce snow cushions",
- "tokens": 175000,
+ "working": "#390 old items done; waiting on the Master's UE test of #393",
+ "tokens": 190000,
  "ctx": 1000000,
  "since": "2026-11-01T00:57:53Z",
  "done": [
+  "#390 spruce snow pads (1aeb4a7) [81% tokens left]",
   "#390 bridge-end wall + frozen falls v3 (9bc1084) [82% tokens left]",
   "#390 blizzard white-out + shots [80% tokens left]",
   "#390 snow VFX handed off [83% tokens left]",
@@ -12,8 +13,7 @@
   "#390 polish v2: real winter assets + UE meshes/props steps (hand-off #393) [75% tokens left]",
   "#390 WinterKeep hand-off v1 (research, design, terrain, UE script, presets) [76% tokens left]",
   "#386 handed off [60% tokens left]",
-  "midnight pick-up note written [66% tokens left]",
-  "#188 checked: already pasted, play-test requested [68% tokens left]"
+  "midnight pick-up note written [66% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T08:34:58Z",
+ "asOf": "2026-11-01T08:37:18Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
