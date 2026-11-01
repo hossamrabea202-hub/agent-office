@@ -1,0 +1,29 @@
+Owned = 0
+Equipped = -1
+WeaponRot = <Struct 'Rotator' (0x0000024E00FA1ED8) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>
+KnightSwordBone = weapon_r
+ 0  Arming Sword                 price    300  dmg   40  speed   1.1  /Game/CastleDefender/Weapons/CK/ArmingSword/SM_CK_ArmingSword.SM_CK_ArmingSword
+ 1  Viking Sword                 price    350  dmg   44  speed  1.05  /Game/CastleDefender/Weapons/CK/VikingSword/SM_CK_VikingSword.SM_CK_VikingSword
+ 2  Falchion                     price    380  dmg   48  speed   1.0  /Game/CastleDefender/Weapons/CK/Falchion/SM_CK_Falchion.SM_CK_Falchion
+ 3  Messer                       price    400  dmg   46  speed  1.05  /Game/CastleDefender/Weapons/CK/Messer/SM_CK_Messer.SM_CK_Messer
+ 4  Katzbalger                   price    420  dmg   45  speed  1.15  /Game/CastleDefender/Weapons/CK/Katzbalger/SM_CK_Katzbalger.SM_CK_Katzbalger
+ 5  Rondel Dagger                price    200  dmg   28  speed   1.4  /Game/CastleDefender/Weapons/CK/RondelDagger/SM_CK_RondelDagger.SM_CK_RondelDagger
+ 6  Longsword                    price    600  dmg   58  speed  0.95  /Game/CastleDefender/Weapons/CK/Longsword/SM_CK_Longsword.SM_CK_Longsword
+ 7  Estoc                        price    650  dmg   55  speed   1.0  /Game/CastleDefender/Weapons/CK/Estoc/SM_CK_Estoc.SM_CK_Estoc
+ 8  Zweihander                   price   1200  dmg   80  speed  0.75  /Game/CastleDefender/Weapons/CK/Zweihander/SM_CK_Zweihander.SM_CK_Zweihander
+ 9  Bearded Axe                  price    350  dmg   50  speed  0.95  /Game/CastleDefender/Weapons/CK/BeardedAxe/SM_CK_BeardedAxe.SM_CK_BeardedAxe
+10  War Axe                      price    450  dmg   52  speed   1.0  /Game/CastleDefender/Weapons/CK/WarAxe/SM_CK_WarAxe.SM_CK_WarAxe
+11  Dane Axe                     price    900  dmg   72  speed   0.8  /Game/CastleDefender/Weapons/CK/DaneAxe/SM_CK_DaneAxe.SM_CK_DaneAxe
+12  Bardiche                     price   1000  dmg   74  speed  0.75  /Game/CastleDefender/Weapons/CK/Bardiche/SM_CK_Bardiche.SM_CK_Bardiche
+13  Lochaber Axe                 price   1050  dmg   76  speed  0.75  /Game/CastleDefender/Weapons/CK/LochaberAxe/SM_CK_LochaberAxe.SM_CK_LochaberAxe
+14  Flanged Mace                 price    500  dmg   56  speed   0.9  /Game/CastleDefender/Weapons/CK/FlangedMace/SM_CK_FlangedMace.SM_CK_FlangedMace
+15  War Hammer                   price    550  dmg   58  speed   0.9  /Game/CastleDefender/Weapons/CK/WarHammer/SM_CK_WarHammer.SM_CK_WarHammer
+16  Morning Star                 price    520  dmg   60  speed  0.85  /Game/CastleDefender/Weapons/CK/MorningStar/SM_CK_MorningStar.SM_CK_MorningStar
+17  Winged Spear                 price    500  dmg   46  speed   1.0  /Game/CastleDefender/Weapons/CK/WingedSpear/SM_CK_WingedSpear.SM_CK_WingedSpear
+18  Boar Spear                   price    550  dmg   50  speed  0.95  /Game/CastleDefender/Weapons/CK/BoarSpear/SM_CK_BoarSpear.SM_CK_BoarSpear
+19  Partisan                     price    800  dmg   62  speed  0.85  /Game/CastleDefender/Weapons/CK/Partisan/SM_CK_Partisan.SM_CK_Partisan
+20  Ranseur                      price    850  dmg   62  speed  0.85  /Game/CastleDefender/Weapons/CK/Ranseur/SM_CK_Ranseur.SM_CK_Ranseur
+21  Guisarme                     price    850  dmg   64  speed  0.85  /Game/CastleDefender/Weapons/CK/Guisarme/SM_CK_Guisarme.SM_CK_Guisarme
+22  Glaive                       price    900  dmg   66  speed   0.8  /Game/CastleDefender/Weapons/CK/Glaive/SM_CK_Glaive.SM_CK_Glaive
+23  Halberd                      price   1100  dmg   75  speed  0.75  /Game/CastleDefender/Weapons/CK/Halberd/SM_CK_Halberd.SM_CK_Halberd
+24  Pollaxe                      price   1150  dmg   78  speed  0.75  /Game/CastleDefender/Weapons/CK/Pollaxe/SM_CK_Pollaxe.SM_CK_Pollaxe

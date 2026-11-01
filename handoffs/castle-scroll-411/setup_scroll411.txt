@@ -1,0 +1,16 @@
+#411 setup
+/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD            ok
+/Game/CastleDefender/UI/Notices/M_NoticeBanner               ok
+/Game/CastleDefender/UI/Fonts/Font_Cinzel                    ok
+/Game/CastleDefender/UI/Trade/SFX_TradeSwipe                 ok
+icon new, component new, backup new
+icon imported: /Game/CastleDefender/UI/HUD/T_HUD_CastleKey
+  + BPC_CastleScroll.Open
+  + BPC_CastleScroll.T
+  + BPC_CastleScroll.LastT
+  + BPC_CastleScroll.Mid
+  + BPC_CastleScroll.IconTex
+  + BPC_CastleScroll.ScrollMat
+component ready: /Game/CastleDefender/Gameplay/Castle/BPC_CastleScroll
+backup: BP_ZombieHUD_BACKUP411
+BP_ZombieHUD: added CastleScroll (not saved yet)

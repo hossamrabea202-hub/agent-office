@@ -1,0 +1,7 @@
+== /Game/CastleDefender/Gameplay/Castle/BP_ArmoryHUD
+  can_be_damaged               False
+  tags                         []
+== /Game/CastleDefender/Gameplay/Castle/BPC_VesnaTrade
+  component_tags               []
+== /Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet
+  component_tags               []
