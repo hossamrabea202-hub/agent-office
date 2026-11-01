@@ -102,12 +102,16 @@ for ch in chains:
         th = math.radians(yaw); lx_dir = unreal.Vector(math.cos(th) * sxs, math.sin(th) * sxs, 0)    # world dir of the mesh's width
         start = T[s0]['c'] - d * (going / 2)                                       # front edge centre of this piece's first tread
         loc = start - lx_dir * (width / 2); loc.z = T[s0]['top'] - rise
-        scale = unreal.Vector(width / wc, going / G0, rise / R0)
         err = 0.0                                                                  # verify: the MESH's own step centres, through the
         bb = sm.get_bounds(); ext = bb.box_extent                                  # real rotation + scale, against the old treads
-        if abs(ext.y * 2 - m * G0) > 2 or abs(ext.z * 2 - m * R0) > 2: err = 999.0  # mesh is not the flight we think it is
+        g_m, r_m = ext.y * 2 / m, ext.z * 2 / m                                    # #301: measure the mesh's own going / rise (nosing,
+        if not (0.75 * G0 < g_m < 1.35 * G0 and 0.75 * R0 < r_m < 1.35 * R0):      # solid base and import scale made the fixed 30 / 18 cm
+            log('%s: bounds %.1f x %.1f x %.1f cm do not look like %d steps' % (path.split('/')[-1], ext.x * 2, ext.y * 2, ext.z * 2, m)); err = 999.0
+        g_m, r_m = (g_m if err < 999 else G0), (r_m if err < 999 else R0)          # test fail by more than 2 cm); the tread check below decides
+        if k == 0 and s0 == 0: log('%s: measured going %.1f cm, rise %.1f cm per step' % (path.split('/')[-1], g_m, r_m))
+        scale = unreal.Vector(width / wc, going / g_m, rise / r_m)
         for i in range(m):
-            lxv, lyv, lzv = sxs * wc / 2 * scale.x, sys_ * (i + 0.5) * G0 * scale.y, (i + 1) * R0 * scale.z
+            lxv, lyv, lzv = sxs * wc / 2 * scale.x, sys_ * (i + 0.5) * g_m * scale.y, (i + 1) * r_m * scale.z
             p = unreal.Vector(loc.x + lxv * math.cos(th) - lyv * math.sin(th), loc.y + lxv * math.sin(th) + lyv * math.cos(th), loc.z + lzv)
             t = T[s0 + i]; err = max(err, math.hypot(p.x - t['c'].x, p.y - t['c'].y), abs(p.z - t['top']))
         plan.append((path, sm, loc, yaw, scale, m, err))
