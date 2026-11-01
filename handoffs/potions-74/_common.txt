@@ -1,0 +1,73 @@
+# #411 castle scroll (i5 core, 2026-11-01): generates the graph of the NEW component BPC_CastleScroll and the 3-node hook
+# for BP_ZombieHUD.   python gen_scroll411.py   (any Python 3; on i5 use UE's: Engine/Binaries/ThirdParty/Python3/Win64/python.exe -I)
+#   -> build/BPC_CastleScroll_graph.txt   (paste into BPC_CastleScroll's EventGraph)
+#   -> build/ZombieHUD_ScrollHook_graph.txt (paste into BP_ZombieHUD's EventGraph; rewire_hook411_ue.py wires it)
+# DrawScroll(Hud) runs inside BP_ZombieHUD's DrawHUD, where the ORE / FOOD text lines were (UX_CallFunction_23 -> here
+# -> K2Node_IfThenElse_H296). Each frame:
+#   - the castle medallion T_HUD_CastleKey at (16, 150) U, 84 U square (U = viewport height / 1080), brighter on hover / open;
+#   - click on it or key C toggles Open (+ the trade swipe sound);
+#   - T eases 0 -> 1 in 0.4 s (1 -> 0 in 0.36 s); e = 1 - (1 - T)^3;
+#   - the #295 vellum scroll (M_NoticeBanner via a MID, Roll 1) unrolls to the RIGHT from the medallion: its left roller
+#     stays put under the icon and the sheet grows from 300 U (rollers together) to 900 U wide (Aspect = width / 300);
+#   - the text fades in as the right roller passes it: column 1 (Iron, Copper, Silver, Gold ore), the title, column 2
+#     (Starmetal, Food, Farmers); gold ink with a soft shadow, Font_Cinzel, sized from the font's measured line height.
+# Data: BP_ZombieHUD Ore[0..4] (Fe, Cu, Ag, Au, Star), Food, Farmers (the same variables the old text lines read).
+import os, sys
+sys.dont_write_bytecode = True
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.normpath(os.path.join(HERE, '..', '..'))
+sys.path.insert(0, os.path.join(REPO, 'tools', 'laptop2', 'bpgen'))
+import bpkit
+from bpkit import *
+HERE = os.path.dirname(os.path.abspath(__file__))           # (bpkit's * import overwrites HERE)
+OUT = os.path.join(HERE, 'build'); os.makedirs(OUT, exist_ok=True)
+
+COMP, HUDC, TEXC, TEX2D, MATL = CLS('ActorComponent'), CLS('HUD'), CLS('Texture'), CLS('Texture2D'), CLS('KismetMaterialLibrary')
+SCROLLC = BPC('/Game/CastleDefender/Gameplay/Castle/BPC_CastleScroll', 'BPC_CastleScroll')
+ZHUD = BPC('/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD', 'BP_ZombieHUD')
+FONT = '/Game/CastleDefender/UI/Fonts/Font_Cinzel.Font_Cinzel'
+FONTC = '"/Script/CoreUObject.Class\'/Script/Engine.Font\'"'
+KEY = '"/Script/CoreUObject.ScriptStruct\'/Script/InputCore.Key\'"'
+V2D = '"/Script/CoreUObject.ScriptStruct\'/Script/CoreUObject.Vector2D\'"'
+BLEND = '"/Script/CoreUObject.Enum\'/Script/Engine.EBlendMode\'"'
+SND = '/Game/CastleDefender/UI/Trade/SFX_TradeSwipe.SFX_TradeSwipe'
+F = lambda n, default='0.0', out=False: fl(n, default=default, out=out)
+NAME_ = lambda n, default=None: {'name': n, 'cat': 'name', 'default': default}
+def col(r, g_, b_, a=1.0): return '(R=%f,G=%f,B=%f,A=%f)' % (r, g_, b_, a)
+WHITE = col(1, 1, 1)
+
+G = Graph(); b = B(G, 'cs')
+XY = [0, 300]
+def P():
+    XY[0] += 280
+    if XY[0] > 12000: XY[0] = 0; XY[1] += 220
+    return XY[0], XY[1]
+def isnum(v): return isinstance(v, (int, float))
+def dop(m, a, c): return b.d2(m, None if isnum(a) else a, None if isnum(c) else c, *P(), da=str(float(a)) if isnum(a) else '0.0', db=str(float(c)) if isnum(c) else '0.0')
+def dcmp(m, a, c): return b.dcmp(m, None if isnum(a) else a, None if isnum(c) else c, *P(), da=str(float(a)) if isnum(a) else '0.0', db=str(float(c)) if isnum(c) else '0.0')
+AND = lambda a, c: b.b2('BooleanAND', a, c, *P())
+OR = lambda a, c: b.b2('BooleanOR', a, c, *P())
+NOT = lambda a: b.bnot(a, *P())
+i2d = lambda a: b.i2d(a, *P())
+def clamp01(v): return b.math('FClamp', [(D('Value', default='0.0'), v), (D('Min', default='0.0'), None), (D('Max', default='1.0'), None)], D('ReturnValue', out=True), *P())
+def ramp(v, a0, w):   # clamp((v - a0) / w, 0, 1)
+    return clamp01(dop('Divide_DoubleDouble', dop('Subtract_DoubleDouble', v, float(a0)), float(w)))
+def istr(src):
+    n = b.lib(CLS('KismetStringLibrary'), 'Conv_IntToString', [it('InInt', default='0'), S('ReturnValue', out=True)], *P(), pure=True); b.wire(src, n, 'InInt'); return (n, 'ReturnValue')
+def get(var, pin): return b.get(var, pin, *P())
+
+class Flow:
+    def __init__(s, *srcs): s.c = list(srcs)
+    def go(s, node, inp='execute', out='then'):
+        for a, p in s.c: G.link(a, p, node, inp)
+        s.c = [(node, out)] if out else []; return node
+    def iff(s, cond, tag='If'):
+        n = b.branch(cond, *P(), tag=tag); s.go(n, out=None); return Flow((n, 'then')), Flow((n, 'else'))
+    def join(s, *others):
+        for o in others: s.c += o.c
+        return s
+def setvar(fl_, var, pin, src, lit=None):
+    n = b.set(var, pin, None if lit is not None else src, *P())
+    if lit is not None: G.nodes[-1][3][2]['default'] = lit
+    fl_.go(n); return n
+
