@@ -54,7 +54,7 @@ inputs are unchanged.
 
    The spawned capture actors are destroyed afterwards, so don't save the level if the editor asks.
 3. Open BPC_Muster, select everything in its **EventGraph** and delete it, then paste `build/BPC_Muster_graph.txt`.
-   Compile and Save. The generator's `applyall check` reports **Validation: OK** (1,512 nodes).
+   Compile and Save. The generator's `applyall check` reports **Validation: OK** (1,514 nodes).
 4. Play at the barracks and check:
    - [ ] E opens; the cursor is free; a **single click** on any card selects it.
    - [ ] Clicking a card's button buys; double-clicking a card buys; E buys.
@@ -70,9 +70,9 @@ inputs are unchanged.
 T_MU_Atlas.
 
 ## Still open
-- **The two round icons over the key hints in the owner's shot** (a white arrow and red slashes) are drawn by another HUD
-  after the Muster. Which Blueprint draws them? Gating them on `Muster.Covering` is a one-node fix once I know.
-  `owner_210054_muster.png` isn't in the repo yet; please push it.
+- **The two round icons over the key hints** in the owner's shot (`barracks-hud-359/owner_210054_muster.png`) are the hero's
+  ability icons at the bottom centre-left. v2 keeps that area empty: the key hints sit in the header under the title, and the
+  "not enough gold" message sits above the cards. No other Blueprint needs to change.
 - Bust framing uses the `head` bone/socket (or the bounds when there isn't one) and a 28° lens. If a bust is badly cut,
   post `Saved/MusterBusts/*.png` and I'll tune the camera numbers.
 

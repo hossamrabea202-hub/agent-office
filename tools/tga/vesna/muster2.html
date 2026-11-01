@@ -108,7 +108,6 @@ function frame(){
   el('div','bg'); el('div','noise');
   text(836,50,'THE MUSTER','font-family:Cinzel;font-weight:700;font-size:44px;letter-spacing:9px;color:#f1e6cf;text-shadow:0 3px 12px #000','c');
   el('div','rule',`left:520px;top:86px;width:632px`);
-  text(836,98,'THE BARRACKS  •  CHOOSE A CARD, THEN RECRUIT','font-family:Cinzel;font-weight:600;font-size:13px;letter-spacing:4px;color:#b59a66','c');
   const cl=L.close; el('div','panel',`left:${cl.x}px;top:${cl.y}px;width:${cl.w}px;height:${cl.h}px`);
   ico('x',cl.x+28,cl.y+cl.h/2,20); text(cl.x+50,cl.y+cl.h/2+1,'CLOSE','font-family:Cinzel;font-weight:700;font-size:17px;letter-spacing:3px');
   el('div','key',`left:${cl.x+cl.w+10}px;top:${cl.y+13}px;width:40px;height:24px;font-size:11px`,'ESC');
@@ -123,10 +122,15 @@ function frame(){
   text(s.x+24,s.y+18,'GARRISON','font-family:Cinzel;font-weight:700;font-size:13px;letter-spacing:4px;color:#b59a66');
   text(s.qx0-14,s.y+18,'IN TRAINING','font-family:Cinzel;font-weight:700;font-size:13px;letter-spacing:4px;color:#b59a66','r');
   for(let q=0;q<3;q++) el('div','cell',`left:${s.qx0+q*s.qstep}px;top:${s.y+(s.h-s.qh)/2}px;width:${s.qw}px;height:${s.qh}px;border:1px solid #5a4628;background:#0e0d0c;box-shadow:inset 0 0 10px #000`);
-  const hy=L.hints_y; let hx=300;
-  const hint=(keys,label)=>{ keys.forEach(k=>{ if(k==='mouseL'){ ico('mouseL',hx+12,hy,26); hx+=30;} else { const w=k.length>2?44:30; el('div','key',`left:${hx}px;top:${hy-13}px;width:${w}px;height:26px;font-size:${k.length>2?11:13}px`,k); hx+=w+6; } });
-    hx+=6; const e=text(hx,hy,label,'font-weight:600;font-size:19px'); hx+=e.getBoundingClientRect().width+44; };
-  hint(['ESC'],'Close'); hint(['mouseL'],'Pick a card'); hint(['mouseL','mouseL'],'Double-click to recruit'); hint(['E'],'Recruit / Buy'); hint(['A','D'],'Move'); hint(['LB','RB'],'Tabs');
+  // key hints live in the header: the bottom of the screen belongs to the hero's ability icons (owner shot 21:00)
+  const bar=el('div','',`position:absolute;left:0;width:1672px;top:${L.hints_y-14}px;height:28px;display:flex;justify-content:center;align-items:center;gap:30px`);
+  const hint=(keys,label)=>{ const g=document.createElement('div'); g.style.cssText='display:flex;align-items:center;gap:5px'; bar.appendChild(g);
+    keys.forEach(k=>{ const e=document.createElement('div');
+      if(k==='mouseL'){ e.innerHTML=`<svg width="18" height="22" viewBox="0 0 28 28" style="overflow:visible">${ICON.mouseL}</svg>`; }
+      else { e.className='key'; e.style.cssText=`position:static;width:${k.length>2?40:24}px;height:22px;font-size:${k.length>2?10:12}px`; e.textContent=k; }
+      g.appendChild(e); });
+    const t=document.createElement('div'); t.textContent=label; t.style.cssText='font-weight:600;font-size:17px;margin-left:3px;color:#d9cfbd'; g.appendChild(t); };
+  hint(['ESC'],'Close'); hint(['mouseL'],'Pick'); hint(['mouseL','mouseL'],'Double-click to recruit'); hint(['E'],'Recruit / Buy'); hint(['A','D'],'Move'); hint(['LB','RB'],'Tabs');
 }
 function TABY(){ return L.tabs[0].y+L.tabs[0].h/2; }
 // ---------------------------------------------------------------- atlas

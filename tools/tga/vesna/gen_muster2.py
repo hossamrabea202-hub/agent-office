@@ -255,7 +255,7 @@ for q in range(3):
         rect(f1, x_ + 4, qy + SP['qh'] - 7, dop('Multiply_DoubleDouble', prog, float(SP['qw'] - 8)), 4, col(.94, .78, .45, .95), tag='QBar')
     fd = f1.join(f2)
 fmsg, fnmsg = fd.iff(dcmp('Less_DoubleDouble', NOW, get('MsgUntil', DBL)), 'IfNoGold')
-text(fmsg, 'Not enough gold or ore, captain.', L['TW'] / 2, SP['y'] + SP['h'] + 22, 20, RED, anchor='c', tag='NoGold'); fd = fmsg.join(fnmsg)
+text(fmsg, 'Not enough gold or ore, captain.', L['TW'] / 2, CA['y'] - 11, 18, RED, anchor='c', tag='NoGold')   # above the cards, clear of the ability icons; fd = fmsg.join(fnmsg)
 
 # ---------------------------------------------------------------- self-check + write
 names = [n[0] for n in G.nodes]

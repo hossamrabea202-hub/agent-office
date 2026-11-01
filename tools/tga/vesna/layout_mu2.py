@@ -30,11 +30,11 @@ L = dict(
     close=dict(x=26, y=30, w=150, h=50),
     purse=dict(x=1300, y=30, w=346, h=50),
     strip=dict(x=card_x0(5), y=CY + CH + 24, w=5 * CW + 4 * CG, h=74),
-    hints_y=900,
+    hints_y=98,                         # header: the bottom strip of the screen is the hero's ability icons
     hover_pad=6,
 )
 st = L['strip']
-L['strip'].update(cols=[st['x'] + 60, st['x'] + 290, st['x'] + 545, st['x'] + 770, st['x'] + 960], qx0=st['x'] + 1190, qstep=96, qw=84, qh=56)
+L['strip'].update(cols=[st['x'] + 50, st['x'] + 262, st['x'] + 502, st['x'] + 782, st['x'] + 992], qx0=st['x'] + 1190, qstep=96, qw=84, qh=56)
 
 def cells():
     c = []
