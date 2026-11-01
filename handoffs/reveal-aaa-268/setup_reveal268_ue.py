@@ -52,7 +52,9 @@ REBUILD = ('RT_Reveal', 'M_RevealItem', 'BP_RevealStage')   # --fix269 deletes t
 def wipe(name):
     """--fix269: delete our own asset so it is rebuilt from scratch. BPC_MotionFX's v3 paste re-links it by path."""
     path = '%s/%s' % (DEST, name)
-    if not (FIX and name in REBUILD and EAL.does_asset_exist(path)): return
+    # only with --wipe: force-deleting assets that BPC_MotionFX still references crashed UE 5.8 on i5 (2026-11-01).
+    # Without it the re-run path rebuilds M_RevealItem's graph in place and re-applies every RT / stage setting.
+    if not (FIX and '--wipe' in sys.argv and name in REBUILD and EAL.does_asset_exist(path)): return
     log.append('delete + rebuild ' + path)
     if not DRY and not EAL.delete_asset(path): log.append('  (could not delete %s, reusing it)' % path)
 
@@ -61,7 +63,7 @@ def fresh(name, cls, factory):
     """create the asset, or return the existing one (re-run)."""
     path = '%s/%s' % (DEST, name)
     wipe(name)
-    if EAL.does_asset_exist(path) and not (DRY and FIX and name in REBUILD):
+    if EAL.does_asset_exist(path) and not (DRY and FIX and '--wipe' in sys.argv and name in REBUILD):
         log.append('reusing ' + path); return unreal.load_asset(path), False
     log.append('create ' + path)
     if DRY: return None, True
@@ -349,7 +351,7 @@ LIGHTS = [  # name, location (cm from the item), candela, Kelvin, source radius:
     ('FillLight', unreal.Vector(-105, 130, -15), 2.5, 6000, 40.0)]
 STAGE = DEST + '/BP_RevealStage'
 wipe('BP_RevealStage')
-if EAL.does_asset_exist(STAGE) and not (DRY and FIX):
+if EAL.does_asset_exist(STAGE) and not (DRY and FIX and '--wipe' in sys.argv):
     stage = unreal.load_asset(STAGE); log.append('reusing ' + STAGE)
 else:
     log.append('create ' + STAGE)
