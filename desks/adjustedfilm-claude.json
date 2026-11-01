@@ -1,8 +1,8 @@
 {
- "working": "#390: context full, next session: trails, snow Niagara, bridge-end wall",
- "tokens": 250000,
+ "working": "#390 snow trails",
+ "tokens": 30000,
  "ctx": 1000000,
- "since": "2026-11-01T00:15:37Z",
+ "since": "2026-11-01T00:57:53Z",
  "done": [
   "#390 polish v2: real winter assets + UE meshes/props steps (hand-off #393) [75% tokens left]",
   "#390 WinterKeep hand-off v1 (research, design, terrain, UE script, presets) [76% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T00:55:21Z",
+ "asOf": "2026-11-01T00:57:53Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "4ab42008d1ae",
+  "id": "b7d33fc6e0d1",
   "host": "5CD3147LBC"
  },
  "ask": {
