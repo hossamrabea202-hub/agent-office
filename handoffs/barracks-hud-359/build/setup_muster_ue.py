@@ -19,7 +19,7 @@ TEX_DIR = os.path.normpath(os.path.join(HERE, '..', '..', '..', 'assets', 'tga',
 DEST = '/Game/CastleDefender/UI/Barracks/Muster'
 COMP_DIR, COMP = '/Game/CastleDefender/Gameplay/Castle', 'BPC_Muster'
 HERO = '/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter'
-P = {'npc': '/Game/CastleDefender/Gameplay/Castle/BP_NPC_Barracks', 'bhud': '/Game/CastleDefender/Gameplay/Castle/BP_BarracksHUD',
+P = {'npc': '/Game/CastleDefender/Characters/NPC/Barracks/BP_NPC_Barracks', 'bhud': '/Game/CastleDefender/Gameplay/Castle/BP_BarracksHUD',
      'upg': '/Game/CastleDefender/Gameplay/Castle/BPC_CastleUpgrades', 'flares': '/Game/CastleDefender/Gameplay/Flares/BPC_Flares',
      'medics': '/Game/CastleDefender/Gameplay/Medics/BPC_Medics', 'yard': '/Game/CastleDefender/Gameplay/Castle/BP_CannonOrder'}
 NEEDS = [P['npc'], P['bhud'], P['upg'], P['flares'], P['medics'], P['yard'], '/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD',
