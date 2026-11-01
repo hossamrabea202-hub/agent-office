@@ -1,6 +1,6 @@
 {
- "working": "#411 castle-scroll HUD",
- "tokens": 233000,
+ "working": "waiting on Alien: Multi-User server on the Master PC is down",
+ "tokens": 520000,
  "ctx": 1000000,
  "since": "2026-11-01T18:45:40Z",
  "done": [
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T19:10:55Z",
+ "asOf": "2026-11-01T20:40:57Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-01T19:10:55Z",
+  "asOf": "2026-11-01T20:40:57Z",
   "meters": [
    {
     "k": "5h",
@@ -57,7 +57,7 @@
   "host": "5CD3147LBC"
  },
  "ask": {
-  "text": "free ~20 GB on C: and install UE 5.8.4 (Win64 only) on laptop-i5, #399",
-  "at": "2026-11-01T11:56:44Z"
+  "text": "Multi-User server (Master PC, START_LIVE.bat) is down since 20:18: please restart it, keep session CastleDefender3",
+  "at": "2026-11-01T20:40:57Z"
  }
 }
