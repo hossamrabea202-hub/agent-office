@@ -32,6 +32,16 @@ VARS_NEEDED = {P['upg']: ['Walls', 'Towers'], P['flares']: ['Owned', 'Price'], P
 TEXTURES = ['T_MU_Frame', 'T_MU_Atlas']
 EAL, BEL = unreal.EditorAssetLibrary, unreal.BlueprintEditorLibrary
 D = json.load(open(os.path.join(HERE, 'muster_data.json')))
+def var_names(bp, wanted):
+    """UE 5.3: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 log = ['DRY_RUN = %s' % DRY_RUN]
 
 missing = [p for p in NEEDS if not EAL.does_asset_exist(p)]
@@ -40,7 +50,7 @@ for n in TEXTURES:
     f = os.path.join(TEX_DIR, n + '.png'); log.append('%-8s %s' % ('ok' if os.path.exists(f) else 'MISSING', f))
 def bp_names(path):
     bp = unreal.load_asset(path)
-    vars_ = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+    vars_ = var_names(bp, VARS_NEEDED.get(path, []))
     return vars_
 
 for path, vs in VARS_NEEDED.items():
@@ -118,7 +128,7 @@ def apply():
                  'TabStart': ARR(I), 'TabCount': ARR(I), 'IPrice': ARR(I), 'IOreA': ARR(I), 'IOreAN': ARR(I), 'IOreB': ARR(I), 'IOreBN': ARR(I), 'IState': ARR(I),
                  'INote': ARR(Str), 'ISub': ARR(Str), 'IVerb': ARR(Str), 'OreNames': ARR(Str),
                  'NameUV': ARR(LCT), 'TitleUV': ARR(LCT), 'TagUV': ARR(LCT), 'D1UV': ARR(LCT), 'D2UV': ARR(LCT), 'GlyphUV': ARR(LCT), 'KindUV': ARR(LCT)})
-    have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+    have = var_names(bp, list(VARS))
     for n, t in VARS.items():
         if n not in have:
             if not BEL.add_member_variable(bp, n, t): raise RuntimeError('could not add ' + n)

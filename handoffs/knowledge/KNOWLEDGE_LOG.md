@@ -194,3 +194,19 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
 - **Trail render target:** snap the rolling window to whole texels (25 cm = 8 texels at 3.1 cm). The shift copy then
   stays exact, with no bilinear blur accumulating. Store HEIGHT (1 = untouched) so POM and the refill clamp work without
   inverting.
+
+### 2026-11-01 · TGA (Claude) · #397 weapon kit AAA: forged steel, iron, ash, leather, brass (research; lookdev results follow)
+- **A blade is three finishes on one steel:**
+  - **satin ground flats**, with faint grind streaks *along* the blade (roughness 0.16–0.30);
+  - a **brighter stoned edge bevel** (a secondary bevel about 3–4 mm wide, roughness 0.10–0.16);
+  - **satin fullers** that collect grime.
+  A dead mirror reads as a modern replica. Medieval finishing went from a coarse grind to fine stones, and fullers were cleaned to a satin. [sources: EXARC polishing-bench reconstruction; myArmoury maker thread]
+- **Forged heads (axes, halberds, maces) keep forge scale next to a ground, polished edge:**
+  - scale = dark blue-black **non-metal** oxide, about 50–62 sRGB, roughness 0.55–0.75, flaked in patches with pitting;
+  - the edge strip = bright metal;
+  - a wavy boundary between them.
+  [makers: BeaverCraft, Hoffman Blacksmithing; Outdoors SE on forge scale]
+- **Iron F0 (≈ steel) = 0.562, 0.565, 0.578 linear (198 sRGB)** is the base for ground steel; forged fittings 0.50–0.54 linear. [AMU CG course table; KB iron 0.53–0.58]
+- **Polearm hafts were ash, oiled with linseed,** which darkens and yellows over time, so it is mid amber-brown (≈128, 96, 64 sRGB), not pale. Hand zones are darker and smoother, and the butt is dirtier. [myArmoury citing Waldman; Roman Army Talk; conservation list] **[inference: no measured albedo for aged oiled ash]**
+- **Grip leather:** never uniform wear; keep its value clearly apart from the wood. [Polycount]
+- **Not found:** no public AAA (Warhorse / KCD) weapon-texturing breakdown. Full notes: `handoffs/weapon-kit-aaa/RESEARCH.md`.

@@ -32,6 +32,16 @@ NEEDS = ['/Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet', '/Game/CastleDe
 TEXTURES = ['T_VT_Frame', 'T_VT_Atlas', 'T_VT_Icons', 'T_VT_Turn_Chest', 'T_VT_Turn_Shoulders', 'T_VT_Turn_Gauntlets', 'T_VT_Turn_Shins', 'T_VT_Turn_Boots']
 EAL, BEL, MEL = unreal.EditorAssetLibrary, unreal.BlueprintEditorLibrary, unreal.MaterialEditingLibrary
 D = json.load(open(os.path.join(HERE, 'trade_data.json')))
+def var_names(bp, wanted):
+    """UE 5.3: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 log = ['DRY_RUN = %s' % DRY_RUN]
 
 # ---------------------------------------------------------------- 0. checks (both modes)
@@ -41,7 +51,7 @@ for n in TEXTURES:
     f = os.path.join(TEX_DIR, n + '.png'); log.append('%-8s %s' % ('ok' if os.path.exists(f) else 'MISSING', f))
 setbp = unreal.load_asset(NEEDS[0]) if NEEDS[0] not in missing else None
 if setbp:
-    have = {str(v.get_editor_property('var_name')) for v in setbp.get_editor_property('new_variables')}
+    have = var_names(setbp, ['ObsOwned', 'WornEff', 'AvailMask', 'NextPrice', 'WornCount', 'Tier', 'ShieldLevel'])
     for v in ('ObsOwned', 'WornEff', 'AvailMask', 'NextPrice', 'WornCount', 'Tier', 'ShieldLevel'):
         log.append('%-8s BPC_ObsidianSet.%s' % ('ok' if v in have else 'MISSING', v))
         if v not in have: missing.append('BPC_ObsidianSet.' + v)
@@ -153,7 +163,7 @@ def apply():
                  'HeroMat': OBJ(unreal.MaterialInterface), 'TurnTex': ARR(OBJ(unreal.Texture2D)),
                  'PieceIds': ARR(I), 'PieceDef': ARR(I), 'SlotIds': ARR(I), 'SlotRow': ARR(I), 'IconFromAtlas': ARR(Bo),
                  'NameUV': ARR(LCT), 'DefUV': ARR(LCT), 'TitleUV': ARR(LCT), 'TagUV': ARR(LCT), 'IconUV': ARR(LCT), 'ShieldUV': LCT})
-    have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+    have = var_names(bp, list(VARS))
     for n, t in VARS.items():
         if n not in have:
             if not BEL.add_member_variable(bp, n, t): raise RuntimeError('could not add ' + n)
