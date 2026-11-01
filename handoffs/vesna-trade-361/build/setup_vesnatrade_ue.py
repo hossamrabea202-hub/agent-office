@@ -152,7 +152,9 @@ def apply():
         f = unreal.BlueprintFactory(); f.set_editor_property('parent_class', unreal.ActorComponent)
         bp = at.create_asset(COMP, COMP_DIR, unreal.Blueprint, f); log.append('created ' + path)
     I, Dd, Bo = BEL.get_basic_type_by_name('int'), BEL.get_basic_type_by_name('real'), BEL.get_basic_type_by_name('bool')
-    Dd.set_editor_property('pin_sub_category', 'double')
+    # UE 5.8: 'real' already comes back as real/double ('double'/'float' silently give int), and EdGraphPinType
+    # fields are not exposed to Python, so set_editor_property('pin_sub_category') throws (Master, 2026-11-01)
+    assert 'PinSubCategory="double"' in Dd.export_text(), 'real is not double: ' + Dd.export_text()
     LCT = BEL.get_struct_type(unreal.LinearColor.static_struct())
     OBJ = BEL.get_object_reference_type
     ARR = BEL.get_array_type
