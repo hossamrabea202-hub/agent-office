@@ -104,8 +104,8 @@ svg = b.lib(GS, 'SaveGameToSlot', [ob('SaveGameObject', SAVEG), S('SlotName', de
 b.wire(('AsSave', 'AsBP Castle Save'), svg, 'SaveGameObject'); G.link(sd, 'then', svg, 'execute')
 Y = 2400
 b.event('LoadSaved', [], 0, Y)
-hs = b.lib(GS, 'DoesSaveGameExist', [S('SlotName', default=SLOT), it('UserIndex', default='0'), bo('ReturnValue', out=True, default='false')], 200, Y + 200, pure=True, tag='HasSave')
-bl = b.branch((hs, 'ReturnValue'), 300, Y, tag='IfSave'); G.link('LoadSaved', 'then', bl, 'execute')
+hs = b.lib(GS, 'DoesSaveGameExist', [S('SlotName', default=SLOT), it('UserIndex', default='0'), bo('ReturnValue', out=True, default='false')], 200, Y + 200, tag='HasSave')   # impure in UE: on the exec chain (5.8)
+bl = b.branch((hs, 'ReturnValue'), 300, Y, tag='IfSave'); G.link('LoadSaved', 'then', hs, 'execute'); G.link(hs, 'then', bl, 'execute')
 ld = b.lib(GS, 'LoadGameFromSlot', [S('SlotName', default=SLOT), it('UserIndex', default='0'), ob('ReturnValue', SAVEG, out=True)], 600, Y, tag='Load'); G.link(bl, 'then', ld, 'execute')
 cast(G, 'AsLoad', SAVEC, 'AsBP Castle Save', 600, Y + 300, pure=True); b.wire((ld, 'ReturnValue'), 'AsLoad', 'Object')
 dat = b.getm('Data', SAVEC, arr(D('Data')), ('AsLoad', 'AsBP Castle Save'), 850, Y + 300)

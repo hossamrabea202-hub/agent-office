@@ -9,6 +9,16 @@ NAME = 'BPC_Infection'
 HERO = '/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter'
 ZOMBIE = '/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie'
 EAL, BEL = unreal.EditorAssetLibrary, unreal.BlueprintEditorLibrary
+def _var_names(bp, wanted):
+    """UE 5.8: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 tools = unreal.AssetToolsHelpers.get_asset_tools()
 log = []
 
@@ -34,7 +44,7 @@ else:
 def add_vars(bp, vars_):
     have = set()
     try:
-        have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+        have = _var_names(bp, vars_)
     except Exception:
         pass
     for n, (t, _) in vars_.items():
@@ -44,7 +54,7 @@ def add_vars(bp, vars_):
                 pt = BEL.get_object_reference_type(unreal.MaterialInstanceDynamic)
             else:
                 pt = BEL.get_basic_type_by_name(t)
-                if t == 'real': pt.set_editor_property('pin_sub_category', 'double')
+                pass  # UE 5.8: 'real' is already double; EdGraphPinType fields can't be set from Python
             ok = BEL.add_member_variable(bp, n, pt)
         except Exception as e:
             ok = False; log.append('  %s: %s' % (n, e))

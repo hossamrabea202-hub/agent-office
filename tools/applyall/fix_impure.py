@@ -3,6 +3,7 @@
 # UE 5.3 imports these as IMPURE no matter what the text says, and an impure node with no exec wire is pruned at compile:
 #   GetActorOfClass, GetAllActorsOfClass, DoesSaveGameExist, LoadGameFromSlot, CreateSaveGameObject, SaveGameToSlot,
 #   and every K2Node_DynamicCast (bIsPureCast=True is ignored on paste).
+# UE 5.8 (2026-11-01): a cast with PureState=Pure does paste as pure, so those are left alone (no split, no splice).
 # The script gives each one exec pins and splices it into the exec chain right before its first impure consumer
 # (a cast used by two consumers is split into one cast per consumer; CastFailed goes on to the same node).
 # It also fills an empty GetActorOfClass ActorClass from its typed ReturnValue.
@@ -37,6 +38,7 @@ log = []
 # split casts used by several consumers into one cast per consumer
 for nn in list(order):
     if not nn.startswith(PFX) or 'K2Node_DynamicCast' not in B[nn].split('\n',1)[0]: continue
+    if 'PureState=Pure' in B[nn]: continue      # UE 5.8 pastes these as pure: many consumers are fine
     outp=[p for p in pins(B[nn]) if pin_field(p,'Direction')=='EGPD_Output' and pin_field(p,'PinName').startswith('As')]
     if not outp: continue
     cons=pin_links(outp[0])
@@ -64,6 +66,7 @@ for nn in list(order):
     if not nn.startswith(PFX): continue
     isgaoc=any(('MemberName="%s"'%f) in b for f in ('GetActorOfClass','DoesSaveGameExist','LoadGameFromSlot','CreateSaveGameObject','SaveGameToSlot','GetAllActorsOfClass')); iscast='K2Node_DynamicCast' in b.split('\n',1)[0]
     if not (isgaoc or iscast): continue
+    if iscast and 'PureState=Pure' in b: continue   # UE 5.8 keeps PureState=Pure on paste: leave it pure
     pure=('bIsPureFunc=True' in b) or ('bIsPureCast=True' in b) or find_pin(nn,'execute') is None
     if iscast: b=b.replace('   bIsPureCast=True\n','')
     if not pure and pin_links(find_pin(nn,'execute')): continue

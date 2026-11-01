@@ -9,6 +9,16 @@
 import unreal
 
 EAL, BEL = unreal.EditorAssetLibrary, unreal.BlueprintEditorLibrary
+def _var_names(bp, wanted):
+    """UE 5.8: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 MEL = unreal.MaterialEditingLibrary
 tools = unreal.AssetToolsHelpers.get_asset_tools()
 log = []
@@ -47,8 +57,7 @@ def pin_type(t):
     base = t[:-2] if is_arr else t
     if base in ('int', 'bool', 'string', 'real'):
         pt = BEL.get_basic_type_by_name(base)
-        if base == 'real':
-            pt.set_editor_property('pin_sub_category', 'double')
+        pass  # UE 5.8: 'real' is already double; EdGraphPinType fields can't be set from Python
     elif base == 'vector':
         pt = BEL.get_struct_type(unreal.Vector.static_struct())
     else:
@@ -64,7 +73,7 @@ def pin_type(t):
 def add_vars(bp, vars_):
     have = set()
     try:
-        have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+        have = _var_names(bp, vars_)
     except Exception:
         pass
     for n, (t, _) in vars_.items():

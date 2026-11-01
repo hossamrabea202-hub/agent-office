@@ -3,6 +3,16 @@
 import unreal
 
 BEL, EAL = unreal.BlueprintEditorLibrary, unreal.EditorAssetLibrary
+def _var_names(bp, wanted):
+    """UE 5.8: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 C = '/Game/CastleDefender/Gameplay/Castle/'
 WANT = {
     C + 'BP_ZombieHUD': {'PromptVesnaEnv': 'real', 'PromptVesnaShown': 'real', 'PromptVesnaVis': 'bool', 'PromptLastT': 'real'},
@@ -13,7 +23,7 @@ log, manual = [], []
 for path, vars_ in WANT.items():
     bp = unreal.load_asset(path)
     try:
-        have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+        have = _var_names(bp, vars_)
     except Exception:
         have = set()
     for n, t in vars_.items():
@@ -21,7 +31,7 @@ for path, vars_ in WANT.items():
         try:
             if isinstance(t, str):
                 pt = BEL.get_basic_type_by_name(t)
-                if t == 'real': pt.set_editor_property('pin_sub_category', 'double')
+                pass  # UE 5.8: 'real' is already double; EdGraphPinType fields can't be set from Python
             else:
                 pt = BEL.get_object_reference_type(t)
             ok = BEL.add_member_variable(bp, n, pt)

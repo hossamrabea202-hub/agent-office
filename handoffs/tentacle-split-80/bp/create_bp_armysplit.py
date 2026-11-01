@@ -11,6 +11,16 @@ SOLDIER = '/Game/CastleDefender/Characters/Knight/BP_SoldierSword'
 VITALS = '/Game/CastleDefender/Gameplay/Tentacle/BP_TentacleVitals'
 PLACE_IN_LEVEL = True
 EAL, BEL = unreal.EditorAssetLibrary, unreal.BlueprintEditorLibrary
+def _var_names(bp, wanted):
+    """UE 5.8: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 log = []
 
 # ---- the asset ----
@@ -24,7 +34,7 @@ else:
 # ---- variable types ----
 def basic(n):
     t = BEL.get_basic_type_by_name(n)
-    if n == 'real': t.set_editor_property('pin_sub_category', 'double')
+    pass  # UE 5.8: 'real' is already double; EdGraphPinType fields can't be set from Python
     return t
 def obj(cls): return BEL.get_object_reference_type(cls)
 def arr(t): return BEL.get_array_type(t)
@@ -63,7 +73,7 @@ VARS = [
 
 have = set()
 try:
-    have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+    have = _var_names(bp, [v[0] for v in VARS])
 except Exception:
     pass
 missing = []

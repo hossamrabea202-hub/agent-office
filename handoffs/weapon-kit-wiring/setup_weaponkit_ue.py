@@ -12,6 +12,16 @@ except NameError: HERE = os.path.join(REPO, 'handoffs', 'weapon-kit-wiring')
 D, NAME = '/Game/CastleDefender/Gameplay/Castle', 'BPC_WeaponKit'
 HERO = '/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter'
 EAL, BEL = unreal.EditorAssetLibrary, unreal.BlueprintEditorLibrary
+def _var_names(bp, wanted):
+    """UE 5.8: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 log = []
 path = D + '/' + NAME
 if EAL.does_asset_exist(path):
@@ -21,7 +31,7 @@ else:
     bp = unreal.AssetToolsHelpers.get_asset_tools().create_asset(NAME, D, unreal.Blueprint, f); EAL.save_asset(path); log.append('created ' + path)
 
 # ---- defaults (only once the BPVars exist)
-have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+have = _var_names(bp, ('Names', 'Prices', 'Damage', 'Meshes'))
 if {'Names', 'Prices', 'Damage', 'Meshes'} <= have:
     BEL.compile_blueprint(bp)
     W = json.load(open(os.path.join(HERE, 'weapons.json')))

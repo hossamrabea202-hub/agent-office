@@ -27,6 +27,16 @@ TIER_AT = [2, 4, 6, 8, 11]                 # pieces worn for tiers 1..5
 TIER_DR = [0.03, 0.06, 0.09, 0.12, 0.15]   # set damage reduction per tier (the hero multiplies by 1 - ObsSet.R * 0.15)
 
 EAL, BEL = unreal.EditorAssetLibrary, unreal.BlueprintEditorLibrary
+def _var_names(bp, wanted):
+    """UE 5.8: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 log = []
 rows = list(csv.DictReader(open(os.path.join(HERE, 'pieces.csv'), newline='')))
 
@@ -80,7 +90,7 @@ eas.destroy_actor(tmp)
 # ---------------------------------------------------------------- 1. component variables + defaults
 bp = unreal.load_asset(COMP)
 I, Dd, NM = BEL.get_basic_type_by_name('int'), BEL.get_basic_type_by_name('real'), BEL.get_basic_type_by_name('name')
-Dd.set_editor_property('pin_sub_category', 'double')
+pass  # UE 5.8: 'real' is already double; EdGraphPinType fields can't be set from Python
 ARR = BEL.get_array_type
 VARS = {
     'PieceId': ARR(I), 'PieceBone': ARR(NM), 'PieceOffset': ARR(BEL.get_struct_type(unreal.Transform.static_struct())),
@@ -93,7 +103,7 @@ VARS = {
 }
 SET_NAMES = ['Cuirass', 'Pauldrons', 'Gauntlets', 'Sabatons', 'Greaves', 'Helmet', 'Rerebraces', 'Vambraces',
              'Fauld & Tassets', 'Cuisses', 'Cape']   # row i = piece id 10 + i
-have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+have = _var_names(bp, VARS)
 for n, t in VARS.items():
     if n not in have:
         if not BEL.add_member_variable(bp, n, t): raise RuntimeError('could not add ' + n)

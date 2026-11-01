@@ -19,6 +19,16 @@ HERO = '/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonChara
 HINT = '/Game/CastleDefender/UI/Hints/M_HintCard'
 TEXTURES = ['T_Reveal_Book_Atlas', 'T_Reveal_Bag_Atlas', 'T_FX_RevealRays', 'T_FX_Sparkles', 'T_FX_ToxinVignette', 'T_FX_ToxinVeins']
 EAL, BEL = unreal.EditorAssetLibrary, unreal.BlueprintEditorLibrary
+def _var_names(bp, wanted):
+    """UE 5.8: Blueprint.new_variables is not readable from Python (#380). Compile, then probe the class default object."""
+    BEL.compile_blueprint(bp); have = set()
+    gc = bp.generated_class(); cdo = unreal.get_default_object(gc) if gc else None
+    for n in wanted:
+        try:
+            cdo.get_editor_property(n); have.add(n)
+        except Exception:
+            pass
+    return have
 log = []
 if not EAL.does_asset_exist(HINT):
     raise RuntimeError('M_HintCard is missing: run handoffs/pickup-reveals-66/make_M_HintCard.py first')
@@ -50,13 +60,13 @@ if EAL.does_asset_exist(path):
 else:
     f = unreal.BlueprintFactory(); f.set_editor_property('parent_class', unreal.ActorComponent)
     bp = unreal.AssetToolsHelpers.get_asset_tools().create_asset(COMP, COMP_DIR, unreal.Blueprint, f); log.append('created ' + path)
-Dd = BEL.get_basic_type_by_name('real'); Dd.set_editor_property('pin_sub_category', 'double')
+Dd = BEL.get_basic_type_by_name('real')  # UE 5.8: 'real' is already double; EdGraphPinType fields can't be set from Python
 Bo = BEL.get_basic_type_by_name('bool')
 VARS = {'BookT0': Dd, 'BagT0': Dd, 'BookOpened': Bo, 'BagOpened': Bo, 'BookOpenNow': Bo, 'BagOpenNow': Bo,
         'CardMID': BEL.get_object_reference_type(unreal.MaterialInstanceDynamic),
         # #141 infection look
         'InfT0': Dd, 'InfLevel': Dd}
-have = {str(v.get_editor_property('var_name')) for v in bp.get_editor_property('new_variables')}
+have = _var_names(bp, VARS)
 for n, t in VARS.items():
     if n not in have:
         if not BEL.add_member_variable(bp, n, t): raise RuntimeError('could not add ' + n)
