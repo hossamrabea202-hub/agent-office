@@ -1,4 +1,4 @@
-# #397 weapon kit AAA: pick-up note (TGA, 2026-11-01, written low on tokens)
+﻿# #397 weapon kit AAA: pick-up note (TGA, 2026-11-01, written low on tokens)
 
 ## Done
 - **Research:** `RESEARCH.md` covers forged steel, forge scale, ash, leather and brass, with sources. The calibrated values table and the 8-point recipe are in it, and the findings are added to `handoffs/knowledge/KNOWLEDGE_LOG.md`.
@@ -26,7 +26,11 @@
   - AAA: pbr_check **OK** (non-metal p50 57, metal p50 197);
   - the live CK version **FAILS** pbr_check (36.7 % of non-metal texels darker than 30 sRGB, 18.9 % of metal texels below 150).
 
-## In flight / next step
+## Status (update)
+- The 5 most-seen weapons are built and pushed (`assets/tga/WeaponsAAA`). All 5 pass pbr_check; all 5 live versions fail it.
+- The before / after sheet is `renders/before_after_5.jpg`, posted on #397 for the owner's OK. It was re-rendered with a studio grey world (WORLD=0.6), because with the 0.05 world polished metal reflected black.
+
+## In flight / next step (original)
 1. The batch for the 5 most-seen weapons (arming sword, longsword, war axe, halberd, flanged mace) was running into `T:\waaa`:
    ```
    powershell -File R:\tools\tga\weapons\run_batch.ps1 -Out T:\waaa
@@ -43,3 +47,4 @@
 ## Known limits
 - The grind line and stoned edge read in the `_detail` renders. At full-weapon distance the difference is mostly roughness and values (KB rule 2).
 - The texture budget: authored at 2K, capped to 1K in the importer (#260).
+
