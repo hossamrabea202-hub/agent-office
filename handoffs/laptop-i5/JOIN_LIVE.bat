@@ -14,4 +14,4 @@ rem Multi-User needs the same plugin list as the Master: add MultiUserClient onc
 powershell -NoProfile -Command "$p=$env:PROJ; $j=Get-Content -Raw $p | ConvertFrom-Json; if (-not ($j.Plugins | Where-Object Name -eq 'MultiUserClient')) { $j.Plugins += [pscustomobject]@{Name='MultiUserClient';Enabled=$true}; $j | ConvertTo-Json -Depth 10 | Set-Content -Encoding UTF8 $p; 'Multi-User plugin enabled' }"
 echo Joining session CastleDefender on %MASTER%:9030 ...
 echo If Windows Firewall asks: tick Private AND Public, then Allow.
-start "" "%UE%" "%PROJ%" -CONCERTAUTOCONNECT -CONCERTSERVER=CastleDefenderServer -CONCERTSESSION=CastleDefender3 -CONCERTDISPLAYNAME=Laptop-i5 -UDPMESSAGING_TRANSPORT_STATIC=%MASTER%:9030
+start "" "%UE%" "%PROJ%" -CONCERTAUTOCONNECT -CONCERTSERVER=CastleDefenderServer -CONCERTSESSION=CastleDefender6 -CONCERTDISPLAYNAME=Laptop-i5 -UDPMESSAGING_TRANSPORT_STATIC=%MASTER%:9030
