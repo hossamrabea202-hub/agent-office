@@ -10,7 +10,17 @@ $cfg = @{ last = 0; x = 40; y = 200 }
 try { if (Test-Path $state) { $j = Get-Content $state -Raw | ConvertFrom-Json; $cfg.last = [int]$j.last; $cfg.x = [int]$j.x; $cfg.y = [int]$j.y } } catch {}
 function Save { try { $cfg | ConvertTo-Json | Set-Content $state -Encoding utf8 } catch {} }
 
-$f = New-Object Windows.Forms.Form
+# a form that is always on top but never takes the keyboard focus from the app you work in (WS_EX_NOACTIVATE)
+Add-Type -ReferencedAssemblies System.Windows.Forms, System.Drawing -TypeDefinition @'
+using System; using System.Runtime.InteropServices; using System.Windows.Forms;
+public class BubbleForm : Form {
+    protected override bool ShowWithoutActivation { get { return true; } }
+    protected override CreateParams CreateParams { get { CreateParams cp = base.CreateParams; cp.ExStyle |= 0x08000000 | 0x00000008 | 0x00000080; return cp; } }
+    [DllImport("user32.dll")] static extern bool SetWindowPos(IntPtr h, IntPtr after, int x, int y, int cx, int cy, uint flags);
+    public void KeepOnTop() { SetWindowPos(Handle, new IntPtr(-1), 0, 0, 0, 0, 0x0001 | 0x0002 | 0x0010); }   // TOPMOST, NOSIZE|NOMOVE|NOACTIVATE
+}
+'@
+$f = New-Object BubbleForm
 $f.FormBorderStyle = 'None'; $f.TopMost = $true; $f.ShowInTaskbar = $false
 $f.StartPosition = 'Manual'; $f.Size = New-Object Drawing.Size(64, 64); $f.Location = New-Object Drawing.Point($cfg.x, $cfg.y)
 $f.BackColor = [Drawing.Color]::Magenta; $f.TransparencyKey = [Drawing.Color]::Magenta
@@ -68,4 +78,6 @@ if ($cfg.last -eq 0) {
     try { $raw = (New-Object Net.WebClient).DownloadString("$Server/read?after=0"); $ids = [regex]::Matches($raw, '(?m)^(\d+)\|') | % { [int]$_.Groups[1].Value }; if ($ids) { $cfg.last = ($ids | Measure-Object -Maximum).Maximum } } catch {}
 }
 $timer.Start()
+# never covered: re-assert always-on-top every second (editors and full-screen apps grab the top when they come forward)
+$top = New-Object Windows.Forms.Timer; $top.Interval = 1000; $top.Add_Tick({ $f.KeepOnTop() }); $top.Start()
 [Windows.Forms.Application]::Run($f)
