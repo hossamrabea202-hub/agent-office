@@ -21,7 +21,7 @@ i5 does the stairs.
 - First build run hit a typo (fixed at 19:20, not re-run yet).
 
 ## Next, in order
-1. Run the build; check the report: `watertight` true, 0 non-manifold edges, about 500–800 tris.
+1. DONE 19:19: build OK, watertight, 0 non-manifold edges, 304 tris low, 1.64M tris high (out/ in ckw/stairs). Look at it before baking.
 2. Close the UE editor (it holds the 2 GB GPU), then run the bake at 4096 on OptiX. Reopen the editor after.
 3. UE (offline editor, i9 owns the map). Write `apply_stairs447_ue.py` with `--dry-run` / `--apply` / `--revert`:
    - Import the FBX to `/Game/CastleDefender/Environment/Castle/StairsBaked/`:

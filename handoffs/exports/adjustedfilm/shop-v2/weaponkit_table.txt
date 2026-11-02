@@ -1,6 +1,6 @@
 Owned = 0
 Equipped = -1
-WeaponRot = <Struct 'Rotator' (0x0000024E00FA1ED8) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>
+WeaponRot = <Struct 'Rotator' (0x0000023DBBE44558) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>
 KnightSwordBone = weapon_r
  0  Arming Sword                 price    300  dmg   40  speed   1.1  /Game/CastleDefender/Weapons/CK/ArmingSword/SM_CK_ArmingSword.SM_CK_ArmingSword
  1  Viking Sword                 price    350  dmg   44  speed  1.05  /Game/CastleDefender/Weapons/CK/VikingSword/SM_CK_VikingSword.SM_CK_VikingSword
@@ -27,3 +27,4 @@ KnightSwordBone = weapon_r
 22  Glaive                       price    900  dmg   66  speed   0.8  /Game/CastleDefender/Weapons/CK/Glaive/SM_CK_Glaive.SM_CK_Glaive
 23  Halberd                      price   1100  dmg   75  speed  0.75  /Game/CastleDefender/Weapons/CK/Halberd/SM_CK_Halberd.SM_CK_Halberd
 24  Pollaxe                      price   1150  dmg   78  speed  0.75  /Game/CastleDefender/Weapons/CK/Pollaxe/SM_CK_Pollaxe.SM_CK_Pollaxe
+25  Emberoath                    price   2500  dmg   85  speed  0.95  /Game/CastleDefender/Weapons/Emberoath/SM_Emberoath_Kit2.SM_Emberoath_Kit2
