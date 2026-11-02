@@ -45,3 +45,16 @@ every 10 s), keep i9/TGA moving, whiteboard minus WinterKeep. i9 is back on Cast
   settle (responding for ~1 min) before opening the map.
 - Next for i5: #421 Muster v2 paste (TGA), #77 LV4 Play check, BP_ArmySplit guard (4 errors/run: IsValid on
   ForEach_29's element before EqualEqual_O_31/Branch_32), then Alien's list (#64 #65 #67 need private files, #95).
+
+## Update 2026-11-02 08:15 (context ~89 %): i5 editor cannot open the map in the session
+- The i5 editor crashed at 06:18 (compiling BP_ZombieHUD) and nobody noticed until 08:00: my watch only covered the chat.
+  The Monitor now also prints "I5 EDITOR DOWN" when UnrealEditor.exe disappears: always run it that way.
+- Synced again with i9's sync3 zip (163 files, backup C:/UnrealProjects/CD58_backup_before_sync3_1102). The editor
+  joins CastleDefender6 fine and stays responsive with an Untitled world, but **loading ThirdPersonMap crashes it ~3 s
+  after MAP CHECKDEP** (05:10, 05:18, 08:13; access violation, no callstack; last compiles before it were BP_ArmoryHUD /
+  BPC_Muster / BP_ZombieWallBreaker). Not yet diagnosed. Ideas for the next i5 session: try opening the map WITHOUT
+  Multi-User (plain editor, no -CONCERTAUTOCONNECT) to see if the map itself or the session replay crashes; check
+  Saved/Crashes/<latest>/ for a minidump callstack; try -nullrhi or lower texture pool (GPU memory warnings all night).
+- Open: Alien's green soot card on the north wall above the torch next to Vesna (TorchSoot_28, Plane at 700,3309,473,
+  shows pale green = broken/missing material). Handed to i9 (chat 396).
+- i5 next: #421 Muster v2 paste (needs a working map-free BP editor: the paste itself doesn't need the map), #77 LV4 check.
