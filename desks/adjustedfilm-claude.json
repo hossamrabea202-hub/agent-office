@@ -1,9 +1,10 @@
 {
- "working": "next: gold digit plate / level-up banner (TGA1 spec)",
- "tokens": 790000,
+ "working": "waiting: Alien's test ends, then dry runs + preview",
+ "tokens": 860000,
  "ctx": 1000000,
  "since": "2026-11-02T07:15:07Z",
  "done": [
+  "P1 #433 + #437 prepped (cause found, scripts pre-checked) [14% tokens left]",
   "gold tick-up built + handed off (BPC_GoldTick) [21% tokens left]",
   "#425 step 1 placed (57 cards) + step 2 audit/findings [26% tokens left]",
   "#425 placed (61 cards), re-place with fixed sizes handed to i9 [35% tokens left]",
@@ -12,8 +13,7 @@
   "i9 queue: HUD split plan, SkillTreeHUD fix (applied by i9), #267 re-import plan [47% tokens left]",
   "#425 step 1: contact stains built + previewed (not placed) [67% tokens left]",
   "i5 crash fixed; #421 setup done (i9 pasted); #77 LV4 arcs verified [82% tokens left]",
-  "i5 map-load crash fixed (launch on Entry map + frame-gated watcher) [90% tokens left]",
-  "#411 castle scroll, #74 potions (Play-tested) [14% tokens left]"
+  "i5 map-load crash fixed (launch on Entry map + frame-gated watcher) [90% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-02T13:34:50Z",
+ "asOf": "2026-11-02T14:55:22Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
