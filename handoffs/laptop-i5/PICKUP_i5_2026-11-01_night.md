@@ -31,3 +31,17 @@ every 10 s), keep i9/TGA moving, whiteboard minus WinterKeep. i9 is back on Cast
 1. When the screen is unlocked: paste #411 then #74 (READMEs), Play-test #411/#74/#58/#77, final shots, close.
 2. Get i9's zip for the map packages, copy into i5 Content with the editor closed.
 3. Then #95 (upgrade looks) / #50 per the cards.
+
+## Update 2026-11-02 06:00 (context 86 %)
+- CLOSED: #58 cannon break, #259 farming, #74 potions, #411 castle scroll (scroll key = K; C is the Commander key). #419
+  applied in the session (unmirror), waiting for i9's eye check. #77 overlay installed, Play check at LV4 still owed.
+- i5 synced to the Master disk twice (zips from i9: CD58_sync_1102 + CD58_sync2_session; backups in
+  C:/UnrealProjects/CD58_backup_before_sync*_1102). Lesson: in Multi-User, saves live in the session SANDBOX, not
+  Content: a disk sync must include the sandbox (i9's second zip).
+- The i5 laptop (2 GB free RAM) cannot keep up with heavy live saves: it crashed 4x tonight while recompiling big BPs
+  (ArmoryHUD, Muster) on map load. Rule with i9: he batches saves, posts 'saving' first, stays off hero/ZombieHUD/
+  BarracksHUD/SkillTreeHUD while i5 pastes; heavy Play tests go to the Master PC. Launch now uses -LocalLogTimes.
+- After a join the i5 editor shows an Untitled world; forcing load_level right after the join crashed it twice. Let it
+  settle (responding for ~1 min) before opening the map.
+- Next for i5: #421 Muster v2 paste (TGA), #77 LV4 Play check, BP_ArmySplit guard (4 errors/run: IsValid on
+  ForEach_29's element before EqualEqual_O_31/Branch_32), then Alien's list (#64 #65 #67 need private files, #95).
