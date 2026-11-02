@@ -20,7 +20,9 @@ banner:{text:'Knowledge base: read before any asset work (realism standard, phot
 {t:'📏 Realism STANDARD',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/handoffs/laptop2-realism/STANDARD.md'},
 {t:'📋 Whiteboard',go:'wb'},{t:'📥 Ready to paste',go:'pasteTray'},{t:'📸 Screenshots',go:'shotsSec'},{t:'🔔 Waiting on owner',go:'asks'},
 {t:'📖 Agent rules',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/AGENTS.md'},
-{t:'💻 Laptop i5',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/handoffs/laptop-i5/README.md'}]},
+{t:'🔒 Duo chat',go:'duoLock'},{t:'💻 Laptop i5',url:'https://github.com/hossamrabea202-hub/agent-office/blob/main/handoffs/laptop-i5/README.md'}]},
+// Duo chat link, AES-GCM encrypted with the 4-digit code (PBKDF2-SHA256). The code is never stored here; ask the owner.
+duoLock:{salt:'CbxiXGUuACAVYGwKeHm7jQ==',iv:'lGfhkYKr+Mhpj2xH',ct:'lxmDmQGoH971oMELTNc2Z0zJ3yizQXyfZ0XezH3fdJasm7y7mPIySISwhw==',it:600000},
 // Plan-limit snapshot (account-wide). Refresh from get_usage.
 usage:{who:'hossam gmail (Claude)',plan:'Max',asOf:'2026-10-27T10:21:00Z',meters:[{k:'5h',label:'Session (5-hour)',pct:0,resetsAt:'2026-10-27T15:10:00Z',color:'#59bda5'},{k:'wk',label:'Weekly (all models)',pct:82,resetsAt:'2026-10-30T06:00:00Z',color:'#d9af65'}]},
 // Per-agent token count, duty start, last 10 done, still to do.
