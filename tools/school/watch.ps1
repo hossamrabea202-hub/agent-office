@@ -1,9 +1,9 @@
 # Waits for the owner's next order in the School room thread, prints it and exits.
 # Uses no AI tokens while it waits. Run it in the background; restart it after handling an order.
 # GitHub's 304 replies don't count against the 60 requests/hour limit, so a 60 s poll is safe.
-param([int]$Every = 60, [string]$State = "$env:TEMP\school-chat-seen.txt")
+param([int]$Every = 60, [string]$State = "$env:TEMP\school-chat-seen.txt", [string]$Api = "https://api.github.com/repos/hossamrabea202-hub/agent-office")
 $owner = 'hossamrabea202-hub'
-$api = "https://api.github.com/repos/$owner/agent-office"
+$api = $Api
 $title = 'School room: orders for School Assistant'
 $tags = @{}
 function Get-Json([string]$url) {
