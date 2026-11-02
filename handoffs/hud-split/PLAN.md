@@ -50,3 +50,21 @@ After step 1 the HUD graph drops to ~2,800 nodes; after step 3 to ~900.
 - Latent nodes (Delay) can't live in a function, but a custom event is fine.
 - Nodes in a band that are wired into another band (cross links) are listed by the generator; it refuses to build if
   any exist, so nothing silently breaks.
+
+## Update 10:55 (fresh export 10:41, 4,764 nodes): the bands are NOT self-contained
+`crosslinks.js` on the shop band (y 105000-115000) finds **190 links crossing its edge** (`crosslinks_shop.txt`):
+- 8 exec entries / 8 exec exits: other features (title CX_80-92, inventory CX_79-84, Vesna prompt FadeIn/FadeOut, the
+  #411 scroll hook CsHookDraw, the menu IW2246) are threaded THROUGH the shop band, not after it.
+- Shared helper nodes in band #5 feed it: `H27` (UI scale, ~45 reads), `H26`, `IW96` (mouse LocationX/Y),
+  `IW10` (PlayerController, 7 self pins), `IW1`/`IW2`, plus HUD var getters that live in other bands.
+- It feeds values into the title (CX_163-183) and inventory (CX_79-89) draws.
+
+So a "move the band" paste would cut live links. **Revised method (same component pattern):**
+1. Slice by **exec path**, not by canvas band: the shop = the nodes reachable from its own exec entries until its exits,
+   plus the pure nodes that feed only them.
+2. Helpers shared with other features become **event inputs** of `DrawShop(Hud, PC, Scale, MouseX, MouseY, SizeX,
+   SizeY)`, computed once in the HUD and passed in (the hook passes the same helper outputs).
+3. Values the shop computes for other features (e.g. the title/inventory colour R/G/B): either the shop writes them to a
+   HUD variable, or those 12 pure nodes stay in the HUD (duplicated). Decided per link in the generator report.
+4. Generator refuses to emit if any crossing link is left unclassified.
+This is a careful, single-feature job: estimate one focused session (generator + offline check + i9 paste + Play).
