@@ -1,8 +1,8 @@
 {
- "working": "i5 editor catching up on session saves",
- "tokens": 860000,
+ "working": "i5 map-load crash",
+ "tokens": 30000,
  "ctx": 1000000,
- "since": "2026-11-01T18:45:40Z",
+ "since": "2026-11-02T07:15:07Z",
  "done": [
   "#411 castle scroll, #74 potions (Play-tested) [14% tokens left]",
   "#58 cannon break (Play-tested), #259 farming check [24% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-02T05:05:59Z",
+ "asOf": "2026-11-02T07:15:07Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "7c282e632ea9",
+  "id": "e77144824519",
   "host": "5CD3147LBC"
  }
 }
