@@ -1,9 +1,10 @@
 {
- "working": "dry runs #325 #389 #377 + texture list (editor rejoining)",
- "tokens": 530000,
+ "working": "waiting: i9 cuirass answer, Alien OK for #425 place + #267 re-import",
+ "tokens": 570000,
  "ctx": 1000000,
  "since": "2026-11-02T07:15:07Z",
  "done": [
+  "i9 queue 3-7: SkillTree fix (works, 0 errors), #325/#389/#377 dry-run clean on 5.8, #267 live list (73 tex = 352 MB) [43% tokens left]",
   "i9 queue: HUD split plan, SkillTreeHUD fix (applied by i9), #267 re-import plan [47% tokens left]",
   "#425 step 1: contact stains built + previewed (not placed) [67% tokens left]",
   "i5 crash fixed; #421 setup done (i9 pasted); #77 LV4 arcs verified [82% tokens left]",
@@ -12,8 +13,7 @@
   "#58 cannon break (Play-tested), #259 farming check [24% tokens left]",
   "#74 potions kit, #58 stages v2 [36% tokens left]",
   "#242 ore shed, #246 signs, #418 shop step 1 (Emberoath row) [77% tokens left]",
-  "i5: blood, tentacle shell, jelly, #259 gate tag, #237 rock, #368 dump, #374 setup; pick-up note handoffs/laptop-i5/PICKUP_i5_2026-11-01_evening.md [20% tokens left]",
-  "i5: #383 bounce, #370 quests (hero attach left to i9), #357 torches (5.8 fixes); fresh session CastleDefender2 [52% tokens left]"
+  "i5: blood, tentacle shell, jelly, #259 gate tag, #237 rock, #368 dump, #374 setup; pick-up note handoffs/laptop-i5/PICKUP_i5_2026-11-01_evening.md [20% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-02T09:51:03Z",
+ "asOf": "2026-11-02T10:06:54Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
