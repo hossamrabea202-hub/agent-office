@@ -1,0 +1,291 @@
+{
+ "meshes": {
+  "SM_StairTread": {
+   "path": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread",
+   "exported": true,
+   "lods": 1,
+   "nanite": true,
+   "lightmap_res": 64
+  },
+  "SM_StoneModule": {
+   "path": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StoneModule",
+   "exported": true,
+   "lods": 1,
+   "nanite": true,
+   "lightmap_res": 64
+  },
+  "SM_WalkSlab": {
+   "path": "/Game/CastleDefender/Environment/Castle/Battlements/SM_WalkSlab",
+   "exported": true,
+   "lods": 1,
+   "nanite": true,
+   "lightmap_res": 64
+  },
+  "SM_Cube_Nanite": {
+   "path": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite",
+   "exported": true,
+   "lods": 1,
+   "nanite": true,
+   "lightmap_res": 64
+  },
+  "SM_Tower09_Stairs": {
+   "path": "/Game/CastleDefender/Environment/Castle/Tower9/SM_Tower09_Stairs",
+   "exported": true,
+   "lods": 1,
+   "nanite": false,
+   "lightmap_res": 64
+  },
+  "SM_Bevel_041": {
+   "path": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_041",
+   "exported": true,
+   "lods": 1,
+   "nanite": true,
+   "lightmap_res": 64
+  },
+  "SM_Bevel_022": {
+   "path": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_022",
+   "exported": true,
+   "lods": 1,
+   "nanite": true,
+   "lightmap_res": 64
+  }
+ },
+ "materials": {
+  "MI_Castle_StepCap": {
+   "path": "/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StepCap",
+   "parent": "/Game/CastleDefender/Shared/Materials/Castle/M_Castle_StoneWall_World.M_Castle_StoneWall_World",
+   "scalar": {
+    "GrimeHeight_cm": 260.0,
+    "TileSize_cm": 140.0,
+    "BlendContrast": 6.0,
+    "MacroSize_cm": 2300.0,
+    "MossAmount": 0.0,
+    "MacroStrength": 0.44999998807907104,
+    "CrackSize_cm": 900.0,
+    "SoilSize_cm": 220.0,
+    "GroundOut": 0.0,
+    "GroundIn": 0.0,
+    "DirtBand_cm": 85.0,
+    "DirtAmount": 0.0,
+    "MossHeight_cm": 420.0,
+    "CrackAmount": 0.30000001192092896,
+    "AntiTile_SatLo": 0.3799999952316284,
+    "AntiTile_SatHi": 0.6200000047683716,
+    "AntiTile_Amount": 0.8500000238418579,
+    "AntiTile_AvgLum": 0.1599999964237213,
+    "Detile_Contrast": 5.0,
+    "Detile_Amount": 1.0,
+    "LimewashAmount": 0.0
+   },
+   "vector": {
+    "GrimeColor": [
+     0.45,
+     0.38,
+     0.3,
+     1.0
+    ],
+    "Tint": [
+     0.66,
+     0.58,
+     0.48,
+     1.0
+    ],
+    "MossColor": [
+     0.055,
+     0.075,
+     0.025,
+     1.0
+    ]
+   },
+   "texture": {
+    "BaseColor": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_B.T_tinifauaw_2K_B",
+    "ORM": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_ORM.T_tinifauaw_2K_ORM",
+    "CrackMask": "/Game/CastleDefender/Shared/Materials/Castle/T_CrackMask.T_CrackMask",
+    "Normal": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_N.T_tinifauaw_2K_N",
+    "SoilTex": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_B.T_vb2qdgwew_8K_B"
+   }
+  },
+  "MI_Castle_StoneWall_World": {
+   "path": "/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World",
+   "parent": "/Game/CastleDefender/Shared/Materials/Castle/M_Castle_StoneWall_World.M_Castle_StoneWall_World",
+   "scalar": {
+    "GrimeHeight_cm": 260.0,
+    "TileSize_cm": 320.0,
+    "BlendContrast": 6.0,
+    "MacroSize_cm": 2300.0,
+    "MossAmount": 1.0,
+    "MacroStrength": 0.3499999940395355,
+    "CrackSize_cm": 750.0,
+    "SoilSize_cm": 220.0,
+    "GroundOut": 0.0,
+    "GroundIn": 0.0,
+    "DirtBand_cm": 150.0,
+    "DirtAmount": 1.0,
+    "MossHeight_cm": 650.0,
+    "CrackAmount": 1.0,
+    "AntiTile_SatLo": 0.3799999952316284,
+    "AntiTile_SatHi": 0.6200000047683716,
+    "AntiTile_Amount": 0.8500000238418579,
+    "AntiTile_AvgLum": 0.1599999964237213,
+    "Detile_Contrast": 5.0,
+    "Detile_Amount": 1.0,
+    "LimewashAmount": 0.5
+   },
+   "vector": {
+    "GrimeColor": [
+     0.45,
+     0.38,
+     0.3,
+     1.0
+    ],
+    "Tint": [
+     0.86,
+     0.83,
+     0.78,
+     1.0
+    ],
+    "MossColor": [
+     0.16,
+     0.17,
+     0.12,
+     1.0
+    ]
+   },
+   "texture": {
+    "BaseColor": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_B.T_vdbhdju_2K_B",
+    "ORM": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_ORM.T_vdbhdju_2K_ORM",
+    "CrackMask": "/Game/CastleDefender/Shared/Materials/Castle/T_CrackMask.T_CrackMask",
+    "Normal": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_N.T_vdbhdju_2K_N",
+    "SoilTex": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_B.T_vb2qdgwew_8K_B"
+   }
+  },
+  "MI_Castle_Trim_World": {
+   "path": "/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World",
+   "parent": "/Game/CastleDefender/Shared/Materials/Castle/M_Castle_StoneWall_World.M_Castle_StoneWall_World",
+   "scalar": {
+    "GrimeHeight_cm": 260.0,
+    "TileSize_cm": 160.0,
+    "BlendContrast": 6.0,
+    "MacroSize_cm": 2300.0,
+    "MossAmount": 1.0,
+    "MacroStrength": 0.3499999940395355,
+    "CrackSize_cm": 750.0,
+    "SoilSize_cm": 220.0,
+    "GroundOut": 0.0,
+    "GroundIn": 0.0,
+    "DirtBand_cm": 150.0,
+    "DirtAmount": 1.0,
+    "MossHeight_cm": 500.0,
+    "CrackAmount": 1.0,
+    "AntiTile_SatLo": 0.3799999952316284,
+    "AntiTile_SatHi": 0.6200000047683716,
+    "AntiTile_Amount": 0.8500000238418579,
+    "AntiTile_AvgLum": 0.1599999964237213,
+    "Detile_Contrast": 5.0,
+    "Detile_Amount": 1.0,
+    "LimewashAmount": 0.0
+   },
+   "vector": {
+    "GrimeColor": [
+     0.45,
+     0.38,
+     0.3,
+     1.0
+    ],
+    "Tint": [
+     0.7,
+     0.62,
+     0.52,
+     1.0
+    ],
+    "MossColor": [
+     0.16,
+     0.17,
+     0.12,
+     1.0
+    ]
+   },
+   "texture": {
+    "BaseColor": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_B.T_tinifauaw_2K_B",
+    "ORM": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_ORM.T_tinifauaw_2K_ORM",
+    "CrackMask": "/Game/CastleDefender/Shared/Materials/Castle/T_CrackMask.T_CrackMask",
+    "Normal": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_N.T_tinifauaw_2K_N",
+    "SoilTex": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_B.T_vb2qdgwew_8K_B"
+   }
+  },
+  "MI_Castle_WalkFlag_World": {
+   "path": "/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World",
+   "parent": "/Game/CastleDefender/Shared/Materials/Castle/M_Castle_StoneWall_World.M_Castle_StoneWall_World",
+   "scalar": {
+    "GrimeHeight_cm": 260.0,
+    "TileSize_cm": 230.0,
+    "BlendContrast": 6.0,
+    "MacroSize_cm": 2300.0,
+    "MossAmount": 0.20000000298023224,
+    "MacroStrength": 0.44999998807907104,
+    "CrackSize_cm": 900.0,
+    "SoilSize_cm": 220.0,
+    "GroundOut": 0.0,
+    "GroundIn": 0.0,
+    "DirtBand_cm": 85.0,
+    "DirtAmount": 1.0,
+    "MossHeight_cm": 420.0,
+    "CrackAmount": 1.0,
+    "AntiTile_SatLo": 0.3799999952316284,
+    "AntiTile_SatHi": 0.6200000047683716,
+    "AntiTile_Amount": 0.8500000238418579,
+    "AntiTile_AvgLum": 0.1599999964237213,
+    "Detile_Contrast": 5.0,
+    "Detile_Amount": 1.0,
+    "LimewashAmount": 0.0
+   },
+   "vector": {
+    "GrimeColor": [
+     0.45,
+     0.38,
+     0.3,
+     1.0
+    ],
+    "Tint": [
+     0.62,
+     0.55,
+     0.47,
+     1.0
+    ],
+    "MossColor": [
+     0.16,
+     0.17,
+     0.12,
+     1.0
+    ]
+   },
+   "texture": {
+    "BaseColor": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_B.T_tinifauaw_2K_B",
+    "ORM": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_ORM.T_tinifauaw_2K_ORM",
+    "CrackMask": "/Game/CastleDefender/Shared/Materials/Castle/T_CrackMask.T_CrackMask",
+    "Normal": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_N.T_tinifauaw_2K_N",
+    "SoilTex": "/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_B.T_vb2qdgwew_8K_B"
+   }
+  },
+  "MI_Castle_Paving_POM": {
+   "path": "/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Paving_POM",
+   "parent": "/Game/CastleDefender/Shared/Materials/Castle/M_Castle_Paving_POM.M_Castle_Paving_POM",
+   "scalar": {
+    "Depth": 0.02500000037252903,
+    "Max Expensive Steps Debug Color": 32.0,
+    "WorldScale_cm": 900.0,
+    "Tiling": 4.0,
+    "MacroSize_cm": 1800.0,
+    "BlendNoiseSize_cm": 520.0,
+    "AntiTile_SatLo": 0.3799999952316284,
+    "AntiTile_SatHi": 0.6200000047683716,
+    "AntiTile_Amount": 0.8500000238418579,
+    "AntiTile_AvgLum": 0.1599999964237213
+   },
+   "vector": {},
+   "texture": {
+    "HeightTex": "/Game/CastleDefender/AssetPacks/StarterContent/Textures/T_CobbleStone_Rough_D.T_CobbleStone_Rough_D"
+   }
+  }
+ }
+}
