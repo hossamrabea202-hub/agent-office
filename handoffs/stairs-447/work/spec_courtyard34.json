@@ -3,6 +3,6 @@
  "flights": ["F2", "F3"],
  "steps": 34, "run": 32, "rise": 20, "width": 230,
  "pier_x": 672, "soffit_t": 40,
- "parapet": {"x0": 512, "thick": 45, "above": 75},
+ "parapet": {"x0": 0, "thick": 45, "above": 75},
  "voxel_cm": 1.5
 }

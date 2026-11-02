@@ -20,11 +20,16 @@ EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 STAIRS = {
     'SM_Stair447_Courtyard34': [
         {'label': 'Stair447_F2', 'loc': (1250, 495, 0), 'scale': (1, 1, 1),
-         'old_boxes': [(1249, 494, -1, 2339, 726, 681), (1761, 729, -1, 2339, 771, 756)]},
+         'old_boxes': [(1249, 494, -1, 2339, 726, 681), (1761, 729, -1, 2339, 771, 756)],
+         'merged': ('CastleStones_0_0_4', 'SM_CastleStones_0_0_4_s447')},
         {'label': 'Stair447_F3', 'loc': (1250, 3005, 0), 'scale': (1, -1, 1),
-         'old_boxes': [(1249, 2774, -1, 2339, 3006, 681), (1761, 2729, -1, 2339, 2771, 756)]},
+         'old_boxes': [(1249, 2774, -1, 2339, 3006, 681), (1761, 2729, -1, 2339, 2771, 756)],
+         'merged': ('CastleStones_0_1_6', 'SM_CastleStones_0_1_6_s447')},
     ],
 }
+# merged castle-stone meshes that held the stepped side stones of the lower flight: swapped for copies without them
+MERGED_COPIES = ('SM_CastleStones_0_0_4_s447', 'SM_CastleStones_0_1_6_s447')
+MERGED_MAT = '/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World'
 OLD_MESHES = ('SM_StairTread', 'SM_StoneModule', 'Cube')       # what a stair is made of today
 OLD_MATS = ('MI_Castle_StepCap', 'MI_Castle_StoneWall_World', 'MI_Castle_Trim_World')
 HIDDEN_JSON = os.path.join(HERE, 'Stairs447_hidden.json')
@@ -171,6 +176,18 @@ def do_assets(build_dir):
             EAL.save_loaded_asset(a)
         b = mesh.get_bounding_box()
         print('assets OK', name, 'tris', mesh.get_num_triangles(0), 'bounds', b.min, b.max, 'slots', [m.get_name() for m in mis])
+    for name in MERGED_COPIES:
+        ui = unreal.FbxImportUI()
+        ui.import_mesh = True; ui.import_materials = False; ui.import_textures = False; ui.import_as_skeletal = False
+        sm = ui.static_mesh_import_data
+        sm.combine_meshes = True; sm.generate_lightmap_u_vs = False; sm.auto_generate_collision = False
+        sm.normal_import_method = unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS
+        mesh = import_file(os.path.join(build_dir, name + '.fbx'), DST, name, ui)
+        mesh.set_material(0, unreal.load_asset(MERGED_MAT))
+        mesh.get_editor_property('body_setup').set_editor_property('collision_trace_flag', unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+        EAL.save_loaded_asset(mesh)
+        b = mesh.get_bounding_box()
+        print('assets OK', name, 'tris', mesh.get_num_triangles(0), 'bounds', b.min, b.max)
 
 
 def old_pieces(boxes):
@@ -200,6 +217,12 @@ def do_place(mode):
             if a.get_actor_label().startswith('Stair447_'):
                 print('remove', a.get_actor_label()); EAS.destroy_actor(a)
         hidden = json.load(open(HIDDEN_JSON)) if os.path.exists(HIDDEN_JSON) else []
+        for h in [h for h in hidden if 'mesh' in h]:
+            for a in EAS.get_all_level_actors():
+                if a.get_actor_label() == h['actor']:
+                    a.static_mesh_component.set_static_mesh(unreal.load_asset(h['mesh']))
+                    print('merged mesh restored on', h['actor'])
+        hidden = [h for h in hidden if 'path' in h]
         names = {h['path'] for h in hidden}
         n = 0
         for a in EAS.get_all_level_actors():
@@ -228,6 +251,13 @@ def do_place(mode):
                 record.append({'path': c.get_path_name(), 'folder': str(a.get_folder_path())})
                 c.set_visibility(False); c.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION)
                 a.set_folder_path('Stairs_Old_447')
+            label, copy = p['merged']
+            for a in EAS.get_all_level_actors():
+                if a.get_actor_label() == label:
+                    old = a.static_mesh_component.get_editor_property('static_mesh')
+                    record.append({'actor': label, 'mesh': old.get_path_name()})
+                    a.static_mesh_component.set_static_mesh(unreal.load_asset(DST + '/' + copy))
+                    print('   merged', label, old.get_name(), '->', copy)
     if mode == 'apply':
         json.dump(record, open(HIDDEN_JSON, 'w'), indent=0)
         print('apply: placed, hid %d old pieces (list in %s). Map NOT saved.' % (len(record), HIDDEN_JSON))
