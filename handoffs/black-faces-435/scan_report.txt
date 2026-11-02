@@ -1,0 +1,447 @@
+== /Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter
+  Obs_Boots_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/SM_ObsidianSovereign_Boots_R.SM_ObsidianSovereign_Boots_R visible=False
+     slot 0 M_ObsidianSovereign_Boots /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/MI_ObsidianSovereign_Boots.MI_ObsidianSovereign_Boots
+  Obs_Gauntlets_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/SM_ObsidianSovereign_Gauntlets_L.SM_ObsidianSovereign_Gauntlets_L visible=False
+     slot 0 M_ObsidianSovereign_Gauntlets /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/MI_ObsidianSovereign_Gauntlets.MI_ObsidianSovereign_Gauntlets
+  Obs_Gauntlets_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/SM_ObsidianSovereign_Gauntlets_R.SM_ObsidianSovereign_Gauntlets_R visible=False
+     slot 0 M_ObsidianSovereign_Gauntlets /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/MI_ObsidianSovereign_Gauntlets.MI_ObsidianSovereign_Gauntlets
+  Obs_Gauntlets_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/SM_ObsidianSovereign_Gauntlets_R.SM_ObsidianSovereign_Gauntlets_R visible=False
+     slot 0 M_ObsidianSovereign_Gauntlets /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/MI_ObsidianSovereign_Gauntlets.MI_ObsidianSovereign_Gauntlets
+  Obs_Boots_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/SM_ObsidianSovereign_Boots_L.SM_ObsidianSovereign_Boots_L visible=False
+     slot 0 M_ObsidianSovereign_Boots /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/MI_ObsidianSovereign_Boots.MI_ObsidianSovereign_Boots
+  Obs_Boots_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/SM_ObsidianSovereign_Boots_R.SM_ObsidianSovereign_Boots_R visible=False
+     slot 0 M_ObsidianSovereign_Boots /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/MI_ObsidianSovereign_Boots.MI_ObsidianSovereign_Boots
+  Obs_Gauntlets_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/SM_ObsidianSovereign_Gauntlets_L.SM_ObsidianSovereign_Gauntlets_L visible=False
+     slot 0 M_ObsidianSovereign_Gauntlets /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/MI_ObsidianSovereign_Gauntlets.MI_ObsidianSovereign_Gauntlets
+  Obs_Shins_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/SM_ObsidianSovereign_Shins_L.SM_ObsidianSovereign_Shins_L visible=False
+     slot 0 M_ObsidianSovereign_Shins /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/MI_ObsidianSovereign_Shins.MI_ObsidianSovereign_Shins
+  Obs_Shins_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/SM_ObsidianSovereign_Shins_L.SM_ObsidianSovereign_Shins_L visible=False
+     slot 0 M_ObsidianSovereign_Shins /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/MI_ObsidianSovereign_Shins.MI_ObsidianSovereign_Shins
+  Obs_Shins_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/SM_ObsidianSovereign_Shins_R.SM_ObsidianSovereign_Shins_R visible=False
+     slot 0 M_ObsidianSovereign_Shins /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/MI_ObsidianSovereign_Shins.MI_ObsidianSovereign_Shins
+  Obs_Shins_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/SM_ObsidianSovereign_Shins_R.SM_ObsidianSovereign_Shins_R visible=False
+     slot 0 M_ObsidianSovereign_Shins /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/MI_ObsidianSovereign_Shins.MI_ObsidianSovereign_Shins
+  KitWeapon_GEN_VARIABLE  StaticMeshComponent  mesh=None visible=False
+  Obs_Shoulders_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/SM_ObsidianSovereign_Shoulders_R.SM_ObsidianSovereign_Shoulders_R visible=False
+     slot 0 M_ObsidianSovereign_Shoulders /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/MI_ObsidianSovereign_Shoulders.MI_ObsidianSovereign_Shoulders
+  KitWeapon_GEN_VARIABLE  StaticMeshComponent  mesh=None visible=False
+  HeroHead_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Knight/SM_HeroHead.SM_HeroHead visible=True
+     slot 0 M_Greystone_Flesh_head /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_Greystone_Flesh_head.M_Greystone_Flesh_head
+     slot 1 MIC_GreystoneHair /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/MIC_GreystoneHair.MIC_GreystoneHair
+     slot 2 M_EyelashMaster_Inst /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyelash/M_EyelashMaster_Inst.M_EyelashMaster_Inst
+     slot 3 M_Greystone_Dragonlord_EyeRefractive_Inst /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/Dragonlord/Materials/M_Greystone_Dragonlord_EyeRefractive_Inst.M_Greystone_Dragonlord_EyeRefractive_Inst
+     slot 4 M_Eye_Occlusion /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_Eye_Occlusion.M_Eye_Occlusion
+     slot 5 M_TearLine_Inst2 /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_TearLine_Inst2.M_TearLine_Inst2
+  OffHand_GEN_VARIABLE  StaticMeshComponent  mesh=None visible=False
+  ChestRemnant_GEN_VARIABLE  SkeletalMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SK_Knight_ChestRemnant.SK_Knight_ChestRemnant visible=True
+     slot 0 Chest_M    /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_Knight_ChestRemnant.MI_Knight_ChestRemnant  (override)
+  ObsidianChest_GEN_VARIABLE  SkeletalMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/SK_ObsidianSovereign_Chest.SK_ObsidianSovereign_Chest visible=True
+     slot 0 obs        /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_ObsidianSovereign_Chest_Hero.MI_ObsidianSovereign_Chest_Hero  (override)
+  HeroHead_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Knight/SM_HeroHead.SM_HeroHead visible=True
+     slot 0 M_Greystone_Flesh_head /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_Greystone_Flesh_head.M_Greystone_Flesh_head
+     slot 1 MIC_GreystoneHair /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/MIC_GreystoneHair.MIC_GreystoneHair
+     slot 2 M_EyelashMaster_Inst /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyelash/M_EyelashMaster_Inst.M_EyelashMaster_Inst
+     slot 3 M_Greystone_Dragonlord_EyeRefractive_Inst /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/Dragonlord/Materials/M_Greystone_Dragonlord_EyeRefractive_Inst.M_Greystone_Dragonlord_EyeRefractive_Inst
+     slot 4 M_Eye_Occlusion /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_Eye_Occlusion.M_Eye_Occlusion
+     slot 5 M_TearLine_Inst2 /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_TearLine_Inst2.M_TearLine_Inst2
+  GorgetSpine_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Spine.SM_Gorget_Spine visible=True
+     slot 0 Gorget     /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold
+  Obs_Shoulders_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/SM_ObsidianSovereign_Shoulders_R.SM_ObsidianSovereign_Shoulders_R visible=False
+     slot 0 M_ObsidianSovereign_Shoulders /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/MI_ObsidianSovereign_Shoulders.MI_ObsidianSovereign_Shoulders
+  GorgetSpine_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Spine.SM_Gorget_Spine visible=True
+     slot 0 Gorget     /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold
+  GorgetNeck_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Neck.SM_Gorget_Neck visible=True
+     slot 0 Gorget     /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold
+  GorgetNeck_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Knight/Gorget/SM_Gorget_Neck.SM_Gorget_Neck visible=True
+     slot 0 Gorget     /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold
+  Obs_Shoulders_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/SM_ObsidianSovereign_Shoulders_L.SM_ObsidianSovereign_Shoulders_L visible=False
+     slot 0 M_ObsidianSovereign_Shoulders /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/MI_ObsidianSovereign_Shoulders.MI_ObsidianSovereign_Shoulders
+  Obs_Shoulders_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/SM_ObsidianSovereign_Shoulders_L.SM_ObsidianSovereign_Shoulders_L visible=False
+     slot 0 M_ObsidianSovereign_Shoulders /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/MI_ObsidianSovereign_Shoulders.MI_ObsidianSovereign_Shoulders
+  Obs_Boots_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/SM_ObsidianSovereign_Boots_L.SM_ObsidianSovereign_Boots_L visible=False
+     slot 0 M_ObsidianSovereign_Boots /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/MI_ObsidianSovereign_Boots.MI_ObsidianSovereign_Boots
+  Sword_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/Weapons/Longsword/SM_Longsword_LP.SM_Longsword_LP visible=True
+     slot 0 M_Longsword_001 /Game/CastleDefender/Equipment/Weapons/Longsword/M_Longsword.M_Longsword
+  ObsidianShield_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/SM_ObsidianSovereign_Shield.SM_ObsidianSovereign_Shield visible=True
+     slot 0 M_ObsidianSovereign_Shield /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/MI_ObsidianSovereign_Shield.MI_ObsidianSovereign_Shield
+  HeaterShield_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Weapons/HeaterShield/SM_HeaterShield.SM_HeaterShield visible=False
+     slot 0 M_SM_HeaterShield /Game/CastleDefender/Weapons/HeaterShield/MI_HeaterShield.MI_HeaterShield
+  HeaterShield_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Weapons/HeaterShield/SM_HeaterShield.SM_HeaterShield visible=False
+     slot 0 M_SM_HeaterShield /Game/CastleDefender/Weapons/HeaterShield/MI_HeaterShield.MI_HeaterShield
+  ObsidianShield_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/SM_ObsidianSovereign_Shield.SM_ObsidianSovereign_Shield visible=True
+     slot 0 M_ObsidianSovereign_Shield /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/MI_ObsidianSovereign_Shield.MI_ObsidianSovereign_Shield
+  Shield_GEN_VARIABLE  StaticMeshComponent  mesh=None visible=True
+  KnightMesh_GEN_VARIABLE  SkeletalMeshComponent  mesh=/Game/ShadowKight/Mesh/ShadowknightUE_SK.ShadowknightUE_SK visible=True
+     slot 0 arms       /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Arms.MI_Hero_Arms  (override)
+     slot 1 chest      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold  (override)
+     slot 2 cloth      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Cloth_Royal.MI_Hero_Cloth_Royal  (override)
+     slot 3 helmet     /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Helmet.MI_Hero_Helmet  (override)
+     slot 4 pants      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Pants.MI_Hero_Pants  (override)
+  Obs_UpperArms_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/SM_ObsidianSovereign_UpperArms_L.SM_ObsidianSovereign_UpperArms_L visible=False
+     slot 0 M_ObsidianSovereign_UpperArms /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/MI_ObsidianSovereign_UpperArms.MI_ObsidianSovereign_UpperArms
+  CharacterMesh0  SkeletalMeshComponent  mesh=/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Quinn_Simple.SKM_Quinn_Simple visible=True
+     slot 0 Quinn_01   /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01
+     slot 1 Quinn_02   /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.MI_Quinn_02
+  Obs_Forearms_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/SM_ObsidianSovereign_Forearms_R.SM_ObsidianSovereign_Forearms_R visible=False
+     slot 0 M_ObsidianSovereign_Forearms /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/MI_ObsidianSovereign_Forearms.MI_ObsidianSovereign_Forearms
+  Obs_UpperArms_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/SM_ObsidianSovereign_UpperArms_L.SM_ObsidianSovereign_UpperArms_L visible=False
+     slot 0 M_ObsidianSovereign_UpperArms /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/MI_ObsidianSovereign_UpperArms.MI_ObsidianSovereign_UpperArms
+  Obs_UpperArms_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/SM_ObsidianSovereign_UpperArms_R.SM_ObsidianSovereign_UpperArms_R visible=False
+     slot 0 M_ObsidianSovereign_UpperArms /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/MI_ObsidianSovereign_UpperArms.MI_ObsidianSovereign_UpperArms
+  Obs_UpperArms_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/SM_ObsidianSovereign_UpperArms_R.SM_ObsidianSovereign_UpperArms_R visible=False
+     slot 0 M_ObsidianSovereign_UpperArms /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/MI_ObsidianSovereign_UpperArms.MI_ObsidianSovereign_UpperArms
+  Obs_Forearms_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/SM_ObsidianSovereign_Forearms_L.SM_ObsidianSovereign_Forearms_L visible=False
+     slot 0 M_ObsidianSovereign_Forearms /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/MI_ObsidianSovereign_Forearms.MI_ObsidianSovereign_Forearms
+  Obs_Thighs_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/SM_ObsidianSovereign_Thighs_R.SM_ObsidianSovereign_Thighs_R visible=False
+     slot 0 M_ObsidianSovereign_Thighs /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/MI_ObsidianSovereign_Thighs.MI_ObsidianSovereign_Thighs
+  Obs_Forearms_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/SM_ObsidianSovereign_Forearms_L.SM_ObsidianSovereign_Forearms_L visible=False
+     slot 0 M_ObsidianSovereign_Forearms /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/MI_ObsidianSovereign_Forearms.MI_ObsidianSovereign_Forearms
+  Obs_Thighs_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/SM_ObsidianSovereign_Thighs_R.SM_ObsidianSovereign_Thighs_R visible=False
+     slot 0 M_ObsidianSovereign_Thighs /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/MI_ObsidianSovereign_Thighs.MI_ObsidianSovereign_Thighs
+  Obs_Waist_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Waist/SM_ObsidianSovereign_Waist.SM_ObsidianSovereign_Waist visible=False
+     slot 0 M_ObsidianSovereign_Waist /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Waist/MI_ObsidianSovereign_Waist.MI_ObsidianSovereign_Waist
+  Obs_Waist_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Waist/SM_ObsidianSovereign_Waist.SM_ObsidianSovereign_Waist visible=False
+     slot 0 M_ObsidianSovereign_Waist /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Waist/MI_ObsidianSovereign_Waist.MI_ObsidianSovereign_Waist
+  Obs_Thighs_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/SM_ObsidianSovereign_Thighs_L.SM_ObsidianSovereign_Thighs_L visible=False
+     slot 0 M_ObsidianSovereign_Thighs /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/MI_ObsidianSovereign_Thighs.MI_ObsidianSovereign_Thighs
+  Obs_Forearms_R_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/SM_ObsidianSovereign_Forearms_R.SM_ObsidianSovereign_Forearms_R visible=False
+     slot 0 M_ObsidianSovereign_Forearms /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/MI_ObsidianSovereign_Forearms.MI_ObsidianSovereign_Forearms
+  Obs_Thighs_L_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/SM_ObsidianSovereign_Thighs_L.SM_ObsidianSovereign_Thighs_L visible=False
+     slot 0 M_ObsidianSovereign_Thighs /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/MI_ObsidianSovereign_Thighs.MI_ObsidianSovereign_Thighs
+== /Game/CastleDefender/Characters/Knight/BP_SoldierSword
+  TargetArrow_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/UI/Barracks/Marker/SM_TargetArrow_Gilded.SM_TargetArrow_Gilded visible=False
+     slot 0 WorldGridMaterial /Game/CastleDefender/UI/Barracks/Marker/M_TargetArrow_Gilded.M_TargetArrow_Gilded  (override)
+  KnightMesh_GEN_VARIABLE  SkeletalMeshComponent  mesh=/Game/ShadowKight/Mesh/ShadowknightUE_SK.ShadowknightUE_SK visible=True
+     slot 0 arms       /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Arms.MI_Hero_Arms  (override)
+     slot 1 chest      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest.MI_Hero_Chest  (override)
+     slot 2 cloth      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Cloth_Crimson.MI_Hero_Cloth_Crimson  (override)
+     slot 3 helmet     /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_HelmetWorn.MI_Hero_HelmetWorn  (override)
+     slot 4 pants      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Pants.MI_Hero_Pants  (override)
+  CharacterMesh0  SkeletalMeshComponent  mesh=/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Quinn_Simple.SKM_Quinn_Simple visible=True
+     slot 0 Quinn_01   /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01
+     slot 1 Quinn_02   /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.MI_Quinn_02
+  Sword_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/Weapons/Longsword/SM_Longsword_LP.SM_Longsword_LP visible=True
+     slot 0 M_Longsword_001 /Game/CastleDefender/Equipment/Weapons/Longsword/M_Longsword.M_Longsword
+  Shield_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/Weapons/Shield/SM_Shield.SM_Shield visible=True
+     slot 0 Paint      /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Paint_AAA.M_Shield_Paint_AAA
+     slot 1 Metal      /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Iron_AAA.M_Shield_Iron_AAA
+     slot 2 Gold       /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Gold_AAA.M_Shield_Gold_AAA
+     slot 3 Wood       /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Wood_AAA.M_Shield_Wood_AAA
+  Xbow_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly.Noble_Crossbow_LowPoly visible=True
+     slot 0 Crossbow___Baked_PBR_1K /Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K
+== /Game/CastleDefender/Characters/Knight/BP_SoldierXbow
+  TargetArrow_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/UI/Barracks/Marker/SM_TargetArrow_Gilded.SM_TargetArrow_Gilded visible=False
+     slot 0 WorldGridMaterial /Game/CastleDefender/UI/Barracks/Marker/M_TargetArrow_Gilded.M_TargetArrow_Gilded  (override)
+  KnightMesh_GEN_VARIABLE  SkeletalMeshComponent  mesh=/Game/ShadowKight/Mesh/ShadowknightUE_SK.ShadowknightUE_SK visible=True
+     slot 0 arms       /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Arms.MI_Hero_Arms  (override)
+     slot 1 chest      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest.MI_Hero_Chest  (override)
+     slot 2 cloth      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Cloth_Crimson.MI_Hero_Cloth_Crimson  (override)
+     slot 3 helmet     /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_HelmetWorn.MI_Hero_HelmetWorn  (override)
+     slot 4 pants      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Pants.MI_Hero_Pants  (override)
+  CharacterMesh0  SkeletalMeshComponent  mesh=/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Quinn_Simple.SKM_Quinn_Simple visible=True
+     slot 0 Quinn_01   /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01
+     slot 1 Quinn_02   /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.MI_Quinn_02
+  Sword_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/Weapons/Longsword/SM_Longsword_LP.SM_Longsword_LP visible=True
+     slot 0 M_Longsword_001 /Game/CastleDefender/Equipment/Weapons/Longsword/M_Longsword.M_Longsword
+  Shield_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/Weapons/Shield/SM_Shield.SM_Shield visible=True
+     slot 0 Paint      /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Paint_AAA.M_Shield_Paint_AAA
+     slot 1 Metal      /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Iron_AAA.M_Shield_Iron_AAA
+     slot 2 Gold       /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Gold_AAA.M_Shield_Gold_AAA
+     slot 3 Wood       /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Wood_AAA.M_Shield_Wood_AAA
+  Xbow_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly.Noble_Crossbow_LowPoly visible=True
+     slot 0 Crossbow___Baked_PBR_1K /Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K
+== /Game/CastleDefender/Characters/Knight/BP_SoldierCommander
+  TargetArrow_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/UI/Barracks/Marker/SM_TargetArrow_Gilded.SM_TargetArrow_Gilded visible=False
+     slot 0 WorldGridMaterial /Game/CastleDefender/UI/Barracks/Marker/M_TargetArrow_Gilded.M_TargetArrow_Gilded  (override)
+  KnightMesh_GEN_VARIABLE  SkeletalMeshComponent  mesh=/Game/ShadowKight/Mesh/ShadowknightUE_SK.ShadowknightUE_SK visible=True
+     slot 0 arms       /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Arms.MI_Hero_Arms  (override)
+     slot 1 chest      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest.MI_Hero_Chest  (override)
+     slot 2 cloth      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Cloth_Crimson.MI_Hero_Cloth_Crimson  (override)
+     slot 3 helmet     /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_HelmetWorn.MI_Hero_HelmetWorn  (override)
+     slot 4 pants      /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Pants.MI_Hero_Pants  (override)
+  CharacterMesh0  SkeletalMeshComponent  mesh=/Game/CastleDefender/Characters/Mannequins/Mannequins/Meshes/SKM_Quinn_Simple.SKM_Quinn_Simple visible=True
+     slot 0 Quinn_01   /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01
+     slot 1 Quinn_02   /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.MI_Quinn_02
+  Sword_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/Weapons/Longsword/SM_Longsword_LP.SM_Longsword_LP visible=True
+     slot 0 M_Longsword_001 /Game/CastleDefender/Equipment/Weapons/Longsword/M_Longsword.M_Longsword
+  Shield_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/Weapons/Shield/SM_Shield.SM_Shield visible=True
+     slot 0 Paint      /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Paint_AAA.M_Shield_Paint_AAA
+     slot 1 Metal      /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Iron_AAA.M_Shield_Iron_AAA
+     slot 2 Gold       /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Gold_AAA.M_Shield_Gold_AAA
+     slot 3 Wood       /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Wood_AAA.M_Shield_Wood_AAA
+  Xbow_GEN_VARIABLE  StaticMeshComponent  mesh=/Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly.Noble_Crossbow_LowPoly visible=True
+     slot 0 Crossbow___Baked_PBR_1K /Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K
+## /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyelash/M_EyelashMaster_Inst.M_EyelashMaster_Inst  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyelash/M_EyelashMaster.M_EyelashMaster
+   sc  RefractionDepthBias = 0.000
+   base /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyelash/M_EyelashMaster.M_EyelashMaster shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_TRANSLUCENT: 2>
+## /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_Eye_Occlusion.M_Eye_Occlusion  Material
+   base /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_Eye_Occlusion.M_Eye_Occlusion shading=<MaterialShadingModel.MSM_UNLIT: 0> blend=<BlendMode.BLEND_TRANSLUCENT: 2>
+## /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/MIC_GreystoneHair.MIC_GreystoneHair  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Greystone/Characters/Global/Hair/Materials/M_HairSheet_Master2.M_HairSheet_Master2
+   tex Alpha = /Game/CastleDefender/Characters/Greystone/Characters/Global/Hair/SharedHairContent/FemaleHairSet02/T_FemaleHairSet02_Opacity.T_FemaleHairSet02_Opacity
+   tex Depth = /Game/CastleDefender/Characters/Greystone/Characters/Global/Hair/SharedHairContent/FemaleHairSet02/T_FemaleHairSet02_Depth.T_FemaleHairSet02_Depth
+   tex FlowMapTexture = /Game/CastleDefender/Characters/Greystone/Characters/Global/Hair/T_GreystoneHair_Flow.T_GreystoneHair_Flow
+   tex Root = /Game/CastleDefender/Characters/Greystone/Characters/Global/Hair/SharedHairContent/FemaleHairSet02/T_FemaleHairSet02_Roots.T_FemaleHairSet02_Roots
+   tex Unique_Hair_Value = /Game/CastleDefender/Characters/Greystone/Characters/Global/Hair/SharedHairContent/FemaleHairSet02/T_FemaleHairSet02_ID.T_FemaleHairSet02_ID
+   sc  Brightness = 0.500
+   sc  HairEmissiveBrightness = 0.000
+   sc  OcclusionAmtRoot = 0.000
+   sc  OcclusionAmtRootTip = 0.000
+   sc  PixelDepthOffset = 2.500
+   sc  RandomHueVariation = 0.100
+   sc  RandomValueVariation = 0.200
+   sc  Roughness = 0.400
+   sc  Scatter = 0.150
+   sc  VertexColorStrength = 2.000
+   sc  RefractionDepthBias = 0.000
+   vec HairEmissiveColor = (10.000 6.925 0.000 1.000)
+   vec RootColor = (0.470 0.195 0.042 1.000)
+   vec Tangent = (0.000 1.000 0.000 1.000)
+   vec TangentB = (0.000 0.000 -0.100 1.000)
+   vec TipColor = (0.470 0.195 0.042 1.000)
+   base /Game/CastleDefender/Characters/Greystone/Characters/Global/Hair/Materials/M_HairSheet_Master2.M_HairSheet_Master2 shading=<MaterialShadingModel.MSM_HAIR: 7> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_Greystone_Flesh_head.M_Greystone_Flesh_head  Material
+   base /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_Greystone_Flesh_head.M_Greystone_Flesh_head shading=<MaterialShadingModel.MSM_SUBSURFACE_PROFILE: 5> blend=<BlendMode.BLEND_OPAQUE: 0>
+## /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Materials/M_TearLine_Inst2.M_TearLine_Inst2  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_TearLine.M_TearLine
+   sc  FadeOut = 0.312
+   sc  Push = 0.003
+   sc  roughness = 0.020
+   sc  RefractionDepthBias = 0.000
+   base /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_TearLine.M_TearLine shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_TRANSLUCENT: 2>
+## /Game/CastleDefender/Characters/Greystone/Characters/Heroes/Greystone/Skins/Dragonlord/Materials/M_Greystone_Dragonlord_EyeRefractive_Inst.M_Greystone_Dragonlord_EyeRefractive_Inst  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_EyeRefractive.M_EyeRefractive
+   tex IrisColor = /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Textures/Example/T_EyeIrisBaseColor_Example_5.T_EyeIrisBaseColor_Example_5
+   tex ScleraColor = /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Textures/Example/T_EyeScleraBaseColor_Example_3.T_EyeScleraBaseColor_Example_3
+   sc  Iris Concavity Scale = 0.112
+   sc  Iris UV Radius = 0.161
+   sc  LimbusPow = 8.000
+   sc  LimbusUVWidthColor = 0.040
+   sc  PupilScale = 0.720
+   sc  ScleraBrightness = 0.872
+   sc  ShadowRadius = 0.650
+   sc  SpecularityIris = 0.401
+   sc  SpecularityScelera = 0.100
+   sc  RefractionDepthBias = 0.000
+   base /Game/CastleDefender/Characters/Greystone/Characters/Global/Eyes/Materials/M_EyeRefractive.M_EyeRefractive shading=<MaterialShadingModel.MSM_EYE: 9> blend=<BlendMode.BLEND_OPAQUE: 0>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/MI_ObsidianSovereign_Boots.MI_ObsidianSovereign_Boots  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/T_ObsidianSovereign_Boots_BaseColor.T_ObsidianSovereign_Boots_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/T_ObsidianSovereign_Boots_ORM.T_ObsidianSovereign_Boots_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/T_ObsidianSovereign_Boots_Normal_DirectX.T_ObsidianSovereign_Boots_Normal_DirectX
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_Knight_ChestRemnant.MI_Knight_ChestRemnant  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_BC.T_Hero_chest_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_N.T_Hero_chest_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_ORM.T_Hero_chest_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_Mask.T_Hero_chest_Mask
+   tex Opacity = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_Op.T_Hero_chest_Op
+   sc  DetailTiling = 30.000
+   sc  UseGoldGate = 1.000
+   sc  ArmorMode = -1.000
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_ObsidianSovereign_Chest_Hero.MI_ObsidianSovereign_Chest_Hero  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/MI_ObsidianSovereign_Chest.MI_ObsidianSovereign_Chest
+   sc  ArmorMode = -1.000
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/MI_ObsidianSovereign_Forearms.MI_ObsidianSovereign_Forearms  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/T_ObsidianSovereign_Forearms_BaseColor.T_ObsidianSovereign_Forearms_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/T_ObsidianSovereign_Forearms_ORM.T_ObsidianSovereign_Forearms_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Forearms/T_ObsidianSovereign_Forearms_Normal_DirectX.T_ObsidianSovereign_Forearms_Normal_DirectX
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/MI_ObsidianSovereign_Gauntlets.MI_ObsidianSovereign_Gauntlets  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/T_ObsidianSovereign_Gauntlets_BaseColor.T_ObsidianSovereign_Gauntlets_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/T_ObsidianSovereign_Gauntlets_ORM.T_ObsidianSovereign_Gauntlets_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/T_ObsidianSovereign_Gauntlets_Normal_DirectX.T_ObsidianSovereign_Gauntlets_Normal_DirectX
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/MI_ObsidianSovereign_Shield.MI_ObsidianSovereign_Shield  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/T_ObsidianSovereign_Shield_BaseColor.T_ObsidianSovereign_Shield_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/T_ObsidianSovereign_Shield_ORM.T_ObsidianSovereign_Shield_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/T_ObsidianSovereign_Shield_Normal_DirectX.T_ObsidianSovereign_Shield_Normal_DirectX
+   sc  ArmorMode = 0.000
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/MI_ObsidianSovereign_Shins.MI_ObsidianSovereign_Shins  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/T_ObsidianSovereign_Shins_BaseColor.T_ObsidianSovereign_Shins_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/T_ObsidianSovereign_Shins_ORM.T_ObsidianSovereign_Shins_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/T_ObsidianSovereign_Shins_Normal_DirectX.T_ObsidianSovereign_Shins_Normal_DirectX
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/MI_ObsidianSovereign_Shoulders.MI_ObsidianSovereign_Shoulders  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/T_ObsidianSovereign_Shoulders_BaseColor.T_ObsidianSovereign_Shoulders_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/T_ObsidianSovereign_Shoulders_ORM.T_ObsidianSovereign_Shoulders_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/T_ObsidianSovereign_Shoulders_Normal_DirectX.T_ObsidianSovereign_Shoulders_Normal_DirectX
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/MI_ObsidianSovereign_Thighs.MI_ObsidianSovereign_Thighs  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/T_ObsidianSovereign_Thighs_BaseColor.T_ObsidianSovereign_Thighs_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/T_ObsidianSovereign_Thighs_ORM.T_ObsidianSovereign_Thighs_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Thighs/T_ObsidianSovereign_Thighs_Normal_DirectX.T_ObsidianSovereign_Thighs_Normal_DirectX
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/MI_ObsidianSovereign_UpperArms.MI_ObsidianSovereign_UpperArms  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/T_ObsidianSovereign_UpperArms_BaseColor.T_ObsidianSovereign_UpperArms_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/T_ObsidianSovereign_UpperArms_ORM.T_ObsidianSovereign_UpperArms_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/UpperArms/T_ObsidianSovereign_UpperArms_Normal_DirectX.T_ObsidianSovereign_UpperArms_Normal_DirectX
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Waist/MI_ObsidianSovereign_Waist.MI_ObsidianSovereign_Waist  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign
+   tex BaseColor = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Waist/T_ObsidianSovereign_Waist_BaseColor.T_ObsidianSovereign_Waist_BaseColor
+   tex ORM = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Waist/T_ObsidianSovereign_Waist_ORM.T_ObsidianSovereign_Waist_ORM
+   tex Normal = /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Waist/T_ObsidianSovereign_Waist_Normal_DirectX.T_ObsidianSovereign_Waist_Normal_DirectX
+   base /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign.M_ObsidianSovereign shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Arms.MI_Hero_Arms  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_arms_BC.T_Hero_arms_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_arms_N.T_Hero_arms_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_arms_ORM.T_Hero_arms_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_arms_Mask.T_Hero_arms_Mask
+   tex Opacity = /Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture
+   sc  DetailTiling = 36.000
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest.MI_Hero_Chest  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_BC.T_Hero_chest_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_N.T_Hero_chest_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_ORM.T_Hero_chest_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_Mask.T_Hero_chest_Mask
+   tex Opacity = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_Op.T_Hero_chest_Op
+   sc  DetailTiling = 30.000
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Chest_HeroGold.MI_Hero_Chest_HeroGold  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_BC.T_Hero_chest_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_N.T_Hero_chest_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_ORM.T_Hero_chest_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_Mask.T_Hero_chest_Mask
+   tex Opacity = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_chest_Op.T_Hero_chest_Op
+   sc  DetailTiling = 30.000
+   sc  UseGoldGate = 1.000
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Cloth_Crimson.MI_Hero_Cloth_Crimson  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroCloth_AAA.M_HeroCloth_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_cloth_BC.T_Hero_cloth_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_cloth_N.T_Hero_cloth_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_cloth_ORM.T_Hero_cloth_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_cloth_Mask.T_Hero_cloth_Mask
+   tex Opacity = /Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture
+   sc  DetailTiling = 0.280
+   sc  DetailCloth = 1.700
+   sc  ClothAmount = 0.500
+   sc  HideBackFlap = 1.000
+   vec FuzzColor = (0.300 0.130 0.130 1.000)
+   vec Tint = (4.286 0.556 0.182 1.000)
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroCloth_AAA.M_HeroCloth_AAA shading=<MaterialShadingModel.MSM_CLOTH: 8> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Cloth_Royal.MI_Hero_Cloth_Royal  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroCloth_AAA.M_HeroCloth_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_cloth_BC.T_Hero_cloth_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_cloth_N.T_Hero_cloth_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_cloth_ORM.T_Hero_cloth_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_cloth_Mask.T_Hero_cloth_Mask
+   tex Opacity = /Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture
+   sc  DetailTiling = 30.000
+   sc  DetailCloth = 0.350
+   sc  ClothAmount = 0.650
+   sc  Velvet = 1.000
+   sc  TrimAmount = 1.000
+   sc  FabricAmount = 0.000
+   sc  HideBackFlap = 1.000
+   vec FuzzColor = (0.160 0.060 0.240 1.000)
+   vec Tint = (1.571 0.089 0.318 1.000)
+   vec TrimColor = (1.000 0.660 0.220 1.000)
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroCloth_AAA.M_HeroCloth_AAA shading=<MaterialShadingModel.MSM_CLOTH: 8> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Helmet.MI_Hero_Helmet  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_BC.T_Hero_helmet_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_N.T_Hero_helmet_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_ORM.T_Hero_helmet_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_Mask.T_Hero_helmet_Mask
+   tex Opacity = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_Op.T_Hero_helmet_Op
+   sc  DetailTiling = 40.000
+   sc  UseHelmGate = 1.000
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_HelmetWorn.MI_Hero_HelmetWorn  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_BC.T_Hero_helmet_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_N.T_Hero_helmet_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_ORM.T_Hero_helmet_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_Mask.T_Hero_helmet_Mask
+   tex Opacity = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_helmet_Op.T_Hero_helmet_Op
+   sc  DetailTiling = 40.000
+   sc  UseHelmGate = 0.000
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Knight/Materials/AAA/MI_Hero_Pants.MI_Hero_Pants  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA
+   tex BC = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_pants_BC.T_Hero_pants_BC
+   tex N = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_pants_N.T_Hero_pants_N
+   tex ORM = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_pants_ORM.T_Hero_pants_ORM
+   tex Mask = /Game/CastleDefender/Characters/Knight/Textures/AAA/T_Hero_pants_Mask.T_Hero_pants_Mask
+   tex Opacity = /Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture
+   sc  DetailTiling = 34.000
+   base /Game/CastleDefender/Characters/Knight/Materials/AAA/M_HeroArmor_AAA.M_HeroArmor_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/M_Mannequin.M_Mannequin
+   tex Base Texture = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_D.T_Quinn_01ID_D
+   tex AnisoAOPaintMaskTex = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01_ASAOMASK_MSK.T_Quinn_01_ASAOMASK_MSK
+   tex BNormal = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_BN.T_Quinn_01ID_BN
+   tex CCCCRTex = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01_CCRCCPlastic_MSK.T_Quinn_01_CCRCCPlastic_MSK
+   tex MSR_tex = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_MSR_MSK.T_Quinn_01ID_MSR_MSK
+   tex Normal = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_N.T_Quinn_01ID_N
+   tex Tangent = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_01ID_Tan.T_Quinn_01ID_Tan
+   sc  BaseColorFallOff = 3.000
+   sc  EnergeConservation = 0.648
+   sc  RefractionDepthBias = 0.000
+   base /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/M_Mannequin.M_Mannequin shading=<MaterialShadingModel.MSM_CLEAR_COAT: 4> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02.MI_Quinn_02  MaterialInstanceConstant
+   parent /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_01.MI_Quinn_01
+   tex Base Texture = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_D.T_Quinn_02ID_D
+   tex AnisoAOPaintMaskTex = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02_ASAOMASK_MSK.T_Quinn_02_ASAOMASK_MSK
+   tex BNormal = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_BN.T_Quinn_02ID_BN
+   tex CCCCRTex = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02_CCRCCPlastic_MSK.T_Quinn_02_CCRCCPlastic_MSK
+   tex MSR_tex = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_MSR_MSK.T_Quinn_02ID_MSR_MSK
+   tex Normal = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_N.T_Quinn_02ID_N
+   tex Tangent = /Game/CastleDefender/Characters/Mannequins/Mannequins/Textures/Quinn/T_Quinn_02ID_Tan.T_Quinn_02ID_Tan
+   sc  LogoLayer0_BlurLevel = 1.000
+   sc  LogoLayer0_Brightness = 16.000
+   sc  LogoLayer0_Offset = 0.135
+   sc  LogoLayer1_BlurLevel = 3.000
+   sc  LogoLayer1_Brightness = 64.000
+   sc  LogoLayer1_Offset = 0.032
+   sc  LogoLayer2_BlurLevel = 4.000
+   sc  LogoLayer2_Brightness = 256.000
+   sc  LogoLayer2_Falloff = 0.500
+   sc  LogoLayer2_Offset = 0.000
+   sc  LogoPosOffset_X = -0.282
+   sc  LogoPosOffset_Y = 0.251
+   sc  LogoSize = 0.070
+   sc  RefractionDepthBias = 0.000
+   vec LogoLayer0_Color = (0.000 0.896 1.000 1.000)
+   vec LogoLayer1_Color = (0.000 0.896 1.000 1.000)
+   vec LogoLayer2_Color = (0.000 0.723 1.000 1.000)
+   base /Game/CastleDefender/Characters/Mannequins/Mannequins/Materials/M_Mannequin.M_Mannequin shading=<MaterialShadingModel.MSM_CLEAR_COAT: 4> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Equipment/Weapons/Longsword/M_Longsword.M_Longsword  Material
+   base /Game/CastleDefender/Equipment/Weapons/Longsword/M_Longsword.M_Longsword shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_OPAQUE: 0>
+## /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Gold_AAA.M_Shield_Gold_AAA  Material
+   base /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Gold_AAA.M_Shield_Gold_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_OPAQUE: 0>
+## /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Iron_AAA.M_Shield_Iron_AAA  Material
+   base /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Iron_AAA.M_Shield_Iron_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_OPAQUE: 0>
+## /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Paint_AAA.M_Shield_Paint_AAA  Material
+   base /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Paint_AAA.M_Shield_Paint_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_OPAQUE: 0>
+## /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Wood_AAA.M_Shield_Wood_AAA  Material
+   base /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Wood_AAA.M_Shield_Wood_AAA shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_OPAQUE: 0>
+## /Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K  Material
+   base /Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K.Crossbow___Baked_PBR_1K shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_OPAQUE: 0>
+## /Game/CastleDefender/UI/Barracks/Marker/M_TargetArrow_Gilded.M_TargetArrow_Gilded  Material
+   base /Game/CastleDefender/UI/Barracks/Marker/M_TargetArrow_Gilded.M_TargetArrow_Gilded shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_MASKED: 1>
+## /Game/CastleDefender/Weapons/HeaterShield/MI_HeaterShield.MI_HeaterShield  MaterialInstanceConstant
+   parent /Game/CastleDefender/Weapons/M_LP2Weapon.M_LP2Weapon
+   tex BaseColor = /Game/CastleDefender/Weapons/HeaterShield/T_HeaterShield_BaseColor.T_HeaterShield_BaseColor
+   tex ORM = /Game/CastleDefender/Weapons/HeaterShield/T_HeaterShield_ORM.T_HeaterShield_ORM
+   tex Normal = /Game/CastleDefender/Weapons/HeaterShield/T_HeaterShield_Normal_DirectX.T_HeaterShield_Normal_DirectX
+   sc  EmissiveBoost = 0.000
+   base /Game/CastleDefender/Weapons/M_LP2Weapon.M_LP2Weapon shading=<MaterialShadingModel.MSM_DEFAULT_LIT: 1> blend=<BlendMode.BLEND_OPAQUE: 0>

@@ -10,6 +10,7 @@
 #                                               <dir>/shield433_<i>.png (front + side), deletes the actors, nothing saved
 #   py fix_shield_grip_ue.py --apply            writes GripLoc / GripRot on BPC_ShieldKit (defaults), compile, save
 #   --flip                                      turn the face 180 deg (if the preview shows the strap side out)
+#   --upside                                    turn the shield 180 deg about its face (owner 2026-11-02: it hung upside down)
 #   --revert                                    puts back the values printed by the last --apply (grip433_backup.json)
 import json, os, sys, unreal
 A = sys.argv[1:]
@@ -20,7 +21,7 @@ HERO = '/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonChara
 BONE, ELBOW = 'hand_l', 'lowerarm_l'
 DATA = json.load(open(os.path.join(HERE, '..', 'shop-v2-418', 'shields', 'shieldkit_data.json')))['shields']
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
-log = ['#433 shield grip' + (' DRY RUN' if '--dry-run' in A else '') + (' FLIP' if '--flip' in A else '')]
+log = ['#433 shield grip' + (' DRY RUN' if '--dry-run' in A else '') + (' FLIP' if '--flip' in A else '') + (' UPSIDE' if '--upside' in A else '')]
 
 
 def hero_mesh():
@@ -44,7 +45,7 @@ def compute(hand, elbow, mesh, flip):
     axes = [unreal.Vector(1, 0, 0), unreal.Vector(0, 1, 0), unreal.Vector(0, 0, 1)]
     lo, hi = [mn.x, mn.y, mn.z][thin], [mx.x, mx.y, mx.z][thin]
     sgn = 1.0 if abs(hi) >= abs(lo) else -1.0                                # the boss / face bulges further from the pivot
-    rm = ML.make_rot_from_xz(axes[long_], axes[thin] * sgn)                  # mesh frame: X = long, Z = face
+    rm = ML.make_rot_from_xz(axes[long_] * (-1.0 if '--upside' in A else 1.0), axes[thin] * sgn)                  # mesh frame: X = long, Z = face
     rw = ML.make_rot_from_xz(f, d)                                           # wanted world frame
     # Q maps mesh axes onto the wanted world axes: apply Rm^-1, then Rw (compose_transforms(A, B) = A then B)
     one = unreal.Vector(1, 1, 1)
