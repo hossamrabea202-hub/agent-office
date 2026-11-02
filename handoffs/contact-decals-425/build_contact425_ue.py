@@ -159,7 +159,7 @@ MIS = {'MI_Soot425_Torch': ('M_ContactSoot425', {}),
        'MI_Mount425_Wood': ('M_ContactMount425', {'Rust': 0.15, 'Holes': 0.0, 'R': 0.2}),   # wooden posts / sign hooks: grime, little rust
        # cards (engine Plane: U runs up the wall -> Swap 1, FlipV 1). Values from the 2026-11-02 lookdev (restraint pass).
        'MI_SootCard425_Torch': ('M_ContactSootCard425', {'Swap': 1, 'FlipV': 1, 'Strength': 1.2, 'MaxOpacity': 0.6, 'Spread': 0.42, 'Falloff': 1.3}),
-       'MI_MountCard425_Iron': ('M_ContactMountCard425', {'Swap': 1, 'FlipV': 1, 'Strength': 1.3, 'Holes': 0.0, 'DripLen': 0.45, 'Rust': 0.6}),
+       'MI_MountCard425_Iron': ('M_ContactMountCard425', {'Swap': 1, 'FlipV': 1, 'Strength': 1.3, 'Holes': 0.0, 'DripLen': 0.4, 'Rust': 0.4}),
        'MI_MountCard425_Wood': ('M_ContactMountCard425', {'Swap': 1, 'FlipV': 1, 'Strength': 1.3, 'Rust': 0.15, 'Holes': 0.0, 'R': 0.2})}
 for n, (parent, vals) in MIS.items():
     mi, made = fresh(n, unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())

@@ -47,8 +47,12 @@ def plan():
         rule = next((r for r in RULES if r[0] in names), None)
         if not rule: continue
         o, e, hit = wall_hit(a)
+        # mounted = actually touching the wall: torches within 35 cm (free-standing trail torches 60+ cm off a wall are
+        # not mounted), projecting signs / banner rods within 60 cm
+        if hit and hit[0] > (35.0 if rule[1] == 'Iron' else 60.0): hit = None
         if not hit: rows.append((a, rule, o, e, None, False)); continue
-        has_card = any((s - o).length() < 90.0 for s in soots)
+        # old TorchSoot planes hang well above the flame: match on wall-plane distance, up to 3 m above the torch
+        has_card = any(math.hypot(s.x - o.x, s.y - o.y) < 80.0 and -50.0 < s.z - o.z < 300.0 for s in soots)
         rows.append((a, rule, o, e, hit, rule[2] and not has_card))
     return rows
 
@@ -71,7 +75,8 @@ def card(at, nrm, w, h, mi, label):
 
 def spawn(row):
     a, rule, o, e, (dist, loc, nrm), soot = row
-    foot = max(12.0, min(45.0, max(e.x, e.y, e.z) * 0.9))
+    # iron wall brackets are all about one size; actor bounds (Tower9 torches, trail torches) would blow the card up
+    foot = 16.0 if rule[1] == 'Iron' else max(12.0, min(45.0, max(e.x, e.y, e.z) * 0.9))
     wall = loc + unreal.Vector(0, 0, 0)
     made = [card(wall + unreal.Vector(0, 0, -foot * 0.55), nrm, foot * 3.2, foot * 5.2, 'MI_MountCard425_' + rule[1],
                  'CD425_%s_Mount' % a.get_actor_label())]
