@@ -194,8 +194,8 @@ def ore(i):
 FOOD, FARM = b.getm('Food', ZHUD, INT, ZH, *P()), b.getm('Farmers', ZHUD, INT, ZH, *P())
 LABEL, VALUE, TITLE = (0.80, 0.64, 0.40), (0.96, 0.84, 0.56), (0.98, 0.88, 0.62)
 a1, aT, a2 = ramp(E, 0.50, 0.15), ramp(E, 0.62, 0.20), ramp(E, 0.86, 0.12)
-text(fd, 'THE KEEP', 352, 47, 24, TITLE, aT, anchor='c')
-ROWS = (90, 128, 166, 204)
+text(fd, 'THE KEEP', 352, SY0 + 47, 24, TITLE, aT, anchor='c')   # rows sit inside the scroll (fix 2026-11-02)
+ROWS = tuple(SY0 + r for r in (90, 128, 166, 204))
 for (lab, src), y in zip((('Iron', ore(0)), ('Copper', ore(1)), ('Silver', ore(2)), ('Gold ore', ore(3))), ROWS):
     text(fd, lab, 104, y, 24, LABEL, a1); text(fd, istr(src), 330, y, 24, VALUE, a1, anchor='r')
 for (lab, src), y in zip((('Starmetal', ore(4)), ('Food', FOOD), ('Farmers', FARM)), ROWS):
