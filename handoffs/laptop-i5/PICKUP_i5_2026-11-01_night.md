@@ -86,3 +86,12 @@ every 10 s), keep i9/TGA moving, whiteboard minus WinterKeep. i9 is back on Cast
 - Next: steps 2 (wood/stone/grass) and 3 (re-bake fake props) on card #425.
 
 - 11:00: i5 editor relaunch. A killed editor leaves Saved/Autosaves/PackageRestoreData.json -> next start blocks on a modal "Restore Packages" (no join). Rename that file before relaunching (never restore in Multi-User).
+
+## Update 2026-11-02 14:12
+- i9's queue for i5 all done: SkillTree hero-cast fix (0 errors), cuirass row hidden, #267 re-import (i9 ran it),
+  #325/#389/#377 dry runs clean, HUD split plan (shop component = proposed session, handoffs/hud-split/PLAN.md).
+- 13:09-13:57 i9's PC was off Tailscale; the server lost the old session and a fresh CastleDefender6 started. i5 synced
+  with i9's zip (backup C:/UnrealProjects/CD58_backup_before_sync4_1102, 226 files), rejoined 14:01.
+- #425 step 1 PLACED: 57 CD425 stain cards (i9 asked to save the map). Step 2 audit: handoffs/realism-425-step2/FINDINGS.md.
+- i5 memory: ~20 idle Claude processes hold 5.7 GB; the editor froze at the commit limit twice. Crash reporters
+  (CrashReportClientEditor) pile up after crashes: stop them.
