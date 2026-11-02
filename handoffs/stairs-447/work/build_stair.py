@@ -143,6 +143,34 @@ def joint_d(u, js):
     return min((abs(u - j) for j in js), default=1e9)
 
 
+def vnoise(x, y, z, seed=0):
+    """Smooth value noise in [-1, 1] (trilinear over hashed lattice)."""
+    xi, yi, zi = math.floor(x), math.floor(y), math.floor(z)
+    fx, fy, fz = x - xi, y - yi, z - zi
+    fx, fy, fz = fx * fx * (3 - 2 * fx), fy * fy * (3 - 2 * fy), fz * fz * (3 - 2 * fz)
+    def h(a, b, c):
+        n = (a * 73856093) ^ (b * 19349663) ^ (c * 83492791) ^ (seed * 2654435761)
+        n = (n ^ (n >> 13)) * 1274126177 & 0xffffffff
+        return (n / 0xffffffff) * 2 - 1
+    acc = 0.0
+    for dx in (0, 1):
+        for dy in (0, 1):
+            for dz in (0, 1):
+                w = (fx if dx else 1 - fx) * (fy if dy else 1 - fy) * (fz if dz else 1 - fz)
+                acc += w * h(xi + dx, yi + dy, zi + dz)
+    return acc
+
+
+def courses(length, key):
+    """Course boundaries (cm) with varied heights, like real coursed ashlar (28-46 cm)."""
+    r = stone_rng('courses', *key)
+    out, z = [0.0], 0.0
+    while z < length:
+        z += r.uniform(28, 46)
+        out.append(z)
+    return out
+
+
 def build_high(low, s):
     hi = low.copy(); hi.data = low.data.copy(); hi.name = NAME + '_high'
     bpy.context.scene.collection.objects.link(hi)
@@ -156,7 +184,18 @@ def build_high(low, s):
     bvh = BVHTree.FromBMesh(lbm)
     run, rise, n, W = s['run'], s['rise'], s['steps'], s['width']
     tread_js = {k: splits(W, 55, 105, 'tread', k) for k in range(n + 1)}
-    course_h = 34.0
+    # sharp edges of each low triangle (for chips and edge rounding)
+    sharp = {}
+    for f in lbm.faces:
+        sharp[f.index] = [(e.verts[0].co / CM, e.verts[1].co / CM) for e in f.edges
+                          if len(e.link_faces) == 2 and e.calc_face_angle(0) > math.radians(30)]
+    cz = courses(2000, ('side',))
+    cy = courses(400, ('soffit',))
+    import bisect
+
+    def seg_d(p, a, b):
+        ab = b - a; t = max(0.0, min(1.0, (p - a).dot(ab) / max(ab.length_squared, 1e-9)))
+        return (p - (a + ab * t)).length
     me = hi.data
     col = me.color_attributes.new('Col', 'FLOAT_COLOR', 'POINT')
     disp = []
@@ -173,22 +212,37 @@ def build_high(low, s):
             front = x - k * run                               # 0 at the nosing
             path = math.exp(-((y - W * 0.5) / (W * 0.22)) ** 2)
             wear = path * max(0.0, 1.0 - front / (run * 0.8))
-        elif nx > 0.9:                                        # risers / pier ends: the tread stones continue down
+        elif nx > 0.9 and z > rise / run * x - 2:             # risers: the tread stones continue down
             kk = max(0, min(n - 1, int(round(z / rise)) - 1))
             js = tread_js[kk]; ju = joint_d(y, js); sid = (kk, sum(1 for j in js if j < y))
-            ju = min(ju, abs(z - round(z / course_h) * course_h) + 99 * (x > n * run - 1))
-        else:                                                 # side faces, soffit, parapet: coursed ashlar
-            u = x if ny > 0.5 else (x * math.cos(math.atan2(rise, run)) + z * math.sin(math.atan2(rise, run)))
-            vv = z if ny > 0.5 else y
-            c = int(vv // course_h)
-            js = splits(n * run + 400, 45, 95, 'course', c, ny > 0.5)
-            ju = min(abs(vv - c * course_h), abs(vv - (c + 1) * course_h), joint_d(u, js))
-            sid = (c, sum(1 for j in js if j < u), ny > 0.5)
+        else:                                                 # sides, pier ends, soffit, parapet: coursed ashlar
+            if ny > 0.5:
+                u, vv, cc, tag = x, z, cz, 'side'
+            elif nx > 0.9:
+                u, vv, cc, tag = y, z, cz, 'end'
+            else:
+                a = math.atan2(rise, run)
+                u, vv, cc, tag = x * math.cos(a) + z * math.sin(a), y, cy, 'soffit'
+            c = max(0, bisect.bisect_right(cc, vv) - 1)
+            js = splits(n * run + 400, 40, 110, 'course', c, tag)
+            ju = min(abs(vv - cc[c]), abs(vv - cc[min(c + 1, len(cc) - 1)]), joint_d(u, js))
+            sid = (c, sum(1 for j in js if j < u), tag)
         r = stone_rng(*sid)
         joint = max(0.0, 1.0 - ju / 1.1)                      # 1.5 cm joint, rounded shoulders
         joint = joint * joint * (3 - 2 * joint)
-        bulge = (r.uniform(-0.25, 0.25) + 0.12 * math.sin(p.x * 0.11 + r.uniform(0, 6)) * math.sin(p.z * 0.13 + p.y * 0.09))
-        d = -1.1 * joint + (0 if joint > 0.5 else bulge) - 1.4 * wear
+        # hand-dressed face: per-stone tilt/bulge + tooling noise (wavelengths >= 4 cm: under Nyquist for the bake)
+        seed = r.randint(0, 9999)
+        bulge = r.uniform(-0.35, 0.35) + 0.15 * vnoise(p.x / 9, p.y / 9, p.z / 9, seed) + 0.06 * vnoise(p.x / 4, p.y / 4, p.z / 4, seed + 1)
+        # chips along stone edges and the low's hard edges
+        ed = min((seg_d(p, a, b) for a, b in sharp.get(fi, [])), default=99.0)
+        edge = max(0.0, 1.0 - ed / 3.0)
+        near = max(edge, max(0.0, 1.0 - ju / 3.5) * (1 - joint))
+        chip = 0.0
+        if near > 0:
+            cn = vnoise(p.x / 2.5, p.y / 2.5, p.z / 2.5, 7)
+            chip = max(0.0, cn - 0.35) * 2.2 * near            # sparse dents up to ~1.4 cm
+        round_off = 0.9 * edge * edge                          # extra rounding on the outer arrises
+        d = -1.1 * joint + (0 if joint > 0.5 else bulge) - 1.4 * wear - chip - round_off
         disp.append(d)
         col.data[v.index].color = (joint, wear, r.random(), 1.0)
     for v, d in zip(me.vertices, disp):
@@ -197,6 +251,8 @@ def build_high(low, s):
     lbm.free()
     hi.modifiers.new('smooth', 'CORRECTIVE_SMOOTH').iterations = 2
     bpy.ops.object.modifier_apply(modifier='smooth')
+    # smooth shading: a flat-shaded high bakes its voxel facets into the normal map
+    me.shade_smooth()
     return hi
 
 
