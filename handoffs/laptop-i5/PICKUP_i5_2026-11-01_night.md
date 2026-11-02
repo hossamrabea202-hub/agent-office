@@ -79,3 +79,8 @@ every 10 s), keep i9/TGA moving, whiteboard minus WinterKeep. i9 is back on Cast
 - **PIE on i5 is not usable right now** (hero doesn't spawn behind the start menu, 1.6 fps, 27k runtime errors/9 min,
   commit at the limit). Play checks go to the Master.
 - BP_ArmySplit IsValid guard: still open (needs an export + GUI paste; no screen access on i5 this morning).
+
+## Update 2026-11-02 10:00: #425 (owner order: AAA realism pass)
+- Step 1 contact stains: built + previewed, NOT placed (owner OK asked, desk bell). Everything in handoffs/contact-decals-425 (README).
+- Half the castle walls have Receives Decals OFF: stain cards (unlit Modulate) instead of decals.
+- Next: steps 2 (wood/stone/grass) and 3 (re-bake fake props) on card #425.
