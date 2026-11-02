@@ -1,9 +1,10 @@
 {
- "working": "blocked: #411/#74 pastes need a GUI (i5 locked)",
- "tokens": 790000,
+ "working": "i5 editor catching up on session saves",
+ "tokens": 860000,
  "ctx": 1000000,
  "since": "2026-11-01T18:45:40Z",
  "done": [
+  "#411 castle scroll, #74 potions (Play-tested) [14% tokens left]",
   "#58 cannon break (Play-tested), #259 farming check [24% tokens left]",
   "#74 potions kit, #58 stages v2 [36% tokens left]",
   "#242 ore shed, #246 signs, #418 shop step 1 (Emberoath row) [77% tokens left]",
@@ -12,8 +13,7 @@
   "i5: #372 #373 #238 pasted; 21 already-in cards closed; script fixes #374 #375 #377 + #306 named + #389 pre-checked [68% tokens left]",
   "#408 i5 joined live session CastleDefender [78% tokens left]",
   "#399 step 2: Multi-User enabled, editor up [81% tokens left]",
-  "5.8 paste fixes (5 graphs + 9 setup scripts, 874d888) [83% tokens left]",
-  "#390 spruce snow pads (1aeb4a7) [81% tokens left]"
+  "5.8 paste fixes (5 graphs + 9 setup scripts, 874d888) [83% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-02T03:01:47Z",
+ "asOf": "2026-11-02T05:05:59Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-02T03:01:47Z",
+  "asOf": "2026-11-02T05:05:59Z",
   "meters": [
    {
     "k": "5h",
@@ -55,9 +55,5 @@
  "session": {
   "id": "7c282e632ea9",
   "host": "5CD3147LBC"
- },
- "ask": {
-  "text": "#411/#74 graph pastes need a screen: unlock i5 (or give i9 GUI)",
-  "at": "2026-11-02T03:01:47Z"
  }
 }
