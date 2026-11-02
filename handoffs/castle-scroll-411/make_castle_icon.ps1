@@ -1,5 +1,5 @@
 ﻿# #411: T_HUD_CastleKey.png (512 px) from the skill-tree key medallion: the tree emblem is replaced by a castle in the
-# same cream/bronze palette with a glowing gate (the red-node glow), and the badge letter T becomes C (i5 core, 2026-11-01).
+# same cream/bronze palette with a glowing gate (the red-node glow), and the badge letter T becomes K (Keep; C is the Commander key) (i5 core, 2026-11-01).
 #   powershell -File make_castle_icon.ps1
 Add-Type -AssemblyName System.Drawing
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -79,15 +79,15 @@ $g.DrawPolygon((New-Object System.Drawing.Pen (& $C 70 20 10), 2), $flag)
 # ground line
 $g.DrawLine((New-Object System.Drawing.Pen (& $C 120 82 36), 4), 112, ($base + 2), 360, ($base + 2))
 
-# 3. badge: T -> C
+# 3. badge: T -> K
 $ib = New-Object System.Drawing.Drawing2D.LinearGradientBrush (New-Object System.Drawing.Point 0, 356), (New-Object System.Drawing.Point 0, 468), (& $C 40 40 36), (& $C 14 14 12)
 $g.FillRectangle($ib, 374, 360, 112, 104)
 $f = New-Object System.Drawing.Font 'Georgia', 72, ([System.Drawing.FontStyle]::Bold), ([System.Drawing.GraphicsUnit]::Pixel)
 $sf = New-Object System.Drawing.StringFormat; $sf.Alignment = 'Center'; $sf.LineAlignment = 'Center'
 $rect = New-Object System.Drawing.RectangleF 374, 362, 112, 104
-$g.DrawString('C', $f, (New-Object System.Drawing.SolidBrush (& $C 0 0 0 160)), (New-Object System.Drawing.RectangleF 377, 366, 112, 104), $sf)
+$g.DrawString('K', $f, (New-Object System.Drawing.SolidBrush (& $C 0 0 0 160)), (New-Object System.Drawing.RectangleF 377, 366, 112, 104), $sf)
 $tg = New-Object System.Drawing.Drawing2D.LinearGradientBrush (New-Object System.Drawing.Point 0, 370), (New-Object System.Drawing.Point 0, 456), (& $C 246 214 140), (& $C 176 118 48)
-$g.DrawString('C', $f, $tg, $rect, $sf)
+$g.DrawString('K', $f, $tg, $rect, $sf)
 
 $g.Dispose()
 New-Item -ItemType Directory -Force "$here\build" | Out-Null

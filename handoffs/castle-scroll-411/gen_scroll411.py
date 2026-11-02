@@ -96,7 +96,7 @@ now = b.lib(GS, 'GetRealTimeSeconds', [WC(), D('ReturnValue', out=True)], *P(), 
 IX, IY, IS = 16, 150, 84
 hover = AND(AND(dcmp('GreaterEqual_DoubleDouble', MX, px(IX)), dcmp('Less_DoubleDouble', MX, px(IX + IS))),
             AND(dcmp('GreaterEqual_DoubleDouble', MY, px(IY)), dcmp('Less_DoubleDouble', MY, px(IY + IS))))
-toggle = OR(AND(key('LeftMouseButton'), hover), key('C'))
+toggle = OR(AND(key('LeftMouseButton'), hover), key('K'))   # K = Keep (C is the Commander key)
 ft, fn_ = fl0.iff(toggle, 'IfToggle')
 setvar(ft, 'Open', BOOL, NOT(get('Open', BOOL)))
 sn = b.lib(GS, 'PlaySound2D', [WC(), dict(ob('Sound', CLS('SoundBase')), dobj=SND), fl('VolumeMultiplier', default='0.700000', advanced=True),

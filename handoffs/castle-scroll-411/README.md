@@ -8,9 +8,9 @@ scroll (motion graphic) with Ore, Food and Farmers and room for future castle st
 
 ## What the player gets
 - **The castle medallion** top-left, where the ORE line was (16, 150 U, 84 U square; U = screen height / 1080). It is
-  the skill-tree key's bronze spiked medallion with a castle (keep, two towers, glowing gate, red banner) and a **C** key
+  the skill-tree key's bronze spiked medallion with a castle (keep, two towers, glowing gate, red banner) and a **K** key
   badge. It brightens on hover and while the scroll is open.
-- **Click it or press C:** the #295 vellum scroll unrolls **to the right from the medallion** in 0.4 s (ease-out): the
+- **Click it or press K (Keep; C is the Commander key):** the #295 vellum scroll unrolls **to the right from the medallion** in 0.4 s (ease-out): the
   left roller stays under the icon and the sheet grows from 300 U (rollers together) to 900 U. It rolls back up in
   0.36 s. Paper swipe sound (SFX_TradeSwipe, 70 %).
 - **Text fades in behind the moving roller** (gold ink with a soft shadow, Font_Cinzel):

@@ -1,0 +1,9 @@
+#411 rewire
+UX_CallFunction_23       found
+orDrawOre32              found
+hfDrawFood14             found
+K2Node_IfThenElse_H296   found
+CsHookDraw               found
+UX.then -> ['orDrawOre32.execute'] ; hfDrawFood14.then -> ['K2Node_IfThenElse_H296.execute']
+wired UX -> CsHookDraw True, CsHookDraw -> H296 True
+compiled + saved; UX.then -> ['CsHookDraw.execute']
