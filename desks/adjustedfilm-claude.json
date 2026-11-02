@@ -1,9 +1,10 @@
 {
- "working": "#425 contact decals under wall props: research",
- "tokens": 180000,
+ "working": "#425 waiting on owner OK to place; next wood/stone/grass",
+ "tokens": 330000,
  "ctx": 1000000,
  "since": "2026-11-02T07:15:07Z",
  "done": [
+  "#425 step 1: contact stains built + previewed (not placed) [67% tokens left]",
   "i5 crash fixed; #421 setup done (i9 pasted); #77 LV4 arcs verified [82% tokens left]",
   "i5 map-load crash fixed (launch on Entry map + frame-gated watcher) [90% tokens left]",
   "#411 castle scroll, #74 potions (Play-tested) [14% tokens left]",
@@ -12,8 +13,7 @@
   "#242 ore shed, #246 signs, #418 shop step 1 (Emberoath row) [77% tokens left]",
   "i5: blood, tentacle shell, jelly, #259 gate tag, #237 rock, #368 dump, #374 setup; pick-up note handoffs/laptop-i5/PICKUP_i5_2026-11-01_evening.md [20% tokens left]",
   "i5: #383 bounce, #370 quests (hero attach left to i9), #357 torches (5.8 fixes); fresh session CastleDefender2 [52% tokens left]",
-  "i5: #372 #373 #238 pasted; 21 already-in cards closed; script fixes #374 #375 #377 + #306 named + #389 pre-checked [68% tokens left]",
-  "#408 i5 joined live session CastleDefender [78% tokens left]"
+  "i5: #372 #373 #238 pasted; 21 already-in cards closed; script fixes #374 #375 #377 + #306 named + #389 pre-checked [68% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-02T08:33:03Z",
+ "asOf": "2026-11-02T08:54:11Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -55,5 +55,9 @@
  "session": {
   "id": "e77144824519",
   "host": "5CD3147LBC"
+ },
+ "ask": {
+  "text": "#425: OK to place the contact stains (shots on the card)? And turn Receives Decals on for castle walls?",
+  "at": "2026-11-02T08:54:11Z"
  }
 }
