@@ -34,7 +34,7 @@
  33 EF_Tun_Torch_03                    Iron  wall 25 cm 
  34 EF_TrailTorch_06                   Iron  NO WALL (skipped) 
  35 WallTorch_Iron_02                  Iron  wall 9 cm 
- 36 Tower9_Torch_A1_WallTorch          Iron  wall 27 cm +soot
+ 36 Tower9_Torch_A1_WallTorch          Iron  wall 27 cm 
  37 WallTorch_Iron_26                  Iron  wall 9 cm 
  38 EF_Tun_Torch_16                    Iron  wall 26 cm 
  39 EF_Tun_Torch_04                    Iron  wall 25 cm 
@@ -71,10 +71,10 @@
  70 EF_TrailTorch_02                   Iron  NO WALL (skipped) 
  71 EF_Tun_Torch_01                    Iron  wall 25 cm 
  72 EF_TrailTorch_17                   Iron  NO WALL (skipped) 
- 73 Tower9_Torch_B1_WallTorch          Iron  wall 27 cm +soot
- 74 Tower9_Torch_A0_WallTorch          Iron  wall 26 cm +soot
+ 73 Tower9_Torch_B1_WallTorch          Iron  wall 27 cm 
+ 74 Tower9_Torch_A0_WallTorch          Iron  wall 26 cm 
  75 EF_Tun_Torch_17                    Iron  wall 25 cm 
- 76 Tower9_Torch_B0_WallTorch          Iron  wall 26 cm +soot
+ 76 Tower9_Torch_B0_WallTorch          Iron  wall 26 cm 
  77 Castle_BannerRod                   Wood  wall 17 cm 
  78 EF_TrailTorch_03                   Iron  NO WALL (skipped) 
-79 props, 57 with a wall, 4 soot plumes, 61 decals
+79 props, 57 with a wall, 0 soot plumes, 57 decals

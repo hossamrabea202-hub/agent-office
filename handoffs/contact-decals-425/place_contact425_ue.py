@@ -39,7 +39,7 @@ def wall_hit(a):
 
 def plan():
     acts = EAS.get_all_level_actors()
-    soots = [x.get_actor_location() for x in acts if x.get_actor_label().startswith('TorchSoot')]
+    soots = [x.get_actor_location() for x in acts if 'TorchSoot' in x.get_actor_label()]
     rows = []
     for a in acts:
         if not isinstance(a, unreal.StaticMeshActor): continue
