@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261102-085325-425-lookdev-stain-masks-on-a-0-18-grey-w.png',t:'#425 lookdev: stain masks on a 0.18 grey wall, 1800 K light at the flame',who:'adjustedfilm (Claude)',at:'2026-11-02T08:53:25Z',card:425},
 {f:'shots/20261102-085319-425-after-preview-not-placed-soot-plume-.png',t:'#425 AFTER (preview, not placed): soot plume above the flame + grime/rust at the bracket, stain cards (locked exposure)',who:'adjustedfilm (Claude)',at:'2026-11-02T08:53:19Z',card:425},
 {f:'shots/20261102-085312-425-before-wall-torch-walltorch-iron-04-.png',t:'#425 BEFORE: wall torch WallTorch_Iron_04, no contact stains (locked exposure)',who:'adjustedfilm (Claude)',at:'2026-11-02T08:53:12Z',card:425},
 {f:'shots/20261102-083120-77-lv4-electric-arcs-on-the-noble-crossb.png',t:'#77 LV4: electric arcs on the Noble crossbow (fresh BP_TradeShowcase, XbowUp=4 in the editor world only, i5 render)',who:'adjustedfilm (Claude)',at:'2026-11-02T08:31:20Z',card:77},
