@@ -1,0 +1,33 @@
+#0 y 9920..10976  41 nodes  0.13 MB
+   texts: 
+   vars : PromptVesnaEnvx3, PromptVesnaShownx3, PromptLastTx2, PromptVesnaVisx2
+#1 y 15776..15776  82 nodes  0.31 MB
+   texts: Speak with Vesna
+   vars : 
+#2 y 20320..20448  314 nodes  1.25 MB
+   texts: BLEND_Translucent | MenuT | DEFENDER OF THE CASTLE
+   vars : XbowVx1, SovVx1, Heldx1
+#3 y 22256..22256  52 nodes  0.20 MB
+   texts: InvP | InvQ | GoldP1 | GoldP2 | GoldP3 | Gear
+   vars : PlateVx1, Heldx1
+#4 y 68192..68448  3 nodes  0.01 MB
+   texts: 
+   vars : DeathTextx1
+#5 y 78560..84368  1177 nodes  4.24 MB
+   texts: BLEND_Translucent | LeftMouseButton | [E]   Mount Cannon | [LMB]  Fire        [E]  Leave cannon | Cannon | LEVEL UP! | WAVE 
+   vars : Heldx44, PrevLocx19, SovVx16, PlateVx16, XbowVx16, ShieldLocx10, SwordLocx10, BootLocx9, GloveLocx9, ChestLocx9
+#6 y 93360..98256  346 nodes  1.21 MB
+   texts: BLEND_Additive | BLEND_Translucent |  gold | LatentInfo | FOOD    |       FARMERS   
+   vars : XPx4, StatVx4, KillTx3, BestHitx3, LastDmgx3, DamageTakenx3, KillSx2, LastKeyx2, Goldx2, KillWx2
+#7 y 105904..114304  1969 nodes  7.37 MB
+   texts: BLEND_Translucent | Vesna, the Veiled Blade | Owned  | Not enough gold, hunter. | A fine choice. It is in your pack. | 350 gold | Golden Sovereign | 200 gold
+   vars : ShopVx63, MsgTx23, FreeCellx21, Goldx19, SovVx14, PlateVx14, XbowVx14, bShowMouseCursorx3, BootLocx3, ShieldLocx3
+#8 y 120736..120960  47 nodes  0.15 MB
+   texts: 
+   vars : StatVx8, DamageTakenx3, MaxWalkSpeedx2, GlobalAnimRateScalex1, Meshx1, GloveLocx1, BootLocx1, CharacterMovementx1
+#9 y 123392..123648  3 nodes  0.01 MB
+   texts: 
+   vars : DeathTextx1
+#10 y 130960..136352  724 nodes  2.88 MB
+   texts: BLEND_Translucent | Quit | Main Menu | Settings | Restart | Resume | Begin the Siege | nomenu
+   vars : ShopVx19, Orex5, bShowMouseCursorx4, StatVx4, Wavex1, IsDeadx1, OptionsStringx1

@@ -1,0 +1,16 @@
+cut nodes: K2Node_Event_H20(then/SizeX/SizeY) TR_Sequence(execute/then_0/then_1) CX_15(execute/then_0/then_1) FadeIn(execute/then_0) FadeOut(execute/then_0)
+
+## 4745 nodes  fed by K2Node_Event_H20.then,K2Node_Event_H20.SizeX,K2Node_Event_H20.SizeX,K2Node_Event_H20.SizeY,K2Node_Event_H20.SizeY,K2Node_Event_H20.SizeY,TR_Sequence.execute,TR_Sequence.then_0,TR_Sequence.then_1,CX_15.execute,CX_15.then_0,CX_15.then_1,FadeIn.execute,FadeIn.then_0,FadeOut.execute,FadeOut.then_0  box x -41904..88864 y 9920..136352
+  texts: false | true | None | BLEND_Translucent | Vesna, the Veiled Blade | Quit | Settings | Main Menu | Owned  | LeftMouseButton
+  vars : ShopVx46, Heldx42, SET ShopVx39, SovVx23, XbowVx23, PlateVx23, SET MsgTx20, PrevLocx18, SET FreeCellx12, Goldx12, StatVx11, FreeCellx9, SET Goldx9, BootLocx9
+  fns  : Multiply_DoubleDoublex1012, Add_DoubleDoublex467, Subtract_DoubleDoublex261, EqualEqual_IntIntx218, BooleanANDx207, BreakVectorx154, SelectFloatx138, Conv_IntToDoublex119, DrawTextx110, DrawTexturex94
+
+## 4 nodes  fed by -  box x 26768..27552 y 94016..94016
+  texts: 
+  vars : 
+  fns  : Multiply_DoubleDoublex2, Sinx1, Add_DoubleDoublex1
+
+## 4 nodes  fed by -  box x 35088..35872 y 93808..93808
+  texts: 
+  vars : 
+  fns  : Multiply_DoubleDoublex2, Sinx1, Add_DoubleDoublex1
