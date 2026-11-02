@@ -1,0 +1,90 @@
+Begin Object Class=/Script/Engine.Material Name="M_UI_GoldDigits" ExportPath="/Script/Engine.Material'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits'"
+   Begin Object Class=/Script/Engine.MaterialEditorOnlyData Name="M_UI_GoldDigitsEditorOnlyData" ExportPath="/Script/Engine.MaterialEditorOnlyData'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:M_UI_GoldDigitsEditorOnlyData'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionCustom Name="MaterialExpressionCustom_3" ExportPath="/Script/Engine.MaterialExpressionCustom'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionCustom_3'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionScreenPosition Name="MaterialExpressionScreenPosition_2" ExportPath="/Script/Engine.MaterialExpressionScreenPosition'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionScreenPosition_2'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionScreenPosition Name="MaterialExpressionScreenPosition_3" ExportPath="/Script/Engine.MaterialExpressionScreenPosition'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionScreenPosition_3'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureCoordinate Name="MaterialExpressionTextureCoordinate_2" ExportPath="/Script/Engine.MaterialExpressionTextureCoordinate'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTextureCoordinate_2'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureCoordinate Name="MaterialExpressionTextureCoordinate_3" ExportPath="/Script/Engine.MaterialExpressionTextureCoordinate'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTextureCoordinate_3'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_1" ExportPath="/Script/Engine.MaterialExpressionTextureSample'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTextureSample_1'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_3" ExportPath="/Script/Engine.MaterialExpressionTextureSample'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTextureSample_3'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTime Name="MaterialExpressionTime_3" ExportPath="/Script/Engine.MaterialExpressionTime'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTime_3'"
+   End Object
+   Begin Object Name="M_UI_GoldDigitsEditorOnlyData" ExportPath="/Script/Engine.MaterialEditorOnlyData'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:M_UI_GoldDigitsEditorOnlyData'"
+      EmissiveColor=(Expression="/Script/Engine.MaterialExpressionCustom'M_UI_GoldDigits:MaterialExpressionCustom_3'")
+      Opacity=(Expression="/Script/Engine.MaterialExpressionCustom'M_UI_GoldDigits:MaterialExpressionCustom_3'",OutputIndex=1)
+      ExpressionCollection=(Expressions=("/Script/Engine.MaterialExpressionTextureSample'M_UI_GoldDigits:MaterialExpressionTextureSample_1'","/Script/Engine.MaterialExpressionTextureCoordinate'M_UI_GoldDigits:MaterialExpressionTextureCoordinate_2'","/Script/Engine.MaterialExpressionScreenPosition'M_UI_GoldDigits:MaterialExpressionScreenPosition_2'","/Script/Engine.MaterialExpressionTextureCoordinate'M_UI_GoldDigits:MaterialExpressionTextureCoordinate_3'","/Script/Engine.MaterialExpressionTextureSample'M_UI_GoldDigits:MaterialExpressionTextureSample_3'","/Script/Engine.MaterialExpressionScreenPosition'M_UI_GoldDigits:MaterialExpressionScreenPosition_3'","/Script/Engine.MaterialExpressionTime'M_UI_GoldDigits:MaterialExpressionTime_3'","/Script/Engine.MaterialExpressionCustom'M_UI_GoldDigits:MaterialExpressionCustom_3'"))
+   End Object
+   Begin Object Name="MaterialExpressionCustom_3" ExportPath="/Script/Engine.MaterialExpressionCustom'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionCustom_3'"
+      Code="\n// gold digits + the menu-style shine: a slanted bright band sliding across the screen every ~3.5 s,\n// only on the metal (not the dark outline / shadow)\nfloat lum = dot(C.rgb, float3(0.3, 0.59, 0.11));\nfloat metal = saturate((C.r - C.b) * 3.0) * saturate((lum - 0.15) * 4.0);\nfloat x = SP.x + SP.y * 0.22;\n// AnimPolish20: eased sweep (2 s) then a 3 s rest\nfloat cyc = frac(Tm * 0.2);\nfloat ek = saturate(cyc / 0.4); ek = ek * ek * (3.0 - 2.0 * ek);\nfloat ph = lerp(-0.4, 1.4, ek);\nfloat band = exp(-pow((x - ph) / 0.018, 2.0));\nfloat glint = exp(-pow((x - ph + 0.012) / 0.005, 2.0));\nfloat3 base = lerp(C.rgb, dot(C.rgb, float3(0.3, 0.59, 0.11)).xxx, 0.32);   // a touch desaturated\nfloat3 col = base + float3(1.0, 0.94, 0.78) * (band * 0.9 + glint * 1.4) * metal;\nOp = C.a;\nreturn col;\n"
+      Inputs(0)=(InputName="C",Input=(Expression="/Script/Engine.MaterialExpressionTextureSample'M_UI_GoldDigits:MaterialExpressionTextureSample_3'",OutputIndex=5,Mask=1,MaskR=1,MaskG=1,MaskB=1,MaskA=1))
+      Inputs(1)=(InputName="SP",Input=(Expression="/Script/Engine.MaterialExpressionScreenPosition'M_UI_GoldDigits:MaterialExpressionScreenPosition_3'"))
+      Inputs(2)=(InputName="Tm",Input=(Expression="/Script/Engine.MaterialExpressionTime'M_UI_GoldDigits:MaterialExpressionTime_3'"))
+      AdditionalOutputs(0)=(OutputName="Op")
+      MaterialExpressionEditorX=-350
+      MaterialExpressionEditorY=50
+      MaterialExpressionGuid=E1AF477D46B4F29F4134DCA531ACA319
+      Material="/Script/Engine.Material'M_UI_GoldDigits'"
+      bShowOutputNameOnPin=True
+      Outputs(0)=(OutputName="return")
+      Outputs(1)=(OutputName="Op")
+   End Object
+   Begin Object Name="MaterialExpressionScreenPosition_2" ExportPath="/Script/Engine.MaterialExpressionScreenPosition'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionScreenPosition_2'"
+      MaterialExpressionEditorX=-900
+      MaterialExpressionEditorY=200
+      MaterialExpressionGuid=D8BB5CF741542852D5D0B287622FCE34
+      Material="/Script/Engine.Material'M_UI_GoldDigits'"
+   End Object
+   Begin Object Name="MaterialExpressionScreenPosition_3" ExportPath="/Script/Engine.MaterialExpressionScreenPosition'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionScreenPosition_3'"
+      MaterialExpressionEditorX=-900
+      MaterialExpressionEditorY=200
+      MaterialExpressionGuid=C7D3F0FB4A6779BAC64BCBA7E0D7DB1B
+      Material="/Script/Engine.Material'M_UI_GoldDigits'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureCoordinate_2" ExportPath="/Script/Engine.MaterialExpressionTextureCoordinate'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTextureCoordinate_2'"
+      MaterialExpressionEditorX=-900
+      MaterialExpressionGuid=28B8EFD74EE9E1C95574EC98E8D597DC
+      Material="/Script/Engine.Material'M_UI_GoldDigits'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureCoordinate_3" ExportPath="/Script/Engine.MaterialExpressionTextureCoordinate'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTextureCoordinate_3'"
+      MaterialExpressionEditorX=-900
+      MaterialExpressionGuid=8029113E4B76E4210CDA939B6482767E
+      Material="/Script/Engine.Material'M_UI_GoldDigits'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_1" ExportPath="/Script/Engine.MaterialExpressionTextureSample'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTextureSample_1'"
+      Texture="/Script/Engine.Texture2D'/Game/CastleDefender/UI/HUD/T_UI_GoldDigits.T_UI_GoldDigits'"
+      MaterialExpressionEditorX=-650
+      MaterialExpressionGuid=71008D6244A73445DE76D0833C143BF6
+      Material="/Script/Engine.Material'M_UI_GoldDigits'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_3" ExportPath="/Script/Engine.MaterialExpressionTextureSample'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTextureSample_3'"
+      Coordinates=(Expression="/Script/Engine.MaterialExpressionTextureCoordinate'M_UI_GoldDigits:MaterialExpressionTextureCoordinate_3'")
+      Texture="/Script/Engine.Texture2D'/Game/CastleDefender/UI/HUD/T_UI_GoldDigits.T_UI_GoldDigits'"
+      MaterialExpressionEditorX=-650
+      MaterialExpressionGuid=15B24E4E4BC40B1D6629678871D49118
+      Material="/Script/Engine.Material'M_UI_GoldDigits'"
+   End Object
+   Begin Object Name="MaterialExpressionTime_3" ExportPath="/Script/Engine.MaterialExpressionTime'/Game/CastleDefender/UI/HUD/M_UI_GoldDigits.M_UI_GoldDigits:MaterialExpressionTime_3'"
+      bIgnorePause=True
+      MaterialExpressionEditorX=-900
+      MaterialExpressionEditorY=330
+      MaterialExpressionGuid=40918C9F4DF9AB1B8A8736BA1C5C766B
+      Material="/Script/Engine.Material'M_UI_GoldDigits'"
+   End Object
+   MaterialDomain=MD_UI
+   BlendMode=BLEND_Translucent
+   bCanMaskedBeAssumedOpaque=True
+   PixelDepthOffsetMode=PDOM_Legacy
+   StateId=79CCB2C548DB9B203E139AA6ADACEC0A
+   ReferencedTextureGuids(0)=9DE3B2934B739D6E309807B2F9C39686
+   EditorOnlyData="/Script/Engine.MaterialEditorOnlyData'M_UI_GoldDigitsEditorOnlyData'"
+   ReferencedDefaultTextures(0)="/Script/Engine.Texture2D'/Game/CastleDefender/UI/HUD/T_UI_GoldDigits.T_UI_GoldDigits'"
+   LightingGuid=9A0B3E624878302EED6932B1EE7DCD40
+End Object

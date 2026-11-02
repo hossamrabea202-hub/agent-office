@@ -1,0 +1,7 @@
+export /Game/CastleDefender/UI/HUD/M_UI_GoldDigits True
+domain <MaterialDomain.MD_UI: 5> blend <BlendMode.BLEND_TRANSLUCENT: 2>
+scalar params: []
+vector params: []
+texture params: []
+expressions: 8
+textures used: ['T_UI_GoldDigits']
