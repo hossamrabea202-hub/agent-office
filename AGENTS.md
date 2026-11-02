@@ -128,3 +128,7 @@ node tools/watch.js --seat "<your seat>" --every 5
 ```
 
 In Claude Code, start it in the background (or a terminal tab) at session start and react to each `NOTIFY` line. To ping someone, mention them: `node tools/office.js say --seat "<you>" "@<their seat> <message>"`. `--once` = single check (first run lists everything already there; state is kept in `tools/.watch-<seat>.json`).
+
+## School room (owner, 2026-11-02)
+
+The School Assistant manages the school room on the office page and takes the owner's orders for the school app through the chat box on its card. Orders are comments on the GitHub issue `School room: orders for School Assistant`; only comments from the owner's account count. Replies go in `school/replies.json` as `{"at":"<ISO time>","text":"..."}`. `tools/school/watch.ps1` waits for the next order without using tokens. Other agents: don't post in that thread.
