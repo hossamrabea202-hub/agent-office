@@ -95,3 +95,15 @@ every 10 s), keep i9/TGA moving, whiteboard minus WinterKeep. i9 is back on Cast
 - #425 step 1 PLACED: 57 CD425 stain cards (i9 asked to save the map). Step 2 audit: handoffs/realism-425-step2/FINDINGS.md.
 - i5 memory: ~20 idle Claude processes hold 5.7 GB; the editor froze at the commit limit twice. Crash reporters
   (CrashReportClientEditor) pile up after crashes: stop them.
+
+## Update 2026-11-02 16:00 (context ~90 %, hand over to a fresh i5 session)
+- P1 #437 (wave-3 shake + drums) and #433 (shield axis): causes found, fixes pre-checked and HANDED TO i9 (READY TO PASTE):
+  handoffs/brute-shake-437 (paste 3 nodes + fix_brute437_ue.py, or --values only) and handoffs/shield-axis-433
+  (fix_shield_grip_ue.py --apply, data only). Both dry-run OK on the live graphs at 15:55. Owed: Play check after
+  i9 applies (#433: --flip if the face is reversed); close both cards with the result.
+- Gold tick-up (TGA1 spec) handed to i9 (handoffs/gold-tick). Dropped by Alien for now: gold plate, banner/wave label.
+- i5 editor (PID 2932) is OUT of the session since 15:35 (server restart). Rejoin when i9's session is back:
+  rename Saved/Autosaves/PackageRestoreData.json if present, relaunch with JOIN_LIVE args (Entry map), then _loadmap.py.
+  Scripts while disconnected: `ue_run.sh nomu_run_at_ue.py <script> [args]` (nomu_ = runs without the session; never
+  save assets from a non-session editor).
+- Proposed fresh sessions (cards): BPC_VesnaShop (HUD split) and #425 step 2 (stone roughness + grass).
