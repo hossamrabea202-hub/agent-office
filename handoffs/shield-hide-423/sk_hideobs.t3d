@@ -1,0 +1,32 @@
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="shoOwner1"
+   bIsPureFunc=True
+   FunctionReference=(MemberName="GetOwner",bSelfContext=True)
+   NodePosX=0
+   NodePosY=900
+   NodeGuid=1A2B3C4D5E6F40718293A4B5C6D7E801
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_DynamicCast Name="shoCastHero2"
+   TargetType="/Script/Engine.BlueprintGeneratedClass'/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.BP_ThirdPersonCharacter_C'"
+   PureState=Pure
+   NodePosX=250
+   NodePosY=900
+   NodeGuid=1A2B3C4D5E6F40718293A4B5C6D7E802
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="shoGetObs3"
+   VariableReference=(MemberParent="/Script/Engine.BlueprintGeneratedClass'/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.BP_ThirdPersonCharacter_C'",MemberName="ObsidianShield")
+   NodePosX=550
+   NodePosY=900
+   NodeGuid=1A2B3C4D5E6F40718293A4B5C6D7E803
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="shoHideObs4"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'",MemberName="SetVisibility")
+   NodePosX=850
+   NodePosY=850
+   NodeGuid=1A2B3C4D5E6F40718293A4B5C6D7E804
+End Object
+Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="shoShowObs5"
+   FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'",MemberName="SetVisibility")
+   NodePosX=850
+   NodePosY=1050
+   NodeGuid=1A2B3C4D5E6F40718293A4B5C6D7E805
+End Object
