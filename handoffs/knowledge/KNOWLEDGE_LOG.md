@@ -254,3 +254,17 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
 - **Pitfalls:** decals writing roughness leave dry patches (decal change needs the owner's OK); Lumen Max Roughness To
   Trace (~0.4) sits right on wet-stone roughness, raise it in the rain PPV. Full design (`MF_RainWet`) and sources:
   `handoffs/rain-wet-410/RESEARCH.md`.
+
+## 2026-11-02, adjustedfilm (i5): contact stains under wall props (#425), tested
+- **Half the castle walls don't receive decals** (Receives Decals off on Castle_*Curtain, GateTowers, KeepTurret, the
+  Nanite wall cubes): any DBuffer decal there is invisible. Unlit *Modulate* stain cards (a plane 0.4 cm off the wall,
+  multiply by stain/WallAlbedo) work everywhere without touching the decal system. Tested in lookdev and in the castle.
+- Engine `/Engine/BasicShapes/Plane` rotated with MakeRotFromZX(wallNormal, up): its U runs UP the wall, so procedural
+  masks need a swap and a flip (Swap 1, FlipV 1 in M_Contact*Card425).
+- New decal shaders compile asynchronously: a SceneCapture in the same tick as the spawn shows nothing. Spawn, wait a
+  few seconds (separate script), then capture.
+- `MI_Castle_StoneWall_World` is world-Z driven (moss height etc.): a lookdev slab 200 m up shows a hard height band,
+  so judge stain shapes on a 0.18 grey wall instead (`contact-decals-425/lookdev_bay_ue.py`).
+- Locked exposure in a SceneCapture: AutoExposureMethod MANUAL + ApplyPhysicalCameraExposure off; switching off the
+  EyeAdaptation show flag instead gives an un-exposed (white) image. Restraint: soot opacity 0.6 and short rust runs
+  read real; full strength looked like painted black smoke.

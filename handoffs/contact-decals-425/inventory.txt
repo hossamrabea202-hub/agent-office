@@ -1,0 +1,940 @@
+banner   BannerWallWind_1                         WindDirectionalSource                                                           loc=(2368,1885,705) yaw=0
+banner   BannerWallWind_2                         WindDirectionalSource                                                           loc=(0,1310,610) yaw=0
+banner   BannerWallWind_3                         WindDirectionalSource                                                           loc=(0,2190,610) yaw=0
+banner   BannerWallWind_4                         WindDirectionalSource                                                           loc=(2368,1615,705) yaw=0
+banner   Castle_BannerRod                         StaticMeshActor              SM_Cube_Nanite                                     loc=(-150,1310,740) yaw=0
+banner   Castle_BannerRod                         StaticMeshActor              SM_Cube_Nanite                                     loc=(-150,2190,740) yaw=0
+banner   Castle_BannerRod                         StaticMeshActor              SM_Cube_Nanite                                     loc=(2218,1615,835) yaw=0
+banner   Castle_BannerRod                         StaticMeshActor              SM_Cube_Nanite                                     loc=(2218,1885,835) yaw=0
+banner   Castle_RoyalBanner_Cloth                 SkeletalMeshActor                                                               loc=(-150,1310,610) yaw=0
+banner   Castle_RoyalBanner_Cloth                 SkeletalMeshActor                                                               loc=(-150,2190,610) yaw=0
+banner   Castle_RoyalBanner_Cloth                 SkeletalMeshActor                                                               loc=(2218,1615,705) yaw=0
+banner   Castle_RoyalBanner_Cloth                 SkeletalMeshActor                                                               loc=(2218,1885,705) yaw=0
+decal    AshenGate_Decal_Moss                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-46894,-3214,-1251) yaw=0
+decal    AshenGate_Decal_Scratches                DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-46876,-3221,-1341) yaw=157
+decal    AshenGate_Decal_Scratches2               DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-46876,-3221,-1341) yaw=-23
+decal    AshenGate_Decal_StairWear                DecalActor                   DECAL:M_AshenGate_DecalStairWear                   loc=(-46793,-3257,-1711) yaw=0
+decal    AshenGate_Decal_Veins                    DecalActor                   DECAL:M_AshenGate_DecalVeins                       loc=(-46876,-3221,-1391) yaw=157
+decal    AshenGate_Decal_Veins2                   DecalActor                   DECAL:M_AshenGate_DecalVeins                       loc=(-46876,-3221,-1391) yaw=-23
+decal    CliffBreakup_West                        DecalActor                   DECAL:MI_CliffBreakup_West                         loc=(-27000,1500,9500) yaw=0
+decal    CrawlerBlood_Drag00                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag00                   loc=(-17844,-4344,-1158) yaw=-120
+decal    CrawlerBlood_Drag01                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag01                   loc=(-17993,-4696,-1183) yaw=-114
+decal    CrawlerBlood_Drag02                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag02                   loc=(-18230,-4998,-1172) yaw=-127
+decal    CrawlerBlood_Drag04                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag04                   loc=(-18577,-5676,-1232) yaw=-118
+decal    CrawlerBlood_Drag05                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag05                   loc=(-18753,-6013,-1263) yaw=-126
+decal    CrawlerBlood_Drag06                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag06                   loc=(-18999,-6310,-1318) yaw=-113
+decal    CrawlerBlood_Drag08                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag08                   loc=(-19432,-6928,-1406) yaw=-139
+decal    CrawlerBlood_Drag09                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag09                   loc=(-19718,-7179,-1457) yaw=-129
+decal    CrawlerBlood_Drag10                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag10                   loc=(-20032,-7401,-1502) yaw=-142
+decal    CrawlerBlood_Drag12                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag12                   loc=(-20514,-7995,-1615) yaw=-131
+decal    CrawlerBlood_Drag13                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag13                   loc=(-20821,-8225,-1651) yaw=-143
+decal    CrawlerBlood_Drag14                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag14                   loc=(-21120,-8462,-1684) yaw=-131
+decal    CrawlerBlood_Drag16                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag16                   loc=(-21691,-8912,-1706) yaw=170
+decal    CrawlerBlood_Drag17                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag17                   loc=(-22065,-8816,-1634) yaw=-178
+decal    CrawlerBlood_Drag18                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag18                   loc=(-22443,-8780,-1606) yaw=172
+decal    CrawlerBlood_Drag20                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag20                   loc=(-23205,-8776,-1597) yaw=-178
+decal    CrawlerBlood_Drag21                      DecalActor                   DECAL:MI_CB2_CrawlerBlood_Drag21                   loc=(-23579,-8682,-1597) yaw=169
+decal    CrawlerBlood_Pool                        DecalActor                   DECAL:MI_CB2_CrawlerBlood_Pool                     loc=(-17803,-4250,-1150) yaw=60
+decal    CrawlerBlood_Spatter                     DecalActor                   DECAL:MI_CB2_CrawlerBlood_Spatter                  loc=(-17690,-4137,-1136) yaw=115
+decal    CrawlerBlood_Spatter2                    DecalActor                   DECAL:MI_CB2_CrawlerBlood_Spatter2                 loc=(-17854,-4274,-1156) yaw=5
+decal    EF_TunDecal_MossFloor_01                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1508,-24319,-1739) yaw=-175
+decal    EF_TunDecal_MossFloor_02                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2127,-24361,-1727) yaw=-178
+decal    EF_TunDecal_MossFloor_03                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-4627,-23489,-1675) yaw=167
+decal    EF_TunDecal_MossFloor_04                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5047,-23967,-1668) yaw=167
+decal    EF_TunDecal_MossFloor_05                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5836,-23189,-1649) yaw=165
+decal    EF_TunDecal_MossFloor_06                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-6630,-23547,-1636) yaw=164
+decal    EF_TunDecal_MossFloor_07                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8035,-22488,-1602) yaw=159
+decal    EF_TunDecal_MossFloor_08                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8788,-22792,-1590) yaw=158
+decal    EF_TunDecal_MossFloor_09                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9426,-21909,-1571) yaw=156
+decal    EF_TunDecal_MossFloor_10                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9715,-21779,-1565) yaw=156
+decal    EF_TunDecal_MossFloor_11                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-10536,-22016,-1551) yaw=155
+decal    EF_TunDecal_MossFloor_12                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11119,-21738,-1538) yaw=154
+decal    EF_TunDecal_MossFloor_13                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-12238,-21190,-1513) yaw=154
+decal    EF_TunDecal_MossFloor_14                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-12757,-20933,-1501) yaw=154
+decal    EF_TunDecal_MossFloor_15                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15112,-19735,-1448) yaw=152
+decal    EF_TunDecal_MossFloor_16                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15645,-19442,-1436) yaw=151
+decal    EF_TunDecal_MossFloor_17                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15894,-19301,-1430) yaw=150
+decal    EF_TunDecal_MossFloor_18                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15842,-18682,-1425) yaw=149
+decal    EF_TunDecal_MossFloor_19                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16350,-19028,-1420) yaw=148
+decal    EF_TunDecal_MossFloor_20                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16556,-18897,-1415) yaw=147
+decal    EF_TunDecal_MossFloor_21                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17061,-17798,-1393) yaw=136
+decal    EF_TunDecal_MossFloor_22                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17244,-17603,-1387) yaw=130
+decal    EF_TunDecal_MossFloor_23                 DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17577,-17046,-1371) yaw=105
+decal    EF_TunDecal_Moss_01                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1075,-24334,-1646) yaw=-87
+decal    EF_TunDecal_Moss_02                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1105,-23674,-1633) yaw=93
+decal    EF_TunDecal_Moss_03                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1261,-24347,-1619) yaw=-85
+decal    EF_TunDecal_Moss_04                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1320,-23689,-1662) yaw=95
+decal    EF_TunDecal_Moss_05                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1565,-23712,-1670) yaw=95
+decal    EF_TunDecal_Moss_06                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1793,-24393,-1627) yaw=-86
+decal    EF_TunDecal_Moss_07                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1842,-23735,-1645) yaw=94
+decal    EF_TunDecal_Moss_08                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-1842,-23735,-933) yaw=94
+decal    EF_TunDecal_Moss_09                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2125,-24411,-927) yaw=-88
+decal    EF_TunDecal_Moss_10                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2150,-23752,-1627) yaw=92
+decal    EF_TunDecal_Moss_100                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15347,-18910,-1320) yaw=61
+decal    EF_TunDecal_Moss_101                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15919,-19344,-1334) yaw=-120
+decal    EF_TunDecal_Moss_102                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15589,-18773,-1337) yaw=60
+decal    EF_TunDecal_Moss_103                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16155,-19206,-1328) yaw=-121
+decal    EF_TunDecal_Moss_104                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16155,-19206,-625) yaw=-121
+decal    EF_TunDecal_Moss_105                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15816,-18639,-625) yaw=59
+decal    EF_TunDecal_Moss_106                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16028,-18510,-1343) yaw=58
+decal    EF_TunDecal_Moss_107                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16583,-18939,-1346) yaw=-123
+decal    EF_TunDecal_Moss_108                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16488,-18203,-1326) yaw=55
+decal    EF_TunDecal_Moss_109                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17212,-18480,-1319) yaw=-130
+decal    EF_TunDecal_Moss_11                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2494,-24416,-1647) yaw=-91
+decal    EF_TunDecal_Moss_110                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16791,-17972,-1291) yaw=50
+decal    EF_TunDecal_Moss_111                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-16791,-17972,-600) yaw=50
+decal    EF_TunDecal_Moss_112                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17487,-18234,-1322) yaw=-134
+decal    EF_TunDecal_Moss_113                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17487,-18234,-593) yaw=-134
+decal    EF_TunDecal_Moss_114                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17708,-17999,-1303) yaw=-140
+decal    EF_TunDecal_Moss_115                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17206,-17571,-1311) yaw=40
+decal    EF_TunDecal_Moss_116                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17883,-17777,-1271) yaw=-144
+decal    EF_TunDecal_Moss_117                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17346,-17393,-1274) yaw=36
+decal    EF_TunDecal_Moss_118                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-18023,-17567,-1292) yaw=-148
+decal    EF_TunDecal_Moss_119                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17461,-17220,-1278) yaw=32
+decal    EF_TunDecal_Moss_12                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2494,-24416,-920) yaw=-91
+decal    EF_TunDecal_Moss_120                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-18167,-17201,-1296) yaw=-165
+decal    EF_TunDecal_Moss_121                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-18199,-16724,-564) yaw=172
+decal    EF_TunDecal_Moss_122                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17546,-16822,-1284) yaw=-8
+decal    EF_TunDecal_Moss_123                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-18147,-16431,-1263) yaw=168
+decal    EF_TunDecal_Moss_124                     DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-17502,-16571,-1269) yaw=-12
+decal    EF_TunDecal_Moss_13                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2488,-23756,-1641) yaw=89
+decal    EF_TunDecal_Moss_14                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2488,-23756,-920) yaw=89
+decal    EF_TunDecal_Moss_15                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2898,-24400,-1618) yaw=-94
+decal    EF_TunDecal_Moss_16                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-2898,-24400,-912) yaw=-94
+decal    EF_TunDecal_Moss_17                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3331,-24356,-1607) yaw=-98
+decal    EF_TunDecal_Moss_18                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3331,-24356,-904) yaw=-98
+decal    EF_TunDecal_Moss_19                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3243,-23702,-1634) yaw=82
+decal    EF_TunDecal_Moss_20                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3678,-24303,-897) yaw=-100
+decal    EF_TunDecal_Moss_21                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3563,-23654,-1588) yaw=80
+decal    EF_TunDecal_Moss_22                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3930,-24257,-1608) yaw=-101
+decal    EF_TunDecal_Moss_23                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3930,-24257,-892) yaw=-101
+decal    EF_TunDecal_Moss_24                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3807,-23609,-1622) yaw=79
+decal    EF_TunDecal_Moss_25                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-3807,-23609,-892) yaw=79
+decal    EF_TunDecal_Moss_26                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-4473,-24147,-1579) yaw=-102
+decal    EF_TunDecal_Moss_27                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-4761,-24084,-1559) yaw=-103
+decal    EF_TunDecal_Moss_28                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-4761,-24084,-875) yaw=-103
+decal    EF_TunDecal_Moss_29                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-4616,-23440,-1568) yaw=77
+decal    EF_TunDecal_Moss_30                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5058,-24016,-1558) yaw=-103
+decal    EF_TunDecal_Moss_31                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-4907,-23373,-1588) yaw=77
+decal    EF_TunDecal_Moss_32                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5364,-23942,-1567) yaw=-104
+decal    EF_TunDecal_Moss_33                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5206,-23301,-1587) yaw=76
+decal    EF_TunDecal_Moss_34                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5206,-23301,-862) yaw=76
+decal    EF_TunDecal_Moss_35                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5677,-23863,-1554) yaw=-104
+decal    EF_TunDecal_Moss_36                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5512,-23224,-1552) yaw=76
+decal    EF_TunDecal_Moss_37                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-5996,-23778,-1579) yaw=-105
+decal    EF_TunDecal_Moss_38                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-6318,-23689,-1550) yaw=-106
+decal    EF_TunDecal_Moss_39                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-6644,-23594,-1558) yaw=-106
+decal    EF_TunDecal_Moss_40                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-6457,-22962,-1517) yaw=74
+decal    EF_TunDecal_Moss_41                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-6972,-23495,-1531) yaw=-107
+decal    EF_TunDecal_Moss_42                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-6972,-23495,-829) yaw=-107
+decal    EF_TunDecal_Moss_43                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-6776,-22865,-1555) yaw=73
+decal    EF_TunDecal_Moss_44                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-7300,-23391,-1500) yaw=-108
+decal    EF_TunDecal_Moss_45                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-7627,-23282,-1531) yaw=-109
+decal    EF_TunDecal_Moss_46                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-7952,-23168,-1511) yaw=-110
+decal    EF_TunDecal_Moss_47                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-7952,-23168,-808) yaw=-110
+decal    EF_TunDecal_Moss_48                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-7729,-22547,-1495) yaw=70
+decal    EF_TunDecal_Moss_49                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8017,-22441,-1512) yaw=69
+decal    EF_TunDecal_Moss_50                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8526,-22952,-1496) yaw=-112
+decal    EF_TunDecal_Moss_51                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8283,-22338,-796) yaw=68
+decal    EF_TunDecal_Moss_52                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8807,-22838,-1473) yaw=-112
+decal    EF_TunDecal_Moss_53                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8807,-22838,-790) yaw=-112
+decal    EF_TunDecal_Moss_54                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8557,-22228,-1470) yaw=68
+decal    EF_TunDecal_Moss_55                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8557,-22228,-790) yaw=68
+decal    EF_TunDecal_Moss_56                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9093,-22719,-1493) yaw=-113
+decal    EF_TunDecal_Moss_57                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-8835,-22112,-1471) yaw=67
+decal    EF_TunDecal_Moss_58                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9674,-22466,-1460) yaw=-114
+decal    EF_TunDecal_Moss_59                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9405,-21863,-1496) yaw=66
+decal    EF_TunDecal_Moss_60                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9968,-22334,-1477) yaw=-114
+decal    EF_TunDecal_Moss_61                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9968,-22334,-765) yaw=-114
+decal    EF_TunDecal_Moss_62                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9695,-21733,-1444) yaw=66
+decal    EF_TunDecal_Moss_63                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-10263,-22199,-1473) yaw=-115
+decal    EF_TunDecal_Moss_64                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-10263,-22199,-758) yaw=-115
+decal    EF_TunDecal_Moss_65                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9985,-21600,-1467) yaw=65
+decal    EF_TunDecal_Moss_66                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-9985,-21600,-758) yaw=65
+decal    EF_TunDecal_Moss_67                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-10557,-22061,-1430) yaw=-115
+decal    EF_TunDecal_Moss_68                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-10276,-21464,-1463) yaw=65
+decal    EF_TunDecal_Moss_69                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-10850,-21922,-1463) yaw=-116
+decal    EF_TunDecal_Moss_70                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-10566,-21327,-745) yaw=64
+decal    EF_TunDecal_Moss_71                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11141,-21783,-1470) yaw=-116
+decal    EF_TunDecal_Moss_72                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-10854,-21188,-1456) yaw=64
+decal    EF_TunDecal_Moss_73                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11428,-21644,-1442) yaw=-116
+decal    EF_TunDecal_Moss_74                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11139,-21050,-1424) yaw=64
+decal    EF_TunDecal_Moss_75                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11139,-21050,-732) yaw=64
+decal    EF_TunDecal_Moss_76                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11711,-21506,-1455) yaw=-116
+decal    EF_TunDecal_Moss_77                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11711,-21506,-726) yaw=-116
+decal    EF_TunDecal_Moss_78                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11421,-20913,-726) yaw=64
+decal    EF_TunDecal_Moss_79                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11989,-21369,-1394) yaw=-116
+decal    EF_TunDecal_Moss_80                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11989,-21369,-719) yaw=-116
+decal    EF_TunDecal_Moss_81                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-12260,-21235,-1403) yaw=-116
+decal    EF_TunDecal_Moss_82                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-11968,-20643,-713) yaw=64
+decal    EF_TunDecal_Moss_83                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-12524,-21104,-1383) yaw=-116
+decal    EF_TunDecal_Moss_84                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-12231,-20513,-1390) yaw=64
+decal    EF_TunDecal_Moss_85                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-12733,-20264,-1412) yaw=64
+decal    EF_TunDecal_Moss_86                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-13309,-20715,-1398) yaw=-116
+decal    EF_TunDecal_Moss_87                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-13016,-20124,-1365) yaw=64
+decal    EF_TunDecal_Moss_88                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-13631,-20555,-1368) yaw=-117
+decal    EF_TunDecal_Moss_89                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-13650,-19806,-1362) yaw=63
+decal    EF_TunDecal_Moss_90                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-14258,-20238,-1358) yaw=-117
+decal    EF_TunDecal_Moss_91                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-14258,-20238,-668) yaw=-117
+decal    EF_TunDecal_Moss_92                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-14559,-20082,-1367) yaw=-117
+decal    EF_TunDecal_Moss_93                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-14256,-19497,-1347) yaw=63
+decal    EF_TunDecal_Moss_94                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15136,-19779,-1339) yaw=-118
+decal    EF_TunDecal_Moss_95                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15136,-19779,-648) yaw=-118
+decal    EF_TunDecal_Moss_96                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-14824,-19197,-1325) yaw=62
+decal    EF_TunDecal_Moss_97                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-14824,-19197,-648) yaw=62
+decal    EF_TunDecal_Moss_98                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15409,-19631,-1329) yaw=-119
+decal    EF_TunDecal_Moss_99                      DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-15092,-19052,-1349) yaw=61
+decal    EF_TunDecal_Paint_01                     DecalActor                   DECAL:MI_EF_CavePaint_2                            loc=(-5206,-23301,-1373) yaw=76
+decal    EF_TunDecal_Paint_02                     DecalActor                   DECAL:MI_EF_CavePaint_0                            loc=(-5677,-23863,-1338) yaw=-104
+decal    EF_TunDecal_Paint_03                     DecalActor                   DECAL:MI_EF_CavePaint_0                            loc=(-10557,-22061,-1274) yaw=-115
+decal    EF_TunDecal_Paint_04                     DecalActor                   DECAL:MI_EF_CavePaint_3                            loc=(-10850,-21922,-1233) yaw=-116
+decal    EF_TunDecal_Paint_05                     DecalActor                   DECAL:MI_EF_CavePaint_3                            loc=(-11711,-21506,-1265) yaw=-116
+decal    EF_TunDecal_Paint_06                     DecalActor                   DECAL:MI_EF_CavePaint_3                            loc=(-12524,-21104,-1251) yaw=-116
+decal    EF_TunDecal_Paint_07                     DecalActor                   DECAL:MI_EF_CavePaint_2                            loc=(-12733,-20264,-1189) yaw=64
+decal    EF_TunDecal_Paint_08                     DecalActor                   DECAL:MI_EF_CavePaint_3                            loc=(-16376,-19071,-1152) yaw=-122
+decal    EF_TunDecal_Paint_09                     DecalActor                   DECAL:MI_EF_CavePaint_0                            loc=(-17883,-17777,-1103) yaw=-144
+decal    EF_TunDecal_Paint_10                     DecalActor                   DECAL:MI_EF_CavePaint_0                            loc=(-18023,-17567,-1064) yaw=-148
+decal    EF_TunDecal_Scratch_01                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-1075,-24334,-1612) yaw=-87
+decal    EF_TunDecal_Scratch_02                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-1504,-24369,-1600) yaw=-85
+decal    EF_TunDecal_Scratch_03                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-1565,-23712,-1583) yaw=95
+decal    EF_TunDecal_Scratch_04                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-2150,-23752,-1531) yaw=92
+decal    EF_TunDecal_Scratch_05                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-3243,-23702,-1536) yaw=82
+decal    EF_TunDecal_Scratch_06                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-5823,-23141,-1507) yaw=75
+decal    EF_TunDecal_Scratch_07                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-6972,-23495,-1407) yaw=-107
+decal    EF_TunDecal_Scratch_08                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-7729,-22547,-1423) yaw=70
+decal    EF_TunDecal_Scratch_09                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-10263,-22199,-1317) yaw=-115
+decal    EF_TunDecal_Scratch_10                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-11421,-20913,-1295) yaw=64
+decal    EF_TunDecal_Scratch_11                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-13948,-20395,-1293) yaw=-117
+decal    EF_TunDecal_Scratch_12                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-13650,-19806,-1354) yaw=63
+decal    EF_TunDecal_Scratch_13                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-16224,-18386,-1242) yaw=57
+decal    EF_TunDecal_Scratch_14                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-16791,-17972,-1195) yaw=50
+decal    EF_TunDecal_Scratch_15                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-17487,-18234,-1154) yaw=-134
+decal    EF_TunDecal_Scratch_16                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-18023,-17567,-1131) yaw=-148
+decal    EF_TunDecal_Scratch_17                   DecalActor                   DECAL:M_AshenGate_DecalScratches                   loc=(-18199,-16724,-1180) yaw=172
+decal    EF_TunDecal_Talisman_01                  DecalActor                   DECAL:MI_EF_Talisman_1                             loc=(-3930,-24257,-1359) yaw=-101
+decal    EF_TunDecal_Talisman_02                  DecalActor                   DECAL:MI_EF_Talisman_1                             loc=(-5996,-23778,-1257) yaw=-105
+decal    EF_TunDecal_Talisman_03                  DecalActor                   DECAL:MI_EF_Talisman_2                             loc=(-11697,-20777,-1147) yaw=64
+decal    EF_TunDecal_Talisman_04                  DecalActor                   DECAL:MI_EF_Talisman_2                             loc=(-12487,-20386,-1200) yaw=64
+decal    EF_TunDecal_Talisman_05                  DecalActor                   DECAL:MI_EF_Talisman_2                             loc=(-13631,-20555,-1125) yaw=-117
+decal    EF_TunDecal_Talisman_06                  DecalActor                   DECAL:MI_EF_Talisman_1                             loc=(-15670,-19486,-1042) yaw=-119
+decal    EF_TunDecal_Talisman_07                  DecalActor                   DECAL:MI_EF_Talisman_1                             loc=(-15919,-19344,-1121) yaw=-120
+decal    EF_TunDecal_Vein_01                      DecalActor                   DECAL:M_AshenGate_DecalVeins                       loc=(-7729,-22547,-1198) yaw=70
+decal    EF_TunDecal_Vein_02                      DecalActor                   DECAL:M_AshenGate_DecalVeins                       loc=(-8250,-23058,-1192) yaw=-111
+decal    EF_TunDecal_Vein_03                      DecalActor                   DECAL:M_AshenGate_DecalVeins                       loc=(-8807,-22838,-1180) yaw=-112
+decal    EF_TunDecal_Vein_04                      DecalActor                   DECAL:M_AshenGate_DecalVeins                       loc=(-9674,-22466,-1161) yaw=-114
+decal    EF_TunDecal_Vein_05                      DecalActor                   DECAL:M_AshenGate_DecalVeins                       loc=(-10263,-22199,-1148) yaw=-115
+decal    EF_TunDecal_Vein_06                      DecalActor                   DECAL:M_AshenGate_DecalVeins                       loc=(-11968,-20643,-1103) yaw=64
+decal    Env_WornGround_Decal                     DecalActor                   DECAL:M_Castle_WornGround_Decal                    loc=(-850,1750,0) yaw=0
+decal    FirePitGround_Decal                      DecalActor                   DECAL:MI_FirePitGround_Decal                       loc=(3950,2600,10) yaw=0
+decal    FountainGround_Decal                     DecalActor                   DECAL:MI_FountainGround_Decal                      loc=(1440,1750,10) yaw=0
+decal    GateMudPath                              DecalActor                   DECAL:M_GateMudPath                                loc=(-170,1750,40) yaw=0
+decal    GatePassage_WallBase_L                   DecalActor                   DECAL:MI_GatePassage_WallBase_L                    loc=(150,1595,25) yaw=0
+decal    GatePassage_WallBase_R                   DecalActor                   DECAL:MI_GatePassage_WallBase_R                    loc=(150,1905,25) yaw=0
+decal    JellyMineDecal_00_Foam                   DecalActor                   DECAL:-                                            loc=(-1080,1400,-21) yaw=-163
+decal    JellyMineDecal_01_Foam                   DecalActor                   DECAL:-                                            loc=(-1165,1325,-83) yaw=-142
+decal    JellyMineDecal_02_Foam                   DecalActor                   DECAL:-                                            loc=(-1015,1300,-58) yaw=124
+decal    JellyMineDecal_03_Foam                   DecalActor                   DECAL:-                                            loc=(-1255,1440,-88) yaw=12
+decal    JellyMineDecal_04_Foam                   DecalActor                   DECAL:-                                            loc=(-1100,2085,13) yaw=-71
+decal    JellyMineDecal_05_Foam                   DecalActor                   DECAL:-                                            loc=(-1030,2175,-29) yaw=119
+decal    JellyMineDecal_06_Foam                   DecalActor                   DECAL:-                                            loc=(-1215,2145,-72) yaw=-97
+decal    JellyMineDecal_07_Foam                   DecalActor                   DECAL:-                                            loc=(-1150,2005,-26) yaw=79
+decal    JellyMineDecal_08_Foam                   DecalActor                   DECAL:-                                            loc=(-700,1395,-0) yaw=-114
+decal    JellyMineDecal_09_Foam                   DecalActor                   DECAL:-                                            loc=(-820,2125,14) yaw=-117
+decal    Tower9_Decal_A_Crack_0                   DecalActor                   DECAL:MI_Decal_GroundCrack                         loc=(125,120,1095) yaw=-18
+decal    Tower9_Decal_A_Crack_1                   DecalActor                   DECAL:MI_Decal_GroundCrack                         loc=(125,260,1095) yaw=-140
+decal    Tower9_Decal_A_Footprints                DecalActor                   DECAL:MI_Decal_Footprints                          loc=(132,-16,1095) yaw=-22
+decal    Tower9_Decal_A_Lichen_0                  DecalActor                   DECAL:MI_Decal_LichenCrustA                        loc=(-476,-281,691) yaw=32
+decal    Tower9_Decal_A_Lichen_1                  DecalActor                   DECAL:MI_Decal_LichenCrustB                        loc=(-179,-528,676) yaw=68
+decal    Tower9_Decal_A_Lichen_2                  DecalActor                   DECAL:MI_Decal_LichenCrustA                        loc=(299,-519,681) yaw=114
+decal    Tower9_Decal_A_Moss_0                    DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(618,315,360) yaw=-5
+decal    Tower9_Decal_A_Moss_1                    DecalActor                   DECAL:MI_Decal_MossPatchB                          loc=(264,638,360) yaw=72
+decal    Tower9_Decal_A_Moss_2                    DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-215,618,360) yaw=90
+decal    Tower9_Decal_A_Mud_0                     DecalActor                   DECAL:MI_Decal_MudSplashA                          loc=(167,-616,325) yaw=151
+decal    Tower9_Decal_A_Mud_1                     DecalActor                   DECAL:MI_Decal_MudSplashB                          loc=(675,-208,325) yaw=34
+decal    Tower9_Decal_A_Mud_2                     DecalActor                   DECAL:MI_Decal_MudSplashA                          loc=(553,502,325) yaw=-141
+decal    Tower9_Decal_A_Mud_3                     DecalActor                   DECAL:MI_Decal_MudSplashB                          loc=(-192,681,325) yaw=-160
+decal    Tower9_Decal_A_Mud_4                     DecalActor                   DECAL:MI_Decal_MudSplashA                          loc=(-595,253,325) yaw=97
+decal    Tower9_Decal_A_Mud_5                     DecalActor                   DECAL:MI_Decal_MudSplashB                          loc=(-367,-482,325) yaw=44
+decal    Tower9_Decal_A_MuzzleScorch              DecalActor                   DECAL:MI_Decal_MuzzleScorch                        loc=(-35,190,1095) yaw=90
+decal    Tower9_Decal_A_Salt_0                    DecalActor                   DECAL:MI_Decal_SaltBloom                           loc=(628,278,118) yaw=-159
+decal    Tower9_Decal_A_Salt_1                    DecalActor                   DECAL:MI_Decal_SaltBloom                           loc=(-166,632,115) yaw=-70
+decal    Tower9_Decal_A_Streak_0                  DecalActor                   DECAL:MI_Decal_RainStreakA                         loc=(663,-53,910) yaw=170
+decal    Tower9_Decal_A_Streak_1                  DecalActor                   DECAL:MI_Decal_RainStreakB                         loc=(605,330,910) yaw=-153
+decal    Tower9_Decal_A_Streak_2                  DecalActor                   DECAL:MI_Decal_RainStreakA                         loc=(382,575,910) yaw=-122
+decal    Tower9_Decal_A_Streak_3                  DecalActor                   DECAL:MI_Decal_RainStreakB                         loc=(121,667,910) yaw=-97
+decal    Tower9_Decal_A_Streak_4                  DecalActor                   DECAL:MI_Decal_RainStreakA                         loc=(-221,609,910) yaw=-64
+decal    Tower9_Decal_A_Streak_5                  DecalActor                   DECAL:MI_Decal_RainStreakB                         loc=(-453,415,910) yaw=-36
+decal    Tower9_Decal_A_Tide_0                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(671,50,458) yaw=180
+decal    Tower9_Decal_A_Tide_1                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(664,147,61) yaw=-171
+decal    Tower9_Decal_A_Tide_10                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(50,671,458) yaw=-90
+decal    Tower9_Decal_A_Tide_11                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-47,664,458) yaw=-81
+decal    Tower9_Decal_A_Tide_12                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-142,641,58) yaw=-72
+decal    Tower9_Decal_A_Tide_13                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-232,604,3) yaw=-63
+decal    Tower9_Decal_A_Tide_14                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-315,553,-4) yaw=-54
+decal    Tower9_Decal_A_Tide_15                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-389,489,-14) yaw=-45
+decal    Tower9_Decal_A_Tide_16                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-453,415,-26) yaw=-36
+decal    Tower9_Decal_A_Tide_17                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-504,332,-35) yaw=-27
+decal    Tower9_Decal_A_Tide_18                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-541,242,-40) yaw=-18
+decal    Tower9_Decal_A_Tide_19                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-564,147,-43) yaw=-9
+decal    Tower9_Decal_A_Tide_2                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(641,242,61) yaw=-162
+decal    Tower9_Decal_A_Tide_20                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-571,50,-42) yaw=0
+decal    Tower9_Decal_A_Tide_21                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-564,-47,-37) yaw=9
+decal    Tower9_Decal_A_Tide_22                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-541,-142,-28) yaw=18
+decal    Tower9_Decal_A_Tide_23                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-504,-232,-14) yaw=27
+decal    Tower9_Decal_A_Tide_24                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-453,-315,-0) yaw=36
+decal    Tower9_Decal_A_Tide_25                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-389,-389,12) yaw=45
+decal    Tower9_Decal_A_Tide_26                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-315,-453,21) yaw=54
+decal    Tower9_Decal_A_Tide_27                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-232,-504,24) yaw=63
+decal    Tower9_Decal_A_Tide_28                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-142,-541,25) yaw=72
+decal    Tower9_Decal_A_Tide_29                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-47,-564,15) yaw=81
+decal    Tower9_Decal_A_Tide_3                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(604,332,61) yaw=-153
+decal    Tower9_Decal_A_Tide_30                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(50,-571,-4) yaw=90
+decal    Tower9_Decal_A_Tide_31                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(147,-564,-23) yaw=99
+decal    Tower9_Decal_A_Tide_32                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(242,-541,-34) yaw=108
+decal    Tower9_Decal_A_Tide_33                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(332,-504,-31) yaw=117
+decal    Tower9_Decal_A_Tide_34                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(415,-453,-21) yaw=126
+decal    Tower9_Decal_A_Tide_35                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(489,-389,-14) yaw=135
+decal    Tower9_Decal_A_Tide_36                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(553,-315,-7) yaw=144
+decal    Tower9_Decal_A_Tide_37                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(604,-232,-4) yaw=153
+decal    Tower9_Decal_A_Tide_38                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(641,-142,58) yaw=162
+decal    Tower9_Decal_A_Tide_39                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(664,-47,58) yaw=171
+decal    Tower9_Decal_A_Tide_4                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(553,415,61) yaw=-144
+decal    Tower9_Decal_A_Tide_5                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(489,489,61) yaw=-135
+decal    Tower9_Decal_A_Tide_6                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(415,553,61) yaw=-126
+decal    Tower9_Decal_A_Tide_7                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(332,604,61) yaw=-117
+decal    Tower9_Decal_A_Tide_8                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(242,641,61) yaw=-108
+decal    Tower9_Decal_A_Tide_9                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(147,664,458) yaw=-99
+decal    Tower9_Decal_B_Crack_0                   DecalActor                   DECAL:MI_Decal_GroundCrack                         loc=(-10,3420,1095) yaw=105
+decal    Tower9_Decal_B_Crack_1                   DecalActor                   DECAL:MI_Decal_GroundCrack                         loc=(130,3420,1095) yaw=-99
+decal    Tower9_Decal_B_Footprints                DecalActor                   DECAL:MI_Decal_Footprints                          loc=(-81,3390,1095) yaw=-113
+decal    Tower9_Decal_B_Lichen_0                  DecalActor                   DECAL:MI_Decal_LichenCrustA                        loc=(-460,3096,636) yaw=35
+decal    Tower9_Decal_B_Lichen_1                  DecalActor                   DECAL:MI_Decal_LichenCrustB                        loc=(-139,2858,668) yaw=72
+decal    Tower9_Decal_B_Lichen_2                  DecalActor                   DECAL:MI_Decal_LichenCrustA                        loc=(331,2896,834) yaw=117
+decal    Tower9_Decal_B_Moss_0                    DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(618,3715,360) yaw=17
+decal    Tower9_Decal_B_Moss_1                    DecalActor                   DECAL:MI_Decal_MossPatchB                          loc=(264,4038,360) yaw=92
+decal    Tower9_Decal_B_Moss_2                    DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-215,4018,360) yaw=115
+decal    Tower9_Decal_B_Mud_0                     DecalActor                   DECAL:MI_Decal_MudSplashA                          loc=(276,2813,325) yaw=-160
+decal    Tower9_Decal_B_Mud_1                     DecalActor                   DECAL:MI_Decal_MudSplashB                          loc=(696,3250,325) yaw=136
+decal    Tower9_Decal_B_Mud_2                     DecalActor                   DECAL:MI_Decal_MudSplashA                          loc=(529,3927,325) yaw=-99
+decal    Tower9_Decal_B_Mud_3                     DecalActor                   DECAL:MI_Decal_MudSplashB                          loc=(29,4126,325) yaw=40
+decal    Tower9_Decal_B_Mud_4                     DecalActor                   DECAL:MI_Decal_MudSplashA                          loc=(-586,3680,325) yaw=-147
+decal    Tower9_Decal_B_Mud_5                     DecalActor                   DECAL:MI_Decal_MudSplashB                          loc=(-415,2959,325) yaw=-91
+decal    Tower9_Decal_B_MuzzleScorch              DecalActor                   DECAL:MI_Decal_MuzzleScorch                        loc=(60,3580,1095) yaw=0
+decal    Tower9_Decal_B_Salt_0                    DecalActor                   DECAL:MI_Decal_SaltBloom                           loc=(661,3563,115) yaw=-170
+decal    Tower9_Decal_B_Salt_1                    DecalActor                   DECAL:MI_Decal_SaltBloom                           loc=(-246,3996,26) yaw=-62
+decal    Tower9_Decal_B_Streak_0                  DecalActor                   DECAL:MI_Decal_RainStreakA                         loc=(668,3387,910) yaw=174
+decal    Tower9_Decal_B_Streak_1                  DecalActor                   DECAL:MI_Decal_RainStreakB                         loc=(623,3689,910) yaw=-157
+decal    Tower9_Decal_B_Streak_2                  DecalActor                   DECAL:MI_Decal_RainStreakA                         loc=(426,3945,910) yaw=-127
+decal    Tower9_Decal_B_Streak_3                  DecalActor                   DECAL:MI_Decal_RainStreakB                         loc=(137,4065,910) yaw=-98
+decal    Tower9_Decal_B_Streak_4                  DecalActor                   DECAL:MI_Decal_RainStreakA                         loc=(-249,3994,910) yaw=-61
+decal    Tower9_Decal_B_Streak_5                  DecalActor                   DECAL:MI_Decal_RainStreakB                         loc=(-451,3817,910) yaw=-36
+decal    Tower9_Decal_B_Tide_0                    DecalActor                   DECAL:DefaultDecalMaterial                         loc=(671,3450,458) yaw=180
+decal    Tower9_Decal_B_Tide_1                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(664,3547,58) yaw=-171
+decal    Tower9_Decal_B_Tide_10                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(50,4071,-44) yaw=-90
+decal    Tower9_Decal_B_Tide_11                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-47,4064,-43) yaw=-81
+decal    Tower9_Decal_B_Tide_12                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-142,4041,-38) yaw=-72
+decal    Tower9_Decal_B_Tide_13                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-232,4004,-32) yaw=-63
+decal    Tower9_Decal_B_Tide_14                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-315,3953,-26) yaw=-54
+decal    Tower9_Decal_B_Tide_15                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-389,3889,-24) yaw=-45
+decal    Tower9_Decal_B_Tide_16                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-453,3815,-27) yaw=-36
+decal    Tower9_Decal_B_Tide_17                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-504,3732,-31) yaw=-27
+decal    Tower9_Decal_B_Tide_18                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-541,3642,-39) yaw=-18
+decal    Tower9_Decal_B_Tide_19                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-564,3547,-43) yaw=-9
+decal    Tower9_Decal_B_Tide_2                    DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(641,3642,58) yaw=-162
+decal    Tower9_Decal_B_Tide_20                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-571,3450,-44) yaw=0
+decal    Tower9_Decal_B_Tide_21                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-564,3353,-42) yaw=9
+decal    Tower9_Decal_B_Tide_22                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-541,3258,-37) yaw=18
+decal    Tower9_Decal_B_Tide_23                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-504,3168,-31) yaw=27
+decal    Tower9_Decal_B_Tide_24                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-453,3085,-21) yaw=36
+decal    Tower9_Decal_B_Tide_25                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-389,3011,-9) yaw=45
+decal    Tower9_Decal_B_Tide_26                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-315,2947,0) yaw=54
+decal    Tower9_Decal_B_Tide_27                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-232,2896,6) yaw=63
+decal    Tower9_Decal_B_Tide_28                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(-142,2859,58) yaw=72
+decal    Tower9_Decal_B_Tide_29                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(-47,2836,458) yaw=81
+decal    Tower9_Decal_B_Tide_3                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(604,3732,22) yaw=-153
+decal    Tower9_Decal_B_Tide_30                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(50,2829,458) yaw=90
+decal    Tower9_Decal_B_Tide_31                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(147,2836,458) yaw=99
+decal    Tower9_Decal_B_Tide_32                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(242,2859,61) yaw=108
+decal    Tower9_Decal_B_Tide_33                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(332,2896,61) yaw=117
+decal    Tower9_Decal_B_Tide_34                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(415,2947,61) yaw=126
+decal    Tower9_Decal_B_Tide_35                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(489,3011,61) yaw=135
+decal    Tower9_Decal_B_Tide_36                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(553,3085,182) yaw=144
+decal    Tower9_Decal_B_Tide_37                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(604,3168,61) yaw=153
+decal    Tower9_Decal_B_Tide_38                   DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(641,3258,61) yaw=162
+decal    Tower9_Decal_B_Tide_39                   DecalActor                   DECAL:MI_Decal_DampTide                            loc=(664,3353,61) yaw=171
+decal    Tower9_Decal_B_Tide_4                    DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(553,3815,15) yaw=-144
+decal    Tower9_Decal_B_Tide_5                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(489,3889,1) yaw=-135
+decal    Tower9_Decal_B_Tide_6                    DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(415,3953,-21) yaw=-126
+decal    Tower9_Decal_B_Tide_7                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(332,4004,-31) yaw=-117
+decal    Tower9_Decal_B_Tide_8                    DecalActor                   DECAL:MI_Decal_MossPatchA                          loc=(242,4041,-38) yaw=-108
+decal    Tower9_Decal_B_Tide_9                    DecalActor                   DECAL:MI_Decal_DampTide                            loc=(147,4064,-43) yaw=-99
+decal    Tower9_Moss_A_1                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(603,332,10) yaw=27
+decal    Tower9_Moss_A_10                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-563,-47,-90) yaw=-171
+decal    Tower9_Moss_A_11                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-503,-232,-67) yaw=-153
+decal    Tower9_Moss_A_12                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-389,-389,-41) yaw=-135
+decal    Tower9_Moss_A_13                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-232,-503,-28) yaw=-117
+decal    Tower9_Moss_A_14                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-47,-563,-37) yaw=-99
+decal    Tower9_Moss_A_15                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(147,-563,-75) yaw=-81
+decal    Tower9_Moss_A_16                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(332,-503,-84) yaw=-63
+decal    Tower9_Moss_A_17                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(489,-389,-65) yaw=-45
+decal    Tower9_Moss_A_18                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(603,-232,-54) yaw=-27
+decal    Tower9_Moss_A_19                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(663,-47,8) yaw=-9
+decal    Tower9_Moss_A_2                          DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(489,489,10) yaw=45
+decal    Tower9_Moss_A_3                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(332,603,10) yaw=63
+decal    Tower9_Moss_A_4                          DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(147,663,10) yaw=81
+decal    Tower9_Moss_A_5                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-47,663,8) yaw=99
+decal    Tower9_Moss_A_6                          DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-232,603,-47) yaw=117
+decal    Tower9_Moss_A_7                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-389,489,-66) yaw=135
+decal    Tower9_Moss_A_8                          DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-503,332,-87) yaw=153
+decal    Tower9_Moss_A_9                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-563,147,-95) yaw=171
+decal    Tower9_Moss_A_F00                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(597,447,12) yaw=-163
+decal    Tower9_Moss_A_F01                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(388,635,12) yaw=-122
+decal    Tower9_Moss_A_F02                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(121,722,100) yaw=-82
+decal    Tower9_Moss_A_F03                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-159,693,10) yaw=-41
+decal    Tower9_Moss_A_F04                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-402,552,-62) yaw=-0
+decal    Tower9_Moss_A_F05                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-568,325,-91) yaw=41
+decal    Tower9_Moss_A_F06                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-626,50,-98) yaw=82
+decal    Tower9_Moss_A_F07                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-568,-225,-75) yaw=122
+decal    Tower9_Moss_A_F08                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-402,-452,-41) yaw=163
+decal    Tower9_Moss_A_F09                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-159,-593,-30) yaw=-156
+decal    Tower9_Moss_A_F10                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(121,-622,-70) yaw=-115
+decal    Tower9_Moss_A_F11                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(388,-535,-83) yaw=-74
+decal    Tower9_Moss_A_F12                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(597,-347,-56) yaw=-34
+decal    Tower9_Moss_A_F13                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(711,-91,10) yaw=7
+decal    Tower9_Moss_B_0                          DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(147,2837,11) yaw=-81
+decal    Tower9_Moss_B_1                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(332,2897,10) yaw=-63
+decal    Tower9_Moss_B_10                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-47,4063,-95) yaw=99
+decal    Tower9_Moss_B_11                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-232,4003,-85) yaw=117
+decal    Tower9_Moss_B_12                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-389,3889,-77) yaw=135
+decal    Tower9_Moss_B_13                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-503,3732,-84) yaw=153
+decal    Tower9_Moss_B_14                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-563,3547,-96) yaw=171
+decal    Tower9_Moss_B_15                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-563,3353,-96) yaw=-171
+decal    Tower9_Moss_B_16                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-503,3168,-84) yaw=-153
+decal    Tower9_Moss_B_17                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-389,3011,-61) yaw=-135
+decal    Tower9_Moss_B_18                         DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(-232,2897,-44) yaw=-117
+decal    Tower9_Moss_B_19                         DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(-47,2837,8) yaw=-99
+decal    Tower9_Moss_B_2                          DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(489,3011,10) yaw=-45
+decal    Tower9_Moss_B_5                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(663,3547,8) yaw=9
+decal    Tower9_Moss_B_6                          DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(603,3732,-28) yaw=27
+decal    Tower9_Moss_B_7                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(489,3889,-51) yaw=45
+decal    Tower9_Moss_B_8                          DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(332,4003,-84) yaw=63
+decal    Tower9_Moss_B_9                          DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(147,4063,-95) yaw=81
+decal    Tower9_Moss_B_F00                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(711,3591,10) yaw=156
+decal    Tower9_Moss_B_F01                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(597,3847,-35) yaw=-163
+decal    Tower9_Moss_B_F02                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(388,4035,-83) yaw=-122
+decal    Tower9_Moss_B_F03                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(121,4122,-99) yaw=-82
+decal    Tower9_Moss_B_F04                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-159,4093,-93) yaw=-41
+decal    Tower9_Moss_B_F05                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-402,3952,-80) yaw=-0
+decal    Tower9_Moss_B_F06                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-568,3725,-89) yaw=41
+decal    Tower9_Moss_B_F07                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-626,3450,-100) yaw=82
+decal    Tower9_Moss_B_F08                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-568,3175,-88) yaw=122
+decal    Tower9_Moss_B_F09                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-402,2948,-58) yaw=163
+decal    Tower9_Moss_B_F10                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(-159,2807,10) yaw=-156
+decal    Tower9_Moss_B_F11                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(121,2778,100) yaw=-115
+decal    Tower9_Moss_B_F12                        DecalActor                   DECAL:M_AshenGate_DecalMoss                        loc=(388,2865,12) yaw=-74
+decal    V3_Crack_0                               DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-8877,-21898,-1346) yaw=-113
+decal    V3_Crack_1                               DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-13820,-20661,-945) yaw=63
+decal    V3_Crack_10                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-12098,-20557,-1050) yaw=64
+decal    V3_Crack_11                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-11478,-21641,-1319) yaw=-116
+decal    V3_Crack_12                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-145,1817,748) yaw=0
+decal    V3_Crack_13                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-9862,-22579,-1108) yaw=66
+decal    V3_Crack_14                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-14627,-20070,-1248) yaw=-117
+decal    V3_Crack_15                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-5933,-22925,-1145) yaw=-106
+decal    V3_Crack_16                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-6502,-22761,-1439) yaw=-106
+decal    V3_Crack_17                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-9333,-21699,-946) yaw=-114
+decal    V3_Crack_18                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-8766,-23050,-1143) yaw=68
+decal    V3_Crack_19                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-10863,-21938,-1146) yaw=-116
+decal    V3_Crack_2                               DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-8423,-23185,-1133) yaw=69
+decal    V3_Crack_20                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(130,3183,408) yaw=180
+decal    V3_Crack_21                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-10624,-21100,-1116) yaw=-116
+decal    V3_Crack_22                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-2371,-24597,-1479) yaw=89
+decal    V3_Crack_23                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-3129,-23535,-1137) yaw=-98
+decal    V3_Crack_24                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-10054,-21546,-1195) yaw=65
+decal    V3_Crack_25                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-11846,-20681,-889) yaw=64
+decal    V3_Crack_26                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(4476,-165,667) yaw=90
+decal    V3_Crack_27                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-14771,-19021,-1093) yaw=-118
+decal    V3_Crack_28                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-14588,-20270,-1041) yaw=63
+decal    V3_Crack_29                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-7901,-22292,-1265) yaw=-111
+decal    V3_Crack_3                               DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-18470,-16210,-830) yaw=-0
+decal    V3_Crack_30                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-14381,-20377,-1094) yaw=63
+decal    V3_Crack_31                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-17354,-16755,-1078) yaw=172
+decal    V3_Crack_32                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-2742,-24431,-1173) yaw=-94
+decal    V3_Crack_33                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-10931,-21129,-1026) yaw=64
+decal    V3_Crack_34                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-590,-23399,-1306) yaw=180
+decal    V3_Crack_35                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-13755,-19731,-835) yaw=63
+decal    V3_Crack_36                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-14097,-19376,-965) yaw=-117
+decal    V3_Crack_37                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-12834,-20192,-1168) yaw=64
+decal    V3_Crack_38                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-9246,-21913,-969) yaw=66
+decal    V3_Crack_39                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(2162,3530,270) yaw=-90
+decal    V3_Crack_4                               DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-7603,-23480,-1068) yaw=71
+decal    V3_Crack_40                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-4499,-23446,-1239) yaw=78
+decal    V3_Crack_41                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-5222,-23112,-1020) yaw=-104
+decal    V3_Crack_42                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(795,3530,350) yaw=-90
+decal    V3_Crack_43                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(4450,3235,485) yaw=90
+decal    V3_Crack_44                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(4009,1450,281) yaw=90
+decal    V3_Crack_45                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-4680,-24123,-1195) yaw=-103
+decal    V3_Crack_46                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-11348,-20926,-1068) yaw=64
+decal    V3_Crack_47                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-7965,-23184,-967) yaw=-110
+decal    V3_Crack_48                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-7299,-23580,-1207) yaw=72
+decal    V3_Crack_49                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-15087,-19031,-1121) yaw=61
+decal    V3_Crack_5                               DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-16579,-18114,-799) yaw=55
+decal    V3_Crack_50                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-9800,-22432,-957) yaw=-114
+decal    V3_Crack_51                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-10356,-21227,-1131) yaw=-116
+decal    V3_Crack_52                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-6361,-23698,-1294) yaw=-106
+decal    V3_Crack_53                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(3786,2010,278) yaw=90
+decal    V3_Crack_54                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-10863,-22116,-1172) yaw=64
+decal    V3_Crack_55                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-14926,-19913,-1227) yaw=-118
+decal    V3_Crack_56                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(4175,130,361) yaw=-90
+decal    V3_Crack_57                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-13915,-20614,-874) yaw=63
+decal    V3_Crack_58                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-30,456,261) yaw=0
+decal    V3_Crack_59                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-2200,-24594,-1455) yaw=92
+decal    V3_Crack_6                               DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(4520,2167,307) yaw=-0
+decal    V3_Crack_60                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-9326,-22816,-1273) yaw=67
+decal    V3_Crack_61                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-12476,-21329,-1071) yaw=64
+decal    V3_Crack_62                              DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-6923,-22798,-1046) yaw=72
+decal    V3_Crack_63                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-9449,-22588,-1025) yaw=-114
+decal    V3_Crack_64                              DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(1348,3530,281) yaw=-90
+decal    V3_Crack_7                               DecalActor                   DECAL:MI_Decal_WallCrackB                          loc=(-4940,-23345,-1467) yaw=77
+decal    V3_Crack_8                               DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-15518,-19776,-941) yaw=61
+decal    V3_Crack_9                               DecalActor                   DECAL:MI_Decal_WallCrackA                          loc=(-6933,-22627,-1093) yaw=-108
+decal    V3_Impact_0                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-13489,-20827,-1020) yaw=64
+decal    V3_Impact_1                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-6073,-23052,-1381) yaw=74
+decal    V3_Impact_10                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-17430,-16097,-794) yaw=0
+decal    V3_Impact_11                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-5993,-23965,-1426) yaw=75
+decal    V3_Impact_12                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(1304,-30,347) yaw=90
+decal    V3_Impact_13                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-10138,-22278,-1333) yaw=-115
+decal    V3_Impact_14                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-12104,-21335,-1293) yaw=-116
+decal    V3_Impact_15                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(4520,1406,406) yaw=-0
+decal    V3_Impact_16                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-16731,-17995,-1155) yaw=50
+decal    V3_Impact_17                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(260,130,444) yaw=-90
+decal    V3_Impact_18                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-7355,-23394,-1196) yaw=-108
+decal    V3_Impact_19                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-2085,-23729,-1201) yaw=92
+decal    V3_Impact_2                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-12580,-21099,-942) yaw=-116
+decal    V3_Impact_20                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-14863,-19153,-1203) yaw=62
+decal    V3_Impact_21                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-3639,-24493,-1303) yaw=80
+decal    V3_Impact_22                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-13900,-19657,-1100) yaw=63
+decal    V3_Impact_23                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-6691,-23602,-1243) yaw=-106
+decal    V3_Impact_24                             DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(4150,1713,198) yaw=180
+decal    V3_Impact_3                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-16622,-18938,-777) yaw=-123
+decal    V3_Impact_4                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-17812,-15900,-228) yaw=-90
+decal    V3_Impact_5                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-4939,-24064,-1286) yaw=-103
+decal    V3_Impact_6                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-18223,-17586,-1061) yaw=32
+decal    V3_Impact_7                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-8166,-22191,-1078) yaw=-112
+decal    V3_Impact_8                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-5256,-23103,-1197) yaw=-104
+decal    V3_Impact_9                              DecalActor                   DECAL:MI_Decal_WallImpact                          loc=(-10958,-21116,-1079) yaw=64
+decal    YW_Blood_GateDrag_A                      DecalActor                   DECAL:MI_YW_Blood_GateDrag_A                       loc=(270,1635,8) yaw=-99
+decal    YW_Blood_GateDrag_B                      DecalActor                   DECAL:MI_YW_Blood_GateDrag_B                       loc=(370,1935,8) yaw=-63
+decal    YW_Blood_Spatter                         DecalActor                   DECAL:MI_YW_Blood_Spatter                          loc=(670,1710,8) yaw=-79
+decal    YW_Drain_Overflow                        DecalActor                   DECAL:MI_YW_Drain_Overflow                         loc=(1440,1376,8) yaw=180
+decal    YW_Drips_ToFirePit                       DecalActor                   DECAL:MI_YW_Drips_ToFirePit                        loc=(1170,2095,8) yaw=38
+decal    YW_Drips_ToKeep                          DecalActor                   DECAL:MI_YW_Drips_ToKeep                           loc=(1762,1840,8) yaw=-75
+decal    YW_Drips_ToNorthStair                    DecalActor                   DECAL:MI_YW_Drips_ToNorthStair                     loc=(1385,2242,8) yaw=17
+decal    YW_Leaves_FountainLee                    DecalActor                   DECAL:MI_YW_Leaves_FountainLee                     loc=(1570,1785,8) yaw=15
+decal    YW_Leaves_KeepStairCorner                DecalActor                   DECAL:MI_YW_Leaves_KeepStairCorner                 loc=(1880,1380,8) yaw=180
+decal    YW_Leaves_NorthWall                      DecalActor                   DECAL:MI_YW_Leaves_NorthWall                       loc=(1100,3320,8) yaw=-90
+decal    YW_Leaves_SouthBarrels                   DecalActor                   DECAL:MI_YW_Leaves_SouthBarrels                    loc=(1375,190,8) yaw=-90
+decal    YW_Moss_FountainShade                    DecalActor                   DECAL:MI_YW_Moss_FountainShade                     loc=(1290,1750,8) yaw=0
+decal    YW_Moss_KeepCornerNorth                  DecalActor                   DECAL:MI_YW_Moss_KeepCornerNorth                   loc=(2350,2950,8) yaw=0
+decal    YW_Moss_KeepCornerSouth                  DecalActor                   DECAL:MI_YW_Moss_KeepCornerSouth                   loc=(2350,600,8) yaw=0
+decal    YW_Moss_NorthWall_A                      DecalActor                   DECAL:MI_YW_Moss_NorthWall_A                       loc=(625,3310,8) yaw=-90
+decal    YW_Moss_NorthWall_B                      DecalActor                   DECAL:MI_YW_Moss_NorthWall_B                       loc=(1850,3310,8) yaw=-90
+decal    YW_Moss_SouthWall                        DecalActor                   DECAL:MI_YW_Moss_SouthWall                         loc=(725,180,8) yaw=-90
+decal    YW_Moss_WallBase_01                      DecalActor                   DECAL:MI_YW_Moss_WallBase_01                       loc=(1796,2700,8) yaw=90
+decal    YW_Moss_WallBase_02                      DecalActor                   DECAL:MI_YW_Moss_WallBase_02                       loc=(1841,800,8) yaw=90
+decal    YW_Mud_GateRoad                          DecalActor                   DECAL:MI_YW_Mud_GateRoad                           loc=(445,1750,8) yaw=-90
+decal    YW_Mud_GateSpillLeft                     DecalActor                   DECAL:MI_YW_Mud_GateSpillLeft                      loc=(240,1470,8) yaw=-117
+decal    YW_Mud_GateSpillRight                    DecalActor                   DECAL:MI_YW_Mud_GateSpillRight                     loc=(220,2050,8) yaw=-55
+decal    YW_Path_FountainToKeep                   DecalActor                   DECAL:MI_YW_Path_FountainToKeep                    loc=(1770,1750,8) yaw=-90
+decal    YW_Path_FountainToNorthStair             DecalActor                   DECAL:MI_YW_Path_FountainToNorthStair              loc=(1388,2348,8) yaw=17
+decal    YW_Path_FountainToSouthStair             DecalActor                   DECAL:MI_YW_Path_FountainToSouthStair              loc=(1388,1152,8) yaw=163
+decal    YW_Path_GateToFountain                   DecalActor                   DECAL:MI_YW_Path_GateToFountain                    loc=(652,1750,8) yaw=-90
+decal    YW_Path_ToFirePit                        DecalActor                   DECAL:MI_YW_Path_ToFirePit                         loc=(1150,2105,8) yaw=34
+decal    YW_Scorch_Cannon_A                       DecalActor                   DECAL:MI_YW_Scorch_Cannon_A                        loc=(180,1430,8) yaw=-90
+decal    YW_Scorch_Cannon_B                       DecalActor                   DECAL:MI_YW_Scorch_Cannon_B                        loc=(545,2060,8) yaw=-90
+decal    YW_Scrapes_GateThreshold                 DecalActor                   DECAL:MI_YW_Scrapes_GateThreshold                  loc=(230,1750,8) yaw=-90
+flag     Castle_Flagpole                          StaticMeshActor              SM_Cylinder_Nanite                                 loc=(373,3130,1280) yaw=0
+flag     Castle_Flagpole2                         StaticMeshActor              SM_Cylinder_Nanite                                 loc=(380,379,1256) yaw=90
+flag     Castle_Flagpole3                         StaticMeshActor              SM_Cylinder_Nanite                                 loc=(3200,-200,1280) yaw=180
+flag     Castle_Flagpole4                         StaticMeshActor              SM_Cylinder_Nanite                                 loc=(3200,3700,1280) yaw=-90
+flag     FlagWind                                 WindDirectionalSource                                                           loc=(1500,1750,2000) yaw=35
+lantern  Mine297_LanternLight_0                   PointLight                                                                      loc=(-756,-2041,-2862) yaw=0
+lantern  Mine297_LanternLight_1                   PointLight                                                                      loc=(-56,-2791,-2882) yaw=0
+lantern  Mine297_LanternLight_2                   PointLight                                                                      loc=(394,-2276,-2932) yaw=0
+lantern  Mine297_LanternLight_3                   PointLight                                                                      loc=(984,-2526,-2932) yaw=0
+lantern  Mine297_LanternLight_4                   PointLight                                                                      loc=(-406,-2821,-2872) yaw=0
+lantern  Mine297_Lantern_0                        StaticMeshActor              SM_Mine_Lantern                                    loc=(-756,-2041,-4862) yaw=-90
+lantern  Mine297_Lantern_1                        StaticMeshActor              SM_Mine_Lantern                                    loc=(-56,-2791,-4882) yaw=90
+lantern  Mine297_Lantern_2                        StaticMeshActor              SM_Mine_Lantern                                    loc=(394,-2276,-4932) yaw=-90
+lantern  Mine297_Lantern_3                        StaticMeshActor              SM_Mine_Lantern                                    loc=(984,-2526,-4932) yaw=90
+lantern  Mine297_Lantern_4                        StaticMeshActor              SM_Mine_Lantern                                    loc=(-406,-2821,-4872) yaw=90
+lantern  Mine_01                                  BP_Mine_C                    SM_Camp_Lantern,SM_Camp_MineEntrance_Split         loc=(94,-2401,-122) yaw=160
+shield   JellyShieldAll                           BP_JellyShieldAll_C                                                             loc=(0,0,520) yaw=0
+shield   Start_Sword_1                            BP_SoldierSword_C            Noble_Crossbow_LowPoly,SM_Longsword_LP,SM_Shield,S loc=(1750,1200,110) yaw=90
+shield   Start_Sword_2                            BP_SoldierSword_C            Noble_Crossbow_LowPoly,SM_Longsword_LP,SM_Shield,S loc=(1750,1450,110) yaw=90
+shield   Start_Xbow_1                             BP_SoldierXbow_C             Noble_Crossbow_LowPoly,SM_Longsword_LP,SM_Shield,S loc=(-105,1800,1079) yaw=180
+shield   Start_Xbow_2                             BP_SoldierXbow_C             Noble_Crossbow_LowPoly,SM_Longsword_LP,SM_Shield,S loc=(-105,1555,1079) yaw=180
+sign     GuardStation_SignalGong                  StaticMeshActor              SM_SignalGong                                      loc=(2037,2090,3) yaw=90
+sign     Props242_246_Sign_Shop                   StaticMeshActor              SM_Sign_Shop                                       loc=(905,3368,293) yaw=-90
+sign     Props242_246_Sign_Smith                  StaticMeshActor              SM_Sign_Smith                                      loc=(4440,3233,292) yaw=-90
+sign     Props242_246_Sign_Tavern                 StaticMeshActor              SM_Sign_Tavern                                     loc=(3900,2052,292) yaw=90
+torch    Castle_Torch_01_Flame                    Emitter                                                                         loc=(700,186,358) yaw=0
+torch    Castle_Torch_01_Light                    PointLight                                                                      loc=(700,231,395) yaw=0
+torch    Castle_Torch_01_Light2                   PointLight                                                                      loc=(1654,231,395) yaw=0
+torch    Castle_Torch_02_Flame                    Emitter                                                                         loc=(1700,145,358) yaw=0
+torch    Castle_Torch_02_Light                    PointLight                                                                      loc=(1700,190,395) yaw=0
+torch    Castle_Torch_03_Flame                    Emitter                                                                         loc=(700,3314,358) yaw=0
+torch    Castle_Torch_03_Light                    PointLight                                                                      loc=(700,3269,395) yaw=0
+torch    Castle_Torch_03_Light2                   PointLight                                                                      loc=(700,3309,395) yaw=0
+torch    Castle_Torch_04_Flame                    Emitter                                                                         loc=(1700,3355,358) yaw=0
+torch    Castle_Torch_04_Light                    PointLight                                                                      loc=(1700,3310,395) yaw=0
+torch    Castle_Torch_04_Light2                   PointLight                                                                      loc=(1700,3286,427) yaw=0
+torch    Castle_Torch_05_Flame                    Emitter                                                                         loc=(2609,188,358) yaw=0
+torch    Castle_Torch_05_Flame3                   Emitter                                                                         loc=(2812,1063,358) yaw=0
+torch    Castle_Torch_05_Flame4                   Emitter                                                                         loc=(4095,1733,358) yaw=0
+torch    Castle_Torch_05_Flame5                   Emitter                                                                         loc=(3186,2873,358) yaw=0
+torch    Castle_Torch_05_Flame6                   Emitter                                                                         loc=(3045,1313,358) yaw=0
+torch    Castle_Torch_05_Flame7                   Emitter                                                                         loc=(3186,473,358) yaw=0
+torch    Castle_Torch_05_Flame8                   Emitter                                                                         loc=(4139,145,358) yaw=0
+torch    Castle_Torch_05_Flame9                   Emitter                                                                         loc=(3439,145,358) yaw=0
+torch    Castle_Torch_05_Light                    PointLight                                                                      loc=(2609,233,395) yaw=-90
+torch    Castle_Torch_05_Light3                   PointLight                                                                      loc=(2767,1063,395) yaw=0
+torch    Castle_Torch_05_Light4                   PointLight                                                                      loc=(4050,1733,395) yaw=0
+torch    Castle_Torch_05_Light5                   PointLight                                                                      loc=(3231,2873,395) yaw=180
+torch    Castle_Torch_05_Light6                   PointLight                                                                      loc=(3090,1313,395) yaw=180
+torch    Castle_Torch_05_Light7                   PointLight                                                                      loc=(3231,473,395) yaw=180
+torch    Castle_Torch_05_Light8                   PointLight                                                                      loc=(4139,190,395) yaw=-90
+torch    Castle_Torch_05_Light9                   PointLight                                                                      loc=(3439,190,395) yaw=-90
+torch    Castle_Torch_06_Flame                    Emitter                                                                         loc=(2855,2700,358) yaw=0
+torch    Castle_Torch_06_Light                    PointLight                                                                      loc=(2810,2700,395) yaw=0
+torch    Castle_Torch_07_Flame                    Emitter                                                                         loc=(2220,1500,358) yaw=0
+torch    Castle_Torch_07_Flame2                   Emitter                                                                         loc=(2220,1500,358) yaw=0
+torch    Castle_Torch_07_Flame4                   Emitter                                                                         loc=(2344,1372,675) yaw=0
+torch    Castle_Torch_07_Light                    PointLight                                                                      loc=(2175,1500,395) yaw=0
+torch    Castle_Torch_07_Light4                   PointLight                                                                      loc=(2381,1379,712) yaw=-90
+torch    Castle_Torch_07_Light5                   PointLight                                                                      loc=(2381,1648,712) yaw=-90
+torch    Castle_Torch_07_Light6                   PointLight                                                                      loc=(2381,1888,712) yaw=-90
+torch    Castle_Torch_08_Flame                    Emitter                                                                         loc=(2220,2000,358) yaw=0
+torch    Castle_Torch_08_Flame2                   Emitter                                                                         loc=(2220,2000,358) yaw=0
+torch    Castle_Torch_08_Flame3                   Emitter                                                                         loc=(235,2238,371) yaw=0
+torch    Castle_Torch_08_Flame4                   Emitter                                                                         loc=(235,1312,371) yaw=0
+torch    Castle_Torch_08_Light                    PointLight                                                                      loc=(2175,2000,395) yaw=0
+torch    Castle_Torch_08_Light3                   PointLight                                                                      loc=(280,2238,408) yaw=-180
+torch    Castle_Torch_08_Light4                   PointLight                                                                      loc=(280,1312,408) yaw=-180
+torch    Castle_Torch_08_Light5                   PointLight                                                                      loc=(258,1018,408) yaw=-180
+torch    Castle_Torch_09_Flame                    Emitter                                                                         loc=(186,1115,358) yaw=0
+torch    Castle_Torch_10_Flame                    Emitter                                                                         loc=(186,2385,358) yaw=0
+torch    Castle_Torch_10_Flame10                  Emitter                                                                         loc=(2105,2710,358) yaw=-180
+torch    Castle_Torch_10_Flame2                   Emitter                                                                         loc=(186,2385,358) yaw=0
+torch    Castle_Torch_10_Flame3                   Emitter                                                                         loc=(2541,2371,358) yaw=0
+torch    Castle_Torch_10_Flame4                   Emitter                                                                         loc=(2508,709,358) yaw=0
+torch    Castle_Torch_10_Flame5                   Emitter                                                                         loc=(4505,780,358) yaw=90
+torch    Castle_Torch_10_Flame6                   Emitter                                                                         loc=(4505,1421,358) yaw=90
+torch    Castle_Torch_10_Flame7                   Emitter                                                                         loc=(4505,2080,358) yaw=90
+torch    Castle_Torch_10_Flame8                   Emitter                                                                         loc=(4505,2761,358) yaw=90
+torch    Castle_Torch_10_Flame9                   Emitter                                                                         loc=(2105,784,358) yaw=0
+torch    Castle_Torch_10_Light                    PointLight                                                                      loc=(186,2430,395) yaw=0
+torch    Castle_Torch_10_Light2                   PointLight                                                                      loc=(2541,2416,395) yaw=0
+torch    Castle_Torch_10_Light3                   PointLight                                                                      loc=(2508,754,395) yaw=0
+torch    Castle_Torch_10_Light4                   PointLight                                                                      loc=(4460,780,395) yaw=90
+torch    Castle_Torch_10_Light5                   PointLight                                                                      loc=(4460,1421,395) yaw=90
+torch    Castle_Torch_10_Light6                   PointLight                                                                      loc=(4460,2080,395) yaw=90
+torch    Castle_Torch_10_Light7                   PointLight                                                                      loc=(4460,2761,395) yaw=90
+torch    Castle_Torch_10_Light8                   PointLight                                                                      loc=(2105,829,395) yaw=0
+torch    Castle_Torch_10_Light9                   PointLight                                                                      loc=(2105,2665,395) yaw=-180
+torch    EF_TrailTorch_01                         StaticMeshActor              SM_Torch_01a                                       loc=(1294,-5973,-1514) yaw=53
+torch    EF_TrailTorch_01_Fire                    Emitter                                                                         loc=(1294,-5973,-1303) yaw=0
+torch    EF_TrailTorch_01_Light                   PointLight                                                                      loc=(1294,-5973,-1274) yaw=0
+torch    EF_TrailTorch_02                         StaticMeshActor              SM_Torch_01a                                       loc=(2367,-7201,-1874) yaw=106
+torch    EF_TrailTorch_02_Fire                    Emitter                                                                         loc=(2367,-7201,-1663) yaw=0
+torch    EF_TrailTorch_02_Light                   PointLight                                                                      loc=(2367,-7201,-1634) yaw=0
+torch    EF_TrailTorch_03                         StaticMeshActor              SM_Torch_01a                                       loc=(3798,-6384,-2180) yaw=159
+torch    EF_TrailTorch_03_Fire                    Emitter                                                                         loc=(3798,-6384,-1969) yaw=0
+torch    EF_TrailTorch_03_Light                   PointLight                                                                      loc=(3798,-6384,-1940) yaw=0
+torch    EF_TrailTorch_04                         StaticMeshActor              SM_Torch_01a                                       loc=(4851,-7645,-2523) yaw=-148
+torch    EF_TrailTorch_04_Fire                    Emitter                                                                         loc=(4851,-7645,-2312) yaw=0
+torch    EF_TrailTorch_04_Light                   PointLight                                                                      loc=(4851,-7645,-2283) yaw=0
+torch    EF_TrailTorch_05                         StaticMeshActor              SM_Torch_01a                                       loc=(6444,-7073,-2777) yaw=-95
+torch    EF_TrailTorch_05_Fire                    Emitter                                                                         loc=(6444,-7073,-2566) yaw=0
+torch    EF_TrailTorch_05_Light                   PointLight                                                                      loc=(6444,-7073,-2537) yaw=0
+torch    EF_TrailTorch_06                         StaticMeshActor              SM_Torch_01a                                       loc=(6383,-8320,-3072) yaw=-42
+torch    EF_TrailTorch_06_Fire                    Emitter                                                                         loc=(6383,-8320,-2861) yaw=0
+torch    EF_TrailTorch_06_Light                   PointLight                                                                      loc=(6383,-8320,-2832) yaw=0
+torch    EF_TrailTorch_07                         StaticMeshActor              SM_Torch_01a                                       loc=(7000,-9798,-3596) yaw=11
+torch    EF_TrailTorch_07_Fire                    Emitter                                                                         loc=(7000,-9798,-3384) yaw=0
+torch    EF_TrailTorch_07_Light                   PointLight                                                                      loc=(7000,-9798,-3356) yaw=0
+torch    EF_TrailTorch_08                         StaticMeshActor              SM_Torch_01a                                       loc=(5615,-10670,-3973) yaw=64
+torch    EF_TrailTorch_08_Fire                    Emitter                                                                         loc=(5615,-10670,-3761) yaw=0
+torch    EF_TrailTorch_08_Light                   PointLight                                                                      loc=(5615,-10670,-3733) yaw=0
+torch    EF_TrailTorch_09                         StaticMeshActor              SM_Torch_01a                                       loc=(6211,-12154,-4043) yaw=117
+torch    EF_TrailTorch_09_Fire                    Emitter                                                                         loc=(6211,-12154,-3832) yaw=0
+torch    EF_TrailTorch_09_Light                   PointLight                                                                      loc=(6211,-12154,-3803) yaw=0
+torch    EF_TrailTorch_10                         StaticMeshActor              SM_Torch_01a                                       loc=(4754,-12936,-4071) yaw=170
+torch    EF_TrailTorch_10_Fire                    Emitter                                                                         loc=(4754,-12936,-3859) yaw=0
+torch    EF_TrailTorch_10_Light                   PointLight                                                                      loc=(4754,-12936,-3831) yaw=0
+torch    EF_TrailTorch_11                         StaticMeshActor              SM_Torch_01a                                       loc=(3559,-15041,-4481) yaw=-137
+torch    EF_TrailTorch_11_Fire                    Emitter                                                                         loc=(3559,-15041,-4270) yaw=0
+torch    EF_TrailTorch_11_Light                   PointLight                                                                      loc=(3559,-15041,-4241) yaw=0
+torch    EF_TrailTorch_12                         StaticMeshActor              SM_Torch_01a                                       loc=(3862,-16630,-4179) yaw=-84
+torch    EF_TrailTorch_12_Fire                    Emitter                                                                         loc=(3862,-16630,-3968) yaw=0
+torch    EF_TrailTorch_12_Light                   PointLight                                                                      loc=(3862,-16630,-3939) yaw=0
+torch    EF_TrailTorch_13                         StaticMeshActor              SM_Torch_01a                                       loc=(2498,-17451,-4179) yaw=-31
+torch    EF_TrailTorch_13_Fire                    Emitter                                                                         loc=(2498,-17451,-3968) yaw=0
+torch    EF_TrailTorch_13_Light                   PointLight                                                                      loc=(2498,-17451,-3939) yaw=0
+torch    EF_TrailTorch_14                         StaticMeshActor              SM_Torch_01a                                       loc=(3266,-18921,-4108) yaw=22
+torch    EF_TrailTorch_14_Fire                    Emitter                                                                         loc=(3266,-18921,-3897) yaw=0
+torch    EF_TrailTorch_14_Light                   PointLight                                                                      loc=(3266,-18921,-3868) yaw=0
+torch    EF_TrailTorch_15                         StaticMeshActor              SM_Torch_01a                                       loc=(2359,-21361,-3467) yaw=75
+torch    EF_TrailTorch_15_Fire                    Emitter                                                                         loc=(2359,-21361,-3256) yaw=0
+torch    EF_TrailTorch_15_Light                   PointLight                                                                      loc=(2359,-21361,-3227) yaw=0
+torch    EF_TrailTorch_16                         StaticMeshActor              SM_Torch_01a                                       loc=(829,-21887,-2921) yaw=128
+torch    EF_TrailTorch_16_Fire                    Emitter                                                                         loc=(829,-21887,-2710) yaw=0
+torch    EF_TrailTorch_16_Light                   PointLight                                                                      loc=(829,-21887,-2681) yaw=0
+torch    EF_TrailTorch_17                         StaticMeshActor              SM_Torch_01a                                       loc=(863,-23505,-2336) yaw=-179
+torch    EF_TrailTorch_17_Fire                    Emitter                                                                         loc=(863,-23505,-2125) yaw=0
+torch    EF_TrailTorch_17_Fire2                   Emitter                                                                         loc=(-350,-23404,-1771) yaw=0
+torch    EF_TrailTorch_17_Fire3                   Emitter                                                                         loc=(-18267,-15707,-1327) yaw=0
+torch    EF_TrailTorch_17_Fire4                   Emitter                                                                         loc=(-17423,-15707,-1278) yaw=0
+torch    EF_TrailTorch_17_Light                   PointLight                                                                      loc=(863,-23505,-2096) yaw=0
+torch    EF_TrailTorch_18                         StaticMeshActor              SM_Torch_01a                                       loc=(-350,-23404,-1982) yaw=-179
+torch    EF_TrailTorch_19                         StaticMeshActor              SM_Torch_01a                                       loc=(-18267,-15707,-1538) yaw=-179
+torch    EF_TrailTorch_20                         StaticMeshActor              SM_Torch_01a                                       loc=(-17423,-15707,-1489) yaw=-179
+torch    EF_Tun_Torch_01                          StaticMeshActor              SM_IronTorch                                       loc=(-1943,-24419,-1480) yaw=4
+torch    EF_Tun_Torch_01_Fire                     Emitter                                                                         loc=(-1946,-24384,-1335) yaw=0
+torch    EF_Tun_Torch_01_Light                    PointLight                                                                      loc=(-1949,-24344,-1305) yaw=0
+torch    EF_Tun_Torch_02                          StaticMeshActor              SM_IronTorch                                       loc=(-3051,-23713,-1458) yaw=176
+torch    EF_Tun_Torch_02_Fire                     Emitter                                                                         loc=(-3054,-23748,-1313) yaw=0
+torch    EF_Tun_Torch_02_Light                    PointLight                                                                      loc=(-3056,-23788,-1283) yaw=0
+torch    EF_Tun_Torch_03                          StaticMeshActor              SM_IronTorch                                       loc=(-4060,-24248,-1439) yaw=-11
+torch    EF_Tun_Torch_03_Fire                     Emitter                                                                         loc=(-4054,-24213,-1294) yaw=0
+torch    EF_Tun_Torch_03_Light                    PointLight                                                                      loc=(-4046,-24174,-1264) yaw=0
+torch    EF_Tun_Torch_04                          StaticMeshActor              SM_IronTorch                                       loc=(-4758,-23393,-1422) yaw=167
+torch    EF_Tun_Torch_04_Fire                     Emitter                                                                         loc=(-4765,-23427,-1276) yaw=0
+torch    EF_Tun_Torch_04_Light                    PointLight                                                                      loc=(-4774,-23466,-1246) yaw=0
+torch    EF_Tun_Torch_05                          StaticMeshActor              SM_IronTorch                                       loc=(-5837,-23837,-1402) yaw=-14
+torch    EF_Tun_Torch_05_Fire                     Emitter                                                                         loc=(-5828,-23803,-1257) yaw=0
+torch    EF_Tun_Torch_05_Light                    PointLight                                                                      loc=(-5818,-23764,-1227) yaw=0
+torch    EF_Tun_Torch_06                          StaticMeshActor              SM_IronTorch                                       loc=(-6614,-22899,-1382) yaw=164
+torch    EF_Tun_Torch_06_Fire                     Emitter                                                                         loc=(-6624,-22933,-1237) yaw=0
+torch    EF_Tun_Torch_06_Light                    PointLight                                                                      loc=(-6635,-22972,-1207) yaw=0
+torch    EF_Tun_Torch_07                          StaticMeshActor              SM_IronTorch                                       loc=(-7793,-23241,-1362) yaw=-19
+torch    EF_Tun_Torch_07_Fire                     Emitter                                                                         loc=(-7781,-23208,-1216) yaw=0
+torch    EF_Tun_Torch_07_Light                    PointLight                                                                      loc=(-7769,-23170,-1186) yaw=0
+torch    EF_Tun_Torch_08                          StaticMeshActor              SM_IronTorch                                       loc=(-8415,-22270,-1343) yaw=158
+torch    EF_Tun_Torch_08_Fire                     Emitter                                                                         loc=(-8428,-22302,-1198) yaw=0
+torch    EF_Tun_Torch_08_Light                    PointLight                                                                      loc=(-8443,-22340,-1168) yaw=0
+torch    EF_Tun_Torch_09                          StaticMeshActor              SM_IronTorch                                       loc=(-9532,-22546,-1324) yaw=-24
+torch    EF_Tun_Torch_09_Fire                     Emitter                                                                         loc=(-9518,-22514,-1179) yaw=0
+torch    EF_Tun_Torch_09_Light                    PointLight                                                                      loc=(-9502,-22477,-1149) yaw=0
+torch    EF_Tun_Torch_10                          StaticMeshActor              SM_IronTorch                                       loc=(-10125,-21518,-1305) yaw=155
+torch    EF_Tun_Torch_10_Fire                     Emitter                                                                         loc=(-10140,-21550,-1160) yaw=0
+torch    EF_Tun_Torch_10_Light                    PointLight                                                                      loc=(-10157,-21586,-1130) yaw=0
+torch    EF_Tun_Torch_11                          StaticMeshActor              SM_IronTorch                                       loc=(-11291,-21727,-1285) yaw=-26
+torch    EF_Tun_Torch_11_Fire                     Emitter                                                                         loc=(-11276,-21695,-1140) yaw=0
+torch    EF_Tun_Torch_11_Light                    PointLight                                                                      loc=(-11259,-21659,-1110) yaw=0
+torch    EF_Tun_Torch_12                          StaticMeshActor              SM_IronTorch                                       loc=(-11827,-20696,-1266) yaw=154
+torch    EF_Tun_Torch_12_Fire                     Emitter                                                                         loc=(-11843,-20727,-1121) yaw=0
+torch    EF_Tun_Torch_12_Light                    PointLight                                                                      loc=(-11861,-20763,-1091) yaw=0
+torch    EF_Tun_Torch_13                          StaticMeshActor              SM_IronTorch                                       loc=(-12912,-20929,-1249) yaw=-26
+torch    EF_Tun_Torch_13_Fire                     Emitter                                                                         loc=(-12896,-20897,-1103) yaw=0
+torch    EF_Tun_Torch_13_Light                    PointLight                                                                      loc=(-12879,-20861,-1073) yaw=0
+torch    EF_Tun_Torch_14                          StaticMeshActor              SM_IronTorch                                       loc=(-13489,-19871,-1229) yaw=153
+torch    EF_Tun_Torch_14_Fire                     Emitter                                                                         loc=(-13505,-19903,-1083) yaw=0
+torch    EF_Tun_Torch_14_Light                    PointLight                                                                      loc=(-13522,-19938,-1053) yaw=0
+torch    EF_Tun_Torch_15                          StaticMeshActor              SM_IronTorch                                       loc=(-14714,-20019,-1208) yaw=-27
+torch    EF_Tun_Torch_15_Fire                     Emitter                                                                         loc=(-14698,-19988,-1063) yaw=0
+torch    EF_Tun_Torch_15_Light                    PointLight                                                                      loc=(-14680,-19952,-1033) yaw=0
+torch    EF_Tun_Torch_16                          StaticMeshActor              SM_IronTorch                                       loc=(-15217,-18966,-1189) yaw=151
+torch    EF_Tun_Torch_16_Fire                     Emitter                                                                         loc=(-15233,-18997,-1044) yaw=0
+torch    EF_Tun_Torch_16_Light                    PointLight                                                                      loc=(-15253,-19032,-1014) yaw=0
+torch    EF_Tun_Torch_17                          StaticMeshActor              SM_IronTorch                                       loc=(-16275,-19152,-1172) yaw=-31
+torch    EF_Tun_Torch_17_Fire                     Emitter                                                                         loc=(-16256,-19121,-1027) yaw=0
+torch    EF_Tun_Torch_17_Light                    PointLight                                                                      loc=(-16236,-19087,-997) yaw=0
+torch    EF_Tun_Torch_18                          StaticMeshActor              SM_IronTorch                                       loc=(-16659,-18063,-1154) yaw=145
+torch    EF_Tun_Torch_18_Fire                     Emitter                                                                         loc=(-16679,-18092,-1008) yaw=0
+torch    EF_Tun_Torch_18_Light                    PointLight                                                                      loc=(-16702,-18124,-978) yaw=0
+torch    EF_Tun_Torch_19                          StaticMeshActor              SM_IronTorch                                       loc=(-17807,-17906,-1134) yaw=-50
+torch    EF_Tun_Torch_19_Fire                     Emitter                                                                         loc=(-17780,-17883,-989) yaw=0
+torch    EF_Tun_Torch_19_Light                    PointLight                                                                      loc=(-17750,-17857,-959) yaw=0
+torch    EF_Tun_Torch_20                          StaticMeshActor              SM_IronTorch                                       loc=(-17563,-16846,-1117) yaw=105
+torch    EF_Tun_Torch_20_Fire                     Emitter                                                                         loc=(-17597,-16855,-972) yaw=0
+torch    EF_Tun_Torch_20_Light                    PointLight                                                                      loc=(-17635,-16865,-942) yaw=0
+torch    Realm_Gate_Torch_0                       StaticMeshActor              SM_Camp_TorchPost                                  loc=(-15357,1938,-836) yaw=-163
+torch    Realm_Gate_Torch_0_Fire                  Emitter                                                                         loc=(-15366,1934,-659) yaw=0
+torch    Realm_Gate_Torch_0_Light                 PointLight                                                                      loc=(-15366,1934,-634) yaw=0
+torch    Realm_Gate_Torch_1                       StaticMeshActor              SM_Camp_TorchPost                                  loc=(-14598,1979,-758) yaw=-163
+torch    Realm_Gate_Torch_1_Fire                  Emitter                                                                         loc=(-14608,1976,-596) yaw=0
+torch    Realm_Gate_Torch_1_Light                 PointLight                                                                      loc=(-14608,1976,-571) yaw=0
+torch    Realm_Torch_00                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-19481,1548,-1228) yaw=174
+torch    Realm_Torch_00_Fire                      Emitter                                                                         loc=(-19491,1549,-1051) yaw=0
+torch    Realm_Torch_00_Light                     PointLight                                                                      loc=(-19491,1549,-1026) yaw=0
+torch    Realm_Torch_01                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-18289,1732,-1129) yaw=-176
+torch    Realm_Torch_01_Fire                      Emitter                                                                         loc=(-18300,1731,-952) yaw=0
+torch    Realm_Torch_01_Light                     PointLight                                                                      loc=(-18300,1731,-927) yaw=0
+torch    Realm_Torch_02                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-17090,1775,-1009) yaw=-167
+torch    Realm_Torch_02_Fire                      Emitter                                                                         loc=(-17100,1773,-832) yaw=0
+torch    Realm_Torch_02_Light                     PointLight                                                                      loc=(-17100,1773,-807) yaw=0
+torch    Realm_Torch_03                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-15880,1619,-897) yaw=178
+torch    Realm_Torch_03_Fire                      Emitter                                                                         loc=(-15890,1619,-720) yaw=0
+torch    Realm_Torch_03_Light                     PointLight                                                                      loc=(-15890,1619,-695) yaw=0
+torch    Realm_Torch_05                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-13505,2152,-662) yaw=-160
+torch    Realm_Torch_05_Fire                      Emitter                                                                         loc=(-13515,2148,-484) yaw=0
+torch    Realm_Torch_05_Light                     PointLight                                                                      loc=(-13515,2148,-459) yaw=0
+torch    Realm_Torch_06                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-12327,2578,-577) yaw=-177
+torch    Realm_Torch_06_Fire                      Emitter                                                                         loc=(-12337,2577,-400) yaw=0
+torch    Realm_Torch_06_Light                     PointLight                                                                      loc=(-12337,2577,-375) yaw=0
+torch    Realm_Torch_07                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-11130,2669,-479) yaw=177
+torch    Realm_Torch_07_Fire                      Emitter                                                                         loc=(-11140,2669,-302) yaw=0
+torch    Realm_Torch_07_Light                     PointLight                                                                      loc=(-11140,2669,-277) yaw=0
+torch    Realm_Torch_08                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-9916,2443,-363) yaw=-175
+torch    Realm_Torch_08_Fire                      Emitter                                                                         loc=(-9926,2442,-186) yaw=0
+torch    Realm_Torch_08_Light                     PointLight                                                                      loc=(-9926,2442,-161) yaw=0
+torch    Realm_Torch_09                           StaticMeshActor              SM_Camp_TorchPost                                  loc=(-8718,2519,-271) yaw=162
+torch    Realm_Torch_09_Fire                      Emitter                                                                         loc=(-8728,2522,-94) yaw=0
+torch    Realm_Torch_09_Light                     PointLight                                                                      loc=(-8728,2522,-69) yaw=0
+torch    TL_EF_TrailTorch_18                      PointLight                                                                      loc=(-350,-23404,-1805) yaw=0
+torch    TL_EF_TrailTorch_19                      PointLight                                                                      loc=(-18267,-15707,-1361) yaw=0
+torch    TL_EF_TrailTorch_20                      PointLight                                                                      loc=(-17423,-15707,-1312) yaw=0
+torch    TorchMount_01                            StaticMeshActor              Plane                                              loc=(-1944,-24416,-1431) yaw=-86
+torch    TorchMount_02                            StaticMeshActor              Plane                                              loc=(-3052,-23716,-1408) yaw=86
+torch    TorchMount_03                            StaticMeshActor              Plane                                              loc=(-4060,-24245,-1390) yaw=-101
+torch    TorchMount_04                            StaticMeshActor              Plane                                              loc=(-4758,-23396,-1372) yaw=77
+torch    TorchMount_05                            StaticMeshActor              Plane                                              loc=(-5836,-23834,-1353) yaw=-104
+torch    TorchMount_06                            StaticMeshActor              Plane                                              loc=(-6615,-22902,-1333) yaw=74
+torch    TorchMount_07                            StaticMeshActor              Plane                                              loc=(-7792,-23238,-1312) yaw=-109
+torch    TorchMount_08                            StaticMeshActor              Plane                                              loc=(-8416,-22272,-1294) yaw=68
+torch    TorchMount_09                            StaticMeshActor              Plane                                              loc=(-9531,-22543,-1275) yaw=-114
+torch    TorchMount_10                            StaticMeshActor              Plane                                              loc=(-10126,-21521,-1255) yaw=65
+torch    TorchMount_11                            StaticMeshActor              Plane                                              loc=(-11290,-21724,-1236) yaw=-116
+torch    TorchMount_12                            StaticMeshActor              Plane                                              loc=(-11829,-20699,-1217) yaw=64
+torch    TorchMount_13                            StaticMeshActor              Plane                                              loc=(-12911,-20926,-1199) yaw=-116
+torch    TorchMount_14                            StaticMeshActor              Plane                                              loc=(-13490,-19874,-1179) yaw=63
+torch    TorchMount_15                            StaticMeshActor              Plane                                              loc=(-14713,-20016,-1158) yaw=-117
+torch    TorchMount_16                            StaticMeshActor              Plane                                              loc=(-15218,-18969,-1139) yaw=61
+torch    TorchMount_17                            StaticMeshActor              Plane                                              loc=(-16273,-19149,-1123) yaw=-121
+torch    TorchMount_18                            StaticMeshActor              Plane                                              loc=(-16660,-18066,-1104) yaw=55
+torch    TorchMount_19                            StaticMeshActor              Plane                                              loc=(-17805,-17904,-1085) yaw=-140
+torch    TorchMount_20                            StaticMeshActor              Plane                                              loc=(-17566,-16847,-1068) yaw=15
+torch    TorchMount_21                            StaticMeshActor              Plane                                              loc=(230,1312,326) yaw=180
+torch    TorchMount_22                            StaticMeshActor              Plane                                              loc=(2225,2000,313) yaw=0
+torch    TorchMount_23                            StaticMeshActor              Plane                                              loc=(2860,2700,313) yaw=0
+torch    TorchMount_24                            StaticMeshActor              Plane                                              loc=(2817,1063,313) yaw=0
+torch    TorchMount_25                            StaticMeshActor              Plane                                              loc=(1700,3360,313) yaw=90
+torch    TorchMount_26                            StaticMeshActor              Plane                                              loc=(2344,1367,630) yaw=-90
+torch    TorchMount_27                            StaticMeshActor              Plane                                              loc=(4100,1733,313) yaw=0
+torch    TorchMount_28                            StaticMeshActor              Plane                                              loc=(3181,2873,313) yaw=180
+torch    TorchMount_29                            StaticMeshActor              Plane                                              loc=(230,2238,326) yaw=180
+torch    TorchMount_30                            StaticMeshActor              Plane                                              loc=(3181,473,313) yaw=180
+torch    TorchMount_31                            StaticMeshActor              Plane                                              loc=(1700,140,313) yaw=-90
+torch    TorchMount_32                            StaticMeshActor              Plane                                              loc=(2609,183,313) yaw=-90
+torch    TorchMount_33                            StaticMeshActor              Plane                                              loc=(3439,140,313) yaw=-90
+torch    TorchMount_34                            StaticMeshActor              Plane                                              loc=(2225,1500,313) yaw=0
+torch    TorchMount_35                            StaticMeshActor              Plane                                              loc=(700,181,313) yaw=-90
+torch    TorchMount_36                            StaticMeshActor              Plane                                              loc=(3040,1313,313) yaw=180
+torch    TorchMount_37                            StaticMeshActor              Plane                                              loc=(186,1120,313) yaw=90
+torch    TorchMount_38                            StaticMeshActor              Plane                                              loc=(4139,140,313) yaw=-90
+torch    TorchMount_39                            StaticMeshActor              Plane                                              loc=(700,3319,313) yaw=90
+torch    TorchMount_40                            StaticMeshActor              Plane                                              loc=(186,2380,313) yaw=-90
+torch    TorchMount_41                            StaticMeshActor              Plane                                              loc=(2541,2366,313) yaw=-90
+torch    TorchMount_42                            StaticMeshActor              Plane                                              loc=(2508,704,313) yaw=-90
+torch    TorchMount_43                            StaticMeshActor              Plane                                              loc=(4510,780,313) yaw=0
+torch    TorchMount_44                            StaticMeshActor              Plane                                              loc=(4510,1421,313) yaw=0
+torch    TorchMount_45                            StaticMeshActor              Plane                                              loc=(4510,2080,313) yaw=0
+torch    TorchMount_46                            StaticMeshActor              Plane                                              loc=(4510,2761,313) yaw=0
+torch    TorchMount_47                            StaticMeshActor              Plane                                              loc=(2105,779,313) yaw=-90
+torch    TorchMount_48                            StaticMeshActor              Plane                                              loc=(2105,2715,313) yaw=90
+torch    TorchSoot_01                             StaticMeshActor              Plane                                              loc=(-6613,-22897,-1122) yaw=74
+torch    TorchSoot_02                             StaticMeshActor              Plane                                              loc=(3048,1313,473) yaw=180
+torch    TorchSoot_03                             StaticMeshActor              Plane                                              loc=(2852,2700,473) yaw=0
+torch    TorchSoot_04                             StaticMeshActor              Plane                                              loc=(4502,2761,473) yaw=-0
+torch    TorchSoot_05                             StaticMeshActor              Plane                                              loc=(-17561,-16846,-857) yaw=15
+torch    TorchSoot_06                             StaticMeshActor              Plane                                              loc=(4502,1421,473) yaw=-0
+torch    TorchSoot_07                             StaticMeshActor              Plane                                              loc=(2105,2712,473) yaw=90
+torch    TorchSoot_08                             StaticMeshActor              Plane                                              loc=(-7793,-23243,-1101) yaw=-109
+torch    TorchSoot_09                             StaticMeshActor              Plane                                              loc=(700,191,473) yaw=-90
+torch    TorchSoot_10                             StaticMeshActor              Plane                                              loc=(-9533,-22548,-1064) yaw=-114
+torch    TorchSoot_11                             StaticMeshActor              Plane                                              loc=(-3051,-23711,-1198) yaw=86
+torch    TorchSoot_12                             StaticMeshActor              Plane                                              loc=(1700,3352,473) yaw=90
+torch    TorchSoot_13                             StaticMeshActor              Plane                                              loc=(2105,788,473) yaw=-90
+torch    TorchSoot_14                             StaticMeshActor              Plane                                              loc=(2217,2000,473) yaw=0
+torch    TorchSoot_15                             StaticMeshActor              Plane                                              loc=(2217,1500,473) yaw=0
+torch    TorchSoot_16                             StaticMeshActor              Plane                                              loc=(186,2388,473) yaw=-90
+torch    TorchSoot_17                             StaticMeshActor              Plane                                              loc=(-4757,-23391,-1161) yaw=77
+torch    TorchSoot_18                             StaticMeshActor              Plane                                              loc=(4502,780,473) yaw=-0
+torch    TorchSoot_19                             StaticMeshActor              Plane                                              loc=(186,1112,473) yaw=90
+torch    TorchSoot_20                             StaticMeshActor              Plane                                              loc=(2809,1063,473) yaw=0
+torch    TorchSoot_21                             StaticMeshActor              Plane                                              loc=(3189,2873,473) yaw=180
+torch    TorchSoot_22                             StaticMeshActor              Plane                                              loc=(4092,1733,473) yaw=0
+torch    TorchSoot_23                             StaticMeshActor              Plane                                              loc=(4139,148,473) yaw=-90
+torch    TorchSoot_24                             StaticMeshActor              Plane                                              loc=(-12913,-20930,-988) yaw=-116
+torch    TorchSoot_25                             StaticMeshActor              Plane                                              loc=(3189,473,473) yaw=180
+torch    TorchSoot_26                             StaticMeshActor              Plane                                              loc=(-17808,-17907,-874) yaw=-140
+torch    TorchSoot_27                             StaticMeshActor              Plane                                              loc=(2541,2373,473) yaw=-90
+torch    TorchSoot_28                             StaticMeshActor              Plane                                              loc=(700,3309,473) yaw=90
+torch    TorchSoot_29                             StaticMeshActor              Plane                                              loc=(-13488,-19869,-968) yaw=63
+torch    TorchSoot_30                             StaticMeshActor              Plane                                              loc=(3439,148,473) yaw=-90
+torch    TorchSoot_31                             StaticMeshActor              Plane                                              loc=(-5838,-23839,-1142) yaw=-104
+torch    TorchSoot_32                             StaticMeshActor              Plane                                              loc=(238,1312,486) yaw=180
+torch    TorchSoot_33                             StaticMeshActor              Plane                                              loc=(-14715,-20021,-948) yaw=-117
+torch    TorchSoot_34                             StaticMeshActor              Plane                                              loc=(-15216,-18965,-929) yaw=61
+torch    TorchSoot_35                             StaticMeshActor              Plane                                              loc=(2344,1373,790) yaw=-90
+torch    TorchSoot_36                             StaticMeshActor              Plane                                              loc=(-10124,-21516,-1044) yaw=65
+torch    TorchSoot_37                             StaticMeshActor              Plane                                              loc=(-11292,-21729,-1025) yaw=-116
+torch    TorchSoot_38                             StaticMeshActor              Plane                                              loc=(-11827,-20694,-1006) yaw=64
+torch    TorchSoot_39                             StaticMeshActor              Plane                                              loc=(238,2238,486) yaw=180
+torch    TorchSoot_40                             StaticMeshActor              Plane                                              loc=(-8414,-22268,-1083) yaw=68
+torch    TorchSoot_41                             StaticMeshActor              Plane                                              loc=(2508,713,473) yaw=-90
+torch    TorchSoot_42                             StaticMeshActor              Plane                                              loc=(1700,148,473) yaw=-90
+torch    TorchSoot_43                             StaticMeshActor              Plane                                              loc=(2609,191,473) yaw=-90
+torch    TorchSoot_44                             StaticMeshActor              Plane                                              loc=(-4061,-24249,-1179) yaw=-101
+torch    TorchSoot_45                             StaticMeshActor              Plane                                              loc=(-1943,-24421,-1220) yaw=-86
+torch    TorchSoot_46                             StaticMeshActor              Plane                                              loc=(4502,2080,473) yaw=-0
+torch    TorchSoot_47                             StaticMeshActor              Plane                                              loc=(-16276,-19153,-912) yaw=-121
+torch    TorchSoot_48                             StaticMeshActor              Plane                                              loc=(-16658,-18062,-893) yaw=55
+torch    Tower9_Torch_A0_Flame                    Emitter                                                                         loc=(377,377,973) yaw=135
+torch    Tower9_Torch_A0_Light                    PointLight                                                                      loc=(346,346,1010) yaw=135
+torch    Tower9_Torch_A0_TorchMount               StaticMeshActor              Plane                                              loc=(381,381,928) yaw=45
+torch    Tower9_Torch_A0_TorchSoot                StaticMeshActor              Plane                                              loc=(374,374,1018) yaw=45
+torch    Tower9_Torch_A0_WallTorch                StaticMeshActor              SM_IronTorch                                       loc=(388,388,905) yaw=135
+torch    Tower9_Torch_A1_Flame                    Emitter                                                                         loc=(-351,282,973) yaw=-120
+torch    Tower9_Torch_A1_Light                    PointLight                                                                      loc=(-312,259,1010) yaw=-120
+torch    Tower9_Torch_A1_TorchMount               StaticMeshActor              Plane                                              loc=(-356,284,928) yaw=150
+torch    Tower9_Torch_A1_TorchSoot                StaticMeshActor              Plane                                              loc=(-347,279,1018) yaw=150
+torch    Tower9_Torch_A1_WallTorch                StaticMeshActor              SM_IronTorch                                       loc=(-364,289,905) yaw=-120
+torch    Tower9_Torch_B0_Flame                    Emitter                                                                         loc=(377,3123,973) yaw=45
+torch    Tower9_Torch_B0_Light                    PointLight                                                                      loc=(346,3154,1010) yaw=45
+torch    Tower9_Torch_B0_TorchMount               StaticMeshActor              Plane                                              loc=(381,3119,928) yaw=-45
+torch    Tower9_Torch_B0_TorchSoot                StaticMeshActor              Plane                                              loc=(374,3126,1018) yaw=-45
+torch    Tower9_Torch_B0_WallTorch                StaticMeshActor              SM_IronTorch                                       loc=(388,3112,905) yaw=45
+torch    Tower9_Torch_B1_Flame                    Emitter                                                                         loc=(282,3851,973) yaw=150
+torch    Tower9_Torch_B1_Light                    PointLight                                                                      loc=(259,3812,1010) yaw=150
+torch    Tower9_Torch_B1_TorchMount               StaticMeshActor              Plane                                              loc=(284,3856,928) yaw=60
+torch    Tower9_Torch_B1_TorchSoot                StaticMeshActor              Plane                                              loc=(279,3847,1018) yaw=60
+torch    Tower9_Torch_B1_WallTorch                StaticMeshActor              SM_IronTorch                                       loc=(289,3864,905) yaw=150
+torch    WallTorch_Iron_01                        StaticMeshActor              SM_IronTorch                                       loc=(220,1312,303) yaw=-90
+torch    WallTorch_Iron_02                        StaticMeshActor              SM_IronTorch                                       loc=(2235,2000,290) yaw=90
+torch    WallTorch_Iron_03                        StaticMeshActor              SM_IronTorch                                       loc=(2870,2700,290) yaw=90
+torch    WallTorch_Iron_04                        StaticMeshActor              SM_IronTorch                                       loc=(2827,1063,290) yaw=90
+torch    WallTorch_Iron_05                        StaticMeshActor              SM_IronTorch                                       loc=(1700,3370,290) yaw=180
+torch    WallTorch_Iron_06                        StaticMeshActor              SM_IronTorch                                       loc=(2344,1357,607) yaw=0
+torch    WallTorch_Iron_07                        StaticMeshActor              SM_IronTorch                                       loc=(4110,1733,290) yaw=90
+torch    WallTorch_Iron_08                        StaticMeshActor              SM_IronTorch                                       loc=(3171,2873,290) yaw=-90
+torch    WallTorch_Iron_09                        StaticMeshActor              SM_IronTorch                                       loc=(220,2238,303) yaw=-90
+torch    WallTorch_Iron_11                        StaticMeshActor              SM_IronTorch                                       loc=(3171,473,290) yaw=-90
+torch    WallTorch_Iron_12                        StaticMeshActor              SM_IronTorch                                       loc=(1700,130,290) yaw=0
+torch    WallTorch_Iron_13                        StaticMeshActor              SM_IronTorch                                       loc=(2609,173,290) yaw=0
+torch    WallTorch_Iron_14                        StaticMeshActor              SM_IronTorch                                       loc=(3439,130,290) yaw=0
+torch    WallTorch_Iron_15                        StaticMeshActor              SM_IronTorch                                       loc=(2235,1500,290) yaw=90
+torch    WallTorch_Iron_16                        StaticMeshActor              SM_IronTorch                                       loc=(700,171,290) yaw=0
+torch    WallTorch_Iron_17                        StaticMeshActor              SM_IronTorch                                       loc=(3030,1313,290) yaw=-90
+torch    WallTorch_Iron_18                        StaticMeshActor              SM_IronTorch                                       loc=(186,1130,290) yaw=180
+torch    WallTorch_Iron_19                        StaticMeshActor              SM_IronTorch                                       loc=(4139,130,290) yaw=0
+torch    WallTorch_Iron_20                        StaticMeshActor              SM_IronTorch                                       loc=(700,3329,290) yaw=180
+torch    WallTorch_Iron_21                        StaticMeshActor              SM_IronTorch                                       loc=(186,2370,290) yaw=0
+torch    WallTorch_Iron_22                        StaticMeshActor              SM_IronTorch                                       loc=(2541,2356,290) yaw=0
+torch    WallTorch_Iron_23                        StaticMeshActor              SM_IronTorch                                       loc=(2508,694,290) yaw=0
+torch    WallTorch_Iron_24                        StaticMeshActor              SM_IronTorch                                       loc=(4520,780,290) yaw=90
+torch    WallTorch_Iron_25                        StaticMeshActor              SM_IronTorch                                       loc=(4520,1421,290) yaw=90
+torch    WallTorch_Iron_26                        StaticMeshActor              SM_IronTorch                                       loc=(4520,2080,290) yaw=90
+torch    WallTorch_Iron_27                        StaticMeshActor              SM_IronTorch                                       loc=(4520,2761,290) yaw=90
+torch    WallTorch_Iron_28                        StaticMeshActor              SM_IronTorch                                       loc=(2105,769,290) yaw=0
+torch    WallTorch_Iron_29                        StaticMeshActor              SM_IronTorch                                       loc=(2105,2725,290) yaw=-180
