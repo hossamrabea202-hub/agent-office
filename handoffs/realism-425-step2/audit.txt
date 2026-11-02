@@ -1,0 +1,165 @@
+stone |  884 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World | parent M_Castle_StoneWall_World | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: BaseColor=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_B.T_vdbhdju_2K_B; Normal=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_N.T_vdbhdju_2K_N; ORM=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_ORM.T_vdbhdju_2K_ORM
+    par: MossHeight_cm=650, CrackSize_cm=750, TileSize_cm=320, MacroStrength=0.35, DirtBand_cm=150, DirtAmount=1, MossAmount=1, Tint=(0.86,0.83,0.78), MossColor=(0.16,0.17,0.12)
+stone |  329 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World | parent M_Castle_StoneWall_World | e.g. CastleStones_-1_0_0,CastleStones_-1_1_1,CastleStones_0_-1_2
+    tex: BaseColor=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_B.T_tinifauaw_2K_B; Normal=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_N.T_tinifauaw_2K_N; ORM=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_ORM.T_tinifauaw_2K_ORM
+    par: TileSize_cm=160, MossHeight_cm=500, CrackSize_cm=750, MacroStrength=0.35, DirtBand_cm=150, DirtAmount=1, Tint=(0.70,0.62,0.52), MossColor=(0.16,0.17,0.12)
+stone |  304 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StepCap.MI_Castle_StepCap | parent M_Castle_StoneWall_World | e.g. Cube_0,Cube_1,Cube_10
+    tex: BaseColor=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_B.T_tinifauaw_2K_B; Normal=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_N.T_tinifauaw_2K_N; ORM=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_ORM.T_tinifauaw_2K_ORM
+    par: TileSize_cm=140, MossAmount=0, CrackAmount=0.3, DirtAmount=0, Tint=(0.66,0.58,0.48)
+stone |  205 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World.MI_Castle_WalkFlag_World | parent M_Castle_StoneWall_World | e.g. Cube_0,Cube_1,Cube_10
+    tex: BaseColor=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_B.T_tinifauaw_2K_B; Normal=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_N.T_tinifauaw_2K_N; ORM=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_ORM.T_tinifauaw_2K_ORM
+    par: TileSize_cm=230, MossAmount=0.2, Tint=(0.62,0.55,0.47), MossColor=(0.16,0.17,0.12)
+stone |  139 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Paving_POM.MI_Castle_Paving_POM | parent M_Castle_Paving_POM | e.g. Castle_CourtyardFloor_Si,Castle_GateLanding_Cap,Castle_GateThreshold
+    tex: 
+    par: Depth=0.025, Tiling=4, RefractionDepthBias=0, WorldScale_cm=900
+metal |   52 | /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K.Iron_Torch___Baked_PBR_1K | parent - | e.g. EF_Tun_Torch_01,EF_Tun_Torch_02,EF_Tun_Torch_03
+    tex: 
+    par: 
+stone |   50 | /Game/CastleDefender/Shared/Materials/Decals/M_WallBaseGrime.M_WallBaseGrime | parent - | e.g. Tower9_WallGrime_A_01_0,Tower9_WallGrime_A_01_1,Tower9_WallGrime_A_02_0
+    tex: 
+    par: 
+metal |   50 | /Game/CastleDefender/Environment/ContactDecals425/MI_MountCard425_Iron.MI_MountCard425_Iron | parent M_ContactMountCard425 | e.g. CD425_EF_Tun_Torch_01_Mo,CD425_EF_Tun_Torch_02_Mo,CD425_EF_Tun_Torch_03_Mo
+    tex: 
+    par: Swap=1, FlipV=1, Strength=1.3, Holes=0, DripLen=0.45, Rust=0.6
+stone |   35 | /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_04.MI_Rock_04 | parent M_Master_Rock | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: Mask=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_04_Mask.T_Rock_04_Mask; Normal=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_04_Normal.T_Rock_04_Normal
+    par: Specular=0, RefractionDepthBias=0, Tint_1=(0.04,0.03,0.02), Tint_2=(0.16,0.14,0.10), Tint_3=(0.18,0.15,0.11)
+stone |   32 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm100.MI_Tower9_WallBaseGrime_Zm100 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_A_20_0,Tower9_WallGrime_A_20_1,Tower9_WallGrime_A_21_0
+    tex: 
+    par: FloorZ=-100
+stone |   26 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm90.MI_Tower9_WallBaseGrime_Zm90 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_A_19_0,Tower9_WallGrime_A_19_1,Tower9_WallGrime_A_26_0
+    tex: 
+    par: FloorZ=-90
+metal |   25 | /Game/CastleDefender/Props/AshenGate/Materials/MI_AshenGate_Iron.MI_AshenGate_Iron | parent M_AshenGate_Triplanar | e.g. AshenGate,Castle_BannerRod,Castle_DoorIronwork
+    tex: BaseColorTex=/Game/CastleDefender/Props/AshenGate/Textures/rusty_metal_04_diff_1k.rusty_metal_04_diff_1k; NormalTex=/Game/CastleDefender/Props/AshenGate/Textures/rusty_metal_04_nor_gl_1k.rusty_metal_04_nor_gl_1k; ARMTex=/Game/CastleDefender/Props/AshenGate/Textures/rusty_metal_04_arm_1k.rusty_metal_04_arm_1k
+    par: TileSizeCm=70, TintAmount=0.15, Brightness=0.75, MetallicMul=1, GrimeHeightCm=60, Tint=(0.30,0.20,0.14)
+stone |   23 | /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_03.MI_Rock_03 | parent M_Master_Rock | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: Mask=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_03_Mask.T_Rock_03_Mask; Normal=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_03_Normal.T_Rock_03_Normal
+    par: Specular=0, RefractionDepthBias=0, Tint_1=(0.05,0.03,0.01), Tint_2=(0.04,0.04,0.01), Tint_3=(0.22,0.18,0.12)
+stone |   23 | /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_01.MI_Rock_01 | parent M_Master_Rock | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: Mask=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_01_Mask.T_Rock_01_Mask; Normal=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_01_Normal.T_Rock_01_Normal
+    par: Specular=0, RefractionDepthBias=0, Tint_1=(0.06,0.04,0.02), Tint_2=(0.21,0.17,0.11), Tint_3=(0.10,0.08,0.06)
+stone |   22 | /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_02.MI_Rock_02 | parent M_Master_Rock | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: Mask=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_02_Mask.T_Rock_02_Mask; Normal=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_02_Normal.T_Rock_02_Normal
+    par: Specular=0, RefractionDepthBias=0, Tint_1=(0.06,0.04,0.02), Tint_2=(0.07,0.06,0.04), Tint_3=(0.18,0.15,0.11)
+stone |   21 | /Game/CastleDefender/Props/CourtyardProps/Materials/MI_FirePit_ScanRock.MI_FirePit_ScanRock | parent M_FirePit_ScanRock | e.g. FirePit_Rock_00,FirePit_Rock_01,FirePit_Rock_02
+    tex: ORM=/Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Mossy_Forest_Rock_vimrfjsaw/Raw/T_vimrfjsaw_8K_ORM.T_vimrfjsaw_8K_ORM
+    par: PitCenterWorld=(850.00,2450.00,0.00)
+metal |   20 | /Game/CastleDefender/Environment/Mine/MI_MineIron.MI_MineIron | parent M_MineSurface | e.g. Mine297_Cart_18,Mine297_Lantern_0,Mine297_Lantern_1
+    tex: BaseColorTex=/Game/CastleDefender/Environment/Mine/T_MineIron_BC.T_MineIron_BC; ORMTex=/Game/CastleDefender/Environment/Mine/T_MineIron_ORM.T_MineIron_ORM; NormalTex=/Game/CastleDefender/Environment/Mine/T_MineIron_N.T_MineIron_N
+    par: Wetness=0, Soot=0, Puddles=0
+stone |   19 | /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_08.MI_Rock_08 | parent M_Master_Rock | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: Mask=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_08_Mask.T_Rock_08_Mask; Normal=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_08_Normal.T_Rock_08_Normal
+    par: Specular=0, RefractionDepthBias=0, Tint_1=(0.04,0.03,0.02), Tint_2=(0.16,0.14,0.10), Tint_3=(0.18,0.15,0.11)
+stone |   18 | /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_07.MI_Rock_07 | parent M_Master_Rock | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: Mask=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_07_Mask.T_Rock_07_Mask; Normal=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_07_Normal.T_Rock_07_Normal
+    par: Specular=0, RefractionDepthBias=0, Tint_1=(0.04,0.03,0.02), Tint_2=(0.16,0.14,0.10), Tint_3=(0.18,0.15,0.11)
+stone |   15 | /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_05.MI_Rock_05 | parent M_Master_Rock | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: Mask=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_05_Mask.T_Rock_05_Mask; Normal=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_05_Normal.T_Rock_05_Normal
+    par: Specular=0, RefractionDepthBias=0, Tint_1=(0.04,0.03,0.02), Tint_2=(0.16,0.14,0.10), Tint_3=(0.18,0.15,0.11)
+stone |   14 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm40.MI_Tower9_WallBaseGrime_Zm40 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_A_30_0,Tower9_WallGrime_A_30_1,Tower9_WallGrime_A_31_0
+    tex: 
+    par: FloorZ=-40
+stone |   13 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_GateArch.MI_Castle_GateArch | parent M_Castle_GateArch_Stone | e.g. Castle_GateArch
+    tex: BaseColor=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_B.T_tinifauaw_2K_B; Normal=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_N.T_tinifauaw_2K_N; ORM=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_ORM.T_tinifauaw_2K_ORM; Arch_BaseColor=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_B.T_tinifauaw_2K_B; Arch_Normal=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_N.T_tinifauaw_2K_N; Arch_ORM=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Stone_Wall_tinifauaw/Medium/T_tinifauaw_2K_ORM.T_tinifauaw_2K_ORM
+    par: TileSize_cm=160, MossHeight_cm=500, CrackSize_cm=750, MacroStrength=0.35, DirtBand_cm=150, DirtAmount=1, Arch_NormalStrength=0.35, Arch_AOStrength=1, Tint=(0.73,0.64,0.55), MossColor=(0.16,0.17,0.12)
+stone |   12 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm60.MI_Tower9_WallBaseGrime_Zm60 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_A_16_0,Tower9_WallGrime_A_16_1,Tower9_WallGrime_A_28_0
+    tex: 
+    par: FloorZ=-60
+stone |   12 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm80.MI_Tower9_WallBaseGrime_Zm80 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_A_18_0,Tower9_WallGrime_A_18_1,Tower9_WallGrime_A_27_0
+    tex: 
+    par: FloorZ=-80
+stone |   12 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Z90.MI_Tower9_WallBaseGrime_Z90 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_A_00_0,Tower9_WallGrime_A_00_1,Tower9_WallGrime_A_11_0
+    tex: 
+    par: FloorZ=90
+stone |   11 | /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_06.MI_Rock_06 | parent M_Master_Rock | e.g. BreachSpot_A,BreachSpot_B,BreachSpot_C
+    tex: Mask=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_06_Mask.T_Rock_06_Mask; Normal=/Game/CastleDefender/Environment/Foliage/Textures/T_Rock_06_Normal.T_Rock_06_Normal
+    par: Specular=0, RefractionDepthBias=0, Tint_1=(0.04,0.03,0.02), Tint_2=(0.16,0.14,0.10), Tint_3=(0.18,0.15,0.11)
+stone |   10 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm70.MI_Tower9_WallBaseGrime_Zm70 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_A_17_0,Tower9_WallGrime_A_17_1,Tower9_WallGrime_A_36_0
+    tex: 
+    par: FloorZ=-70
+stone |   10 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm50.MI_Tower9_WallBaseGrime_Zm50 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_A_15_0,Tower9_WallGrime_A_15_1,Tower9_WallGrime_A_29_0
+    tex: 
+    par: FloorZ=-50
+wood |    9 | /Game/CastleDefender/Props/CourtyardProps/Materials/M_FirePitLog.M_FirePitLog | parent - | e.g. FirePit_Log_00,FirePit_Log_01,FirePit_Log_02
+    tex: 
+    par: 
+wood |    8 | /Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/Wood.Wood | parent MI_Default_Opaque_DS | e.g. Cannon_front_field_N,Cannon_front_field_S,Cannon_old_field_cannon
+    tex: NormalTexture=/Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/old_field_cannon_texture_6.old_field_cannon_texture_6; BaseColorTexture=/Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/old_field_cannon_texture_4.old_field_cannon_texture_4; MetallicRoughnessTexture=/Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/old_field_cannon_texture_5.old_field_cannon_texture_5; SpecularTexture=/Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/old_field_cannon_texture_7.old_field_cannon_texture_7
+    par: 
+grass |    8 | /Game/CastleDefender/Environment/Landscape/Materials/Plants/MTL_MWAM_PlantsGrass.MTL_MWAM_PlantsGrass | parent MTL_MWAM_CoverFoliage_MASTER | e.g. Meadow351
+    tex: MW_TextureBaseColor=/Game/CastleDefender/Environment/Landscape/Textures/Plants/TEX_MWAM_Grass_col.TEX_MWAM_Grass_col; MW_TextureNormal=/Game/CastleDefender/Environment/Landscape/Textures/Plants/TEX_MWAM_Grass_nrm.TEX_MWAM_Grass_nrm
+    par: MW_BaseColorContrast=0.5, MW_ColorVariationContrast=0.5, MW_CameraFadeOffset=500, MW_CameraFadeRange=9.5e+03, MW_RoughnessPower=4, MW_NormalIntensity=10, RefractionDepthBias=0, MW_BaseColorCorrection=(0.11,0.15,0.03), MW_SubSurfaceColor=(1.00,1.00,1.00)
+wood |    7 | /Game/CastleDefender/Environment/ContactDecals425/MI_MountCard425_Wood.MI_MountCard425_Wood | parent M_ContactMountCard425 | e.g. CD425_Castle_BannerRod_M,CD425_Props242_246_Sign_
+    tex: 
+    par: Rust=0.15, Holes=0, R=0.2, Swap=1, FlipV=1, Strength=1.3
+stone |    7 | /Game/CastleDefender/Environment/Mine/MI_MineRock.MI_MineRock | parent M_MineSurface | e.g. Mine297_Chamber_00,Mine297_SpoilHeap_21,Mine297_Tunnel_DeadEnd_0
+    tex: BaseColorTex=/Game/CastleDefender/Environment/Mine/T_MineRock_BC.T_MineRock_BC; ORMTex=/Game/CastleDefender/Environment/Mine/T_MineRock_ORM.T_MineRock_ORM; NormalTex=/Game/CastleDefender/Environment/Mine/T_MineRock_N.T_MineRock_N
+    par: 
+metal |    6 | /Game/CastleDefender/AssetPacks/StarterContent/Materials/M_Metal_Steel.M_Metal_Steel | parent - | e.g. BP_GateBreachLeaf,Castle_GateLever_NATIVE
+    tex: 
+    par: 
+wood |    6 | /Game/CastleDefender/Castle/Trees/Materials/M_Pine_bark.M_Pine_bark | parent - | e.g. Env_Trees,MB_Forest
+    tex: 
+    par: 
+stone |    4 | /Game/CastleDefender/Environment/Castle/Tower9/MI_Tower9_WallBaseGrime_Zm110.MI_Tower9_WallBaseGrime_Zm110 | parent M_WallBaseGrime | e.g. Tower9_WallGrime_B_23_0,Tower9_WallGrime_B_23_1,Tower9_WallGrime_B_24_0
+    tex: 
+    par: FloorZ=-110
+metal |    4 | /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Iron_AAA.M_Shield_Iron_AAA | parent - | e.g. Start_Sword_1,Start_Sword_2,Start_Xbow_1
+    tex: 
+    par: 
+wood |    4 | /Game/CastleDefender/Equipment/Weapons/Shield/M_Shield_Wood_AAA.M_Shield_Wood_AAA | parent - | e.g. Start_Sword_1,Start_Sword_2,Start_Xbow_1
+    tex: 
+    par: 
+wood |    3 | /Game/CastleDefender/Environment/Barracks/Crate/MI_Barracks_Crate.MI_Barracks_Crate | parent M_LP2Weapon | e.g. Barracks_Crate_1,Barracks_Crate_2,Barracks_Crate_3
+    tex: BaseColor=/Game/CastleDefender/Environment/Barracks/Crate/T_Barracks_Crate_BaseColor.T_Barracks_Crate_BaseColor; ORM=/Game/CastleDefender/Environment/Barracks/Crate/T_Barracks_Crate_ORM.T_Barracks_Crate_ORM; Normal=/Game/CastleDefender/Environment/Barracks/Crate/T_Barracks_Crate_Normal_DirectX.T_Barracks_Crate_Normal_DirectX
+    par: EmissiveBoost=0
+wood |    3 | /Game/CastleDefender/Environment/Barracks/Barrel/MI_Barracks_Barrel.MI_Barracks_Barrel | parent M_LP2Weapon | e.g. Barracks_Barrel_5,Barracks_Barrel_6,Barracks_Barrel_7
+    tex: BaseColor=/Game/CastleDefender/Environment/Barracks/Barrel/T_Barracks_Barrel_BaseColor.T_Barracks_Barrel_BaseColor; ORM=/Game/CastleDefender/Environment/Barracks/Barrel/T_Barracks_Barrel_ORM.T_Barracks_Barrel_ORM; Normal=/Game/CastleDefender/Environment/Barracks/Barrel/T_Barracks_Barrel_Normal_DirectX.T_Barracks_Barrel_Normal_DirectX
+    par: EmissiveBoost=0
+wood |    3 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Planks_World.MI_Castle_Planks_World | parent M_Castle_StoneWall_World | e.g. Castle_KeepDoor,Castle_KeepShell_Floor_1
+    tex: BaseColor=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wooden_Planks_vcznah3g/Raw/T_vcznah3g_8K_B.T_vcznah3g_8K_B; Normal=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wooden_Planks_vcznah3g/Raw/T_vcznah3g_8K_N.T_vcznah3g_8K_N; ORM=/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wooden_Planks_vcznah3g/Raw/T_vcznah3g_8K_ORM.T_vcznah3g_8K_ORM
+    par: TileSize_cm=220, MacroStrength=0.25, GrimeHeight_cm=1, MossAmount=0, CrackAmount=0, Tint=(0.85,0.78,0.70)
+wood |    2 | /Game/CastleDefender/Shared/Materials/Castle/M_GateWood_Scratched.M_GateWood_Scratched | parent - | e.g. Castle_GateLever_NATIVE
+    tex: 
+    par: 
+wood |    2 | /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WorldWood.M_Castle_WorldWood | parent - | e.g. Castle_GateLever_NATIVE
+    tex: 
+    par: 
+stone |    2 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_StoneFountain.MI_StoneFountain | parent M_StoneFountain_AAA | e.g. StoneWallFountain_01,StoneWallFountain_2
+    tex: 
+    par: MossAmount=0.8
+stone |    2 | /Game/CastleDefender/Props/StoneWallBasin/Materials/MI_AlgaeStain_Wall.MI_AlgaeStain_Wall | parent M_AlgaeStain_Card | e.g. StoneWallFountain_01,StoneWallFountain_2
+    tex: 
+    par: Shape_0Wall_1Ground=0, CardSizeCm=(80.00,180.00,0.00)
+wood |    2 | /Game/CastleDefender/Shared/Materials/Castle/M_Castle_LocalWood.M_Castle_LocalWood | parent - | e.g. Castle_InteractiveGate_L,Castle_InteractiveGate_R
+    tex: 
+    par: 
+stone |    1 | /Game/CastleDefender/Props/AshenGate/Materials/MI_AshenGate_Stone.MI_AshenGate_Stone | parent M_AshenGate_Triplanar | e.g. AshenGate
+    tex: BaseColorTex=/Game/CastleDefender/Props/AshenGate/Textures/rock_surface_diff_1k.rock_surface_diff_1k; NormalTex=/Game/CastleDefender/Props/AshenGate/Textures/rock_surface_nor_gl_1k.rock_surface_nor_gl_1k; ARMTex=/Game/CastleDefender/Props/AshenGate/Textures/rock_surface_arm_1k.rock_surface_arm_1k
+    par: TileSizeCm=140, TintAmount=0.8, Brightness=1, RoughnessMul=1.05, Tint=(0.21,0.21,0.22)
+wood |    1 | /Game/CastleDefender/Gameplay/Crossbow/Materials/M_Bolt_Wood.M_Bolt_Wood | parent - | e.g. CrossbowRig
+    tex: 
+    par: 
+metal |    1 | /Game/CastleDefender/Gameplay/Crossbow/Materials/M_Bolt_Steel.M_Bolt_Steel | parent - | e.g. CrossbowRig
+    tex: 
+    par: 
+stone |    1 | /Game/CastleDefender/Shared/Materials/Decals/MI_ArchWeathering_Wall.MI_ArchWeathering_Wall | parent M_ArchWeathering | e.g. ArchWeathering_Wall
+    tex: 
+    par: Mode=1, GroundZ=32.5
+stone |    1 | /Game/CastleDefender/Environment/Cave/MI_CaveRock_Natural.MI_CaveRock_Natural | parent M_CaveRock | e.g. Mine_01
+    tex: 
+    par: Sharp=1, Bump=1, Iron=0.35, Calcite=0.35, Moss=0.6, Soot=0
+stone |    1 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Ground.MI_Castle_Ground | parent M_Landscape | e.g. Castle_GrassSurround
+    tex: 
+    par: Noise_Value=0.345, Noise_scale=0.064, Roughness=50, Larger_Grass_Scale=0.614, Grass_Scale_Blend=0.5, Far_Grass_Scale=0.01, Camera_Distance=1e+04, Snow_Scale=0.01, Snow_Fade=5.76e+03, Snow_Position=-1.53
+stone |    1 | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Mountains.MI_Castle_Mountains | parent M_Landscape | e.g. Castle_SurroundingMounta
+    tex: 
+    par: Noise_Value=0.345, Noise_scale=0.064, Roughness=50, Larger_Grass_Scale=0.614, Grass_Scale_Blend=0.5, Far_Grass_Scale=0.01, Camera_Distance=1e+04, Snow_Scale=0.01, Snow_Fade=5.76e+03, Snow_Position=-1.53
+wood |    1 | /Game/CastleDefender/Props/AshenGate/Materials/M_AshenGate_FirewoodBark.M_AshenGate_FirewoodBark | parent - | e.g. AshenGate_Firewood
+    tex: 
+    par: 
+wood |    1 | /Game/CastleDefender/Props/AshenGate/Materials/M_AshenGate_FirewoodEnd.M_AshenGate_FirewoodEnd | parent - | e.g. AshenGate_Firewood
+    tex: 
+    par: 
