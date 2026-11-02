@@ -45,10 +45,25 @@ def _connected():
     return time.time() - _state['since'] > 20.0
 
 
+def _frame_ok():
+    # 2026-11-02: the 05:10/05:18/08:13 crashes. After a join Multi-User hot-reloads every package the Master saved
+    # (ReloadPackage -> *_DEADPACKAGE classes) in ONE long engine frame and pumps Slate meanwhile, so this callback ran
+    # _loadmap.py INSIDE that loop (frame counter stuck at 57) and the map load crashed ~3 s later (null call in
+    # CoreUObject). Run scripts only from a real engine frame (counter moved) and once frames flow freely again
+    # (>= 3 frames in the last 10 s: an unfocused editor or a heavy PIE runs at 1-3 fps, a stuck loop stays at 0).
+    fc = unreal.SystemLibrary.get_frame_count()
+    last = _state.get('fc'); _state['fc'] = fc
+    if last is None or fc == last: return False
+    now = time.time(); hist = _state.setdefault('hist', [])
+    hist.append((now, fc)); hist[:] = [h for h in hist if now - h[0] <= 10.0]
+    return hist[-1][1] - hist[0][1] >= 3 and now - hist[0][0] >= 8.0
+
+
 def _tick(dt):
     _state['t'] += dt
     if _state['t'] < 1.0: return
     _state['t'] = 0.0
+    if not _frame_ok(): return
     if not _connected():
         for p in sorted(glob.glob(INBOX + '/nomu_*.py'), key=os.path.getmtime): _run(p.replace('\\', '/'))
         return
@@ -56,6 +71,8 @@ def _tick(dt):
         _run(p.replace('\\', '/'))
 
 
+if getattr(unreal, '_i5_inbox_handle', None) and getattr(unreal, '_i5_inbox_reload', False):
+    unreal.unregister_slate_post_tick_callback(unreal._i5_inbox_handle); unreal._i5_inbox_handle = None
 if not getattr(unreal, '_i5_inbox_handle', None):
     unreal._i5_inbox_handle = unreal.register_slate_post_tick_callback(_tick)
     unreal.log('i5 inbox watcher started on ' + INBOX)

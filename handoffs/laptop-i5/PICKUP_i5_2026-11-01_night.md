@@ -58,3 +58,24 @@ every 10 s), keep i9/TGA moving, whiteboard minus WinterKeep. i9 is back on Cast
 - Open: Alien's green soot card on the north wall above the torch next to Vesna (TorchSoot_28, Plane at 700,3309,473,
   shows pale green = broken/missing material). Handed to i9 (chat 396).
 - i5 next: #421 Muster v2 paste (needs a working map-free BP editor: the paste itself doesn't need the map), #77 LV4 check.
+
+## Update 2026-11-02 09:35: map-load crash FIXED, #421 setup done, #77 checked
+- **Crash cause:** JOIN started the editor ON ThirdPersonMap (EditorStartupMap) from disk, which loaded ~110 BPs; the
+  Multi-User join then hot-reloaded 107 of them in ONE engine frame (`Reloading 107 Package(s)`, `*_DEADPACKAGE` classes,
+  UberGraphFunctionKey ensures). The inbox watcher ran `_loadmap.py` from a Slate tick nested inside that loop (frame
+  counter stuck), and the laptop sat at the commit limit (28/29 GB; ~20 idle Claude processes hold 5.7 GB). Result:
+  access violations at map load (05:10, 05:18, 08:13) or during the reload itself (08:38).
+- **Fix:** JOIN_LIVE.bat now starts on `/Engine/Maps/Entry` (+ `r.Streaming.PoolSize 400` + the watcher). Join = 0
+  reloads, 0 compiles; then `_loadmap.py` (GC + load_level) opens the map from the session: OK at 08:50, stable since.
+  The watcher only runs scripts from real engine frames (>= 3 frames / 10 s). If it seems idle, focus the editor
+  (`ue_windows.ps1`): an unfocused editor runs at ~3 fps. To stop a stuck PIE: PostMessage Esc to the main window works.
+- i5 keeps its Lumen SurfaceCache atlas at 2048 (i9 moved the Master to 4096; 2 GB GPU here).
+- **#421:** setup steps 1-2 done in the session (backup, T_MU2 textures, vars). Busts: 5.8 refuses
+  `show_only_actors` as a property (wrapper `muster421_setup_ue.py` uses `show_only_actor_components`), but the
+  captures come out blown out/white, so BustTex is cleared (medallions) until TGA tunes it. i9 pasted the graph at 09:08
+  (compiles clean, 0 Muster errors in Play). Owed: the click checklist in Play (needs GUI / someone at a PC).
+- **#77:** arcs work at LV4 (`fresh77_lv4.png`, `xbow77_fresh_ue.py`). The TradeShowcase placed in the map has no
+  overlay on ItemXbow/ItemSov (stale instance): asked i9 to reset it on the Master.
+- **PIE on i5 is not usable right now** (hero doesn't spawn behind the start menu, 1.6 fps, 27k runtime errors/9 min,
+  commit at the limit). Play checks go to the Master.
+- BP_ArmySplit IsValid guard: still open (needs an export + GUI paste; no screen access on i5 this morning).
