@@ -84,3 +84,5 @@ every 10 s), keep i9/TGA moving, whiteboard minus WinterKeep. i9 is back on Cast
 - Step 1 contact stains: built + previewed, NOT placed (owner OK asked, desk bell). Everything in handoffs/contact-decals-425 (README).
 - Half the castle walls have Receives Decals OFF: stain cards (unlit Modulate) instead of decals.
 - Next: steps 2 (wood/stone/grass) and 3 (re-bake fake props) on card #425.
+
+- 11:00: i5 editor relaunch. A killed editor leaves Saved/Autosaves/PackageRestoreData.json -> next start blocks on a modal "Restore Packages" (no join). Rename that file before relaunching (never restore in Multi-User).

@@ -33,3 +33,23 @@ The top 6 kits are 1,0 GB of the 1,4 GB.
 - Who runs it: i9 (GPU, fast) or i5 one kit at a time. Re-importing on i5 also lowers i5's own memory pressure.
 - Textures the dry run reports as "NO UE TEXTURE" were imported from another path (e.g. a kit's temp folder): those need
   the kit's own import script instead (`assets/<owner>/<kit>/import_*_ue.py`).
+
+## Dry run on the live session (i5, 11:07, `reimport_list.txt`)
+Matched by the `assets/...` part of each texture's import path (paths were recorded on other machines).
+- **167** of the shrunk textures are **already at the budget size in UE** (imported after the shrink, or capped).
+- **73 still TODO = ~352 MB GPU**, in 8 kits:
+
+| Kit | Textures | Saves |
+|---|---|---|
+| laptop2/SiegeBarricadeKit | 12 | 128 MB (4K normals → 2K) |
+| laptop2/FloraKit | 29 | 74 MB |
+| tga/RealmCrack | 4 | 50 MB (4K → 1K) |
+| laptop2/CampKit | 16 | 42 MB |
+| laptop2/SiegeGate | 3 | 32 MB |
+| tga/RealmDressing | 4 | 10 MB |
+| laptop2/RealmKit | 2 | 8 MB |
+| laptop2/MineKit | 3 | 8 MB |
+
+- **79 sources have no UE texture with that import path** (CampKit 42, Weapons 26, Flora 4, FireBallista 3, 4 singles):
+  imported under another source name or not imported at all; they need a name match, not a path match (next step if wanted).
+- i9 saw "Video memory exhausted, 743 MB over budget" in Play at 10:43: these 73 re-imports cover about half of that.

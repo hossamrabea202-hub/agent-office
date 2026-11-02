@@ -1,0 +1,320 @@
+#267 re-import DRY RUN: 318 downsized sources, 167 matched textures already done, 73 TODO
+done laptop2/FireBallista         /Game/CastleDefender/Weapons/FireBallista/T_FireBallista_Normal_DirectX 1024x1024 -> 1024x1024  -20.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Emberoath/T_Emberoath_Normal_DirectX 1024x1024 -> 1024x1024  -20.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/HeaterShield/T_HeaterShield_Normal_DirectX 1024x1024 -> 1024x1024  -20.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/RoundShield/T_RoundShield_Normal_DirectX 1024x1024 -> 1024x1024  -20.0 MB
+done tga/Feast                    /Game/CastleDefender/Props/Feast/T_Feast_N                   1024x1024 -> 1024x1024  -20.0 MB
+TODO tga/RealmCrack               /Game/CastleDefender/Realm/MountainCrack/T_RealmCrack_N      4096x4096 -> 1024x1024  -20.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/T_ObsidianSovereign_Boots_Normal_DirectX 2048x2048 -> 2048x2048  -16.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/T_ObsidianSovereign_Chest_Normal_DirectX 2048x2048 -> 2048x2048  -16.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/T_ObsidianSovereign_Gauntlets_Normal_DirectX 2048x2048 -> 2048x2048  -16.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/T_ObsidianSovereign_Shins_Normal_DirectX 2048x2048 -> 2048x2048  -16.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/T_ObsidianSovereign_Shoulders_Normal_DirectX 2048x2048 -> 2048x2048  -16.0 MB
+done laptop2/Obsidian-Sovereign   /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/T_ObsidianSovereign_Shield_Normal_DirectX 2048x2048 -> 2048x2048  -16.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Breach_Normal_DirectX 4096x4096 -> 2048x2048  -16.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Cheval_Normal_DirectX 4096x4096 -> 2048x2048  -16.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Palisade_Normal_DirectX 4096x4096 -> 2048x2048  -16.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Watchtower_Normal_DirectX 4096x4096 -> 2048x2048  -16.0 MB
+TODO laptop2/SiegeGate            /Game/CastleDefender/Environment/Boundaries/SiegeGate/T_SiegeGate_Normal_DirectX 4096x4096 -> 2048x2048  -16.0 MB
+done tga/HalfHorseZombie          /Game/CastleDefender/Characters/Enemies/HalfHorseZombie/T_HorseBody_N 2048x2048 -> 2048x2048  -16.0 MB
+done tga/OreShed                  /Game/CastleDefender/Props/Mine/OreShed/T_OreShed_N          1024x1024 -> 2048x2048  -16.0 MB
+done tga/RealmWasp                /Game/CastleDefender/Characters/Enemies/RealmWasp/T_RealmWasp_Body_N 2048x2048 -> 2048x2048  -16.0 MB
+done tga/SiegeEngines             /Game/CastleDefender/Props/Siege/T_SiegeRam_N                1024x1024 -> 2048x2048  -16.0 MB
+done tga/SiegeEngines             /Game/CastleDefender/Props/Siege/T_SiegeTower_N              1024x1024 -> 2048x2048  -16.0 MB
+done laptop2/FireBallista         /Game/CastleDefender/Weapons/FireBallista/T_FireBallista_BaseColor 1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/FireBallista         /Game/CastleDefender/Weapons/FireBallista/T_FireBallista_Emissive 1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/FireBallista         /Game/CastleDefender/Weapons/FireBallista/T_FireBallista_ORM 1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Emberoath/T_Emberoath_BaseColor 1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Emberoath/T_Emberoath_Emissive  1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Emberoath/T_Emberoath_ORM       1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/HeaterShield/T_HeaterShield_BaseColor 1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/HeaterShield/T_HeaterShield_ORM 1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/RoundShield/T_RoundShield_BaseColor 1024x1024 -> 1024x1024  -10.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/RoundShield/T_RoundShield_ORM   1024x1024 -> 1024x1024  -10.0 MB
+done tga/Feast                    /Game/CastleDefender/Props/Feast/T_Feast_BC                  1024x1024 -> 1024x1024  -10.0 MB
+done tga/Feast                    /Game/CastleDefender/Props/Feast/T_Feast_E                   1024x1024 -> 1024x1024  -10.0 MB
+done tga/Feast                    /Game/CastleDefender/Props/Feast/T_Feast_ORM                 1024x1024 -> 1024x1024  -10.0 MB
+TODO tga/RealmCrack               /Game/CastleDefender/Realm/MountainCrack/T_RealmCrack_BC     4096x4096 -> 1024x1024  -10.0 MB
+TODO tga/RealmCrack               /Game/CastleDefender/Realm/MountainCrack/T_RealmCrack_E      4096x4096 -> 1024x1024  -10.0 MB
+TODO tga/RealmCrack               /Game/CastleDefender/Realm/MountainCrack/T_RealmCrack_ORM    4096x4096 -> 1024x1024  -10.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/T_ObsidianSovereign_Boots_BaseColor 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Boots/T_ObsidianSovereign_Boots_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/T_ObsidianSovereign_Chest_BaseColor 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Chest/T_ObsidianSovereign_Chest_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/T_ObsidianSovereign_Gauntlets_BaseColor 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Gauntlets/T_ObsidianSovereign_Gauntlets_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/T_ObsidianSovereign_Shins_BaseColor 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shins/T_ObsidianSovereign_Shins_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/T_ObsidianSovereign_Shoulders_BaseColor 2048x2048 -> 2048x2048  -8.0 MB
+done checkking/Obsidian-Sovereign /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shoulders/T_ObsidianSovereign_Shoulders_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done laptop2/Obsidian-Sovereign   /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/T_ObsidianSovereign_Shield_BaseColor 2048x2048 -> 2048x2048  -8.0 MB
+done laptop2/Obsidian-Sovereign   /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/Shield/T_ObsidianSovereign_Shield_ORM 2048x2048 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Breach_BaseColor 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Breach_ORM 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Cheval_BaseColor 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Cheval_ORM 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Palisade_BaseColor 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Palisade_ORM 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Watchtower_BaseColor 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeBarricadeKit    /Game/CastleDefender/Environment/Boundaries/SiegeKit/T_SiegeBarricade_Watchtower_ORM 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeGate            /Game/CastleDefender/Environment/Boundaries/SiegeGate/T_SiegeGate_BaseColor 4096x4096 -> 2048x2048  -8.0 MB
+TODO laptop2/SiegeGate            /Game/CastleDefender/Environment/Boundaries/SiegeGate/T_SiegeGate_ORM 4096x4096 -> 2048x2048  -8.0 MB
+done tga/HalfHorseZombie          /Game/CastleDefender/Characters/Enemies/HalfHorseZombie/T_HorseBody_Bay_BC 2048x2048 -> 2048x2048  -8.0 MB
+done tga/HalfHorseZombie          /Game/CastleDefender/Characters/Enemies/HalfHorseZombie/T_HorseBody_Bay_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done tga/HalfHorseZombie          /Game/CastleDefender/Characters/Enemies/HalfHorseZombie/T_HorseBody_Grey_BC 2048x2048 -> 2048x2048  -8.0 MB
+done tga/HalfHorseZombie          /Game/CastleDefender/Characters/Enemies/HalfHorseZombie/T_HorseBody_Grey_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done tga/OreShed                  /Game/CastleDefender/Props/Mine/OreShed/T_OreShed_BC         1024x1024 -> 2048x2048  -8.0 MB
+done tga/OreShed                  /Game/CastleDefender/Props/Mine/OreShed/T_OreShed_ORM        1024x1024 -> 2048x2048  -8.0 MB
+done tga/RealmWasp                /Game/CastleDefender/Characters/Enemies/RealmWasp/T_RealmWasp_Body_Blight_BC 2048x2048 -> 2048x2048  -8.0 MB
+done tga/RealmWasp                /Game/CastleDefender/Characters/Enemies/RealmWasp/T_RealmWasp_Body_Blight_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done tga/RealmWasp                /Game/CastleDefender/Characters/Enemies/RealmWasp/T_RealmWasp_Body_Ember_BC 2048x2048 -> 2048x2048  -8.0 MB
+done tga/RealmWasp                /Game/CastleDefender/Characters/Enemies/RealmWasp/T_RealmWasp_Body_Ember_ORM 2048x2048 -> 2048x2048  -8.0 MB
+done tga/SiegeEngines             /Game/CastleDefender/Props/Siege/T_SiegeRam_BC               1024x1024 -> 2048x2048  -8.0 MB
+done tga/SiegeEngines             /Game/CastleDefender/Props/Siege/T_SiegeRam_ORM              1024x1024 -> 2048x2048  -8.0 MB
+done tga/SiegeEngines             /Game/CastleDefender/Props/Siege/T_SiegeTower_BC             1024x1024 -> 2048x2048  -8.0 MB
+done tga/SiegeEngines             /Game/CastleDefender/Props/Siege/T_SiegeTower_ORM            1024x1024 -> 2048x2048  -8.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/ArmingSword/T_CK_ArmingSword_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Bardiche/T_CK_Bardiche_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/BeardedAxe/T_CK_BeardedAxe_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/BoarSpear/T_CK_BoarSpear_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/DaneAxe/T_CK_DaneAxe_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Estoc/T_CK_Estoc_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Falchion/T_CK_Falchion_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/FlangedMace/T_CK_FlangedMace_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Glaive/T_CK_Glaive_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Guisarme/T_CK_Guisarme_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Halberd/T_CK_Halberd_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Katzbalger/T_CK_Katzbalger_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/LochaberAxe/T_CK_LochaberAxe_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Longsword/T_CK_Longsword_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Messer/T_CK_Messer_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/MorningStar/T_CK_MorningStar_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Partisan/T_CK_Partisan_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Pollaxe/T_CK_Pollaxe_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Ranseur/T_CK_Ranseur_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/RondelDagger/T_CK_RondelDagger_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/VikingSword/T_CK_VikingSword_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WarAxe/T_CK_WarAxe_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WarHammer/T_CK_WarHammer_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WingedSpear/T_CK_WingedSpear_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Zweihander/T_CK_Zweihander_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Barrel/T_Barracks_Barrel_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Crate/T_Barracks_Crate_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Sack/T_Barracks_Sack_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/WeaponRack/T_Barracks_WeaponRack_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Anvil/T_Camp_Anvil_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Banner/textures/T_Camp_Banner_Normal_DirectX.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Burrow/textures/T_Camp_Burrow_Normal_DirectX.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Campfire/textures/T_Camp_Campfire_Normal_DirectX.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/CannonCart/textures/T_Camp_CannonCart_Normal_DirectX.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Firewood/textures/T_Camp_Firewood_Normal_DirectX.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Forge/T_Camp_Forge_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Grindstone/textures/T_Camp_Grindstone_Normal_DirectX.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/HandCart/T_Camp_HandCart_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/HayBale/textures/T_Camp_HayBale_Normal_DirectX.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Lantern/T_Camp_Lantern_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/MarketStall/textures/T_Camp_MarketStall_Normal_DirectX.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/SiegeLadder/textures/T_Camp_SiegeLadder_Normal_DirectX.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/TargetDummy/textures/T_Camp_TargetDummy_Normal_DirectX.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Tent/textures/T_Camp_Tent_Normal_DirectX.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/TorchPost/T_Camp_TorchPost_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Well/textures/T_Camp_Well_Normal_DirectX.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Workbench/textures/T_Camp_Workbench_Normal_DirectX.png
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+NO UE TEXTURE  laptop2/FloraKit             assets/laptop2/FloraKit/Bloodcap/textures/T_Flora_Bloodcap_Normal_DirectX.png
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/CorruptPatch/T_Flora_CorruptPatch_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Daisy/T_Flora_Daisy_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/EggCluster/T_Flora_EggCluster_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Foxglove/T_Flora_Foxglove_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Poppy/T_Flora_Poppy_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/SporeStalk/T_Flora_SporeStalk_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/TentacleFern/T_Flora_TentacleFern_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/MineKit              /Game/CastleDefender/Environment/Mine/MineEntrance/T_Camp_MineEntrance_Normal_DirectX 2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/RealmKit             /Game/CastleDefender/Realm/T_RealmBubbleVeins                2048x2048 -> 1024x1024  -4.0 MB
+TODO laptop2/RealmKit             /Game/CastleDefender/Realm/T_RealmMembrane_Veins             2048x2048 -> 1024x1024  -4.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Potions/T_Potion_Antidote_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Potions/T_Potion_Health_Normal_DirectX 1024x1024 -> 1024x1024  -4.0 MB
+done tga/Fence                    /Game/CastleDefender/Props/Road/Fence/T_Fence_N              1024x1024 -> 1024x1024  -4.0 MB
+done tga/MedicGear                /Game/CastleDefender/Characters/NPC/MedicGear/T_MedicGear_N  1024x1024 -> 1024x1024  -4.0 MB
+done tga/MinerGear                /Game/CastleDefender/Characters/NPC/MinerGear/T_MinerGear_N  1024x1024 -> 1024x1024  -4.0 MB
+TODO tga/RealmDressing            /Game/CastleDefender/Environment/Realm/Dressing/T_RealmDress_N 2048x2048 -> 1024x1024  -4.0 MB
+done tga/SiegeDebris              /Game/CastleDefender/Props/Aftermath/SiegeDebris/T_Debris_N  1024x1024 -> 1024x1024  -4.0 MB
+done tga/Signs                    /Game/CastleDefender/Props/Town/Signs/T_Sign_N               1024x1024 -> 1024x1024  -4.0 MB
+done tga/Trough                   /Game/CastleDefender/Props/Yard/Trough/T_Trough_N            1024x1024 -> 1024x1024  -4.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/ArmingSword/T_CK_ArmingSword_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/ArmingSword/T_CK_ArmingSword_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Bardiche/T_CK_Bardiche_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Bardiche/T_CK_Bardiche_ORM   1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/BeardedAxe/T_CK_BeardedAxe_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/BeardedAxe/T_CK_BeardedAxe_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/BoarSpear/T_CK_BoarSpear_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/BoarSpear/T_CK_BoarSpear_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/DaneAxe/T_CK_DaneAxe_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/DaneAxe/T_CK_DaneAxe_ORM     1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Estoc/T_CK_Estoc_BaseColor   1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Estoc/T_CK_Estoc_ORM         1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Falchion/T_CK_Falchion_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Falchion/T_CK_Falchion_ORM   1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/FlangedMace/T_CK_FlangedMace_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/FlangedMace/T_CK_FlangedMace_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Glaive/T_CK_Glaive_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Glaive/T_CK_Glaive_ORM       1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Guisarme/T_CK_Guisarme_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Guisarme/T_CK_Guisarme_ORM   1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Halberd/T_CK_Halberd_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Halberd/T_CK_Halberd_ORM     1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Katzbalger/T_CK_Katzbalger_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Katzbalger/T_CK_Katzbalger_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/LochaberAxe/T_CK_LochaberAxe_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/LochaberAxe/T_CK_LochaberAxe_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Longsword/T_CK_Longsword_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Longsword/T_CK_Longsword_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Messer/T_CK_Messer_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Messer/T_CK_Messer_ORM       1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/MorningStar/T_CK_MorningStar_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/MorningStar/T_CK_MorningStar_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Partisan/T_CK_Partisan_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Partisan/T_CK_Partisan_ORM   1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Pollaxe/T_CK_Pollaxe_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Pollaxe/T_CK_Pollaxe_ORM     1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Ranseur/T_CK_Ranseur_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Ranseur/T_CK_Ranseur_ORM     1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/RondelDagger/T_CK_RondelDagger_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/RondelDagger/T_CK_RondelDagger_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/VikingSword/T_CK_VikingSword_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/VikingSword/T_CK_VikingSword_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WarAxe/T_CK_WarAxe_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WarAxe/T_CK_WarAxe_ORM       1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WarHammer/T_CK_WarHammer_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WarHammer/T_CK_WarHammer_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WingedSpear/T_CK_WingedSpear_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/WingedSpear/T_CK_WingedSpear_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Zweihander/T_CK_Zweihander_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done checkking/Weapons            /Game/CastleDefender/Weapons/CK/Zweihander/T_CK_Zweihander_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Barrel/T_Barracks_Barrel_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Barrel/T_Barracks_Barrel_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Crate/T_Barracks_Crate_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Crate/T_Barracks_Crate_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Sack/T_Barracks_Sack_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/Sack/T_Barracks_Sack_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/WeaponRack/T_Barracks_WeaponRack_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/BarracksProps        /Game/CastleDefender/Environment/Barracks/WeaponRack/T_Barracks_WeaponRack_ORM 1024x1024 -> 1024x1024  -2.0 MB
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Anvil/T_Camp_Anvil_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Anvil/T_Camp_Anvil_ORM 2048x2048 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Banner/textures/T_Camp_Banner_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Banner/textures/T_Camp_Banner_ORM.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Burrow/textures/T_Camp_Burrow_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Burrow/textures/T_Camp_Burrow_ORM.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Campfire/textures/T_Camp_Campfire_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Campfire/textures/T_Camp_Campfire_Emissive.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Campfire/textures/T_Camp_Campfire_ORM.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/CannonCart/textures/T_Camp_CannonCart_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/CannonCart/textures/T_Camp_CannonCart_ORM.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Firewood/textures/T_Camp_Firewood_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Firewood/textures/T_Camp_Firewood_ORM.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Forge/T_Camp_Forge_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Forge/textures/T_Camp_Forge_Emissive.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Forge/T_Camp_Forge_ORM 2048x2048 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Grindstone/textures/T_Camp_Grindstone_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Grindstone/textures/T_Camp_Grindstone_ORM.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/HandCart/T_Camp_HandCart_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/HandCart/T_Camp_HandCart_ORM 2048x2048 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/HayBale/textures/T_Camp_HayBale_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/HayBale/textures/T_Camp_HayBale_ORM.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Lantern/T_Camp_Lantern_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Lantern/textures/T_Camp_Lantern_Emissive.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/Lantern/T_Camp_Lantern_ORM 2048x2048 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/MarketStall/textures/T_Camp_MarketStall_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/MarketStall/textures/T_Camp_MarketStall_ORM.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/SiegeLadder/textures/T_Camp_SiegeLadder_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/SiegeLadder/textures/T_Camp_SiegeLadder_ORM.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/TargetDummy/textures/T_Camp_TargetDummy_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/TargetDummy/textures/T_Camp_TargetDummy_ORM.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Tent/textures/T_Camp_Tent_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Tent/textures/T_Camp_Tent_ORM.png
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/TorchPost/T_Camp_TorchPost_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/TorchPost/T_Camp_TorchPost_Emissive 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/CampKit              /Game/CastleDefender/Environment/Camp/TorchPost/T_Camp_TorchPost_ORM 2048x2048 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Well/textures/T_Camp_Well_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Well/textures/T_Camp_Well_ORM.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Workbench/textures/T_Camp_Workbench_BaseColor.png
+NO UE TEXTURE  laptop2/CampKit              assets/laptop2/CampKit/Workbench/textures/T_Camp_Workbench_ORM.png
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_Emissive 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/BlobMine/T_Flora_BlobMine_ORM 2048x2048 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  laptop2/FloraKit             assets/laptop2/FloraKit/Bloodcap/textures/T_Flora_Bloodcap_BaseColor.png
+NO UE TEXTURE  laptop2/FloraKit             assets/laptop2/FloraKit/Bloodcap/textures/T_Flora_Bloodcap_Emissive.png
+NO UE TEXTURE  laptop2/FloraKit             assets/laptop2/FloraKit/Bloodcap/textures/T_Flora_Bloodcap_ORM.png
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/CorruptPatch/T_Flora_CorruptPatch_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/CorruptPatch/T_Flora_CorruptPatch_Emissive 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/CorruptPatch/T_Flora_CorruptPatch_ORM 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Daisy/T_Flora_Daisy_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Daisy/T_Flora_Daisy_ORM 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/EggCluster/T_Flora_EggCluster_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/EggCluster/T_Flora_EggCluster_Emissive 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/EggCluster/T_Flora_EggCluster_ORM 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Foxglove/T_Flora_Foxglove_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Foxglove/T_Flora_Foxglove_ORM 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Poppy/T_Flora_Poppy_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/Poppy/T_Flora_Poppy_ORM 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/SporeStalk/T_Flora_SporeStalk_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/SporeStalk/T_Flora_SporeStalk_Emissive 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/SporeStalk/T_Flora_SporeStalk_ORM 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/TentacleFern/T_Flora_TentacleFern_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/TentacleFern/T_Flora_TentacleFern_Emissive 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/FloraKit             /Game/CastleDefender/Environment/Flora/TentacleFern/T_Flora_TentacleFern_ORM 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/MineKit              /Game/CastleDefender/Environment/Mine/MineEntrance/T_Camp_MineEntrance_BaseColor 2048x2048 -> 1024x1024  -2.0 MB
+TODO laptop2/MineKit              /Game/CastleDefender/Environment/Mine/MineEntrance/T_Camp_MineEntrance_ORM 2048x2048 -> 1024x1024  -2.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Potions/T_Potion_Antidote_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Potions/T_Potion_Antidote_ORM   1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Potions/T_Potion_Health_BaseColor 1024x1024 -> 1024x1024  -2.0 MB
+done laptop2/WeaponPack           /Game/CastleDefender/Weapons/Potions/T_Potion_Health_ORM     1024x1024 -> 1024x1024  -2.0 MB
+done tga/Fence                    /Game/CastleDefender/Props/Road/Fence/T_Fence_BC             1024x1024 -> 1024x1024  -2.0 MB
+done tga/Fence                    /Game/CastleDefender/Props/Road/Fence/T_Fence_ORM            1024x1024 -> 1024x1024  -2.0 MB
+done tga/MedicGear                /Game/CastleDefender/Characters/NPC/MedicGear/T_MedicGear_BC 1024x1024 -> 1024x1024  -2.0 MB
+done tga/MedicGear                /Game/CastleDefender/Characters/NPC/MedicGear/T_MedicGear_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done tga/MinerGear                /Game/CastleDefender/Characters/NPC/MinerGear/T_MinerGear_BC 1024x1024 -> 1024x1024  -2.0 MB
+done tga/MinerGear                /Game/CastleDefender/Characters/NPC/MinerGear/T_MinerGear_E  1024x1024 -> 1024x1024  -2.0 MB
+done tga/MinerGear                /Game/CastleDefender/Characters/NPC/MinerGear/T_MinerGear_ORM 1024x1024 -> 1024x1024  -2.0 MB
+TODO tga/RealmDressing            /Game/CastleDefender/Environment/Realm/Dressing/T_RealmDress_BC 2048x2048 -> 1024x1024  -2.0 MB
+TODO tga/RealmDressing            /Game/CastleDefender/Environment/Realm/Dressing/T_RealmDress_E 2048x2048 -> 1024x1024  -2.0 MB
+TODO tga/RealmDressing            /Game/CastleDefender/Environment/Realm/Dressing/T_RealmDress_ORM 2048x2048 -> 1024x1024  -2.0 MB
+done tga/SiegeDebris              /Game/CastleDefender/Props/Aftermath/SiegeDebris/T_Debris_BC 1024x1024 -> 1024x1024  -2.0 MB
+done tga/SiegeDebris              /Game/CastleDefender/Props/Aftermath/SiegeDebris/T_Debris_ORM 1024x1024 -> 1024x1024  -2.0 MB
+done tga/Signs                    /Game/CastleDefender/Props/Town/Signs/T_Sign_BC              1024x1024 -> 1024x1024  -2.0 MB
+done tga/Signs                    /Game/CastleDefender/Props/Town/Signs/T_Sign_ORM             1024x1024 -> 1024x1024  -2.0 MB
+done tga/Trough                   /Game/CastleDefender/Props/Yard/Trough/T_Trough_BC           1024x1024 -> 1024x1024  -2.0 MB
+done tga/Trough                   /Game/CastleDefender/Props/Yard/Trough/T_Trough_ORM          1024x1024 -> 1024x1024  -2.0 MB
+NO UE TEXTURE  tga/FleshBrute               assets/tga/FleshBrute/renders/FleshBrute_skins_lineup.jpg
+NO UE TEXTURE  laptop2/DecalKit             assets/laptop2/DecalKit/decal_sheet.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/ArmingSword/renders/arming_sword_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Bardiche/renders/bardiche_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/BeardedAxe/renders/bearded_axe_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/BoarSpear/renders/boar_spear_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/DaneAxe/renders/dane_axe_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Estoc/renders/estoc_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Falchion/renders/falchion_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/FlangedMace/renders/flanged_mace_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Glaive/renders/glaive_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Guisarme/renders/guisarme_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Halberd/renders/halberd_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Katzbalger/renders/katzbalger_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/LochaberAxe/renders/lochaber_axe_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Longsword/renders/longsword_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Messer/renders/messer_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/MorningStar/renders/morning_star_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Partisan/renders/partisan_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Pollaxe/renders/pollaxe_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Ranseur/renders/ranseur_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/RondelDagger/renders/rondel_dagger_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/VikingSword/renders/viking_sword_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/WarAxe/renders/war_axe_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/WarHammer/renders/war_hammer_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/WingedSpear/renders/winged_spear_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/Zweihander/renders/zweihander_preview.png
+NO UE TEXTURE  checkking/Weapons            assets/checkking/Weapons/kit_sheet.png
+NO UE TEXTURE  checkking/TornCape           assets/checkking/TornCape/textures/preview_stages.png
+NO UE TEXTURE  tga/RealmCrack               assets/tga/RealmCrack/renders/crack_pair.jpg
+NO UE TEXTURE  laptop2/FireBallista         assets/laptop2/FireBallista/Ballista/renders/ballista_close.png
+NO UE TEXTURE  laptop2/FireBallista         assets/laptop2/FireBallista/Ballista/renders/ballista_f34.png
+NO UE TEXTURE  laptop2/FireBallista         assets/laptop2/FireBallista/Ballista/renders/ballista_top.png

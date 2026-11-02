@@ -13,7 +13,10 @@ A = sys.argv[1:]
 APPLY, KIT = '--apply' in A, (A[A.index('--kit') + 1] if '--kit' in A else None)
 LIMIT = int(A[A.index('--limit') + 1]) if '--limit' in A else 10 ** 6
 rows = [r for r in json.load(open(os.path.join(HERE, 'audit.json')))['rows'] if r.get('over')]
-want = {os.path.normcase(os.path.normpath(os.path.join(REPO, r['file']))): r for r in rows if not KIT or r['kit'] == KIT}
+def key(p):   # import paths were recorded on other machines (C:\Users\hossa\..., D:\...): match on the part from assets/ on
+    p = p.replace('\\', '/').lower(); i = p.find('/assets/')
+    return p[i + 1:] if i >= 0 else (p if p.startswith('assets/') else '')
+want = {key(r['file']): r for r in rows if not KIT or r['kit'] == KIT}
 reg = unreal.AssetRegistryHelpers.get_asset_registry()
 found, log = {}, []
 for ad in reg.get_assets_by_class(unreal.TopLevelAssetPath('/Script/Engine', 'Texture2D')):
@@ -21,8 +24,8 @@ for ad in reg.get_assets_by_class(unreal.TopLevelAssetPath('/Script/Engine', 'Te
     t = ad.get_asset()
     try: src = t.get_editor_property('asset_import_data').get_first_filename()
     except Exception: continue
-    k = os.path.normcase(os.path.normpath(src)) if src else ''
-    if k in want: found.setdefault(k, []).append(t)
+    k = key(src) if src else ''
+    if k and k in want: found.setdefault(k, []).append(t)
 done = todo = 0; batch = []
 for k, r in sorted(want.items(), key=lambda kv: -(kv[1]['gpu_mb'] - kv[1]['gpu_mb_after'])):
     ts = found.get(k, [])
@@ -38,7 +41,8 @@ head = '#267 re-import %s: %d downsized sources%s, %d matched textures already d
 if APPLY:
     if not KIT: raise SystemExit('--apply needs --kit (one kit per run, i5 small-steps rule)')
     tasks = []
-    for t, src in batch:
+    for t, k in batch:
+        src = os.path.join(REPO, k)                      # the shrunk file in THIS repo, not the recorded path
         path = t.get_path_name().split('.')[0]
         task = unreal.AssetImportTask()
         for p, v in (('filename', src), ('destination_path', path.rsplit('/', 1)[0]), ('destination_name', path.rsplit('/', 1)[1]),
