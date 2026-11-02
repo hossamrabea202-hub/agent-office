@@ -1,6 +1,6 @@
 {
- "working": "waiting on i9: #411/#74 graph pastes (i5 screen locked)",
- "tokens": 760000,
+ "working": "blocked: #411/#74 pastes need a GUI (i5 locked)",
+ "tokens": 790000,
  "ctx": 1000000,
  "since": "2026-11-01T18:45:40Z",
  "done": [
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-01T22:45:48Z",
+ "asOf": "2026-11-02T03:01:47Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-01T22:45:48Z",
+  "asOf": "2026-11-02T03:01:47Z",
   "meters": [
    {
     "k": "5h",
@@ -55,5 +55,9 @@
  "session": {
   "id": "7c282e632ea9",
   "host": "5CD3147LBC"
+ },
+ "ask": {
+  "text": "#411/#74 graph pastes need a screen: unlock i5 (or give i9 GUI)",
+  "at": "2026-11-02T03:01:47Z"
  }
 }
