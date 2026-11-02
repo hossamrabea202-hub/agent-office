@@ -24,4 +24,4 @@ It writes `GripLoc` / `GripRot` on BPC_ShieldKit's defaults (small component; th
 - [ ] The old built-in shield stays hidden while a kit shield is worn (#423).
 - [ ] No clipping into the body in idle (if so: tune the 4 cm offset in the script, re-run --apply).
 
-Not yet run in an editor (Alien's test hold): the math is checked on paper only; step 2's renders are the proof.
+i5 run 15:56 (outside the session, nothing saved): dry run = all GripLoc/GripRot 0 (the cause); computed Round/Heater (r 91.2, p -66.1, y -80.0), Gilded (r -90.5, p -23.9, y 101.3). Preview renders `shield433_<i>_front/side.png` (reference pose): the shield lies along the forearm, on its outer side, hand at the grip. Apply in the live session (i9), then the Play check decides; `--flip` if the face is reversed.

@@ -95,9 +95,10 @@ try:
         if '--preview' in A:
             out = A[A.index('--preview') + 1]
             sh = EAS.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(0, 0, 30000), unreal.Rotator(0, 0, 0)); made.append(sh)
-            sh.static_mesh_component.set_static_mesh(mesh)
+            sh.static_mesh_component.set_static_mesh(mesh); sh.static_mesh_component.set_mobility(unreal.ComponentMobility.MOVABLE)
             sh.attach_to_component(skc, BONE, unreal.AttachmentRule.SNAP_TO_TARGET, unreal.AttachmentRule.SNAP_TO_TARGET, unreal.AttachmentRule.KEEP_WORLD, False)
-            sh.static_mesh_component.set_relative_transform(rel, False, False) if hasattr(sh.static_mesh_component, 'set_relative_transform') else None
+            sh.static_mesh_component.set_relative_transform(rel, False, False)
+            log.append('  preview %d: shield at %s, hand at %s' % (i, sh.static_mesh_component.get_world_location(), hand.translation))
             sys.path.insert(0, os.path.join(HERE, '..', 'contact-decals-425')); import importlib, lookdev_cap; importlib.reload(lookdev_cap)
             c = hand.translation
             lookdev_cap.shot('%s/shield433_%d_front.png' % (out, i), c + unreal.Vector(220, 0, 20), c, 1.5, 45)
