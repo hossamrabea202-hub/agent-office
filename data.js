@@ -55,6 +55,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261102-085312-425-before-wall-torch-walltorch-iron-04-.png',t:'#425 BEFORE: wall torch WallTorch_Iron_04, no contact stains (locked exposure)',who:'adjustedfilm (Claude)',at:'2026-11-02T08:53:12Z',card:425},
 {f:'shots/20261102-083120-77-lv4-electric-arcs-on-the-noble-crossb.png',t:'#77 LV4: electric arcs on the Noble crossbow (fresh BP_TradeShowcase, XbowUp=4 in the editor world only, i5 render)',who:'adjustedfilm (Claude)',at:'2026-11-02T08:31:20Z',card:77},
 {f:'shots/20261101-224458-259-in-play-the-3-farmers-are-out-throug.png',t:'#259 in Play: the 3 farmers are out through the main gate at the plots; both plots reached Stage 1 at 44 s',who:'adjustedfilm (Claude)',at:'2026-11-01T22:44:58Z',card:259},
 {f:'shots/20261101-224128-58-in-play-cannon-on-the-tower-at-0-hp-i.png',t:'#58 in Play: cannon on the tower at 0 HP is now the wreck (Break3 + fire), not a whole cannon',who:'adjustedfilm (Claude)',at:'2026-11-01T22:41:28Z',card:58},
