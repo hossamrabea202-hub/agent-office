@@ -107,3 +107,9 @@ every 10 s), keep i9/TGA moving, whiteboard minus WinterKeep. i9 is back on Cast
   Scripts while disconnected: `ue_run.sh nomu_run_at_ue.py <script> [args]` (nomu_ = runs without the session; never
   save assets from a non-session editor).
 - Proposed fresh sessions (cards): BPC_VesnaShop (HUD split) and #425 step 2 (stone roughness + grass).
+
+## Update 2026-11-02 16:40: i5 GPU crash rule
+- 16:08 the i5 editor GPU-crashed (DXGI_ERROR_DEVICE_HUNG) in a SceneCapture2D lookdev at Z=20000 (inside the volumetric
+  cloud layer; breadcrumbs VolumetricCloudShadow + LocalFogVolume). Rule: lookdev captures on i5 go below the clouds, with
+  the VolumetricCloud and Fog show flags off, at 960x540 or smaller, 1-2 shots per script. Heavy renders go to the Master.
+- #435 black faces handed to i9 (handoffs/black-faces-435/README.md). #433 --upside handed to i9. #436 helmet: i9.
