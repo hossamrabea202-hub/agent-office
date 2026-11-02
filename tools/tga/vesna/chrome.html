@@ -5,7 +5,7 @@
      Coordinates come from layout.js (layout.py), in target pixels. -->
 <html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-<script src="layout.js"></script>
+<script>document.write('<script src="'+({bd:'layout_bd.js'}[new URLSearchParams(location.search).get('L')]||'layout.js')+'"><\/script>');</script>
 <style>
 :root{--gold:#d9b46a;--gold2:#f0d391;--bronze:#7a6034;--line:#5a4628;--cream:#ece2cf;--dim:#9b9080;--green:#9bd85a;--panel:rgba(15,14,13,.94)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -144,6 +144,6 @@ hint(45,['ESC'],'Close',118); hint(280,['A','D'],'Navigate',370); hint(528,['E']
 hint(996,['R'],'Rotate Preview',1053); hint(1266,['mouseW'],'Zoom',1303); hint(1490,['mouseL'],'Rotate',1535);
 
 // ---------------------------------------------------------------- live layer (mock only): what BPC_VesnaTrade draws
-if(M!=='chrome'){ const s=document.createElement('script'); s.src='live.js'; document.body.appendChild(s); }
+if(M!=='chrome'){ const s=document.createElement('script'); s.src=new URLSearchParams(location.search).get('L')==='bd'?'live_bd.js':'live.js'; document.body.appendChild(s); }
 if(M==='overlay'){ const o=el('img','a','left:0;top:0;width:1672px;height:941px;opacity:.5;z-index:99'); o.src='../../../handoffs/vesna-trade-361/owner_target.png'; }
 </script></body></html>

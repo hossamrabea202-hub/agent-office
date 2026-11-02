@@ -1,0 +1,887 @@
+{
+ "TW": 1672,
+ "TH": 941,
+ "S": 1.1483253588516746,
+ "title": {
+  "cx": 836,
+  "y": 56
+ },
+ "sub": {
+  "cx": 836,
+  "y": 93
+ },
+ "portrait": {
+  "x": 0,
+  "y": 0,
+  "w": 345,
+  "h": 152
+ },
+ "purse": {
+  "x": 1288,
+  "y": 38,
+  "w": 367,
+  "h": 44,
+  "gold": [
+   1328,
+   1355
+  ],
+  "iron": [
+   1473,
+   1500
+  ],
+  "silver": [
+   1588,
+   1612
+  ],
+  "cy": 60
+ },
+ "tabbar": {
+  "x": 240,
+  "y": 124,
+  "w": 1182,
+  "h": 50,
+  "cy": 148,
+  "lb": [
+   316,
+   148
+  ],
+  "rb": [
+   1356,
+   148
+  ]
+ },
+ "tabs": [
+  {
+   "cx": 459,
+   "lx": 459,
+   "x0": 380,
+   "x1": 540,
+   "icon": null
+  },
+  {
+   "cx": 655,
+   "lx": 681,
+   "x0": 553,
+   "x1": 755,
+   "icon": 597
+  },
+  {
+   "cx": 855,
+   "lx": 877,
+   "x0": 775,
+   "x1": 935,
+   "icon": 821
+  },
+  {
+   "cx": 1060,
+   "lx": 1079,
+   "x0": 962,
+   "x1": 1158,
+   "icon": 1003
+  }
+ ],
+ "left": {
+  "x": 25,
+  "y": 200,
+  "w": 472,
+  "h": 645
+ },
+ "lhead": {
+  "x": 40,
+  "y": 212,
+  "w": 440,
+  "h": 46,
+  "cy": 234,
+  "laurel": 78,
+  "text": 120,
+  "chev": 448
+ },
+ "rows": {
+  "x": 45,
+  "y0": 275,
+  "step": 80,
+  "h": 68,
+  "w": 427,
+  "n": 6,
+  "icon": [
+   47,
+   122
+  ],
+  "name": [
+   137,
+   293
+  ],
+  "deff": [
+   137,
+   322
+  ],
+  "state": [
+   457,
+   308
+  ]
+ },
+ "rsel": {
+  "dx": -10,
+  "dy": -3,
+  "w": 447,
+  "h": 74
+ },
+ "scroll": {
+  "x": 484,
+  "y": 275,
+  "w": 5,
+  "h": 470
+ },
+ "mid": {
+  "x": 520,
+  "y": 200,
+  "w": 585,
+  "h": 655
+ },
+ "ititle": {
+  "cx": 813,
+  "y": 230
+ },
+ "tags": {
+  "y": 267,
+  "slot_cx": 743,
+  "piece_cx": 911,
+  "h": 22
+ },
+ "turn": {
+  "cx": 815,
+  "cy": 430,
+  "w": 420,
+  "h": 280
+ },
+ "arrows": {
+  "l": 543,
+  "r": 1080,
+  "cy": 445
+ },
+ "dots": {
+  "cx": 819,
+  "y": 563,
+  "step": 19
+ },
+ "cmp": {
+  "x": 540,
+  "y": 590,
+  "w": 545,
+  "h": 72,
+  "div": 793,
+  "shield": [
+   581,
+   625
+  ],
+  "plus": [
+   616,
+   637
+  ],
+  "cur": [
+   917,
+   637
+  ],
+  "arr": 953,
+  "after": [
+   1037,
+   637
+  ]
+ },
+ "bonus": {
+  "x": 540,
+  "y": 668,
+  "w": 545,
+  "h": 122,
+  "head_y": 687,
+  "count_r": 1066,
+  "lines": [
+   723,
+   748,
+   771
+  ],
+  "diamond": 570,
+  "text": 589
+ },
+ "buy": {
+  "x": 547,
+  "y": 802,
+  "w": 530,
+  "h": 44,
+  "key": [
+   655,
+   824
+  ],
+  "text": 697,
+  "cy": 824
+ },
+ "right": {
+  "x": 1128,
+  "y": 200,
+  "w": 520,
+  "h": 648
+ },
+ "rtabs": {
+  "y": 200,
+  "h": 38,
+  "eq": [
+   1198,
+   1400
+  ],
+  "sp": [
+   1400,
+   1640
+  ]
+ },
+ "hero": {
+  "x": 1250,
+  "y": 242,
+  "w": 280,
+  "h": 423
+ },
+ "slot": {
+  "lx": 1207,
+  "rx": 1585,
+  "cy0": 310,
+  "step": 144,
+  "size": 58
+ },
+ "stats": {
+  "x": 1150,
+  "y": 668,
+  "w": 485,
+  "h": 157,
+  "rows": [
+   691,
+   728,
+   764,
+   800
+  ],
+  "icon": 1186,
+  "label": 1213,
+  "val": 1376,
+  "arr": 1422,
+  "after": 1440
+ },
+ "foot": {
+  "y": 870,
+  "h": 71,
+  "cy": 898
+ },
+ "atlas": {
+  "name0": {
+   "x": 18,
+   "y": 18,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Obsidian Helm"
+  },
+  "def0": {
+   "x": 236,
+   "y": 18,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+15 DEF"
+  },
+  "title0": {
+   "x": 364,
+   "y": 18,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "OBSIDIAN HELM"
+  },
+  "tag0": {
+   "x": 852,
+   "y": 18,
+   "w": 240,
+   "h": 24,
+   "kind": "tag",
+   "p": "HEAD  \u00b7  HELMET"
+  },
+  "name1": {
+   "x": 1110,
+   "y": 18,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Obsidian Torso"
+  },
+  "def1": {
+   "x": 1328,
+   "y": 18,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+69 DEF"
+  },
+  "title1": {
+   "x": 18,
+   "y": 76,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "OBSIDIAN TORSO"
+  },
+  "tag1": {
+   "x": 506,
+   "y": 76,
+   "w": 240,
+   "h": 24,
+   "kind": "tag",
+   "p": "TORSO  \u00b7  4 PIECES"
+  },
+  "name2": {
+   "x": 764,
+   "y": 76,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Obsidian Gauntlets"
+  },
+  "def2": {
+   "x": 982,
+   "y": 76,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+16 DEF"
+  },
+  "title2": {
+   "x": 1110,
+   "y": 76,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "OBSIDIAN GAUNTLETS"
+  },
+  "tag2": {
+   "x": 18,
+   "y": 134,
+   "w": 240,
+   "h": 24,
+   "kind": "tag",
+   "p": "HANDS  \u00b7  2 PIECES"
+  },
+  "name3": {
+   "x": 276,
+   "y": 134,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Obsidian Legs"
+  },
+  "def3": {
+   "x": 494,
+   "y": 134,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "+40 DEF"
+  },
+  "title3": {
+   "x": 622,
+   "y": 134,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "OBSIDIAN LEGS"
+  },
+  "tag3": {
+   "x": 1110,
+   "y": 134,
+   "w": 240,
+   "h": 24,
+   "kind": "tag",
+   "p": "LEGS  \u00b7  4 PIECES"
+  },
+  "name27": {
+   "x": 1368,
+   "y": 134,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Round Shield"
+  },
+  "def27": {
+   "x": 1586,
+   "y": 134,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "12% BLOCK"
+  },
+  "title27": {
+   "x": 18,
+   "y": 192,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "ROUND SHIELD"
+  },
+  "tag27": {
+   "x": 506,
+   "y": 192,
+   "w": 240,
+   "h": 24,
+   "kind": "tag",
+   "p": "OFF-HAND  \u00b7  LINDEN"
+  },
+  "name28": {
+   "x": 764,
+   "y": 192,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Heater Shield"
+  },
+  "def28": {
+   "x": 982,
+   "y": 192,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "15% BLOCK"
+  },
+  "title28": {
+   "x": 1110,
+   "y": 192,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "KNIGHT'S HEATER SHIELD"
+  },
+  "tag28": {
+   "x": 18,
+   "y": 250,
+   "w": 240,
+   "h": 24,
+   "kind": "tag",
+   "p": "OFF-HAND  \u00b7  PAINTED"
+  },
+  "name29": {
+   "x": 276,
+   "y": 250,
+   "w": 200,
+   "h": 30,
+   "kind": "name",
+   "p": "Gilded Shield"
+  },
+  "def29": {
+   "x": 494,
+   "y": 250,
+   "w": 110,
+   "h": 24,
+   "kind": "def",
+   "p": "20% BLOCK"
+  },
+  "title29": {
+   "x": 622,
+   "y": 250,
+   "w": 470,
+   "h": 40,
+   "kind": "title",
+   "p": "GILDED SHIELD"
+  },
+  "tag29": {
+   "x": 1110,
+   "y": 250,
+   "w": 240,
+   "h": 24,
+   "kind": "tag",
+   "p": "OFF-HAND  \u00b7  GILT STEEL"
+  },
+  "desc0": {
+   "x": 18,
+   "y": 308,
+   "w": 470,
+   "h": 24,
+   "kind": "desc",
+   "p": "Helmet"
+  },
+  "desc1": {
+   "x": 506,
+   "y": 308,
+   "w": 470,
+   "h": 24,
+   "kind": "desc",
+   "p": "Cuirass \u00b7 Pauldrons \u00b7 Rerebraces \u00b7 Cape"
+  },
+  "desc2": {
+   "x": 994,
+   "y": 308,
+   "w": 470,
+   "h": 24,
+   "kind": "desc",
+   "p": "Gauntlets \u00b7 Vambraces"
+  },
+  "desc3": {
+   "x": 18,
+   "y": 350,
+   "w": 470,
+   "h": 24,
+   "kind": "desc",
+   "p": "Fauld \u00b7 Cuisses \u00b7 Greaves \u00b7 Sabatons"
+  },
+  "tier0": {
+   "x": 506,
+   "y": 350,
+   "w": 500,
+   "h": 24,
+   "kind": "tier",
+   "p": "(2) +6% Damage Reduction"
+  },
+  "tier1": {
+   "x": 1024,
+   "y": 350,
+   "w": 500,
+   "h": 24,
+   "kind": "tier",
+   "p": "(3) Ember Shockwave on hit (40 dmg, 4 m, 12 s)"
+  },
+  "tier2": {
+   "x": 18,
+   "y": 392,
+   "w": 500,
+   "h": 24,
+   "kind": "tier",
+   "p": "(4) Sovereign's Ember: +15% Damage Reduction"
+  },
+  "tab0": {
+   "x": 536,
+   "y": 392,
+   "w": 202,
+   "h": 50,
+   "kind": "tab",
+   "p": "WEAPONS"
+  },
+  "tab1": {
+   "x": 756,
+   "y": 392,
+   "w": 202,
+   "h": 50,
+   "kind": "tab",
+   "p": "ARMOUR"
+  },
+  "tab2": {
+   "x": 976,
+   "y": 392,
+   "w": 202,
+   "h": 50,
+   "kind": "tab",
+   "p": "SETS"
+  },
+  "tab3": {
+   "x": 1196,
+   "y": 392,
+   "w": 202,
+   "h": 50,
+   "kind": "tab",
+   "p": "SUPPLIES"
+  },
+  "rtab0": {
+   "x": 1416,
+   "y": 392,
+   "w": 202,
+   "h": 38,
+   "kind": "rtab",
+   "p": "EQUIPMENT"
+  },
+  "rtab1": {
+   "x": 18,
+   "y": 460,
+   "w": 240,
+   "h": 38,
+   "kind": "rtab",
+   "p": "SET PROGRESS"
+  },
+  "rsel": {
+   "x": 276,
+   "y": 460,
+   "w": 447,
+   "h": 74,
+   "kind": "rsel",
+   "p": ""
+  },
+  "slotsel": {
+   "x": 741,
+   "y": 460,
+   "w": 70,
+   "h": 70,
+   "kind": "slotsel",
+   "p": ""
+  },
+  "setpiece": {
+   "x": 829,
+   "y": 460,
+   "w": 120,
+   "h": 24,
+   "kind": "setpiece",
+   "p": "SET BUNDLE"
+  },
+  "owned": {
+   "x": 967,
+   "y": 460,
+   "w": 100,
+   "h": 26,
+   "kind": "state",
+   "p": "OWNED"
+  },
+  "worn": {
+   "x": 1085,
+   "y": 460,
+   "w": 100,
+   "h": 26,
+   "kind": "state",
+   "p": "WORN"
+  },
+  "forging": {
+   "x": 1203,
+   "y": 460,
+   "w": 110,
+   "h": 26,
+   "kind": "state",
+   "p": "FORGING"
+  },
+  "btn_on": {
+   "x": 18,
+   "y": 552,
+   "w": 530,
+   "h": 44,
+   "kind": "btn",
+   "p": "on"
+  },
+  "btn_off": {
+   "x": 566,
+   "y": 552,
+   "w": 530,
+   "h": 44,
+   "kind": "btn",
+   "p": "off"
+  },
+  "key_e": {
+   "x": 1114,
+   "y": 552,
+   "w": 36,
+   "h": 26,
+   "kind": "key",
+   "p": "E"
+  },
+  "dot_on": {
+   "x": 1168,
+   "y": 552,
+   "w": 12,
+   "h": 12,
+   "kind": "dot",
+   "p": "on"
+  },
+  "dot_off": {
+   "x": 1198,
+   "y": 552,
+   "w": 12,
+   "h": 12,
+   "kind": "dot",
+   "p": "off"
+  },
+  "coin": {
+   "x": 1228,
+   "y": 552,
+   "w": 22,
+   "h": 22,
+   "kind": "coin",
+   "p": ""
+  },
+  "nogold": {
+   "x": 1268,
+   "y": 552,
+   "w": 330,
+   "h": 26,
+   "kind": "msg",
+   "p": "Not enough gold, hunter."
+  },
+  "forgemsg": {
+   "x": 18,
+   "y": 614,
+   "w": 420,
+   "h": 30,
+   "kind": "msg2",
+   "p": "IN VESNA\u2019S FORGE \u2014 NOT YET FOR SALE"
+  },
+  "tierrow": {
+   "x": 456,
+   "y": 614,
+   "w": 470,
+   "h": 30,
+   "kind": "tierrow",
+   "p": ""
+  },
+  "glyph0": {
+   "x": 944,
+   "y": 614,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "helm"
+  },
+  "glyph-1": {
+   "x": 1090,
+   "y": 614,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "shield"
+  },
+  "glyph29": {
+   "x": 1236,
+   "y": 614,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "shield"
+  },
+  "out0": {
+   "x": 1382,
+   "y": 614,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "helm"
+  },
+  "out1": {
+   "x": 1528,
+   "y": 614,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "cuirass"
+  },
+  "out2": {
+   "x": 18,
+   "y": 760,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "gauntlet"
+  },
+  "out3": {
+   "x": 164,
+   "y": 760,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "sword"
+  },
+  "out4": {
+   "x": 310,
+   "y": 760,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "shield"
+  },
+  "out5": {
+   "x": 456,
+   "y": 760,
+   "w": 128,
+   "h": 128,
+   "kind": "glyph",
+   "p": "legs"
+  }
+ },
+ "pieces": [
+  {
+   "id": 0,
+   "name": "Obsidian Helm",
+   "title": "OBSIDIAN HELM",
+   "tag": "HEAD  \u00b7  HELMET",
+   "deff": 15,
+   "art": null
+  },
+  {
+   "id": 1,
+   "name": "Obsidian Torso",
+   "title": "OBSIDIAN TORSO",
+   "tag": "TORSO  \u00b7  4 PIECES",
+   "deff": 69,
+   "art": "Torso"
+  },
+  {
+   "id": 2,
+   "name": "Obsidian Gauntlets",
+   "title": "OBSIDIAN GAUNTLETS",
+   "tag": "HANDS  \u00b7  2 PIECES",
+   "deff": 16,
+   "art": "Gauntlets"
+  },
+  {
+   "id": 3,
+   "name": "Obsidian Legs",
+   "title": "OBSIDIAN LEGS",
+   "tag": "LEGS  \u00b7  4 PIECES",
+   "deff": 40,
+   "art": "Legs"
+  },
+  {
+   "id": 27,
+   "name": "Round Shield",
+   "title": "ROUND SHIELD",
+   "tag": "OFF-HAND  \u00b7  LINDEN",
+   "deff": 0,
+   "art": "RoundShield"
+  },
+  {
+   "id": 28,
+   "name": "Heater Shield",
+   "title": "KNIGHT'S HEATER SHIELD",
+   "tag": "OFF-HAND  \u00b7  PAINTED",
+   "deff": 0,
+   "art": "HeaterShield"
+  },
+  {
+   "id": 29,
+   "name": "Gilded Shield",
+   "title": "GILDED SHIELD",
+   "tag": "OFF-HAND  \u00b7  GILT STEEL",
+   "deff": 0,
+   "art": null
+  }
+ ],
+ "slotsL": [
+  0,
+  1,
+  2
+ ],
+ "slotsR": [
+  -2,
+  -1,
+  3
+ ],
+ "tiers": [
+  {
+   "n": 2,
+   "t": "+6% Damage Reduction"
+  },
+  {
+   "n": 3,
+   "t": "Ember Shockwave on hit (40 dmg, 4 m, 12 s)"
+  },
+  {
+   "n": 4,
+   "t": "Sovereign's Ember: +15% Damage Reduction"
+  }
+ ],
+ "tabnames": [
+  "WEAPONS",
+  "ARMOUR",
+  "SETS",
+  "SUPPLIES"
+ ],
+ "contents": {
+  "0": "Helmet",
+  "1": "Cuirass \u00b7 Pauldrons \u00b7 Rerebraces \u00b7 Cape",
+  "2": "Gauntlets \u00b7 Vambraces",
+  "3": "Fauld \u00b7 Cuisses \u00b7 Greaves \u00b7 Sabatons"
+ }
+}

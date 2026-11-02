@@ -3,7 +3,7 @@
      Rendered at device scale S on a transparent page -> 2048 x 2048. ?grid=1 shows cell borders. -->
 <html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-<script>document.write('<script src="'+({mu:'layout_mu.js',sk:'layout_sk.js'}[new URLSearchParams(location.search).get('L')]||'layout.js')+'"><\/script>');</script>
+<script>document.write('<script src="'+({mu:'layout_mu.js',sk:'layout_sk.js',bd:'layout_bd.js'}[new URLSearchParams(location.search).get('L')]||'layout.js')+'"><\/script>');</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1783px;height:1783px;overflow:hidden;background:transparent}
@@ -41,6 +41,10 @@ const GL={ // engraved line icons for the pieces that have no art yet (128 cells
  adef:'M64 22l30 10v22c0 22-14 34-30 42-16-8-30-20-30-42V32z M64 22v74 M64 8v6 M64 106v14 M20 60h-10 M118 60h-10 M30 26l-7-7 M98 26l7-7 M30 94l-7 7 M98 94l7 7',
  aheal:'M64 64m-44 0a44 44 0 1 0 88 0a44 44 0 1 0-88 0 M64 64m-32 0a32 32 0 1 0 64 0a32 32 0 1 0-64 0 M56 44h16v12h12v16H72v12H56V72H44V56h12z',
  aburn:'M64 14c24 26 34 44 26 66-4 14-14 22-26 24-12-2-22-10-26-24-8-22 2-40 26-66z M64 52c10 12 14 22 10 32-2 6-6 10-10 10s-8-4-10-10c-4-10 0-20 10-32z',
+ // #424 bundles: empty paper-doll slot outlines (helm / shield / sword above)
+ cuirass:'M40 18l-16 8 6 26-4 14 6 44h64l6-44-4-14 6-26-16-8-10 10H50z M50 28c6 10 22 10 28 0 M64 38v56 M34 66h60 M38 86h52',
+ gauntlet:'M42 112V74l-10-26c-3-7 6-11 10-4l8 16V26c0-8 10-8 10 0v28V18c0-8 10-8 10 0v36V22c0-8 10-8 10 0v34V32c0-8 10-8 10 0v46l-6 34z M42 92h48',
+ legs:'M34 12h60v16H34z M38 28l-2 50 6 14-16 20h32l2-34 M90 28l2 50-6 14 16 20H70l-2-34 M64 28v14 M36 52h22 M70 52h22',
  lock:'M40 60h48v46H40z M48 60V46a16 16 0 0 1 32 0v14 M64 76v14 M64 76a5 5 0 1 0 .1 0z',
 };
 function cell(k,r){ const d=document.createElement('div'); d.className='c'; d.style.cssText+=`left:${r.x}px;top:${r.y}px;width:${r.w}px;height:${r.h}px;`;
