@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261102-145752-433-preview-heater-shield-at-the-compute.png',t:'#433 preview: Heater shield at the computed grip, along the forearm (reference pose, not applied yet)',who:'adjustedfilm (Claude)',at:'2026-11-02T14:57:52Z',card:433},
 {f:'shots/20261102-130407-425-placed-contact-stains-at-the-wall-to.png',t:'#425 placed: contact stains at the wall torch bracket (cd425_36_final2, locked exposure)',who:'adjustedfilm (Claude)',at:'2026-11-02T13:04:07Z',card:425},
 {f:'shots/20261102-130402-425-placed-contact-stains-at-the-wall-to.png',t:'#425 placed: contact stains at the wall torch bracket (cd425_30_final, locked exposure)',who:'adjustedfilm (Claude)',at:'2026-11-02T13:04:02Z',card:425},
 {f:'shots/20261102-085325-425-lookdev-stain-masks-on-a-0-18-grey-w.png',t:'#425 lookdev: stain masks on a 0.18 grey wall, 1800 K light at the flame',who:'adjustedfilm (Claude)',at:'2026-11-02T08:53:25Z',card:425},
