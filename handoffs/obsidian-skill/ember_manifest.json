@@ -1,0 +1,43 @@
+{
+ "blueprint": "BPC_ObsidianSet",
+ "note": "#477 complete set shockwave on a key",
+ "pastes": [
+  "ember_paste.txt"
+ ],
+ "rewires": [
+  {
+   "from": "DrawArmoury.then",
+   "to": "embSeq84.execute",
+   "replace": true,
+   "note": "was -> oGetShop528"
+  },
+  {
+   "from": "embSeq84.then_1",
+   "to": "oGetShop528.execute",
+   "replace": true
+  },
+  {
+   "from": "DrawArmoury.Hud",
+   "to": "embCallDraw85.Hud"
+  },
+  {
+   "from": "DrawArmoury.SizeX",
+   "to": "embCallDraw85.SizeX"
+  },
+  {
+   "from": "DrawArmoury.SizeY",
+   "to": "embCallDraw85.SizeY"
+  },
+  {
+   "from": "embCallPush36.then",
+   "to": "oGetObsSet480.execute",
+   "note": "same flare as the on-hit shock"
+  },
+  {
+   "from": "embEqualEqual_Int87.ReturnValue",
+   "to": "oBooleanAND468.A",
+   "replace": true,
+   "note": "on-hit shock now only at tier 3 (was Tier >= 3)"
+  }
+ ]
+}
