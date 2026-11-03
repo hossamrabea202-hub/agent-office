@@ -5,7 +5,7 @@ import os, sys, unreal
 H = 'C:/Users/hossam.rabea/agent-office/handoffs/gpt-review-polish/shots/'
 os.makedirs(H, exist_ok=True)
 tag = sys.argv[1]; specs = sys.argv[2:5]
-BC = tag.endswith('@bc'); tag = tag.replace('@bc', '')
+BC = tag.endswith('@bc'); NRM = tag.endswith('@n'); tag = tag.replace('@bc', '').replace('@n', '')
 if ':' in tag: tag, _ev = tag.split(':'); os.environ['SHOT_EV'] = _ev
 EV = float(os.environ.get('SHOT_EV', '1.5'))
 w = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
@@ -21,7 +21,7 @@ for s in specs:
     try:
         c = cap.capture_component2d
         c.set_editor_property('texture_target', rt); c.set_editor_property('fov_angle', fov)
-        c.set_editor_property('capture_source', unreal.SceneCaptureSource.SCS_BASE_COLOR if BC else unreal.SceneCaptureSource.SCS_FINAL_COLOR_LDR)
+        c.set_editor_property('capture_source', unreal.SceneCaptureSource.SCS_BASE_COLOR if BC else (unreal.SceneCaptureSource.SCS_NORMAL if NRM else unreal.SceneCaptureSource.SCS_FINAL_COLOR_LDR))
         c.set_editor_property('capture_every_frame', False)
         c.set_editor_property('show_flag_settings', [unreal.EngineShowFlagsSetting(show_flag_name=n, enabled=False) for n in OFF])
         pp = c.get_editor_property('post_process_settings')

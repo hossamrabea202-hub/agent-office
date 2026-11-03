@@ -1,0 +1,734 @@
+{
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844029555": {
+"label": "SM_Bevel_023_4",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2660.0,
+1310.0,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844111561": {
+"label": "SM_Bevel_023_10",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2660.0,
+1392.8,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844015554": {
+"label": "SM_Bevel_023_3",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2660.0,
+2272.8,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844055557": {
+"label": "SM_Bevel_023_6",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2400.0,
+1392.8,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844000553": {
+"label": "SM_Bevel_023_2",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2660.0,
+2190.0,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843982552": {
+"label": "SM_Bevel_023_1",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2660.0,
+1227.2,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843969551": {
+"label": "SM_Bevel_023_0",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2400.0,
+2272.8,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844039556": {
+"label": "SM_Bevel_023_5",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2660.0,
+2107.2,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844125562": {
+"label": "SM_Bevel_023_11",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2400.0,
+1310.0,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844085559": {
+"label": "SM_Bevel_023_8",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2400.0,
+2190.0,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844071558": {
+"label": "SM_Bevel_023_7",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2400.0,
+1227.2,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844099560": {
+"label": "SM_Bevel_023_9",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2400.0,
+2107.2,
+1300.0
+],
+"scale": [
+0.9500000762939453,
+0.9000000762939453,
+1.6
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841793384": {
+"label": "SM_Bevel_007_1",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+2950.0,
+3070.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841899393": {
+"label": "SM_Bevel_007_10",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+2950.0,
+1750.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841913394": {
+"label": "SM_Bevel_007_11",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+2950.0,
+430.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841888392": {
+"label": "SM_Bevel_007_9",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+4600.0,
+430.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841865390": {
+"label": "SM_Bevel_007_7",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+50.0,
+2820.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841816386": {
+"label": "SM_Bevel_007_3",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+2950.0,
+1090.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841828387": {
+"label": "SM_Bevel_007_4",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+4600.0,
+2410.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841782383": {
+"label": "SM_Bevel_007_0",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+2950.0,
+2410.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841843388": {
+"label": "SM_Bevel_007_5",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+50.0,
+680.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841878391": {
+"label": "SM_Bevel_007_8",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+4600.0,
+3070.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841853389": {
+"label": "SM_Bevel_007_6",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+4600.0,
+1090.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841803385": {
+"label": "SM_Bevel_007_2",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+],
+"loc": [
+4600.0,
+1750.0,
+270.0
+],
+"scale": [
+2.4500001525878905,
+1.2000002288818359,
+5.4
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842280424": {
+"label": "SM_Bevel_024_4",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2612.8,
+2060.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842287425": {
+"label": "SM_Bevel_024_5",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2530.0,
+2060.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842355430": {
+"label": "SM_Bevel_024_10",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2612.8,
+1180.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842236420": {
+"label": "SM_Bevel_024_0",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2447.2,
+2320.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842270423": {
+"label": "SM_Bevel_024_3",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2612.8,
+1440.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842249421": {
+"label": "SM_Bevel_024_1",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2530.0,
+1440.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842369431": {
+"label": "SM_Bevel_024_11",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2530.0,
+2320.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842324428": {
+"label": "SM_Bevel_024_8",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2530.0,
+1180.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842258422": {
+"label": "SM_Bevel_024_2",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2447.2,
+2060.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842300426": {
+"label": "SM_Bevel_024_6",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2447.2,
+1180.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842311427": {
+"label": "SM_Bevel_024_7",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2612.8,
+2320.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842346429": {
+"label": "SM_Bevel_024_9",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World"
+],
+"loc": [
+2447.2,
+1440.0,
+1300.0
+],
+"scale": [
+0.9000000762939453,
+0.9500000762939453,
+1.6
+],
+"rot": [
+0.0,
+0.0,
+0.0
+]
+}
+}

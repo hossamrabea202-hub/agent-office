@@ -1,0 +1,6134 @@
+[
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559521454",
+"label": "EF_Tun_Wall_025_R",
+"dims": [
+363,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1150
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAC0C03_1493041827",
+"label": "Castle_GateLanding",
+"dims": [
+156,
+540,
+71
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Castle/Restored/Cube",
+"z": -34
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839913225",
+"label": "SM_Bevel_001_13",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843946549",
+"label": "SM_Cube_Nanite_117",
+"dims": [
+160,
+180,
+40
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 660
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560070489",
+"label": "EF_Tun_Wall_034_L",
+"dims": [
+376,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1092
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843868543",
+"label": "SM_Cube_Nanite_111",
+"dims": [
+120,
+27,
+317
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 678
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841793384",
+"label": "SM_Bevel_007_1",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308064215",
+"label": "Castle_DoorCut_88",
+"dims": [
+50,
+330,
+808
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 606
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840882314",
+"label": "SM_Bevel_001_102",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840484283",
+"label": "SM_Bevel_001_71",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840804308",
+"label": "SM_Bevel_001_96",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561715592",
+"label": "EF_Tun_Ceil_060",
+"dims": [
+438,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -391
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561750594",
+"label": "EF_Tun_Wall_060_R",
+"dims": [
+438,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -931
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843893545",
+"label": "SM_Cube_Nanite_113",
+"dims": [
+120,
+27,
+37
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 539
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841899393",
+"label": "SM_Bevel_007_10",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843654526",
+"label": "SM_Cube_Nanite_94",
+"dims": [
+110,
+180,
+85
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 34
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839926227",
+"label": "SM_Bevel_001_15",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560670528",
+"label": "EF_Tun_Ceil_044",
+"dims": [
+402,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -488
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840331271",
+"label": "SM_Bevel_001_59",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840076248",
+"label": "SM_Bevel_001_36",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840117251",
+"label": "SM_Bevel_001_39",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839861218",
+"label": "SM_Bevel_001_6",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840461281",
+"label": "SM_Bevel_001_69",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561353570",
+"label": "EF_Tun_Wall_054_R",
+"dims": [
+501,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -968
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558803410",
+"label": "EF_Tun_Wall_014_R",
+"dims": [
+375,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1222
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558012360",
+"label": "EF_Tun_Ceil_002",
+"dims": [
+325,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -759
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843155488",
+"label": "SM_Cube_Nanite_56",
+"dims": [
+50,
+174,
+230
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 680
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843671527",
+"label": "SM_Cube_Nanite_95",
+"dims": [
+120,
+30,
+209
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 780
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561275565",
+"label": "EF_Tun_Wall_053_L",
+"dims": [
+290,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -975
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843833540",
+"label": "SM_Cube_Nanite_108",
+"dims": [
+120,
+30,
+135
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 743
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840202258",
+"label": "SM_Bevel_001_46",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840472282",
+"label": "SM_Bevel_001_70",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561096554",
+"label": "EF_Tun_Wall_050_R",
+"dims": [
+336,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -990
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559191434",
+"label": "EF_Tun_Wall_020_R",
+"dims": [
+400,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1182
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558833412",
+"label": "EF_Tun_Ceil_015",
+"dims": [
+383,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -676
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558771408",
+"label": "EF_Tun_Ceil_014",
+"dims": [
+375,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -682
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841913394",
+"label": "SM_Bevel_007_11",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559255438",
+"label": "EF_Tun_Wall_021_R",
+"dims": [
+400,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1175
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843083483",
+"label": "SM_Cube_Nanite_51",
+"dims": [
+120,
+30,
+42
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 696
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA60B03_1110530773",
+"label": "Castle_KeepShell_Step_31",
+"dims": [
+110,
+210,
+60
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 22
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843285497",
+"label": "SM_Cube_Nanite_65",
+"dims": [
+110,
+30,
+210
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 97
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561385572",
+"label": "EF_Tun_Ceil_055",
+"dims": [
+431,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -420
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843066482",
+"label": "SM_Cube_Nanite_50",
+"dims": [
+120,
+30,
+339
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 845
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560936544",
+"label": "EF_Tun_Ceil_048",
+"dims": [
+362,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -462
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840982322",
+"label": "SM_Bevel_001_110",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843254495",
+"label": "SM_Cube_Nanite_63",
+"dims": [
+100,
+34,
+278
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 341
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA60B03_1110522772",
+"label": "Castle_KeepShell_Step_30",
+"dims": [
+110,
+240,
+35
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 10
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487279312",
+"label": "EF_East_Pillar1",
+"dims": [
+420,
+300,
+1300
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel_East",
+"z": -1377
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839933228",
+"label": "SM_Bevel_001_16",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561652588",
+"label": "EF_Tun_Ceil_059",
+"dims": [
+280,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -397
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558028361",
+"label": "EF_Tun_Wall_002_L",
+"dims": [
+325,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1299
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558137368",
+"label": "EF_Tun_Ceil_004",
+"dims": [
+398,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -747
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842909471",
+"label": "SM_Cube_Nanite_39",
+"dims": [
+435,
+50,
+238
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 321
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839980235",
+"label": "SM_Bevel_001_23",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559442450",
+"label": "EF_Tun_Wall_024_R",
+"dims": [
+355,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1156
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559994484",
+"label": "EF_Tun_Ceil_033",
+"dims": [
+380,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -558
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843467510",
+"label": "SM_Cube_Nanite_78",
+"dims": [
+120,
+27,
+485
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 762
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843810538",
+"label": "SM_Cube_Nanite_106",
+"dims": [
+100,
+34,
+199
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 291
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560576522",
+"label": "EF_Tun_Wall_042_R",
+"dims": [
+416,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1042
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560820537",
+"label": "EF_Tun_Wall_046_L",
+"dims": [
+384,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1015
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842751459",
+"label": "SM_Cube_Nanite_27",
+"dims": [
+50,
+174,
+230
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 680
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1557883352",
+"label": "EF_Tun_Ceil_000",
+"dims": [
+239,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -768
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561796597",
+"label": "EF_Tun_Wall_061_L",
+"dims": [
+386,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -924
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560756533",
+"label": "EF_Tun_Wall_045_L",
+"dims": [
+393,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1021
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839852217",
+"label": "SM_Bevel_001_5",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840248263",
+"label": "SM_Bevel_001_51",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559303441",
+"label": "EF_Tun_Wall_022_L",
+"dims": [
+399,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1168
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560637526",
+"label": "EF_Tun_Wall_043_R",
+"dims": [
+410,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1035
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840905316",
+"label": "SM_Bevel_001_104",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840522286",
+"label": "SM_Bevel_001_74",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561031550",
+"label": "EF_Tun_Wall_049_R",
+"dims": [
+349,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -996
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843019479",
+"label": "SM_Cube_Nanite_47",
+"dims": [
+120,
+27,
+93
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 567
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561080553",
+"label": "EF_Tun_Wall_050_L",
+"dims": [
+336,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -990
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559835474",
+"label": "EF_Tun_Wall_030_R",
+"dims": [
+383,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1118
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842883469",
+"label": "SM_Cube_Nanite_37",
+"dims": [
+120,
+30,
+358
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 854
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559091428",
+"label": "EF_Tun_Ceil_019",
+"dims": [
+399,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -649
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561213561",
+"label": "EF_Tun_Wall_052_L",
+"dims": [
+306,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -980
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558638400",
+"label": "EF_Tun_Ceil_012",
+"dims": [
+357,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -695
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840870313",
+"label": "SM_Bevel_001_101",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842542443",
+"label": "SM_Cube_Nanite_11",
+"dims": [
+120,
+30,
+154
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 752
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843517514",
+"label": "SM_Cube_Nanite_82",
+"dims": [
+120,
+30,
+228
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 789
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840171254",
+"label": "SM_Bevel_001_42",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840095249",
+"label": "SM_Bevel_001_37",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843778535",
+"label": "SM_Cube_Nanite_103",
+"dims": [
+50,
+85,
+808
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 606
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842604448",
+"label": "SM_Cube_Nanite_16",
+"dims": [
+120,
+30,
+284
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 817
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843538516",
+"label": "SM_Cube_Nanite_84",
+"dims": [
+110,
+150,
+110
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 47
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558414386",
+"label": "EF_Tun_Wall_008_R",
+"dims": [
+305,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1257
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840267265",
+"label": "SM_Bevel_001_53",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559155432",
+"label": "EF_Tun_Ceil_020",
+"dims": [
+400,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -642
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561337569",
+"label": "EF_Tun_Wall_054_L",
+"dims": [
+501,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -968
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558654401",
+"label": "EF_Tun_Wall_012_L",
+"dims": [
+357,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1235
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843797537",
+"label": "SM_Cube_Nanite_105",
+"dims": [
+110,
+180,
+85
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 34
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843618523",
+"label": "SM_Cube_Nanite_91",
+"dims": [
+40,
+140,
+170
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 365
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840178255",
+"label": "SM_Bevel_001_43",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559680464",
+"label": "EF_Tun_Ceil_028",
+"dims": [
+378,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -591
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840209259",
+"label": "SM_Bevel_001_47",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840934318",
+"label": "SM_Bevel_001_106",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840051245",
+"label": "SM_Bevel_001_33",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842516441",
+"label": "SM_Cube_Nanite_9",
+"dims": [
+120,
+30,
+246
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 798
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308081217",
+"label": "Castle_DoorCut_90",
+"dims": [
+50,
+120,
+570
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561474577",
+"label": "EF_Tun_Wall_056_L",
+"dims": [
+374,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -953
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558198372",
+"label": "EF_Tun_Ceil_005",
+"dims": [
+430,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -740
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843416506",
+"label": "SM_Cube_Nanite_74",
+"dims": [
+120,
+27,
+522
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 781
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA60B03_1110509771",
+"label": "Castle_KeepShell_Step_29",
+"dims": [
+110,
+240,
+35
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 10
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559504453",
+"label": "EF_Tun_Wall_025_L",
+"dims": [
+363,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1150
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561455576",
+"label": "EF_Tun_Ceil_056",
+"dims": [
+374,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -413
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559714466",
+"label": "EF_Tun_Wall_028_R",
+"dims": [
+378,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1131
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561733593",
+"label": "EF_Tun_Wall_060_L",
+"dims": [
+438,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -931
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839818213",
+"label": "SM_Bevel_001_1",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561260564",
+"label": "EF_Tun_Ceil_053",
+"dims": [
+290,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -435
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560085490",
+"label": "EF_Tun_Wall_034_R",
+"dims": [
+376,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1092
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840399276",
+"label": "SM_Bevel_001_64",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843643525",
+"label": "SM_Cube_Nanite_93",
+"dims": [
+120,
+27,
+75
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 557
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308147224",
+"label": "Castle_BaileyKeepStep_97",
+"dims": [
+25,
+120,
+57
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 24
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561063552",
+"label": "EF_Tun_Ceil_050",
+"dims": [
+336,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -450
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843631524",
+"label": "SM_Cube_Nanite_92",
+"dims": [
+25,
+120,
+107
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 48
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842870468",
+"label": "SM_Cube_Nanite_36",
+"dims": [
+120,
+27,
+410
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840969321",
+"label": "SM_Bevel_001_109",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841888392",
+"label": "SM_Bevel_007_9",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560330506",
+"label": "EF_Tun_Wall_038_R",
+"dims": [
+350,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1067
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560561521",
+"label": "EF_Tun_Wall_042_L",
+"dims": [
+416,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1042
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842960475",
+"label": "SM_Cube_Nanite_43",
+"dims": [
+120,
+27,
+112
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 576
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840030242",
+"label": "SM_Bevel_001_30",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560434513",
+"label": "EF_Tun_Wall_040_L",
+"dims": [
+329,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1056
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839876220",
+"label": "SM_Bevel_001_8",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840274266",
+"label": "SM_Bevel_001_54",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840017240",
+"label": "SM_Bevel_001_28",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABF10B03_1931843382",
+"label": "SM_Cube_Nanite_119",
+"dims": [
+100,
+34,
+60
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 202
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558705404",
+"label": "EF_Tun_Ceil_013",
+"dims": [
+367,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -688
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559821473",
+"label": "EF_Tun_Wall_030_L",
+"dims": [
+383,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1118
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560870540",
+"label": "EF_Tun_Ceil_047",
+"dims": [
+373,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -468
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840229261",
+"label": "SM_Bevel_001_49",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840582291",
+"label": "SM_Bevel_001_79",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558075364",
+"label": "EF_Tun_Ceil_003",
+"dims": [
+363,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -753
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842665453",
+"label": "SM_Cube_Nanite_21",
+"dims": [
+100,
+34,
+139
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 272
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561521580",
+"label": "EF_Tun_Ceil_057",
+"dims": [
+331,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -407
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839868219",
+"label": "SM_Bevel_001_7",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843785536",
+"label": "SM_Cube_Nanite_104",
+"dims": [
+120,
+27,
+373
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 706
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840449280",
+"label": "SM_Bevel_001_68",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561291566",
+"label": "EF_Tun_Wall_053_R",
+"dims": [
+290,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -975
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559775470",
+"label": "EF_Tun_Wall_029_R",
+"dims": [
+381,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1125
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487504329",
+"label": "EF_East_Keystone",
+"dims": [
+520,
+260,
+420
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel_East",
+"z": -577
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308048214",
+"label": "Castle_DoorCut_87",
+"dims": [
+160,
+120,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 530
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840237262",
+"label": "SM_Bevel_001_50",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558278377",
+"label": "EF_Tun_Wall_006_L",
+"dims": [
+460,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1272
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840515285",
+"label": "SM_Bevel_001_73",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843214492",
+"label": "SM_Cube_Nanite_60",
+"dims": [
+100,
+34,
+258
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 331
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559025424",
+"label": "EF_Tun_Ceil_018",
+"dims": [
+397,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -656
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842638451",
+"label": "SM_Cube_Nanite_19",
+"dims": [
+435,
+50,
+238
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 321
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560737532",
+"label": "EF_Tun_Ceil_045",
+"dims": [
+393,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -481
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842799463",
+"label": "SM_Cube_Nanite_31",
+"dims": [
+160,
+180,
+40
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 660
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839897223",
+"label": "SM_Bevel_001_11",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559869476",
+"label": "EF_Tun_Ceil_031",
+"dims": [
+383,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -571
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843454509",
+"label": "SM_Cube_Nanite_77",
+"dims": [
+30,
+120,
+395
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 873
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559759469",
+"label": "EF_Tun_Wall_029_L",
+"dims": [
+381,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1125
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560887541",
+"label": "EF_Tun_Wall_047_L",
+"dims": [
+373,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1008
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308029212",
+"label": "Castle_DoorCut_85",
+"dims": [
+160,
+1430,
+620
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 310
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841015324",
+"label": "SM_Bevel_001_112",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840059246",
+"label": "SM_Bevel_001_34",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558574396",
+"label": "EF_Tun_Ceil_011",
+"dims": [
+346,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -700
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560055488",
+"label": "EF_Tun_Ceil_034",
+"dims": [
+376,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -552
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843230493",
+"label": "SM_Cube_Nanite_61",
+"dims": [
+28,
+120,
+38
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 539
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840591292",
+"label": "SM_Bevel_001_80",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840752304",
+"label": "SM_Bevel_001_92",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840219260",
+"label": "SM_Bevel_001_48",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560623525",
+"label": "EF_Tun_Wall_043_L",
+"dims": [
+410,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1035
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308019211",
+"label": "Castle_DoorCut_84",
+"dims": [
+160,
+950,
+620
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 310
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840305269",
+"label": "SM_Bevel_001_57",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559947481",
+"label": "EF_Tun_Wall_032_L",
+"dims": [
+382,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1105
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843351501",
+"label": "SM_Cube_Nanite_69",
+"dims": [
+28,
+120,
+76
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 558
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558151369",
+"label": "EF_Tun_Wall_004_L",
+"dims": [
+398,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1287
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560390510",
+"label": "EF_Tun_Wall_039_R",
+"dims": [
+340,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1061
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841865390",
+"label": "SM_Bevel_007_7",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843403505",
+"label": "SM_Cube_Nanite_73",
+"dims": [
+25,
+120,
+132
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 61
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840818309",
+"label": "SM_Bevel_001_97",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843503513",
+"label": "SM_Cube_Nanite_81",
+"dims": [
+500,
+40,
+448
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 226
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560129493",
+"label": "EF_Tun_Wall_035_L",
+"dims": [
+372,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1086
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842444436",
+"label": "SM_Cube_Nanite_4",
+"dims": [
+30,
+120,
+377
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 863
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840694300",
+"label": "SM_Bevel_001_88",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840257264",
+"label": "SM_Bevel_001_52",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842844466",
+"label": "SM_Cube_Nanite_34",
+"dims": [
+120,
+27,
+354
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 697
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840318270",
+"label": "SM_Bevel_001_58",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559318442",
+"label": "EF_Tun_Wall_022_R",
+"dims": [
+399,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1168
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560146494",
+"label": "EF_Tun_Wall_035_R",
+"dims": [
+372,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1086
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559804472",
+"label": "EF_Tun_Ceil_030",
+"dims": [
+383,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -578
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559897478",
+"label": "EF_Tun_Wall_031_R",
+"dims": [
+383,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1111
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839842216",
+"label": "SM_Bevel_001_4",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840616294",
+"label": "SM_Bevel_001_82",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840412277",
+"label": "SM_Bevel_001_65",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839996237",
+"label": "SM_Bevel_001_25",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559742468",
+"label": "EF_Tun_Ceil_029",
+"dims": [
+381,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -585
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560374509",
+"label": "EF_Tun_Wall_039_L",
+"dims": [
+340,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1061
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487839351",
+"label": "EF_West_Keystone",
+"dims": [
+520,
+260,
+420
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel_West",
+"z": -216
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559695465",
+"label": "EF_Tun_Wall_028_L",
+"dims": [
+378,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1131
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561169558",
+"label": "EF_Tun_Wall_051_R",
+"dims": [
+321,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -985
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561813598",
+"label": "EF_Tun_Wall_061_R",
+"dims": [
+386,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -924
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839807212",
+"label": "SM_Bevel_001_0",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487589334",
+"label": "EF_West_Pillar1",
+"dims": [
+420,
+300,
+1300
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel_West",
+"z": -1016
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558912417",
+"label": "EF_Tun_Wall_016_L",
+"dims": [
+389,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1209
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560547520",
+"label": "EF_Tun_Ceil_042",
+"dims": [
+416,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -502
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840357273",
+"label": "SM_Bevel_001_61",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560455514",
+"label": "EF_Tun_Wall_040_R",
+"dims": [
+329,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1056
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559173433",
+"label": "EF_Tun_Wall_020_L",
+"dims": [
+400,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1182
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560607524",
+"label": "EF_Tun_Ceil_043",
+"dims": [
+410,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -495
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842777461",
+"label": "SM_Cube_Nanite_29",
+"dims": [
+120,
+27,
+168
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 604
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840545288",
+"label": "SM_Bevel_001_76",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842552444",
+"label": "SM_Cube_Nanite_12",
+"dims": [
+50,
+890,
+363
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 384
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560240500",
+"label": "EF_Tun_Ceil_037",
+"dims": [
+359,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -533
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843955550",
+"label": "SM_Cube_Nanite_118",
+"dims": [
+160,
+180,
+40
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 660
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842921472",
+"label": "SM_Cube_Nanite_40",
+"dims": [
+120,
+27,
+242
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 641
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561879602",
+"label": "EF_Tun_Wall_062_R",
+"dims": [
+287,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -918
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558511392",
+"label": "EF_Tun_Ceil_010",
+"dims": [
+333,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -706
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842461437",
+"label": "SM_Cube_Nanite_5",
+"dims": [
+160,
+180,
+40
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 660
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561668589",
+"label": "EF_Tun_Wall_059_L",
+"dims": [
+280,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -937
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840920317",
+"label": "SM_Bevel_001_105",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561403573",
+"label": "EF_Tun_Wall_055_L",
+"dims": [
+431,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -960
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560256501",
+"label": "EF_Tun_Wall_037_L",
+"dims": [
+359,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1073
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840707301",
+"label": "SM_Bevel_001_89",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840023241",
+"label": "SM_Bevel_001_29",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1557914354",
+"label": "EF_Tun_Wall_000_R",
+"dims": [
+239,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1308
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558543394",
+"label": "EF_Tun_Wall_010_R",
+"dims": [
+333,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1246
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561321568",
+"label": "EF_Tun_Ceil_054",
+"dims": [
+501,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -428
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559287440",
+"label": "EF_Tun_Ceil_022",
+"dims": [
+399,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -628
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559425449",
+"label": "EF_Tun_Wall_024_L",
+"dims": [
+355,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1156
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841065327",
+"label": "SM_Bevel_001_115",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561554582",
+"label": "EF_Tun_Wall_057_R",
+"dims": [
+331,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -947
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561421574",
+"label": "EF_Tun_Wall_055_R",
+"dims": [
+431,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -960
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB20B03_1275162062",
+"label": "Castle_BaileyFloor_49",
+"dims": [
+1490,
+3240,
+152
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": -74
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842531442",
+"label": "SM_Cube_Nanite_10",
+"dims": [
+100,
+34,
+60
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 232
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840653297",
+"label": "SM_Bevel_001_85",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843362502",
+"label": "SM_Cube_Nanite_70",
+"dims": [
+110,
+90,
+160
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 72
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559587458",
+"label": "EF_Tun_Wall_026_R",
+"dims": [
+369,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1144
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560209498",
+"label": "EF_Tun_Wall_036_R",
+"dims": [
+366,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1079
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840954320",
+"label": "SM_Bevel_001_108",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843753533",
+"label": "SM_Cube_Nanite_101",
+"dims": [
+120,
+27,
+56
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 548
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842934473",
+"label": "SM_Cube_Nanite_41",
+"dims": [
+300,
+300,
+620
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 310
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1557979358",
+"label": "EF_Tun_Wall_001_R",
+"dims": [
+284,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1304
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560317505",
+"label": "EF_Tun_Wall_038_L",
+"dims": [
+350,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1067
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561602585",
+"label": "EF_Tun_Wall_058_L",
+"dims": [
+300,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -942
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841027325",
+"label": "SM_Bevel_001_113",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842428435",
+"label": "SM_Cube_Nanite_3",
+"dims": [
+120,
+30,
+191
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 770
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843847541",
+"label": "SM_Cube_Nanite_109",
+"dims": [
+120,
+27,
+503
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 772
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840895315",
+"label": "SM_Bevel_001_103",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839939229",
+"label": "SM_Bevel_001_17",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561538581",
+"label": "EF_Tun_Wall_057_L",
+"dims": [
+331,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -947
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843487512",
+"label": "SM_Cube_Nanite_80",
+"dims": [
+120,
+30,
+116
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 733
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840155253",
+"label": "SM_Bevel_001_41",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842567445",
+"label": "SM_Cube_Nanite_13",
+"dims": [
+110,
+30,
+210
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 97
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559058426",
+"label": "EF_Tun_Wall_018_R",
+"dims": [
+397,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1196
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843859542",
+"label": "SM_Cube_Nanite_110",
+"dims": [
+550,
+50,
+570
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843684528",
+"label": "SM_Cube_Nanite_96",
+"dims": [
+120,
+27,
+261
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 650
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560805536",
+"label": "EF_Tun_Ceil_046",
+"dims": [
+384,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -475
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558387384",
+"label": "EF_Tun_Ceil_008",
+"dims": [
+305,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -717
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842704456",
+"label": "SM_Cube_Nanite_24",
+"dims": [
+120,
+30,
+377
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 863
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558590397",
+"label": "EF_Tun_Wall_011_L",
+"dims": [
+346,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1240
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558737406",
+"label": "EF_Tun_Wall_013_R",
+"dims": [
+367,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1228
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840427278",
+"label": "SM_Bevel_001_66",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840437279",
+"label": "SM_Bevel_001_67",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840189256",
+"label": "SM_Bevel_001_44",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840290268",
+"label": "SM_Bevel_001_56",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839945230",
+"label": "SM_Bevel_001_18",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558230374",
+"label": "EF_Tun_Wall_005_R",
+"dims": [
+430,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1280
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840602293",
+"label": "SM_Bevel_001_81",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487385320",
+"label": "EF_East_Pillar-1",
+"dims": [
+420,
+300,
+1300
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel_East",
+"z": -1377
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558449388",
+"label": "EF_Tun_Ceil_009",
+"dims": [
+320,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -712
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558606398",
+"label": "EF_Tun_Wall_011_R",
+"dims": [
+346,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1240
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841816386",
+"label": "SM_Bevel_007_3",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843818539",
+"label": "SM_Cube_Nanite_107",
+"dims": [
+40,
+600,
+448
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 226
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840640296",
+"label": "SM_Bevel_001_84",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840996323",
+"label": "SM_Bevel_001_111",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560773534",
+"label": "EF_Tun_Wall_045_R",
+"dims": [
+393,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1021
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487720342",
+"label": "EF_West_Pillar-1",
+"dims": [
+420,
+300,
+1300
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel_West",
+"z": -1016
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841105330",
+"label": "SM_Bevel_001_118",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560902542",
+"label": "EF_Tun_Wall_047_R",
+"dims": [
+373,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1008
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559042425",
+"label": "EF_Tun_Wall_018_L",
+"dims": [
+397,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1196
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558993422",
+"label": "EF_Tun_Wall_017_R",
+"dims": [
+394,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1202
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840038243",
+"label": "SM_Bevel_001_31",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843931548",
+"label": "SM_Cube_Nanite_116",
+"dims": [
+100,
+75,
+219
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 251
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843880544",
+"label": "SM_Cube_Nanite_112",
+"dims": [
+120,
+27,
+224
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 632
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842488439",
+"label": "SM_Cube_Nanite_7",
+"dims": [
+25,
+120,
+82
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 36
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560837538",
+"label": "EF_Tun_Wall_046_R",
+"dims": [
+384,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1015
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840944319",
+"label": "SM_Bevel_001_107",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558848413",
+"label": "EF_Tun_Wall_015_L",
+"dims": [
+383,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1216
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559364445",
+"label": "EF_Tun_Wall_023_L",
+"dims": [
+346,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1162
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559106429",
+"label": "EF_Tun_Wall_019_L",
+"dims": [
+399,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1189
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558167370",
+"label": "EF_Tun_Wall_004_R",
+"dims": [
+398,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1287
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA60B03_1110537774",
+"label": "Castle_KeepShell_Step_32",
+"dims": [
+110,
+210,
+60
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 22
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843315499",
+"label": "SM_Cube_Nanite_67",
+"dims": [
+120,
+27,
+298
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 669
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1557947356",
+"label": "EF_Tun_Ceil_001",
+"dims": [
+284,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -764
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560359508",
+"label": "EF_Tun_Ceil_039",
+"dims": [
+340,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -521
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840724302",
+"label": "SM_Bevel_001_90",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558978421",
+"label": "EF_Tun_Wall_017_L",
+"dims": [
+394,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1202
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840738303",
+"label": "SM_Bevel_001_91",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308075216",
+"label": "Castle_DoorCut_89",
+"dims": [
+50,
+225,
+808
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 606
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842764460",
+"label": "SM_Cube_Nanite_28",
+"dims": [
+28,
+120,
+57
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 548
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560702530",
+"label": "EF_Tun_Wall_044_R",
+"dims": [
+402,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1028
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842653452",
+"label": "SM_Cube_Nanite_20",
+"dims": [
+120,
+30,
+98
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 724
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839835215",
+"label": "SM_Bevel_001_3",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561229562",
+"label": "EF_Tun_Wall_052_R",
+"dims": [
+306,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -980
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559884477",
+"label": "EF_Tun_Wall_031_L",
+"dims": [
+383,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1111
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843610522",
+"label": "SM_Cube_Nanite_90",
+"dims": [
+120,
+30,
+79
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 715
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559410448",
+"label": "EF_Tun_Ceil_024",
+"dims": [
+355,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -616
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839889222",
+"label": "SM_Bevel_001_10",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841096329",
+"label": "SM_Bevel_001_117",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841828387",
+"label": "SM_Bevel_007_4",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561016549",
+"label": "EF_Tun_Wall_049_L",
+"dims": [
+349,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -996
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843744532",
+"label": "SM_Cube_Nanite_100",
+"dims": [
+160,
+300,
+220
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 510
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843572519",
+"label": "SM_Cube_Nanite_87",
+"dims": [
+28,
+120,
+133
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 586
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840630295",
+"label": "SM_Bevel_001_83",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842786462",
+"label": "SM_Cube_Nanite_30",
+"dims": [
+50,
+120,
+470
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 437
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842812464",
+"label": "SM_Cube_Nanite_32",
+"dims": [
+120,
+27,
+149
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 595
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560685529",
+"label": "EF_Tun_Wall_044_L",
+"dims": [
+402,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1028
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842630450",
+"label": "SM_Cube_Nanite_18",
+"dims": [
+120,
+27,
+205
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 623
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560271502",
+"label": "EF_Tun_Wall_037_R",
+"dims": [
+359,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1073
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558482390",
+"label": "EF_Tun_Wall_009_R",
+"dims": [
+320,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1252
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842737458",
+"label": "SM_Cube_Nanite_26",
+"dims": [
+100,
+34,
+80
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 242
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558896416",
+"label": "EF_Tun_Ceil_016",
+"dims": [
+389,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -669
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559123430",
+"label": "EF_Tun_Wall_019_R",
+"dims": [
+399,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1189
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560953545",
+"label": "EF_Tun_Wall_048_L",
+"dims": [
+362,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1002
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840497284",
+"label": "SM_Bevel_001_72",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840766305",
+"label": "SM_Bevel_001_93",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843529515",
+"label": "SM_Cube_Nanite_83",
+"dims": [
+110,
+150,
+110
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 47
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558929418",
+"label": "EF_Tun_Wall_016_R",
+"dims": [
+389,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1209
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843046481",
+"label": "SM_Cube_Nanite_49",
+"dims": [
+120,
+27,
+466
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 753
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841081328",
+"label": "SM_Bevel_001_116",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842972476",
+"label": "SM_Cube_Nanite_44",
+"dims": [
+120,
+27,
+336
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 688
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842478438",
+"label": "SM_Cube_Nanite_6",
+"dims": [
+120,
+27,
+186
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 613
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843726531",
+"label": "SM_Cube_Nanite_99",
+"dims": [
+120,
+30,
+265
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 808
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843126486",
+"label": "SM_Cube_Nanite_54",
+"dims": [
+50,
+127,
+230
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 680
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843479511",
+"label": "SM_Cube_Nanite_79",
+"dims": [
+120,
+27,
+429
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 734
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840141252",
+"label": "SM_Bevel_001_40",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559570457",
+"label": "EF_Tun_Wall_026_L",
+"dims": [
+369,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1144
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558788409",
+"label": "EF_Tun_Wall_014_L",
+"dims": [
+375,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1222
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561001548",
+"label": "EF_Tun_Ceil_049",
+"dims": [
+349,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -456
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558044362",
+"label": "EF_Tun_Wall_002_R",
+"dims": [
+325,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1299
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840791307",
+"label": "SM_Bevel_001_95",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840380275",
+"label": "SM_Bevel_001_63",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843270496",
+"label": "SM_Cube_Nanite_64",
+"dims": [
+110,
+90,
+160
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 72
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839826214",
+"label": "SM_Bevel_001_2",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840779306",
+"label": "SM_Bevel_001_94",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561130556",
+"label": "EF_Tun_Ceil_051",
+"dims": [
+321,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -445
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560175496",
+"label": "EF_Tun_Ceil_036",
+"dims": [
+366,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -539
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842417434",
+"label": "SM_Cube_Nanite_2",
+"dims": [
+120,
+30,
+61
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 705
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840045244",
+"label": "SM_Bevel_001_32",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560303504",
+"label": "EF_Tun_Ceil_038",
+"dims": [
+350,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -527
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560421512",
+"label": "EF_Tun_Ceil_040",
+"dims": [
+329,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -516
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842387432",
+"label": "SM_Cube_Nanite_0",
+"dims": [
+110,
+60,
+185
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 84
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1557899353",
+"label": "EF_Tun_Wall_000_L",
+"dims": [
+239,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1308
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559224436",
+"label": "EF_Tun_Ceil_021",
+"dims": [
+400,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -635
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561489578",
+"label": "EF_Tun_Wall_056_R",
+"dims": [
+374,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -953
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558402385",
+"label": "EF_Tun_Wall_008_L",
+"dims": [
+305,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1257
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558091365",
+"label": "EF_Tun_Wall_003_L",
+"dims": [
+363,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1293
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840284267",
+"label": "SM_Bevel_001_55",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559647462",
+"label": "EF_Tun_Wall_027_R",
+"dims": [
+374,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1137
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839966233",
+"label": "SM_Bevel_001_21",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843201491",
+"label": "SM_Cube_Nanite_59",
+"dims": [
+100,
+34,
+99
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 252
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308154225",
+"label": "Castle_BaileyKeepStep_98",
+"dims": [
+25,
+120,
+32
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 11
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843111485",
+"label": "SM_Cube_Nanite_53",
+"dims": [
+28,
+120,
+114
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 577
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558105366",
+"label": "EF_Tun_Wall_003_R",
+"dims": [
+363,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1293
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839881221",
+"label": "SM_Bevel_001_9",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1308041213",
+"label": "Castle_DoorCut_86",
+"dims": [
+160,
+120,
+202
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "None",
+"z": 101
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840067247",
+"label": "SM_Bevel_001_35",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843430507",
+"label": "SM_Cube_Nanite_75",
+"dims": [
+120,
+27,
+447
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 744
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840104250",
+"label": "SM_Bevel_001_38",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842726457",
+"label": "SM_Cube_Nanite_25",
+"dims": [
+28,
+120,
+95
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 568
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561619586",
+"label": "EF_Tun_Wall_058_R",
+"dims": [
+300,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -942
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843033480",
+"label": "SM_Cube_Nanite_48",
+"dims": [
+25,
+120,
+207
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 98
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841041326",
+"label": "SM_Bevel_001_114",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843710530",
+"label": "SM_Cube_Nanite_98",
+"dims": [
+120,
+30,
+302
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 826
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843551517",
+"label": "SM_Cube_Nanite_85",
+"dims": [
+120,
+30,
+172
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 761
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559379446",
+"label": "EF_Tun_Wall_023_R",
+"dims": [
+346,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1162
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842946474",
+"label": "SM_Cube_Nanite_42",
+"dims": [
+500,
+40,
+448
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 226
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559553456",
+"label": "EF_Tun_Ceil_026",
+"dims": [
+369,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -604
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559929480",
+"label": "EF_Tun_Ceil_032",
+"dims": [
+382,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -565
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842680454",
+"label": "SM_Cube_Nanite_22",
+"dims": [
+40,
+230,
+448
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 226
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842581446",
+"label": "SM_Cube_Nanite_14",
+"dims": [
+110,
+120,
+135
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 60
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843563518",
+"label": "SM_Cube_Nanite_86",
+"dims": [
+120,
+27,
+130
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 585
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841782383",
+"label": "SM_Bevel_007_0",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841843388",
+"label": "SM_Bevel_007_5",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842503440",
+"label": "SM_Cube_Nanite_8",
+"dims": [
+50,
+890,
+215
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 902
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843094484",
+"label": "SM_Cube_Nanite_52",
+"dims": [
+100,
+34,
+159
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 282
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839987236",
+"label": "SM_Bevel_001_24",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558864414",
+"label": "EF_Tun_Wall_015_R",
+"dims": [
+383,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1216
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840668298",
+"label": "SM_Bevel_001_86",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558342381",
+"label": "EF_Tun_Wall_007_L",
+"dims": [
+489,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1264
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842986477",
+"label": "SM_Cube_Nanite_45",
+"dims": [
+25,
+120,
+182
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 86
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840347272",
+"label": "SM_Bevel_001_60",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840857312",
+"label": "SM_Bevel_001_100",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843172489",
+"label": "SM_Cube_Nanite_57",
+"dims": [
+50,
+127,
+230
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 680
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558263376",
+"label": "EF_Tun_Ceil_006",
+"dims": [
+460,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -732
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558294378",
+"label": "EF_Tun_Wall_006_R",
+"dims": [
+460,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1272
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840002238",
+"label": "SM_Bevel_001_26",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561845600",
+"label": "EF_Tun_Ceil_062",
+"dims": [
+287,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -378
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559964482",
+"label": "EF_Tun_Wall_032_R",
+"dims": [
+382,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1105
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843009478",
+"label": "SM_Cube_Nanite_46",
+"dims": [
+100,
+34,
+238
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 321
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561863601",
+"label": "EF_Tun_Wall_062_L",
+"dims": [
+287,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -918
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840369274",
+"label": "SM_Bevel_001_62",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840010239",
+"label": "SM_Bevel_001_27",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560487516",
+"label": "EF_Tun_Ceil_041",
+"dims": [
+422,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -510
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560192497",
+"label": "EF_Tun_Wall_036_L",
+"dims": [
+366,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1079
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843302498",
+"label": "SM_Cube_Nanite_66",
+"dims": [
+160,
+500,
+620
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 310
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841878391",
+"label": "SM_Bevel_007_8",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841853389",
+"label": "SM_Bevel_007_6",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842595447",
+"label": "SM_Cube_Nanite_15",
+"dims": [
+120,
+27,
+392
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 716
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558962420",
+"label": "EF_Tun_Ceil_017",
+"dims": [
+394,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -662
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843142487",
+"label": "SM_Cube_Nanite_55",
+"dims": [
+100,
+34,
+298
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 351
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559483452",
+"label": "EF_Tun_Ceil_025",
+"dims": [
+363,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -610
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843334500",
+"label": "SM_Cube_Nanite_68",
+"dims": [
+120,
+30,
+321
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 835
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558721405",
+"label": "EF_Tun_Wall_013_L",
+"dims": [
+367,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1228
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560514518",
+"label": "EF_Tun_Wall_041_R",
+"dims": [
+422,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1050
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842856467",
+"label": "SM_Cube_Nanite_35",
+"dims": [
+120,
+30,
+24
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 687
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560501517",
+"label": "EF_Tun_Wall_041_L",
+"dims": [
+422,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1050
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558466389",
+"label": "EF_Tun_Wall_009_L",
+"dims": [
+320,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1252
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561151557",
+"label": "EF_Tun_Wall_051_L",
+"dims": [
+321,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -985
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842694455",
+"label": "SM_Cube_Nanite_23",
+"dims": [
+50,
+120,
+35
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 992
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840846311",
+"label": "SM_Bevel_001_99",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559617460",
+"label": "EF_Tun_Ceil_027",
+"dims": [
+374,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -597
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839920226",
+"label": "SM_Bevel_001_14",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841124331",
+"label": "SM_Bevel_001_119",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843599521",
+"label": "SM_Cube_Nanite_89",
+"dims": [
+25,
+120,
+157
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 74
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1841803385",
+"label": "SM_Bevel_007_2",
+"dims": [
+245,
+120,
+540
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_007",
+"z": 270
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839972234",
+"label": "SM_Bevel_001_22",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558326380",
+"label": "EF_Tun_Ceil_007",
+"dims": [
+489,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -724
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842897470",
+"label": "SM_Cube_Nanite_38",
+"dims": [
+550,
+50,
+570
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558671402",
+"label": "EF_Tun_Wall_012_R",
+"dims": [
+357,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1235
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839959232",
+"label": "SM_Bevel_001_20",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560968546",
+"label": "EF_Tun_Wall_048_R",
+"dims": [
+362,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1002
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558357382",
+"label": "EF_Tun_Wall_007_R",
+"dims": [
+489,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1264
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840685299",
+"label": "SM_Bevel_001_87",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561197560",
+"label": "EF_Tun_Ceil_052",
+"dims": [
+306,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -440
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559632461",
+"label": "EF_Tun_Wall_027_L",
+"dims": [
+374,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1137
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840197257",
+"label": "SM_Bevel_001_45",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840535287",
+"label": "SM_Bevel_001_75",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560025486",
+"label": "EF_Tun_Wall_033_R",
+"dims": [
+380,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1098
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840569290",
+"label": "SM_Bevel_001_78",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558215373",
+"label": "EF_Tun_Wall_005_L",
+"dims": [
+430,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1280
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560009485",
+"label": "EF_Tun_Wall_033_L",
+"dims": [
+380,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1098
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1557962357",
+"label": "EF_Tun_Wall_001_L",
+"dims": [
+284,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1304
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843245494",
+"label": "SM_Cube_Nanite_62",
+"dims": [
+100,
+34,
+119
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 262
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1558527393",
+"label": "EF_Tun_Wall_010_L",
+"dims": [
+333,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1246
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559239437",
+"label": "EF_Tun_Wall_021_L",
+"dims": [
+400,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -1175
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561781596",
+"label": "EF_Tun_Ceil_061",
+"dims": [
+386,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -384
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1560113492",
+"label": "EF_Tun_Ceil_035",
+"dims": [
+372,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -546
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842829465",
+"label": "SM_Cube_Nanite_33",
+"dims": [
+100,
+34,
+219
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 311
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561586584",
+"label": "EF_Tun_Ceil_058",
+"dims": [
+300,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -402
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1561685590",
+"label": "EF_Tun_Wall_059_R",
+"dims": [
+280,
+160,
+902
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -937
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840557289",
+"label": "SM_Bevel_001_77",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839906224",
+"label": "SM_Bevel_001_12",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1839952231",
+"label": "SM_Bevel_001_19",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843186490",
+"label": "SM_Cube_Nanite_58",
+"dims": [
+110,
+60,
+185
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 84
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAD0D03_1559347444",
+"label": "EF_Tun_Ceil_023",
+"dims": [
+346,
+1020,
+180
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "EastFront/Tunnel",
+"z": -622
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843372503",
+"label": "SM_Cube_Nanite_71",
+"dims": [
+110,
+120,
+135
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 60
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842618449",
+"label": "SM_Cube_Nanite_17",
+"dims": [
+120,
+27,
+280
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 660
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1840829310",
+"label": "SM_Bevel_001_98",
+"dims": [
+298,
+288,
+20
+],
+"mat": "MI_Castle_StoneWall_World",
+"folder": "CastleArena/Restored/SM_Bevel_001",
+"z": -8
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844029555",
+"label": "SM_Bevel_023_4",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB20B03_1273346956",
+"label": "Castle_KeepBridge_4",
+"dims": [
+115,
+120,
+72
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "None",
+"z": 636
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844297575",
+"label": "SM_Cube_Nanite_0",
+"dims": [
+100,
+120,
+152
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 596
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844111561",
+"label": "SM_Bevel_023_10",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487828350",
+"label": "EF_West_Lintel",
+"dims": [
+480,
+1500,
+340
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "EastFront/Tunnel_West",
+"z": -216
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487396321",
+"label": "EF_East_Plinth-1",
+"dims": [
+560,
+420,
+500
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "EastFront/Tunnel_East",
+"z": -1827
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842280424",
+"label": "SM_Bevel_024_4",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABAF0D03_1310595763",
+"label": "EF_Tun_Threshold_W",
+"dims": [
+240,
+1360,
+120
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "EastFront/Tunnel",
+"z": -1423
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487493328",
+"label": "EF_East_Lintel",
+"dims": [
+480,
+1500,
+340
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "EastFront/Tunnel_East",
+"z": -577
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844319577",
+"label": "SM_Cube_Nanite_2",
+"dims": [
+120,
+75,
+65
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 1010
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844412583",
+"label": "SM_Cube_Nanite_8",
+"dims": [
+190,
+940,
+65
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 1010
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844015554",
+"label": "SM_Bevel_023_3",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844055557",
+"label": "SM_Bevel_023_6",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844466587",
+"label": "SM_Cube_Nanite_12",
+"dims": [
+90,
+30,
+90
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844000553",
+"label": "SM_Bevel_023_2",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844377581",
+"label": "SM_Cube_Nanite_6",
+"dims": [
+90,
+30,
+90
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842287425",
+"label": "SM_Bevel_024_5",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844540593",
+"label": "SM_Cube_Nanite_18",
+"dims": [
+100,
+160,
+152
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 596
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843982552",
+"label": "SM_Bevel_023_1",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842355430",
+"label": "SM_Bevel_024_10",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844336578",
+"label": "SM_Cube_Nanite_3",
+"dims": [
+330,
+325,
+44
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 642
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB700F03_1081393415",
+"label": "Castle_EastCurtain_StringCourse9",
+"dims": [
+49,
+225,
+45
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Architecture",
+"z": 772
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844394582",
+"label": "SM_Cube_Nanite_7",
+"dims": [
+120,
+580,
+65
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 1010
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844451586",
+"label": "SM_Cube_Nanite_11",
+"dims": [
+90,
+30,
+90
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABF10B03_1866927381",
+"label": "Castle_EastCurtain_StringCourse5",
+"dims": [
+49,
+700,
+45
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Architecture",
+"z": 690
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844364580",
+"label": "SM_Cube_Nanite_5",
+"dims": [
+390,
+110,
+65
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 900
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1843969551",
+"label": "SM_Bevel_023_0",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487731343",
+"label": "EF_West_Plinth-1",
+"dims": [
+560,
+420,
+500
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "EastFront/Tunnel_West",
+"z": -1466
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844515591",
+"label": "SM_Cube_Nanite_16",
+"dims": [
+190,
+500,
+90
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 45
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842236420",
+"label": "SM_Bevel_024_0",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABB40B03_1917779236",
+"label": "Castle_KeepBridge_10",
+"dims": [
+115,
+160,
+72
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "None",
+"z": 636
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844478588",
+"label": "SM_Cube_Nanite_13",
+"dims": [
+90,
+30,
+90
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Stairs_Old_279",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842270423",
+"label": "SM_Bevel_024_3",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487608335",
+"label": "EF_West_Plinth1",
+"dims": [
+560,
+420,
+500
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "EastFront/Tunnel_West",
+"z": -1466
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB6F0F03_1993584219",
+"label": "Castle_EastCurtain_StringCourse6",
+"dims": [
+49,
+225,
+45
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Architecture",
+"z": 690
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842249421",
+"label": "SM_Bevel_024_1",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842369431",
+"label": "SM_Bevel_024_11",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844529592",
+"label": "SM_Cube_Nanite_17",
+"dims": [
+190,
+940,
+65
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 900
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844350579",
+"label": "SM_Cube_Nanite_4",
+"dims": [
+90,
+30,
+90
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844501590",
+"label": "SM_Cube_Nanite_15",
+"dims": [
+390,
+940,
+65
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 1010
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844425584",
+"label": "SM_Cube_Nanite_9",
+"dims": [
+190,
+2500,
+90
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 45
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842324428",
+"label": "SM_Bevel_024_8",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844039556",
+"label": "SM_Bevel_023_5",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842258422",
+"label": "SM_Bevel_024_2",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844486589",
+"label": "SM_Cube_Nanite_14",
+"dims": [
+560,
+660,
+40
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Restored/SM_Cube_Nanite",
+"z": 470
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844436585",
+"label": "SM_Cube_Nanite_10",
+"dims": [
+90,
+30,
+90
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "Stairs_Old_279",
+"z": 725
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB6F0F03_2111420229",
+"label": "Castle_EastCurtain_StringCourse8",
+"dims": [
+49,
+225,
+45
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Architecture",
+"z": 772
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842300426",
+"label": "SM_Bevel_024_6",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844125562",
+"label": "SM_Bevel_023_11",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844085559",
+"label": "SM_Bevel_023_8",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844071558",
+"label": "SM_Bevel_023_7",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1844099560",
+"label": "SM_Bevel_023_9",
+"dims": [
+95,
+90,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_023",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB6F0F03_2067893224",
+"label": "Castle_EastCurtain_StringCourse7",
+"dims": [
+49,
+225,
+45
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Architecture",
+"z": 691
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABA20D03_1487290313",
+"label": "EF_East_Plinth1",
+"dims": [
+560,
+420,
+500
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "EastFront/Tunnel_East",
+"z": -1827
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABF10B03_1807970380",
+"label": "Castle_EastCurtain_StringCourse4",
+"dims": [
+49,
+675,
+45
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Architecture",
+"z": 690
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842311427",
+"label": "SM_Bevel_024_7",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+},
+{
+"path": "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1842346429",
+"label": "SM_Bevel_024_9",
+"dims": [
+90,
+95,
+160
+],
+"mat": "MI_Castle_Trim_World",
+"folder": "CastleArena/Restored/SM_Bevel_024",
+"z": 1300
+}
+]

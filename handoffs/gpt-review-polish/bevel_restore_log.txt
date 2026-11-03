@@ -1,0 +1,27 @@
+TURNED SM_Bevel_007_1         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_10        SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_11        SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_9         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_7         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_3         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_4         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_0         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_5         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_8         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_6         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_007_2         SM_Bevel_007 -> SM_Bevel_013 +90 deg
+TURNED SM_Bevel_024_4         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_5         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_10        SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_0         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_3         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_1         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_11        SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_8         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_2         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_6         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_7         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+TURNED SM_Bevel_024_9         SM_Bevel_024 -> SM_Bevel_023 +90 deg
+SM_Bevel_007   restore  12   no mesh   0   skewed   0
+SM_Bevel_024   restore  12   no mesh   0   skewed   0
+APPLIED: 24 stand-ins restored, 0 have no bevel mesh left, 0 skipped (bevel would stretch)
