@@ -1,0 +1,19 @@
+==== 12:25:37 placed_ue_1527.py [] OK
+1 Env_CorruptedTentacle_Fog1 SkeletalMeshActor SkeletalMeshComponent0 ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway040 rate 0.85 pos 7.0 loop True abp None loc [2000, -10744, -7402] scale [3.0, 3.0, 3.0]
+2 Env_CorruptedTentacle_Fog1 SkeletalMeshActor JellyShell ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway040 rate 0.85 pos 7.0 loop True abp None loc [2000, -10744, -7402] scale [3.0, 3.0, 3.0]
+3 Env_CorruptedTentacle_05 SkeletalMeshActor SkeletalMeshComponent0 ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway040 rate 1.1 pos 18.8 loop True abp None loc [19238, -708, -1664] scale [2.4, 2.4, 2.4]
+4 Env_CorruptedTentacle_05 SkeletalMeshActor JellyShell ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway040 rate 1.1 pos 18.8 loop True abp None loc [19238, -708, -1664] scale [2.4, 2.4, 2.4]
+5 Env_CorruptedTentacle_02 SkeletalMeshActor SkeletalMeshComponent0 ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple rate 1.0 pos 4.7 loop True abp None loc [15255, -18634, -4185] scale [-2.3, 2.3, 2.3]
+6 Env_CorruptedTentacle_02 SkeletalMeshActor JellyShell ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple rate 1.0 pos 4.7 loop True abp None loc [15255, -18634, -4185] scale [-2.3, 2.3, 2.3]
+7 Env_CorruptedTentacle_04 SkeletalMeshActor SkeletalMeshComponent0 ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple rate 0.92 pos 14.1 loop True abp None loc [5915, 24666, -3074] scale [2.5, 2.5, 2.5]
+8 Env_CorruptedTentacle_04 SkeletalMeshActor JellyShell ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple rate 0.92 pos 14.1 loop True abp None loc [5915, 24666, -3074] scale [2.5, 2.5, 2.5]
+9 Env_CorruptedTentacle_03 SkeletalMeshActor SkeletalMeshComponent0 ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway030 rate 0.75 pos 9.4 loop True abp None loc [-17088, 14671, -5437] scale [-2.9, 2.9, 2.9]
+10 Env_CorruptedTentacle_03 SkeletalMeshActor JellyShell ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway030 rate 0.75 pos 9.4 loop True abp None loc [-17088, 14671, -5437] scale [-2.9, 2.9, 2.9]
+11 Env_CorruptedTentacle_5 SkeletalMeshActor SkeletalMeshComponent0 ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway030 rate 1.0 pos 28.2 loop True abp None loc [-17619, 10728, -4130] scale [-2.5, 2.5, 2.5]
+12 Env_CorruptedTentacle_5 SkeletalMeshActor JellyShell ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway030 rate 1.0 pos 28.2 loop True abp None loc [-17619, 10728, -4130] scale [-2.5, 2.5, 2.5]
+13 Env_CorruptedTentacle_4 SkeletalMeshActor SkeletalMeshComponent0 ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway000 rate 0.85 pos 23.5 loop True abp None loc [-143400, -39847, 1527] scale [-3.75, 3.75, 3.75]
+14 Env_CorruptedTentacle_4 SkeletalMeshActor JellyShell ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway000 rate 0.85 pos 23.5 loop True abp None loc [-143400, -39847, 1527] scale [-3.75, 3.75, 3.75]
+15 Env_CorruptedTentacle_01 SkeletalMeshActor SkeletalMeshComponent0 ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway020 rate 0.85 pos 0.0 loop True abp None loc [-28498, -17794, -6291] scale [-2.7, 2.7, 2.7]
+16 Env_CorruptedTentacle_01 SkeletalMeshActor JellyShell ANIMATION_SINGLE_NODE: 1> SK_CorruptedTentacle_01_Anim_Ripple_Sway020 rate 0.85 pos 0.0 loop True abp None loc [-28498, -17794, -6291] scale [-2.7, 2.7, 2.7]
+total 16
+
