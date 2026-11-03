@@ -75,9 +75,7 @@ for n in OPS['nodes']:
     elif k == 'seq': o = ge.create_node_from_name('Utilities|FlowControl|Sequence', pos, [])
     elif k == 'cast':
         src = [fr for fr, to, rep in OPS['links'] if to == n['id'] + '.Object'][0]; sn, sp = split(src)
-        want = [x for x in map(str, ge.list_available_nodes([pin(made[sn], sp, True)])) if 'Cast' in x and 'ThirdPersonCharacter' in x.replace(' ', '')]
-        if not want: raise SystemExit('no cast node found')
-        o = ge.create_node_from_name(want[0], pos, [pin(made[sn], sp, True)])
+        o = ge.create_node_from_name('Utilities|Casting|CastToBP_ThirdPersonCharacter', pos, [pin(made[sn], sp, True)])   # by name: listing nodes can crash after a temp copy was deleted
     elif k == 'custom': o = ge.add_custom_event_node(n['name'])
     elif k == 'override': o = BEL.add_event_override(bp, n['member'], unreal.IntPoint(int(pos.x), int(pos.y)))
     elif k == 'named': o = ge.create_node_from_name(n['name'], pos, [])
