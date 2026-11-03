@@ -1,8 +1,8 @@
 {
- "working": "#472 next: zombie registry in WaveManager (waiting profiled wave)",
- "tokens": 800000,
+ "working": "#472 crowd fixes",
+ "tokens": 25000,
  "ctx": 1000000,
- "since": "2026-11-03T07:31:36Z",
+ "since": "2026-11-03T20:51:47Z",
  "done": [
   "#472 audit + roadmap + fix 1 (Think stagger) to i9; pick-up note [20% tokens left]",
   "#470 fake crack overlay removal script (hand-off) [26% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T20:44:18Z",
+ "asOf": "2026-11-03T20:51:47Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "4ccf8b45ddc9",
+  "id": "454d691789a8",
   "host": "5CD3147LBC"
  },
  "ask": {
