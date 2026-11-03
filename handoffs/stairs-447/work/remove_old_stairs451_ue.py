@@ -38,13 +38,16 @@ for a in acts:
     hidden = (not c.is_visible()) or a.is_hidden_ed() or c.get_editor_property('hidden_in_game')
     mats = [x.get_name() for x in c.get_materials() if x]
     old_card = lab.startswith('blend_contact_') and 'MI_EdgeGrime_StairContact' in mats      # the old steps' edge grime: floats over the new treads
+    if 'stairramp' in folder or lab.startswith('stairramp'): continue                       # walking helpers stay
     if not old_card and (not hidden or not any(k in folder or k in lab for k in OLD)): continue
     o, e, _ = unreal.SystemLibrary.get_component_bounds(c)
     for na, no, ne in new:
         if all(abs(getattr(o, i) - getattr(no, i)) + (0.0 if old_card else getattr(e, i)) <= getattr(ne, i) + 15.0 for i in ('x', 'y', 'z')):   # cards: centre inside
             hits.append((a, na.get_actor_label())); break
 print('%s: %d hidden old pieces inside the new flights' % ('APPLY' if '--apply' in A else 'DRY RUN', len(hits)))
-for a, f in hits[:40]: print('   %-34s folder %-28s mesh %-26s in %s' % (a.get_actor_label(), a.get_folder_path(), a.static_mesh_component.get_editor_property('static_mesh').get_name(), f))
+import collections
+for k, v in collections.Counter((str(a.get_folder_path()), a.static_mesh_component.get_editor_property('static_mesh').get_name()) for a, _ in hits).most_common(): print('   %4d  %-40s %s' % (v, k[0], k[1]))
+for a, f in hits[:0]: print('   %-34s folder %-28s mesh %-26s in %s' % (a.get_actor_label(), a.get_folder_path(), a.static_mesh_component.get_editor_property('static_mesh').get_name(), f))
 if '--apply' in A:
     rec = json.load(open(REC)) if os.path.exists(REC) else []
     for a, f in hits:

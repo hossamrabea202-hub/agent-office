@@ -206,5 +206,2371 @@
 "hidden": false,
 "coll": "NO_COLLISION",
 "flight": "Stair279_03"
+},
+{
+"label": "Blend_Contact_183",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+4085.4999883770943,
+3379.999991020042,
+959.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_628",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1372.4999904632568,
+2890.0,
+113.04997825622559
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_435",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1989.4999883770943,
+80.0,
+745.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_185",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+4241.499988377094,
+3379.999998612852,
+1037.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_858",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+149.99999618530273,
+2370.0,
+989.499997138977
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.45,
+0.7200000381469727,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_150",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3851.4999883770947,
+3379.9999796308275,
+842.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_260",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2172.499990463257,
+2890.0,
+613.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_617",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2879.4999883770943,
+940.0499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_475",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+542.5000116229057,
+979.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_266",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2223.4999883770943,
+3420.0,
+862.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_517",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+64.99999999999997,
+2572.4176505859614,
+866.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.5012827081174991,
+2.450000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_149",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+3113.4999883770943,
+1057.0499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_209",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+971.5000116229057,
+764.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_160",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2067.4999883770943,
+80.0,
+784.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_379",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2106.4999883770943,
+3420.0,
+803.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_613",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3773.499988377095,
+3379.9999758344225,
+803.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_832",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1950.4999883770943,
+3420.0,
+725.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_366",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2067.4999883770943,
+3420.0,
+784.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_382",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+737.5000116229057,
+881.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_804",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2012.4999904632568,
+2890.0,
+513.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_840",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2076.499990463257,
+610.0,
+553.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_02"
+},
+{
+"label": "Blend_Contact_348",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+3035.4999883770943,
+1018.0499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_341",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2106.4999883770943,
+80.0,
+803.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_215",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+64.99999999999997,
+2600.4894822405413,
+846.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.5012827081174991,
+2.450000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_207",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2613.4999883770943,
+3420.0,
+1057.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_456",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2340.4999883770943,
+80.0,
+920.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_38",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+4046.499988377095,
+3379.99998912184,
+940.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_431",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1724.4999904632568,
+610.0,
+333.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_02"
+},
+{
+"label": "Blend_Contact_32",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2450.4999883770943,
+725.5499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_402",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2340.4999883770943,
+3420.0,
+920.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_354",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+1088.5000116229057,
+706.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_846",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+386.50001162290573,
+1057.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_363",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2457.4999883770943,
+3420.0,
+979.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_639",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3578.499988377095,
+3379.9999663434105,
+706.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_805",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+64.99999999999997,
+2432.058492313062,
+966.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.5012827081174991,
+2.450000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_531",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2496.4999883770943,
+3420.0,
+998.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_208",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1788.4999904632568,
+2890.0,
+373.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_412",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+620.5000116229057,
+940.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_570",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+698.5000116229057,
+901.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_497",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+64.99999999999997,
+2656.6331455497016,
+806.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.5012827081174991,
+2.450000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_830",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1532.4999904632568,
+2890.0,
+213.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_648",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2762.4999883770943,
+881.5499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_320",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2957.4999883770943,
+979.0499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_527",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1532.4999904632568,
+610.0,
+213.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_02"
+},
+{
+"label": "Blend_Contact_52",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+425.50001162290573,
+1037.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_377",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2567.4999883770943,
+784.0499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_591",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2840.4999883770943,
+920.5499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_708",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+932.5000116229057,
+784.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_41",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+776.5000116229057,
+862.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_42",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+4163.499988377094,
+3379.9999948164477,
+998.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_813",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1884.4999904632568,
+610.0,
+433.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_02"
+},
+{
+"label": "Blend_Contact_250",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+64.99999999999997,
+2684.7049772042815,
+786.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.5012827081174991,
+2.450000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_122",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2418.4999883770943,
+80.0,
+959.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_450",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2145.4999883770943,
+80.0,
+823.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_338",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3734.499988377097,
+3379.999973936221,
+784.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_40",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2684.4999883770943,
+842.5499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_357",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+854.5000116229057,
+823.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_65",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+64.99999999999997,
+2460.1303239676417,
+946.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.5012827081174991,
+2.450000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_674",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1468.4999904632568,
+2890.0,
+173.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_67",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3968.499988377095,
+3379.999985325435,
+901.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_838",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1989.4999883770943,
+3420.0,
+745.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_839",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2012.4999904632568,
+610.0,
+513.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_02"
+},
+{
+"label": "Blend_Contact_803",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3656.4999883770943,
+3379.999970139816,
+745.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_303",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+4280.499988377094,
+3380.000000511054,
+1057.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_227",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2613.4999883770943,
+80.0,
+1057.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_557",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3890.4999883770943,
+3379.9999815290303,
+862.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_547",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1628.4999904632568,
+2890.0,
+273.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_73",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2301.4999883770943,
+3420.0,
+901.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_571",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2184.4999883770943,
+80.0,
+842.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_430",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2379.4999883770943,
+3420.0,
+940.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_560",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2236.499990463257,
+2890.0,
+653.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_577",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+1049.5000116229057,
+725.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_815",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1916.4999904632568,
+2890.0,
+453.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_794",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3617.499988377095,
+3379.999968241613,
+725.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.3500001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_04"
+},
+{
+"label": "Blend_Contact_11",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+64.99999999999997,
+2516.2739872768016,
+906.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.5012827081174991,
+2.450000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_123",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2489.4999883770943,
+745.0499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_811",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1788.4999904632568,
+610.0,
+373.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_02"
+},
+{
+"label": "Blend_Contact_237",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2262.4999883770943,
+80.0,
+881.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_505",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1628.4999904632568,
+610.0,
+273.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_02"
+},
+{
+"label": "Blend_Contact_529",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2457.4999883770943,
+80.0,
+979.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_849",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+503.50001162290573,
+998.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_05"
+},
+{
+"label": "Blend_Contact_679",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2145.4999883770943,
+3420.0,
+823.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
+},
+{
+"label": "Blend_Contact_608",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2723.4999883770943,
+862.0499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_339",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2535.4999883770943,
+80.0,
+1018.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_279",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+1911.4999883770943,
+80.0,
+706.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_01"
+},
+{
+"label": "Blend_Contact_470",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+-19.999996185302734,
+2370.0,
+989.499997138977
+],
+"rot": [
+0.0,
+0.0,
+0.0
+],
+"scale": [
+0.45,
+0.7200000381469727,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_534",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2236.499990463257,
+610.0,
+653.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_02"
+},
+{
+"label": "Blend_Contact_882",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+3080.0,
+2606.4999883770943,
+803.5499963760376
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+0.75,
+2.350000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_07"
+},
+{
+"label": "Blend_Contact_10",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+64.99999999999997,
+2712.7768088588614,
+766.5499963760376
+],
+"rot": [
+-0.0,
+0.0,
+89.99999999999999
+],
+"scale": [
+0.5012827081174991,
+2.450000000000001,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_08"
+},
+{
+"label": "Blend_Contact_590",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2076.499990463257,
+2890.0,
+553.0499782562256
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.75,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_06"
+},
+{
+"label": "Blend_Contact_826",
+"folder": "CastleDefender/FloorDressing/Contact",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact.MI_EdgeGrime_StairContact"
+],
+"loc": [
+2535.4999883770943,
+3420.0,
+1018.0499963760376
+],
+"rot": [
+-0.0,
+0.0,
+180.0
+],
+"scale": [
+0.75,
+2.35,
+1.0
+],
+"hidden": false,
+"coll": "NO_COLLISION",
+"flight": "Stair279_09"
 }
 ]
