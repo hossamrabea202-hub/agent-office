@@ -58,3 +58,11 @@ the poker become stone too. The proper fix is a re-UV / re-bake of SM_Camp_Forge
 foot at (1768, -56): a white 1 m box (`shots/pair_whitecube.png`). The other two were inside the wall / underground. All
 3 hidden (not deleted), collision off: `hide_set_ue.py basic_cubes --mesh Cube --mat BasicShapeMaterial --apply`.
 The 29 prototype-grid pieces sit in the archived template arena 200 m below the map (never seen): left alone.
+
+## Batch 6: courtyard fire pit logs (applied in the session, not saved; one NEW asset saved)
+The pit's 9 logs were engine Cylinders (smooth CG tubes, `M_FirePitLog`). Real campfires are built as a teepee of split,
+barked logs leaning over the ember bed. New mesh `SM_FirePitLogs451` (`/Game/CastleDefender/Props/FirePit451/`), built in
+Blender by `blender/campfire_logs451.py`: 7 logs in a teepee + 2 in the embers, 14-sided, bent, bark noise, sawn ends;
+slot 0 = the project's `M_AshenGate_FirewoodBark`, slot 1 = `M_AshenGate_FirewoodEnd` (1026 faces, no collision).
+The cylinders are hidden (not deleted); fire VFX, light, rocks and decals untouched. `shots/pair_firepit.png`.
+A first try with SM_AshenGate_Firewood failed (that mesh is a spread-out set). Revert: `firepit_fix_ue.py --revert`.
