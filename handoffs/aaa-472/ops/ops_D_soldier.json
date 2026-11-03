@@ -1,0 +1,256 @@
+{
+"fix": "D",
+"bp": "/Game/CastleDefender/Characters/Knight/BP_SoldierSword",
+"vars": [],
+"nodes": [
+{
+"id": "sdPlayer",
+"kind": "call",
+"x": 0,
+"y": 0,
+"defaults": [],
+"path": "/Script/Engine.GameplayStatics:GetPlayerCharacter"
+},
+{
+"id": "sdDist",
+"kind": "call",
+"x": 250,
+"y": 0,
+"defaults": [],
+"path": "/Script/Engine.Actor:GetDistanceTo"
+},
+{
+"id": "sdNear",
+"kind": "call",
+"x": 500,
+"y": 0,
+"defaults": [
+[
+"B",
+"3000.0"
+]
+],
+"path": "/Script/Engine.KismetMathLibrary:Less_DoubleDouble"
+},
+{
+"id": "sdSeen",
+"kind": "call",
+"x": 500,
+"y": 150,
+"defaults": [],
+"path": "/Script/Engine.Actor:WasRecentlyRendered"
+},
+{
+"id": "sdFull",
+"kind": "call",
+"x": 750,
+"y": 50,
+"defaults": [],
+"path": "/Script/Engine.KismetMathLibrary:BooleanOR"
+},
+{
+"id": "sdSel1",
+"kind": "call",
+"x": 1000,
+"y": 0,
+"defaults": [
+[
+"B",
+"0.2"
+]
+],
+"path": "/Script/Engine.KismetMathLibrary:SelectFloat"
+},
+{
+"id": "sdSel2",
+"kind": "call",
+"x": 1000,
+"y": 150,
+"defaults": [
+[
+"B",
+"0.1"
+]
+],
+"path": "/Script/Engine.KismetMathLibrary:SelectFloat"
+},
+{
+"id": "sdRate",
+"kind": "call",
+"x": 1300,
+"y": 0,
+"defaults": [],
+"path": "/Script/Engine.Actor:SetActorTickInterval"
+},
+{
+"id": "sdCmc",
+"kind": "get",
+"x": 1300,
+"y": 250,
+"defaults": [],
+"var": "CharacterMovement",
+"cls": "/Script/Engine.Character"
+},
+{
+"id": "sdCmcRate",
+"kind": "call",
+"x": 1600,
+"y": 0,
+"defaults": [],
+"path": "/Script/Engine.ActorComponent:SetComponentTickInterval"
+},
+{
+"id": "sdFind1",
+"kind": "call",
+"x": 0,
+"y": 500,
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+]
+],
+"path": "/Script/Engine.GameplayStatics:GetActorOfClass"
+},
+{
+"id": "sdReg1",
+"kind": "get",
+"x": 300,
+"y": 600,
+"defaults": [],
+"var": "ZombieReg",
+"cls": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+},
+{
+"id": "sdFind2",
+"kind": "call",
+"x": 0,
+"y": 800,
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+]
+],
+"path": "/Script/Engine.GameplayStatics:GetActorOfClass"
+},
+{
+"id": "sdReg2",
+"kind": "get",
+"x": 300,
+"y": 900,
+"defaults": [],
+"var": "ZombieReg",
+"cls": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+}
+],
+"links": [
+[
+"sdPlayer.ReturnValue",
+"sdDist.OtherActor",
+false
+],
+[
+"sdDist.ReturnValue",
+"sdNear.A",
+false
+],
+[
+"sdNear.ReturnValue",
+"sdFull.A",
+false
+],
+[
+"sdSeen.ReturnValue",
+"sdFull.B",
+false
+],
+[
+"sdFull.ReturnValue",
+"sdSel1.bPickA",
+false
+],
+[
+"sdFull.ReturnValue",
+"sdSel2.bPickA",
+false
+],
+[
+"sdSel1.ReturnValue",
+"sdRate.TickInterval",
+false
+],
+[
+"sdSel2.ReturnValue",
+"sdCmcRate.TickInterval",
+false
+],
+[
+"sdCmc.CharacterMovement",
+"sdCmcRate.self",
+false
+],
+[
+"CX_135.then",
+"sdRate.execute",
+true
+],
+[
+"sdRate.then",
+"sdCmcRate.execute",
+false
+],
+[
+"sdCmcRate.then",
+"Unstick220In.execute",
+false
+],
+[
+"CX_143.then",
+"sdFind1.execute",
+true
+],
+[
+"sdFind1.then",
+"CX_145.Exec",
+true
+],
+[
+"sdFind1.ReturnValue",
+"sdReg1.self",
+false
+],
+[
+"sdReg1.ZombieReg",
+"CX_145.Array",
+true
+],
+[
+"CX_452.then",
+"sdFind2.execute",
+true
+],
+[
+"sdFind2.then",
+"CX_454.Exec",
+true
+],
+[
+"sdFind2.ReturnValue",
+"sdReg2.self",
+false
+],
+[
+"sdReg2.ZombieReg",
+"CX_454.Array",
+true
+]
+],
+"remove": [
+"CX_144",
+"CX_453"
+],
+"set_live": [],
+"dx": 0,
+"dy": 20000
+}

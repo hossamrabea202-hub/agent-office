@@ -339,12 +339,12 @@
 "defaults": []
 },
 {
-"id": "zc472SetCustomTimeD24",
+"id": "zc472SetbPauseAnims24",
 "x": 1000,
 "y": 900,
 "kind": "set",
-"var": "CustomTimeDilation",
-"cls": "/Script/Engine.Actor",
+"var": "bPauseAnims",
+"cls": "/Script/Engine.SkeletalMeshComponent",
 "defaults": []
 },
 {
@@ -385,12 +385,12 @@
 "defaults": []
 },
 {
-"id": "zc472SetCustomTimeD26",
+"id": "zc472SetbPauseAnims26",
 "x": 300,
 "y": 1250,
 "kind": "set",
-"var": "CustomTimeDilation",
-"cls": "/Script/Engine.Actor",
+"var": "bPauseAnims",
+"cls": "/Script/Engine.SkeletalMeshComponent",
 "defaults": []
 },
 {
@@ -772,17 +772,17 @@ false
 ],
 [
 "zc472IfHeavy23.then",
-"zc472SetCustomTimeD24.execute",
+"zc472SetbPauseAnims24.execute",
 false
 ],
 [
-"zc472SetCustomTimeD24.then",
+"zc472SetbPauseAnims24.then",
 "zc472TimerHitStopEn25.execute",
 false
 ],
 [
 "HitStopEnd.then",
-"zc472SetCustomTimeD26.execute",
+"zc472SetbPauseAnims26.execute",
 false
 ],
 [
@@ -908,6 +908,16 @@ true
 [
 "K2Node_Event_ZB60.Damage",
 "zc472GreaterEqual_D22.A",
+false
+],
+[
+"CX_111.Mesh",
+"zc472SetbPauseAnims24.self",
+false
+],
+[
+"CX_111.Mesh",
+"zc472SetbPauseAnims26.self",
 false
 ],
 [

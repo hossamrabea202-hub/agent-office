@@ -8,7 +8,7 @@
 |---|---|---|
 | Think rate | under 30 m from the player every Think; 30-60 m every 2nd; beyond 60 m every 4th | far zombies retarget and path less often |
 | Tick rate | beyond 30 m AND not rendered: CharacterMovement 10 Hz, actor 4 Hz | off-screen movement can be coarse; a rendered zombie always keeps full rate |
-| Hit-stop | a blow of at least 25 % of MaxHP freezes the victim for 60 ms | makes heavy blows land; small hits don't stutter |
+| Hit-stop | a blow of at least 25 % of MaxHP pauses the victim's animation for 60 ms (`bPauseAnims`) | makes heavy blows land; small hits don't stutter. Not CustomTimeDilation: BP_SoldierSword uses that as a state flag on zombies |
 | Brute flinch | additive jolt, front or back by hit side, at most 1 a second, play rate 3 (brutes run at anim rate 0.2-0.5) | brutes had no reaction at all |
 
 Far zombies now react more slowly to targets: up to 1 s instead of 0.25 s beyond 60 m. They still walk their current path meanwhile.

@@ -22,6 +22,10 @@ if '--copy' in A:
     if not EA.does_asset_exist(C_ + '/Z472c'): EA.duplicate_asset(ZP, C_ + '/Z472c')
     RAW = RAW.replace(WMP + '.BP_ZombieWaveManager_C', C_ + '/WMstub.WMstub_C').replace('"' + WMP + '"', '"' + C_ + '/WMstub"')
     RAW = RAW.replace(ZP + '.BP_Zombie_C', C_ + '/Z472c.Z472c_C').replace('"' + ZP + '"', '"' + C_ + '/Z472c"')
+    SP = '/Game/CastleDefender/Characters/Knight/BP_SoldierSword'
+    if '"' + SP + '"' in RAW:
+        if not EA.does_asset_exist(C_ + '/S472c'): EA.duplicate_asset(SP, C_ + '/S472c')
+        RAW = RAW.replace('"' + SP + '"', '"' + C_ + '/S472c"')
 OPS = json.loads(RAW)
 BEL, PL, GE, E = unreal.BlueprintEditorLibrary, unreal.BlueprintGraphPinLibrary, unreal.BlueprintGraphEditor, unreal.EditorAssetLibrary
 PATH = OPS['bp']; bp = unreal.load_asset(PATH); ge = GE.get_graph_editor(BEL.find_event_graph(bp))
@@ -131,6 +135,7 @@ for _ in range(4):
             for q in PL.list_connected_pins(p): more.add(PL.get_owning_node(q).get_name())
     ge.remove_nodes(drop); gone += len(drop); feeders = more
 print('removed %d + %d pure helpers' % (len(OPS['remove']), gone))
+if '--nocompile' in A: print('RESULT links only | link/value failures', fails); raise SystemExit
 ok = BEL.compile_blueprint(bp)
 ge = GE.get_graph_editor(BEL.find_event_graph(bp))
 err = [(n.get_name(), n.get_editor_property('error_msg') if False else '') for n in ge.list_nodes_with_errors()]

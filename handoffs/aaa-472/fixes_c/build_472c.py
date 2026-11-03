@@ -2,7 +2,7 @@
 #   python build_472c.py <BP_Zombie export>   -> zombie_c_merged.txt
 #  - Significance, at the top of Think (dist = distance to the player): under 30 m every Think, 30-60 m every 2nd, beyond 60 m every 4th (1 x a second).
 #    Beyond 30 m AND not rendered: CharacterMovement ticks at 10 Hz and the actor at 4 Hz. Rendered zombies always keep full rate.
-#  - Hit-stop: a blow of at least 25 % of MaxHP freezes the victim for 60 ms (CustomTimeDilation 0.02, restored by a timer).
+#  - Hit-stop: a blow of at least 25 % of MaxHP freezes the victim for 60 ms (its animation pauses via bPauseAnims, restored by a timer).
 #  - Brute flinch: brutes had no reaction at all (CX_531's then is empty). Additive montage AM_ZFlinch_Front / Back, at most one a second,
 #    Montage_Play with bStopAllMontages = false, because a brute's crawl is itself a looping slot montage and must keep playing.
 import json, os, sys
@@ -43,17 +43,21 @@ def gen(live):
     G.link(run, 'then', t1, 'execute'); G.link(t1, 'then', t2, 'execute')
     rw += [R('K2Node_IfThenElse_ZB20.else', st1 + '.execute'), R(t2 + '.then', 'CX_501.execute'), {'from': cmcget, 'to': t1 + '.self'}]
     # ---- hit-stop: first thing on a live zombie
+    anim = '%s.%s' % L[('Ps_CX_195', 'self')][0]
     frac = b.d2('Multiply_DoubleDouble', b.get('MaxHP', DBL, 0, 1000), None, 250, 1000, db='0.25')
     hv = b.math('GreaterEqual_DoubleDouble', [(D('A', default='0.0'), None), (D('B', default='0.0'), frac)], bo('ReturnValue', out=True), 500, 1000)
     ih = b.branch(hv, 750, 900, tag='IfHeavy')
-    sd = b.setm('CustomTimeDilation', ACT, fl('v', default='0.020000'), None, None, 1000, 900)
+    # NOT CustomTimeDilation: BP_SoldierSword uses that value on a zombie as a state flag (0.999 = engaged, read by CX_151 / CX_455)
+    meshget = '%s.%s' % L[(anim.split('.')[0], 'self')][0]
+    sd = b.setm('bPauseAnims', SKEL, bo('v', default='true'), None, None, 1000, 900)
     tm = b.timer('HitStopEnd', 1300, 900, dtime='0.06', loop=False); G.link(ih, 'then', sd, 'execute'); G.link(sd, 'then', tm, 'execute')
     nxt = L[('K2Node_IfThenElse_ZB62', 'else')][0][0]
     rw += [R('K2Node_IfThenElse_ZB62.else', ih + '.execute'), R(ih + '.else', nxt + '.execute'), R(tm + '.then', nxt + '.execute'),
            {'from': 'K2Node_Event_ZB60.Damage', 'to': hv[0] + '.A'}]
     b.event('HitStopEnd', [], 0, 1250)
-    se = b.setm('CustomTimeDilation', ACT, fl('v', default='1.000000'), None, None, 300, 1250)
+    se = b.setm('bPauseAnims', SKEL, bo('v', default='false'), None, None, 300, 1250)
     G.link('HitStopEnd', 'then', se, 'execute')
+    rw += [{'from': meshget, 'to': sd + '.self'}, {'from': meshget, 'to': se + '.self'}]
     # ---- brute flinch
     causer = 'K2Node_Event_ZB60.DamageCauser'
     anim = '%s.%s' % L[('Ps_CX_195', 'self')][0]

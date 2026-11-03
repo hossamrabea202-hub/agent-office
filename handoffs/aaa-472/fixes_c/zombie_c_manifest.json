@@ -39,6 +39,14 @@
    "to": "zc472GreaterEqual_D22.A"
   },
   {
+   "from": "CX_111.Mesh",
+   "to": "zc472SetbPauseAnims24.self"
+  },
+  {
+   "from": "CX_111.Mesh",
+   "to": "zc472SetbPauseAnims26.self"
+  },
+  {
    "from": "CX_531.then",
    "to": "zc472IfFlinch33.execute",
    "replace": true
