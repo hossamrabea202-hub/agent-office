@@ -1,8 +1,8 @@
 {
- "working": "i5 editor rejoining; pick-up note PICKUP_i5_2026-11-03_morning.md",
- "tokens": 880000,
+ "working": "#301 stairs: waiting on i9 save; reading chat",
+ "tokens": 30000,
  "ctx": 1000000,
- "since": "2026-11-02T23:32:53Z",
+ "since": "2026-11-03T07:31:36Z",
  "done": [
   "#301 AAA stairs all 9 flights (unsaved, i9 to save); sync 1103_k..n [12% tokens left]",
   "#451 walk-around pass 1: 6 batches applied in session (not saved), 4 tries reverted, TGA card 452 [63% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T07:00:38Z",
+ "asOf": "2026-11-03T07:31:36Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "168e0c722722",
+  "id": "4ccf8b45ddc9",
   "host": "5CD3147LBC"
  },
  "ask": {
