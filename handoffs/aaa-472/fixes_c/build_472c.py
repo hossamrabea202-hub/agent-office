@@ -52,7 +52,18 @@ def gen(live):
     sd = b.setm('bPauseAnims', SKEL, bo('v', default='true'), None, None, 1000, 900)
     tm = b.timer('HitStopEnd', 1300, 900, dtime='0.06', loop=False); G.link(ih, 'then', sd, 'execute'); G.link(sd, 'then', tm, 'execute')
     nxt = L[('K2Node_IfThenElse_ZB62', 'else')][0][0]
-    rw += [R('K2Node_IfThenElse_ZB62.else', ih + '.execute'), R(ih + '.else', nxt + '.execute'), R(tm + '.then', nxt + '.execute'),
+    # impact layers under the HUD's SC_SwordHit: flesh + a low bone thud. Only the player's own hits: these sounds have no attenuation, so soldiers' hits would be heard everywhere
+    pl2 = b.lib(GS, 'GetPlayerCharacter', [WC(), it('PlayerIndex', default='0'), ob('ReturnValue', CHARC, out=True)], 1300, 1050, pure=True, tag='Player')
+    isp = b.branch(eqobj(b, None, (pl2, 'ReturnValue'), 1550, 1050), 1600, 900, tag='IfPlayerHit')
+    def snd(path, vol, lo, hi, x):
+        n = b.lib(GS, 'PlaySoundAtLocation', [WC(), dict(ob('Sound', CLS('SoundBase')), dobj=path), V('Location'), fl('VolumeMultiplier', default=vol), fl('PitchMultiplier', default='1.0')], x, 900, tag='Impact')
+        b.wire(b.rnd(lo, hi, x, 1100), n, 'PitchMultiplier'); return n
+    s1 = snd('/Game/Audio/SFX_FleshHit.SFX_FleshHit', '0.7', '0.9', '1.1', 1900); s2 = snd('/Game/Audio/Kenney/SFX_impactPunch_heavy_002.SFX_impactPunch_heavy_002', '0.5', '0.55', '0.7', 2200)
+    myloc = actor_d(b, 'K2_GetActorLocation', [V('ReturnValue', out=True)], 1900, 1250, 'HitLoc')
+    G.link(myloc, 'ReturnValue', s1, 'Location'); G.link(myloc, 'ReturnValue', s2, 'Location')
+    G.link(tm, 'then', isp, 'execute'); G.link(isp, 'then', s1, 'execute'); G.link(s1, 'then', s2, 'execute')
+    rw += [R('K2Node_IfThenElse_ZB62.else', ih + '.execute'), R(ih + '.else', nxt + '.execute'), R(isp + '.else', nxt + '.execute'), R(s2 + '.then', nxt + '.execute'),
+           {'from': 'K2Node_Event_ZB60.DamageCauser', 'to': '%s.A' % G.nodes[[n[0] for n in G.nodes].index(isp) - 1][0]},
            {'from': 'K2Node_Event_ZB60.Damage', 'to': hv[0] + '.A'}]
     b.event('HitStopEnd', [], 0, 1250)
     se = b.setm('bPauseAnims', SKEL, bo('v', default='false'), None, None, 300, 1250)

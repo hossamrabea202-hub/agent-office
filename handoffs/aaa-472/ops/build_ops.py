@@ -4,7 +4,7 @@ import json, os, re, sys
 sys.dont_write_bytecode = True
 OPSDIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(OPSDIR, '..'))
-for d in ('fixes', 'fixes_b', 'fixes_c'): sys.path.insert(0, os.path.join(ROOT, d))
+for d in ('fixes', 'fixes_b', 'fixes_c', 'fixes_e'): sys.path.insert(0, os.path.join(ROOT, d))
 import build_472 as A
 import build_472b as B
 import build_472c as C
@@ -100,5 +100,10 @@ L_ = [['sdPlayer.ReturnValue', 'sdDist.OtherActor', False], ['sdDist.ReturnValue
       ['CX_143.then', 'sdFind1.execute', True], ['sdFind1.then', 'CX_145.Exec', True], ['sdFind1.ReturnValue', 'sdReg1.self', False], ['sdReg1.ZombieReg', 'CX_145.Array', True],
       ['CX_452.then', 'sdFind2.execute', True], ['sdFind2.then', 'CX_454.Exec', True], ['sdFind2.ReturnValue', 'sdReg2.self', False], ['sdReg2.ZombieReg', 'CX_454.Array', True]]
 dump('ops_D_soldier.json', {'fix': 'D', 'bp': P_S, 'vars': [], 'nodes': nodes, 'links': L_, 'remove': ['CX_144', 'CX_453', 'CX_173'], 'set_live': [], 'dx': 0, 'dy': 20000})
+# --- E: BP_FleshBrute, a near copy of BP_Zombie with the same node names (no farmers, its own ABP). Think on caches, move guard, Dead guards, stagger.
+import build_472e as E_
+b_z = A.to_graph(os.path.join(ROOT, 'fixes_e', 'BP_FleshBrute.T3D')); E_.gen(rd(b_z)); g_e = captured[max(captured)]
+dump('ops_E_brute.json', to_ops(g_e, json.load(open(os.path.join(TMP, 'brute_manifest.json'))), E_.STRIP, 'E', E_.P_B,
+     [['WMRef', OW], ['LastMoveGoal', {'object': 'Actor'}], ['LastMoveAt', {'basic': 'real'}]], set_live=[['K2Node_CallFunction_ZB6', 'InitialStartDelayVariance', '0.25']], dy=12000))
 for f in os.listdir(TMP): os.remove(os.path.join(TMP, f))
 os.rmdir(TMP)

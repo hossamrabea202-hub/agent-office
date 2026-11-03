@@ -26,10 +26,11 @@ if '--copy' in A:
     if RAW is not None and not EA.does_asset_exist(C_ + '/Z472c'): EA.duplicate_asset(ZP, C_ + '/Z472c')
     if RAW is not None: RAW = RAW.replace(WMP + '.BP_ZombieWaveManager_C', C_ + '/WMstub.WMstub_C').replace('"' + WMP + '"', '"' + C_ + '/WMstub"')
     if RAW is not None: RAW = RAW.replace(ZP + '.BP_Zombie_C', C_ + '/Z472c.Z472c_C').replace('"' + ZP + '"', '"' + C_ + '/Z472c"')
-    SP = '/Game/CastleDefender/Characters/Knight/BP_SoldierSword'
-    if RAW is not None and '"' + SP + '"' in RAW:
-        if not EA.does_asset_exist(C_ + '/S472c'): EA.duplicate_asset(SP, C_ + '/S472c')
-        RAW = RAW.replace('"' + SP + '"', '"' + C_ + '/S472c"')
+    if RAW is not None:
+        d0 = json.loads(RAW)
+        if d0['bp'].startswith('/Game/CastleDefender') :        # soldier, brute: a plain copy, use --nocompile
+            if not EA.does_asset_exist(C_ + '/X472c'): EA.duplicate_asset(d0['bp'], C_ + '/X472c')
+            RAW = RAW.replace('"' + d0['bp'] + '"', '"' + C_ + '/X472c"')
 if RAW is not None: OPS = json.loads(RAW)
 BEL, PL, GE, E = unreal.BlueprintEditorLibrary, unreal.BlueprintGraphPinLibrary, unreal.BlueprintGraphEditor, unreal.EditorAssetLibrary
 PATH = OPS['bp']; bp = unreal.load_asset(PATH); ge = GE.get_graph_editor(BEL.find_event_graph(bp))

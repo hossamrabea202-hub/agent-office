@@ -377,6 +377,126 @@
 ]
 },
 {
+"id": "zc472Player26",
+"x": 1300,
+"y": 1050,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetPlayerCharacter",
+"defaults": [
+[
+"PlayerIndex",
+"0"
+]
+]
+},
+{
+"id": "zc472EqualEqual_Obj27",
+"x": 1550,
+"y": 1050,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:EqualEqual_ObjectObject",
+"defaults": []
+},
+{
+"id": "zc472IfPlayerHit28",
+"x": 1600,
+"y": 900,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "zc472Impact29",
+"x": 1900,
+"y": 900,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:PlaySoundAtLocation",
+"defaults": [
+[
+"Sound",
+"/Game/Audio/SFX_FleshHit.SFX_FleshHit"
+],
+[
+"Location",
+"0, 0, 0"
+],
+[
+"VolumeMultiplier",
+"0.7"
+],
+[
+"PitchMultiplier",
+"1.0"
+]
+]
+},
+{
+"id": "zc472RandomFloatInR30",
+"x": 1900,
+"y": 1100,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:RandomFloatInRange",
+"defaults": [
+[
+"Min",
+"0.9"
+],
+[
+"Max",
+"1.1"
+]
+]
+},
+{
+"id": "zc472Impact31",
+"x": 2200,
+"y": 900,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:PlaySoundAtLocation",
+"defaults": [
+[
+"Sound",
+"/Game/Audio/Kenney/SFX_impactPunch_heavy_002.SFX_impactPunch_heavy_002"
+],
+[
+"Location",
+"0, 0, 0"
+],
+[
+"VolumeMultiplier",
+"0.5"
+],
+[
+"PitchMultiplier",
+"1.0"
+]
+]
+},
+{
+"id": "zc472RandomFloatInR32",
+"x": 2200,
+"y": 1100,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:RandomFloatInRange",
+"defaults": [
+[
+"Min",
+"0.55"
+],
+[
+"Max",
+"0.7"
+]
+]
+},
+{
+"id": "zc472HitLoc33",
+"x": 1900,
+"y": 1250,
+"kind": "call",
+"path": "/Script/Engine.Actor:K2_GetActorLocation",
+"defaults": []
+},
+{
 "id": "HitStopEnd",
 "x": 0,
 "y": 1250,
@@ -385,7 +505,7 @@
 "defaults": []
 },
 {
-"id": "zc472SetbPauseAnims26",
+"id": "zc472SetbPauseAnims34",
 "x": 300,
 "y": 1250,
 "kind": "set",
@@ -394,7 +514,7 @@
 "defaults": []
 },
 {
-"id": "zc472Now27",
+"id": "zc472Now35",
 "x": 0,
 "y": 1500,
 "kind": "call",
@@ -402,7 +522,7 @@
 "defaults": []
 },
 {
-"id": "zc472GetLastFlinchA28",
+"id": "zc472GetLastFlinchA36",
 "x": 0,
 "y": 1650,
 "kind": "get",
@@ -410,7 +530,7 @@
 "defaults": []
 },
 {
-"id": "zc472Subtract_Doubl29",
+"id": "zc472Subtract_Doubl37",
 "x": 250,
 "y": 1500,
 "kind": "call",
@@ -427,7 +547,7 @@
 ]
 },
 {
-"id": "zc472Greater_Double30",
+"id": "zc472Greater_Double38",
 "x": 500,
 "y": 1500,
 "kind": "call",
@@ -444,7 +564,7 @@
 ]
 },
 {
-"id": "zc472IsValid31",
+"id": "zc472IsValid39",
 "x": 500,
 "y": 1650,
 "kind": "call",
@@ -452,7 +572,7 @@
 "defaults": []
 },
 {
-"id": "zc472BooleanAND32",
+"id": "zc472BooleanAND40",
 "x": 750,
 "y": 1550,
 "kind": "call",
@@ -469,14 +589,14 @@
 ]
 },
 {
-"id": "zc472IfFlinch33",
+"id": "zc472IfFlinch41",
 "x": 1000,
 "y": 1500,
 "kind": "branch",
 "defaults": []
 },
 {
-"id": "zc472Now34",
+"id": "zc472Now42",
 "x": 1000,
 "y": 1700,
 "kind": "call",
@@ -484,7 +604,7 @@
 "defaults": []
 },
 {
-"id": "zc472SetLastFlinchA35",
+"id": "zc472SetLastFlinchA43",
 "x": 1250,
 "y": 1500,
 "kind": "set",
@@ -492,7 +612,7 @@
 "defaults": []
 },
 {
-"id": "zc472CauserLoc36",
+"id": "zc472CauserLoc44",
 "x": 0,
 "y": 1850,
 "kind": "call",
@@ -500,7 +620,7 @@
 "defaults": []
 },
 {
-"id": "zc472MyLoc37",
+"id": "zc472MyLoc45",
 "x": 0,
 "y": 2000,
 "kind": "call",
@@ -508,7 +628,7 @@
 "defaults": []
 },
 {
-"id": "zc472MyFwd38",
+"id": "zc472MyFwd46",
 "x": 0,
 "y": 2150,
 "kind": "call",
@@ -516,7 +636,7 @@
 "defaults": []
 },
 {
-"id": "zc472Subtract_Vecto39",
+"id": "zc472Subtract_Vecto47",
 "x": 250,
 "y": 1900,
 "kind": "call",
@@ -533,7 +653,7 @@
 ]
 },
 {
-"id": "zc472Normal40",
+"id": "zc472Normal48",
 "x": 500,
 "y": 1900,
 "kind": "call",
@@ -550,7 +670,7 @@
 ]
 },
 {
-"id": "zc472Dot_VectorVect41",
+"id": "zc472Dot_VectorVect49",
 "x": 750,
 "y": 2000,
 "kind": "call",
@@ -567,7 +687,7 @@
 ]
 },
 {
-"id": "zc472Less_DoubleDou42",
+"id": "zc472Less_DoubleDou50",
 "x": 1000,
 "y": 2000,
 "kind": "call",
@@ -584,14 +704,14 @@
 ]
 },
 {
-"id": "zc472IfBehind43",
+"id": "zc472IfBehind51",
 "x": 1500,
 "y": 1500,
 "kind": "branch",
 "defaults": []
 },
 {
-"id": "zc472Flinch44",
+"id": "zc472Flinch52",
 "x": 1800,
 "y": 1500,
 "kind": "call",
@@ -620,7 +740,7 @@
 ]
 },
 {
-"id": "zc472Flinch45",
+"id": "zc472Flinch53",
 "x": 1800,
 "y": 1700,
 "kind": "call",
@@ -781,98 +901,143 @@ false
 false
 ],
 [
+"zc472Player26.ReturnValue",
+"zc472EqualEqual_Obj27.B",
+false
+],
+[
+"zc472EqualEqual_Obj27.ReturnValue",
+"zc472IfPlayerHit28.Condition",
+false
+],
+[
+"zc472RandomFloatInR30.ReturnValue",
+"zc472Impact29.PitchMultiplier",
+false
+],
+[
+"zc472RandomFloatInR32.ReturnValue",
+"zc472Impact31.PitchMultiplier",
+false
+],
+[
+"zc472HitLoc33.ReturnValue",
+"zc472Impact29.Location",
+false
+],
+[
+"zc472HitLoc33.ReturnValue",
+"zc472Impact31.Location",
+false
+],
+[
+"zc472TimerHitStopEn25.then",
+"zc472IfPlayerHit28.execute",
+false
+],
+[
+"zc472IfPlayerHit28.then",
+"zc472Impact29.execute",
+false
+],
+[
+"zc472Impact29.then",
+"zc472Impact31.execute",
+false
+],
+[
 "HitStopEnd.then",
-"zc472SetbPauseAnims26.execute",
+"zc472SetbPauseAnims34.execute",
 false
 ],
 [
-"zc472Now27.ReturnValue",
-"zc472Subtract_Doubl29.A",
+"zc472Now35.ReturnValue",
+"zc472Subtract_Doubl37.A",
 false
 ],
 [
-"zc472GetLastFlinchA28.LastFlinchAt",
-"zc472Subtract_Doubl29.B",
+"zc472GetLastFlinchA36.LastFlinchAt",
+"zc472Subtract_Doubl37.B",
 false
 ],
 [
-"zc472Subtract_Doubl29.ReturnValue",
-"zc472Greater_Double30.A",
+"zc472Subtract_Doubl37.ReturnValue",
+"zc472Greater_Double38.A",
 false
 ],
 [
-"zc472Greater_Double30.ReturnValue",
-"zc472BooleanAND32.A",
+"zc472Greater_Double38.ReturnValue",
+"zc472BooleanAND40.A",
 false
 ],
 [
-"zc472IsValid31.ReturnValue",
-"zc472BooleanAND32.B",
+"zc472IsValid39.ReturnValue",
+"zc472BooleanAND40.B",
 false
 ],
 [
-"zc472BooleanAND32.ReturnValue",
-"zc472IfFlinch33.Condition",
+"zc472BooleanAND40.ReturnValue",
+"zc472IfFlinch41.Condition",
 false
 ],
 [
-"zc472Now34.ReturnValue",
-"zc472SetLastFlinchA35.LastFlinchAt",
+"zc472Now42.ReturnValue",
+"zc472SetLastFlinchA43.LastFlinchAt",
 false
 ],
 [
-"zc472IfFlinch33.then",
-"zc472SetLastFlinchA35.execute",
+"zc472IfFlinch41.then",
+"zc472SetLastFlinchA43.execute",
 false
 ],
 [
-"zc472CauserLoc36.ReturnValue",
-"zc472Subtract_Vecto39.A",
+"zc472CauserLoc44.ReturnValue",
+"zc472Subtract_Vecto47.A",
 false
 ],
 [
-"zc472MyLoc37.ReturnValue",
-"zc472Subtract_Vecto39.B",
+"zc472MyLoc45.ReturnValue",
+"zc472Subtract_Vecto47.B",
 false
 ],
 [
-"zc472Subtract_Vecto39.ReturnValue",
-"zc472Normal40.A",
+"zc472Subtract_Vecto47.ReturnValue",
+"zc472Normal48.A",
 false
 ],
 [
-"zc472MyFwd38.ReturnValue",
-"zc472Dot_VectorVect41.A",
+"zc472MyFwd46.ReturnValue",
+"zc472Dot_VectorVect49.A",
 false
 ],
 [
-"zc472Normal40.ReturnValue",
-"zc472Dot_VectorVect41.B",
+"zc472Normal48.ReturnValue",
+"zc472Dot_VectorVect49.B",
 false
 ],
 [
-"zc472Dot_VectorVect41.ReturnValue",
-"zc472Less_DoubleDou42.A",
+"zc472Dot_VectorVect49.ReturnValue",
+"zc472Less_DoubleDou50.A",
 false
 ],
 [
-"zc472Less_DoubleDou42.ReturnValue",
-"zc472IfBehind43.Condition",
+"zc472Less_DoubleDou50.ReturnValue",
+"zc472IfBehind51.Condition",
 false
 ],
 [
-"zc472SetLastFlinchA35.then",
-"zc472IfBehind43.execute",
+"zc472SetLastFlinchA43.then",
+"zc472IfBehind51.execute",
 false
 ],
 [
-"zc472IfBehind43.then",
-"zc472Flinch44.execute",
+"zc472IfBehind51.then",
+"zc472Flinch52.execute",
 false
 ],
 [
-"zc472IfBehind43.else",
-"zc472Flinch45.execute",
+"zc472IfBehind51.else",
+"zc472Flinch53.execute",
 false
 ],
 [
@@ -901,9 +1066,19 @@ true
 true
 ],
 [
-"zc472TimerHitStopEn25.then",
+"zc472IfPlayerHit28.else",
 "fzAsZombieHUD3.execute",
 true
+],
+[
+"zc472Impact31.then",
+"fzAsZombieHUD3.execute",
+true
+],
+[
+"K2Node_Event_ZB60.DamageCauser",
+"zc472EqualEqual_Obj27.A",
+false
 ],
 [
 "K2Node_Event_ZB60.Damage",
@@ -917,32 +1092,32 @@ false
 ],
 [
 "CX_111.Mesh",
-"zc472SetbPauseAnims26.self",
+"zc472SetbPauseAnims34.self",
 false
 ],
 [
 "CX_531.then",
-"zc472IfFlinch33.execute",
+"zc472IfFlinch41.execute",
 true
 ],
 [
 "K2Node_Event_ZB60.DamageCauser",
-"zc472IsValid31.Object",
+"zc472IsValid39.Object",
 false
 ],
 [
 "K2Node_Event_ZB60.DamageCauser",
-"zc472CauserLoc36.self",
+"zc472CauserLoc44.self",
 false
 ],
 [
 "PsAnimInst.ReturnValue",
-"zc472Flinch44.self",
+"zc472Flinch52.self",
 false
 ],
 [
 "PsAnimInst.ReturnValue",
-"zc472Flinch45.self",
+"zc472Flinch53.self",
 false
 ]
 ],

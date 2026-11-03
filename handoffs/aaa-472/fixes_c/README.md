@@ -9,6 +9,7 @@
 | Think rate | under 30 m from the player every Think; 30-60 m every 2nd; beyond 60 m every 4th | far zombies retarget and path less often |
 | Tick rate | beyond 30 m AND not rendered: CharacterMovement 10 Hz, actor 4 Hz | off-screen movement can be coarse; a rendered zombie always keeps full rate |
 | Hit-stop | a blow of at least 25 % of MaxHP pauses the victim's animation for 60 ms (`bPauseAnims`) | makes heavy blows land; small hits don't stutter. Not CustomTimeDilation: BP_SoldierSword uses that as a state flag on zombies |
+| Impact layers | the player's heavy hits add SFX_FleshHit + a low SFX_impactPunch thud under the existing SC_SwordHit, random pitch | one metal hit sound is thin; only the player's hits, since these sounds have no attenuation |
 | Brute flinch | additive jolt, front or back by hit side, at most 1 a second, play rate 3 (brutes run at anim rate 0.2-0.5) | brutes had no reaction at all |
 
 Far zombies now react more slowly to targets: up to 1 s instead of 0.25 s beyond 60 m. They still walk their current path meanwhile.
@@ -27,6 +28,7 @@ Far zombies now react more slowly to targets: up to 1 s instead of 0.25 s beyond
 - [ ] Heavy hit: a short freeze on that zombie only, then it continues (never stays frozen). Kill during the freeze: the death still plays.
 - [ ] Hit a crawling brute from the front and from behind: an upper-body jolt on top of the crawl; **the crawl keeps going**. Hit it during its slam: the slam continues.
 - [ ] Hit-stop or flinch too strong / too weak? Values: 0.25 and 0.06 in `zc472`; flinch rate 3.
+- [ ] Sword hits sound meatier, not louder or machine-gun repetitive. Volumes 0.7 and 0.5 in `zc472Impact...`.
 - [ ] `stat game` / `stat anim` at the busiest wave against the earlier run.
 
 ## Revert

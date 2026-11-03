@@ -1,0 +1,608 @@
+{
+"fix": "E",
+"bp": "/Game/CastleDefender/Characters/Enemies/FleshBrute/BP_FleshBrute",
+"vars": [
+[
+"WMRef",
+{
+"object": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager"
+}
+],
+[
+"LastMoveGoal",
+{
+"object": "Actor"
+}
+],
+[
+"LastMoveAt",
+{
+"basic": "real"
+}
+]
+],
+"nodes": [
+{
+"id": "zb472eFindZombieWave1",
+"x": 0,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetActorOfClass",
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+]
+]
+},
+{
+"id": "zb472eSetWMRef2",
+"x": 300,
+"y": 0,
+"kind": "set",
+"var": "WMRef",
+"defaults": []
+},
+{
+"id": "zb472eGetWMRef3",
+"x": 0,
+"y": 1300,
+"kind": "get",
+"var": "WMRef",
+"defaults": []
+},
+{
+"id": "zb472eGetSoldierCach4",
+"x": 300,
+"y": 1300,
+"kind": "get",
+"var": "SoldierCache",
+"cls": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C",
+"defaults": []
+},
+{
+"id": "zb472eGetGateCache5",
+"x": 300,
+"y": 1600,
+"kind": "get",
+"var": "GateCache",
+"cls": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C",
+"defaults": []
+},
+{
+"id": "zb472eIsValid6",
+"x": 0,
+"y": 1900,
+"kind": "call",
+"path": "/Script/Engine.KismetSystemLibrary:IsValid",
+"defaults": []
+},
+{
+"id": "zb472eIfSoldier7",
+"x": 300,
+"y": 1800,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "zb472eGetLastMoveGoa8",
+"x": 0,
+"y": 2500,
+"kind": "get",
+"var": "LastMoveGoal",
+"defaults": []
+},
+{
+"id": "zb472eEqualEqual_Obj9",
+"x": 300,
+"y": 2400,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:EqualEqual_ObjectObject",
+"defaults": []
+},
+{
+"id": "zb472eVel10",
+"x": 0,
+"y": 2650,
+"kind": "call",
+"path": "/Script/Engine.Actor:GetVelocity",
+"defaults": []
+},
+{
+"id": "zb472eVSize11",
+"x": 300,
+"y": 2650,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:VSize",
+"defaults": [
+[
+"A",
+"0, 0, 0"
+]
+]
+},
+{
+"id": "zb472eGreater_Double12",
+"x": 550,
+"y": 2650,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Greater_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"5.0"
+]
+]
+},
+{
+"id": "zb472eNow13",
+"x": 0,
+"y": 2850,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetTimeSeconds",
+"defaults": []
+},
+{
+"id": "zb472eGetLastMoveAt14",
+"x": 0,
+"y": 2950,
+"kind": "get",
+"var": "LastMoveAt",
+"defaults": []
+},
+{
+"id": "zb472eSubtract_Doubl15",
+"x": 300,
+"y": 2850,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "zb472eLess_DoubleDou16",
+"x": 550,
+"y": 2850,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Less_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"2.0"
+]
+]
+},
+{
+"id": "zb472eBooleanAND17",
+"x": 800,
+"y": 2500,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:BooleanAND",
+"defaults": [
+[
+"A",
+"false"
+],
+[
+"B",
+"false"
+]
+]
+},
+{
+"id": "zb472eBooleanAND18",
+"x": 1050,
+"y": 2600,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:BooleanAND",
+"defaults": [
+[
+"A",
+"false"
+],
+[
+"B",
+"false"
+]
+]
+},
+{
+"id": "zb472eNot_PreBool19",
+"x": 1300,
+"y": 2600,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Not_PreBool",
+"defaults": [
+[
+"A",
+"false"
+]
+]
+},
+{
+"id": "zb472eIfMoveNeeded20",
+"x": 1550,
+"y": 2400,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "zb472eSetLastMoveGoa21",
+"x": 1900,
+"y": 2400,
+"kind": "set",
+"var": "LastMoveGoal",
+"defaults": []
+},
+{
+"id": "zb472eNow22",
+"x": 1900,
+"y": 2600,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetTimeSeconds",
+"defaults": []
+},
+{
+"id": "zb472eSetLastMoveAt23",
+"x": 2250,
+"y": 2400,
+"kind": "set",
+"var": "LastMoveAt",
+"defaults": []
+},
+{
+"id": "zb472eGetDead24",
+"x": 0,
+"y": 3350,
+"kind": "get",
+"var": "Dead",
+"defaults": []
+},
+{
+"id": "zb472eIfDead25",
+"x": 300,
+"y": 3200,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "zb472eGetDead26",
+"x": 0,
+"y": 3650,
+"kind": "get",
+"var": "Dead",
+"defaults": []
+},
+{
+"id": "zb472eIfDead27",
+"x": 300,
+"y": 3500,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "zb472eGetDead28",
+"x": 0,
+"y": 3950,
+"kind": "get",
+"var": "Dead",
+"defaults": []
+},
+{
+"id": "zb472eIfDead29",
+"x": 300,
+"y": 3800,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "zb472eGetDead30",
+"x": 0,
+"y": 4250,
+"kind": "get",
+"var": "Dead",
+"defaults": []
+},
+{
+"id": "zb472eIfDead31",
+"x": 300,
+"y": 4100,
+"kind": "branch",
+"defaults": []
+}
+],
+"links": [
+[
+"zb472eFindZombieWave1.ReturnValue",
+"zb472eSetWMRef2.WMRef",
+false
+],
+[
+"zb472eFindZombieWave1.then",
+"zb472eSetWMRef2.execute",
+false
+],
+[
+"zb472eGetWMRef3.WMRef",
+"zb472eGetSoldierCach4.self",
+false
+],
+[
+"zb472eGetWMRef3.WMRef",
+"zb472eGetGateCache5.self",
+false
+],
+[
+"zb472eIsValid6.ReturnValue",
+"zb472eIfSoldier7.Condition",
+false
+],
+[
+"zb472eGetLastMoveGoa8.LastMoveGoal",
+"zb472eEqualEqual_Obj9.B",
+false
+],
+[
+"zb472eVel10.ReturnValue",
+"zb472eVSize11.A",
+false
+],
+[
+"zb472eVSize11.ReturnValue",
+"zb472eGreater_Double12.A",
+false
+],
+[
+"zb472eNow13.ReturnValue",
+"zb472eSubtract_Doubl15.A",
+false
+],
+[
+"zb472eGetLastMoveAt14.LastMoveAt",
+"zb472eSubtract_Doubl15.B",
+false
+],
+[
+"zb472eSubtract_Doubl15.ReturnValue",
+"zb472eLess_DoubleDou16.A",
+false
+],
+[
+"zb472eEqualEqual_Obj9.ReturnValue",
+"zb472eBooleanAND17.A",
+false
+],
+[
+"zb472eGreater_Double12.ReturnValue",
+"zb472eBooleanAND17.B",
+false
+],
+[
+"zb472eBooleanAND17.ReturnValue",
+"zb472eBooleanAND18.A",
+false
+],
+[
+"zb472eLess_DoubleDou16.ReturnValue",
+"zb472eBooleanAND18.B",
+false
+],
+[
+"zb472eBooleanAND18.ReturnValue",
+"zb472eNot_PreBool19.A",
+false
+],
+[
+"zb472eNot_PreBool19.ReturnValue",
+"zb472eIfMoveNeeded20.Condition",
+false
+],
+[
+"zb472eNow22.ReturnValue",
+"zb472eSetLastMoveAt23.LastMoveAt",
+false
+],
+[
+"zb472eSetLastMoveGoa21.then",
+"zb472eSetLastMoveAt23.execute",
+false
+],
+[
+"zb472eGetDead24.Dead",
+"zb472eIfDead25.Condition",
+false
+],
+[
+"zb472eGetDead26.Dead",
+"zb472eIfDead27.Condition",
+false
+],
+[
+"zb472eGetDead28.Dead",
+"zb472eIfDead29.Condition",
+false
+],
+[
+"zb472eGetDead30.Dead",
+"zb472eIfDead31.Condition",
+false
+],
+[
+"K2Node_Event_ZB0.then",
+"zb472eFindZombieWave1.execute",
+true
+],
+[
+"zb472eSetWMRef2.then",
+"FBCastABP.execute",
+true
+],
+[
+"CX_501.then",
+"CX_503.Exec",
+true
+],
+[
+"zb472eGetSoldierCach4.SoldierCache",
+"CX_503.Array",
+true
+],
+[
+"CX_6.else",
+"CX_400.execute",
+true
+],
+[
+"K2Node_IfThenElse_ZB25.else",
+"G_AtGate.execute",
+true
+],
+[
+"CX_78.then",
+"fzAsZombieHUD3_c1.execute",
+true
+],
+[
+"zb472eGetWMRef3.WMRef",
+"CX_399.self",
+true
+],
+[
+"zb472eGetWMRef3.WMRef",
+"CX_82.self",
+true
+],
+[
+"zb472eGetWMRef3.WMRef",
+"CX_85.self",
+true
+],
+[
+"zb472eGetGateCache5.GateCache",
+"CX_440.self",
+true
+],
+[
+"zb472eGetGateCache5.GateCache",
+"G_Stop.self",
+true
+],
+[
+"CX_503.LoopBody",
+"zb472eIfSoldier7.execute",
+true
+],
+[
+"zb472eIfSoldier7.then",
+"CX_521.execute",
+true
+],
+[
+"CX_503.Array Element",
+"zb472eIsValid6.Object",
+false
+],
+[
+"G_AtGate.else",
+"zb472eIfMoveNeeded20.execute",
+true
+],
+[
+"zb472eIfMoveNeeded20.then",
+"K2Node_CallFunction_ZB28.execute",
+true
+],
+[
+"K2Node_CallFunction_ZB28.then",
+"zb472eSetLastMoveGoa21.execute",
+true
+],
+[
+"CX_499.ReturnValue",
+"zb472eEqualEqual_Obj9.A",
+false
+],
+[
+"CX_499.ReturnValue",
+"zb472eSetLastMoveGoa21.LastMoveGoal",
+false
+],
+[
+"CX_53.then",
+"zb472eIfDead25.execute",
+true
+],
+[
+"zb472eIfDead25.else",
+"CX_54.execute",
+true
+],
+[
+"CX_434.then",
+"zb472eIfDead27.execute",
+true
+],
+[
+"zb472eIfDead27.else",
+"CX_437.execute",
+true
+],
+[
+"CX_448.then",
+"zb472eIfDead29.execute",
+true
+],
+[
+"zb472eIfDead29.else",
+"CX_458.execute",
+true
+],
+[
+"CX_93.then",
+"zb472eIfDead31.execute",
+true
+],
+[
+"CX_78.else",
+"zb472eIfDead31.execute",
+true
+],
+[
+"zb472eIfDead31.else",
+"CX_94.execute",
+true
+]
+],
+"remove": [
+"CX_502",
+"CX_398",
+"CX_57",
+"G_GetGate",
+"CX_81"
+],
+"set_live": [
+[
+"K2Node_CallFunction_ZB6",
+"InitialStartDelayVariance",
+"0.25"
+]
+],
+"dx": 0,
+"dy": 12000
+}

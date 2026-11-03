@@ -30,9 +30,18 @@
    "replace": true
   },
   {
-   "from": "zc472TimerHitStopEn25.then",
+   "from": "zc472IfPlayerHit28.else",
    "to": "fzAsZombieHUD3.execute",
    "replace": true
+  },
+  {
+   "from": "zc472Impact31.then",
+   "to": "fzAsZombieHUD3.execute",
+   "replace": true
+  },
+  {
+   "from": "K2Node_Event_ZB60.DamageCauser",
+   "to": "zc472EqualEqual_Obj27.A"
   },
   {
    "from": "K2Node_Event_ZB60.Damage",
@@ -44,28 +53,28 @@
   },
   {
    "from": "CX_111.Mesh",
-   "to": "zc472SetbPauseAnims26.self"
+   "to": "zc472SetbPauseAnims34.self"
   },
   {
    "from": "CX_531.then",
-   "to": "zc472IfFlinch33.execute",
+   "to": "zc472IfFlinch41.execute",
    "replace": true
   },
   {
    "from": "K2Node_Event_ZB60.DamageCauser",
-   "to": "zc472IsValid31.Object"
+   "to": "zc472IsValid39.Object"
   },
   {
    "from": "K2Node_Event_ZB60.DamageCauser",
-   "to": "zc472CauserLoc36.self"
+   "to": "zc472CauserLoc44.self"
   },
   {
    "from": "PsAnimInst.ReturnValue",
-   "to": "zc472Flinch44.self"
+   "to": "zc472Flinch52.self"
   },
   {
    "from": "PsAnimInst.ReturnValue",
-   "to": "zc472Flinch45.self"
+   "to": "zc472Flinch53.self"
   }
  ]
 }

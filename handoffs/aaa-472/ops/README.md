@@ -68,3 +68,12 @@ Revert: `Saved/bak472/BP_SoldierSword.uasset.fixD`.
 ## Caught while building
 - Fix C's hit-stop first used CustomTimeDilation. BP_SoldierSword uses that value on a zombie as a state flag (0.999 = engaged), so it would have broken soldier fights. It now uses bPauseAnims. Other BPs could read it too; I checked BP_Zombie, BP_ArmySplit, BP_BattleDirector (none).
 - Soldiers call PlayAnimation on a zombie's mesh in 15 % of engagements (BP_SoldierSword CX_173), leaving that zombie out of its AnimBP: by the graph it should freeze in the end pose and slide. Fixed twice: fix D removes the call, fix B restores AnimBP mode on every resume. Found by reading the graph, not seen in Play.
+
+## Fix E: BP_FleshBrute, run after the wave manager script
+`graph_ops_ue.py <repo>/handoffs/aaa-472/ops/ops_E_brute.json --dry-run`, then `--apply`.
+
+The brute is a near copy of BP_Zombie with the same Think problems: soldier scan and manager / gate look-ups at 4 Hz, a synchronous path search each Think, 4 Delays running on a corpse. Same fixes as A, no registry (it is not a BP_Zombie, so the manager never counted it). On a copy all links made except the same 3 copy artefacts (CX_399, CX_82, CX_85). Not compiled on the copy.
+
+Test (Play): brute walks to the gate, slams, attacks the player, dies and stays put. Revert: `Saved/bak472/BP_FleshBrute.uasset.fixE`.
+
+Fix C also gained impact sound layers on the player's heavy hits: pull before running `ops_ABC_zombie.json`.
