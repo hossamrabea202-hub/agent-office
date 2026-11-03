@@ -24,7 +24,10 @@ def out(G, name, label):
 
 # ---- BPC_Muster ----
 G = Graph(); b = bpkit.B(G, 'f11m')
-s1 = b.set('RQ3', arr(INT), b.get('RQ', arr(INT), 0, 200), 300, 0)
+# RQ is NOT a BPC_Muster variable: the live graph reads BP_BarracksHUD.RQ through a HUD reference (vGetRQ136). i9 caught
+# this on the first paste (compile: 'Could not find a variable named RQ'). So the paste has no RQ getter: the manifest wires
+# the live vGetRQ136 into Set RQ3. RQ3 itself is a new BPC_Muster variable (add_rq3_ue.py).
+s1 = b.set('RQ3', arr(INT), None, 300, 0)
 n = b.name('ResizeRQ3')
 G.node(n, 'K2Node_CallArrayFunction', ['FunctionReference=(MemberParent=%s,MemberName="Array_Resize")' % KARR],
        [ex(), ex('then', True), selfpin(KARR, hidden=True), {'name': 'TargetArray', 'cat': 'wildcard', 'container': 'Array', 'ref': True},
@@ -37,7 +40,8 @@ out(G, 'muster_rq3_paste.txt', 'BPC_Muster F11')
 setn, getn = s1, g3[0]
 json.dump({'blueprint': 'BPC_Muster', 'note': 'F11: pad the recruit queue to 3 before the per-slot reads (needs member variable RQ3: int array)',
            'pastes': ['muster_rq3_paste.txt'],
-           'rewires': [{'from': 'vSetIOreBN245.then', 'to': setn + '.execute', 'replace': True, 'note': 'was -> vSetIState247'},
+           'rewires': [{'from': 'vGetRQ136.RQ', 'to': setn + '.RQ3', 'note': 'the live HUD-side RQ getter feeds the copy'},
+                       {'from': 'vSetIOreBN245.then', 'to': setn + '.execute', 'replace': True, 'note': 'was -> vSetIState247'},
                        {'from': n + '.then', 'to': 'vSetIState247.execute', 'replace': True},
                        {'from': getn + '.RQ3', 'to': 'vItem210.Array', 'replace': True, 'note': 'was vGetRQ136'},
                        {'from': getn + '.RQ3', 'to': 'vItem216.Array', 'replace': True},

@@ -6,29 +6,34 @@
  ],
  "rewires": [
   {
+   "from": "vGetRQ136.RQ",
+   "to": "f11mSetRQ31.RQ3",
+   "note": "the live HUD-side RQ getter feeds the copy"
+  },
+  {
    "from": "vSetIOreBN245.then",
-   "to": "f11mSetRQ32.execute",
+   "to": "f11mSetRQ31.execute",
    "replace": true,
    "note": "was -> vSetIState247"
   },
   {
-   "from": "f11mResizeRQ33.then",
+   "from": "f11mResizeRQ32.then",
    "to": "vSetIState247.execute",
    "replace": true
   },
   {
-   "from": "f11mGetRQ38.RQ3",
+   "from": "f11mGetRQ37.RQ3",
    "to": "vItem210.Array",
    "replace": true,
    "note": "was vGetRQ136"
   },
   {
-   "from": "f11mGetRQ38.RQ3",
+   "from": "f11mGetRQ37.RQ3",
    "to": "vItem216.Array",
    "replace": true
   },
   {
-   "from": "f11mGetRQ38.RQ3",
+   "from": "f11mGetRQ37.RQ3",
    "to": "vItem222.Array",
    "replace": true
   }
