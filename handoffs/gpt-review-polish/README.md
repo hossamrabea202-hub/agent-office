@@ -48,3 +48,13 @@ texture doesn't land (`shots/pair_forge.png` left). Per-instance override on thi
 castle's world-aligned stone `MI_Castle_Trim_World` (right). Trade-off: the mesh is one material slot, so the coals and
 the poker become stone too. The proper fix is a re-UV / re-bake of SM_Camp_Forge (card for TGA). Revert:
 `forge_stone_ue.py --revert`; re-apply on the Master: `forge_stone_ue.py --apply`.
+- Mine entrance rock (`Mine_01`, SM_Camp_MineEntrance_Split): tried MI_CaveRock_Mine instead of MI_CaveRock_Natural; lit
+  A/B (`shots/mineab_A/_B`) not better, reverted. The problem is the blobby, layered mesh itself: needs a re-sculpt/re-bake
+  (TGA card), not a material.
+- Checked and fine: barracks barrels, crates, sacks (textured correctly).
+
+## Batch 5: stray default cubes (applied in the session, not saved)
+3 engine `Cube` actors with the default `BasicShapeMaterial` (bare white). One stood 76 cm out of the outer south wall
+foot at (1768, -56): a white 1 m box (`shots/pair_whitecube.png`). The other two were inside the wall / underground. All
+3 hidden (not deleted), collision off: `hide_set_ue.py basic_cubes --mesh Cube --mat BasicShapeMaterial --apply`.
+The 29 prototype-grid pieces sit in the archived template arena 200 m below the map (never seen): left alone.

@@ -1,0 +1,14 @@
+{
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABC61003_1826425584": {
+"label": "Cube",
+"coll": "QUERY_AND_PHYSICS"
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABC61003_1826469585": {
+"label": "Cube",
+"coll": "QUERY_AND_PHYSICS"
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABC61003_1826376583": {
+"label": "Cube",
+"coll": "QUERY_AND_PHYSICS"
+}
+}
