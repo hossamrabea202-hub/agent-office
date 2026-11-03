@@ -1,0 +1,10 @@
+{
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923791707": {
+"label": "Stair279_03",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N13.SM_Stair_W200_Solid_N13",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+}
+}

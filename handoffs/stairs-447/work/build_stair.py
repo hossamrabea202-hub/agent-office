@@ -25,6 +25,8 @@ def profile(s):
     for k in range(n):
         pts += [(k * run, (k + 1) * rise), ((k + 1) * run, (k + 1) * rise)]
     L = n * run
+    if s.get('solid'):                                   # #301 kit flights: filled to the ground, no soffit
+        return pts + [(L, 0.0)]
     pier = s['pier_x']
     t = s['soffit_t']
     sb = lambda x: rise / run * x - t

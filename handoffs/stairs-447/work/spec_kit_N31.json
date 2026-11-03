@@ -1,0 +1,7 @@
+{
+ "name": "SM_StairBaked451_N31",
+ "flights": ["kit SM_Stair_W200_Solid_N31"],
+ "steps": 31, "run": 30, "rise": 18, "width": 200,
+ "solid": true, "pier_x": 930, "soffit_t": 0,
+ "voxel_cm": 1.5
+}
