@@ -1,0 +1,437 @@
+{
+"fix": "A",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager",
+"vars": [
+[
+"RegHost",
+{
+"object": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager"
+}
+],
+[
+"ZombieReg",
+{
+"object": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie",
+"array": true
+}
+],
+[
+"SoldierCache",
+{
+"object": "/Game/CastleDefender/Characters/Knight/BP_SoldierSword",
+"array": true
+}
+],
+[
+"FarmerCache",
+{
+"object": "/Game/CastleDefender/Gameplay/Farm/BP_Farmer",
+"array": true
+}
+],
+[
+"GateCache",
+{
+"object": "/Game/CastleDefender/Gameplay/Castle/BP_CastleGateControl"
+}
+]
+],
+"nodes": [
+{
+"id": "r472FindZombieWave1",
+"x": 0,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetActorOfClass",
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+]
+]
+},
+{
+"id": "r472SetRegHost2",
+"x": 300,
+"y": 0,
+"kind": "set",
+"var": "RegHost",
+"defaults": []
+},
+{
+"id": "r472GetRegHost3",
+"x": 600,
+"y": 400,
+"kind": "get",
+"var": "RegHost",
+"defaults": []
+},
+{
+"id": "r472Self4",
+"x": 600,
+"y": 550,
+"kind": "named",
+"name": "Variables|Getareferencetoself",
+"defaults": []
+},
+{
+"id": "r472EqualEqual_Obj5",
+"x": 850,
+"y": 450,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:EqualEqual_ObjectObject",
+"defaults": []
+},
+{
+"id": "r472IfHost6",
+"x": 1100,
+"y": 0,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "r472TimerRegNear7",
+"x": 1400,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.KismetSystemLibrary:K2_SetTimer",
+"defaults": [
+[
+"FunctionName",
+"RegNear"
+],
+[
+"Time",
+"0.25"
+],
+[
+"bLooping",
+"true"
+],
+[
+"InitialStartDelay",
+"0.000000"
+],
+[
+"InitialStartDelayVariance",
+"0.000000"
+]
+]
+},
+{
+"id": "r472TimerRegRefres8",
+"x": 1800,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.KismetSystemLibrary:K2_SetTimer",
+"defaults": [
+[
+"FunctionName",
+"RegRefresh"
+],
+[
+"Time",
+"1.0"
+],
+[
+"bLooping",
+"true"
+],
+[
+"InitialStartDelay",
+"0.000000"
+],
+[
+"InitialStartDelayVariance",
+"0.000000"
+]
+]
+},
+{
+"id": "RegNear",
+"x": 0,
+"y": 700,
+"kind": "custom",
+"name": "RegNear",
+"defaults": []
+},
+{
+"id": "RegRefresh",
+"x": 0,
+"y": 1000,
+"kind": "custom",
+"name": "RegRefresh",
+"defaults": []
+},
+{
+"id": "r472AllZombie9",
+"x": 300,
+"y": 1000,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetAllActorsOfClass",
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie.BP_Zombie_C"
+]
+]
+},
+{
+"id": "r472SetZombieReg10",
+"x": 650,
+"y": 1000,
+"kind": "set",
+"var": "ZombieReg",
+"defaults": []
+},
+{
+"id": "r472AllSoldierSwor11",
+"x": 1000,
+"y": 1000,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetAllActorsOfClass",
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Characters/Knight/BP_SoldierSword.BP_SoldierSword_C"
+]
+]
+},
+{
+"id": "r472SetSoldierCach12",
+"x": 1350,
+"y": 1000,
+"kind": "set",
+"var": "SoldierCache",
+"defaults": []
+},
+{
+"id": "r472AllFarmer13",
+"x": 1700,
+"y": 1000,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetAllActorsOfClass",
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Farm/BP_Farmer.BP_Farmer_C"
+]
+]
+},
+{
+"id": "r472SetFarmerCache14",
+"x": 2050,
+"y": 1000,
+"kind": "set",
+"var": "FarmerCache",
+"defaults": []
+},
+{
+"id": "r472FindCastleGate15",
+"x": 2400,
+"y": 1000,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetActorOfClass",
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Castle/BP_CastleGateControl.BP_CastleGateControl_C"
+]
+]
+},
+{
+"id": "r472SetGateCache16",
+"x": 2750,
+"y": 1000,
+"kind": "set",
+"var": "GateCache",
+"defaults": []
+},
+{
+"id": "r472GetZombieReg17",
+"x": 0,
+"y": 1400,
+"kind": "get",
+"var": "ZombieReg",
+"defaults": []
+},
+{
+"id": "r472GetRegHost18",
+"x": 0,
+"y": 1600,
+"kind": "get",
+"var": "RegHost",
+"defaults": []
+},
+{
+"id": "r472GetZombieReg19",
+"x": 300,
+"y": 1600,
+"kind": "get",
+"var": "ZombieReg",
+"cls": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C",
+"defaults": []
+}
+],
+"links": [
+[
+"r472FindZombieWave1.ReturnValue",
+"r472SetRegHost2.RegHost",
+false
+],
+[
+"r472FindZombieWave1.then",
+"r472SetRegHost2.execute",
+false
+],
+[
+"r472GetRegHost3.RegHost",
+"r472EqualEqual_Obj5.A",
+false
+],
+[
+"r472Self4.self",
+"r472EqualEqual_Obj5.B",
+false
+],
+[
+"r472EqualEqual_Obj5.ReturnValue",
+"r472IfHost6.Condition",
+false
+],
+[
+"r472IfHost6.then",
+"r472TimerRegNear7.execute",
+false
+],
+[
+"r472TimerRegNear7.then",
+"r472TimerRegRefres8.execute",
+false
+],
+[
+"r472AllZombie9.OutActors",
+"r472SetZombieReg10.ZombieReg",
+false
+],
+[
+"r472AllSoldierSwor11.OutActors",
+"r472SetSoldierCach12.SoldierCache",
+false
+],
+[
+"r472AllFarmer13.OutActors",
+"r472SetFarmerCache14.FarmerCache",
+false
+],
+[
+"r472FindCastleGate15.ReturnValue",
+"r472SetGateCache16.GateCache",
+false
+],
+[
+"RegRefresh.then",
+"r472AllZombie9.execute",
+false
+],
+[
+"r472AllZombie9.then",
+"r472SetZombieReg10.execute",
+false
+],
+[
+"r472SetZombieReg10.then",
+"r472AllSoldierSwor11.execute",
+false
+],
+[
+"r472AllSoldierSwor11.then",
+"r472SetSoldierCach12.execute",
+false
+],
+[
+"r472SetSoldierCach12.then",
+"r472AllFarmer13.execute",
+false
+],
+[
+"r472AllFarmer13.then",
+"r472SetFarmerCache14.execute",
+false
+],
+[
+"r472SetFarmerCache14.then",
+"r472FindCastleGate15.execute",
+false
+],
+[
+"r472FindCastleGate15.then",
+"r472SetGateCache16.execute",
+false
+],
+[
+"r472GetRegHost18.RegHost",
+"r472GetZombieReg19.self",
+false
+],
+[
+"WV_1.then",
+"r472FindZombieWave1.execute",
+true
+],
+[
+"r472SetRegHost2.then",
+"WV_2.execute",
+true
+],
+[
+"WV_2.then",
+"r472IfHost6.execute",
+true
+],
+[
+"RegNear.then",
+"K2Node_IfThenElse_GT2.execute",
+true
+],
+[
+"K2Node_VariableSet_GT3.then",
+"K2Node_MacroInstance_GT5.Exec",
+true
+],
+[
+"r472GetZombieReg17.ZombieReg",
+"K2Node_MacroInstance_GT5.Array",
+true
+],
+[
+"WV_25.then",
+"WV_29.execute",
+true
+],
+[
+"r472GetZombieReg19.ZombieReg",
+"WV_27.TargetArray",
+true
+],
+[
+"WV_82.then",
+"WV_85.execute",
+true
+],
+[
+"r472GetZombieReg19.ZombieReg",
+"CX_2.TargetArray",
+true
+]
+],
+"remove": [
+"K2Node_Event_GT0",
+"K2Node_CallFunction_GT4",
+"WV_26",
+"CX_1"
+],
+"set_live": [],
+"dx": 0,
+"dy": 9000
+}

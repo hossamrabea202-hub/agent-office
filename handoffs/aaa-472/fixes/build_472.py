@@ -53,13 +53,12 @@ def R(frm, to, note=None):
 # ---------------------------------------------------------------- BP_ZombieWaveManager
 def gen_wm():
     G = Graph(); b = bpkit.B(G, 'r472')
-    # BeginPlay: host, then (host only) the two timers and a first fill
+    # BeginPlay: host, then (host only) the two timers
     f = b.actor_of(P_WM, WM, 0, 0); sh = b.set('RegHost', obv(WM), (f, 'ReturnValue'), 300, 0); G.link(f, 'then', sh, 'execute')
     cond = eqobj(b, b.get('RegHost', obv(WM), 600, 400), b.self_node(600, 550), 850, 450)
     ifh = b.branch(cond, 1100, 0, tag='IfHost')
     t1 = b.timer('RegNear', 1400, 0, dtime='0.25', loop=True); t2 = b.timer('RegRefresh', 1800, 0, dtime='1.0', loop=True)
-    first = b.call_self('RegRefresh', [], 2200, 0, WM, tag='FirstFill')
-    G.link(ifh, 'then', t1, 'execute'); G.link(t1, 'then', t2, 'execute'); G.link(t2, 'then', first, 'execute')
+    G.link(ifh, 'then', t1, 'execute'); G.link(t1, 'then', t2, 'execute')       # first fill after 1 s; zombies spawned before it have registered themselves
     b.event('RegNear', [], 0, 700)          # the old ReceiveTick chain hangs on it
     b.event('RegRefresh', [], 0, 1000)      # world truth once a second
     a1 = getall(b, P_ZOMBIE, ZOMBIE, 300, 1000); s1 = b.set('ZombieReg', arr(obv(ZOMBIE)), (a1, 'OutActors'), 650, 1000)

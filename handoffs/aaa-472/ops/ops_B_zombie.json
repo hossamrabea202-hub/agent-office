@@ -1,0 +1,781 @@
+{
+"fix": "B",
+"bp": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie",
+"vars": [],
+"nodes": [
+{
+"id": "zb472Die1",
+"x": 0,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Laying_Idle_B.AM_ZDeath_ZA_Laying_Idle_B"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die2",
+"x": 300,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_A_Death.AM_ZDeath_A_Death"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die3",
+"x": 600,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_A.AM_ZDeath_ZA_Burst_A"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die4",
+"x": 900,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_B.AM_ZDeath_ZA_Burst_B"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die5",
+"x": 1200,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_C.AM_ZDeath_ZA_Burst_C"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die6",
+"x": 1500,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_D.AM_ZDeath_ZA_Burst_D"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die7",
+"x": 1800,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_E.AM_ZDeath_ZA_Burst_E"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die8",
+"x": 2100,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_F.AM_ZDeath_ZA_Burst_F"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die9",
+"x": 2400,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_G.AM_ZDeath_ZA_Burst_G"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die10",
+"x": 2700,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_H.AM_ZDeath_ZA_Burst_H"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die11",
+"x": 3000,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_I.AM_ZDeath_ZA_Burst_I"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472Die12",
+"x": 3300,
+"y": 0,
+"kind": "call",
+"path": "/Script/Engine.AnimInstance:Montage_Play",
+"defaults": [
+[
+"MontageToPlay",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anim/Death/AM_ZDeath_ZA_Burst_K.AM_ZDeath_ZA_Burst_K"
+],
+[
+"InPlayRate",
+"1.000000"
+],
+[
+"ReturnValueType",
+"MontageLength"
+],
+[
+"InTimeToStartMontageAt",
+"0.000000"
+],
+[
+"bStopAllMontages",
+"true"
+]
+]
+},
+{
+"id": "zb472BackToABP13",
+"x": 0,
+"y": 200,
+"kind": "call",
+"path": "/Script/Engine.SkeletalMeshComponent:SetAnimationMode",
+"defaults": [
+[
+"InAnimationMode",
+"AnimationBlueprint"
+],
+[
+"bForceInitAnimScriptInstance",
+"false"
+]
+]
+},
+{
+"id": "zb472IsValid14",
+"x": 0,
+"y": 400,
+"kind": "call",
+"path": "/Script/Engine.KismetSystemLibrary:IsValid",
+"defaults": []
+},
+{
+"id": "zb472IfCauser15",
+"x": 300,
+"y": 300,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "zb472CauserLoc16",
+"x": 0,
+"y": 600,
+"kind": "call",
+"path": "/Script/Engine.Actor:K2_GetActorLocation",
+"defaults": []
+},
+{
+"id": "zb472MyLoc17",
+"x": 0,
+"y": 750,
+"kind": "call",
+"path": "/Script/Engine.Actor:K2_GetActorLocation",
+"defaults": []
+},
+{
+"id": "zb472MyFwd18",
+"x": 0,
+"y": 900,
+"kind": "call",
+"path": "/Script/Engine.Actor:GetActorForwardVector",
+"defaults": []
+},
+{
+"id": "zb472Subtract_Vecto19",
+"x": 300,
+"y": 650,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_VectorVector",
+"defaults": [
+[
+"A",
+"0, 0, 0"
+],
+[
+"B",
+"0, 0, 0"
+]
+]
+},
+{
+"id": "zb472Normal20",
+"x": 550,
+"y": 650,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Normal",
+"defaults": [
+[
+"A",
+"0, 0, 0"
+],
+[
+"Tolerance",
+"0.000100"
+]
+]
+},
+{
+"id": "zb472Dot_VectorVect21",
+"x": 800,
+"y": 750,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Dot_VectorVector",
+"defaults": [
+[
+"A",
+"0, 0, 0"
+],
+[
+"B",
+"0, 0, 0"
+]
+]
+},
+{
+"id": "zb472Less_DoubleDou22",
+"x": 1050,
+"y": 750,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Less_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"-0.25"
+]
+]
+},
+{
+"id": "zb472IfBehind23",
+"x": 1300,
+"y": 300,
+"kind": "branch",
+"defaults": []
+}
+],
+"links": [
+[
+"zb472IsValid14.ReturnValue",
+"zb472IfCauser15.Condition",
+false
+],
+[
+"zb472CauserLoc16.ReturnValue",
+"zb472Subtract_Vecto19.A",
+false
+],
+[
+"zb472MyLoc17.ReturnValue",
+"zb472Subtract_Vecto19.B",
+false
+],
+[
+"zb472Subtract_Vecto19.ReturnValue",
+"zb472Normal20.A",
+false
+],
+[
+"zb472MyFwd18.ReturnValue",
+"zb472Dot_VectorVect21.A",
+false
+],
+[
+"zb472Normal20.ReturnValue",
+"zb472Dot_VectorVect21.B",
+false
+],
+[
+"zb472Dot_VectorVect21.ReturnValue",
+"zb472Less_DoubleDou22.A",
+false
+],
+[
+"zb472Less_DoubleDou22.ReturnValue",
+"zb472IfBehind23.Condition",
+false
+],
+[
+"zb472IfCauser15.then",
+"zb472IfBehind23.execute",
+false
+],
+[
+"CX_123.then",
+"zb472Die1.execute",
+true
+],
+[
+"zb472Die1.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die1.self",
+false
+],
+[
+"CX_129.then",
+"zb472Die2.execute",
+true
+],
+[
+"zb472Die2.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die2.self",
+false
+],
+[
+"CX_133.then",
+"zb472Die3.execute",
+true
+],
+[
+"zb472Die3.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die3.self",
+false
+],
+[
+"CX_137.then",
+"zb472Die4.execute",
+true
+],
+[
+"zb472Die4.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die4.self",
+false
+],
+[
+"CX_141.then",
+"zb472Die5.execute",
+true
+],
+[
+"zb472Die5.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die5.self",
+false
+],
+[
+"CX_145.then",
+"zb472Die6.execute",
+true
+],
+[
+"zb472Die6.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die6.self",
+false
+],
+[
+"CX_149.then",
+"zb472Die7.execute",
+true
+],
+[
+"zb472Die7.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die7.self",
+false
+],
+[
+"CX_153.then",
+"zb472Die8.execute",
+true
+],
+[
+"zb472Die8.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die8.self",
+false
+],
+[
+"CX_157.then",
+"zb472Die9.execute",
+true
+],
+[
+"zb472Die9.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die9.self",
+false
+],
+[
+"CX_161.then",
+"zb472Die10.execute",
+true
+],
+[
+"zb472Die10.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die10.self",
+false
+],
+[
+"CX_165.then",
+"zb472Die11.execute",
+true
+],
+[
+"zb472Die11.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die11.self",
+false
+],
+[
+"CX_165.else",
+"zb472Die12.execute",
+true
+],
+[
+"zb472Die12.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"PsAnimInst.ReturnValue",
+"zb472Die12.self",
+false
+],
+[
+"K2Node_CallFunction_ZB73.then",
+"zb472BackToABP13.execute",
+true
+],
+[
+"zb472BackToABP13.then",
+"CX_123.execute",
+true
+],
+[
+"CX_111.Mesh",
+"zb472BackToABP13.self",
+false
+],
+[
+"CX_212.then",
+"Ps_CX_205.execute",
+true
+],
+[
+"CX_194.else",
+"zb472IfCauser15.execute",
+true
+],
+[
+"zb472IfCauser15.else",
+"CX_200.execute",
+true
+],
+[
+"zb472IfBehind23.then",
+"Ps_CX_209.execute",
+true
+],
+[
+"zb472IfBehind23.else",
+"CX_200.execute",
+true
+],
+[
+"K2Node_Event_ZB60.DamageCauser",
+"zb472IsValid14.Object",
+false
+],
+[
+"K2Node_Event_ZB60.DamageCauser",
+"zb472CauserLoc16.self",
+false
+]
+],
+"remove": [
+"CX_124",
+"CX_126",
+"CX_130",
+"CX_134",
+"CX_138",
+"CX_142",
+"CX_146",
+"CX_150",
+"CX_154",
+"CX_158",
+"CX_162",
+"CX_166",
+"CX_97"
+],
+"set_live": [],
+"dx": 0,
+"dy": 14000
+}
