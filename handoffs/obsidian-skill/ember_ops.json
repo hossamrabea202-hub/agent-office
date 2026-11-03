@@ -1,0 +1,1788 @@
+{
+"fix": "477",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet",
+"vars": [],
+"nodes": [
+{
+"id": "embPaused1",
+"x": 280,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:IsGamePaused",
+"defaults": []
+},
+{
+"id": "embGetTier2",
+"x": 560,
+"y": 300,
+"kind": "get",
+"var": "Tier",
+"defaults": []
+},
+{
+"id": "embEqualEqual_Int3",
+"x": 840,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:EqualEqual_IntInt",
+"defaults": [
+[
+"A",
+"0"
+],
+[
+"B",
+"4"
+]
+]
+},
+{
+"id": "embNot_PreBool4",
+"x": 1120,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Not_PreBool",
+"defaults": [
+[
+"A",
+"false"
+]
+]
+},
+{
+"id": "embBooleanAND5",
+"x": 1400,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:BooleanAND",
+"defaults": [
+[
+"A",
+"false"
+],
+[
+"B",
+"false"
+]
+]
+},
+{
+"id": "embIfComplete6",
+"x": 1680,
+"y": 300,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "embPC7",
+"x": 1960,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.HUD:GetOwningPlayerController",
+"defaults": []
+},
+{
+"id": "embConv_IntToDoub8",
+"x": 2240,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Conv_IntToDouble",
+"defaults": [
+[
+"InInt",
+"0"
+]
+]
+},
+{
+"id": "embConv_IntToDoub9",
+"x": 2520,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Conv_IntToDouble",
+"defaults": [
+[
+"InInt",
+"0"
+]
+]
+},
+{
+"id": "embDivide_DoubleD10",
+"x": 2800,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Divide_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"1080.0"
+]
+]
+},
+{
+"id": "embGameNow11",
+"x": 3080,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetTimeSeconds",
+"defaults": []
+},
+{
+"id": "embGetEmberMID12",
+"x": 3360,
+"y": 300,
+"kind": "get",
+"var": "EmberMID",
+"defaults": []
+},
+{
+"id": "embIsValid13",
+"x": 3640,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetSystemLibrary:IsValid",
+"defaults": []
+},
+{
+"id": "embNot_PreBool14",
+"x": 3920,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Not_PreBool",
+"defaults": [
+[
+"A",
+"false"
+]
+]
+},
+{
+"id": "embIfNoMID15",
+"x": 4200,
+"y": 300,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "embMakeMID16",
+"x": 4480,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMaterialLibrary:CreateDynamicMaterialInstance",
+"defaults": [
+[
+"OptionalName",
+"None"
+],
+[
+"CreationFlags",
+"None"
+]
+]
+},
+{
+"id": "embGetEmberMat17",
+"x": 4760,
+"y": 300,
+"kind": "get",
+"var": "EmberMat",
+"defaults": []
+},
+{
+"id": "embSetEmberMID18",
+"x": 5040,
+"y": 300,
+"kind": "set",
+"var": "EmberMID",
+"defaults": []
+},
+{
+"id": "embGetEmberMID19",
+"x": 5600,
+"y": 300,
+"kind": "get",
+"var": "EmberMID",
+"defaults": []
+},
+{
+"id": "embMidIcon20",
+"x": 5320,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.MaterialInstanceDynamic:SetTextureParameterValue",
+"defaults": [
+[
+"ParameterName",
+"Icon"
+]
+]
+},
+{
+"id": "embGetEmberIcon21",
+"x": 5880,
+"y": 300,
+"kind": "get",
+"var": "EmberIcon",
+"defaults": []
+},
+{
+"id": "embSeqDraw22",
+"x": 6160,
+"y": 300,
+"kind": "seq",
+"defaults": []
+},
+{
+"id": "embKey23",
+"x": 6440,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.PlayerController:WasInputKeyJustPressed",
+"defaults": []
+},
+{
+"id": "embGetEmberKey24",
+"x": 6720,
+"y": 300,
+"kind": "get",
+"var": "EmberKey",
+"defaults": []
+},
+{
+"id": "embPawn25",
+"x": 7000,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:GetPlayerPawn",
+"defaults": [
+[
+"PlayerIndex",
+"0"
+]
+]
+},
+{
+"id": "embAsHero",
+"x": 7280,
+"y": 300,
+"kind": "cast",
+"defaults": []
+},
+{
+"id": "embGetIsDead26",
+"x": 7560,
+"y": 300,
+"kind": "get",
+"var": "IsDead",
+"cls": "/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.BP_ThirdPersonCharacter_C",
+"defaults": []
+},
+{
+"id": "embIfKey27",
+"x": 7840,
+"y": 300,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "embGetShockReadyA28",
+"x": 8120,
+"y": 300,
+"kind": "get",
+"var": "ShockReadyAt",
+"defaults": []
+},
+{
+"id": "embGreaterEqual_D29",
+"x": 8400,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:GreaterEqual_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embNot_PreBool30",
+"x": 8680,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Not_PreBool",
+"defaults": [
+[
+"A",
+"false"
+]
+]
+},
+{
+"id": "embBooleanAND31",
+"x": 8960,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:BooleanAND",
+"defaults": [
+[
+"A",
+"false"
+],
+[
+"B",
+"false"
+]
+]
+},
+{
+"id": "embIfReady32",
+"x": 9240,
+"y": 300,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "embGetEmberCooldo33",
+"x": 9520,
+"y": 300,
+"kind": "get",
+"var": "EmberCooldown",
+"defaults": []
+},
+{
+"id": "embAdd_DoubleDoub34",
+"x": 9800,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Add_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embSetShockReadyA35",
+"x": 10080,
+"y": 300,
+"kind": "set",
+"var": "ShockReadyAt",
+"defaults": []
+},
+{
+"id": "embCallPush36",
+"x": 10360,
+"y": 300,
+"kind": "call",
+"path": "/Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet.BPC_ObsidianSet_C:PushZombies",
+"defaults": [
+[
+"Radius",
+"0.0"
+],
+[
+"Damage",
+"0.0"
+],
+[
+"Push",
+"900.000000"
+]
+]
+},
+{
+"id": "embGetEmberRadius37",
+"x": 10640,
+"y": 300,
+"kind": "get",
+"var": "EmberRadius",
+"defaults": []
+},
+{
+"id": "embGetEmberDamage38",
+"x": 10920,
+"y": 300,
+"kind": "get",
+"var": "EmberDamage",
+"defaults": []
+},
+{
+"id": "embSetEmberRefuse39",
+"x": 11200,
+"y": 300,
+"kind": "set",
+"var": "EmberRefuseAt",
+"defaults": []
+},
+{
+"id": "embSnd40",
+"x": 11480,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.GameplayStatics:PlaySound2D",
+"defaults": [
+[
+"Sound",
+"/Game/CastleDefender/UI/Trade/SFX_TradeFail.SFX_TradeFail"
+],
+[
+"VolumeMultiplier",
+"0.5"
+],
+[
+"PitchMultiplier",
+"1.000000"
+],
+[
+"StartTime",
+"0.000000"
+],
+[
+"bIsUISound",
+"true"
+]
+]
+},
+{
+"id": "embGetShockReadyA41",
+"x": 6280,
+"y": 300,
+"kind": "get",
+"var": "ShockReadyAt",
+"defaults": []
+},
+{
+"id": "embSubtract_Doubl42",
+"x": 6560,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embGetEmberCooldo43",
+"x": 6840,
+"y": 300,
+"kind": "get",
+"var": "EmberCooldown",
+"defaults": []
+},
+{
+"id": "embFMax44",
+"x": 7120,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:FMax",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.1"
+]
+]
+},
+{
+"id": "embDivide_DoubleD45",
+"x": 7400,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Divide_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embFClamp46",
+"x": 7680,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:FClamp",
+"defaults": [
+[
+"Value",
+"0.0"
+],
+[
+"Min",
+"0.0"
+],
+[
+"Max",
+"1.0"
+]
+]
+},
+{
+"id": "embGetEmberRefuse47",
+"x": 7960,
+"y": 300,
+"kind": "get",
+"var": "EmberRefuseAt",
+"defaults": []
+},
+{
+"id": "embSubtract_Doubl48",
+"x": 8240,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embSubtract_Doubl49",
+"x": 8520,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embDivide_DoubleD50",
+"x": 8800,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Divide_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.4"
+]
+]
+},
+{
+"id": "embFClamp51",
+"x": 9080,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:FClamp",
+"defaults": [
+[
+"Value",
+"0.0"
+],
+[
+"Min",
+"0.0"
+],
+[
+"Max",
+"1.0"
+]
+]
+},
+{
+"id": "embSubtract_Doubl52",
+"x": 9360,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"1.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embFMax53",
+"x": 9640,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:FMax",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.001"
+]
+]
+},
+{
+"id": "embMakeColor54",
+"x": 9920,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:MakeColor",
+"defaults": [
+[
+"R",
+"0.000000"
+],
+[
+"G",
+"0.000000"
+],
+[
+"B",
+"0.000000"
+],
+[
+"A",
+"1.000000"
+]
+]
+},
+{
+"id": "embGetEmberMID55",
+"x": 10480,
+"y": 300,
+"kind": "get",
+"var": "EmberMID",
+"defaults": []
+},
+{
+"id": "embMidSet56",
+"x": 10200,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.MaterialInstanceDynamic:SetVectorParameterValue",
+"defaults": [
+[
+"ParameterName",
+"Pot"
+],
+[
+"Value",
+"(R=1.000000,G=1.000000,B=1.000000,A=1.000000)"
+]
+]
+},
+{
+"id": "embMakeColor57",
+"x": 10760,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:MakeColor",
+"defaults": [
+[
+"R",
+"0.000000"
+],
+[
+"G",
+"0.000000"
+],
+[
+"B",
+"0.000000"
+],
+[
+"A",
+"1.000000"
+]
+]
+},
+{
+"id": "embGetEmberMID58",
+"x": 11320,
+"y": 300,
+"kind": "get",
+"var": "EmberMID",
+"defaults": []
+},
+{
+"id": "embMidSet59",
+"x": 11040,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.MaterialInstanceDynamic:SetVectorParameterValue",
+"defaults": [
+[
+"ParameterName",
+"Pot2"
+],
+[
+"Value",
+"(R=1.000000,G=1.000000,B=1.000000,A=1.000000)"
+]
+]
+},
+{
+"id": "embGetEmberX60",
+"x": 11600,
+"y": 300,
+"kind": "get",
+"var": "EmberX",
+"defaults": []
+},
+{
+"id": "embMultiply_Doubl61",
+"x": 11880,
+"y": 300,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embGetEmberY62",
+"x": 0,
+"y": 520,
+"kind": "get",
+"var": "EmberY",
+"defaults": []
+},
+{
+"id": "embMultiply_Doubl63",
+"x": 280,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embBadge64",
+"x": 560,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.HUD:DrawMaterial",
+"defaults": [
+[
+"ScreenX",
+"0.0"
+],
+[
+"ScreenY",
+"0.0"
+],
+[
+"ScreenW",
+"0.0"
+],
+[
+"ScreenH",
+"0.0"
+],
+[
+"MaterialU",
+"0.0"
+],
+[
+"MaterialV",
+"0.0"
+],
+[
+"MaterialUWidth",
+"1.0"
+],
+[
+"MaterialVHeight",
+"1.0"
+],
+[
+"Scale",
+"1.0"
+],
+[
+"bScalePosition",
+"false"
+],
+[
+"Rotation",
+"0.0"
+],
+[
+"RotPivot",
+"(X=0.500000,Y=0.500000)"
+]
+]
+},
+{
+"id": "embGetEmberMID65",
+"x": 840,
+"y": 520,
+"kind": "get",
+"var": "EmberMID",
+"defaults": []
+},
+{
+"id": "embMultiply_Doubl66",
+"x": 1120,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"42.0"
+]
+]
+},
+{
+"id": "embSubtract_Doubl67",
+"x": 1400,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embMultiply_Doubl68",
+"x": 1680,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"42.0"
+]
+]
+},
+{
+"id": "embSubtract_Doubl69",
+"x": 1960,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embMultiply_Doubl70",
+"x": 2240,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"84.0"
+]
+]
+},
+{
+"id": "embMultiply_Doubl71",
+"x": 2520,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"84.0"
+]
+]
+},
+{
+"id": "embKeyName72",
+"x": 2800,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetInputLibrary:Key_GetDisplayName",
+"defaults": [
+[
+"bLongDisplayName",
+"true"
+]
+]
+},
+{
+"id": "embGetEmberKey73",
+"x": 3080,
+"y": 520,
+"kind": "get",
+"var": "EmberKey",
+"defaults": []
+},
+{
+"id": "embKeyStr74",
+"x": 3360,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetTextLibrary:Conv_TextToString",
+"defaults": []
+},
+{
+"id": "embFontH75",
+"x": 3640,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.HUD:GetTextSize",
+"defaults": [
+[
+"Text",
+"0"
+],
+[
+"Font",
+"/Game/CastleDefender/UI/Fonts/Font_Cinzel.Font_Cinzel"
+],
+[
+"Scale",
+"1.0"
+]
+]
+},
+{
+"id": "embKeyCap76",
+"x": 3920,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.HUD:DrawText",
+"defaults": [
+[
+"Text",
+""
+],
+[
+"TextColor",
+"(R=1.000000,G=1.000000,B=1.000000,A=1.000000)"
+],
+[
+"ScreenX",
+"0.0"
+],
+[
+"ScreenY",
+"0.0"
+],
+[
+"Font",
+"/Game/CastleDefender/UI/Fonts/Font_Cinzel.Font_Cinzel"
+],
+[
+"Scale",
+"1.0"
+],
+[
+"bScalePosition",
+"false"
+]
+]
+},
+{
+"id": "embMakeColor77",
+"x": 4200,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:MakeColor",
+"defaults": [
+[
+"R",
+"0.980000"
+],
+[
+"G",
+"0.860000"
+],
+[
+"B",
+"0.560000"
+],
+[
+"A",
+"1.000000"
+]
+]
+},
+{
+"id": "embMultiply_Doubl78",
+"x": 4480,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"18.0"
+]
+]
+},
+{
+"id": "embDivide_DoubleD79",
+"x": 4760,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Divide_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embMultiply_Doubl80",
+"x": 5040,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"38.0"
+]
+]
+},
+{
+"id": "embSubtract_Doubl81",
+"x": 5320,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embMultiply_Doubl82",
+"x": 5600,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"42.0"
+]
+]
+},
+{
+"id": "embSubtract_Doubl83",
+"x": 5880,
+"y": 520,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.0"
+]
+]
+},
+{
+"id": "embSeq84",
+"x": 280,
+"y": -700,
+"kind": "seq",
+"defaults": []
+},
+{
+"id": "embGetTier86",
+"x": 840,
+"y": -700,
+"kind": "get",
+"var": "Tier",
+"defaults": []
+},
+{
+"id": "embEqualEqual_Int87",
+"x": 1120,
+"y": -700,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:EqualEqual_IntInt",
+"defaults": [
+[
+"A",
+"0"
+],
+[
+"B",
+"3"
+]
+]
+}
+],
+"links": [
+[
+"embGetTier2.Tier",
+"embEqualEqual_Int3.A",
+false
+],
+[
+"embPaused1.ReturnValue",
+"embNot_PreBool4.A",
+false
+],
+[
+"embEqualEqual_Int3.ReturnValue",
+"embBooleanAND5.A",
+false
+],
+[
+"embNot_PreBool4.ReturnValue",
+"embBooleanAND5.B",
+false
+],
+[
+"embBooleanAND5.ReturnValue",
+"embIfComplete6.Condition",
+false
+],
+[
+"embSeq84.then_0",
+"embIfComplete6.execute",
+false
+],
+[
+"DrawArmoury.Hud",
+"embPC7.self",
+false
+],
+[
+"DrawArmoury.SizeX",
+"embConv_IntToDoub8.InInt",
+false
+],
+[
+"DrawArmoury.SizeY",
+"embConv_IntToDoub9.InInt",
+false
+],
+[
+"embConv_IntToDoub9.ReturnValue",
+"embDivide_DoubleD10.A",
+false
+],
+[
+"embGetEmberMID12.EmberMID",
+"embIsValid13.Object",
+false
+],
+[
+"embIsValid13.ReturnValue",
+"embNot_PreBool14.A",
+false
+],
+[
+"embNot_PreBool14.ReturnValue",
+"embIfNoMID15.Condition",
+false
+],
+[
+"embIfComplete6.then",
+"embIfNoMID15.execute",
+false
+],
+[
+"embGetEmberMat17.EmberMat",
+"embMakeMID16.Parent",
+false
+],
+[
+"embIfNoMID15.then",
+"embMakeMID16.execute",
+false
+],
+[
+"embMakeMID16.ReturnValue",
+"embSetEmberMID18.EmberMID",
+false
+],
+[
+"embMakeMID16.then",
+"embSetEmberMID18.execute",
+false
+],
+[
+"embGetEmberMID19.EmberMID",
+"embMidIcon20.self",
+false
+],
+[
+"embGetEmberIcon21.EmberIcon",
+"embMidIcon20.Value",
+false
+],
+[
+"embSetEmberMID18.then",
+"embMidIcon20.execute",
+false
+],
+[
+"embMidIcon20.then",
+"embSeqDraw22.execute",
+false
+],
+[
+"embIfNoMID15.else",
+"embSeqDraw22.execute",
+false
+],
+[
+"embPC7.ReturnValue",
+"embKey23.self",
+false
+],
+[
+"embGetEmberKey24.EmberKey",
+"embKey23.Key",
+false
+],
+[
+"embPawn25.ReturnValue",
+"embAsHero.Object",
+false
+],
+[
+"embAsHero.AsBP Third Person Character",
+"embGetIsDead26.self",
+false
+],
+[
+"embKey23.ReturnValue",
+"embIfKey27.Condition",
+false
+],
+[
+"embSeqDraw22.then_0",
+"embIfKey27.execute",
+false
+],
+[
+"embIfKey27.then",
+"embAsHero.execute",
+false
+],
+[
+"embGameNow11.ReturnValue",
+"embGreaterEqual_D29.A",
+false
+],
+[
+"embGetShockReadyA28.ShockReadyAt",
+"embGreaterEqual_D29.B",
+false
+],
+[
+"embGetIsDead26.IsDead",
+"embNot_PreBool30.A",
+false
+],
+[
+"embGreaterEqual_D29.ReturnValue",
+"embBooleanAND31.A",
+false
+],
+[
+"embNot_PreBool30.ReturnValue",
+"embBooleanAND31.B",
+false
+],
+[
+"embBooleanAND31.ReturnValue",
+"embIfReady32.Condition",
+false
+],
+[
+"embAsHero.then",
+"embIfReady32.execute",
+false
+],
+[
+"embGameNow11.ReturnValue",
+"embAdd_DoubleDoub34.A",
+false
+],
+[
+"embGetEmberCooldo33.EmberCooldown",
+"embAdd_DoubleDoub34.B",
+false
+],
+[
+"embAdd_DoubleDoub34.ReturnValue",
+"embSetShockReadyA35.ShockReadyAt",
+false
+],
+[
+"embIfReady32.then",
+"embSetShockReadyA35.execute",
+false
+],
+[
+"embGetEmberRadius37.EmberRadius",
+"embCallPush36.Radius",
+false
+],
+[
+"embGetEmberDamage38.EmberDamage",
+"embCallPush36.Damage",
+false
+],
+[
+"embSetShockReadyA35.then",
+"embCallPush36.execute",
+false
+],
+[
+"embGameNow11.ReturnValue",
+"embSetEmberRefuse39.EmberRefuseAt",
+false
+],
+[
+"embIfReady32.else",
+"embSetEmberRefuse39.execute",
+false
+],
+[
+"embSetEmberRefuse39.then",
+"embSnd40.execute",
+false
+],
+[
+"embGetShockReadyA41.ShockReadyAt",
+"embSubtract_Doubl42.A",
+false
+],
+[
+"embGameNow11.ReturnValue",
+"embSubtract_Doubl42.B",
+false
+],
+[
+"embGetEmberCooldo43.EmberCooldown",
+"embFMax44.A",
+false
+],
+[
+"embSubtract_Doubl42.ReturnValue",
+"embDivide_DoubleD45.A",
+false
+],
+[
+"embFMax44.ReturnValue",
+"embDivide_DoubleD45.B",
+false
+],
+[
+"embDivide_DoubleD45.ReturnValue",
+"embFClamp46.Value",
+false
+],
+[
+"embGameNow11.ReturnValue",
+"embSubtract_Doubl48.A",
+false
+],
+[
+"embGetEmberRefuse47.EmberRefuseAt",
+"embSubtract_Doubl48.B",
+false
+],
+[
+"embSubtract_Doubl48.ReturnValue",
+"embSubtract_Doubl49.A",
+false
+],
+[
+"embSubtract_Doubl49.ReturnValue",
+"embDivide_DoubleD50.A",
+false
+],
+[
+"embDivide_DoubleD50.ReturnValue",
+"embFClamp51.Value",
+false
+],
+[
+"embFClamp51.ReturnValue",
+"embSubtract_Doubl52.B",
+false
+],
+[
+"embSubtract_Doubl52.ReturnValue",
+"embFMax53.A",
+false
+],
+[
+"embFClamp46.ReturnValue",
+"embMakeColor54.R",
+false
+],
+[
+"embFMax53.ReturnValue",
+"embMakeColor54.A",
+false
+],
+[
+"embGetEmberMID55.EmberMID",
+"embMidSet56.self",
+false
+],
+[
+"embMakeColor54.ReturnValue",
+"embMidSet56.Value",
+false
+],
+[
+"embSeqDraw22.then_1",
+"embMidSet56.execute",
+false
+],
+[
+"embGetEmberMID58.EmberMID",
+"embMidSet59.self",
+false
+],
+[
+"embMakeColor57.ReturnValue",
+"embMidSet59.Value",
+false
+],
+[
+"embMidSet56.then",
+"embMidSet59.execute",
+false
+],
+[
+"embConv_IntToDoub8.ReturnValue",
+"embMultiply_Doubl61.A",
+false
+],
+[
+"embGetEmberX60.EmberX",
+"embMultiply_Doubl61.B",
+false
+],
+[
+"embConv_IntToDoub9.ReturnValue",
+"embMultiply_Doubl63.A",
+false
+],
+[
+"embGetEmberY62.EmberY",
+"embMultiply_Doubl63.B",
+false
+],
+[
+"DrawArmoury.Hud",
+"embBadge64.self",
+false
+],
+[
+"embGetEmberMID65.EmberMID",
+"embBadge64.Material",
+false
+],
+[
+"embDivide_DoubleD10.ReturnValue",
+"embMultiply_Doubl66.A",
+false
+],
+[
+"embMultiply_Doubl61.ReturnValue",
+"embSubtract_Doubl67.A",
+false
+],
+[
+"embMultiply_Doubl66.ReturnValue",
+"embSubtract_Doubl67.B",
+false
+],
+[
+"embDivide_DoubleD10.ReturnValue",
+"embMultiply_Doubl68.A",
+false
+],
+[
+"embMultiply_Doubl63.ReturnValue",
+"embSubtract_Doubl69.A",
+false
+],
+[
+"embMultiply_Doubl68.ReturnValue",
+"embSubtract_Doubl69.B",
+false
+],
+[
+"embDivide_DoubleD10.ReturnValue",
+"embMultiply_Doubl70.A",
+false
+],
+[
+"embDivide_DoubleD10.ReturnValue",
+"embMultiply_Doubl71.A",
+false
+],
+[
+"embSubtract_Doubl67.ReturnValue",
+"embBadge64.ScreenX",
+false
+],
+[
+"embSubtract_Doubl69.ReturnValue",
+"embBadge64.ScreenY",
+false
+],
+[
+"embMultiply_Doubl70.ReturnValue",
+"embBadge64.ScreenW",
+false
+],
+[
+"embMultiply_Doubl71.ReturnValue",
+"embBadge64.ScreenH",
+false
+],
+[
+"embMidSet59.then",
+"embBadge64.execute",
+false
+],
+[
+"embGetEmberKey73.EmberKey",
+"embKeyName72.Key",
+false
+],
+[
+"embKeyName72.ReturnValue",
+"embKeyStr74.InText",
+false
+],
+[
+"DrawArmoury.Hud",
+"embFontH75.self",
+false
+],
+[
+"DrawArmoury.Hud",
+"embKeyCap76.self",
+false
+],
+[
+"embKeyStr74.ReturnValue",
+"embKeyCap76.Text",
+false
+],
+[
+"embMakeColor77.ReturnValue",
+"embKeyCap76.TextColor",
+false
+],
+[
+"embDivide_DoubleD10.ReturnValue",
+"embMultiply_Doubl78.A",
+false
+],
+[
+"embMultiply_Doubl78.ReturnValue",
+"embDivide_DoubleD79.A",
+false
+],
+[
+"embFontH75.OutHeight",
+"embDivide_DoubleD79.B",
+false
+],
+[
+"embDivide_DoubleD79.ReturnValue",
+"embKeyCap76.Scale",
+false
+],
+[
+"embDivide_DoubleD10.ReturnValue",
+"embMultiply_Doubl80.A",
+false
+],
+[
+"embMultiply_Doubl61.ReturnValue",
+"embSubtract_Doubl81.A",
+false
+],
+[
+"embMultiply_Doubl80.ReturnValue",
+"embSubtract_Doubl81.B",
+false
+],
+[
+"embSubtract_Doubl81.ReturnValue",
+"embKeyCap76.ScreenX",
+false
+],
+[
+"embDivide_DoubleD10.ReturnValue",
+"embMultiply_Doubl82.A",
+false
+],
+[
+"embMultiply_Doubl63.ReturnValue",
+"embSubtract_Doubl83.A",
+false
+],
+[
+"embMultiply_Doubl82.ReturnValue",
+"embSubtract_Doubl83.B",
+false
+],
+[
+"embSubtract_Doubl83.ReturnValue",
+"embKeyCap76.ScreenY",
+false
+],
+[
+"embBadge64.then",
+"embKeyCap76.execute",
+false
+],
+[
+"embGetTier86.Tier",
+"embEqualEqual_Int87.A",
+false
+],
+[
+"DrawArmoury.then",
+"embSeq84.execute",
+true
+],
+[
+"embSeq84.then_1",
+"oGetShop528.execute",
+true
+],
+[
+"embCallPush36.then",
+"oGetObsSet480.execute",
+false
+],
+[
+"embEqualEqual_Int87.ReturnValue",
+"oBooleanAND468.A",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 16000
+}

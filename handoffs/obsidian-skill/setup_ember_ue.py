@@ -1,6 +1,6 @@
-# #477 setup (i5, 2026-11-03): run BEFORE pasting ember_merged.txt. Adds the Ember variables to BPC_ObsidianSet, imports the icon, sets the defaults.
+# #477 setup (i5, 2026-11-03): run BEFORE ember_ops_ue.py. Adds the Ember variables to BPC_ObsidianSet, imports the icon, sets the defaults.
 #   py setup_ember_ue.py --dry-run                what is missing (nothing changed)
-#   py setup_ember_ue.py --apply [--bp <path>]    backup BPC_ObsidianSet_bak477 (once), add + compile, NOT saved until the paste compiles
+#   py setup_ember_ue.py --apply [--bp <path>]    backup BPC_ObsidianSet_bak477 (once), add + compile, NOT saved until ember_ops_ue.py compiles clean
 # Tune on the class defaults, no paste: EmberCooldown 15, EmberDamage 80, EmberRadius 600, EmberKey Seven, badge EmberX / EmberY (fraction of the screen).
 # None is a SaveGame variable: the save slot is unchanged. Aborts in PIE.
 import os, sys, unreal
@@ -37,5 +37,5 @@ for k, v in (('EmberCooldown', 15.0), ('EmberDamage', 80.0), ('EmberRadius', 600
              ('EmberKey', KEYD), ('EmberMat', unreal.load_asset(UI + '/M_UI_PotionBadge')), ('EmberIcon', unreal.load_asset(UI + '/T_UI_EmberSkill'))):
     cdo.set_editor_property(k, v)
 print('defaults:', {k: str(cdo.get_editor_property(k))[:60] for k in ('EmberCooldown', 'EmberDamage', 'EmberRadius', 'EmberRefuseAt', 'EmberX', 'EmberY', 'EmberKey', 'EmberMat', 'EmberIcon')})
-print('SETUP OK. Next: paste ember_merged.txt, Refresh All Nodes, compile, save')
+print('SETUP OK. Next: py ember_ops_ue.py --dry-run, then --apply')
 print('EmberKey =', cdo.get_editor_property('EmberKey').get_editor_property('key_name'))

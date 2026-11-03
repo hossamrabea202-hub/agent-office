@@ -12,7 +12,7 @@ __file__ = _pot
 exec(compile(_src, 'gen_potion-preamble', 'exec'))
 HERE = _ME
 G = Graph(); b = B(G, 'emb'); XY[0], XY[1] = 0, 300
-KISL, KTXL = "/Script/CoreUObject.Class'/Script/Engine.KismetInputLibrary'", "/Script/CoreUObject.Class'/Script/Engine.KismetTextLibrary'"
+KISL, KTXL = "\"/Script/CoreUObject.Class'/Script/Engine.KismetInputLibrary'\"", "\"/Script/CoreUObject.Class'/Script/Engine.KismetTextLibrary'\""
 INTV_ = it('v', default='0')
 KEYV = st('v', KEY)
 SET = BPC('/Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet', 'BPC_ObsidianSet')
@@ -50,10 +50,11 @@ fkey = Flow((SEQ2, 'then_0'))
 KEYN = b.call(PCON, 'WasInputKeyJustPressed', [st('Key', KEY), bo('ReturnValue', out=True, default='false')], *P(), target=(pcn, 'ReturnValue'), pure=True, const=True, tag='Key')
 b.wire(get('EmberKey', KEYV), KEYN, 'Key')
 pp = b.lib(GS, 'GetPlayerPawn', [WC(), it('PlayerIndex', default='0'), ob('ReturnValue', PAWN, out=True)], *P(), pure=True, tag='Pawn')
-cast(G, 'embAsHero', HERO, 'AsBP Third Person Character', *P(), pure=True); b.wire((pp, 'ReturnValue'), 'embAsHero', 'Object')
+cast(G, 'embAsHero', HERO, 'AsBP Third Person Character', *P()); b.wire((pp, 'ReturnValue'), 'embAsHero', 'Object')
 HEROH = ('embAsHero', 'AsBP Third Person Character')
 DEAD = b.getm('IsDead', HERO, bo('v', default='false'), HEROH, *P())
 fk, fnk = fkey.iff((KEYN, 'ReturnValue'), 'IfKey')
+fk.go('embAsHero')                                      # impure cast: the Python graph editor has no pure-cast node
 READY = dcmp('GreaterEqual_DoubleDouble', NOW, dget('ShockReadyAt'))
 fy, fr = fk.iff(AND(READY, NOT(DEAD)), 'IfReady')
 setvar(fy, 'ShockReadyAt', DBLV, add(NOW, dget('EmberCooldown')))

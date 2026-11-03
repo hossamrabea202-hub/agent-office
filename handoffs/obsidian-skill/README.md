@@ -1,21 +1,21 @@
 # #477 Obsidian complete set as a skill (i5, 2026-11-03)
 
-**Not in the game. Never compiled:** i5 cannot paste whole graphs, so the Master's compile is the first real test.
+**Not in the game. Never played.** It compiles clean on a temp copy of BPC_ObsidianSet on i5 (`compile True`, 0 failures, 0 errors, 0 warnings). i5's copy has the same 689 nodes as the 20:05 export.
 
 What it does at 4/4 Obsidian: press 7, a shockwave fires (80 damage, 6 m, 15 s cooldown). It no longer fires by itself when you are hit. A round badge shows the cooldown sweep and the key name, and a refused press flashes red with a fail sound. Damage reduction and embers stay always-on. Below 4/4 nothing shows, and tier 3 keeps its automatic shock. The save format is unchanged. Design: `DESIGN.md`.
 
 **Player key rebinding is NOT in this step.** The game has no rebinding system at all. Here the key is one class default (`EmberKey`).
 
-## Steps for the Master (editor open, not in Play)
-1. Fresh export of BPC_ObsidianSet (it changed after the 20:05 export if anything was pasted). Then from this folder:
-   `node ../faults-1205/t3d_to_graph.js <export> EventGraph live_EventGraph.txt`
-   `python ../../tools/applyall/applyall.py merge --live live_EventGraph.txt --manifest ember_manifest.json --out ember_merged.txt` (must say `Validation: OK`).
-2. `py setup_ember_ue.py --dry-run`, then `--apply` (backup `BPC_ObsidianSet_bak477`, variables, icon, defaults).
-3. BPC_ObsidianSet EventGraph: Ctrl+A, BackSpace, Ctrl+V `ember_merged.txt`, Refresh All Nodes, compile, save.
+## Steps for the Master (editor open, not in Play, `git pull` first). No paste
+1. `py setup_ember_ue.py --dry-run`, then `--apply` (variables, icon, defaults; backup `BPC_ObsidianSet_bak477`).
+2. `py ember_ops_ue.py --dry-run`: must print `check OK`. A `STOP` line changes nothing: send it to i5.
+3. `py ember_ops_ue.py --apply`: must print `RESULT compile True | link/value failures [] | new errors []`, then `saved True`.
 
-Compile error: send it to i5, don't debug. Revert: paste the fresh export's `live_EventGraph.txt` back, compile, save. The extra variables do nothing.
+Any failure: it does not save. Restart without saving and send i5 the output, don't debug it.
+Revert after a save: close the editor, copy `Saved/bak472/BPC_ObsidianSet.uasset.fix477` over `Content/CastleDefender/Gameplay/Castle/BPC_ObsidianSet.uasset`. Backup copies are `..._bak477`.
 
-If set v4 (#453) lands first, regenerate on that export: the paste is self-contained, only the manifest's live node names must still exist.
+If set v4 (#453) lands first, it still works as long as the live node names in `ember_ops.json` exist; the dry run checks that.
+`ember_paste.txt` / `ember_manifest.json` are only the generator's intermediate step: don't paste them.
 
 ## Test list (4/4 worn, new game)
 - The badge shows; check its place (`EmberX` / `EmberY` are a first guess, no screenshot yet).
@@ -25,4 +25,4 @@ If set v4 (#453) lands first, regenerate on that export: the paste is self-conta
 - Open Vesna or the Book of Skills (T): 7 does nothing.
 - Save and reload: same pieces, old save loads.
 
-Checked: applyall merge `Validation: OK` on the 20:05 export (+89 nodes, 112 links), fix_impure no change, hero `IsDead` reference same as the live potion graph, setup script on a throwaway Blueprint on i5. The 15 s / 80 / 6 m numbers and the icon (generated placeholder) are first guesses.
+Checked on i5: full setup + ops on a temp copy, compile clean. Not checked: the badge on screen, the key in Play, damage, feel. The 15 s / 80 / 6 m numbers, the badge position and the icon (generated placeholder) are first guesses.
