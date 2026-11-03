@@ -88,13 +88,17 @@ nodes = [n('sdPlayer', 'call', 0, 0, path='/Script/Engine.GameplayStatics:GetPla
          n('sdFull', 'call', 750, 50, path=KM + 'BooleanOR'), n('sdSel1', 'call', 1000, 0, path=KM + 'SelectFloat', defaults=[['B', '0.2']]),
          n('sdSel2', 'call', 1000, 150, path=KM + 'SelectFloat', defaults=[['B', '0.1']]), n('sdRate', 'call', 1300, 0, path=AC + 'SetActorTickInterval'),
          n('sdCmc', 'get', 1300, 250, var='CharacterMovement', cls='/Script/Engine.Character'), n('sdCmcRate', 'call', 1600, 0, path='/Script/Engine.ActorComponent:SetComponentTickInterval'),
+         n('sdAnim', 'call', 0, 1100, path='/Script/Engine.SkeletalMeshComponent:GetAnimInstance'),
+         n('sdSlot', 'call', 300, 1100, path='/Script/Engine.AnimInstance:PlaySlotAnimationAsDynamicMontage',
+           defaults=[['Asset', '/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Attack.A_Attack'], ['SlotNodeName', 'DefaultSlot'], ['BlendInTime', '0.1'], ['BlendOutTime', '0.2']]),
          n('sdFind1', 'call', 0, 500, path='/Script/Engine.GameplayStatics:GetActorOfClass', defaults=[['ActorClass', WMC]]), n('sdReg1', 'get', 300, 600, var='ZombieReg', cls=WMC),
          n('sdFind2', 'call', 0, 800, path='/Script/Engine.GameplayStatics:GetActorOfClass', defaults=[['ActorClass', WMC]]), n('sdReg2', 'get', 300, 900, var='ZombieReg', cls=WMC)]
 L_ = [['sdPlayer.ReturnValue', 'sdDist.OtherActor', False], ['sdDist.ReturnValue', 'sdNear.A', False], ['sdNear.ReturnValue', 'sdFull.A', False], ['sdSeen.ReturnValue', 'sdFull.B', False],
       ['sdFull.ReturnValue', 'sdSel1.bPickA', False], ['sdFull.ReturnValue', 'sdSel2.bPickA', False], ['sdSel1.ReturnValue', 'sdRate.TickInterval', False], ['sdSel2.ReturnValue', 'sdCmcRate.TickInterval', False],
       ['sdCmc.CharacterMovement', 'sdCmcRate.self', False], ['CX_135.then', 'sdRate.execute', True], ['sdRate.then', 'sdCmcRate.execute', False], ['sdCmcRate.then', 'Unstick220In.execute', False],
+      ['CX_157.Mesh', 'sdAnim.self', False], ['sdAnim.ReturnValue', 'sdSlot.self', False], ['CX_172.then', 'sdSlot.execute', True], ['sdSlot.then', 'CX_178.execute', False],
       ['CX_143.then', 'sdFind1.execute', True], ['sdFind1.then', 'CX_145.Exec', True], ['sdFind1.ReturnValue', 'sdReg1.self', False], ['sdReg1.ZombieReg', 'CX_145.Array', True],
       ['CX_452.then', 'sdFind2.execute', True], ['sdFind2.then', 'CX_454.Exec', True], ['sdFind2.ReturnValue', 'sdReg2.self', False], ['sdReg2.ZombieReg', 'CX_454.Array', True]]
-dump('ops_D_soldier.json', {'fix': 'D', 'bp': P_S, 'vars': [], 'nodes': nodes, 'links': L_, 'remove': ['CX_144', 'CX_453'], 'set_live': [], 'dx': 0, 'dy': 20000})
+dump('ops_D_soldier.json', {'fix': 'D', 'bp': P_S, 'vars': [], 'nodes': nodes, 'links': L_, 'remove': ['CX_144', 'CX_453', 'CX_173'], 'set_live': [], 'dx': 0, 'dy': 20000})
 for f in os.listdir(TMP): os.remove(os.path.join(TMP, f))
 os.rmdir(TMP)

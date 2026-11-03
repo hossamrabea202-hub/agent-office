@@ -200,6 +200,20 @@
    "to": "zb472BackToABP13.self"
   },
   {
+   "from": "K2Node_IfThenElse_ZB10.else",
+   "to": "zb472ResumeABP14.execute",
+   "replace": true
+  },
+  {
+   "from": "zb472ResumeABP14.then",
+   "to": "CX_300.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_111.Mesh",
+   "to": "zb472ResumeABP14.self"
+  },
+  {
    "from": "CX_212.then",
    "to": "Ps_CX_205.execute",
    "replace": true,
@@ -207,31 +221,31 @@
   },
   {
    "from": "CX_194.else",
-   "to": "zb472IfCauser15.execute",
+   "to": "zb472IfCauser16.execute",
    "replace": true
   },
   {
-   "from": "zb472IfCauser15.else",
+   "from": "zb472IfCauser16.else",
    "to": "CX_200.execute",
    "replace": true
   },
   {
-   "from": "zb472IfBehind23.then",
+   "from": "zb472IfBehind24.then",
    "to": "Ps_CX_209.execute",
    "replace": true
   },
   {
-   "from": "zb472IfBehind23.else",
+   "from": "zb472IfBehind24.else",
    "to": "CX_200.execute",
    "replace": true
   },
   {
    "from": "K2Node_Event_ZB60.DamageCauser",
-   "to": "zb472IsValid14.Object"
+   "to": "zb472IsValid15.Object"
   },
   {
    "from": "K2Node_Event_ZB60.DamageCauser",
-   "to": "zb472CauserLoc16.self"
+   "to": "zb472CauserLoc17.self"
   }
  ]
 }

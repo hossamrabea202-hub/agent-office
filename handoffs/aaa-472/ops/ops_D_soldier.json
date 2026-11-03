@@ -100,6 +100,39 @@
 "path": "/Script/Engine.ActorComponent:SetComponentTickInterval"
 },
 {
+"id": "sdAnim",
+"kind": "call",
+"x": 0,
+"y": 1100,
+"defaults": [],
+"path": "/Script/Engine.SkeletalMeshComponent:GetAnimInstance"
+},
+{
+"id": "sdSlot",
+"kind": "call",
+"x": 300,
+"y": 1100,
+"defaults": [
+[
+"Asset",
+"/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Attack.A_Attack"
+],
+[
+"SlotNodeName",
+"DefaultSlot"
+],
+[
+"BlendInTime",
+"0.1"
+],
+[
+"BlendOutTime",
+"0.2"
+]
+],
+"path": "/Script/Engine.AnimInstance:PlaySlotAnimationAsDynamicMontage"
+},
+{
 "id": "sdFind1",
 "kind": "call",
 "x": 0,
@@ -206,6 +239,26 @@ false
 false
 ],
 [
+"CX_157.Mesh",
+"sdAnim.self",
+false
+],
+[
+"sdAnim.ReturnValue",
+"sdSlot.self",
+false
+],
+[
+"CX_172.then",
+"sdSlot.execute",
+true
+],
+[
+"sdSlot.then",
+"CX_178.execute",
+false
+],
+[
 "CX_143.then",
 "sdFind1.execute",
 true
@@ -248,7 +301,8 @@ true
 ],
 "remove": [
 "CX_144",
-"CX_453"
+"CX_453",
+"CX_173"
 ],
 "set_live": [],
 "dx": 0,

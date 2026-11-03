@@ -56,9 +56,11 @@ Each soldier runs its whole AI on Event Tick, every frame (162 exec nodes), incl
 - reads the zombies from the host manager's ZombieReg instead of scanning, in CX_144 and CX_453 (it needs fix A's variables, so run it after);
 - beyond 30 m AND not rendered: soldier AI 5 Hz, CharacterMovement 10 Hz. A soldier on screen or near the player keeps full rate.
 
+- the attack clip a soldier forces on a zombie (CX_173) plays as a slot montage instead of PlayAnimation, so the zombie stays in its AnimBP and can't freeze.
+
 The 5 soldier-on-soldier and 2 cannon scans stay: the soldier AI stores its state in component positions, and rewriting that is too risky blind.
 
-Tested on a copy, links only: all 20 made, 0 failures. Not compiled on the copy, because broken self-referencing copies crash the editor. Built on i5's soldier export; if yours differs, the dry run stops and changes nothing.
+Tested on a copy, links only: all made, 0 failures. Not compiled on the copy, because broken self-referencing copies crash the editor. Built on i5's soldier export; if yours differs, the dry run stops and changes nothing.
 
 Test (Play): soldiers fight, hold formation, go up on the wall and man the cannons as before. Walk 30 m+ away, look away, come back: they are still fighting where expected, no teleports on screen.
 
@@ -66,4 +68,4 @@ Revert: `Saved/bak472/BP_SoldierSword.uasset.fixD`.
 
 ## Caught while building
 - Fix C's hit-stop first used CustomTimeDilation. BP_SoldierSword uses that value on a zombie as a state flag (0.999 = engaged), so it would have broken soldier fights. It now uses bPauseAnims. Other BPs could read it too; I checked BP_Zombie, BP_ArmySplit, BP_BattleDirector (none).
-- Soldiers also call PlayAnimation on a zombie's mesh, which puts that zombie in single-node mode. Fix B's death path handles it (SetAnimationMode), but stagger montages on such a zombie don't show until it dies. That was already so and is not fixed here.
+- Soldiers call PlayAnimation on a zombie's mesh in 15 % of engagements (BP_SoldierSword CX_173), leaving that zombie out of its AnimBP: by the graph it should freeze in the end pose and slide. Fixed twice: fix D removes the call, fix B restores AnimBP mode on every resume. Found by reading the graph, not seen in Play.

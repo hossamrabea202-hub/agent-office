@@ -40,6 +40,11 @@ def gen(live):
                 bo('bForceInitAnimScriptInstance', default='false')], 0, 200, tag='BackToABP')
     animnode = anim.split('.')[0]
     rw += [R('K2Node_CallFunction_ZB73.then', sm + '.execute'), R(sm + '.then', 'CX_123.execute'), {'from': '%s.%s' % L[(animnode, 'self')][0], 'to': sm + '.self'}]
+    # BP_SoldierSword CX_173 (15 % of engagements) calls PlayAnimation on a zombie's mesh: single-node mode, and nothing brought it back since the montage
+    # conversion, so that zombie stays frozen in A_Attack's last pose. Safety net on every resume: same force = false call, no-op in AnimBP mode.
+    sm2 = b.call(SKEL, 'SetAnimationMode', [{'name': 'InAnimationMode', 'cat': 'byte', 'obj': ENUM('EAnimationMode'), 'default': 'AnimationBlueprint'},
+                 bo('bForceInitAnimScriptInstance', default='false')], 0, 250, tag='ResumeABP')
+    rw += [R('K2Node_IfThenElse_ZB10.else', sm2 + '.execute'), R(sm2 + '.then', 'CX_300.execute'), {'from': '%s.%s' % L[(animnode, 'self')][0], 'to': sm2 + '.self'}]
     # hit from behind: IsValid(causer) first, Blueprint's AND does not short-circuit
     causer = 'K2Node_Event_ZB60.DamageCauser'
     iv = b.valid(None, 0, 400); ifc = b.branch(iv, 300, 300, tag='IfCauser')

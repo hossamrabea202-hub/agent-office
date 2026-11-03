@@ -369,7 +369,24 @@
 ]
 },
 {
-"id": "zb472IsValid14",
+"id": "zb472ResumeABP14",
+"x": 0,
+"y": 250,
+"kind": "call",
+"path": "/Script/Engine.SkeletalMeshComponent:SetAnimationMode",
+"defaults": [
+[
+"InAnimationMode",
+"AnimationBlueprint"
+],
+[
+"bForceInitAnimScriptInstance",
+"false"
+]
+]
+},
+{
+"id": "zb472IsValid15",
 "x": 0,
 "y": 400,
 "kind": "call",
@@ -377,14 +394,14 @@
 "defaults": []
 },
 {
-"id": "zb472IfCauser15",
+"id": "zb472IfCauser16",
 "x": 300,
 "y": 300,
 "kind": "branch",
 "defaults": []
 },
 {
-"id": "zb472CauserLoc16",
+"id": "zb472CauserLoc17",
 "x": 0,
 "y": 600,
 "kind": "call",
@@ -392,7 +409,7 @@
 "defaults": []
 },
 {
-"id": "zb472MyLoc17",
+"id": "zb472MyLoc18",
 "x": 0,
 "y": 750,
 "kind": "call",
@@ -400,7 +417,7 @@
 "defaults": []
 },
 {
-"id": "zb472MyFwd18",
+"id": "zb472MyFwd19",
 "x": 0,
 "y": 900,
 "kind": "call",
@@ -408,7 +425,7 @@
 "defaults": []
 },
 {
-"id": "zb472Subtract_Vecto19",
+"id": "zb472Subtract_Vecto20",
 "x": 300,
 "y": 650,
 "kind": "call",
@@ -425,7 +442,7 @@
 ]
 },
 {
-"id": "zb472Normal20",
+"id": "zb472Normal21",
 "x": 550,
 "y": 650,
 "kind": "call",
@@ -442,7 +459,7 @@
 ]
 },
 {
-"id": "zb472Dot_VectorVect21",
+"id": "zb472Dot_VectorVect22",
 "x": 800,
 "y": 750,
 "kind": "call",
@@ -459,7 +476,7 @@
 ]
 },
 {
-"id": "zb472Less_DoubleDou22",
+"id": "zb472Less_DoubleDou23",
 "x": 1050,
 "y": 750,
 "kind": "call",
@@ -476,7 +493,7 @@
 ]
 },
 {
-"id": "zb472IfBehind23",
+"id": "zb472IfBehind24",
 "x": 1300,
 "y": 300,
 "kind": "branch",
@@ -485,48 +502,48 @@
 ],
 "links": [
 [
-"zb472IsValid14.ReturnValue",
-"zb472IfCauser15.Condition",
+"zb472IsValid15.ReturnValue",
+"zb472IfCauser16.Condition",
 false
 ],
 [
-"zb472CauserLoc16.ReturnValue",
-"zb472Subtract_Vecto19.A",
+"zb472CauserLoc17.ReturnValue",
+"zb472Subtract_Vecto20.A",
 false
 ],
 [
-"zb472MyLoc17.ReturnValue",
-"zb472Subtract_Vecto19.B",
+"zb472MyLoc18.ReturnValue",
+"zb472Subtract_Vecto20.B",
 false
 ],
 [
-"zb472Subtract_Vecto19.ReturnValue",
-"zb472Normal20.A",
+"zb472Subtract_Vecto20.ReturnValue",
+"zb472Normal21.A",
 false
 ],
 [
-"zb472MyFwd18.ReturnValue",
-"zb472Dot_VectorVect21.A",
+"zb472MyFwd19.ReturnValue",
+"zb472Dot_VectorVect22.A",
 false
 ],
 [
-"zb472Normal20.ReturnValue",
-"zb472Dot_VectorVect21.B",
+"zb472Normal21.ReturnValue",
+"zb472Dot_VectorVect22.B",
 false
 ],
 [
-"zb472Dot_VectorVect21.ReturnValue",
-"zb472Less_DoubleDou22.A",
+"zb472Dot_VectorVect22.ReturnValue",
+"zb472Less_DoubleDou23.A",
 false
 ],
 [
-"zb472Less_DoubleDou22.ReturnValue",
-"zb472IfBehind23.Condition",
+"zb472Less_DoubleDou23.ReturnValue",
+"zb472IfBehind24.Condition",
 false
 ],
 [
-"zb472IfCauser15.then",
-"zb472IfBehind23.execute",
+"zb472IfCauser16.then",
+"zb472IfBehind24.execute",
 false
 ],
 [
@@ -725,38 +742,53 @@ true
 false
 ],
 [
+"K2Node_IfThenElse_ZB10.else",
+"zb472ResumeABP14.execute",
+true
+],
+[
+"zb472ResumeABP14.then",
+"CX_300.execute",
+true
+],
+[
+"CX_111.Mesh",
+"zb472ResumeABP14.self",
+false
+],
+[
 "CX_212.then",
 "Ps_CX_205.execute",
 true
 ],
 [
 "CX_194.else",
-"zb472IfCauser15.execute",
+"zb472IfCauser16.execute",
 true
 ],
 [
-"zb472IfCauser15.else",
+"zb472IfCauser16.else",
 "CX_200.execute",
 true
 ],
 [
-"zb472IfBehind23.then",
+"zb472IfBehind24.then",
 "Ps_CX_209.execute",
 true
 ],
 [
-"zb472IfBehind23.else",
+"zb472IfBehind24.else",
 "CX_200.execute",
 true
 ],
 [
 "K2Node_Event_ZB60.DamageCauser",
-"zb472IsValid14.Object",
+"zb472IsValid15.Object",
 false
 ],
 [
 "K2Node_Event_ZB60.DamageCauser",
-"zb472CauserLoc16.self",
+"zb472CauserLoc17.self",
 false
 ]
 ],

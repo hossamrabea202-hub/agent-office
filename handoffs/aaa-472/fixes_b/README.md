@@ -8,7 +8,8 @@ This is the corrected problem 3. `ABP_Zombie` already exists (blend space -> Def
 ## What changes
 1. **Death:** the 12 PlayAnimation calls dropped the zombie out of AnimBP mode with a one-frame pop. They become Montage_Play on `AM_ZDeath_*`, blended in over 0.15 s and holding the last pose. Same clips, same odds.
 2. **WallBreaker:** it starts a PlayAnimation in its own BeginPlay, so it sits in single-node mode where a montage would not show. The death path first calls `SetAnimationMode(AnimationBlueprint, force = false)`: a no-op for all other zombies. Its death pose may still pop once, as it does today.
-3. **Hit from behind:** when the causer is behind (dot < -0.25) the stagger plays ZA_Taking_Damage_C; otherwise the old random pick, minus C (that slot now plays B).
+3. **Stuck zombies:** BP_SoldierSword (CX_173) calls PlayAnimation on a zombie's mesh in 15 % of engagements. Since the montage conversion nothing returns that zombie to AnimBP mode, so by the graph it stays frozen in the end pose and slides (not seen in Play; please watch for it). Every resume now restores AnimBP mode, and fix D stops the soldier from doing it.
+4. **Hit from behind:** when the causer is behind (dot < -0.25) the stagger plays ZA_Taking_Damage_C; otherwise the old random pick, minus C (that slot now plays B).
    - **Why C:** its hips jolt +17 on Y at the first sample, where mesh yaw -90 makes +Y the actor's forward. B, D, E, F jolt -8 to -24. This comes from sampled bone data only: **nobody has seen it yet**. If it looks wrong, it is a one-rewire change.
 
 Left / right is not possible with these clips: they have almost no sideways hip motion.
@@ -24,6 +25,7 @@ Left / right is not possible with these clips: they have almost no sideways hip 
 - [ ] Kill a WallBreaker: its death plays.
 - [ ] Risen soldiers die correctly (the knight mesh follows through leader pose).
 - [ ] Gore: limbs still come off on kills.
+- [ ] Zombies fighting soldiers keep animating and walk normally afterwards (no frozen, sliding zombies).
 - [ ] Hit from behind: the zombie jolts forward. Hit from the front: it recoils back.
 - [ ] Log: no "Currently in Animation Blueprint mode" lines left, no new `Accessed None`.
 
