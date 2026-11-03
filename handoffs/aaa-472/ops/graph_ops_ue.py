@@ -7,26 +7,30 @@
 import json, os, sys, unreal
 A = sys.argv[1:]
 RAW = open(A[0] if os.path.isabs(A[0]) else os.path.join(os.path.dirname(os.path.abspath(__file__)), A[0]), encoding='utf-8').read()
-# --copy <folder>: i5's test mode. BP_Zombie becomes a temporary copy, and BP_ZombieWaveManager a clean stub with only the new variables. Never a copy of the manager:
-# compiling a broken copy of a Blueprint that references its own class crashed the editor twice. Links into live nodes typed to the real manager then fail by design.
+# --copy <folder>: i5's test mode. BP_Zombie becomes a temporary copy, and BP_ZombieWaveManager a clean stub with only the new variables; links into live nodes typed to the
+# real manager then fail by design. Never delete a copy and run this again in the same editor session (dead class + ListAvailableNodes = fatal, 22:45): use a new folder.
 if '--copy' in A:
     C_ = A[A.index('--copy') + 1]; EA = unreal.EditorAssetLibrary
     WMP, ZP = '/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager', '/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie'
-    if not EA.does_asset_exist(C_ + '/WMstub'):
+    if '--wmcopy' in A:      # test the manager script itself: a real copy. Always a NEW folder: a deleted copy leaves a dead class that ListAvailableNodes crashes on
+        EA.duplicate_asset(WMP, C_ + '/WM472d')
+        OPS = json.loads(RAW.replace(WMP + '.BP_ZombieWaveManager_C', C_ + '/WM472d.WM472d_C').replace('"' + WMP + '"', '"' + C_ + '/WM472d"'))
+        RAW = None
+    elif not EA.does_asset_exist(C_ + '/WMstub'):
         st = unreal.BlueprintEditorLibrary.create_blueprint_asset_with_parent(C_ + '/WMstub', unreal.Actor); B_ = unreal.BlueprintEditorLibrary
         ob_ = lambda p: B_.get_object_reference_type(unreal.load_asset(p).generated_class())
         for nm, ty in (('ZombieReg', B_.get_array_type(ob_(ZP))), ('SoldierCache', B_.get_array_type(ob_('/Game/CastleDefender/Characters/Knight/BP_SoldierSword'))),
                        ('FarmerCache', B_.get_array_type(ob_('/Game/CastleDefender/Gameplay/Farm/BP_Farmer'))), ('GateCache', ob_('/Game/CastleDefender/Gameplay/Castle/BP_CastleGateControl'))):
             B_.add_member_variable(st, nm, ty)
         B_.compile_blueprint(st); EA.save_asset(C_ + '/WMstub', only_if_is_dirty=False)
-    if not EA.does_asset_exist(C_ + '/Z472c'): EA.duplicate_asset(ZP, C_ + '/Z472c')
-    RAW = RAW.replace(WMP + '.BP_ZombieWaveManager_C', C_ + '/WMstub.WMstub_C').replace('"' + WMP + '"', '"' + C_ + '/WMstub"')
-    RAW = RAW.replace(ZP + '.BP_Zombie_C', C_ + '/Z472c.Z472c_C').replace('"' + ZP + '"', '"' + C_ + '/Z472c"')
+    if RAW is not None and not EA.does_asset_exist(C_ + '/Z472c'): EA.duplicate_asset(ZP, C_ + '/Z472c')
+    if RAW is not None: RAW = RAW.replace(WMP + '.BP_ZombieWaveManager_C', C_ + '/WMstub.WMstub_C').replace('"' + WMP + '"', '"' + C_ + '/WMstub"')
+    if RAW is not None: RAW = RAW.replace(ZP + '.BP_Zombie_C', C_ + '/Z472c.Z472c_C').replace('"' + ZP + '"', '"' + C_ + '/Z472c"')
     SP = '/Game/CastleDefender/Characters/Knight/BP_SoldierSword'
-    if '"' + SP + '"' in RAW:
+    if RAW is not None and '"' + SP + '"' in RAW:
         if not EA.does_asset_exist(C_ + '/S472c'): EA.duplicate_asset(SP, C_ + '/S472c')
         RAW = RAW.replace('"' + SP + '"', '"' + C_ + '/S472c"')
-OPS = json.loads(RAW)
+if RAW is not None: OPS = json.loads(RAW)
 BEL, PL, GE, E = unreal.BlueprintEditorLibrary, unreal.BlueprintGraphPinLibrary, unreal.BlueprintGraphEditor, unreal.EditorAssetLibrary
 PATH = OPS['bp']; bp = unreal.load_asset(PATH); ge = GE.get_graph_editor(BEL.find_event_graph(bp))
 live = {n.get_name(): n for n in ge.list_all_nodes()}

@@ -11,11 +11,10 @@ Why it is better: UE 5.8 Python edits the live graph directly. It can't overwrit
 | The 5 failed links | **test artefacts:** 3 go into nodes typed to the real wave manager (the test uses a stub), 2 add a copy of the zombie to an array of real zombies. The 3 compile errors are those same nodes (CX_399, CX_82, CX_85) |
 | Death montage in Simulate | plays, holds the last pose, never stands back up |
 | Flinch in Simulate | the looping crawl keeps playing through it (bStopAllMontages = false); the pose offset itself was not measured |
-| `ops_A_wm.json` on a manager copy | ran once with 2 failures: a getter that came out as a self read (fixed since, the fix alone tested separately) and 1 copy artefact |
+| `ops_A_wm.json`, final form, on a manager copy | all links and values made, 0 failures, 0 new errors. The copy's 6 old errors (its self-typed nodes against the real class) make compile report False; they exist before the fix too |
 
 **NOT tested:**
-- `ops_A_wm.json` end to end in its final form. **Compiling broken copies of the manager crashed the i5 editor twice**, and the real BP in the shared session is off limits for tests. Your run is its first real compile.
-- A clean compile of the zombie script on the real Blueprint.
+- A clean compile (`compile True`) of either script on the real Blueprints: only your run can show that.
 - Any of this in a real wave.
 
 If the run prints failures or errors, it does not save.
@@ -60,7 +59,7 @@ Each soldier runs its whole AI on Event Tick, every frame (162 exec nodes), incl
 
 The 5 soldier-on-soldier and 2 cannon scans stay: the soldier AI stores its state in component positions, and rewriting that is too risky blind.
 
-Tested on a copy, links only: all made, 0 failures. Not compiled on the copy, because broken self-referencing copies crash the editor. Built on i5's soldier export; if yours differs, the dry run stops and changes nothing.
+Tested on a copy, links only: all made, 0 failures. Not compiled on the copy. Built on i5's soldier export; if yours differs, the dry run stops and changes nothing.
 
 Test (Play): soldiers fight, hold formation, go up on the wall and man the cannons as before. Walk 30 m+ away, look away, come back: they are still fighting where expected, no teleports on screen.
 

@@ -6,7 +6,7 @@ Everything below is pushed. **Nothing is in the game yet, nothing has been measu
 | What | Where | How tested |
 |---|---|---|
 | Frozen tentacles + hit reaction | `handoffs/tentacle-anim-457/FIX_FROZEN_README.md` | 2 scripts. Copies compile clean; idle + hit montage seen in Simulate. Real map not checked |
-| A wave manager | `ops/ops_A_wm.json` | final form NOT run end to end (manager copies crash the editor) |
+| A wave manager | `ops/ops_A_wm.json` | final form on a copy: 0 failures, 0 new errors (6 old copy-only errors) |
 | A + B + C zombie | `ops/ops_ABC_zombie.json`, assets first | 114 nodes / 206 links on a copy; only 5 links fail, all copy artefacts |
 | D soldier | `ops/ops_D_soldier.json`, after A | links only on a copy, not compiled |
 
@@ -20,11 +20,11 @@ Instructions: `ops/README.md`. The paste versions in `fixes*/` are superseded; k
 ## Lessons (also in memory: i5-graph-python-api)
 - UE 5.8 Python edits graphs: `unreal.BlueprintGraphEditor`. Far better than pastes.
 - `Simulate` on `/Engine/Maps/Entry` with probe SkeletalMeshActors runs animation for real. It found the tentacle bug.
-- **Compiling a broken copy of a Blueprint that references its own class crashed i5 twice.** Use a clean stub (`--copy`) or `--nocompile`.
+- **Crash at 22:45 (stack read by the other i5 session):** deleting a temp BP and then calling `ListAvailableNodes` touches its dead class. Fatal. Use a new folder, never delete + rerun in one editor session. The 22:05 crash also followed a temp-copy delete; its exact call is unknown.
 - Editing the real BPs in the Multi-User session is refused by the permission classifier. Copies only.
 - After a crash the editor can sit on "Restore Packages": stop it, rename `Saved/Autosaves/PackageRestoreData.json`, run `JOIN_LIVE.bat`.
 - Long bash heredocs get cut off: write files with the Write tool.
-- Another i5 session shares this editor's inbox (#461, #440 work). Check `ue_inbox/_log.txt` before a Simulate.
+- Another i5 session (`local_34eb18ca`) shares this editor's inbox and holds #461, #469, Obsidian skill, #458, #440, #453 + the after-save health check. This session holds the seat ticks, BP_Zombie, BP_ZombieWaveManager, ABP_Zombie. Check `ue_inbox/_log.txt` before a Simulate.
 
 ## Next, once A compiles
 1. Hit stack: camera kick by weapon, impact audio layers (needs hero export).
