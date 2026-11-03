@@ -1,9 +1,10 @@
 {
- "working": "faults 1205: F1 weaponsmith over Vesna, then F9",
- "tokens": 640000,
+ "working": "#469 stone sizes per asset (waiting owners' numbers); faults F1 + F9",
+ "tokens": 700000,
  "ctx": 1000000,
  "since": "2026-11-03T07:31:36Z",
  "done": [
+  "#469 stairs re-baked true size (hand-off) [30% tokens left]",
   "F12 + F11 handed to i9 (pre-checked) [36% tokens left]",
   "F3 root cause + data fix handed to i9 [42% tokens left]",
   "#455 fire pit fixed (hand-off); #450 hit-react clip + preview [45% tokens left]",
@@ -12,8 +13,7 @@
   "#457 tentacle idle polish: 3 clips imported, before/after posted [78% tokens left]",
   "#453 BPC_ObsidianSet v4 + setup (pre-checked, held for Vesna rows + meshes) [83% tokens left]",
   "#301 stairs zip for i9 + W2 keep-look MIs, lit A/B posted [90% tokens left]",
-  "#301 AAA stairs all 9 flights (unsaved, i9 to save); sync 1103_k..n [12% tokens left]",
-  "#451 walk-around pass 1: 6 batches applied in session (not saved), 4 tries reverted, TGA card 452 [63% tokens left]"
+  "#301 AAA stairs all 9 flights (unsaved, i9 to save); sync 1103_k..n [12% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T19:09:57Z",
+ "asOf": "2026-11-03T19:58:00Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
