@@ -34,5 +34,5 @@
 
 ## Decisions
 - **Decision: fixed only where the intent is clear** from the names, numbering and a dangling wire next to the cut node.
-- **Decision: left alone, may be deliberate or replaced:** BP_Crossbow's old casts (newer CX_ versions sit next to them), the hero's landing DisableInput chain (CX_12) and fire light cast (sfAsLight7), BP_ZombieHUD and BP_SkillTreeHUD cut draws (HUD belongs to #458), BP_TorchBearer (its T3D is hard to read; needs a closer look).
+- **Decision: left alone, may be deliberate or replaced:** BP_Crossbow's old casts (newer CX_ versions sit next to them), the hero's landing DisableInput chain (CX_12) and fire light cast (sfAsLight7), BP_ZombieHUD and BP_SkillTreeHUD cut draws (HUD belongs to #458), BP_TorchBearer (its Step logic stops at `tbIfMoreTorches43` with both outputs empty, so at-torch and go-home never run; no walking node exists, so it looks unfinished rather than miswired, and one link would not fix it. Owner of weather-226 to finish it).
 - **Decision: not touched:** the other "literal index next to AND" reads in BPC_Quests, BP_Forge, BPC_CastleUpgrades, BPC_ObsidianSet: their arrays look fixed-size, so they should not fire. A Play log will show if any do.
