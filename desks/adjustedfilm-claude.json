@@ -1,6 +1,6 @@
 {
- "working": "#458 HUD polish: audit",
- "tokens": 220000,
+ "working": "#458 HUD polish: audit done on Nov 2 export; waiting on i9: fresh BP_ZombieHUD export + 4 screenshots",
+ "tokens": 245000,
  "ctx": 1000000,
  "since": "2026-11-03T07:31:36Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T11:35:50Z",
+ "asOf": "2026-11-03T11:38:06Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
