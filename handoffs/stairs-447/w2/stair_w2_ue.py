@@ -8,7 +8,9 @@
 #   py stair_w2_ue.py where Stair279_03                              print the actor bounds (for the A/B camera)
 import sys, unreal
 A = sys.argv[1:]; mode = A[0]
-BUILD = 'C:/Users/hossam.rabea/agent-office/handoffs/stairs-447/build451/'
+BUILD = next((h for h in ('C:/Users/hossam.rabea/agent-office/handoffs/stairs-447/build451/',      # i5
+                       'C:/Users/hossa/Documents/agent-office/handoffs/stairs-447/build451/')     # i9 Master
+              if __import__('os').path.isdir(h)), None)
 DST = '/Game/CastleDefender/Environment/Castle/StairsBaked451'
 PARENT = '/Game/CastleDefender/Environment/Castle/KeepEntrance/M_KeepEntrance_Baked'
 LOOK = '/Game/CastleDefender/Environment/Castle/KeepMasonry/MI_CastleAshlar'
