@@ -1,9 +1,10 @@
 {
- "working": "waiting on i9 (save stairs) + Alien OK on W2; next #453 wiring",
- "tokens": 98000,
+ "working": "#452 forge re-UV/re-bake; waiting i9 save stairs + Alien OK W2",
+ "tokens": 172000,
  "ctx": 1000000,
  "since": "2026-11-03T07:31:36Z",
  "done": [
+  "#453 BPC_ObsidianSet v4 + setup (pre-checked, held for Vesna rows + meshes) [83% tokens left]",
   "#301 stairs zip for i9 + W2 keep-look MIs, lit A/B posted [90% tokens left]",
   "#301 AAA stairs all 9 flights (unsaved, i9 to save); sync 1103_k..n [12% tokens left]",
   "#451 walk-around pass 1: 6 batches applied in session (not saved), 4 tries reverted, TGA card 452 [63% tokens left]",
@@ -12,8 +13,7 @@
   "#451 batch 1 (58 duplicates hidden) + batch 2 (36 original castle blocks restored), in session, not saved [82% tokens left]",
   "synced i9 zips i..1103_b onto i5 (backed up) [89% tokens left]",
   "P1 #433 + #437 handed to i9 (dry-run on live graphs, shield preview) [10% tokens left]",
-  "P1 #433 + #437 prepped (cause found, scripts pre-checked) [14% tokens left]",
-  "gold tick-up built + handed off (BPC_GoldTick) [21% tokens left]"
+  "P1 #433 + #437 prepped (cause found, scripts pre-checked) [14% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T08:03:26Z",
+ "asOf": "2026-11-03T08:09:53Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
