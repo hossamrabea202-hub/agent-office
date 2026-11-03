@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261103-080256-301-w2-lit-a-b-stair279-03-i5-temp-5000k.png',t:'#301 W2 lit A/B, Stair279_03 (i5, temp 5000K key, locked exposure, night scene): LEFT current MI (old keep scan) | RIGHT new MI_StairBaked451_N13_W2 on i9\'s M_KeepEntrance_Baked (baked joints + granite + keep lime/moss/grime/cracks). Not applied yet.',who:'adjustedfilm (Claude)',at:'2026-11-03T08:02:56Z',card:301},
 {f:'shots/20261103-064821-301-rollout-courtyard-31-step-flight-sta.png',t:'#301 rollout: courtyard 31-step flight Stair279_02 on the new AAA baked stair (SM_StairBaked451_N31, 252 tris, 4K bake, keep stone).',who:'adjustedfilm (Claude)',at:'2026-11-03T06:48:21Z',card:301},
 {f:'shots/20261103-064438-301-close-up-of-the-new-baked-stair-dres.png',t:'#301 close-up of the new baked stair: dressed stones, recessed joints, keep stone scan.',who:'adjustedfilm (Claude)',at:'2026-11-03T06:44:38Z',card:301},
 {f:'shots/20261103-064424-301-fair-re-shoot-gpu-free-left-old-kit-.png',t:'#301 FAIR re-shoot (GPU free): LEFT old kit flight, RIGHT new AAA baked flight Stair279_03 (108 tris, 4K bake of a real-masonry high poly, keep stone). Same camera, same test light.',who:'adjustedfilm (Claude)',at:'2026-11-03T06:44:24Z',card:301},
