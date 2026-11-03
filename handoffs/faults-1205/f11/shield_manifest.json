@@ -1,0 +1,20 @@
+{
+ "blueprint": "BPC_ShieldKit",
+ "note": "F11: no block roll without a worn shield (Worn = -1 read BlockChance[-1])",
+ "pastes": [
+  "shield_guard_paste.txt"
+ ],
+ "rewires": [
+  {
+   "from": "vSetLastMult56.then",
+   "to": "f11sIfShieldWorn3.execute",
+   "replace": true,
+   "note": "was -> vIfBlocked65"
+  },
+  {
+   "from": "f11sIfShieldWorn3.then",
+   "to": "vIfBlocked65.execute",
+   "replace": true
+  }
+ ]
+}

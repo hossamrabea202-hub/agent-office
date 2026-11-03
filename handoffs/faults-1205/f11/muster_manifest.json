@@ -1,0 +1,36 @@
+{
+ "blueprint": "BPC_Muster",
+ "note": "F11: pad the recruit queue to 3 before the per-slot reads (needs member variable RQ3: int array)",
+ "pastes": [
+  "muster_rq3_paste.txt"
+ ],
+ "rewires": [
+  {
+   "from": "vSetIOreBN245.then",
+   "to": "f11mSetRQ32.execute",
+   "replace": true,
+   "note": "was -> vSetIState247"
+  },
+  {
+   "from": "f11mResizeRQ33.then",
+   "to": "vSetIState247.execute",
+   "replace": true
+  },
+  {
+   "from": "f11mGetRQ38.RQ3",
+   "to": "vItem210.Array",
+   "replace": true,
+   "note": "was vGetRQ136"
+  },
+  {
+   "from": "f11mGetRQ38.RQ3",
+   "to": "vItem216.Array",
+   "replace": true
+  },
+  {
+   "from": "f11mGetRQ38.RQ3",
+   "to": "vItem222.Array",
+   "replace": true
+  }
+ ]
+}

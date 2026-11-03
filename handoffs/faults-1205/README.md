@@ -31,3 +31,16 @@
 - **Fix:** BPC_WeaponKit > EventGraph, node `wkAdd_IntInt56` (the Add (int) just before the `Data` GET that feeds Set Equipped): set **B = 0**. Compile, save.
 - Test: equip a non-default weapon, save, reload. The same weapon is equipped, and the log is free of "index 2 of array Data".
 - Found with `t3d_arrays.js` (lists every array read in a whole-BP T3D, its array, its index source and its consumer).
+
+## F11 log errors in BPC_Muster (RQ) and BPC_ShieldKit (BlockChance): READY (pre-checked merges)
+- **Muster** "index 0..2 of array RQ length 0":
+  - SetIState / SetINote / SetISub read RQ[0..2] behind `BooleanAND(RQ.Length > k, RQ[k] == 2)`. Blueprint's AND evaluates BOTH inputs, so the guard never protected the read.
+  - Fix: copy RQ into a new RQ3, resize it to at least 3 (padding 0, never the 2 compared), and point the 3 reads at RQ3. Same result, no bad read.
+- **ShieldKit** "index -1 of BlockChance": the hit roll read BlockChance[Worn] with Worn = -1 (no shield). Fix: `Branch(Worn >= 0)` in front of the roll. Its else does nothing, like the roll's own empty else.
+- Files `f11/`: `gen_f11.py`, the small pastes, the manifests, and `*_merged.txt`. Merged with applyall on the live EventGraphs extracted from i9's export (`t3d_to_graph.js`): Validation OK, +7 / +3 links as expected; fix_impure: nothing to change.
+- Steps (i9):
+  1. `py handoffs/faults-1205/f11/add_rq3_ue.py` (adds the RQ3 int array to BPC_Muster).
+  2. BPC_Muster EventGraph: Ctrl+A, BackSpace, Ctrl+V `f11/muster_merged.txt`, Refresh All Nodes, compile, save.
+     Or, smaller: paste `f11/muster_rq3_paste.txt` and do the 5 rewires in `f11/muster_manifest.json`.
+  3. BPC_ShieldKit EventGraph: Ctrl+A, BackSpace, Ctrl+V `f11/shield_merged.txt` (95 nodes), compile, save.
+- Test: Play a wave with an empty recruit queue and with no shield. The log has no "array RQ" and no "BlockChance" errors. With a shield worn, blocks still happen.
