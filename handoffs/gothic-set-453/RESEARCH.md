@@ -63,3 +63,22 @@ regen · 4/4: -12 %, +10 % move speed, "Helmschmid's Edge" (+10 % sword damage).
    on the fresh export), 4 bundle rows in BPC_VesnaTrade, inventory/Vesna doll icons. Needs fresh exports of
    BPC_ObsidianSet + BPC_VesnaTrade (requested from i9 in the fast chat, line 887).
 3. **i9** applies the pre-checked hand-off, Play-tests: buy, wear, mix with Obsidian, set tiers.
+
+## Sizes for the modeller (fit envelope = the Obsidian pieces on the same knight, read from the editor 2026-11-03)
+Bounding boxes in cm (x, y, z as in UE). Gothic pieces should sit inside about +-10 % of these, except where the Gothic
+form is deliberately bigger (fan couters / poleyns, sallet tail, pointed sabatons). L/R = mirrored pair.
+| Id | Piece | L/R | Obsidian bbox (cm) | Gothic target |
+|---|---|---|---|---|
+| 10 | Cuirass (breast + back) | - | 38 x 31 x 50 (static) / 46 x 35 x 61 (skinned chest) | same envelope; plackart to the waist |
+| 11 | Pauldrons | L/R | 26.8 x 28.5 x 34.7 | ~15 % smaller (Gothic pauldrons are small), left slightly larger |
+| 12 | Gauntlets | L/R | 14.5 x 9.2 x 26.7 (L), 13.4 x 10.5 x 26.7 (R) | cuff flares to ~16 cm, pointed |
+| 13 | Sabatons | L/R | 13.4 x 38.2 x 24.4 | toe +6-8 cm longer (pointed) |
+| 14 | Greaves | L/R | 14.5 x 15.3 x 35.5 | same |
+| 15 | Helmet (sallet + bevor) | - | (no Obsidian helm mesh yet; knight head) | sallet tail reaches ~12 cm behind the neck |
+| 16 | Rerebraces | L/R | 13.8 x 14.0 x 27.0 | same |
+| 17 | Vambraces + couters | L/R | 13.1 x 10.8 x 21.4 | couter fan adds ~8 cm at the elbow |
+| 18 | Fauld + tassets | - | 39.7 x 29.8 x 32.5 | tassets add ~8 cm below |
+| 19 | Cuisses + poleyns | L/R | 19.7 x 17.4 x 39.7 | poleyn fan adds ~6 cm at the knee |
+| 20 | Arming doublet (cloth) | - | (Obsidian cape) | under the cuirass, skirts to mid-thigh |
+Reference plates: Wallace Collection A21 (full harness, Landshut c. 1480), KHM Vienna 514252 (Helmschmid, Augsburg
+c. 1484), Met Maximilian field armour 1479-80. Links at the top of this file.
