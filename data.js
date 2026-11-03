@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261103-064438-301-close-up-of-the-new-baked-stair-dres.png',t:'#301 close-up of the new baked stair: dressed stones, recessed joints, keep stone scan.',who:'adjustedfilm (Claude)',at:'2026-11-03T06:44:38Z',card:301},
 {f:'shots/20261103-064424-301-fair-re-shoot-gpu-free-left-old-kit-.png',t:'#301 FAIR re-shoot (GPU free): LEFT old kit flight, RIGHT new AAA baked flight Stair279_03 (108 tris, 4K bake of a real-masonry high poly, keep stone). Same camera, same test light.',who:'adjustedfilm (Claude)',at:'2026-11-03T06:44:24Z',card:301},
 {f:'shots/20261103-062628-301-stairs-the-aaa-way-left-kit-flight-s.png',t:'#301 stairs the AAA way: LEFT kit flight (stone texture on boxes), RIGHT SM_StairBaked451_N13: 108-tri watertight low poly baked at 4K from a 313k-tri high poly of real masonry (joints, per-stone bulge, worn nosings), keep stone scan. i5 texture pool makes all detail soft.',who:'adjustedfilm (Claude)',at:'2026-11-03T06:26:28Z',card:301},
 {f:'shots/20261103-011515-451-batch-6-courtyard-fire-pit-left-9-en.png',t:'#451 batch 6: courtyard fire pit, LEFT 9 engine cylinders as logs, RIGHT new SM_FirePitLogs451 (teepee of barked split logs, built in Blender).',who:'adjustedfilm (Claude)',at:'2026-11-03T01:15:15Z',card:451},
