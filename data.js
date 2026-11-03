@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261103-011029-451-batch-5-outer-south-wall-foot-left-a.png',t:'#451 batch 5: outer south wall foot, LEFT a bare white default engine cube left in the scene, RIGHT hidden.',who:'adjustedfilm (Claude)',at:'2026-11-03T01:10:29Z',card:451},
 {f:'shots/20261103-010616-451-batch-4-smithy-forge-left-white-plas.png',t:'#451 batch 4: smithy forge, LEFT white plastic blocks (forge texture doesn\'t land on its UVs), RIGHT per-instance castle stone. Coals/poker lost (one slot): TGA re-bake card proposed.',who:'adjustedfilm (Claude)',at:'2026-11-03T01:06:16Z',card:451},
 {f:'shots/20261103-010120-451-batch-3-courtyard-left-120-stacked-3.png',t:'#451 batch 3: courtyard, LEFT 120 stacked 3 m paving plates cut a tile grid through the cobbles, RIGHT plates hidden, continuous cobbled floor. Test light, locked exposure.',who:'adjustedfilm (Claude)',at:'2026-11-03T01:01:20Z',card:451},
 {f:'shots/20261103-010116-451-batch-2-castle-merlon-left-plain-sta.png',t:'#451 batch 2: castle merlon, LEFT plain stand-in cube (razor CG edge), RIGHT original castle block restored (stone wraps over the arris). Test light, locked exposure.',who:'adjustedfilm (Claude)',at:'2026-11-03T01:01:16Z',card:451},
