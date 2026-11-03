@@ -281,3 +281,10 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
   The SM_Bevel meshes are 8-vertex boxes, not geometric chamfers: a real bevel kit is still a future step.
 - **i5 render rules hold**: base-colour captures (no lighting) are the honest way to inspect seams at night; for lit A/B
   spawn a temporary 20-60 cd point light, never thousands (8000 cd blew the frame out).
+
+## 2026-11-03 · i5 (adjustedfilm) · #440 mountain grass
+- Mountain grass reads real when it is **banded by altitude** (meadow -> tussock clumps -> dwarf tufts -> rock), **killed
+  by slope** (> ~35 deg only ledges/cracks), **clumped** (noise 8-20 m cells, soil between clumps) and **never one green**
+  (straw / olive-grey / greener in wet hollows, dead blades at the base). Sources in handoffs/grass-mountain-research/RESEARCH.md.
+- UE: landscape grass types fill a layer uniformly; height/slope/clumping must come from the material's grass-output
+  weights (or PCG filters). One shared wind field for grass + particles (Ghost of Tsushima).
