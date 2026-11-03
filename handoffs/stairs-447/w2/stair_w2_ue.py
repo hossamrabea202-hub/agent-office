@@ -63,4 +63,18 @@ if mode == 'mesh':
         if '--dry-run' in A: continue
         for i, mi in enumerate(new): m.set_material(i, mi)
         EAL.save_loaded_asset(m)
+    # #461 fix: stair_baked451_ue.py swap wrote the old MIs as per-COMPONENT overrides on the 9 placed flights, and those
+    # win over the mesh slots, so the W2 mesh change alone did not show. Point the placed flights' overrides at the same MIs
+    # (map change: the Master saves it).
+    for act in EAS.get_all_level_actors():
+        c = act.get_component_by_class(unreal.StaticMeshComponent) if act.get_class().get_name() == 'StaticMeshActor' else None
+        sm = c.get_editor_property('static_mesh') if c else None
+        if not sm or not sm.get_name().startswith('SM_StairBaked451_N'): continue
+        n = int(sm.get_name().split('_N')[-1])
+        if n not in NS: continue
+        new = [ld('MI_StairBaked451_N%d_W2' % n)] * 2 if '--revert' not in A else [ld('MI_StairBaked451_N%d_Tread' % n), ld('MI_StairBaked451_N%d_Body' % n)]
+        print('FLIGHT', act.get_actor_label(), [c.get_material(i).get_name() for i in range(2)], '->', [x.get_name() for x in new])
+        if '--dry-run' in A: continue
+        act.modify(); c.modify()
+        for i, mi in enumerate(new): c.set_material(i, mi)
     raise SystemExit
