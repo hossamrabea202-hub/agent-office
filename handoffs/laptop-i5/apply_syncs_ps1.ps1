@@ -1,11 +1,10 @@
 # i5 (2026-11-03): apply i9's sync zips in order onto the project root, with the editor CLOSED.
 # Every file a zip would overwrite is first copied to $Backup (same relative path, first copy wins = the pre-sync original).
 # A DELETE_THESE.txt inside a zip (one project-relative path per line) is honoured after that zip: backed up, then deleted.
-#   powershell -File apply_syncs_ps1.ps1 -Zips <folder with NN_*.zip> [-DryRun]
-param([string]$Zips = 'C:\UnrealProjects\sync_1103_all', [switch]$DryRun)
+#   powershell -File apply_syncs_ps1.ps1 -Zips <folder with NN_*.zip> [-Backup <folder>] [-DryRun]
+param([string]$Zips = 'C:\UnrealProjects\sync_1103_all', [switch]$DryRun, [string]$Backup = 'C:\UnrealProjects\CD58_backup_before_sync7_1103')
 $ErrorActionPreference = 'Stop'
 $Proj = 'C:\UnrealProjects\Castle Defender 5.8'
-$Backup = 'C:\UnrealProjects\CD58_backup_before_sync7_1103'
 if (Get-Process UnrealEditor -ErrorAction SilentlyContinue) { throw 'Close the Unreal editor first' }
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $log = @()
