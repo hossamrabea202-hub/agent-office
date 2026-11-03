@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261103-010120-451-batch-3-courtyard-left-120-stacked-3.png',t:'#451 batch 3: courtyard, LEFT 120 stacked 3 m paving plates cut a tile grid through the cobbles, RIGHT plates hidden, continuous cobbled floor. Test light, locked exposure.',who:'adjustedfilm (Claude)',at:'2026-11-03T01:01:20Z',card:451},
 {f:'shots/20261103-010116-451-batch-2-castle-merlon-left-plain-sta.png',t:'#451 batch 2: castle merlon, LEFT plain stand-in cube (razor CG edge), RIGHT original castle block restored (stone wraps over the arris). Test light, locked exposure.',who:'adjustedfilm (Claude)',at:'2026-11-03T01:01:16Z',card:451},
 {f:'shots/20261102-145752-433-preview-heater-shield-at-the-compute.png',t:'#433 preview: Heater shield at the computed grip, along the forearm (reference pose, not applied yet)',who:'adjustedfilm (Claude)',at:'2026-11-02T14:57:52Z',card:433},
 {f:'shots/20261102-130407-425-placed-contact-stains-at-the-wall-to.png',t:'#425 placed: contact stains at the wall torch bracket (cd425_36_final2, locked exposure)',who:'adjustedfilm (Claude)',at:'2026-11-02T13:04:07Z',card:425},
