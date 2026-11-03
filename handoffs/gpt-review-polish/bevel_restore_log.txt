@@ -23,5 +23,6 @@ TURNED SM_Bevel_024_6         SM_Bevel_024 -> SM_Bevel_023 +90 deg
 TURNED SM_Bevel_024_7         SM_Bevel_024 -> SM_Bevel_023 +90 deg
 TURNED SM_Bevel_024_9         SM_Bevel_024 -> SM_Bevel_023 +90 deg
 SM_Bevel_007   restore  12   no mesh   0   skewed   0
+SM_Bevel_023   restore  12   no mesh   0   skewed   0
 SM_Bevel_024   restore  12   no mesh   0   skewed   0
-APPLIED: 24 stand-ins restored, 0 have no bevel mesh left, 0 skipped (bevel would stretch)
+APPLIED: 36 stand-ins restored, 0 have no bevel mesh left, 0 skipped (bevel would stretch)
