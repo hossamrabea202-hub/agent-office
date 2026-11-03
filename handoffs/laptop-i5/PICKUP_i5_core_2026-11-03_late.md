@@ -25,3 +25,11 @@ Also still unconfirmed: #470, #469 stairs, #455, F11 Muster v2, Think stagger. T
 - i5 editor may be on the empty Entry level after a crash; check the world name before trusting a capture. MI re-parenting shows only after a tick, so capture in a separate script.
 - i5 editor runs inside the Multi-User sandbox: creating and deleting temp assets there tripped a non-fatal ensure at 22:41 (mine). The fatal one at 22:45 was the crowd session's temp copy. Don't create or delete temp assets in it.
 - UE 5.8 Python can edit graphs (`unreal.BlueprintGraphEditor`), so i5 can compile a Blueprint fix on a temp copy before hand-off. Runners: `aaa-472/ops/graph_ops_ue.py`, `obsidian-skill/ember_ops_ue.py`. Use a new folder per test, never delete a copy in the same editor session. `/Game/_i5tmpE` and `/Game/_i5tmp472` are test copies: delete after the next restart. Graph changes to BP_Zombie, BP_ZombieWaveManager, BP_SoldierSword stay with the crowd session until i9 has applied `aaa-472/ops`.
+
+## Owner order 2026-11-03 night (card #482): "work nonestop until our game quality becomes AAA (dont add new features rather enhance existing ones)"
+- Decision: polish only. Player key rebinding and the #453 Gothic set are parked as new features.
+- In the game (saved by i9): #470 crack removal, #461 harmony v2 + i9's floor overrides. i9 runs the rest in the order of chat 1316.
+- #458: my ORE/FOOD collision note is probably stale, #411's scroll replaced that text (chat 304). Don't build it without a current screenshot.
+- Load-error audit of the i5 log found only 2 harmless missing packages, not worth a fix.
+- Blocked on i9's queue: profiled wave (#473, decides the crisp image A/B), fresh castle scan (keep tint), HUD screenshots, 4/4 screenshot (badge).
+- Needs the owner: delete the 188 hidden old pieces (648k tris).
