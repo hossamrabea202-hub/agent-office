@@ -1,0 +1,74 @@
+{
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923791707": {
+"label": "Stair279_03",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N13.SM_Stair_W200_Solid_N13",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923916712": {
+"label": "Stair279_08",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N13.SM_Stair_W200_Solid_N13",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923740705": {
+"label": "Stair279_01",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N20.SM_Stair_W200_Solid_N20",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923766706": {
+"label": "Stair279_02",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N31.SM_Stair_W200_Solid_N31",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923941713": {
+"label": "Stair279_09",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N20.SM_Stair_W200_Solid_N20",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923815708": {
+"label": "Stair279_04",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N20.SM_Stair_W200_Solid_N20",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923841709": {
+"label": "Stair279_05",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N20.SM_Stair_W200_Solid_N20",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923865710": {
+"label": "Stair279_06",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N31.SM_Stair_W200_Solid_N31",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB2D1103_1923892711": {
+"label": "Stair279_07",
+"mesh": "/Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N20.SM_Stair_W200_Solid_N20",
+"mats": [
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World.MI_Castle_Trim_World",
+"/Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World.MI_Castle_StoneWall_World"
+]
+}
+}
