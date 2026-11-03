@@ -37,3 +37,14 @@ were (no gap, no overlap shift); courtyard floor collision fine, mud decals stil
 `seam_scan_ue.py` (gaps / coplanar faces with visibility probes / floating / primitives), `shots_ue.py` (light i5 renders:
 below clouds, flags off, `@bc` base colour, `@n` normals), `lit_ab_ue.py` (temporary test light + A/B toggle),
 `probe_actors_ue.py`, `junction_fix_ue.py` (wall-into-tower extension; found nothing to do).
+- Arrow slits (42 `M_Shadow` plates): tried an unlit near-black "void" material (`M_ArrowLoopVoid451`, `slit_void_ue.py`).
+  Lit A/B (`shots/slitab_A` vs `_B`) was WORSE: unlit emissive scales with exposure, so at night it turned into a flat
+  brown panel, while the original navy plate already reads as a dark opening under light. Reverted at once; the new
+  material is unused (safe to delete). A real fix needs actual openings in the wall meshes.
+
+## Batch 4: forge hearth (applied in the session, not saved)
+`Forge_01` (BP_Forge) rendered as white plastic blocks: `SM_Camp_Forge` only has a lightmap-style UV set, so the forge
+texture doesn't land (`shots/pair_forge.png` left). Per-instance override on this placed actor only: the hearth gets the
+castle's world-aligned stone `MI_Castle_Trim_World` (right). Trade-off: the mesh is one material slot, so the coals and
+the poker become stone too. The proper fix is a re-UV / re-bake of SM_Camp_Forge (card for TGA). Revert:
+`forge_stone_ue.py --revert`; re-apply on the Master: `forge_stone_ue.py --apply`.
