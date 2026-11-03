@@ -1,0 +1,25 @@
+# i5 core pick-up (2026-11-03 ~22:35), adds to PICKUP_i5_2026-11-03_night.md
+
+The crowd session (local_d16f7c8b) still holds the seat and desk ticks. Nothing below is in the game until i9 confirms it.
+
+## Handed to i9 tonight, no confirmation yet
+| Card | What | File | Tested |
+|---|---|---|---|
+| #461 | Harmony v2: 4 stone MIs become children of one new MI, copying i9's live look | `castle-harmony-461/harmony461_ue.py` | i5, in memory, older MI values; apply + revert OK |
+| #440 | Ground colour via the Landscape's own MI | `grass-440/land440b_ue.py` | dry run on an empty level only; values calculated |
+| Track L | Read-only after-save check | `castle-harmony-461/aftersave_health_ue.py` | empty level only; the actor loop has not seen real pieces |
+
+Also still unconfirmed: #470, #469 stairs, #455, F11 Muster v2, Think stagger. The "applied yes / no" question went out in chat 1287 and got no answer; ask again.
+
+## Next
+1. Read `handoffs/obsidian-skill/DESIGN.md` (being written), card #477, exports requested. Build on the exports.
+2. After i9 re-runs `castle_scan_ue.py`: keep tint A/B, recheck `STONE_SIZES_469.md`. Tower9 1.2 x 1.2 x 1.0 owner asked again in 1292.
+3. #440 edge feathering, grass hue. #450, #458, #453 wait for exports.
+4. Cleanup: 188 hidden pieces need Alien's OK. `Castle_WallWalk_EMPTY` has 0 instances: draws nothing, no fix needed.
+5. Morning report for Alien in the fast chat: NOT posted yet.
+
+## Lessons
+- Read the chat right before posting a hand-off. v1 of harmony461 would have undone i9's tone pass (1286), posted 40 s earlier.
+- Prefer live values over hard-coded ones when someone else may tune the same assets.
+- `data.js` captions: no apostrophes; run `node --check data.js` after any edit.
+- i5 editor may be on the empty Entry level after a crash; check the world name before trusting a capture. MI re-parenting shows only after a tick, so capture in a separate script.
