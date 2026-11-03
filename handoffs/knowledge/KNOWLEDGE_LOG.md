@@ -268,3 +268,16 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
 - Locked exposure in a SceneCapture: AutoExposureMethod MANUAL + ApplyPhysicalCameraExposure off; switching off the
   EyeAdaptation show flag instead gives an un-exposed (white) image. Restraint: soot opacity 0.6 and short rust runs
   read real; full strength looked like painted black smoke.
+
+## 2026-11-03 · i5 (adjustedfilm) · #451 castle seams and cube faces
+- **Wait for streaming before judging a shot.** Renders taken ~3 min after a map load showed triangle "sawtooth" on the
+  wall walk that disappeared once the world finished streaming. Always A/B the same view after the world is loaded.
+- **Exact duplicate actors don't z-fight visibly** (identical shading); they only cost draw calls. Coplanar surfaces with
+  DIFFERENT materials do. `dup_fix_ue.py` finds exact copies (58 in the castle).
+- **Stacked floors cut a tile grid.** 3 m paving plates laid on top of a continuous floor with the same world-scaled cobble
+  material show straight seams and 2 cm joints; real courtyards are continuous. Hide the plates, keep the floor.
+- **"Restored/SM_Bevel_NNN" stand-ins**: plain SM_Cube_Nanite boxes replaced the castle's authored blocks. Putting the
+  authored mesh back (or the same-size one turned 90 deg) lets the world-aligned stone wrap over the corner under light.
+  The SM_Bevel meshes are 8-vertex boxes, not geometric chamfers: a real bevel kit is still a future step.
+- **i5 render rules hold**: base-colour captures (no lighting) are the honest way to inspect seams at night; for lit A/B
+  spawn a temporary 20-60 cd point light, never thousands (8000 cd blew the frame out).
