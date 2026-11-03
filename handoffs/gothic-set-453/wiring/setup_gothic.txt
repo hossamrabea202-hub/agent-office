@@ -1,0 +1,28 @@
+#453 Gothic set setup
+DRY_RUN = True
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet
+ok       C:\Users\hossam.rabea\agent-office\handoffs\gothic-set-453\wiring\BPC_ObsidianSet_v4_graph.txt
+ok       BPC_ObsidianSet.ObsOwned (v3)
+ok       BPC_ObsidianSet.ObsWorn (v3)
+ok       BPC_ObsidianSet.WornEff (v3)
+ok       BPC_ObsidianSet.AvailMask (v3)
+ok       BPC_ObsidianSet.KnightCover (v3)
+ok       BPC_ObsidianSet.BundleMask (v3)
+ok       BPC_ObsidianSet.BundleNames (v3)
+ok       BPC_ObsidianSet.BundleCost (v3)
+ok       BPC_ObsidianSet.PartPrice (v3)
+ok       BPC_ObsidianSet.PartBundle (v3)
+ok       BPC_ObsidianSet.TierAt (v3)
+ok       BPC_ObsidianSet.TierDR (v3)
+ok       BPC_ObsidianSet.BundleCount (v3)
+ok       BPC_ObsidianSet.BundleWorn (v3)
+now: BundleMask [32, 1091, 132, 792] PartPrice [450, 120, 80, 80, 100, 150, 80, 80, 100, 120, 40] PartBundle [1, 1, 2, 3, 3, 0, 1, 2, 3, 3, 1] TierDR [0.03, 0.06, 0.1, 0.15] KnightCover [198, 0, 1024, 32, 792]
+masks cover all 22 parts once: True
+  -> BundleMask = [32, 1091, 132, 792, 65536, 2234368, 270336, 1622016]
+  -> BundleNames = ['Obsidian Helm', 'Obsidian Torso', 'Obsidian Gauntlets', 'Obsidian Legs', 'Gothic Helm', 'Gothic Torso', 'Gothic Gauntlets', 'Gothic Legs']
+  -> PartPrice = [450, 120, 80, 80, 100, 150, 80, 80, 100, 120, 40, 360, 96, 64, 64, 80, 120, 64, 64, 80, 96, 32]
+  -> PartBundle = [1, 1, 2, 3, 3, 0, 1, 2, 3, 3, 1, 5, 5, 6, 7, 7, 4, 5, 6, 7, 7, 5]
+  -> BundleCost = [150, 690, 160, 400, 120, 552, 128, 320]
+  -> TierDR = [0.03, 0.06, 0.1, 0.15, 0.02, 0.05, 0.08, 0.12]
+  -> KnightCover2 = [405504, 0, 2097152, 65536, 1622016]
+DRY RUN only. If nothing above says MISSING, set DRY_RUN = False and run again.
