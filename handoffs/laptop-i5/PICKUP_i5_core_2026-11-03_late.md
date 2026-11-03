@@ -33,3 +33,4 @@ Also still unconfirmed: #470, #469 stairs, #455, F11 Muster v2, Think stagger. T
 - Load-error audit of the i5 log found only 2 harmless missing packages, not worth a fix.
 - Blocked on i9's queue: profiled wave (#473, decides the crisp image A/B), fresh castle scan (keep tint), HUD screenshots, 4/4 screenshot (badge).
 - Needs the owner: delete the 188 hidden old pieces (648k tris).
+- 23:45: #477 v1 + #440 ground + feathering applied by i9; #477 fix 2 (`ember2_ue.py`, helm has no art) sent in chat 1340. Temp copy `/Game/_i5tmpE2` on i5: delete after the next restart. #472 A-D in the game: errors 0, but no fps gain on i9's T1000 (3.9 -> 4.3 fps, GPU limit).
