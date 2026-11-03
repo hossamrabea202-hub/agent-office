@@ -1,0 +1,22 @@
+{
+"fix": "F",
+"bp": "/Game/CastleDefender/VFX/Blood337/BPC_Gore337",
+"vars": [],
+"nodes": [],
+"links": [
+[
+"gSpawnSeveredLi116.then",
+"gHideBoneByName131.execute",
+true
+],
+[
+"gSpawnWoundCap3134.then",
+"gAddSevered141.execute",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

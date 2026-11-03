@@ -15,6 +15,8 @@ i9 said (chat 1316) it will run them in this order: #470, harmony, #469, #455, F
 
 Instructions: `ops/README.md`. The paste versions in `fixes*/` are superseded; keep them only as generators. Hand-off cards #474 and the B / C ones point at the pastes; the script hand-off replaces them.
 
+| F never-made wires (10 Blueprints) | `ops/README_F.md`, `ops/ops_F_*.json` | links only on copies, not compiled. Independent of A to E. Gore, WallBreaker, saved upgrades + shields, half-horse |
+
 ## What each i9 outcome means
 - Compile error or link failure: the script does not save. Read its RESULT line, fix the generator (`fixes*/build_*.py`, `ops/build_ops.py`), rerun `build_ops.py`, push.
 - Dry run says a node is missing: i9's graph differs from the 11-03 / i5 exports. Get an export, regenerate.
@@ -27,8 +29,12 @@ Instructions: `ops/README.md`. The paste versions in `fixes*/` are superseded; k
 - Editing the real BPs in the Multi-User session is refused by the permission classifier. Copies only.
 - After a crash the editor can sit on "Restore Packages": stop it, rename `Saved/Autosaves/PackageRestoreData.json`, run `JOIN_LIVE.bat`.
 - **Simulate with a broken temp BP loaded = a compile-error modal nobody can click; it froze the editor and dropped Multi-User (23:07).** Delete temp copies and check they are gone first.
+- Scanner: `node handoffs/aaa-472/t3d_orphans.js <exports>`, exports via a script of AssetExportTask with a .T3D filename. Unwired impure node = None at runtime, compile only warns (micro-test 23:20). Worth running after big pastes.
 - Long bash heredocs get cut off: write files with the Write tool.
 - Another i5 session (`local_34eb18ca`) shares this editor's inbox and holds #461, #469, Obsidian skill, #458, #440, #453 + the after-save health check. This session holds the seat ticks, BP_Zombie, BP_ZombieWaveManager, ABP_Zombie. Check `ue_inbox/_log.txt` before a Simulate.
+
+## Editor state
+This i5 editor session has temp copies under `/Game/_i5tmp472` (Y4, Mic1, F1..F10). **No Simulate or Play until a restart, and delete that folder first thing after it.**
 
 ## Next, once A compiles
 1. Hit stack: camera shake and SC_SwordHit already exist in BP_ZombieHUD; impact layers and hit-stop are in fix C. Left: shake scaled by weapon (HUD is the other session's for #458), physical-animation pulse on the hit bone.

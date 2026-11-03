@@ -1,0 +1,12 @@
+{
+"halfhorse": "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/BP_HalfHorseZombie",
+"director": "/Game/CastleDefender/Gameplay/Siege/BP_BattleDirector",
+"upgrades": "/Game/CastleDefender/Gameplay/Castle/BPC_CastleUpgrades",
+"shieldkit": "/Game/CastleDefender/Gameplay/Castle/BPC_ShieldKit",
+"flares": "/Game/CastleDefender/Gameplay/Flares/BPC_Flares",
+"medics": "/Game/CastleDefender/Gameplay/Medics/BPC_Medics",
+"gore": "/Game/CastleDefender/VFX/Blood337/BPC_Gore337",
+"barracks": "/Game/CastleDefender/Gameplay/Castle/BP_BarracksHUD",
+"risen": "/Game/CastleDefender/Gameplay/Castle/BP_RisenDirector",
+"hero": "/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter"
+}

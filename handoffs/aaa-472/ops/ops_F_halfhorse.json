@@ -1,0 +1,17 @@
+{
+"fix": "F",
+"bp": "/Game/CastleDefender/Characters/Enemies/HalfHorseZombie/BP_HalfHorseZombie",
+"vars": [],
+"nodes": [],
+"links": [
+[
+"HHZ_N24.then",
+"HHZ_N26.execute",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

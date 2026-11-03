@@ -1,0 +1,17 @@
+{
+"fix": "F",
+"bp": "/Game/CastleDefender/Gameplay/Flares/BPC_Flares",
+"vars": [],
+"nodes": [],
+"links": [
+[
+"fxIfShopPrompt70.then",
+"fxAsBPNoticeHUD73.execute",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

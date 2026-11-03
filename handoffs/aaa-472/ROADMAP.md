@@ -14,6 +14,8 @@ The audit table below came from a node-count scan and was partly wrong. Details:
 - Handed to i9: fix A `fixes/` (registry, caches, move guard, Delay guards) and fix B `fixes_b/` (death montages, hit from behind). Neither is compiled yet.
 - Hold significance and the rest of Track C until fix A compiles and the #473 baseline exists: more pastes on an uncompiled graph would only need rebuilding.
 
+- Track L: the scanner found 10 Blueprints with never-made wires (`ops/README_F.md`); significance, hit-stop, flinch, ragdoll and impact layers are in the scripts.
+
 ## What the audit found (read-only, `bp_smells.js` on i9's 11-03 exports)
 | Blueprint | Finding | Why it matters |
 |---|---|---|

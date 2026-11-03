@@ -1,0 +1,17 @@
+{
+"fix": "F",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BP_RisenDirector",
+"vars": [],
+"nodes": [],
+"links": [
+[
+"NoticeJoin.then_0",
+"dSetText186.execute",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

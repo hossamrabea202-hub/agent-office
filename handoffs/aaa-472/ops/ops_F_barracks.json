@@ -1,0 +1,22 @@
+{
+"fix": "F",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BP_BarracksHUD",
+"vars": [],
+"nodes": [],
+"links": [
+[
+"rqIfDraw38.then",
+"rqFindNPC_Barrac39.execute",
+true
+],
+[
+"rqFindNPC_Barrac39.then",
+"rqTrack50.execute",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

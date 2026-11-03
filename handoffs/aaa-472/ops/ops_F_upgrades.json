@@ -1,0 +1,27 @@
+{
+"fix": "F",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BPC_CastleUpgrades",
+"vars": [],
+"nodes": [],
+"links": [
+[
+"BP.then",
+"cuHasSave1.execute",
+true
+],
+[
+"cuHasSave1.then",
+"cuIfSave2.execute",
+true
+],
+[
+"cuIfOffer36.then",
+"cuAsBPNoticeHUD52.execute",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

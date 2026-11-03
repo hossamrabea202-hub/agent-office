@@ -1,0 +1,22 @@
+{
+"fix": "F",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BPC_ShieldKit",
+"vars": [],
+"nodes": [],
+"links": [
+[
+"vSetOffHand5.then",
+"vHasSave6.execute",
+true
+],
+[
+"vHasSave6.then",
+"vIfSave7.execute",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

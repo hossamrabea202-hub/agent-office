@@ -1,0 +1,66 @@
+{
+"fix": "F",
+"bp": "/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter",
+"vars": [],
+"set_live": [],
+"dx": 0,
+"dy": 60000,
+"remove": [],
+"nodes": [
+{
+"id": "hbLen",
+"kind": "call",
+"x": 0,
+"y": 0,
+"defaults": [],
+"path": "/Script/Engine.KismetArrayLibrary:Array_Length"
+},
+{
+"id": "hbMore",
+"kind": "call",
+"x": 300,
+"y": 0,
+"defaults": [
+[
+"B",
+"0"
+]
+],
+"path": "/Script/Engine.KismetMathLibrary:Greater_IntInt"
+},
+{
+"id": "hbIf",
+"kind": "branch",
+"x": 600,
+"y": 0,
+"defaults": []
+}
+],
+"links": [
+[
+"sfGetBurnEnd79.BurnEnd",
+"hbLen.TargetArray",
+false
+],
+[
+"hbLen.ReturnValue",
+"hbMore.A",
+false
+],
+[
+"hbMore.ReturnValue",
+"hbIf.Condition",
+false
+],
+[
+"sfForEach68.Completed",
+"hbIf.execute",
+true
+],
+[
+"hbIf.then",
+"sfIfBurnOver84.execute",
+false
+]
+]
+}
