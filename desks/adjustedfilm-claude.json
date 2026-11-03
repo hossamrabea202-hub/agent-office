@@ -1,6 +1,6 @@
 {
- "working": "#301 stairs: waiting on i9 save; reading chat",
- "tokens": 30000,
+ "working": "waiting on i9: save 9 stairs (#301) + OK on W2 MIs; #454 export request; next #452 forge",
+ "tokens": 52000,
  "ctx": 1000000,
  "since": "2026-11-03T07:31:36Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T07:31:36Z",
+ "asOf": "2026-11-03T07:33:46Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
