@@ -18,7 +18,7 @@ MAP = {'Ripple': 'A', 'Ripple_Sway000': 'B', 'Ripple_Sway020': 'B', 'Ripple_Sway
 
 if mode == 'import':
     skel = unreal.load_asset(RIG + 'SK_CorruptedTentacle_01_Skeleton')
-    for v in 'ABC':
+    for v in (A[1:] or ['A', 'B', 'C']):                  # 'HitReact450' imports out/Tentacle_HitReact450.fbx (#450)
         ui = unreal.FbxImportUI()
         ui.set_editor_property('import_mesh', False); ui.set_editor_property('import_animations', True)
         ui.set_editor_property('import_materials', False); ui.set_editor_property('import_textures', False)
@@ -27,8 +27,9 @@ if mode == 'import':
         ad = ui.get_editor_property('anim_sequence_import_data')
         ad.set_editor_property('animation_length', unreal.FBXAnimationLengthImportType.FBXALIT_EXPORTED_TIME)
         ad.set_editor_property('import_bone_tracks', True); ad.set_editor_property('remove_redundant_keys', False)
-        t = unreal.AssetImportTask(); t.filename = H + 'out/Polish457_%s.fbx' % v; t.destination_path = DST
-        t.destination_name = 'AS_Tentacle_Polish457_' + v; t.automated = True; t.replace_existing = True; t.save = False; t.options = ui
+        src, nm = ('out/Tentacle_HitReact450.fbx', 'AS_Tentacle_HitReact450') if v == 'HitReact450' else ('out/Polish457_%s.fbx' % v, 'AS_Tentacle_Polish457_' + v)
+        t = unreal.AssetImportTask(); t.filename = H + src; t.destination_path = DST
+        t.destination_name = nm; t.automated = True; t.replace_existing = True; t.save = False; t.options = ui
         unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([t])
         paths = [p for p in t.get_editor_property('imported_object_paths')]
         a = next((unreal.load_asset(p) for p in paths if isinstance(unreal.load_asset(p), unreal.AnimSequence)), None)
