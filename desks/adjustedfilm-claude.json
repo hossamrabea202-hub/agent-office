@@ -1,9 +1,10 @@
 {
- "working": "waiting on i9: first compile of #472 ops + tentacle fix",
- "tokens": 300000,
+ "working": "#472 next: per-frame costs (JellyTrail, Farmer), logic hygiene",
+ "tokens": 340000,
  "ctx": 1000000,
  "since": "2026-11-03T20:51:47Z",
  "done": [
+  "#472 fix E + impact layers [66% tokens left]",
   "#472 fix D + pick-up note [70% tokens left]",
   "#472 A+B+C scripts handed to i9 [76% tokens left]",
   "#450 #457 frozen tentacles fix handed to i9 [81% tokens left]",
@@ -12,8 +13,7 @@
   "#472 audit + roadmap + fix 1 (Think stagger) to i9; pick-up note [20% tokens left]",
   "#470 fake crack overlay removal script (hand-off) [26% tokens left]",
   "#469 stairs re-baked true size (hand-off) [30% tokens left]",
-  "F12 + F11 handed to i9 (pre-checked) [36% tokens left]",
-  "F3 root cause + data fix handed to i9 [42% tokens left]"
+  "F12 + F11 handed to i9 (pre-checked) [36% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T22:01:30Z",
+ "asOf": "2026-11-03T22:07:01Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
