@@ -1,9 +1,10 @@
 {
- "working": "#451 waiting for i9 to save on the Master",
- "tokens": 365000,
+ "working": "i5 editor rejoining; pick-up note PICKUP_i5_2026-11-03_morning.md",
+ "tokens": 880000,
  "ctx": 1000000,
  "since": "2026-11-02T23:32:53Z",
  "done": [
+  "#301 AAA stairs all 9 flights (unsaved, i9 to save); sync 1103_k..n [12% tokens left]",
   "#451 walk-around pass 1: 6 batches applied in session (not saved), 4 tries reverted, TGA card 452 [63% tokens left]",
   "#451 batches 5 (white cubes) + 6 (fire pit logs) [66% tokens left]",
   "#451 batch 4 forge hearth; slit void + mine rock tried and reverted (worse/no gain) [73% tokens left]",
@@ -12,8 +13,7 @@
   "P1 #433 + #437 handed to i9 (dry-run on live graphs, shield preview) [10% tokens left]",
   "P1 #433 + #437 prepped (cause found, scripts pre-checked) [14% tokens left]",
   "gold tick-up built + handed off (BPC_GoldTick) [21% tokens left]",
-  "#425 step 1 placed (57 cards) + step 2 audit/findings [26% tokens left]",
-  "#425 placed (61 cards), re-place with fixed sizes handed to i9 [35% tokens left]"
+  "#425 step 1 placed (57 cards) + step 2 audit/findings [26% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T01:19:06Z",
+ "asOf": "2026-11-03T07:00:38Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-02T05:05:59Z",
+  "asOf": "2026-11-03T07:00:38Z",
   "meters": [
    {
     "k": "5h",
@@ -45,7 +45,7 @@
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 31,
+    "pct": 15,
     "resetsAt": "2026-11-06T06:00:00Z",
     "color": "#d9af65"
    }
