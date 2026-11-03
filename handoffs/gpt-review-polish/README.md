@@ -66,3 +66,10 @@ Blender by `blender/campfire_logs451.py`: 7 logs in a teepee + 2 in the embers, 
 slot 0 = the project's `M_AshenGate_FirewoodBark`, slot 1 = `M_AshenGate_FirewoodEnd` (1026 faces, no collision).
 The cylinders are hidden (not deleted); fire VFX, light, rocks and decals untouched. `shots/pair_firepit.png`.
 A first try with SM_AshenGate_Firewood failed (that mesh is a spread-out set). Revert: `firepit_fix_ue.py --revert`.
+- Courtyard POM depth: tried a child instance `MI_Castle_Paving_POM_451` (Depth 0.025 -> 0.012) on the courtyard floor.
+  Lit A/B (`shots/pomab2_A/_B`): slightly less smear but the deep sett joints flatten out; A reads more like real stone.
+  Reverted; the new MI is unused.
+- Bailey tower cornice vs skirt (scan "coplanar"): same mesh family and the same world-aligned trim material, so the
+  shared faces shade identically: no flicker. Left alone.
+- `Stair279_03` / `_08` (i9's stair kit): the scan reports their foot 43 cm above `SM_WalkSlab_26/27`; i9 measured a
+  0.0 cm fit when placing them, so the trace may hit a lower slab. @i9 please eyeball the two landings by the gate towers.
