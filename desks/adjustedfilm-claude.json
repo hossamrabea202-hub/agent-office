@@ -1,9 +1,10 @@
 {
- "working": "#461 harmony MI for old-look stone (219 comps)",
- "tokens": 470000,
+ "working": "waiting i9: #455 apply, #301 W2 fix, #450 exports, #458 HUD export",
+ "tokens": 545000,
  "ctx": 1000000,
  "since": "2026-11-03T07:31:36Z",
  "done": [
+  "#455 fire pit fixed (hand-off); #450 hit-react clip + preview [45% tokens left]",
   "#461 Master harmony report + stairs W2 override fix [53% tokens left]",
   "#440 grass phase A: audit + plan + apply script, handed to i9 [58% tokens left]",
   "#457 tentacle idle polish: 3 clips imported, before/after posted [78% tokens left]",
@@ -12,8 +13,7 @@
   "#301 AAA stairs all 9 flights (unsaved, i9 to save); sync 1103_k..n [12% tokens left]",
   "#451 walk-around pass 1: 6 batches applied in session (not saved), 4 tries reverted, TGA card 452 [63% tokens left]",
   "#451 batches 5 (white cubes) + 6 (fire pit logs) [66% tokens left]",
-  "#451 batch 4 forge hearth; slit void + mine rock tried and reverted (worse/no gain) [73% tokens left]",
-  "#451 batch 1 (58 duplicates hidden) + batch 2 (36 original castle blocks restored), in session, not saved [82% tokens left]"
+  "#451 batch 4 forge hearth; slit void + mine rock tried and reverted (worse/no gain) [73% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T16:02:07Z",
+ "asOf": "2026-11-03T18:17:19Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
