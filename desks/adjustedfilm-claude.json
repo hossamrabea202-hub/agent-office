@@ -1,9 +1,10 @@
 {
- "working": "faults F1 + F9; #469 stone sizes",
- "tokens": 735000,
+ "working": "#472 next: zombie registry in WaveManager (waiting profiled wave)",
+ "tokens": 800000,
  "ctx": 1000000,
  "since": "2026-11-03T07:31:36Z",
  "done": [
+  "#472 audit + roadmap + fix 1 (Think stagger) to i9; pick-up note [20% tokens left]",
   "#470 fake crack overlay removal script (hand-off) [26% tokens left]",
   "#469 stairs re-baked true size (hand-off) [30% tokens left]",
   "F12 + F11 handed to i9 (pre-checked) [36% tokens left]",
@@ -12,8 +13,7 @@
   "#461 Master harmony report + stairs W2 override fix [53% tokens left]",
   "#440 grass phase A: audit + plan + apply script, handed to i9 [58% tokens left]",
   "#457 tentacle idle polish: 3 clips imported, before/after posted [78% tokens left]",
-  "#453 BPC_ObsidianSet v4 + setup (pre-checked, held for Vesna rows + meshes) [83% tokens left]",
-  "#301 stairs zip for i9 + W2 keep-look MIs, lit A/B posted [90% tokens left]"
+  "#453 BPC_ObsidianSet v4 + setup (pre-checked, held for Vesna rows + meshes) [83% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T20:10:32Z",
+ "asOf": "2026-11-03T20:44:18Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
