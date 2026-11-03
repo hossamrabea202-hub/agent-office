@@ -1,0 +1,63 @@
+{
+ "blueprint": "BP_Zombie",
+ "note": "#472 fix C: significance, hit-stop, brute flinch",
+ "pastes": [
+  "zombie_c_paste.txt"
+ ],
+ "rewires": [
+  {
+   "from": "K2Node_IfThenElse_ZB20.else",
+   "to": "zc472SetThinkTick9.execute",
+   "replace": true
+  },
+  {
+   "from": "zc472ActRate19.then",
+   "to": "CX_501.execute",
+   "replace": true
+  },
+  {
+   "from": "K2Node_VariableGet_ZB78.CharacterMovement",
+   "to": "zc472CmcRate18.self"
+  },
+  {
+   "from": "K2Node_IfThenElse_ZB62.else",
+   "to": "zc472IfHeavy23.execute",
+   "replace": true
+  },
+  {
+   "from": "zc472IfHeavy23.else",
+   "to": "fzAsZombieHUD3.execute",
+   "replace": true
+  },
+  {
+   "from": "zc472TimerHitStopEn25.then",
+   "to": "fzAsZombieHUD3.execute",
+   "replace": true
+  },
+  {
+   "from": "K2Node_Event_ZB60.Damage",
+   "to": "zc472GreaterEqual_D22.A"
+  },
+  {
+   "from": "CX_531.then",
+   "to": "zc472IfFlinch33.execute",
+   "replace": true
+  },
+  {
+   "from": "K2Node_Event_ZB60.DamageCauser",
+   "to": "zc472IsValid31.Object"
+  },
+  {
+   "from": "K2Node_Event_ZB60.DamageCauser",
+   "to": "zc472CauserLoc36.self"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zc472Flinch44.self"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zc472Flinch45.self"
+  }
+ ]
+}
