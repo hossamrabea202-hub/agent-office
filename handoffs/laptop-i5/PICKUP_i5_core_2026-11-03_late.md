@@ -12,11 +12,11 @@ The crowd session (local_d16f7c8b) still holds the seat and desk ticks. Nothing 
 Also still unconfirmed: #470, #469 stairs, #455, F11 Muster v2, Think stagger. The "applied yes / no" question went out in chat 1287 and got no answer; ask again.
 
 ## Next
-1. Read `handoffs/obsidian-skill/DESIGN.md` (being written), card #477, exports requested. Build on the exports.
+1. #477 handed to i9 (chat 1301, never compiled). Wait for compile errors + a 4/4 screenshot to place the badge. Player rebinding only after the owner OK.
 2. After i9 re-runs `castle_scan_ue.py`: keep tint A/B, recheck `STONE_SIZES_469.md`. Tower9 1.2 x 1.2 x 1.0 owner asked again in 1292.
-3. #440 edge feathering, grass hue. #450, #458, #453 wait for exports.
+3. #440 edge feathering, grass hue (open, not blocked). #458, #453 wait for exports. #450 / #457 are with the crowd session (chat 1296).
 4. Cleanup: 188 hidden pieces need Alien's OK. `Castle_WallWalk_EMPTY` has 0 instances: draws nothing, no fix needed.
-5. Morning report for Alien in the fast chat: NOT posted yet.
+5. Report for Alien posted in the fast chat; post an update in the morning with what i9 applied.
 
 ## Lessons
 - Read the chat right before posting a hand-off. v1 of harmony461 would have undone i9's tone pass (1286), posted 40 s earlier.
