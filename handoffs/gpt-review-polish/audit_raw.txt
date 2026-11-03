@@ -1,0 +1,621 @@
+world /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap
+actors 5261
+== classes (top 40)
+   4122 StaticMeshActor
+    544 DecalActor
+    122 Emitter
+    119 PointLight
+     64 LandscapeStreamingProxy
+     22 TargetPoint
+     22 BP_BlobMine_C
+     19 BP_JellyMine_C
+     17 SkeletalMeshActor
+     13 SceneCapture2D
+     12 NavLinkProxy
+     11 PostProcessVolume
+     10 SpotLight
+     10 BP_ShockRider_C
+     10 BP_ShockAudio_C
+     10 BP_TentacleVitals_C
+      9 Actor
+      9 BP_CorruptionBubble_Hero_C
+      8 AmbientSound
+      8 BP_Cannon_C
+      5 NavMeshBoundsVolume
+      5 WindDirectionalSource
+      5 LocalFogVolume
+      5 BP_ZombieWaveManager_C
+      5 BP_SwayChandelier_C
+      3 BP_WallBreachSpot_C
+      3 BP_MudPad_C
+      3 BP_MineWorker_C
+      2 BP_SoldierSword_C
+      2 BP_StoneWallFountain_C
+      2 BP_FarmPlot_C
+      2 BP_SoldierXbow_C
+      2 BP_CaveDoor_C
+      2 BP_GateBreachLeaf_C
+      1 WorldDataLayers
+      1 BP_ZombieCharge_C
+      1 RecastNavMesh
+      1 BP_TradeShowcase_C
+      1 BP_Crossbow_C
+      1 BP_RealmVision_C
+== lights
+  PointLight Castle_Torch_05_Light7 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[3231, 473, 395] rot=
+  PointLight Castle_Torch_05_Light3 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2767, 1063, 395] rot=
+  PointLight EF_TrailTorch_04_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[4851, -7645, -2283] rot=
+  PointLight EF_Tun_Torch_02_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-3056, -23788, -1283] rot=
+  PointLight EF_Tun_Torch_14_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-13522, -19938, -1053] rot=
+  PointLight EF_TrailTorch_09_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[6211, -12154, -3803] rot=
+  SpotLight TopRay_02 int=55104.17 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-1280, -24998, 13981] rot=
+  PointLight Castle_Torch_08_Light4 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[280, 1312, 408] rot=
+  PointLight HiddenRoad_Glow_0 int=7.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.3499999940395355 mob=<ComponentMobility.STATIONARY: 1> loc=[-22840, -8840, -1527] rot=
+  PointLight EF_Tun_Torch_11_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-11259, -21659, -1110] rot=
+  PointLight EF_Tun_Torch_04_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-4774, -23466, -1246] rot=
+  PointLight TL_EF_TrailTorch_20 int=15.00 T=1900.0 useT=True shadows=False vol=volumetric_scattering_intensity=0.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-17423, -15707, -1312] rot=
+  SpotLight TopRay_5 int=52734.38 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-18764, -892, 14900] rot=
+  PointLight Realm_Torch_02_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-17100, 1773, -807] rot=
+  PointLight NPCFill_Warden int=1.20 T=3300.0 useT=True shadows=False vol=volumetric_scattering_intensity=0.0 mob=<ComponentMobility.MOVABLE: 2> loc=[700, 455, 200] rot=
+  PointLight Castle_Torch_05_Light5 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[3231, 2873, 395] rot=
+  PointLight Castle_Torch_10_Light2 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2541, 2416, 395] rot=
+  PointLight TL_EF_TrailTorch_18 int=15.00 T=1900.0 useT=True shadows=False vol=volumetric_scattering_intensity=0.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-350, -23404, -1805] rot=
+  PointLight Castle_Torch_10_Light5 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[4460, 1421, 395] rot=
+  DirectionalLight DirectionalLight int=5.66 T=5900.0 useT=True shadows=True vol=volumetric_scattering_intensity=4.0 mob=<ComponentMobility.MOVABLE: 2> loc=[0, 0, 920] rot=<Struct 'Rotator' (0x000001904B036130) {pitch: -26.000000, yaw: 70.000000, roll: 0.000000}>
+  PointLight Castle_Torch_05_Light6 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[3090, 1313, 395] rot=
+  PointLight EF_TrailTorch_16_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[829, -21887, -2681] rot=
+  PointLight Tower9_Torch_B0_Light int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[346, 3154, 1010] rot=
+  PointLight HiddenRoad_Glow_1 int=6.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.3499999940395355 mob=<ComponentMobility.STATIONARY: 1> loc=[-26540, -8640, -1092] rot=
+  PointLight Castle_Torch_04_Light int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[1700, 3310, 395] rot=
+  PointLight Castle_Torch_07_Light4 int=1.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2381, 1379, 712] rot=
+  PointLight EF_TrailTorch_05_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[6444, -7073, -2537] rot=
+  PointLight EF_Tun_Torch_07_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-7769, -23170, -1186] rot=
+  PointLight EF_Tun_Torch_18_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-16702, -18124, -978] rot=
+  PointLight Realm_Torch_08_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-9926, 2442, -161] rot=
+  SpotLight TopRay_Fog1 int=93750.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-6905, -14193, 21421] rot=
+  PointLight Realm_Torch_09_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-8728, 2522, -69] rot=
+  PointLight EF_Tun_Torch_19_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-17750, -17857, -959] rot=
+  SpotLight TopRay_Fog3 int=93750.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[4853, 4344, 22372] rot=
+  PointLight Castle_KeepLight2 int=7.20 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[2691, 1840, 876] rot=
+  PointLight Castle_Torch_01_Light2 int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[1654, 231, 395] rot=
+  PointLight Castle_KeepLight3 int=3.23 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[2657, 1560, 706] rot=
+  PointLight EF_East_FireLight-1 int=160.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.5 mob=<ComponentMobility.STATIONARY: 1> loc=[-150, -24950, -1307] rot=
+  PointLight Castle_Torch_04_Light2 int=18.86 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[1700, 3286, 427] rot=
+  PointLight Castle_Torch_07_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2175, 1500, 395] rot=
+  PointLight Castle_Torch_10_Light6 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[4460, 2080, 395] rot=
+  PointLight EF_Tun_Torch_09_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-9502, -22477, -1149] rot=
+  PointLight Realm_Gate_Torch_0_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-15366, 1934, -634] rot=
+  PointLight EF_Campfire_2_Light int=250.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=1.5 mob=<ComponentMobility.STATIONARY: 1> loc=[1861, -19344, -3998] rot=
+  PointLight Castle_Torch_10_Light7 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[4460, 2761, 395] rot=
+  PointLight EF_Tun_Torch_05_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-5818, -23764, -1227] rot=
+  PointLight EF_Tun_Torch_13_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-12879, -20861, -1073] rot=
+  PointLight EF_TrailTorch_17_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[863, -23505, -2096] rot=
+  PointLight EF_TrailTorch_07_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[7000, -9798, -3356] rot=
+  PointLight Realm_Torch_03_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-15890, 1619, -695] rot=
+  PointLight EF_Tun_Torch_16_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-15253, -19032, -1014] rot=
+  PointLight Castle_Torch_05_Light9 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[3439, 190, 395] rot=
+  PointLight Castle_Torch_08_Light3 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[280, 2238, 408] rot=
+  PointLight TL_EF_East_Fire-1 int=15.00 T=1900.0 useT=True shadows=False vol=volumetric_scattering_intensity=0.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-34, -24951, -1210] rot=
+  PointLight EF_West_FireLight1 int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-18264, -15714, -1200] rot=
+  PointLight EF_Tun_Torch_17_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-16236, -19087, -997] rot=
+  PointLight EF_TrailTorch_14_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[3266, -18921, -3868] rot=
+  PointLight Castle_Torch_08_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2175, 2000, 395] rot=
+  PointLight Castle_WellFire_Glow int=2.40 T=1900.0 useT=True shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[3950, 2600, 60] rot=
+  SpotLight TopRay_05 int=60000.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[17890, -10340, 19631] rot=
+  PointLight Castle_Torch_05_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2609, 233, 395] rot=
+  PointLight Tower9_Torch_B1_Light int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[259, 3812, 1010] rot=
+  PointLight Castle_Torch_07_Light5 int=1.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2381, 1648, 712] rot=
+  PointLight EF_TrailTorch_02_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[2367, -7201, -1634] rot=
+  PointLight Castle_Torch_03_Light2 int=18.86 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[700, 3309, 395] rot=
+  PointLight Castle_Torch_10_Light9 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2105, 2665, 395] rot=
+  PointLight Castle_KeepLight4 int=3.23 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[2654, 1800, 706] rot=
+  PointLight EF_Tun_Torch_03_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-4046, -24174, -1264] rot=
+  SpotLight TopRay_Fog2 int=93750.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[5253, -298, 24550] rot=
+  PointLight Castle_Torch_10_Light8 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2105, 829, 395] rot=
+  PointLight EF_Tun_Torch_08_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-8443, -22340, -1168] rot=
+  PointLight Castle_Torch_10_Light4 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[4460, 780, 395] rot=
+  SpotLight TopRay_01 int=75937.50 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-29264, -21441, 16875] rot=
+  PointLight Tower9_Torch_A0_Light int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[346, 346, 1010] rot=
+  PointLight EF_Tun_Torch_15_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-14680, -19952, -1033] rot=
+  PointLight Tower9_Torch_A1_Light int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-312, 259, 1010] rot=
+  PointLight EF_TrailTorch_15_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[2359, -21361, -3227] rot=
+  PointLight Castle_Torch_10_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[186, 2430, 395] rot=
+  PointLight EF_TrailTorch_08_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[5615, -10670, -3733] rot=
+  PointLight EF_TrailTorch_13_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[2498, -17451, -3939] rot=
+  PointLight Castle_Torch_07_Light6 int=1.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2381, 1888, 712] rot=
+  PointLight EF_TrailTorch_10_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[4754, -12936, -3831] rot=
+  PointLight Castle_Torch_03_Light int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[700, 3269, 395] rot=
+  PointLight EF_TrailTorch_12_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[3862, -16630, -3939] rot=
+  PointLight Castle_Torch_10_Light3 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2508, 754, 395] rot=
+  PointLight EF_TrailTorch_03_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[3798, -6384, -1940] rot=
+  PointLight Castle_Torch_05_Light4 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[4050, 1733, 395] rot=
+  PointLight EF_West_FireLight-1 int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-17413, -15717, -1154] rot=
+  PointLight EF_TrailTorch_06_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[6383, -8320, -2832] rot=
+  PointLight Castle_Torch_08_Light5 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[258, 1018, 408] rot=
+  SpotLight TopRay_4 int=65104.17 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-18883, -34685, 17042] rot=
+  PointLight Realm_CrackLight int=60000.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-15071, 13286, 3792] rot=
+  SpotLight TopRay_04 int=65104.17 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[147, 17293, 18264] rot=
+  PointLight EF_Tun_Torch_12_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-11861, -20763, -1091] rot=
+  PointLight EF_Tun_Torch_10_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-10157, -21586, -1130] rot=
+  PointLight Realm_Torch_07_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-11140, 2669, -277] rot=
+  PointLight EF_Tun_Torch_01_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-1949, -24344, -1305] rot=
+  SpotLight TopRay_03 int=87604.16 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=10.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-16930, 9917, 19213] rot=
+  PointLight Realm_Torch_00_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-19491, 1549, -1026] rot=
+  PointLight Castle_KeepLight int=3.23 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[2560, 1750, 430] rot=
+  PointLight NPCFill_Vesna int=1.20 T=3300.0 useT=True shadows=False vol=volumetric_scattering_intensity=0.0 mob=<ComponentMobility.MOVABLE: 2> loc=[715, 3195, 175] rot=
+  PointLight EF_Tun_Torch_06_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-6635, -22972, -1207] rot=
+  PointLight TL_FirePit_Group int=40.00 T=1900.0 useT=True shadows=True vol=volumetric_scattering_intensity=0.0 mob=<ComponentMobility.MOVABLE: 2> loc=[4056, 2598, 614] rot=
+  PointLight EF_TrailTorch_11_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[3559, -15041, -4241] rot=
+  PointLight Castle_Torch_05_Light8 int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[4139, 190, 395] rot=
+  PointLight EF_Tun_Torch_20_Light int=11.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-17635, -16865, -942] rot=
+  PointLight EF_Campfire_1_Light int=250.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=1.5 mob=<ComponentMobility.STATIONARY: 1> loc=[5392, -13987, -4155] rot=
+  PointLight Realm_Gate_Torch_1_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-14608, 1976, -571] rot=
+  PointLight TL_AP_Fire_West int=40.00 T=1900.0 useT=True shadows=True vol=volumetric_scattering_intensity=0.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-17840, -15710, -1167] rot=
+  PointLight Castle_Torch_02_Light int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[1700, 190, 395] rot=
+  PointLight EF_East_FireLight1 int=160.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.5 mob=<ComponentMobility.STATIONARY: 1> loc=[-260, -23324, -1647] rot=
+  PointLight TL_EF_TrailTorch_19 int=15.00 T=1900.0 useT=True shadows=False vol=volumetric_scattering_intensity=0.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-18267, -15707, -1361] rot=
+  PointLight Realm_Torch_05_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-13515, 2148, -459] rot=
+  PointLight EF_TrailTorch_01_Light int=30.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.800000011920929 mob=<ComponentMobility.STATIONARY: 1> loc=[1294, -5973, -1274] rot=
+  PointLight Castle_Torch_06_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[2810, 2700, 395] rot=
+  PointLight Realm_Torch_06_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-12337, 2577, -375] rot=
+  PointLight Castle_Torch_01_Light int=22.63 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[700, 231, 395] rot=
+  PointLight Realm_Torch_01_Light int=11.31 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-18300, 1731, -927] rot=
+  PointLight AshenGate_PortalLight_Steps int=7.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.15000000596046448 mob=<ComponentMobility.STATIONARY: 1> loc=[-46848, -3233, -1701] rot=
+  PointLight AshenGate_PortalLight_InR int=5.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.15000000596046448 mob=<ComponentMobility.STATIONARY: 1> loc=[-46936, -3299, -1601] rot=
+  PointLight AshenGate_BrazierLight_R int=12.75 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-46936, -3448, -1556] rot=
+  PointLight AshenGate_PortalLight_F int=16.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=0.30000001192092896 mob=<ComponentMobility.MOVABLE: 2> loc=[-46854, -3248, -1511] rot=
+  PointLight AshenGate_PortalLight_B int=5.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-46992, -3189, -1511] rot=
+  PointLight AshenGate_BrazierLight_L int=12.75 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.MOVABLE: 2> loc=[-46753, -3022, -1556] rot=
+  PointLight AshenGate_PortalLight_InL int=5.00 T=6500.0 useT=False shadows=False vol=volumetric_scattering_intensity=0.15000000596046448 mob=<ComponentMobility.STATIONARY: 1> loc=[-46861, -3124, -1601] rot=
+  PointLight Mine297_LanternLight_0 int=400.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-756, -2041, -2862] rot=
+  PointLight Mine297_LanternLight_1 int=400.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-56, -2791, -2882] rot=
+  PointLight Mine297_LanternLight_2 int=400.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[394, -2276, -2932] rot=
+  PointLight Mine297_LanternLight_3 int=400.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[984, -2526, -2932] rot=
+  PointLight Mine297_LanternLight_4 int=400.00 T=6500.0 useT=False shadows=True vol=volumetric_scattering_intensity=1.0 mob=<ComponentMobility.STATIONARY: 1> loc=[-406, -2821, -2872] rot=
+  local lights 129, shadow-casting 11
+== sky / fog / clouds / ppv
+  PostProcessVolume PostProcessVolume
+    unbound=True priority=0.0
+    auto_exposure_method = <AutoExposureMethod.AEM_HISTOGRAM: 0>
+    auto_exposure_bias = 1.399999976158142
+    auto_exposure_min_brightness = 0.0
+    auto_exposure_max_brightness = 0.0
+    bloom_intensity = 0.3499999940395355
+    film_grain_intensity = 0.05999999865889549
+    color_saturation = <Struct 'Vector4' (0x0000019153BC7510) {x: 0.900000, y: 0.900000, z: 0.900000, w: 1.000000}>
+    sharpen = 0.6499999761581421
+  LocalFogVolume Realm_DreamFog_3
+  PostProcessVolume PFX_Tunnel_07
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.5
+  PostProcessVolume PFX_Courtyard
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.149999976158142
+    color_saturation = <Struct 'Vector4' (0x00000190F905BB10) {x: 0.950000, y: 0.950000, z: 0.950000, w: 1.000000}>
+    color_gain = <Struct 'Vector4' (0x00000190F905BB70) {x: 1.040000, y: 1.000000, z: 0.930000, w: 1.000000}>
+  SkyLight SkyLight
+    intensity=2.0 real_time_capture=True source_type=<SkyLightSourceType.SLS_CAPTURED_SCENE: 0> lower_hemisphere_is_black=True
+  ExponentialHeightFog ExponentialHeightFog
+    fog_density=0.006800000090152025 fog_height_falloff=0.5799999833106995 fog_inscattering_luminance=<Struct 'LinearColor' (0x0000019067D0F6B4) {r: 0.295000, g: 0.325000, b: 0.360000, a: 1.000000}> volumetric_fog_scattering_distribution=0.8199999928474426 volumetric_fog_albedo=<Struct 'Color' (0x0000019067D0F744) {b: 190, g: 219, r: 234, a: 255}> volumetric_fog_extinction_scale=0.029999999329447746 start_distance=3500.0 fog_max_opacity=0.8199999928474426
+  LocalFogVolume Realm_DreamFog_4
+  PostProcessVolume PFX_Tunnel_05
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.5
+  VolumetricCloud VolumetricCloud
+    layer_bottom_altitude=5.0 layer_height=10.0 material=<Object '/Engine/EngineSky/VolumetricClouds/m_SimpleVolumetricCloud_Inst.m_SimpleVolumetricCloud_Inst' (0x0000019106D03800) Class 'MaterialInstanceConstant'>
+  LocalFogVolume Realm_DreamFog_1
+  PostProcessVolume PFX_Tunnel_04
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.5
+  SkyAtmosphere SkyAtmosphere
+    rayleigh_scattering=<Struct 'LinearColor' (0x00000190F8EC06AC) {r: 0.208230, g: 0.419686, b: 0.840000, a: 30.211479}> mie_scattering_scale=0.00791999977082014 mie_anisotropy=0.800000011920929 aerial_pespective_view_distance_scale=3.0 multi_scattering_factor=1.0
+  LocalFogVolume Realm_DreamFog_0
+  PostProcessVolume PFX_Tunnel_01
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.5
+  PostProcessVolume PPV_Realm
+    unbound=False priority=0.0
+  PostProcessVolume PFX_Tunnel_02
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.5
+  PostProcessVolume PFX_Tunnel_03
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.5
+  PostProcessVolume PFX_Tunnel_06
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.5
+  PostProcessVolume PFX_Tunnel_00
+    unbound=False priority=1.0
+    auto_exposure_bias = 1.5
+  LocalFogVolume Realm_DreamFog_2
+== renderer cvars
+  r.DynamicGlobalIlluminationMethod = 0
+  r.ReflectionMethod = 0
+  r.Shadow.Virtual.Enable = 0
+  r.Nanite = 1
+  r.VolumetricFog = 0
+  r.VolumetricCloud = 0
+  r.Lumen.SurfaceCache.CardCaptureRefreshFraction = 0
+  r.Streaming.PoolSize = 400
+  r.ScreenPercentage = 0
+  r.AntiAliasingMethod = 1
+  r.Lumen.HardwareRayTracing = 1
+== static meshes by mesh (instances, materials) top 60
+  1250 /Engine/BasicShapes/Plane  /Game/CastleDefender/Shared/Materials/Decals/MI_EdgeGrime_StairContact
+   700 /Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite  /Game/CastleDefender/Shared/Materials/Castle/M_Shadow
+   561 /Engine/BasicShapes/Cube  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StepCap
+   290 /Game/CastleDefender/Environment/Boundaries/SiegeKit/SM_SiegeBarricade_Palisade  /Game/CastleDefender/Environment/Boundaries/SiegeKit/MI_SiegeBarricade_Palisade
+   200 /Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World
+   190 /Game/CastleDefender/Environment/Castle/Battlements/SM_StoneModule  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+   146 /Engine/BasicShapes/Cylinder  /Game/CastleDefender/UI/Trade/M_Trade_Shaft
+   104 /Game/CastleDefender/Environment/Castle/Battlements/SM_WalkSlab  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_WalkFlag_World
+    71 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_008  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World
+    52 /Game/CastleDefender/Props/IronTorch/SM_IronTorch  /Game/CastleDefender/Props/IronTorch/Iron_Torch___Baked_PBR_1K
+    38 /Game/CorruptionBubble/Optimized/SM_BubbleSphere_LOD  /Game/CastleDefender/VFX/JellyBubble/MI_JellyBubble_Gate
+    28 /Game/CastleDefender/Environment/Foliage/Meshes/SM_Rock_04  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_04
+    28 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Mossy_Forest_Rock_vimrfjsaw/Raw/vimrfjsaw_tier_0  /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Mossy_Forest_Rock_vimrfjsaw/Raw/MI_vimrfjsaw
+    22 /Engine/EditorMeshes/MatineeCam_SM  /Engine/EditorMaterials/MatineeCam_mat
+    22 /Game/CastleDefender/Environment/Flora/BlobMine/SM_Flora_BlobMine  /Game/CastleDefender/Environment/Flora/BlobMine/MI_BlobMine_Flesh
+    21 /Engine/BasicShapes/Sphere  /Game/CastleDefender/Gameplay/Tentacle/Jelly/MI_JellyMine_State
+    20 /Game/AncientTreasures/Meshes/SM_Torch_01a  /Game/AncientTreasures/Materials/Instances/MI_Torch_01a
+    20 /Game/CastleDefender/VFX/GodRays/SM_GodRayCyl  /Game/CastleDefender/VFX/GodRays/MI_GodRay_05
+    19 /Game/CastleDefender/Environment/Foliage/Meshes/SM_Rock_08  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_08
+    18 /Game/CastleDefender/Environment/Foliage/Meshes/SM_Rock_07  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_07
+    16 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_009  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+    15 /Game/CastleDefender/Environment/Foliage/Meshes/SM_Rock_05  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_05
+    14 /Game/CastleDefender/Environment/Foliage/Meshes/SM_Rock_03  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_03
+    14 /Game/CastleDefender/Environment/Foliage/Meshes/SM_Rock_01  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_01
+    13 /Game/CastleDefender/Environment/Foliage/Meshes/SM_Rock_02  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_02
+    13 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_033  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_GateArch
+    13 /Game/CastleDefender/Environment/Prototyping/Meshes/SM_Cube  /Game/CastleDefender/Environment/Prototyping/Materials/MI_PrototypeGrid_TopDark
+    11 /Game/CastleDefender/Environment/Foliage/Meshes/SM_Rock_06  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_06
+    11 /Game/CastleDefender/Environment/Camp/TorchPost/SM_Camp_TorchPost  /Game/CastleDefender/Environment/Camp/TorchPost/MI_Camp_TorchPost
+    10 /Game/CastleDefender/Environment/Prototyping/Meshes/SM_QuarterCylinder  /Game/CastleDefender/Environment/Prototyping/Materials/MI_PrototypeGrid_TopDark
+    10 /Game/CastleDefender/Environment/Landscape/Meshes/Background/SM_MWAM_MountainA  /Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Far_Snow0
+    10 /Game/CastleDefender/Environment/Landscape/Meshes/Background/SM_MWAM_MountainB  /Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Far_Snow3
+    10 /Game/CastleDefender/VFX/TentacleShock/SM_ShockBandCyl  /Game/CastleDefender/VFX/TentacleShock/M_ShockRingBand
+     9 /Game/CastleDefender/VFX/Blast/SM_BlastRock_01  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_01
+     9 /Game/CastleDefender/VFX/Blast/SM_BlastRock_02  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_02
+     9 /Game/CastleDefender/VFX/Blast/SM_BlastRock_03  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_03
+     9 /Game/CastleDefender/VFX/Blast/SM_BlastRock_04  /Game/CastleDefender/Environment/Foliage/Materials/MI_Rock_04
+     8 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Wooden_Barrel_tmgpcg2fa/Low/SM_tmgpcg2fa_tier_3  /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Wooden_Barrel_tmgpcg2fa/Low/MI_tmgpcg2fa
+     8 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_011  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+     8 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_013  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World
+     8 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_010  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+     8 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_019  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+     8 /Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/SM_FieldCannon_HD  /Game/CastleDefender/AssetPacks/Fab/Old_Field_Cannon/Wood | /Game/CastleDefender/Gameplay/Cannon/M_CannonGilded
+     7 /Game/CastleDefender/Equipment/crossbow/Noble_Crossbow_LowPoly  /Game/CastleDefender/Equipment/crossbow/Crossbow___Baked_PBR_1K
+     7 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Wooden_Barrel_tmgmfeefa/Low/tmgmfeefa_tier_3  /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Wooden_Barrel_tmgmfeefa/Low/MI_tmgmfeefa
+     6 /Game/CastleDefender/Equipment/Weapons/Longsword/SM_Longsword_LP  /Game/CastleDefender/Equipment/Weapons/Longsword/M_Longsword
+     6 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_004  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World
+     6 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Sandbag_Pile_udqjbg1qx/Low/udqjbg1qx_tier_3  /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Sandbag_Pile_udqjbg1qx/Low/MI_udqjbg1qx
+     6 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_003  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+     6 /Game/CastleDefender/Environment/Castle/Optimized/SM_Cylinder_Nanite  /Game/CastleDefender/Props/AshenGate/Materials/MI_AshenGate_Iron
+     6 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_023  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+     6 /Game/CastleDefender/Environment/Mine/SM_Mine_TimberSet  /Game/CastleDefender/Environment/Mine/MI_MineIron | /Game/CastleDefender/Environment/Mine/MI_MineOak
+     6 /Game/CastleDefender/Environment/Mine/SM_Mine_Rail_4m  /Game/CastleDefender/Environment/Mine/MI_MineIron | /Game/CastleDefender/Environment/Mine/MI_MineOak
+     5 /Game/CastleDefender/Props/StairKit/SM_Stair_W200_Solid_N20  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World | /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+     5 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Massive_Tundra_Rock_Formation_wcrmbiar/Raw/wcrmbiar_tier_0  /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Massive_Tundra_Rock_Formation_wcrmbiar/Raw/MI_wcrmbiar
+     5 /Game/CastleDefender/AssetPacks/Fab/Megascans/Chandelier/sm_chandelier  /Game/CastleDefender/AssetPacks/Fab/Megascans/Chandelier/M_Chandelier
+     5 /Game/CastleDefender/Environment/Mine/SM_Mine_Lantern  /Game/CastleDefender/Environment/Mine/MI_MineGlow | /Game/CastleDefender/Environment/Mine/MI_MineIron
+     4 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_018  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_StoneWall_World
+     4 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_015  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+     4 /Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_022  /Game/CastleDefender/Shared/Materials/Castle/MI_Castle_Trim_World
+  distinct meshes 237
+== landscapes / foliage / decals / niagara
+  landscape LandscapeStreamingProxy_3_7_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_4_6_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_0_2_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_3_4_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_0_0_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_4_4_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_3_0_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_1_6_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_2_0_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_0_4_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_3_2_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_2_1_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_7_5_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_2_4_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_5_2_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_2_5_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_0_6_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_6_6_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_7_4_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_6_3_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_3_1_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_2_7_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_1_5_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_3_6_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_3_3_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_5_3_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_0_1_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_6_5_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_7_1_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_4_1_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_6_0_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_1_1_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_1_0_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_7_0_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_6_1_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_5_0_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_0_7_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_5_1_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_4_7_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_6_2_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_2_2_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_5_7_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_6_4_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_4_2_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_3_5_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_5_5_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_5_4_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_7_6_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_6_7_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_1_4_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_7_2_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_7_3_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_0_3_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_4_3_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_0_5_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape Landscape mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_2_6_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_2_3_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_4_5_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_4_0_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_5_6_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_1_3_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_7_7_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_1_2_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  landscape LandscapeStreamingProxy_1_7_0 mat=/Game/CastleDefender/Environment/Mountains/Materials/MI_MountainBackdrop_Near.MI_MountainBackdrop_Near
+  decals 544
+     175 /Game/CastleDefender/Props/AshenGate/Materials/M_AshenGate_DecalMoss
+      61 /Game/CastleDefender/Environment/Decals/DampTide/MI_Decal_DampTide
+      35 /Game/CastleDefender/Environment/Decals/Castle2/WallCrackB/MI_Decal_WallCrackB
+      30 /Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/MI_Decal_WallCrackA
+      25 /Game/CastleDefender/Environment/Decals/Castle2/WallImpact/MI_Decal_WallImpact
+      25 /Game/CastleDefender/Environment/Decals/MossPatchA/MI_Decal_MossPatchA
+      20 /Game/CastleDefender/Props/CourtyardProps/YardDecals/Instances/MI_YW_Moss_WallBase_02
+      19 /Game/CastleDefender/Props/AshenGate/Materials/M_AshenGate_DecalScratches
+      19 /Game/CastleDefender/Props/CourtyardProps/YardDecals/Instances/MI_YW_Moss_WallBase_01
+      14 None
+       8 /Game/CastleDefender/Props/AshenGate/Materials/M_AshenGate_DecalVeins
+       7 /Game/CastleDefender/Environment/Decals/MudSplashA/MI_Decal_MudSplashA
+       6 /Game/CastleDefender/Environment/Decals/MudSplashB/MI_Decal_MudSplashB
+       6 /Game/CastleDefender/Environment/Tower9StreakFix/MI_Decal_RainStreakB_Soft
+       6 /Game/CastleDefender/Environment/Tower9StreakFix/MI_Decal_RainStreakA_Soft
+       4 /Game/CastleDefender/Environment/Decals/LichenCrustA/MI_Decal_LichenCrustA
+       4 /Game/CastleDefender/Environment/EastFront/MI_EF_CavePaint_0
+       4 /Game/CastleDefender/Environment/EastFront/MI_EF_Talisman_1
+       4 /Game/CastleDefender/Environment/EastFront/MI_EF_CavePaint_3
+       4 /Game/CastleDefender/Environment/Decals/GroundCrack/MI_Decal_GroundCrack
+       4 /Game/CastleDefender/Environment/Decals/SaltBloom/MI_Decal_SaltBloom
+       3 /Game/CastleDefender/Environment/EastFront/MI_EF_Talisman_2
+       2 /Game/CastleDefender/Environment/Decals/MuzzleScorch/MI_Decal_MuzzleScorch
+       2 /Game/CastleDefender/Environment/Decals/Footprints/MI_Decal_Footprints
+       2 /Game/CastleDefender/Environment/Decals/LichenCrustB/MI_Decal_LichenCrustB
+       2 /Game/CastleDefender/Environment/Decals/MossPatchB/MI_Decal_MossPatchB
+       2 /Game/CastleDefender/Environment/EastFront/MI_EF_CavePaint_2
+       1 /Game/CastleDefender/Props/CourtyardProps/YardDecals/Instances/MI_YW_Moss_NorthWall_A
+       1 /Game/CastleDefender/Props/CourtyardProps/YardDecals/Instances/MI_GatePassage_WallBase_L
+       1 /Game/CastleDefender/Gameplay/PortalCrawler/Blood/MI_CB2_CrawlerBlood_Drag16
+  niagara comps 18
+      15 /Game/CastleDefender/Props/StoneWallBasin/Water/NS_FaucetSplash
+       1 /Game/CastleDefender/Gameplay/SkillBook/NS_SkillBook_Glow
+       1 /Game/CastleDefender/Gameplay/MapPickup/NS_MapPickup_Glow
+       1 /Game/CastleDefender/Gameplay/BagPickup/NS_BagPickup_Glow
+== tentacles / cannons / mountains (by label)
+  SkeletalMeshActor Env_CorruptedTentacle_Fog1 at [2000, -10744, -7402]
+  StaticMeshActor Env_TentacleFog__01_4 at [-35771, -25518, 12199]
+  StaticMeshActor Env_TentacleFog__03_6 at [-23928, 4105, 13669]
+  StaticMeshActor Env_TentacleFog__01_1 at [-26206, -11269, 12199]
+  SkeletalMeshActor Env_CorruptedTentacle_02 at [15255, -18634, -4185]
+  StaticMeshActor Env_TentacleFog__02_5 at [842, -18991, 10732]
+  SkeletalMeshActor Env_CorruptedTentacle_03 at [-17088, 14671, -5437]
+  StaticMeshActor Env_TentacleFog__04_4 at [331, 34339, 11072]
+  SkeletalMeshActor Env_CorruptedTentacle_5 at [-17619, 10728, -4130]
+  StaticMeshActor Env_TentacleFog__05_0 at [10385, 2493, 11601]
+  StaticMeshActor Env_TentacleFog__4_5 at [-20731, -24765, 11034]
+  SkeletalMeshActor Env_CorruptedTentacle_4 at [-143400, -39847, 1527]
+  StaticMeshActor TentacleHit_Fog3_05 at [2537, 15296, 3723]
+  StaticMeshActor TentacleHit_Fog2_02 at [9881, -1520, 17173]
+  DecalActor YW_Scorch_Cannon_B at [545, 2060, 8]
+  StaticMeshActor Env_TentacleFog__04_3 at [5940, 29360, 11722]
+  StaticMeshActor TentacleHit_Fog3_06 at [2218, 15199, -799]
+  StaticMeshActor Env_TentacleFog__01_5 at [-31356, -8119, 11497]
+  StaticMeshActor Env_TentacleFog__03_2 at [-20356, 13742, 15931]
+  SkeletalMeshActor Env_CorruptedTentacle_04 at [5915, 24666, -3074]
+  StaticMeshActor Env_TentacleFog__5_3 at [-32458, 3325, 12699]
+  StaticMeshActor TentacleHit_Fog3_12 at [2589, 15132, -2551]
+  TargetPoint CannonPad_2 at [1400, 3310, 690]
+  StaticMeshActor TentacleHit_Fog2_10 at [11056, 4358, 13045]
+  SkeletalMeshActor Env_CorruptedTentacle_01 at [-28498, -17794, -6291]
+  StaticMeshActor Env_TentacleFog__02_3 at [8572, -22659, 11928]
+  BP_CannonOrder_C CannonOrder_1 at [2533, 1870, 1046]
+  DecalActor CliffBreakup_West at [-27000, 1500, 9500]
+  SkeletalMeshActor Env_CorruptedTentacle_05 at [19238, -708, -1664]
+  StaticMeshActor TentacleHit_Fog2_13 at [11595, 6946, 2031]
+  StaticMeshActor Env_TentacleFog__05_3 at [23582, -4246, 13473]
+  TargetPoint CannonPad_0 at [4523, 2055, 673]
+  StaticMeshActor Env_TentacleFog__01_6 at [-20774, -25067, 11497]
+  StaticMeshActor TentacleHit_Fog3_03 at [3181, 15061, 8166]
+  BP_Cannon_C Cannon_old_field_cannon2 at [2961, 3326, 1075]
+  StaticMeshActor Env_TentacleFog__4_4 at [-15039, -40381, 11684]
+  StaticMeshActor TentacleHit_Fog3_01 at [12795, 11301, 16750]
+  StaticMeshActor TentacleHit_Fog3_09 at [3675, 15228, -4601]
+  StaticMeshActor Env_TentacleFog__05_4 at [28115, 1349, 12849]
+  StaticMeshActor Env_TentacleFog__04_1 at [5614, 19353, 11072]
+  StaticMeshActor TentacleHit_Fog2_05 at [11639, 6729, 4327]
+  StaticMeshActor Env_TentacleFog__03_5 at [-11094, 21304, 13669]
+  BP_Cannon_C Cannon_front_field_N at [-900, 900, -126]
+  StaticMeshActor Env_TentacleFog__5_5 at [-24988, 8865, 11399]
+  BP_Cannon_C Cannon_front_field_S at [-900, 2600, -132]
+  StaticMeshActor TentacleHit_Fog2_01 at [9499, -4069, 17354]
+  StaticMeshActor Env_TentacleFog__01_2 at [-27926, -18710, 13603]
+  StaticMeshActor Env_TentacleFog__05_6 at [16854, 8495, 12225]
+  TargetPoint CannonPad_1 at [1600, 190, 690]
+  StaticMeshActor Env_TentacleFog__01_3 at [-35081, -17447, 12901]
+  StaticMeshActor Env_TentacleFog__5_2 at [-27434, -1148, 13349]
+  StaticMeshActor Env_TentacleFog__4_2 at [-12586, -31081, 12984]
+  StaticMeshActor Env_TentacleFog__02_0 at [7716, -8485, 10134]
+  StaticMeshActor TentacleHit_Fog2_08 at [11362, 5433, 10940]
+  StaticMeshActor Env_TentacleFog__4_1 at [-15148, -24491, 11684]
+  StaticMeshActor Env_TentacleFog__02_2 at [10030, -16645, 12526]
+  BP_Cannon_C Cannon_old_field_cannon_bailey at [4510, 140, 1075]
+  StaticMeshActor TentacleHit_Fog2_06 at [11488, 7027, -194]
+  StaticMeshActor Env_TentacleFog__4_6 at [-3799, -32217, 11034]
+  DecalActor YW_Scorch_Cannon_A at [180, 1430, 8]
+  StaticMeshActor Env_TentacleFog__03_1 at [-12238, 14922, 14423]
+  StaticMeshActor Env_TentacleFog__5_0 at [-18423, -3100, 10749]
+  StaticMeshActor TentacleHit_Fog3_13 at [2316, 15290, 1426]
+  StaticMeshActor Env_TentacleFog__5_1 at [-22461, 3879, 12049]
+  StaticMeshActor TentacleHit_Fog3_08 at [3765, 14796, 10336]
+  StaticMeshActor Env_TentacleFog__03_0 at [-13376, 5639, 12915]
+  StaticMeshActor Realm_MountainCrack at [-15088, 13436, 3412]
+  StaticMeshActor TentacleHit_Fog3_04 at [6307, 13641, 14327]
+  BP_Cannon_C Cannon_old_field_cannon3 at [95, 190, 1075]
+  BP_Cannon_C Cannon_old_field_cannon_bailey at [4480, 3370, 1075]
+  StaticMeshActor TentacleHit_Fog3_02 at [10352, 12123, 16569]
+  StaticMeshActor TentacleHit_Fog3_10 at [4770, 14307, 12440]
+  StaticMeshActor Env_TentacleFog__4_0 at [-7130, -23649, 10384]
+  StaticMeshActor Env_TentacleFog__05_2 at [18947, 251, 14097]
+  BP_Cannon_C Cannon_old_field_cannon4 at [60, 3450, 1075]
+  StaticMeshActor Env_TentacleFog__04_6 at [-7634, 22957, 10422]
+  StaticMeshActor TentacleHit_Fog2_12 at [11487, 6650, -1947]
+  BP_TentacleVitals_C TentacleVitals_Fog2_11 at [11500, 7250, -5076]
+  StaticMeshActor TentacleHit_Fog2_00 at [11585, 6465, 6543]
+  StaticMeshActor Env_TentacleFog__05_5 at [16189, -9253, 12225]
+  StaticMeshActor Env_TentacleFog__04_2 at [1043, 24748, 12372]
+  StaticMeshActor Env_TentacleFog__5_4 at [-36926, -2700, 12049]
+  StaticMeshActor Env_TentacleFog__05_1 at [13971, -4366, 12849]
+  StaticMeshActor Env_TentacleFog__01_0 at [-18537, -15394, 10795]
+  StaticMeshActor TentacleHit_Fog3_07 at [8110, 12941, 15755]
+  StaticMeshActor Env_TentacleFog__03_3 at [-21882, 21394, 15177]
+  StaticMeshActor Env_TentacleFog__02_4 at [15396, -23681, 11330]
+  StaticMeshActor TentacleHit_Fog2_03 at [11521, 6055, 8771]
+  StaticMeshActor Env_TentacleFog__04_5 at [10803, 21432, 10422]
+  StaticMeshActor TentacleHit_Fog2_09 at [11771, 5597, -3996]
+  StaticMeshActor Env_TentacleFog__5_6 at [-24888, -9635, 11399]
+  StaticMeshActor TentacleHit_Fog3_00 at [2788, 15197, 5939]
+  StaticMeshActor Castle_SurroundingMountains at [1500, 1750, 0]
+  StaticMeshActor Env_TentacleFog__4_3 at [-18718, -33845, 12334]
+  BP_TentacleVitals_C TentacleVitals_Fog3_11 at [2000, 15250, -5680]
+  StaticMeshActor Env_TentacleFog__02_6 at [15819, -10907, 10732]
+  StaticMeshActor TentacleHit_Fog2_04 at [10669, 2728, 14932]
+  BP_Cannon_C Cannon_old_field_cannon at [3070, 115, 1075]
+  StaticMeshActor Env_TentacleFog__02_1 at [3797, -14782, 11330]
+  StaticMeshActor TentacleHit_Fog2_07 at [10295, 831, 16360]
+  StaticMeshActor Env_TentacleFog__03_4 at [-30228, 18938, 14423]
+  StaticMeshActor Env_TentacleFog__04_0 at [-1692, 15944, 9772]
+  StaticMeshActor TentacleHit_Fog1_08 at [1213, -9100, 8615]
+  StaticMeshActor TentacleHit_T_02_06 at [14383, -18352, 6431]
+  StaticMeshActor TentacleHit_T_03_05 at [-16354, 14880, 5795]
+  StaticMeshActor TentacleHit_T_03_00 at [-15508, 15029, -4394]
+  StaticMeshActor TentacleHit_T_4_08 at [-145155, -36827, 24042]
+  StaticMeshActor TentacleHit_T_4_01 at [-143740, -39066, 5331]
+  StaticMeshActor TentacleHit_T_4_06 at [-143794, -38484, 18668]
+  StaticMeshActor TentacleHit_T_04_08 at [8146, 23681, 12026]
+  StaticMeshActor TentacleHit_T_03_12 at [-7674, 20575, 16245]
+  StaticMeshActor TentacleHit_T_02_07 at [13891, -18330, 8094]
+  StaticMeshActor TentacleHit_T_5_09 at [-16281, 7292, 12431]
+  BP_TentacleVitals_C TentacleVitals_02 at [15255, -18634, -4185]
+  BP_TentacleVitals_C TentacleVitals_4 at [-143400, -39847, 1527]
+  StaticMeshActor TentacleHit_T_05_05 at [19750, -1079, 7632]
+  StaticMeshActor TentacleHit_T_4_09 at [-146331, -35133, 26444]
+  StaticMeshActor TentacleHit_T_4_12 at [-150908, -27828, 29571]
+  StaticMeshActor TentacleHit_T_02_10 at [10278, -18084, 12249]
+  StaticMeshActor TentacleHit_T_02_03 at [15053, -18497, 1264]
+  StaticMeshActor TentacleHit_T_05_12 at [24888, -7964, 16280]
+  StaticMeshActor TentacleHit_T_5_06 at [-17484, 9796, 7254]
+  StaticMeshActor TentacleHit_T_02_00 at [14103, -18066, -3357]
+  StaticMeshActor TentacleHit_T_04_02 at [6092, 24608, 994]
+  StaticMeshActor TentacleHit_T_01_00 at [-27504, -16660, -5320]
+  StaticMeshActor TentacleHit_T_02_04 at [14904, -18416, 3024]
+  StaticMeshActor TentacleHit_T_04_00 at [7304, 24526, -2175]
+  BP_TentacleVitals_C TentacleVitals_5 at [-17619, 10728, -4130]
+  StaticMeshActor TentacleHit_Fog1_09 at [940, -9447, -6322]
+  StaticMeshActor TentacleHit_T_02_12 at [6506, -17574, 13012]
+  StaticMeshActor TentacleHit_T_5_05 at [-17589, 10108, 5389]
+  StaticMeshActor TentacleHit_T_4_02 at [-143506, -39589, 7454]
+  StaticMeshActor TentacleHit_T_05_11 at [23579, -6371, 16135]
+  StaticMeshActor TentacleHit_T_04_01 at [6395, 24525, -467]
+  StaticMeshActor TentacleHit_T_04_09 at [9374, 23017, 13599]
+  StaticMeshActor TentacleHit_T_04_11 at [12622, 21463, 15467]
+  StaticMeshActor TentacleHit_T_03_04 at [-16571, 14736, 3652]
+  StaticMeshActor TentacleHit_T_05_06 at [19959, -1337, 9414]
+  StaticMeshActor TentacleHit_T_5_08 at [-16871, 8539, 10835]
+  StaticMeshActor TentacleHit_T_01_09 at [-26980, -13944, 11716]
+  StaticMeshActor TentacleHit_Fog1_03 at [1386, -9718, 6445]
+  StaticMeshActor TentacleHit_T_02_05 at [14699, -18396, 4723]
+  StaticMeshActor TentacleHit_T_03_03 at [-16781, 14697, 1433]
+  StaticMeshActor TentacleHit_T_03_02 at [-16892, 14763, -718]
+  StaticMeshActor TentacleHit_T_04_12 at [14590, 20604, 15617]
+  StaticMeshActor TentacleHit_T_05_09 at [21479, -3626, 14343]
+  StaticMeshActor TentacleHit_T_04_07 at [7347, 24161, 10273]
+  StaticMeshActor TentacleHit_Fog1_05 at [1620, -10362, 2001]
+  StaticMeshActor TentacleHit_T_01_07 at [-27739, -16339, 8123]
+  StaticMeshActor TentacleHit_Fog1_12 at [1712, -10217, -4273]
+  StaticMeshActor TentacleHit_T_01_03 at [-28281, -17606, 105]
+  StaticMeshActor TentacleHit_T_4_11 at [-149219, -30614, 29307]
+  StaticMeshActor TentacleHit_T_03_01 at [-16555, 14901, -2412]
+  StaticMeshActor TentacleHit_T_4_07 at [-144230, -37836, 21395]
+  StaticMeshActor TentacleHit_Fog1_01 at [-1914, 63, 15028]
+  StaticMeshActor TentacleHit_T_04_06 at [6881, 24423, 8465]
+  StaticMeshActor TentacleHit_T_05_04 at [19622, -905, 5859]
+  StaticMeshActor TentacleHit_Fog1_10 at [942, -8016, 10719]
+  StaticMeshActor TentacleHit_T_04_03 at [6180, 24676, 2848]
+  StaticMeshActor TentacleHit_T_04_04 at [6364, 24665, 4762]
+  StaticMeshActor TentacleHit_T_05_02 at [19365, -835, 2242]
+  StaticMeshActor TentacleHit_T_02_11 at [8461, -17863, 12873]
+  StaticMeshActor TentacleHit_T_4_04 at [-143396, -39199, 13102]
+  StaticMeshActor TentacleHit_T_5_00 at [-17432, 9137, -3385]
+  StaticMeshActor TentacleHit_T_01_04 at [-28144, -17462, 2171]
+  StaticMeshActor TentacleHit_T_5_03 at [-17650, 10490, 1611]
+  StaticMeshActor TentacleHit_T_02_02 at [15089, -18593, -442]
+  StaticMeshActor TentacleHit_Fog1_00 at [1535, -10106, 4217]
+  StaticMeshActor TentacleHit_T_05_10 at [22405, -4865, 15485]
+  StaticMeshActor TentacleHit_T_4_10 at [-147662, -33097, 28261]
+  StaticMeshActor TentacleHit_T_4_00 at [-143957, -37607, 2705]
+  StaticMeshActor TentacleHit_Fog1_07 at [-159, -4580, 14034]
+  StaticMeshActor TentacleHit_T_01_10 at [-26363, -12317, 13000]
+  StaticMeshActor TentacleHit_T_01_02 at [-28401, -17617, -1898]
+  StaticMeshActor TentacleHit_T_4_05 at [-143551, -38926, 15873]
+  StaticMeshActor TentacleHit_T_05_07 at [20243, -1765, 11149]
+  StaticMeshActor TentacleHit_T_5_01 at [-17440, 10154, -1615]
+  StaticMeshActor TentacleHit_T_5_11 at [-14910, 4016, 14405]
+  BP_TentacleVitals_C TentacleVitals_01 at [-28498, -17794, -6291]
+  StaticMeshActor TentacleHit_T_05_00 at [20365, -1433, -800]
+  StaticMeshActor TentacleHit_T_02_08 at [13035, -18314, 9708]
+  BP_TentacleVitals_C TentacleVitals_Fog1_11 at [2000, -10744, -7402]
+  StaticMeshActor TentacleHit_T_05_08 at [20718, -2523, 12833]
+  StaticMeshActor TentacleHit_Fog1_04 at [464, -6410, 12606]
+  StaticMeshActor TentacleHit_T_02_01 at [14812, -18509, -1786]
+  StaticMeshActor TentacleHit_T_02_09 at [11753, -18234, 11155]
+  StaticMeshActor TentacleHit_T_5_02 at [-17566, 10536, -217]
+  StaticMeshActor TentacleHit_T_03_06 at [-16009, 15087, 7948]
+  StaticMeshActor TentacleHit_T_03_10 at [-11774, 18083, 15284]
+  BP_TentacleVitals_C TentacleVitals_04 at [5915, 24666, -3074]
+  StaticMeshActor TentacleHit_Fog1_13 at [1767, -10528, -295]
+  StaticMeshActor TentacleHit_T_01_05 at [-28059, -17234, 4166]
+  StaticMeshActor TentacleHit_T_01_08 at [-27461, -15373, 10017]
+  StaticMeshActor TentacleHit_T_5_10 at [-15636, 5809, 13661]
+  StaticMeshActor TentacleHit_T_04_10 at [10820, 22305, 14789]
+  StaticMeshActor TentacleHit_T_01_01 at [-28222, -17329, -3475]
+  StaticMeshActor TentacleHit_T_4_03 at [-143350, -39481, 10209]
+  StaticMeshActor TentacleHit_T_5_12 at [-14129, 1974, 14601]
+  StaticMeshActor TentacleHit_T_5_07 at [-17272, 9338, 9073]
+  BP_TentacleVitals_C TentacleVitals_05 at [19238, -708, -1664]
+  BP_TentacleVitals_C TentacleVitals_03 at [-17088, 14671, -5437]
+  StaticMeshActor TentacleHit_T_05_01 at [19588, -1038, 840]
+  StaticMeshActor TentacleHit_T_03_09 at [-13338, 17058, 13904]
+  StaticMeshActor TentacleHit_T_03_08 at [-14658, 16120, 12079]
+  StaticMeshActor TentacleHit_T_05_03 at [19469, -815, 4022]
+  StaticMeshActor TentacleHit_T_03_11 at [-9819, 19307, 16070]
+  StaticMeshActor TentacleHit_T_03_07 at [-15510, 15456, 10045]
+  StaticMeshActor TentacleHit_Fog1_06 at [1899, -10545, -2520]
+  StaticMeshActor TentacleHit_T_01_06 at [-27913, -16890, 6170]
+  StaticMeshActor TentacleHit_Fog1_02 at [-973, -2336, 14847]
+  StaticMeshActor TentacleHit_T_01_11 at [-25560, -10324, 13733]
+  StaticMeshActor TentacleHit_T_04_05 at [6565, 24564, 6608]
+  StaticMeshActor TentacleHit_T_5_04 at [-17660, 10306, 3543]
+  StaticMeshActor TentacleHit_T_01_12 at [-24638, -8195, 13895]

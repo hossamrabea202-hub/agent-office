@@ -10,6 +10,7 @@
 import json, math, sys, unreal
 H = 'C:/Users/hossam.rabea/agent-office/handoffs/gpt-review-polish/'
 A = sys.argv[1:]
+GROUND = float(A[A.index('--ground') + 1]) if '--ground' in A else 0.0   # castle courtyard ground z (cm); probes below it are underground
 RADIUS = float(A[A.index('--radius') + 1]) if '--radius' in A else 9000.0
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
@@ -47,13 +48,19 @@ for a in EAS.get_all_level_actors():
         r = t.rotation.rotator()
         ax = [unreal.MathLibrary.get_forward_vector(r), unreal.MathLibrary.get_right_vector(r), unreal.MathLibrary.get_up_vector(r)]
         struct = any(k in lab or k in mp for k in STRUCT)
-        pieces.append(dict(a=a, label=a.get_actor_label(), comp=c.get_name(), mesh=m.get_path_name().split('.')[0], mats=mats,
+        pieces.append(dict(a=a, path=a.get_path_name(), label=a.get_actor_label(), comp=c.get_name(), mesh=m.get_path_name().split('.')[0], mats=mats,
                            cen=cen, ext=ext, ax=ax, yaw=r.yaw, pitch=r.pitch, roll=r.roll, struct=struct))
 print('pieces', len(pieces))
 F = []
 
 
 def dot(u, v): return u.x * v.x + u.y * v.y + u.z * v.z
+
+
+def vol(p): return p['ext'][0] * p['ext'][1] * p['ext'][2]
+
+
+def mv(v, s): return [round(v.x * s, 2), round(v.y * s, 2), round(v.z * s, 2)]
 
 
 def aligned(p, q):
@@ -71,6 +78,19 @@ def q_ext_in_p(p, q):
     return out
 
 
+def gap_move(p, q, k, dl, sep):
+    """slide the smaller piece into the bigger one: closes the slit and leaves a 3 cm overlap (a joint inside the overlap)."""
+    s = 1.0 if dl[k] > 0 else -1.0
+    if vol(p) <= vol(q): return dict(move_actor=p['path'], move=mv(p['ax'][k], s * (sep[k] + 3.0)))
+    return dict(move_actor=q['path'], move=mv(p['ax'][k], -s * (sep[k] + 3.0)))
+
+
+def zf_move(p, q, m, sgn):
+    """push the smaller piece 0.8 cm behind the shared face so the bigger one always wins the depth test."""
+    small = p if vol(p) <= vol(q) else q
+    return dict(move_actor=small['path'], move=mv(p['ax'][m], -sgn * 0.8))
+
+
 # broad phase: grid
 cell = 1500.0
 grid = {}
@@ -78,6 +98,29 @@ for i, p in enumerate(pieces):
     k = (int(p['cen'].x // cell), int(p['cen'].y // cell))
     grid.setdefault(k, []).append(i)
 seen = set()
+
+
+def inside_any(pt, skip):
+    """pt strictly inside another piece (1 cm margin) = hidden."""
+    kx, ky = int(pt.x // cell), int(pt.y // cell)
+    for dx in (-1, 0, 1):
+        for dy in (-1, 0, 1):
+            for j in grid.get((kx + dx, ky + dy), []):
+                r = pieces[j]
+                if j in skip: continue
+                d = pt - r['cen']
+                if all(abs(dot(d, v)) < e - 1.0 for v, e in zip(r['ax'], r['ext'])): return True
+    return False
+
+
+def free(pt, skip):
+    return pt.z > GROUND + 1.0 and not inside_any(pt, skip)
+
+
+def P(p, coords):
+    return p['cen'] + p['ax'][0] * coords[0] + p['ax'][1] * coords[1] + p['ax'][2] * coords[2]
+
+
 for i, p in enumerate(pieces):
     if not p['struct']: continue
     kx, ky = int(p['cen'].x // cell), int(p['cen'].y // cell)
@@ -98,8 +141,18 @@ for i, p in enumerate(pieces):
                     ov = [-(sep[m]) for m in o]                                 # overlap size on the other two axes
                     if min(ov) < 10: continue                                   # faces must share >= 10 cm both ways
                     if 0.3 <= sep[k] <= 25:
+                        # the slit is only seen through its rim: probe the 4 rim points at mid-gap, 3 cm outside the shared span
+                        s = 1.0 if dl[k] > 0 else -1.0
+                        c = [0.0, 0.0, 0.0]; c[k] = s * (p['ext'][k] + sep[k] / 2)
+                        for m in o: c[m] = (max(-p['ext'][m], dl[m] - qe[m]) + min(p['ext'][m], dl[m] + qe[m])) / 2
+                        rim = []
+                        for m in o:
+                            half = (min(p['ext'][m], dl[m] + qe[m]) - max(-p['ext'][m], dl[m] - qe[m])) / 2
+                            for t in (1, -1):
+                                cc = list(c); cc[m] += t * (half + 3.0); rim.append(P(p, cc))
+                        if not any(free(pt, {i, j}) for pt in rim): continue
                         F.append(dict(kind='GAP', size=round(sep[k], 1), area=round(ov[0] * ov[1] / 1e4, 2), a=p['label'], b=q['label'],
-                                      mesh_a=p['mesh'], mesh_b=q['mesh'], at=[round(x) for x in ((p['cen'].x + q['cen'].x) / 2, (p['cen'].y + q['cen'].y) / 2, (p['cen'].z + q['cen'].z) / 2)], axis='XYZ'[k]))
+                                      mesh_a=p['mesh'], mesh_b=q['mesh'], at=[round(x) for x in ((p['cen'].x + q['cen'].x) / 2, (p['cen'].y + q['cen'].y) / 2, (p['cen'].z + q['cen'].z) / 2)], axis='XYZ'[k], **gap_move(p, q, k, dl, sep)))
                 # z-fighting = overlapping volumes with a shared coplanar face
                 if all(s < -1 for s in sep):
                     for m in range(3):
@@ -107,9 +160,18 @@ for i, p in enumerate(pieces):
                             fp = sgn * p['ext'][m]; fq = dl[m] + sgn * qe[m]
                             if abs(fp - fq) < 0.3:
                                 o = [n for n in range(3) if n != m]; ov = [-(sep[n]) for n in o]
-                                if min(ov) >= 20:
+                                if min(ov) < 20: continue
+                                c = [0.0, 0.0, 0.0]; c[m] = fp + sgn * 3.0
+                                for n2 in o: c[n2] = (max(-p['ext'][n2], dl[n2] - qe[n2]) + min(p['ext'][n2], dl[n2] + qe[n2])) / 2
+                                probes = [P(p, c)]
+                                for n2 in o:
+                                    half = (min(p['ext'][n2], dl[n2] + qe[n2]) - max(-p['ext'][n2], dl[n2] - qe[n2])) / 2
+                                    for t in (0.5, -0.5):
+                                        cc = list(c); cc[n2] += t * half; probes.append(P(p, cc))
+                                if not any(free(pt, {i, j}) for pt in probes): continue
+                                if True:
                                     F.append(dict(kind='ZFIGHT', size=round(abs(fp - fq), 2), area=round(ov[0] * ov[1] / 1e4, 2), a=p['label'], b=q['label'],
-                                                  mesh_a=p['mesh'], mesh_b=q['mesh'], at=[round(p['cen'].x + p['ax'][m].x * fp), round(p['cen'].y + p['ax'][m].y * fp), round(p['cen'].z + p['ax'][m].z * fp)], axis='XYZ'[m]))
+                                                  mesh_a=p['mesh'], mesh_b=q['mesh'], at=[round(p['cen'].x + p['ax'][m].x * fp), round(p['cen'].y + p['ax'][m].y * fp), round(p['cen'].z + p['ax'][m].z * fp)], axis='XYZ'[m], **zf_move(p, q, m, sgn)))
 for p in pieces:
     mp = low(p['mesh'])
     if '/engine/basicshapes/' in mp or mp.split('/')[-1] in ('cube', 'box', 'sm_cube', 'sm_box', 'plane', 'cylinder') or mp.split('/')[-1].startswith(('cube', 'sm_cube', 'box_')):
@@ -128,7 +190,7 @@ for p in pieces:
             gap = bottom.z - h[4].z
             if 2 <= gap <= 60:
                 F.append(dict(kind='FLOAT', size=round(gap, 1), area=round(p['ext'][0] * p['ext'][1] * 4 / 1e4, 2), a=p['label'], b=str(h[9].get_actor_label() if h[9] else ''),
-                              mesh_a=p['mesh'], mesh_b='', at=[round(bottom.x), round(bottom.y), round(bottom.z)], axis='Z'))
+                              mesh_a=p['mesh'], mesh_b='', at=[round(bottom.x), round(bottom.y), round(bottom.z)], axis='Z', move_actor=p['path'], move=[0, 0, -round(gap + 10, 1)]))
 rank = {'ZFIGHT': 0, 'GAP': 1, 'FLOAT': 2, 'CUBE': 3}
 F.sort(key=lambda f: (rank[f['kind']], -f['area']))
 lines = ['%-6s %6s cm  area %6s m2  %-34s | %-34s at %s  (%s | %s)' % (f['kind'], f['size'], f['area'], f['a'][:34], f['b'][:34], f['at'], f['mesh_a'].split('/')[-1], f['mesh_b'].split('/')[-1] if f['mesh_b'] else '') for f in F]
