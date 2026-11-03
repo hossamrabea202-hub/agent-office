@@ -37,6 +37,7 @@ def shot(name):
 
 
 def toggle(args):
+    if scr == 'none': return
     old = sys.argv; sys.argv = [scr] + [x for x in args.split(';') if x]
     try: runpy.run_path(H + scr, run_name='__main__')
     except SystemExit: pass
@@ -46,6 +47,6 @@ def toggle(args):
 try:
     light(lp, float(os.environ.get('KEY', '40')), True); light(cam + unreal.Vector(0, 0, 200), float(os.environ.get('KEY', '40')) * 0.15, False)
     toggle(a_args); shot('A')
-    toggle(b_args); shot('B')
+    if scr != 'none': toggle(b_args); shot('B')
 finally:
     for L in made: EAS.destroy_actor(L)
