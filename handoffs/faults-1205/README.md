@@ -23,3 +23,11 @@
 - F9 INFECTED notice: BP_NoticeHUD.
 - F11 log errors: BPC_Muster (RQ empty, index 0..2) and BPC_ShieldKit (BlockChance index -1).
 - F12 log error: BPC_WeaponKit (index 2 of a 2-long Data on Set Equipped / save load).
+
+## F12 BPC_WeaponKit "index 2 of array Data length 2": READY (one pin, Master fixes on the spot)
+- **Cause:** LoadSaved reads `Data[0]` (owned) and `Data[ wkAdd_IntInt56 ]` for **Equipped** (-> wkRound58 -> wkSetEquipped59).
+  - `wkAdd_IntInt56` has A = 1 and **B = 1** (its C++ default: the intended 0 was lost on paste, the known Add_IntInt gotcha), so it reads `Data[2]`.
+  - SaveNow writes only 2 values (MakeArray NumInputs = 2), so the read fails and Equipped is never restored. Every load fell back to weapon 0.
+- **Fix:** BPC_WeaponKit > EventGraph, node `wkAdd_IntInt56` (the Add (int) just before the `Data` GET that feeds Set Equipped): set **B = 0**. Compile, save.
+- Test: equip a non-default weapon, save, reload. The same weapon is equipped, and the log is free of "index 2 of array Data".
+- Found with `t3d_arrays.js` (lists every array read in a whole-BP T3D, its array, its index source and its consumer).
