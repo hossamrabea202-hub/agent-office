@@ -39,7 +39,21 @@ def gen(live):
     sm = b.call(SKEL, 'SetAnimationMode', [{'name': 'InAnimationMode', 'cat': 'byte', 'obj': ENUM('EAnimationMode'), 'default': 'AnimationBlueprint'},
                 bo('bForceInitAnimScriptInstance', default='false')], 0, 200, tag='BackToABP')
     animnode = anim.split('.')[0]
-    rw += [R('K2Node_CallFunction_ZB73.then', sm + '.execute'), R(sm + '.then', 'CX_123.execute'), {'from': '%s.%s' % L[(animnode, 'self')][0], 'to': sm + '.self'}]
+    meshsrc = '%s.%s' % L[(animnode, 'self')][0]
+    rw += [R('K2Node_CallFunction_ZB73.then', sm + '.execute'), {'from': meshsrc, 'to': sm + '.self'}]
+    # killed by a cannonball: ragdoll + impulse instead of a death clip (Ragdoll profile, all bodies; seen flying in Simulate on a probe). CX_528 is the live ClassIsChildOf(causer, BP_Cannonball).
+    ifball = b.branch(None, 300, 600, tag='IfBallKill')
+    prof = b.call(CLS('PrimitiveComponent'), 'SetCollisionProfileName', [N('InCollisionProfileName', default='Ragdoll'), bo('bUpdateOverlaps', default='true')], 600, 600, tag='RagProfile')
+    phys = b.call(SKEL, 'SetAllBodiesSimulatePhysics', [bo('bNewSimulate', default='true')], 900, 600, tag='RagBodies')
+    imp = b.call(CLS('PrimitiveComponent'), 'AddRadialImpulse', [V('Origin'), fl('Radius', default='800.0'), fl('Strength', default='900.0'),
+                 {'name': 'Falloff', 'cat': 'byte', 'obj': ENUM('ERadialImpulseFalloff'), 'default': 'RIF_Linear'}, bo('bVelChange', default='true')], 1200, 600, tag='RagImpulse')
+    cl0 = b.call(ACT, 'K2_GetActorLocation', [V('ReturnValue', out=True)], 900, 800, pure=True, const=True, tag='BallLoc')
+    org = b.v2('Subtract_VectorVector', (cl0, 'ReturnValue'), None, 1100, 800, db='0, 0, 120')
+    G.link(org[0], org[1], imp, 'Origin')
+    G.link(ifball, 'then', prof, 'execute'); G.link(prof, 'then', phys, 'execute'); G.link(phys, 'then', imp, 'execute')
+    rw += [R(sm + '.then', ifball + '.execute'), R(ifball + '.else', 'CX_123.execute'), R(imp + '.then', 'K2Node_CallFunction_ZB76.execute'),
+           {'from': 'CX_528.ReturnValue', 'to': ifball + '.Condition'}, {'from': meshsrc, 'to': prof + '.self'}, {'from': meshsrc, 'to': phys + '.self'}, {'from': meshsrc, 'to': imp + '.self'},
+           {'from': 'K2Node_Event_ZB60.DamageCauser', 'to': cl0 + '.self'}]
     # BP_SoldierSword CX_173 (15 % of engagements) calls PlayAnimation on a zombie's mesh: single-node mode, and nothing brought it back since the montage
     # conversion, so that zombie stays frozen in A_Attack's last pose. Safety net on every resume: same force = false call, no-op in AnimBP mode.
     sm2 = b.call(SKEL, 'SetAnimationMode', [{'name': 'InAnimationMode', 'cat': 'byte', 'obj': ENUM('EAnimationMode'), 'default': 'AnimationBlueprint'},

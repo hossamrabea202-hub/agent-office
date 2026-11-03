@@ -191,27 +191,57 @@
    "replace": true
   },
   {
-   "from": "zb472BackToABP13.then",
-   "to": "CX_123.execute",
-   "replace": true
-  },
-  {
    "from": "CX_111.Mesh",
    "to": "zb472BackToABP13.self"
   },
   {
-   "from": "K2Node_IfThenElse_ZB10.else",
-   "to": "zb472ResumeABP14.execute",
+   "from": "zb472BackToABP13.then",
+   "to": "zb472IfBallKill14.execute",
    "replace": true
   },
   {
-   "from": "zb472ResumeABP14.then",
+   "from": "zb472IfBallKill14.else",
+   "to": "CX_123.execute",
+   "replace": true
+  },
+  {
+   "from": "zb472RagImpulse17.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_528.ReturnValue",
+   "to": "zb472IfBallKill14.Condition"
+  },
+  {
+   "from": "CX_111.Mesh",
+   "to": "zb472RagProfile15.self"
+  },
+  {
+   "from": "CX_111.Mesh",
+   "to": "zb472RagBodies16.self"
+  },
+  {
+   "from": "CX_111.Mesh",
+   "to": "zb472RagImpulse17.self"
+  },
+  {
+   "from": "K2Node_Event_ZB60.DamageCauser",
+   "to": "zb472BallLoc18.self"
+  },
+  {
+   "from": "K2Node_IfThenElse_ZB10.else",
+   "to": "zb472ResumeABP20.execute",
+   "replace": true
+  },
+  {
+   "from": "zb472ResumeABP20.then",
    "to": "CX_300.execute",
    "replace": true
   },
   {
    "from": "CX_111.Mesh",
-   "to": "zb472ResumeABP14.self"
+   "to": "zb472ResumeABP20.self"
   },
   {
    "from": "CX_212.then",
@@ -221,31 +251,31 @@
   },
   {
    "from": "CX_194.else",
-   "to": "zb472IfCauser16.execute",
+   "to": "zb472IfCauser22.execute",
    "replace": true
   },
   {
-   "from": "zb472IfCauser16.else",
+   "from": "zb472IfCauser22.else",
    "to": "CX_200.execute",
    "replace": true
   },
   {
-   "from": "zb472IfBehind24.then",
+   "from": "zb472IfBehind30.then",
    "to": "Ps_CX_209.execute",
    "replace": true
   },
   {
-   "from": "zb472IfBehind24.else",
+   "from": "zb472IfBehind30.else",
    "to": "CX_200.execute",
    "replace": true
   },
   {
    "from": "K2Node_Event_ZB60.DamageCauser",
-   "to": "zb472IsValid15.Object"
+   "to": "zb472IsValid21.Object"
   },
   {
    "from": "K2Node_Event_ZB60.DamageCauser",
-   "to": "zb472CauserLoc17.self"
+   "to": "zb472CauserLoc23.self"
   }
  ]
 }

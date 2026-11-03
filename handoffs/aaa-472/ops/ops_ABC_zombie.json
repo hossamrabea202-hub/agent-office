@@ -814,7 +814,98 @@
 ]
 },
 {
-"id": "zb472ResumeABP14",
+"id": "zb472IfBallKill14",
+"x": 300,
+"y": 2600,
+"kind": "branch",
+"defaults": []
+},
+{
+"id": "zb472RagProfile15",
+"x": 600,
+"y": 2600,
+"kind": "call",
+"path": "/Script/Engine.PrimitiveComponent:SetCollisionProfileName",
+"defaults": [
+[
+"InCollisionProfileName",
+"Ragdoll"
+],
+[
+"bUpdateOverlaps",
+"true"
+]
+]
+},
+{
+"id": "zb472RagBodies16",
+"x": 900,
+"y": 2600,
+"kind": "call",
+"path": "/Script/Engine.SkeletalMeshComponent:SetAllBodiesSimulatePhysics",
+"defaults": [
+[
+"bNewSimulate",
+"true"
+]
+]
+},
+{
+"id": "zb472RagImpulse17",
+"x": 1200,
+"y": 2600,
+"kind": "call",
+"path": "/Script/Engine.PrimitiveComponent:AddRadialImpulse",
+"defaults": [
+[
+"Origin",
+"0, 0, 0"
+],
+[
+"Radius",
+"800.0"
+],
+[
+"Strength",
+"900.0"
+],
+[
+"Falloff",
+"RIF_Linear"
+],
+[
+"bVelChange",
+"true"
+]
+]
+},
+{
+"id": "zb472BallLoc18",
+"x": 900,
+"y": 2800,
+"kind": "call",
+"path": "/Script/Engine.Actor:K2_GetActorLocation",
+"defaults": []
+},
+{
+"id": "zb472Subtract_Vecto19",
+"x": 1100,
+"y": 2800,
+"kind": "call",
+"path": "/Script/Engine.KismetMathLibrary:Subtract_VectorVector",
+"defaults": [
+[
+"A",
+"0, 0, 0"
+],
+[
+"B",
+"0, 0, 120"
+]
+]
+},
+{
+"id": "zb472ResumeABP20",
 "x": 0,
 "y": 2250,
 "kind": "call",
@@ -831,7 +922,7 @@
 ]
 },
 {
-"id": "zb472IsValid15",
+"id": "zb472IsValid21",
 "x": 0,
 "y": 2400,
 "kind": "call",
@@ -839,14 +930,14 @@
 "defaults": []
 },
 {
-"id": "zb472IfCauser16",
+"id": "zb472IfCauser22",
 "x": 300,
 "y": 2300,
 "kind": "branch",
 "defaults": []
 },
 {
-"id": "zb472CauserLoc17",
+"id": "zb472CauserLoc23",
 "x": 0,
 "y": 2600,
 "kind": "call",
@@ -854,7 +945,7 @@
 "defaults": []
 },
 {
-"id": "zb472MyLoc18",
+"id": "zb472MyLoc24",
 "x": 0,
 "y": 2750,
 "kind": "call",
@@ -862,7 +953,7 @@
 "defaults": []
 },
 {
-"id": "zb472MyFwd19",
+"id": "zb472MyFwd25",
 "x": 0,
 "y": 2900,
 "kind": "call",
@@ -870,7 +961,7 @@
 "defaults": []
 },
 {
-"id": "zb472Subtract_Vecto20",
+"id": "zb472Subtract_Vecto26",
 "x": 300,
 "y": 2650,
 "kind": "call",
@@ -887,7 +978,7 @@
 ]
 },
 {
-"id": "zb472Normal21",
+"id": "zb472Normal27",
 "x": 550,
 "y": 2650,
 "kind": "call",
@@ -904,7 +995,7 @@
 ]
 },
 {
-"id": "zb472Dot_VectorVect22",
+"id": "zb472Dot_VectorVect28",
 "x": 800,
 "y": 2750,
 "kind": "call",
@@ -921,7 +1012,7 @@
 ]
 },
 {
-"id": "zb472Less_DoubleDou23",
+"id": "zb472Less_DoubleDou29",
 "x": 1050,
 "y": 2750,
 "kind": "call",
@@ -938,7 +1029,7 @@
 ]
 },
 {
-"id": "zb472IfBehind24",
+"id": "zb472IfBehind30",
 "x": 1300,
 "y": 2300,
 "kind": "branch",
@@ -2144,48 +2235,73 @@ true
 true
 ],
 [
-"zb472IsValid15.ReturnValue",
-"zb472IfCauser16.Condition",
+"zb472BallLoc18.ReturnValue",
+"zb472Subtract_Vecto19.A",
 false
 ],
 [
-"zb472CauserLoc17.ReturnValue",
-"zb472Subtract_Vecto20.A",
+"zb472Subtract_Vecto19.ReturnValue",
+"zb472RagImpulse17.Origin",
 false
 ],
 [
-"zb472MyLoc18.ReturnValue",
-"zb472Subtract_Vecto20.B",
+"zb472IfBallKill14.then",
+"zb472RagProfile15.execute",
 false
 ],
 [
-"zb472Subtract_Vecto20.ReturnValue",
-"zb472Normal21.A",
+"zb472RagProfile15.then",
+"zb472RagBodies16.execute",
 false
 ],
 [
-"zb472MyFwd19.ReturnValue",
-"zb472Dot_VectorVect22.A",
+"zb472RagBodies16.then",
+"zb472RagImpulse17.execute",
 false
 ],
 [
-"zb472Normal21.ReturnValue",
-"zb472Dot_VectorVect22.B",
+"zb472IsValid21.ReturnValue",
+"zb472IfCauser22.Condition",
 false
 ],
 [
-"zb472Dot_VectorVect22.ReturnValue",
-"zb472Less_DoubleDou23.A",
+"zb472CauserLoc23.ReturnValue",
+"zb472Subtract_Vecto26.A",
 false
 ],
 [
-"zb472Less_DoubleDou23.ReturnValue",
-"zb472IfBehind24.Condition",
+"zb472MyLoc24.ReturnValue",
+"zb472Subtract_Vecto26.B",
 false
 ],
 [
-"zb472IfCauser16.then",
-"zb472IfBehind24.execute",
+"zb472Subtract_Vecto26.ReturnValue",
+"zb472Normal27.A",
+false
+],
+[
+"zb472MyFwd25.ReturnValue",
+"zb472Dot_VectorVect28.A",
+false
+],
+[
+"zb472Normal27.ReturnValue",
+"zb472Dot_VectorVect28.B",
+false
+],
+[
+"zb472Dot_VectorVect28.ReturnValue",
+"zb472Less_DoubleDou29.A",
+false
+],
+[
+"zb472Less_DoubleDou29.ReturnValue",
+"zb472IfBehind30.Condition",
+false
+],
+[
+"zb472IfCauser22.then",
+"zb472IfBehind30.execute",
 false
 ],
 [
@@ -2374,28 +2490,63 @@ false
 true
 ],
 [
-"zb472BackToABP13.then",
-"CX_123.execute",
-true
-],
-[
 "CX_111.Mesh",
 "zb472BackToABP13.self",
 false
 ],
 [
-"K2Node_IfThenElse_ZB10.else",
-"zb472ResumeABP14.execute",
+"zb472BackToABP13.then",
+"zb472IfBallKill14.execute",
 true
 ],
 [
-"zb472ResumeABP14.then",
+"zb472IfBallKill14.else",
+"CX_123.execute",
+true
+],
+[
+"zb472RagImpulse17.then",
+"K2Node_CallFunction_ZB76.execute",
+true
+],
+[
+"CX_528.ReturnValue",
+"zb472IfBallKill14.Condition",
+false
+],
+[
+"CX_111.Mesh",
+"zb472RagProfile15.self",
+false
+],
+[
+"CX_111.Mesh",
+"zb472RagBodies16.self",
+false
+],
+[
+"CX_111.Mesh",
+"zb472RagImpulse17.self",
+false
+],
+[
+"K2Node_Event_ZB60.DamageCauser",
+"zb472BallLoc18.self",
+false
+],
+[
+"K2Node_IfThenElse_ZB10.else",
+"zb472ResumeABP20.execute",
+true
+],
+[
+"zb472ResumeABP20.then",
 "CX_300.execute",
 true
 ],
 [
 "CX_111.Mesh",
-"zb472ResumeABP14.self",
+"zb472ResumeABP20.self",
 false
 ],
 [
@@ -2405,32 +2556,32 @@ true
 ],
 [
 "CX_194.else",
-"zb472IfCauser16.execute",
+"zb472IfCauser22.execute",
 true
 ],
 [
-"zb472IfCauser16.else",
+"zb472IfCauser22.else",
 "CX_200.execute",
 true
 ],
 [
-"zb472IfBehind24.then",
+"zb472IfBehind30.then",
 "Ps_CX_209.execute",
 true
 ],
 [
-"zb472IfBehind24.else",
+"zb472IfBehind30.else",
 "CX_200.execute",
 true
 ],
 [
 "K2Node_Event_ZB60.DamageCauser",
-"zb472IsValid15.Object",
+"zb472IsValid21.Object",
 false
 ],
 [
 "K2Node_Event_ZB60.DamageCauser",
-"zb472CauserLoc17.self",
+"zb472CauserLoc23.self",
 false
 ],
 [

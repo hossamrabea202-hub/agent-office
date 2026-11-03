@@ -14,6 +14,8 @@ This is the corrected problem 3. `ABP_Zombie` already exists (blend space -> Def
 
 Left / right is not possible with these clips: they have almost no sideways hip motion.
 
+5. **Cannonball kills:** the body goes ragdoll and is thrown away from the ball (Ragdoll profile, all bodies, radial impulse 900 velocity, radius 800). Physics seen working on a probe zombie in Simulate on i5: it was flung. Tune with Strength in `zb472RagImpulse`.
+
 ## Steps (Master, not in Play, after fix A is saved)
 1. `py handoffs/aaa-472/fixes_b/make_death_montages_ue.py --dry-run`, then `--apply`. Makes 12 assets in `Zombie/Anim/Death`.
 2. Export fresh BP_Zombie (whole .T3D or EventGraph), then `python handoffs/aaa-472/fixes_b/build_472b.py <export>`. It must end `OK: paste ...`.
@@ -25,6 +27,7 @@ Left / right is not possible with these clips: they have almost no sideways hip 
 - [ ] Kill a WallBreaker: its death plays.
 - [ ] Risen soldiers die correctly (the knight mesh follows through leader pose).
 - [ ] Gore: limbs still come off on kills.
+- [ ] Cannonball kill: bodies fly away from the ball, land on the ground, don't fall through it or jitter, and vanish at 6 s. Several at once: no frame drop you can feel. A risen soldier hit by a ball: the knight mesh follows.
 - [ ] Zombies fighting soldiers keep animating and walk normally afterwards (no frozen, sliding zombies).
 - [ ] Hit from behind: the zombie jolts forward. Hit from the front: it recoils back.
 - [ ] Log: no "Currently in Animation Blueprint mode" lines left, no new `Accessed None`.
