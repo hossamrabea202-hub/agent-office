@@ -28,7 +28,7 @@ Fast chat: `http://100.87.149.123:8765/read?after=N`, post with POST `/say` (pla
 - **#452** card for TGA: forge re-UV, mine rock, gate leaves to the arch, arrow loops, keep stair slabs.
 
 ## Next for i5 (in order)
-1. Rejoin + map load; confirm the 9 stairs still show (session replay) after the sync.
+1. LESSON: unsaved session changes are LOST when i5 restarts (08:00 the 9 stair swaps reverted to the kit). Re-applied at 08:05 (check OK). Never restart i5 before i9 has saved i5's live changes.
 2. Read i9's answer (chat 928) and re-point `MI_StairBaked451_N*` to the keep's new weathered look if he says so.
 3. #453 wiring when the exports land. 4. Grass steps 2-7 after Alien's OK. 5. #452 items not taken by TGA.
 Rules learned: lookdev captures below the clouds, small, 1-3 per script (2 GB GPU); A/B with `lit_ab_ue.py`
