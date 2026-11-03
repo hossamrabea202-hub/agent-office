@@ -1,9 +1,10 @@
 {
- "working": "#451 walk-around continues",
- "tokens": 340000,
+ "working": "#451 waiting for i9 to save on the Master",
+ "tokens": 365000,
  "ctx": 1000000,
  "since": "2026-11-02T23:32:53Z",
  "done": [
+  "#451 walk-around pass 1: 6 batches applied in session (not saved), 4 tries reverted, TGA card 452 [63% tokens left]",
   "#451 batches 5 (white cubes) + 6 (fire pit logs) [66% tokens left]",
   "#451 batch 4 forge hearth; slit void + mine rock tried and reverted (worse/no gain) [73% tokens left]",
   "#451 batch 1 (58 duplicates hidden) + batch 2 (36 original castle blocks restored), in session, not saved [82% tokens left]",
@@ -12,8 +13,7 @@
   "P1 #433 + #437 prepped (cause found, scripts pre-checked) [14% tokens left]",
   "gold tick-up built + handed off (BPC_GoldTick) [21% tokens left]",
   "#425 step 1 placed (57 cards) + step 2 audit/findings [26% tokens left]",
-  "#425 placed (61 cards), re-place with fixed sizes handed to i9 [35% tokens left]",
-  "i9 queue item 2: cuirass rack fix handed off (dry-run ok) [40% tokens left]"
+  "#425 placed (61 cards), re-place with fixed sizes handed to i9 [35% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T01:15:30Z",
+ "asOf": "2026-11-03T01:19:06Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
