@@ -1,15 +1,15 @@
-# #461 castle harmony, material pass (i5, 2026-11-03). One stone family, one look: the 4 stone MIs on M_Castle_StoneWall_World
-# (Stone, Trim, WalkFlag, StepCap: 565 visible components on the Master, 5 different looks, 2 different stones) become plain
-# children of ONE new MI, MI_Castle_Stone_Harmony461. Nothing in the map changes, no actor is touched: only 5 material assets.
-# Tune the whole family by editing that one MI. Values = the AAA wall modules (MI_WallFrontL_AAA on the Master): tint, moss, grime,
-# dirt band, macro, lime 0. Stone = T_vdbhdju (mean albedo 0.209, measured; keep-entrance bake 0.207: same stone).
-# TileSize 240: the texture has 6 courses per tile, so 40 cm courses / ~44 cm blocks (medieval ashlar 25-45 cm, #469).
-# MI_Castle_Planks_World is wood (keep door, floors): NOT touched. BP_Forge keeps its Trim stop-gap until i9's #456.
+# #461 castle harmony, material pass (i5, 2026-11-03; v2 after i9's tone pass, chat 1286). One stone family: the 4 stone MIs on
+# M_Castle_StoneWall_World (Stone, Trim, WalkFlag, StepCap: 565 visible components on the Master's 11-03 scan, 2 different stones)
+# become plain children of ONE new MI, MI_Castle_Stone_Harmony461. No actor is touched, no map save: only 5 material assets.
+# NO fixed look values: the new MI COPIES the live overrides of MI_Castle_StoneWall_World (i9's tone pass: tint, tile 320, moss, lime),
+# so the walls keep their look exactly and Trim / WalkFlag / StepCap join them (rubble T_tinifauaw -> the walls' T_vdbhdju).
+# Only exception: CrackAmount 0 while the parent still has it (#470). Tune the whole family afterwards by editing that one MI.
+# MI_Castle_Planks_World is wood (keep door, floors): NOT touched.
 #   py harmony461_ue.py --dry-run             what would change (nothing changed)
 #   py harmony461_ue.py --apply [--nosave]    do it (--nosave: in memory only, for a test); backup harmony461_backup.json
 #   py harmony461_ue.py --revert [--nosave]   the 4 MIs back to their exact old parent + values
-#   py harmony461_ue.py --tile 280 --apply    other stone size, same everything else
-# Works before and after #470 (crack params are only set while the parent still has them). Aborts in PIE.
+#   py harmony461_ue.py --tile 280 --apply    other stone size, everything else as above
+# Works before and after #470. Aborts in PIE.
 import json, os, sys, unreal
 if unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world():
     print('PIE RUNNING: abort'); raise SystemExit
@@ -18,16 +18,10 @@ MEL, EAL = unreal.MaterialEditingLibrary, unreal.EditorAssetLibrary
 HERE = next(h for h in ('C:/Users/hossam.rabea/agent-office/handoffs/castle-harmony-461/', 'C:/Users/hossa/Documents/agent-office/handoffs/castle-harmony-461/') if os.path.isdir(h))
 BK = HERE + ('harmony461_backup.test.json' if '--nosave' in A else 'harmony461_backup.json')   # a test never touches the real backup
 BASE = '/Game/CastleDefender/Shared/Materials/Castle/M_Castle_StoneWall_World'
-TEX = '/Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/'
 NEW_NAME = 'MI_Castle_Stone_Harmony461'
-SCALARS = {'GrimeHeight_cm': 260.0, 'TileSize_cm': 240.0, 'MacroSize_cm': 2300.0, 'MossAmount': 1.0, 'MacroStrength': 0.35, 'SoilSize_cm': 220.0,
-           'DirtBand_cm': 150.0, 'DirtAmount': 1.0, 'MossHeight_cm': 650.0, 'AntiTile_SatLo': 0.38, 'AntiTile_SatHi': 0.62, 'AntiTile_Amount': 0.85,
-           'AntiTile_AvgLum': 0.16, 'Detile_Contrast': 5.0, 'Detile_Amount': 1.0, 'LimewashAmount': 0.0, 'CrackAmount': 0.0}
-VECTORS = {'Tint': (0.5332, 0.5146, 0.4836), 'MossColor': (0.16, 0.17, 0.12), 'GrimeColor': (0.45, 0.38, 0.3)}
-TEXTURES = {'BaseColor': TEX + 'Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_B', 'ORM': TEX + 'Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_ORM',
-            'Normal': TEX + 'Stone_Wall_vdbhdju/Medium/T_vdbhdju_2K_N', 'SoilTex': TEX + 'Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_B'}
+SOURCE = 'MI_Castle_StoneWall_World'                                  # the look every family member takes
 CHILD_NAMES = ('MI_Castle_StoneWall_World', 'MI_Castle_Trim_World', 'MI_Castle_WalkFlag_World', 'MI_Castle_StepCap')
-if '--tile' in A: SCALARS['TileSize_cm'] = float(A[A.index('--tile') + 1])
+TILE = float(A[A.index('--tile') + 1]) if '--tile' in A else None
 
 ar = unreal.AssetRegistryHelpers.get_asset_registry()
 def find_mi(name):
@@ -69,16 +63,18 @@ if '--revert' in A:
     for n, d in bk.items():
         restore(kids[n], d); print('REVERT', n, '->', d['parent'].split('.')[-1], len(d['scalars']), 'scalars', len(d['vectors']), 'vectors', len(d['textures']), 'textures')
         if '--nosave' not in A: EAL.save_loaded_asset(kids[n])
+    os.remove(BK)                                                    # a later --apply takes the then-live look
     print('reverted', len(bk), '(%s left in place, unused)' % NEW_NAME); raise SystemExit
 
-names = {'s': [str(x) for x in MEL.get_scalar_parameter_names(base)], 'v': [str(x) for x in MEL.get_vector_parameter_names(base)], 't': [str(x) for x in MEL.get_texture_parameter_names(base)]}
-skip = [k for k in SCALARS if k not in names['s']]
-print('harmony MI:', NEW_PATH, '| Tile', SCALARS['TileSize_cm'], '| params not on this base, skipped:', skip)
+names = [str(x) for x in MEL.get_scalar_parameter_names(base)]
+applied = kids[SOURCE].get_editor_property('parent').get_name() == NEW_NAME
+if applied and '--tile' not in A: print('ALREADY APPLIED: the 4 MIs are children of', NEW_NAME, '| nothing to do'); raise SystemExit
+src = None if applied else snapshot(kids[SOURCE])
+if src and src['parent'].split('.')[-1] != base.get_name(): print('UNEXPECTED PARENT of', SOURCE, src['parent'], 'abort'); raise SystemExit
+print('harmony MI:', NEW_PATH, '| look copied from', SOURCE, '| source overrides:', json.dumps(src) if src else '(already applied)')
 for n, mi in kids.items():
     s = snapshot(mi)
     print('CHILD', n, 'parent', s['parent'].split('.')[-1], '| old Tint', [round(x, 3) for x in s['vectors'].get('Tint', [])], 'Tile', s['scalars'].get('TileSize_cm'), 'Lime', s['scalars'].get('LimewashAmount'), 'Moss', s['scalars'].get('MossAmount'), '| BaseColor', (s['textures'].get('BaseColor') or '').split('.')[-1])
-for k, p in TEXTURES.items():
-    if not EAL.does_asset_exist(p): print('MISSING TEXTURE', p); raise SystemExit
 if '--apply' not in A:
     print('dry run: nothing changed'); raise SystemExit
 
@@ -88,10 +84,13 @@ for n, mi in kids.items():
 json.dump(bk, open(BK, 'w'), indent=1)
 new = unreal.load_asset(NEW_PATH) if EAL.does_asset_exist(NEW_PATH) else unreal.AssetToolsHelpers.get_asset_tools().create_asset(NEW_NAME, folder, unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
 MEL.set_material_instance_parent(new, base)
-for k, v in SCALARS.items():
-    if k in names['s']: MEL.set_material_instance_scalar_parameter_value(new, k, v)
-for k, v in VECTORS.items(): MEL.set_material_instance_vector_parameter_value(new, k, unreal.LinearColor(v[0], v[1], v[2], 1.0))
-for k, p in TEXTURES.items(): MEL.set_material_instance_texture_parameter_value(new, k, unreal.load_asset(p))
+if src:
+    for k, v in src['scalars'].items(): MEL.set_material_instance_scalar_parameter_value(new, k, v)
+    for k, v in src['vectors'].items(): MEL.set_material_instance_vector_parameter_value(new, k, unreal.LinearColor(*v))
+    for k, v in src['textures'].items():
+        if v: MEL.set_material_instance_texture_parameter_value(new, k, unreal.load_asset(v.split('.')[0]))
+    if 'CrackAmount' in names: MEL.set_material_instance_scalar_parameter_value(new, 'CrackAmount', 0.0)
+if TILE: MEL.set_material_instance_scalar_parameter_value(new, 'TileSize_cm', TILE)
 MEL.update_material_instance(new)
 for n, mi in kids.items():
     MEL.clear_all_material_instance_parameters(mi)
