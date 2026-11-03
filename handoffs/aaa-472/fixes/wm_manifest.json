@@ -1,0 +1,63 @@
+{
+ "blueprint": "BP_ZombieWaveManager",
+ "note": "#472 registry, no per-frame scan",
+ "pastes": [
+  "wm_paste.txt"
+ ],
+ "rewires": [
+  {
+   "from": "WV_1.then",
+   "to": "r472FindZombieWave1.execute",
+   "replace": true
+  },
+  {
+   "from": "r472SetRegHost2.then",
+   "to": "WV_2.execute",
+   "replace": true
+  },
+  {
+   "from": "WV_2.then",
+   "to": "r472IfHost6.execute",
+   "replace": true
+  },
+  {
+   "from": "RegNear.then",
+   "to": "K2Node_IfThenElse_GT2.execute",
+   "replace": true,
+   "note": "was ReceiveTick"
+  },
+  {
+   "from": "K2Node_VariableSet_GT3.then",
+   "to": "K2Node_MacroInstance_GT5.Exec",
+   "replace": true,
+   "note": "skip the scan"
+  },
+  {
+   "from": "r472GetZombieReg18.ZombieReg",
+   "to": "K2Node_MacroInstance_GT5.Array",
+   "replace": true
+  },
+  {
+   "from": "WV_25.then",
+   "to": "WV_29.execute",
+   "replace": true,
+   "note": "skip the scan"
+  },
+  {
+   "from": "r472GetZombieReg20.ZombieReg",
+   "to": "WV_27.TargetArray",
+   "replace": true
+  },
+  {
+   "from": "WV_82.then",
+   "to": "WV_85.execute",
+   "replace": true,
+   "note": "skip the scan"
+  },
+  {
+   "from": "r472GetZombieReg20.ZombieReg",
+   "to": "CX_2.TargetArray",
+   "replace": true
+  }
+ ]
+}

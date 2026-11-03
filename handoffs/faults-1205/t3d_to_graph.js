@@ -5,13 +5,13 @@
 const fs = require('fs');
 const [, , src, graph, out] = process.argv;
 const t = fs.readFileSync(src, 'utf8');
-const re = /^([ \t]*)Begin Object Name="([^"]+)" ExportPath="(\/Script\/BlueprintGraph\.(K2Node_\w+)'[^"]*:([^.'"]+)\.[^"]*)"\r?\n([\s\S]*?)^\1End Object/gm;
+const re = /^([ \t]*)Begin Object Name="([^"]+)" ExportPath="(\/Script\/(\w+)\.(K2Node_\w+)'[^"]*:([^.'"]+)\.[^"]*)"\r?\n([\s\S]*?)^\1End Object/gm;
 const parts = []; let m;
 while ((m = re.exec(t))) {
-  const [, ind, name, xp, cls, g, body] = m;
+  const [, ind, name, xp, mod, cls, g, body] = m;
   if (g !== graph || !body.includes('CustomProperties Pin')) continue;
   const lines = body.split(/\r?\n/).filter(l => l.length).map(l => l.startsWith(ind) ? l.slice(ind.length) : l);
-  parts.push(['Begin Object Class=/Script/BlueprintGraph.' + cls + ' Name="' + name + '" ExportPath="' + xp + '"', ...lines, 'End Object'].join('\r\n'));
+  parts.push(['Begin Object Class=/Script/' + mod + '.' + cls + ' Name="' + name + '" ExportPath="' + xp + '"', ...lines, 'End Object'].join('\r\n'));
 }
 fs.writeFileSync(out, parts.join('\r\n') + '\r\n');
 console.log(graph, parts.length, 'nodes ->', out);

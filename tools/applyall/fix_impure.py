@@ -39,6 +39,8 @@ log = []
 for nn in list(order):
     if not nn.startswith(PFX) or 'K2Node_DynamicCast' not in B[nn].split('\n',1)[0]: continue
     if 'PureState=Pure' in B[nn]: continue      # UE 5.8 pastes these as pure: many consumers are fine
+    ex_pin = find_pin(nn, 'execute')
+    if 'PureState=Impure' in B[nn] and ex_pin and pin_links(ex_pin): continue      # #472: already impure and wired: its value is valid for all consumers, splitting broke the links
     outp=[p for p in pins(B[nn]) if pin_field(p,'Direction')=='EGPD_Output' and pin_field(p,'PinName').startswith('As')]
     if not outp: continue
     cons=pin_links(outp[0])

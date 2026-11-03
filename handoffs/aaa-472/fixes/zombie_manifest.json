@@ -1,0 +1,287 @@
+{
+ "blueprint": "BP_Zombie",
+ "note": "#472 Think on caches, registry, move guard, Delay guards, no-op cleanup",
+ "pastes": [
+  "zombie_paste.txt"
+ ],
+ "rewires": [
+  {
+   "from": "K2Node_Event_ZB0.then",
+   "to": "z472FindZombieWave1.execute",
+   "replace": true
+  },
+  {
+   "from": "z472Array_AddUniqu5.then",
+   "to": "QX_CallFunction_1.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_501.then",
+   "to": "CX_503.Exec",
+   "replace": true,
+   "note": "skip the soldier scan"
+  },
+  {
+   "from": "z472GetSoldierCach13.SoldierCache",
+   "to": "CX_503.Array",
+   "replace": true
+  },
+  {
+   "from": "zfBackToPlayer5.then",
+   "to": "zfForEach6.Exec",
+   "replace": true
+  },
+  {
+   "from": "zfIfTargetDead3.else",
+   "to": "zfForEach6.Exec",
+   "replace": true
+  },
+  {
+   "from": "zfAsFarmerTarget.CastFailed",
+   "to": "zfForEach6.Exec",
+   "replace": true
+  },
+  {
+   "from": "z472GetFarmerCache14.FarmerCache",
+   "to": "zfForEach6.Array",
+   "replace": true
+  },
+  {
+   "from": "CX_6.else",
+   "to": "CX_400.execute",
+   "replace": true
+  },
+  {
+   "from": "K2Node_IfThenElse_ZB25.else",
+   "to": "G_AtGate.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_78.then",
+   "to": "fzAsZombieHUD3_c1.execute",
+   "replace": true
+  },
+  {
+   "from": "z472GetWMRef12.WMRef",
+   "to": "CX_399.self",
+   "replace": true,
+   "note": "was CX_398"
+  },
+  {
+   "from": "z472GetWMRef12.WMRef",
+   "to": "CX_82.self",
+   "replace": true,
+   "note": "was CX_81"
+  },
+  {
+   "from": "z472GetWMRef12.WMRef",
+   "to": "CX_85.self",
+   "replace": true,
+   "note": "was CX_81"
+  },
+  {
+   "from": "z472GetGateCache15.GateCache",
+   "to": "CX_440.self",
+   "replace": true,
+   "note": "was CX_57"
+  },
+  {
+   "from": "z472GetGateCache15.GateCache",
+   "to": "G_Stop.self",
+   "replace": true,
+   "note": "was G_GetGate"
+  },
+  {
+   "from": "CX_503.LoopBody",
+   "to": "z472IfSoldier17.execute",
+   "replace": true
+  },
+  {
+   "from": "z472IfSoldier17.then",
+   "to": "CX_521.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_503.Array Element",
+   "to": "z472IsValid16.Object"
+  },
+  {
+   "from": "zfForEach6.LoopBody",
+   "to": "z472IfFarmer19.execute",
+   "replace": true
+  },
+  {
+   "from": "z472IfFarmer19.then",
+   "to": "zfIfRaidFarmer16.execute",
+   "replace": true
+  },
+  {
+   "from": "zfForEach6.Array Element",
+   "to": "z472IsValid18.Object"
+  },
+  {
+   "from": "G_AtGate.else",
+   "to": "z472IfMoveNeeded32.execute",
+   "replace": true
+  },
+  {
+   "from": "z472IfMoveNeeded32.then",
+   "to": "K2Node_CallFunction_ZB28.execute",
+   "replace": true
+  },
+  {
+   "from": "K2Node_CallFunction_ZB28.then",
+   "to": "z472SetLastMoveGoa33.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_499.ReturnValue",
+   "to": "z472EqualEqual_Obj21.A"
+  },
+  {
+   "from": "CX_499.ReturnValue",
+   "to": "z472SetLastMoveGoa33.LastMoveGoal"
+  },
+  {
+   "from": "CX_53.then",
+   "to": "z472IfDead37.execute",
+   "replace": true
+  },
+  {
+   "from": "z472IfDead37.else",
+   "to": "CX_54.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_434.then",
+   "to": "z472IfDead39.execute",
+   "replace": true
+  },
+  {
+   "from": "z472IfDead39.else",
+   "to": "CX_437.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_448.then",
+   "to": "z472IfDead41.execute",
+   "replace": true
+  },
+  {
+   "from": "z472IfDead41.else",
+   "to": "CX_458.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_93.then",
+   "to": "z472IfDead43.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_78.else",
+   "to": "z472IfDead43.execute",
+   "replace": true
+  },
+  {
+   "from": "z472IfDead43.else",
+   "to": "CX_94.execute",
+   "replace": true
+  },
+  {
+   "from": "Ps_CX_195.then",
+   "to": "K2Node_CallFunction_ZB86.execute",
+   "replace": true,
+   "note": "no-op CX_168"
+  },
+  {
+   "from": "Ps_CX_197.then",
+   "to": "K2Node_CallFunction_ZB86.execute",
+   "replace": true,
+   "note": "no-op CX_168"
+  },
+  {
+   "from": "Ps_CX_201.then",
+   "to": "K2Node_CallFunction_ZB86.execute",
+   "replace": true,
+   "note": "no-op CX_168"
+  },
+  {
+   "from": "Ps_CX_205.then",
+   "to": "K2Node_CallFunction_ZB86.execute",
+   "replace": true,
+   "note": "no-op CX_168"
+  },
+  {
+   "from": "Ps_CX_209.then",
+   "to": "K2Node_CallFunction_ZB86.execute",
+   "replace": true,
+   "note": "no-op CX_168"
+  },
+  {
+   "from": "Ps_CX_213.then",
+   "to": "K2Node_CallFunction_ZB86.execute",
+   "replace": true,
+   "note": "no-op CX_168"
+  },
+  {
+   "from": "Ps_CX_217.then",
+   "to": "K2Node_CallFunction_ZB86.execute",
+   "replace": true,
+   "note": "no-op CX_168"
+  },
+  {
+   "from": "Ps_CX_221.then",
+   "to": "K2Node_CallFunction_ZB86.execute",
+   "replace": true,
+   "note": "no-op CX_168"
+  },
+  {
+   "from": "Ps_CX_250.then",
+   "to": "K2Node_CallFunction_ZB41.execute",
+   "replace": true,
+   "note": "no-op CX_223"
+  },
+  {
+   "from": "Ps_CX_252.then",
+   "to": "K2Node_CallFunction_ZB41.execute",
+   "replace": true,
+   "note": "no-op CX_223"
+  },
+  {
+   "from": "Ps_CX_256.then",
+   "to": "K2Node_CallFunction_ZB41.execute",
+   "replace": true,
+   "note": "no-op CX_223"
+  },
+  {
+   "from": "Ps_CX_285.then",
+   "to": "S_Wait.execute",
+   "replace": true,
+   "note": "no-op CX_258"
+  },
+  {
+   "from": "Ps_CX_287.then",
+   "to": "S_Wait.execute",
+   "replace": true,
+   "note": "no-op CX_258"
+  },
+  {
+   "from": "Ps_CX_291.then",
+   "to": "S_Wait.execute",
+   "replace": true,
+   "note": "no-op CX_258"
+  },
+  {
+   "from": "Ps_CX_428.then",
+   "to": "CX_434.execute",
+   "replace": true,
+   "note": "no-op CX_430"
+  },
+  {
+   "from": "Ps_CX_453.then",
+   "to": "CX_457.execute",
+   "replace": true,
+   "note": "no-op CX_455"
+  }
+ ]
+}
