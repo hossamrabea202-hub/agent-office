@@ -1,0 +1,237 @@
+{
+ "blueprint": "BP_Zombie",
+ "note": "#472 fix B: death montages, hit from behind",
+ "pastes": [
+  "zombie_b_paste.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_123.then",
+   "to": "zb472Die1.execute",
+   "replace": true,
+   "note": "was CX_124"
+  },
+  {
+   "from": "zb472Die1.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die1.self"
+  },
+  {
+   "from": "CX_129.then",
+   "to": "zb472Die2.execute",
+   "replace": true,
+   "note": "was CX_126"
+  },
+  {
+   "from": "zb472Die2.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die2.self"
+  },
+  {
+   "from": "CX_133.then",
+   "to": "zb472Die3.execute",
+   "replace": true,
+   "note": "was CX_130"
+  },
+  {
+   "from": "zb472Die3.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die3.self"
+  },
+  {
+   "from": "CX_137.then",
+   "to": "zb472Die4.execute",
+   "replace": true,
+   "note": "was CX_134"
+  },
+  {
+   "from": "zb472Die4.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die4.self"
+  },
+  {
+   "from": "CX_141.then",
+   "to": "zb472Die5.execute",
+   "replace": true,
+   "note": "was CX_138"
+  },
+  {
+   "from": "zb472Die5.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die5.self"
+  },
+  {
+   "from": "CX_145.then",
+   "to": "zb472Die6.execute",
+   "replace": true,
+   "note": "was CX_142"
+  },
+  {
+   "from": "zb472Die6.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die6.self"
+  },
+  {
+   "from": "CX_149.then",
+   "to": "zb472Die7.execute",
+   "replace": true,
+   "note": "was CX_146"
+  },
+  {
+   "from": "zb472Die7.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die7.self"
+  },
+  {
+   "from": "CX_153.then",
+   "to": "zb472Die8.execute",
+   "replace": true,
+   "note": "was CX_150"
+  },
+  {
+   "from": "zb472Die8.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die8.self"
+  },
+  {
+   "from": "CX_157.then",
+   "to": "zb472Die9.execute",
+   "replace": true,
+   "note": "was CX_154"
+  },
+  {
+   "from": "zb472Die9.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die9.self"
+  },
+  {
+   "from": "CX_161.then",
+   "to": "zb472Die10.execute",
+   "replace": true,
+   "note": "was CX_158"
+  },
+  {
+   "from": "zb472Die10.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die10.self"
+  },
+  {
+   "from": "CX_165.then",
+   "to": "zb472Die11.execute",
+   "replace": true,
+   "note": "was CX_162"
+  },
+  {
+   "from": "zb472Die11.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die11.self"
+  },
+  {
+   "from": "CX_165.else",
+   "to": "zb472Die12.execute",
+   "replace": true,
+   "note": "was CX_166"
+  },
+  {
+   "from": "zb472Die12.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "replace": true
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zb472Die12.self"
+  },
+  {
+   "from": "K2Node_CallFunction_ZB73.then",
+   "to": "zb472BackToABP13.execute",
+   "replace": true
+  },
+  {
+   "from": "zb472BackToABP13.then",
+   "to": "CX_123.execute",
+   "replace": true
+  },
+  {
+   "from": "CX_111.Mesh",
+   "to": "zb472BackToABP13.self"
+  },
+  {
+   "from": "CX_212.then",
+   "to": "Ps_CX_205.execute",
+   "replace": true,
+   "note": "C is the from-behind clip now"
+  },
+  {
+   "from": "CX_194.else",
+   "to": "zb472IfCauser15.execute",
+   "replace": true
+  },
+  {
+   "from": "zb472IfCauser15.else",
+   "to": "CX_200.execute",
+   "replace": true
+  },
+  {
+   "from": "zb472IfBehind23.then",
+   "to": "Ps_CX_209.execute",
+   "replace": true
+  },
+  {
+   "from": "zb472IfBehind23.else",
+   "to": "CX_200.execute",
+   "replace": true
+  },
+  {
+   "from": "K2Node_Event_ZB60.DamageCauser",
+   "to": "zb472IsValid14.Object"
+  },
+  {
+   "from": "K2Node_Event_ZB60.DamageCauser",
+   "to": "zb472CauserLoc16.self"
+  }
+ ]
+}

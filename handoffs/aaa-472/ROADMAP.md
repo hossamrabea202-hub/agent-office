@@ -4,6 +4,16 @@ Owner (Alien): "bring our quality up to better than best Call of Duty realism ..
 handling and crisp look and all logic needs polishing". Method: **measure, then change**, one pre-checked fix at a time,
 with before/after.
 
+## Corrections after reading the graphs (2026-11-03 night)
+The audit table below came from a node-count scan and was partly wrong. Details: `fixes/README.md`.
+- `ABP_Zombie` exists (blend space -> DefaultSlot). 28 of the 40 PlayAnimation are dead nodes; 12 are wired, all on death.
+- The "AnimBP mode" warnings most likely come from SetPlayRate / SetPosition on the mesh, which do nothing in AnimBP mode.
+- Think scans soldiers + farmers, not zombies. 5 WaveManagers are placed and each scanned per frame.
+- Track C item 4: `OnlyTickPoseWhenRendered` and URO are already on for BP_Zombie.
+- New suspect: SimpleMoveToActor in every Think (synchronous path search), unmeasured.
+- Handed to i9: fix A `fixes/` (registry, caches, move guard, Delay guards) and fix B `fixes_b/` (death montages, hit from behind). Neither is compiled yet.
+- Hold significance and the rest of Track C until fix A compiles and the #473 baseline exists: more pastes on an uncompiled graph would only need rebuilding.
+
 ## What the audit found (read-only, `bp_smells.js` on i9's 11-03 exports)
 | Blueprint | Finding | Why it matters |
 |---|---|---|

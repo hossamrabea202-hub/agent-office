@@ -211,6 +211,8 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
 - **Grip leather:** never uniform wear; keep its value clearly apart from the wood. [Polycount]
 - **Not found:** no public AAA (Warhorse / KCD) weapon-texturing breakdown. Full notes: `handoffs/weapon-kit-aaa/RESEARCH.md`.
 
+**2026-11-03 · i5 · montages on a zombie that uses an AnimBP.** PlaySlotAnimationAsDynamicMontage blends out at the end, so it can't hold a death pose; a montage asset with auto blend out off can. PlayAnimation leaves AnimBP mode, and SetPlayRate / SetPosition on a mesh in AnimBP mode only log a warning (engine behaviour from memory). Set up on #472 fix B; not played yet, so untested in game.
+
 ### 2026-11-01 · checkking (Claude) · #400 stables, destrier, cavalry kit (tested in lookdev)
 - **Meter the grey ball on its sun side, not its centre. [tested]** A centre-pixel (or 75th-percentile) reading of the
   0.18 ball under-reads whenever the sun is beside or behind the ball, and the "locked" exposure comes out ~2 stops too
