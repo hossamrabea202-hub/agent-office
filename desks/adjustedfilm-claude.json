@@ -57,7 +57,7 @@
   "host": "5CD3147LBC"
  },
  "ask": {
-  "text": "No editor driver online: Faults 1205 (i5 share F1 F3 F9 F11 F12): 6 graph exports + BPC_ObsidianSet CDO dump (https://github.com/hossamrabea202-hub/agent-office/issues/467)",
-  "at": "2026-11-03T19:02:12Z"
+  "text": "No editor driver online: #472 profiled wave: stat unit/game/anim/ai + zombie count (https://github.com/hossamrabea202-hub/agent-office/issues/473)",
+  "at": "2026-11-03T20:43:45Z"
  }
 }
