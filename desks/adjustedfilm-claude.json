@@ -1,9 +1,10 @@
 {
- "working": "#472: building registry + Think paste (audit corrected: ABP_Zombie exists)",
- "tokens": 80000,
+ "working": "#472 death montages + directional hit reacts: clip analysis",
+ "tokens": 118000,
  "ctx": 1000000,
  "since": "2026-11-03T20:51:47Z",
  "done": [
+  "#472 crowd fix A handed to i9 (#474, chat 1279) [88% tokens left]",
   "#472 audit + roadmap + fix 1 (Think stagger) to i9; pick-up note [20% tokens left]",
   "#470 fake crack overlay removal script (hand-off) [26% tokens left]",
   "#469 stairs re-baked true size (hand-off) [30% tokens left]",
@@ -12,8 +13,7 @@
   "#455 fire pit fixed (hand-off); #450 hit-react clip + preview [45% tokens left]",
   "#461 Master harmony report + stairs W2 override fix [53% tokens left]",
   "#440 grass phase A: audit + plan + apply script, handed to i9 [58% tokens left]",
-  "#457 tentacle idle polish: 3 clips imported, before/after posted [78% tokens left]",
-  "#453 BPC_ObsidianSet v4 + setup (pre-checked, held for Vesna rows + meshes) [83% tokens left]"
+  "#457 tentacle idle polish: 3 clips imported, before/after posted [78% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T20:59:51Z",
+ "asOf": "2026-11-03T21:09:06Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
