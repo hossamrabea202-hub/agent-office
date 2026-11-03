@@ -1,0 +1,7 @@
+{
+ "name": "SM_StairBaked469_N31",
+ "_why": "#469 stone scale: built at the flight's REAL placed size (kit actor scale folded in), so it is placed at scale 1 and its stones are not stretched",
+ "steps": 31, "run": 32.0, "rise": 20.0, "width": 230,
+ "solid": true, "pier_x": 600, "soffit_t": 0,
+ "voxel_cm": 1.5
+}
