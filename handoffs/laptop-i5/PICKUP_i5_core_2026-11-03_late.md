@@ -38,3 +38,4 @@ Also still unconfirmed: #470, #469 stairs, #455, F11 Muster v2, Think stagger. T
 - 11-04 06:00: i9 back after a silent night (23:51-05:50). hidden_collision dry run 70 covered / 51 sole, applying. no_tread_ue.py sent. Still waiting: ember2_ue.py, BaseColor shot.
 - 06:05: i9 confirmed: hidden colliders 70 off / 51 kept, nav 8/8, saved; ember2 saved, key 7 not played; tentacles 8/8 move, no stretch. Waiting: no_tread result, BaseColor shot, key 7 Play test.
 - 06:15: /Game/_i5tmpE2/A/SetF (mine, compiled clean) is still on i5: delete right after the next restart, not mid-session. Keep trim tint A/B asked from i9.
+- 06:25: ground2_ue.py replaces no_tread_ue.py in i9's queue. i9 next: wave_sweep, crowd LODs, keep trim A/B. If the road still reads modern after ground2: look at the swerve tracks + wander in M_MountainBackdrop (k >= 5).
