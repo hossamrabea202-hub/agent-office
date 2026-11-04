@@ -154,6 +154,46 @@ bool FCDSaveTest::RunTest(const FString& Parameters)
 	TestTrue(TEXT("another slot is still writable (read-only is per slot)"), Fresh->Save(Make(2), Other) && !Fresh->IsReadOnly(Other));
 	for (const FString& F : { Other, Other + TEXT("_tmp"), Other + TEXT("_bak") }) { UGameplayStatics::DeleteGameInSlot(F, 0); }
 
+	// Rev 4: an envelope format newer than this build is protected, not treated as invalid
+	Clean();
+	{
+		TArray<uint8> Payload, Env;
+		UCDSaveGame* Future = Make(77);
+		Future->Sequence = 2;
+		UGameplayStatics::SaveGameToMemory(Future, Payload);
+		UCDSaveSubsystem::Wrap(Payload, 2, Env);
+		Env[4] = 0x7F;   // format field (bytes 4..7) -> a future format
+		UGameplayStatics::SaveDataToSlot(Env, Slot, 0);
+		UCDSaveGame* Seen = nullptr;
+		TestEqual(TEXT("future envelope format -> UnsupportedFormat"), (int32)UCDSaveSubsystem::Inspect(Slot, Seen), (int32)ECDSaveFileStatus::UnsupportedFormat);
+		UCDSaveSubsystem* Older = NewObject<UCDSaveSubsystem>(GetTransientPackage());
+		Older->LoadOrCreate(Slot);
+		TestTrue(TEXT("future format makes the slot read-only"), Older->IsReadOnly(Slot));
+		TestFalse(TEXT("future format is never overwritten"), Older->Save(Make(1), Slot));
+		TArray<uint8> After;
+		UGameplayStatics::LoadDataFromSlot(After, Slot, 0);
+		TestTrue(TEXT("future file bytes unchanged"), After == Env);
+	}
+
+	// Rev 4: header sequence must match the save's own sequence; a changed header byte fails the checksum
+	Clean();
+	{
+		TArray<uint8> Payload, Env;
+		UCDSaveGame* D = Make(88);
+		D->Sequence = 3;
+		UGameplayStatics::SaveGameToMemory(D, Payload);
+		UCDSaveSubsystem::Wrap(Payload, 9, Env);   // header says 9, payload says 3
+		UGameplayStatics::SaveDataToSlot(Env, Slot, 0);
+		UCDSaveGame* Seen = nullptr;
+		TestEqual(TEXT("header / payload sequence mismatch -> Corrupt"), (int32)UCDSaveSubsystem::Inspect(Slot, Seen), (int32)ECDSaveFileStatus::Corrupt);
+		UCDSaveSubsystem::Wrap(Payload, 3, Env);
+		Env[8] ^= 0x01;                             // flip a bit inside the header sequence field
+		UGameplayStatics::SaveDataToSlot(Env, Slot, 0);
+		TestEqual(TEXT("changed header byte -> Corrupt (CRC covers the header)"), (int32)UCDSaveSubsystem::Inspect(Slot, Seen), (int32)ECDSaveFileStatus::Corrupt);
+	}
+	// Not automatable here: "backup write fails after _tmp succeeds" (needs a failing file system). By design that path deletes _tmp and
+	// returns false, so the failed save is never recovered later; check it once by making <slot>_bak read-only on disk and saving.
+
 	// Bug F: an old-version object passed straight to Save is migrated, not just relabelled
 	Clean();
 	UCDSaveGame* Old = Make(5, 0);

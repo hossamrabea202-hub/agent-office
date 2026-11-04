@@ -1,4 +1,4 @@
-Castle Defender (UE 5.8.4) - C++ transition kit, REVISION 3 (second review fixes: see README_CPP.md 'Revision 3')
+Castle Defender (UE 5.8.4) - C++ transition kit, REVISION 4 (third review fixes: see README_CPP.md 'Revision 4')
 Still NOT compiled: no compiler on the writing machine. Runtime module 'CastleDefender' + Editor module 'CastleDefenderEditor'.
 
 ==================================================================
@@ -889,18 +889,22 @@ FILE: Source/CastleDefender/CDSaveGame.h
 ==================================================================
 // #500 point 5: a versioned save game with a safe write path and a written recovery rule.
 //
-// File format: every slot file is an envelope: magic "CDSV", envelope format, sequence number, CRC32 of the payload, payload length, payload
-// (= UGameplayStatics::SaveGameToMemory bytes). A file is VALID only if the magic, length and CRC match AND the payload deserializes into a
-// UCDSaveGame. Old plain saves (no envelope) are still read, as sequence 0.
+// File format: every slot file is an envelope: magic "CDSV", envelope format, sequence, payload length, CRC32 over the header fields AND the payload,
+// then the payload (= UGameplayStatics::SaveGameToMemory bytes). Each file gets a status: Missing, Valid, Corrupt (bad CRC / length / payload, or the
+// header sequence differs from the save's own Sequence), UnsupportedFormat (an envelope format newer than this build), NewerVersion (valid file,
+// SaveVersion newer than this build). Old plain saves (no envelope) are read as sequence 0.
 //
 // Write (Save):
-//   refuse if the slot is read-only, the incoming object is from a newer build, or ANY existing copy of the slot (main / _tmp / _bak) is newer;
-//   Migrate() the incoming object first; sequence = highest existing sequence + 1;
-//   write <slot>_tmp and read it back -> copy the current VALID main byte-for-byte to <slot>_bak and read it back (if that fails: stop, main untouched)
-//   -> write main and read it back -> delete _tmp.
-// Recovery (LoadOrCreate): among the VALID copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak.
-//   _tmp only survives when a save was interrupted after its own verified write, so it is newer than main only if main never got the commit.
-//   A corrupt or older copy never replaces a newer valid one. A save from a NEWER build makes that slot read-only (per slot).
+//   refuse if the slot is read-only, the incoming object is from a newer build, or ANY copy of the slot on disk is UnsupportedFormat or NewerVersion
+//   (an older build never overwrites what it cannot understand); Migrate() the incoming object; sequence = highest existing valid sequence + 1;
+//   1 write <slot>_tmp and read it back
+//   2 copy the current VALID main byte-for-byte to <slot>_bak and read it back. If this fails: DELETE _tmp and return false = ROLLBACK, nothing committed,
+//     main untouched (a failed save is never recovered later)
+//   3 write main and read it back. If this fails: return false, but the verified _tmp is KEPT as recoverable progress (main may be damaged now)
+//   4 delete _tmp.
+// Recovery (LoadOrCreate): among the Valid copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak. A _tmp can only be left
+//   by step 3 failing (or a crash between 3 and 4), so it is newer than main only when its commit did not complete. Corrupt / older copies never
+//   replace a newer valid one. An UnsupportedFormat or NewerVersion copy makes the slot read-only (per slot).
 // Note: SaveGameToMemory stores every non-transient UPROPERTY of UCDSaveGame.
 #pragma once
 
@@ -947,6 +951,16 @@ public:
 	bool IsNewerThanBuild() const { return SaveVersion > CurrentVersion; }
 };
 
+UENUM(BlueprintType)
+enum class ECDSaveFileStatus : uint8
+{
+	Missing,
+	Valid,
+	Corrupt,
+	UnsupportedFormat,
+	NewerVersion
+};
+
 UCLASS()
 class CASTLEDEFENDER_API UCDSaveSubsystem : public UGameInstanceSubsystem
 {
@@ -967,12 +981,15 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Save")
 	bool IsReadOnly(const FString& Slot = TEXT("Main")) const { return ReadOnlySlots.Contains(Slot); }
 
-	// One slot file, fully checked (envelope + CRC + deserialize). Null if missing or invalid. Public for tests.
+	// One slot file, fully checked. OutData is set only for Valid and NewerVersion. Public for tests.
+	static ECDSaveFileStatus Inspect(const FString& SlotFile, UCDSaveGame*& OutData);
+
+	// Convenience: the save object if the file is Valid (or NewerVersion), else null.
 	static UCDSaveGame* LoadValid(const FString& SlotFile);
 
 	// Envelope helpers (public for tests).
 	static void Wrap(const TArray<uint8>& Payload, int64 Sequence, TArray<uint8>& Out);
-	static bool Unwrap(const TArray<uint8>& File, TArray<uint8>& OutPayload);
+	static ECDSaveFileStatus Unwrap(const TArray<uint8>& File, TArray<uint8>& OutPayload, int64& OutHeaderSequence, bool& bOutLegacy);
 
 private:
 	UPROPERTY()
@@ -993,8 +1010,9 @@ FILE: Source/CastleDefender/CDSaveGame.cpp
 namespace
 {
 	const uint32 EnvelopeMagic = 0x56534443;   // "CDSV" little-endian
-	const uint32 EnvelopeFormat = 1;
-	const int32 HeaderSize = 4 + 4 + 8 + 4 + 4;
+	const uint32 EnvelopeFormat = 2;           // 2 = CRC over header fields + payload (format 1 was never shipped)
+	const int32 HeaderFieldsSize = 4 + 4 + 8 + 4;  // magic, format, sequence, length
+	const int32 HeaderSize = HeaderFieldsSize + 4;  // + CRC
 
 	bool ReadBytes(const FString& SlotFile, TArray<uint8>& Out)
 	{
@@ -1008,11 +1026,18 @@ namespace
 		return UGameplayStatics::SaveDataToSlot(Bytes, SlotFile, 0) && ReadBytes(SlotFile, Back) && Back == Bytes;
 	}
 
+	uint32 EnvelopeCrc(const uint8* HeaderFields, const uint8* Payload, int32 PayloadLen)
+	{
+		return FCrc::MemCrc32(Payload, PayloadLen, FCrc::MemCrc32(HeaderFields, HeaderFieldsSize));
+	}
+
 	// The three files of one slot, in tie-break order.
 	TArray<FString, TInlineAllocator<3>> SlotFiles(const FString& Slot)
 	{
 		return { Slot, Slot + TEXT("_tmp"), Slot + TEXT("_bak") };
 	}
+
+	bool Blocks(ECDSaveFileStatus S) { return S == ECDSaveFileStatus::UnsupportedFormat || S == ECDSaveFileStatus::NewerVersion; }
 }
 
 bool UCDSaveGame::Migrate()
@@ -1031,43 +1056,87 @@ void UCDSaveSubsystem::Wrap(const TArray<uint8>& Payload, int64 Sequence, TArray
 {
 	Out.Reset(HeaderSize + Payload.Num());
 	FMemoryWriter W(Out);
-	uint32 Magic = EnvelopeMagic, Format = EnvelopeFormat, Crc = FCrc::MemCrc32(Payload.GetData(), Payload.Num()), Len = Payload.Num();
-	W << Magic << Format << Sequence << Crc << Len;
+	uint32 Magic = EnvelopeMagic, Format = EnvelopeFormat, Len = Payload.Num();
+	W << Magic << Format << Sequence << Len;
+	uint32 Crc = EnvelopeCrc(Out.GetData(), Payload.GetData(), Payload.Num());
+	W << Crc;
 	Out.Append(Payload);
 }
 
-bool UCDSaveSubsystem::Unwrap(const TArray<uint8>& File, TArray<uint8>& OutPayload)
+ECDSaveFileStatus UCDSaveSubsystem::Unwrap(const TArray<uint8>& File, TArray<uint8>& OutPayload, int64& OutHeaderSequence, bool& bOutLegacy)
 {
 	OutPayload.Reset();
-	if (File.Num() >= HeaderSize)
+	OutHeaderSequence = 0;
+	bOutLegacy = false;
+	if (File.Num() == 0)
 	{
-		FMemoryReader R(File);
-		uint32 Magic = 0, Format = 0, Crc = 0, Len = 0;
-		int64 Sequence = 0;
-		R << Magic;
-		if (Magic == EnvelopeMagic)
-		{
-			R << Format << Sequence << Crc << Len;
-			if (Format != EnvelopeFormat || (int64)Len != (int64)File.Num() - HeaderSize)
-			{
-				return false;
-			}
-			OutPayload.Append(File.GetData() + HeaderSize, Len);
-			return FCrc::MemCrc32(OutPayload.GetData(), OutPayload.Num()) == Crc;
-		}
+		return ECDSaveFileStatus::Missing;
 	}
-	OutPayload = File;   // legacy plain save (no envelope): validity is decided by deserializing
-	return File.Num() > 0;
+	uint32 Magic = 0;
+	if (File.Num() >= 4)
+	{
+		FMemoryReader Peek(File);
+		Peek << Magic;
+	}
+	if (Magic != EnvelopeMagic)
+	{
+		bOutLegacy = true;          // plain save from before the envelope: validity is decided by deserializing
+		OutPayload = File;
+		return ECDSaveFileStatus::Valid;
+	}
+	if (File.Num() < HeaderSize)
+	{
+		return ECDSaveFileStatus::Corrupt;
+	}
+	FMemoryReader R(File);
+	uint32 Format = 0, Len = 0, Crc = 0;
+	R << Magic << Format;
+	if (Format > EnvelopeFormat)
+	{
+		return ECDSaveFileStatus::UnsupportedFormat;   // written by a newer build: protect it, never overwrite
+	}
+	if (Format != EnvelopeFormat)
+	{
+		return ECDSaveFileStatus::Corrupt;
+	}
+	R << OutHeaderSequence << Len << Crc;
+	if ((int64)Len != (int64)File.Num() - HeaderSize || EnvelopeCrc(File.GetData(), File.GetData() + HeaderSize, Len) != Crc)
+	{
+		return ECDSaveFileStatus::Corrupt;
+	}
+	OutPayload.Append(File.GetData() + HeaderSize, Len);
+	return ECDSaveFileStatus::Valid;
+}
+
+ECDSaveFileStatus UCDSaveSubsystem::Inspect(const FString& SlotFile, UCDSaveGame*& OutData)
+{
+	OutData = nullptr;
+	TArray<uint8> File, Payload;
+	if (!ReadBytes(SlotFile, File))
+	{
+		return ECDSaveFileStatus::Missing;
+	}
+	int64 HeaderSequence = 0;
+	bool bLegacy = false;
+	const ECDSaveFileStatus Envelope = Unwrap(File, Payload, HeaderSequence, bLegacy);
+	if (Envelope != ECDSaveFileStatus::Valid)
+	{
+		return Envelope;
+	}
+	UCDSaveGame* Data = Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Payload));
+	if (!Data || (!bLegacy && Data->Sequence != HeaderSequence))
+	{
+		return ECDSaveFileStatus::Corrupt;   // does not deserialize, or the header and the save disagree on the sequence
+	}
+	OutData = Data;
+	return Data->IsNewerThanBuild() ? ECDSaveFileStatus::NewerVersion : ECDSaveFileStatus::Valid;
 }
 
 UCDSaveGame* UCDSaveSubsystem::LoadValid(const FString& SlotFile)
 {
-	TArray<uint8> File, Payload;
-	if (!ReadBytes(SlotFile, File) || !Unwrap(File, Payload))
-	{
-		return nullptr;
-	}
-	return Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Payload));
+	UCDSaveGame* Data = nullptr;
+	Inspect(SlotFile, Data);
+	return Data;
 }
 
 UCDSaveGame* UCDSaveSubsystem::LoadOrCreate(const FString& Slot)
@@ -1075,31 +1144,35 @@ UCDSaveGame* UCDSaveSubsystem::LoadOrCreate(const FString& Slot)
 	ReadOnlySlots.Remove(Slot);
 	UCDSaveGame* Best = nullptr;
 	FString BestFile;
-	bool bAnyNewer = false;
+	bool bBlocked = false;
 	for (const FString& File : SlotFiles(Slot))
 	{
-		UCDSaveGame* Copy = LoadValid(File);
+		UCDSaveGame* Copy = nullptr;
+		const ECDSaveFileStatus Status = Inspect(File, Copy);
+		if (Blocks(Status))
+		{
+			bBlocked = true;
+		}
+		if (Status == ECDSaveFileStatus::Corrupt)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("CDSave: %s is corrupt; ignored, left on disk"), *File);
+		}
 		if (!Copy)
 		{
-			if (UGameplayStatics::DoesSaveGameExist(File, 0))
-			{
-				UE_LOG(LogTemp, Warning, TEXT("CDSave: %s is not valid (checksum or format); ignored, left on disk"), *File);
-			}
 			continue;
 		}
-		bAnyNewer |= Copy->IsNewerThanBuild();
 		if (!Best || Copy->Sequence > Best->Sequence)   // strict >: on a tie the earlier file (main > _tmp > _bak) wins
 		{
 			Best = Copy;
 			BestFile = File;
 		}
 	}
-	if (bAnyNewer)
+	if (bBlocked)
 	{
 		ReadOnlySlots.Add(Slot);
-		UE_LOG(LogTemp, Error, TEXT("CDSave: slot %s holds a save from a newer build: loaded read-only"), *Slot);
+		UE_LOG(LogTemp, Error, TEXT("CDSave: slot %s holds a save this build cannot write safely (newer format or version): read-only"), *Slot);
 	}
-	if (Best && !bAnyNewer)
+	else if (Best)
 	{
 		if (BestFile != Slot)
 		{
@@ -1126,18 +1199,20 @@ bool UCDSaveSubsystem::Save(UCDSaveGame* Data, const FString& Slot)
 		UE_LOG(LogTemp, Error, TEXT("CDSave: refusing to write %s: read-only or data from a newer build"), *Slot);
 		return false;
 	}
-	// Look at what is on disk now, whatever this session loaded: never overwrite a newer build's save; continue the sequence.
+	// Look at what is on disk now, whatever this session loaded: never overwrite what this build cannot understand; continue the sequence.
 	int64 MaxSequence = 0;
 	for (const FString& File : SlotFiles(Slot))
 	{
-		if (const UCDSaveGame* Existing = LoadValid(File))
+		UCDSaveGame* Existing = nullptr;
+		const ECDSaveFileStatus Status = Inspect(File, Existing);
+		if (Blocks(Status))
 		{
-			if (Existing->IsNewerThanBuild())
-			{
-				ReadOnlySlots.Add(Slot);
-				UE_LOG(LogTemp, Error, TEXT("CDSave: %s on disk is from a newer build (version %d); refusing to overwrite"), *File, Existing->SaveVersion);
-				return false;
-			}
+			ReadOnlySlots.Add(Slot);
+			UE_LOG(LogTemp, Error, TEXT("CDSave: %s is from a newer build (format or version); refusing to overwrite slot %s"), *File, *Slot);
+			return false;
+		}
+		if (Existing)
+		{
 			MaxSequence = FMath::Max(MaxSequence, Existing->Sequence);
 		}
 	}
@@ -1148,7 +1223,7 @@ bool UCDSaveSubsystem::Save(UCDSaveGame* Data, const FString& Slot)
 	Data->Sequence = MaxSequence + 1;
 	Data->SavedAt = FDateTime::UtcNow();
 
-	// 1. serialize, check it reads back as a save, wrap with checksum
+	// 0. serialize, check it reads back as a save, wrap with header + checksum
 	TArray<uint8> Payload, File;
 	if (!UGameplayStatics::SaveGameToMemory(Data, Payload) || !Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Payload)))
 	{
@@ -1156,36 +1231,37 @@ bool UCDSaveSubsystem::Save(UCDSaveGame* Data, const FString& Slot)
 		return false;
 	}
 	Wrap(Payload, Data->Sequence, File);
-	// 2. temp copy, read back
+	// 1. temp copy, read back
 	const FString Tmp = Slot + TEXT("_tmp");
 	if (!WriteVerified(File, Tmp))
 	{
-		UE_LOG(LogTemp, Error, TEXT("CDSave: could not write %s; main untouched"), *Tmp);
+		UGameplayStatics::DeleteGameInSlot(Tmp, 0);
+		UE_LOG(LogTemp, Error, TEXT("CDSave: could not write %s; nothing committed"), *Tmp);
 		return false;
 	}
-	// 3. back up the current main byte-for-byte, only if it is valid (a corrupt main never replaces a good backup)
+	// 2. back up the current main byte-for-byte, only if it is Valid. Failure = rollback: _tmp deleted, nothing committed.
 	TArray<uint8> Old;
-	if (ReadBytes(Slot, Old))
+	UCDSaveGame* OldData = nullptr;
+	if (Inspect(Slot, OldData) == ECDSaveFileStatus::Valid && ReadBytes(Slot, Old))
 	{
-		if (LoadValid(Slot))
+		if (!WriteVerified(Old, Slot + TEXT("_bak")))
 		{
-			if (!WriteVerified(Old, Slot + TEXT("_bak")))
-			{
-				UE_LOG(LogTemp, Error, TEXT("CDSave: backup of %s failed; main untouched, the new save stays in %s"), *Slot, *Tmp);
-				return false;
-			}
-		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("CDSave: %s was not valid; keeping the existing %s_bak"), *Slot, *Slot);
+			UGameplayStatics::DeleteGameInSlot(Tmp, 0);
+			UE_LOG(LogTemp, Error, TEXT("CDSave: backup of %s failed; rolled back, main untouched, nothing committed"), *Slot);
+			return false;
 		}
 	}
-	// 4. main
+	else if (UGameplayStatics::DoesSaveGameExist(Slot, 0))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CDSave: %s was corrupt; keeping the existing %s_bak, overwriting main"), *Slot, *Slot);
+	}
+	// 3. main. Failure: the verified _tmp is kept as recoverable progress (documented in the header).
 	if (!WriteVerified(File, Slot))
 	{
-		UE_LOG(LogTemp, Error, TEXT("CDSave: writing %s failed; recovery will use %s (sequence %lld)"), *Slot, *Tmp, Data->Sequence);
+		UE_LOG(LogTemp, Error, TEXT("CDSave: writing %s failed; the verified %s (sequence %lld) is kept and will be recovered"), *Slot, *Tmp, Data->Sequence);
 		return false;
 	}
+	// 4. commit done
 	UGameplayStatics::DeleteGameInSlot(Tmp, 0);
 	Current = Data;
 	return true;
@@ -1199,9 +1275,14 @@ FILE: Source/CastleDefender/CDPoolSubsystem.h
 //
 // RESET CONTRACT: only classes that implement ICDPoolable are pooled. OnAcquired must bring the actor back to a just-spawned state
 // (BeginPlay does NOT run again): health / damage state, velocity, projectile movement, ignored actors, attached children, effects, delegates.
-// OnReleased must stop everything it started. The pool itself also: clears the actor's timers and life span, zeroes physics velocity, stops and
-// DEACTIVATES its active movement components, turns off every component tick (actor tick and component ticks are separate in Unreal), hides it and
-// turns off its collision. On Acquire it re-enables exactly the component ticks and re-activates exactly the movers it turned off, then calls OnAcquired.
+// OnReleased must stop everything it started, INCLUDING timers set by its components or by other objects for it: the pool only clears timers bound
+// to the actor object itself (ClearAllTimersForObject). The pool also: clears the life span, zeroes physics velocity, stops and DEACTIVATES active
+// movement components, turns off every component tick (actor tick and component ticks are separate in Unreal), and remembers the actor's own
+// hidden / tick / collision values before turning collision off, tick off and hiding it. On Acquire it re-enables exactly those component ticks and
+// re-activates exactly those movers, calls OnAcquired while the actor is still hidden and without collision, then puts back the actor's own
+// visibility and tick, and its collision LAST (so overlaps never see old state).
+// Component Activate / Deactivate can run callbacks that call back into the pool: no record reference is held across them; the record is looked
+// up again and its generation checked after every such call.
 // A class without ICDPoolable is spawned normally by Acquire and destroyed by Release: never pooled.
 //
 // Lifecycle per actor: Active -> (Release with delay) PendingRelease -> Pooled -> (Acquire) Active ... Each Acquire bumps a generation number;
@@ -1274,12 +1355,20 @@ private:
 		FTimerHandle Timer;
 		TArray<TWeakObjectPtr<UActorComponent>> TicksOff;      // component ticks the pool turned off
 		TArray<TWeakObjectPtr<UActorComponent>> MoversOff;     // movement components the pool deactivated
+		bool bWasHidden = false, bHadCollision = true, bHadTick = true;   // the actor's own values before parking
+	};
+	// Built in a local while engine calls run (they may call back into the pool), then moved into the record after a fresh lookup.
+	struct FParkedState
+	{
+		TArray<TWeakObjectPtr<UActorComponent>> TicksOff, MoversOff;
+		bool bWasHidden = false, bHadCollision = true, bHadTick = true;
 	};
 
 	void Park(AActor* Actor, uint32 ExpectedGeneration);
 	void PurgeInvalid(UClass* Class);
-	static void ResetEngineState(AActor* Actor, FRecord& Rec);
-	static void RestoreEngineState(FRecord& Rec);
+	FRecord* FindCurrent(AActor* Actor, uint32 Generation, EState State);
+	static void ResetEngineState(AActor* Actor, FParkedState& Out);
+	static void RestoreComponents(const FParkedState& State);
 
 	TMap<TWeakObjectPtr<AActor>, FRecord> Records;
 	TMap<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>> Free;
@@ -1326,31 +1415,43 @@ void UCDPoolSubsystem::Deinitialize()
 	Super::Deinitialize();
 }
 
-void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FRecord& Rec)
+UCDPoolSubsystem::FRecord* UCDPoolSubsystem::FindCurrent(AActor* Actor, uint32 Generation, EState State)
 {
+	FRecord* R = Records.Find(Actor);
+	return (R && R->Generation == Generation && R->State == State) ? R : nullptr;
+}
+
+void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
+{
+	// Works on a local struct only: Deactivate / SetComponentTickEnabled may run callbacks that change the pool's maps.
 	if (UWorld* World = Actor->GetWorld())
 	{
 		World->GetTimerManager().ClearAllTimersForObject(Actor);
 	}
 	Actor->SetLifeSpan(0.f);
-	Rec.TicksOff.Reset();
-	Rec.MoversOff.Reset();
+	Out.bWasHidden = Actor->IsHidden();
+	Out.bHadCollision = Actor->GetActorEnableCollision();
+	Out.bHadTick = Actor->IsActorTickEnabled();
 	TInlineComponentArray<UActorComponent*> Components(Actor);
 	for (UActorComponent* Comp : Components)
 	{
+		if (!IsValid(Comp))
+		{
+			continue;
+		}
 		if (UMovementComponent* Mover = Cast<UMovementComponent>(Comp))
 		{
 			Mover->StopMovementImmediately();
 			if (Mover->IsActive())
 			{
+				Out.MoversOff.Add(Mover);
 				Mover->Deactivate();
-				Rec.MoversOff.Add(Mover);
 			}
 		}
 		if (Comp->IsComponentTickEnabled())
 		{
+			Out.TicksOff.Add(Comp);
 			Comp->SetComponentTickEnabled(false);
-			Rec.TicksOff.Add(Comp);
 		}
 	}
 	if (UPrimitiveComponent* Root = Cast<UPrimitiveComponent>(Actor->GetRootComponent()))
@@ -1363,18 +1464,16 @@ void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FRecord& Rec)
 	}
 }
 
-void UCDPoolSubsystem::RestoreEngineState(FRecord& Rec)
+void UCDPoolSubsystem::RestoreComponents(const FParkedState& State)
 {
-	for (const TWeakObjectPtr<UActorComponent>& W : Rec.TicksOff)
+	for (const TWeakObjectPtr<UActorComponent>& W : State.TicksOff)
 	{
 		if (UActorComponent* Comp = W.Get()) { Comp->SetComponentTickEnabled(true); }
 	}
-	for (const TWeakObjectPtr<UActorComponent>& W : Rec.MoversOff)
+	for (const TWeakObjectPtr<UActorComponent>& W : State.MoversOff)
 	{
 		if (UActorComponent* Comp = W.Get()) { Comp->Activate(true); }
 	}
-	Rec.TicksOff.Reset();
-	Rec.MoversOff.Reset();
 }
 
 void UCDPoolSubsystem::PurgeInvalid(UClass* Class)
@@ -1419,13 +1518,10 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 			}
 		}
 	}
-
-	if (Actor)
+	const bool bFromPool = Actor != nullptr;
+	if (bFromPool)
 	{
-		Actor->SetActorTransform(Transform, false, nullptr, ETeleportType::ResetPhysics);
-		Actor->SetActorHiddenInGame(false);
-		Actor->SetActorEnableCollision(true);
-		Actor->SetActorTickEnabled(true);
+		Actor->SetActorTransform(Transform, false, nullptr, ETeleportType::ResetPhysics);   // still hidden, still without collision
 	}
 	else
 	{
@@ -1438,14 +1534,34 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 		}
 	}
 
+	// Mark it ours BEFORE any callback, and move the parked state out of the record into a local.
+	FParkedState Parked;
+	uint32 Generation = 0;
 	{
-		FRecord& Rec = Records.FindOrAdd(Actor);   // no map changes between here and the end of this block
+		FRecord& Rec = Records.FindOrAdd(Actor);   // nothing between here and the end of this block can call out
 		World->GetTimerManager().ClearTimer(Rec.Timer);
-		RestoreEngineState(Rec);
+		Parked.TicksOff = MoveTemp(Rec.TicksOff);
+		Parked.MoversOff = MoveTemp(Rec.MoversOff);
+		Parked.bWasHidden = Rec.bWasHidden;
+		Parked.bHadCollision = Rec.bHadCollision;
+		Parked.bHadTick = Rec.bHadTick;
 		Rec.State = EState::Active;
-		Rec.Generation = NextGeneration++;
+		Rec.Generation = Generation = NextGeneration++;
 	}
-	ICDPoolable::Execute_OnAcquired(Actor);   // may call into the pool: do not hold the record across it
+	if (!bFromPool)
+	{
+		ICDPoolable::Execute_OnAcquired(Actor);   // fresh spawn: its own BeginPlay state, nothing to restore
+		return Actor;
+	}
+	RestoreComponents(Parked);                 // may run callbacks
+	ICDPoolable::Execute_OnAcquired(Actor);    // reset gameplay state while still hidden and without collision
+	if (!IsValid(Actor) || !FindCurrent(Actor, Generation, EState::Active))
+	{
+		return IsValid(Actor) ? Actor : nullptr;   // a callback released or destroyed it: leave it as that left it
+	}
+	Actor->SetActorHiddenInGame(Parked.bWasHidden);
+	Actor->SetActorTickEnabled(Parked.bHadTick);
+	Actor->SetActorEnableCollision(Parked.bHadCollision);   // last
 	return Actor;
 }
 
@@ -1480,9 +1596,9 @@ void UCDPoolSubsystem::ReleasePooledActor(AActor* Actor, float LifeSeconds)
 		return;
 	}
 	const uint32 Generation = Rec->Generation;
+	Rec->State = EState::PendingRelease;
 	if (LifeSeconds > 0.f)
 	{
-		Rec->State = EState::PendingRelease;
 		TWeakObjectPtr<AActor> Weak(Actor);
 		World->GetTimerManager().SetTimer(Rec->Timer, FTimerDelegate::CreateWeakLambda(this, [this, Weak, Generation]()
 		{
@@ -1493,19 +1609,13 @@ void UCDPoolSubsystem::ReleasePooledActor(AActor* Actor, float LifeSeconds)
 		}), LifeSeconds, false);
 		return;
 	}
-	Rec->State = EState::PendingRelease;
 	Park(Actor, Generation);
 }
 
 void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 {
-	// Never hold an FRecord pointer across anything that can change Records (PurgeInvalid, OnReleased, Destroy): look it up again.
-	auto Current = [this, Actor, ExpectedGeneration]() -> FRecord*
-	{
-		FRecord* R = Records.Find(Actor);
-		return (R && R->Generation == ExpectedGeneration && R->State == EState::PendingRelease) ? R : nullptr;
-	};
-	if (FRecord* Rec = Current())
+	// Never hold an FRecord pointer across anything that can call out (OnReleased, Deactivate, tick changes, Destroy): look it up again.
+	if (FRecord* Rec = FindCurrent(Actor, ExpectedGeneration, EState::PendingRelease))
 	{
 		if (UWorld* World = GetWorld()) { World->GetTimerManager().ClearTimer(Rec->Timer); }
 	}
@@ -1520,27 +1630,46 @@ void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 		return;
 	}
 	PurgeInvalid(Actor->GetClass());
-	FRecord* Rec = Current();
-	if (!Rec)
+	if (!FindCurrent(Actor, ExpectedGeneration, EState::PendingRelease))
 	{
 		return;   // OnReleased re-acquired it
 	}
-	TArray<TWeakObjectPtr<AActor>>& List = Free.FindOrAdd(Actor->GetClass());
-	if (List.Num() >= MaxPerClass)
+	if (GetPooledCount(Actor->GetClass()) >= MaxPerClass)
 	{
 		Records.Remove(Actor);
 		Actor->Destroy();
 		return;
 	}
-	ResetEngineState(Actor, *Rec);
-	Actor->SetActorHiddenInGame(true);
-	Actor->SetActorEnableCollision(false);
+	FParkedState Parked;
+	ResetEngineState(Actor, Parked);            // may run callbacks: no record reference held
+	if (!IsValid(Actor))
+	{
+		Records.Remove(Actor);
+		return;
+	}
+	if (!FindCurrent(Actor, ExpectedGeneration, EState::PendingRelease))
+	{
+		RestoreComponents(Parked);              // a callback re-acquired it meanwhile: undo our component changes and stop
+		return;
+	}
+	Actor->SetActorEnableCollision(false);      // collision off first, visibility last
 	Actor->SetActorTickEnabled(false);
+	Actor->SetActorHiddenInGame(true);
+	FRecord* Rec = FindCurrent(Actor, ExpectedGeneration, EState::PendingRelease);
+	if (!Rec)
+	{
+		return;
+	}
+	Rec->TicksOff = MoveTemp(Parked.TicksOff);
+	Rec->MoversOff = MoveTemp(Parked.MoversOff);
+	Rec->bWasHidden = Parked.bWasHidden;
+	Rec->bHadCollision = Parked.bHadCollision;
+	Rec->bHadTick = Parked.bHadTick;
 	Rec->State = EState::Pooled;
-	List.Add(Actor);
-	int32 Parked = 0;
-	for (const TPair<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>>& Pair : Free) { Parked += Pair.Value.Num(); }
-	SET_DWORD_STAT(STAT_CD_PoolParked, Parked);
+	Free.FindOrAdd(Actor->GetClass()).Add(Actor);
+	int32 ParkedCount = 0;
+	for (const TPair<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>>& Pair : Free) { ParkedCount += Pair.Value.Num(); }
+	SET_DWORD_STAT(STAT_CD_PoolParked, ParkedCount);
 }
 
 int32 UCDPoolSubsystem::GetPooledCount(TSubclassOf<AActor> Class) const
@@ -1716,6 +1845,46 @@ bool FCDSaveTest::RunTest(const FString& Parameters)
 	const FString Other = Slot + TEXT("B");
 	TestTrue(TEXT("another slot is still writable (read-only is per slot)"), Fresh->Save(Make(2), Other) && !Fresh->IsReadOnly(Other));
 	for (const FString& F : { Other, Other + TEXT("_tmp"), Other + TEXT("_bak") }) { UGameplayStatics::DeleteGameInSlot(F, 0); }
+
+	// Rev 4: an envelope format newer than this build is protected, not treated as invalid
+	Clean();
+	{
+		TArray<uint8> Payload, Env;
+		UCDSaveGame* Future = Make(77);
+		Future->Sequence = 2;
+		UGameplayStatics::SaveGameToMemory(Future, Payload);
+		UCDSaveSubsystem::Wrap(Payload, 2, Env);
+		Env[4] = 0x7F;   // format field (bytes 4..7) -> a future format
+		UGameplayStatics::SaveDataToSlot(Env, Slot, 0);
+		UCDSaveGame* Seen = nullptr;
+		TestEqual(TEXT("future envelope format -> UnsupportedFormat"), (int32)UCDSaveSubsystem::Inspect(Slot, Seen), (int32)ECDSaveFileStatus::UnsupportedFormat);
+		UCDSaveSubsystem* Older = NewObject<UCDSaveSubsystem>(GetTransientPackage());
+		Older->LoadOrCreate(Slot);
+		TestTrue(TEXT("future format makes the slot read-only"), Older->IsReadOnly(Slot));
+		TestFalse(TEXT("future format is never overwritten"), Older->Save(Make(1), Slot));
+		TArray<uint8> After;
+		UGameplayStatics::LoadDataFromSlot(After, Slot, 0);
+		TestTrue(TEXT("future file bytes unchanged"), After == Env);
+	}
+
+	// Rev 4: header sequence must match the save's own sequence; a changed header byte fails the checksum
+	Clean();
+	{
+		TArray<uint8> Payload, Env;
+		UCDSaveGame* D = Make(88);
+		D->Sequence = 3;
+		UGameplayStatics::SaveGameToMemory(D, Payload);
+		UCDSaveSubsystem::Wrap(Payload, 9, Env);   // header says 9, payload says 3
+		UGameplayStatics::SaveDataToSlot(Env, Slot, 0);
+		UCDSaveGame* Seen = nullptr;
+		TestEqual(TEXT("header / payload sequence mismatch -> Corrupt"), (int32)UCDSaveSubsystem::Inspect(Slot, Seen), (int32)ECDSaveFileStatus::Corrupt);
+		UCDSaveSubsystem::Wrap(Payload, 3, Env);
+		Env[8] ^= 0x01;                             // flip a bit inside the header sequence field
+		UGameplayStatics::SaveDataToSlot(Env, Slot, 0);
+		TestEqual(TEXT("changed header byte -> Corrupt (CRC covers the header)"), (int32)UCDSaveSubsystem::Inspect(Slot, Seen), (int32)ECDSaveFileStatus::Corrupt);
+	}
+	// Not automatable here: "backup write fails after _tmp succeeds" (needs a failing file system). By design that path deletes _tmp and
+	// returns false, so the failed save is never recovered later; check it once by making <slot>_bak read-only on disk and saving.
 
 	// Bug F: an old-version object passed straight to Save is migrated, not just relabelled
 	Clean();

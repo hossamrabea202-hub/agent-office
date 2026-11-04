@@ -92,3 +92,29 @@ Order (reviewer's, agreed): 1 build Runtime + Editor, UHT clean, tests green, BE
 | Editor recompile | documented: changes in-memory Blueprints; run on a clean editor |
 | Tests | null-safe pattern everywhere, unique slot name per run (GUID), new cases for A, B (3 recovery orders), F, CRC flip, per-slot read-only, sequence after recovery |
 Still open (reviewer's list): wiring CanSpawnZombie into every spawner, soldier / farmer comparison in cd.CrowdReport once their classes have C++ parents, pool + PIE integration tests (delayed release and component-tick tests first), schema validation beyond CRC. Not compiled yet.
+
+## Revision 4: third review (11-04) fixes
+| Review item | Fix |
+|---|---|
+| 1 failed save recovered later | backup failure now ROLLS BACK: _tmp is deleted, Save returns false, nothing committed, main untouched. Only a failed final main write keeps the verified _tmp, documented as recoverable progress |
+| 2 header sequence not verified | CRC32 now covers the header fields + payload, and the header sequence must equal the save's own Sequence, else the file is Corrupt |
+| 3 future format could be overwritten | file status enum: Missing / Valid / Corrupt / UnsupportedFormat / NewerVersion. UnsupportedFormat and NewerVersion make the slot read-only; Save refuses to overwrite them (checked on disk every time) |
+| 4 pool reentrancy | no FRecord reference is held across Activate / Deactivate / tick changes / OnAcquired / OnReleased: state is built in a local FParkedState, the record is looked up again and its generation checked after every call-out; if a callback re-acquired the actor during parking, the pool undoes its own component changes and stops |
+| 5 actor-level state | the actor's own hidden / tick / collision values are remembered when parked and restored on acquire; OnAcquired runs while hidden and without collision; collision is turned on LAST |
+| 6 death integration | documented below (BP_Zombie requirement + test) |
+| Timers | contract now says: the pool clears only timers bound to the actor object; OnReleased must clear timers set by components or other objects |
+| Tests | future envelope format protected and bytes unchanged; header / payload sequence mismatch; flipped header byte; rollback case documented as a manual check (needs a failing file system) |
+
+### BP_Zombie death-path requirement (for the native crowd collision rule, `bCrowdManagesBodyCollision`)
+The crowd hands the body collision back without restoring it as soon as a zombie is dying or dead. So BP_Zombie's death code must set the mesh
+collision it wants itself, on BOTH paths, and should call `Notify Dying` first:
+- ragdoll path: already does (`SetCollisionProfileName(Ragdoll)` + `SetAllBodiesSimulatePhysics`, nodes K2Node_CallFunction_23 / _24);
+- non-ragdoll path (death montage): today it only calls `SetCollisionEnabled(NoCollision)` (K2Node_CallFunction_ZB71, after Set Dead). If corpses must
+  stay hittable (gore on corpses), add an explicit mesh collision set there.
+Test before turning `bCrowdManagesBodyCollision` on: kill a far, unseen zombie (its body collision is off) with both death types; the corpse behaves
+like one killed up close.
+
+### Integration tests to write after the first build (need a world; reviewer's list)
+Pool: delayed + immediate release + reacquire; duplicate release; destroyed while pending; cross-world; capacity; OnReleased destroys; a callback in
+OnComponentActivated / Deactivated that calls back into the pool; a projectile that starts with collision disabled keeps it disabled after reuse;
+an external timer firing after reacquisition. Crowd: zombie dies while its body collision is off. PIE: register, pick target, unregister, no stale ref.

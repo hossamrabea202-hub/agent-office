@@ -1,17 +1,21 @@
 // #500 point 5: a versioned save game with a safe write path and a written recovery rule.
 //
-// File format: every slot file is an envelope: magic "CDSV", envelope format, sequence number, CRC32 of the payload, payload length, payload
-// (= UGameplayStatics::SaveGameToMemory bytes). A file is VALID only if the magic, length and CRC match AND the payload deserializes into a
-// UCDSaveGame. Old plain saves (no envelope) are still read, as sequence 0.
+// File format: every slot file is an envelope: magic "CDSV", envelope format, sequence, payload length, CRC32 over the header fields AND the payload,
+// then the payload (= UGameplayStatics::SaveGameToMemory bytes). Each file gets a status: Missing, Valid, Corrupt (bad CRC / length / payload, or the
+// header sequence differs from the save's own Sequence), UnsupportedFormat (an envelope format newer than this build), NewerVersion (valid file,
+// SaveVersion newer than this build). Old plain saves (no envelope) are read as sequence 0.
 //
 // Write (Save):
-//   refuse if the slot is read-only, the incoming object is from a newer build, or ANY existing copy of the slot (main / _tmp / _bak) is newer;
-//   Migrate() the incoming object first; sequence = highest existing sequence + 1;
-//   write <slot>_tmp and read it back -> copy the current VALID main byte-for-byte to <slot>_bak and read it back (if that fails: stop, main untouched)
-//   -> write main and read it back -> delete _tmp.
-// Recovery (LoadOrCreate): among the VALID copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak.
-//   _tmp only survives when a save was interrupted after its own verified write, so it is newer than main only if main never got the commit.
-//   A corrupt or older copy never replaces a newer valid one. A save from a NEWER build makes that slot read-only (per slot).
+//   refuse if the slot is read-only, the incoming object is from a newer build, or ANY copy of the slot on disk is UnsupportedFormat or NewerVersion
+//   (an older build never overwrites what it cannot understand); Migrate() the incoming object; sequence = highest existing valid sequence + 1;
+//   1 write <slot>_tmp and read it back
+//   2 copy the current VALID main byte-for-byte to <slot>_bak and read it back. If this fails: DELETE _tmp and return false = ROLLBACK, nothing committed,
+//     main untouched (a failed save is never recovered later)
+//   3 write main and read it back. If this fails: return false, but the verified _tmp is KEPT as recoverable progress (main may be damaged now)
+//   4 delete _tmp.
+// Recovery (LoadOrCreate): among the Valid copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak. A _tmp can only be left
+//   by step 3 failing (or a crash between 3 and 4), so it is newer than main only when its commit did not complete. Corrupt / older copies never
+//   replace a newer valid one. An UnsupportedFormat or NewerVersion copy makes the slot read-only (per slot).
 // Note: SaveGameToMemory stores every non-transient UPROPERTY of UCDSaveGame.
 #pragma once
 
@@ -58,6 +62,16 @@ public:
 	bool IsNewerThanBuild() const { return SaveVersion > CurrentVersion; }
 };
 
+UENUM(BlueprintType)
+enum class ECDSaveFileStatus : uint8
+{
+	Missing,
+	Valid,
+	Corrupt,
+	UnsupportedFormat,
+	NewerVersion
+};
+
 UCLASS()
 class CASTLEDEFENDER_API UCDSaveSubsystem : public UGameInstanceSubsystem
 {
@@ -78,12 +92,15 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Save")
 	bool IsReadOnly(const FString& Slot = TEXT("Main")) const { return ReadOnlySlots.Contains(Slot); }
 
-	// One slot file, fully checked (envelope + CRC + deserialize). Null if missing or invalid. Public for tests.
+	// One slot file, fully checked. OutData is set only for Valid and NewerVersion. Public for tests.
+	static ECDSaveFileStatus Inspect(const FString& SlotFile, UCDSaveGame*& OutData);
+
+	// Convenience: the save object if the file is Valid (or NewerVersion), else null.
 	static UCDSaveGame* LoadValid(const FString& SlotFile);
 
 	// Envelope helpers (public for tests).
 	static void Wrap(const TArray<uint8>& Payload, int64 Sequence, TArray<uint8>& Out);
-	static bool Unwrap(const TArray<uint8>& File, TArray<uint8>& OutPayload);
+	static ECDSaveFileStatus Unwrap(const TArray<uint8>& File, TArray<uint8>& OutPayload, int64& OutHeaderSequence, bool& bOutLegacy);
 
 private:
 	UPROPERTY()

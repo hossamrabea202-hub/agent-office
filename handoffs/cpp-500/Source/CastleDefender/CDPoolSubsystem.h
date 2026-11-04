@@ -3,9 +3,14 @@
 //
 // RESET CONTRACT: only classes that implement ICDPoolable are pooled. OnAcquired must bring the actor back to a just-spawned state
 // (BeginPlay does NOT run again): health / damage state, velocity, projectile movement, ignored actors, attached children, effects, delegates.
-// OnReleased must stop everything it started. The pool itself also: clears the actor's timers and life span, zeroes physics velocity, stops and
-// DEACTIVATES its active movement components, turns off every component tick (actor tick and component ticks are separate in Unreal), hides it and
-// turns off its collision. On Acquire it re-enables exactly the component ticks and re-activates exactly the movers it turned off, then calls OnAcquired.
+// OnReleased must stop everything it started, INCLUDING timers set by its components or by other objects for it: the pool only clears timers bound
+// to the actor object itself (ClearAllTimersForObject). The pool also: clears the life span, zeroes physics velocity, stops and DEACTIVATES active
+// movement components, turns off every component tick (actor tick and component ticks are separate in Unreal), and remembers the actor's own
+// hidden / tick / collision values before turning collision off, tick off and hiding it. On Acquire it re-enables exactly those component ticks and
+// re-activates exactly those movers, calls OnAcquired while the actor is still hidden and without collision, then puts back the actor's own
+// visibility and tick, and its collision LAST (so overlaps never see old state).
+// Component Activate / Deactivate can run callbacks that call back into the pool: no record reference is held across them; the record is looked
+// up again and its generation checked after every such call.
 // A class without ICDPoolable is spawned normally by Acquire and destroyed by Release: never pooled.
 //
 // Lifecycle per actor: Active -> (Release with delay) PendingRelease -> Pooled -> (Acquire) Active ... Each Acquire bumps a generation number;
@@ -78,12 +83,20 @@ private:
 		FTimerHandle Timer;
 		TArray<TWeakObjectPtr<UActorComponent>> TicksOff;      // component ticks the pool turned off
 		TArray<TWeakObjectPtr<UActorComponent>> MoversOff;     // movement components the pool deactivated
+		bool bWasHidden = false, bHadCollision = true, bHadTick = true;   // the actor's own values before parking
+	};
+	// Built in a local while engine calls run (they may call back into the pool), then moved into the record after a fresh lookup.
+	struct FParkedState
+	{
+		TArray<TWeakObjectPtr<UActorComponent>> TicksOff, MoversOff;
+		bool bWasHidden = false, bHadCollision = true, bHadTick = true;
 	};
 
 	void Park(AActor* Actor, uint32 ExpectedGeneration);
 	void PurgeInvalid(UClass* Class);
-	static void ResetEngineState(AActor* Actor, FRecord& Rec);
-	static void RestoreEngineState(FRecord& Rec);
+	FRecord* FindCurrent(AActor* Actor, uint32 Generation, EState State);
+	static void ResetEngineState(AActor* Actor, FParkedState& Out);
+	static void RestoreComponents(const FParkedState& State);
 
 	TMap<TWeakObjectPtr<AActor>, FRecord> Records;
 	TMap<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>> Free;

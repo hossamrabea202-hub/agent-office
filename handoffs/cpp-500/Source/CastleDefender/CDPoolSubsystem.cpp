@@ -35,31 +35,43 @@ void UCDPoolSubsystem::Deinitialize()
 	Super::Deinitialize();
 }
 
-void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FRecord& Rec)
+UCDPoolSubsystem::FRecord* UCDPoolSubsystem::FindCurrent(AActor* Actor, uint32 Generation, EState State)
 {
+	FRecord* R = Records.Find(Actor);
+	return (R && R->Generation == Generation && R->State == State) ? R : nullptr;
+}
+
+void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
+{
+	// Works on a local struct only: Deactivate / SetComponentTickEnabled may run callbacks that change the pool's maps.
 	if (UWorld* World = Actor->GetWorld())
 	{
 		World->GetTimerManager().ClearAllTimersForObject(Actor);
 	}
 	Actor->SetLifeSpan(0.f);
-	Rec.TicksOff.Reset();
-	Rec.MoversOff.Reset();
+	Out.bWasHidden = Actor->IsHidden();
+	Out.bHadCollision = Actor->GetActorEnableCollision();
+	Out.bHadTick = Actor->IsActorTickEnabled();
 	TInlineComponentArray<UActorComponent*> Components(Actor);
 	for (UActorComponent* Comp : Components)
 	{
+		if (!IsValid(Comp))
+		{
+			continue;
+		}
 		if (UMovementComponent* Mover = Cast<UMovementComponent>(Comp))
 		{
 			Mover->StopMovementImmediately();
 			if (Mover->IsActive())
 			{
+				Out.MoversOff.Add(Mover);
 				Mover->Deactivate();
-				Rec.MoversOff.Add(Mover);
 			}
 		}
 		if (Comp->IsComponentTickEnabled())
 		{
+			Out.TicksOff.Add(Comp);
 			Comp->SetComponentTickEnabled(false);
-			Rec.TicksOff.Add(Comp);
 		}
 	}
 	if (UPrimitiveComponent* Root = Cast<UPrimitiveComponent>(Actor->GetRootComponent()))
@@ -72,18 +84,16 @@ void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FRecord& Rec)
 	}
 }
 
-void UCDPoolSubsystem::RestoreEngineState(FRecord& Rec)
+void UCDPoolSubsystem::RestoreComponents(const FParkedState& State)
 {
-	for (const TWeakObjectPtr<UActorComponent>& W : Rec.TicksOff)
+	for (const TWeakObjectPtr<UActorComponent>& W : State.TicksOff)
 	{
 		if (UActorComponent* Comp = W.Get()) { Comp->SetComponentTickEnabled(true); }
 	}
-	for (const TWeakObjectPtr<UActorComponent>& W : Rec.MoversOff)
+	for (const TWeakObjectPtr<UActorComponent>& W : State.MoversOff)
 	{
 		if (UActorComponent* Comp = W.Get()) { Comp->Activate(true); }
 	}
-	Rec.TicksOff.Reset();
-	Rec.MoversOff.Reset();
 }
 
 void UCDPoolSubsystem::PurgeInvalid(UClass* Class)
@@ -128,13 +138,10 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 			}
 		}
 	}
-
-	if (Actor)
+	const bool bFromPool = Actor != nullptr;
+	if (bFromPool)
 	{
-		Actor->SetActorTransform(Transform, false, nullptr, ETeleportType::ResetPhysics);
-		Actor->SetActorHiddenInGame(false);
-		Actor->SetActorEnableCollision(true);
-		Actor->SetActorTickEnabled(true);
+		Actor->SetActorTransform(Transform, false, nullptr, ETeleportType::ResetPhysics);   // still hidden, still without collision
 	}
 	else
 	{
@@ -147,14 +154,34 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 		}
 	}
 
+	// Mark it ours BEFORE any callback, and move the parked state out of the record into a local.
+	FParkedState Parked;
+	uint32 Generation = 0;
 	{
-		FRecord& Rec = Records.FindOrAdd(Actor);   // no map changes between here and the end of this block
+		FRecord& Rec = Records.FindOrAdd(Actor);   // nothing between here and the end of this block can call out
 		World->GetTimerManager().ClearTimer(Rec.Timer);
-		RestoreEngineState(Rec);
+		Parked.TicksOff = MoveTemp(Rec.TicksOff);
+		Parked.MoversOff = MoveTemp(Rec.MoversOff);
+		Parked.bWasHidden = Rec.bWasHidden;
+		Parked.bHadCollision = Rec.bHadCollision;
+		Parked.bHadTick = Rec.bHadTick;
 		Rec.State = EState::Active;
-		Rec.Generation = NextGeneration++;
+		Rec.Generation = Generation = NextGeneration++;
 	}
-	ICDPoolable::Execute_OnAcquired(Actor);   // may call into the pool: do not hold the record across it
+	if (!bFromPool)
+	{
+		ICDPoolable::Execute_OnAcquired(Actor);   // fresh spawn: its own BeginPlay state, nothing to restore
+		return Actor;
+	}
+	RestoreComponents(Parked);                 // may run callbacks
+	ICDPoolable::Execute_OnAcquired(Actor);    // reset gameplay state while still hidden and without collision
+	if (!IsValid(Actor) || !FindCurrent(Actor, Generation, EState::Active))
+	{
+		return IsValid(Actor) ? Actor : nullptr;   // a callback released or destroyed it: leave it as that left it
+	}
+	Actor->SetActorHiddenInGame(Parked.bWasHidden);
+	Actor->SetActorTickEnabled(Parked.bHadTick);
+	Actor->SetActorEnableCollision(Parked.bHadCollision);   // last
 	return Actor;
 }
 
@@ -189,9 +216,9 @@ void UCDPoolSubsystem::ReleasePooledActor(AActor* Actor, float LifeSeconds)
 		return;
 	}
 	const uint32 Generation = Rec->Generation;
+	Rec->State = EState::PendingRelease;
 	if (LifeSeconds > 0.f)
 	{
-		Rec->State = EState::PendingRelease;
 		TWeakObjectPtr<AActor> Weak(Actor);
 		World->GetTimerManager().SetTimer(Rec->Timer, FTimerDelegate::CreateWeakLambda(this, [this, Weak, Generation]()
 		{
@@ -202,19 +229,13 @@ void UCDPoolSubsystem::ReleasePooledActor(AActor* Actor, float LifeSeconds)
 		}), LifeSeconds, false);
 		return;
 	}
-	Rec->State = EState::PendingRelease;
 	Park(Actor, Generation);
 }
 
 void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 {
-	// Never hold an FRecord pointer across anything that can change Records (PurgeInvalid, OnReleased, Destroy): look it up again.
-	auto Current = [this, Actor, ExpectedGeneration]() -> FRecord*
-	{
-		FRecord* R = Records.Find(Actor);
-		return (R && R->Generation == ExpectedGeneration && R->State == EState::PendingRelease) ? R : nullptr;
-	};
-	if (FRecord* Rec = Current())
+	// Never hold an FRecord pointer across anything that can call out (OnReleased, Deactivate, tick changes, Destroy): look it up again.
+	if (FRecord* Rec = FindCurrent(Actor, ExpectedGeneration, EState::PendingRelease))
 	{
 		if (UWorld* World = GetWorld()) { World->GetTimerManager().ClearTimer(Rec->Timer); }
 	}
@@ -229,27 +250,46 @@ void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 		return;
 	}
 	PurgeInvalid(Actor->GetClass());
-	FRecord* Rec = Current();
-	if (!Rec)
+	if (!FindCurrent(Actor, ExpectedGeneration, EState::PendingRelease))
 	{
 		return;   // OnReleased re-acquired it
 	}
-	TArray<TWeakObjectPtr<AActor>>& List = Free.FindOrAdd(Actor->GetClass());
-	if (List.Num() >= MaxPerClass)
+	if (GetPooledCount(Actor->GetClass()) >= MaxPerClass)
 	{
 		Records.Remove(Actor);
 		Actor->Destroy();
 		return;
 	}
-	ResetEngineState(Actor, *Rec);
-	Actor->SetActorHiddenInGame(true);
-	Actor->SetActorEnableCollision(false);
+	FParkedState Parked;
+	ResetEngineState(Actor, Parked);            // may run callbacks: no record reference held
+	if (!IsValid(Actor))
+	{
+		Records.Remove(Actor);
+		return;
+	}
+	if (!FindCurrent(Actor, ExpectedGeneration, EState::PendingRelease))
+	{
+		RestoreComponents(Parked);              // a callback re-acquired it meanwhile: undo our component changes and stop
+		return;
+	}
+	Actor->SetActorEnableCollision(false);      // collision off first, visibility last
 	Actor->SetActorTickEnabled(false);
+	Actor->SetActorHiddenInGame(true);
+	FRecord* Rec = FindCurrent(Actor, ExpectedGeneration, EState::PendingRelease);
+	if (!Rec)
+	{
+		return;
+	}
+	Rec->TicksOff = MoveTemp(Parked.TicksOff);
+	Rec->MoversOff = MoveTemp(Parked.MoversOff);
+	Rec->bWasHidden = Parked.bWasHidden;
+	Rec->bHadCollision = Parked.bHadCollision;
+	Rec->bHadTick = Parked.bHadTick;
 	Rec->State = EState::Pooled;
-	List.Add(Actor);
-	int32 Parked = 0;
-	for (const TPair<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>>& Pair : Free) { Parked += Pair.Value.Num(); }
-	SET_DWORD_STAT(STAT_CD_PoolParked, Parked);
+	Free.FindOrAdd(Actor->GetClass()).Add(Actor);
+	int32 ParkedCount = 0;
+	for (const TPair<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>>& Pair : Free) { ParkedCount += Pair.Value.Num(); }
+	SET_DWORD_STAT(STAT_CD_PoolParked, ParkedCount);
 }
 
 int32 UCDPoolSubsystem::GetPooledCount(TSubclassOf<AActor> Class) const
