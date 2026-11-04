@@ -303,3 +303,14 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
   no stretch; a seam on a worn, rounded ridge folded UVs (240x). Merge them.
 - **Pillow stones:** the same soft bulge on every block reads as cushions. Real ashlar mixes flat-dressed faces with a crisp
   arris, tooled drafted margins (2-3.5 cm) round a rougher face, and a few old rounded rock faces. Keep the face a tilted plane.
+
+## 2026-11-04 · i5 (checkking) · #504 castle weathering cards, tested on a mock and on i5's castle copy
+- **Find weathering sites by physics, not by hand:** horizontal traces per 110 cm column every 10 cm, judged against the
+  column's MEDIAN face depth. Carved stone joints are 3+ cm deep, so a naive "step back > 3 cm = ledge" fired at every
+  course (4,667 cards); median + "2 samples proud >= 7 cm above, 2 on the face below" = real overhangs only (2,162).
+- A sill = a run of >= 5 samples (50 cm) with no face or > 25 cm behind it, with face above and below. Across separate
+  meshes: a lintel above (trace up from 10 cm inside the face hits a downward normal) turns a top edge into a sill.
+- Run-off streaks read fake as thin hard stripes ("barcode"); real ones are soft tongues that taper and meander, and only
+  ~half the drip-edge columns streak. Use lane width x (1 - 0.7 t), a 1-D noise meander and a hash skip.
+- Transient-package materials (`unreal.new_object`) never compile, not even 1 node. Use an unsaved real package (/Game/_tmp).
+- Instanced Modulate cards with PerInstanceCustomData seed = a few draw calls for thousands of stains (`used_with_instanced_static_meshes`).
