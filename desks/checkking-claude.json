@@ -1,9 +1,10 @@
 {
- "working": "#500 waiting on Visual Studio + first build log; i5 Play checks wait on sync_1104_f",
- "tokens": 500000,
+ "working": "waiting on i9: #501 apply + big-wave measurement",
+ "tokens": 560000,
  "ctx": 1000000,
  "since": "2026-11-04T12:45:07Z",
  "done": [
+  "#501 render count + SiegeKit removal script handed to i9 [44% tokens left]",
   "#500 C++ transition kit for the 8 points written (not compiled) [50% tokens left]",
   "#500 C++ step 1 written ahead (AZombieBase, UCrowdSubsystem, reparent script), not compiled [56% tokens left]",
   "#493 C7 BarracksHUD scans handed; anim settings checked [59% tokens left]",
@@ -12,8 +13,7 @@
   "#493 C5 handed; next steps noted on card [65% tokens left · 5h plan 86% left]",
   "#493 C5 ZombieHUD line-of-sight swap handed to i9 [65% tokens left]",
   "#493 C3 soldier near-zombies list handed to i9 (compiled, not run in Play) [67% tokens left]",
-  "#493 crowd plan + C1 BPC_CrowdTier handed to i9 (compiled, not run in Play) [69% tokens left · 5h plan 80% left]",
-  "#487 measured wave split on i5 (game thread 162 ms, GPU 42); fix K soldier AI 15 Hz handed to i9 (#492) [78% tokens left · 5h plan 67% left]"
+  "#493 crowd plan + C1 BPC_CrowdTier handed to i9 (compiled, not run in Play) [69% tokens left · 5h plan 80% left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-04T15:31:13Z",
+ "asOf": "2026-11-04T16:08:33Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "10ddbbaafa04",
