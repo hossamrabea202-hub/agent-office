@@ -1,0 +1,333 @@
+{
+ "fix": "C1",
+ "bp": "/Game/CastleDefender/Gameplay/Crowd/BPC_CrowdTier",
+ "vars": [],
+ "nodes": [
+  {
+   "id": "ctBegin",
+   "kind": "override",
+   "member": "ReceiveBeginPlay",
+   "x": 0,
+   "y": 0,
+   "defaults": []
+  },
+  {
+   "id": "ctEvt",
+   "kind": "custom",
+   "name": "CrowdTierTick",
+   "x": 0,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "ctTimer",
+   "kind": "call",
+   "x": 400,
+   "y": 0,
+   "path": "/Script/Engine.KismetSystemLibrary:K2_SetTimerDelegate",
+   "defaults": [
+    [
+     "Time",
+     "0.25"
+    ],
+    [
+     "bLooping",
+     "true"
+    ],
+    [
+     "InitialStartDelayVariance",
+     "0.25"
+    ]
+   ]
+  },
+  {
+   "id": "ctOwner",
+   "kind": "call",
+   "x": 0,
+   "y": 600,
+   "path": "/Script/Engine.ActorComponent:GetOwner",
+   "defaults": []
+  },
+  {
+   "id": "ctPawn",
+   "kind": "call",
+   "x": 0,
+   "y": 800,
+   "path": "/Script/Engine.GameplayStatics:GetPlayerPawn",
+   "defaults": [
+    [
+     "PlayerIndex",
+     "0"
+    ]
+   ]
+  },
+  {
+   "id": "ctDist",
+   "kind": "call",
+   "x": 300,
+   "y": 700,
+   "path": "/Script/Engine.Actor:GetDistanceTo",
+   "defaults": []
+  },
+  {
+   "id": "ctNear",
+   "kind": "call",
+   "x": 550,
+   "y": 700,
+   "path": "/Script/Engine.KismetMathLibrary:Less_DoubleDouble",
+   "defaults": [
+    [
+     "B",
+     "2500.0"
+    ]
+   ]
+  },
+  {
+   "id": "ctSeen",
+   "kind": "call",
+   "x": 300,
+   "y": 900,
+   "path": "/Script/Engine.Actor:WasRecentlyRendered",
+   "defaults": [
+    [
+     "Tolerance",
+     "0.2"
+    ]
+   ]
+  },
+  {
+   "id": "ctTD",
+   "kind": "get",
+   "x": 300,
+   "y": 1100,
+   "var": "CustomTimeDilation",
+   "cls": "/Script/Engine.Actor",
+   "defaults": []
+  },
+  {
+   "id": "ctEng",
+   "kind": "call",
+   "x": 550,
+   "y": 1100,
+   "path": "/Script/Engine.KismetMathLibrary:NotEqual_DoubleDouble",
+   "defaults": [
+    [
+     "B",
+     "1.0"
+    ]
+   ]
+  },
+  {
+   "id": "ctOr1",
+   "kind": "call",
+   "x": 800,
+   "y": 800,
+   "path": "/Script/Engine.KismetMathLibrary:BooleanOR",
+   "defaults": []
+  },
+  {
+   "id": "ctOr2",
+   "kind": "call",
+   "x": 1000,
+   "y": 900,
+   "path": "/Script/Engine.KismetMathLibrary:BooleanOR",
+   "defaults": []
+  },
+  {
+   "id": "ctMesh",
+   "kind": "call",
+   "x": 300,
+   "y": 450,
+   "path": "/Script/Engine.Actor:GetComponentByClass",
+   "defaults": [
+    [
+     "ComponentClass",
+     "/Script/Engine.SkeletalMeshComponent"
+    ]
+   ]
+  },
+  {
+   "id": "ctBrSim",
+   "kind": "branch",
+   "x": 900,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "ctBr",
+   "kind": "branch",
+   "x": 1150,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "ctOn",
+   "kind": "call",
+   "x": 1400,
+   "y": 200,
+   "path": "/Script/Engine.PrimitiveComponent:SetCollisionEnabled",
+   "defaults": [
+    [
+     "NewType",
+     "QueryOnly"
+    ]
+   ]
+  },
+  {
+   "id": "ctOff",
+   "kind": "call",
+   "x": 1400,
+   "y": 450,
+   "path": "/Script/Engine.PrimitiveComponent:SetCollisionEnabled",
+   "defaults": [
+    [
+     "NewType",
+     "NoCollision"
+    ]
+   ]
+  },
+  {
+   "id": "ctCast",
+   "kind": "named",
+   "name": "Utilities|Casting|CastToBP_Zombie",
+   "x": 650,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "ctDead",
+   "kind": "get",
+   "var": "Dead",
+   "cls": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie.BP_Zombie_C",
+   "x": 900,
+   "y": 500,
+   "defaults": []
+  }
+ ],
+ "links": [
+  [
+   "ctBegin.then",
+   "ctTimer.execute",
+   false
+  ],
+  [
+   "ctEvt.OutputDelegate",
+   "ctTimer.Delegate",
+   false
+  ],
+  [
+   "ctEvt.then",
+   "ctCast.execute",
+   false
+  ],
+  [
+   "ctOwner.ReturnValue",
+   "ctCast.Object",
+   false
+  ],
+  [
+   "ctCast.then",
+   "ctBrSim.execute",
+   false
+  ],
+  [
+   "ctCast.AsBP Zombie",
+   "ctDead.self",
+   false
+  ],
+  [
+   "ctDead.Dead",
+   "ctBrSim.Condition",
+   false
+  ],
+  [
+   "ctOwner.ReturnValue",
+   "ctMesh.self",
+   false
+  ],
+  [
+   "ctBrSim.else",
+   "ctBr.execute",
+   false
+  ],
+  [
+   "ctOwner.ReturnValue",
+   "ctDist.self",
+   false
+  ],
+  [
+   "ctPawn.ReturnValue",
+   "ctDist.OtherActor",
+   false
+  ],
+  [
+   "ctDist.ReturnValue",
+   "ctNear.A",
+   false
+  ],
+  [
+   "ctOwner.ReturnValue",
+   "ctSeen.self",
+   false
+  ],
+  [
+   "ctOwner.ReturnValue",
+   "ctTD.self",
+   false
+  ],
+  [
+   "ctTD.CustomTimeDilation",
+   "ctEng.A",
+   false
+  ],
+  [
+   "ctNear.ReturnValue",
+   "ctOr1.A",
+   false
+  ],
+  [
+   "ctSeen.ReturnValue",
+   "ctOr1.B",
+   false
+  ],
+  [
+   "ctOr1.ReturnValue",
+   "ctOr2.A",
+   false
+  ],
+  [
+   "ctEng.ReturnValue",
+   "ctOr2.B",
+   false
+  ],
+  [
+   "ctOr2.ReturnValue",
+   "ctBr.Condition",
+   false
+  ],
+  [
+   "ctBr.then",
+   "ctOn.execute",
+   false
+  ],
+  [
+   "ctBr.else",
+   "ctOff.execute",
+   false
+  ],
+  [
+   "ctMesh.ReturnValue",
+   "ctOn.self",
+   false
+  ],
+  [
+   "ctMesh.ReturnValue",
+   "ctOff.self",
+   false
+  ]
+ ],
+ "set_live": [],
+ "remove": [],
+ "dx": 0,
+ "dy": 0
+}
