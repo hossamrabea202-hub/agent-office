@@ -1,9 +1,10 @@
 {
- "working": "waiting on i9: first C++ build log; #501 apply",
- "tokens": 640000,
+ "working": "waiting on i9: first C++ build log",
+ "tokens": 720000,
  "ctx": 1000000,
  "since": "2026-11-04T12:45:07Z",
  "done": [
+  "#500 C++ kit rev 3: second review fixes [28% tokens left]",
   "#500 C++ kit rev 2: all external review fixes [36% tokens left]",
   "#501 render count + SiegeKit removal script handed to i9 [44% tokens left]",
   "#500 C++ transition kit for the 8 points written (not compiled) [50% tokens left]",
@@ -12,8 +13,7 @@
   "#493 C2 wave cap + C6 CommanderHUD scan handed to i9 [60% tokens left]",
   "#493 C2 read: spawn cap 45 exists, wave-start + swarm skip it (notes in CROWD_PLAN) [63% tokens left]",
   "#493 C5 handed; next steps noted on card [65% tokens left · 5h plan 86% left]",
-  "#493 C5 ZombieHUD line-of-sight swap handed to i9 [65% tokens left]",
-  "#493 C3 soldier near-zombies list handed to i9 (compiled, not run in Play) [67% tokens left]"
+  "#493 C5 ZombieHUD line-of-sight swap handed to i9 [65% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-04T16:25:39Z",
+ "asOf": "2026-11-04T16:49:27Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "10ddbbaafa04",
