@@ -1,31 +1,54 @@
-# #500 C++ for the hot spots: step 1 = zombie target pick + crowd subsystem (i5, written ahead, NOT compiled yet)
+# #500 Moving the hot spots to C++: the transition kit (i5, written ahead, NOT compiled yet)
 
 Written by checkking on i5 while the owner installs Visual Studio Community. **Nothing here is compiled or tested**: i5 has no compiler yet.
-The first build will show any mistakes; send i5 the compiler output.
+Expect a few compile errors on the first build; send i5 the full Output window text and it fixes them. Plain words first, details after.
 
-## What is in it
-- `Source/CastleDefender.Target.cs`, `Source/CastleDefenderEditor.Target.cs`, `Source/CastleDefender/CastleDefender.Build.cs`, `CastleDefender.cpp`: the game module (makes the project a C++ project).
-- `ZombieBase.h/.cpp`: **AZombieBase**, a Character subclass that becomes BP_Zombie's parent. Native functions BP_Zombie can call:
-  - `PickAndSetTarget(Soldiers, Farmers)`: BP_Zombie Think's target pick (CX_501 .. zfTargetFarmer17: two Blueprint loops over every soldier and farmer, per zombie, per Think) as one native loop. Same rules, from the live graph (`dump_BP_Zombie.txt`):
-    player first; a soldier not dying (LifeSpan < 0.01), within 250 cm height and 2500 cm, if nearer; then a farmer not Dead within 2500 cm, if nearer; sets Owner (BP_Zombie's target slot).
-  - `GetThinkDivisor()` (1 / 2 / 4 by 3000 / 6000 cm) and `IsFullDetail()` (near 3000 cm or rendered): the same tests Think does now, native.
-  - registers itself with the crowd subsystem in BeginPlay / EndPlay.
-- `CrowdSubsystem.h/.cpp`: **UCrowdSubsystem** (world subsystem, game / PIE only): the zombie list; `GetAliveZombieCount`; `GetZombiesNear(Location, Radius)`;
-  optional `bManageBodyCollision` = the C1 rule for all zombies in one native loop (off by default: BPC_CrowdTier does it now; switch over later, then remove the component).
-- `reparent_zombie_ue.py`: makes AZombieBase BP_Zombie's parent (dry run, backup, compile check, saves only without new errors).
-- `dump_BP_Zombie.txt`, `dump_BP_FleshBrute.txt`: the live brains (i9's BP_Zombie from sync d), for TGA's spec and for checking the C++.
+## What C++ gives us, and the file for each point
+| # | Point | Files | What it does |
+|---|---|---|---|
+| 1 | Speed in per-frame loops | `ZombieBase.*`, `CrowdSubsystem.*` | Zombie target pick (2 loops per zombie per Think) native; one crowd manager for collision tiers and "zombies near here" |
+| 2 | Fewer broken pastes | `gitignore_for_project.txt`, this guide | C++ is text: git diff / review / merge. No more lost values or dead wires from graph pastes |
+| 3 | One place for numbers | `CDSettings.h` | Project Settings > Game > Castle Defender (saved in Config/DefaultGame.ini); `FZombieTypeRow` for a zombie-type Data Table |
+| 4 | Shared systems | `CrowdSubsystem.*` | One registry for zombies, soldiers, farmers: nobody needs GetAllActorsOfClass / WithTag again |
+| 5 | Safe save games | `CDSaveGame.*` | Versioned save, step-by-step Migrate(), automatic `_bak` copy before every overwrite, never overwrites a newer save |
+| 6 | Tests and profiling | `Tests/ZombieBrainTest.cpp`, `CDStats.h` | Automated test of the target rule; `stat CastleDefender` and named Insights scopes for our systems |
+| 7 | Editor tools | `Source/CastleDefenderEditor/*` | `CDEditorTools.find_blueprints_with_errors`, `find_expensive_calls` (speed lint over every Blueprint graph) |
+| 8 | Reuse instead of spawn | `CDPoolSubsystem.*` | Acquire / Release pooled actors (bolts, bursts, gore) + `ICDPoolable` reset hooks; Niagara/Cascade use PoolingMethod AutoRelease |
 
-## Steps on i9 (after Visual Studio Community 2022+ with "Game development with C++" is installed)
-1. **Back up the whole project folder first.**
-2. Close the editor. Copy `handoffs/cpp-500/Source` into the project root (`C:\UnrealProjects\Castle Defender 5.8\Source`).
-   In `CastleDefender.uproject` add, at top level next to "Plugins":
-   `"Modules": [ { "Name": "CastleDefender", "Type": "Runtime", "LoadingPhase": "Default" } ],`
-3. Right-click `CastleDefender.uproject` > Generate Visual Studio project files. Open `CastleDefender.sln`, configuration **Development Editor**, Build. Send i5 the output if it fails.
-4. Open the editor (it now loads the module). `py <repo>/handoffs/cpp-500/reparent_zombie_ue.py --dry-run`, then `--apply`.
-5. Play test: zombies walk, attack, die, gore and ragdoll as before (nothing in their graph changed yet; only the parent).
-6. Share `Binaries/` + `Source/` + the .uproject with i5 (a sync zip), so i5 can open the project. Live session does not carry compiled code.
+## Install and first build (i9; i5 too if possible)
+1. Visual Studio Community 2022 or newer, workload **Game development with C++** (+ "Unreal Engine installer" and a Windows SDK if offered).
+2. **Back up the whole project folder.** (The first C++ build turns it into a C++ project.)
+3. Close the editor. Copy `handoffs/cpp-500/Source` to `C:\UnrealProjects\Castle Defender 5.8\Source`.
+4. Open `CastleDefender.uproject` in a text editor and add the block from `uproject_modules.json` at top level (next to "Plugins"). Keep the JSON valid (commas).
+5. Right-click `CastleDefender.uproject` > **Generate Visual Studio project files**. Open `CastleDefender.sln`, configuration **Development Editor | Win64**, **Build**.
+   Errors: copy the whole Output window to `handoffs/cpp-500/build_log_<date>.txt`, push, tell i5.
+6. Open the project. In the Output Log: `Automation RunTests CastleDefender` -> all green.
+7. `py <repo>/handoffs/cpp-500/reparent_zombie_ue.py --dry-run`, then `--apply` (backup, compile check, saves only without new errors).
+8. Play: zombies walk, attack, die, gore, ragdoll as before (only their parent changed).
+9. `stat CastleDefender` in Play shows Crowd Tick / Zombie PickTarget / Pool Acquire and the zombie count.
 
-## Next (after it compiles)
-- i5 writes a graph_ops script that replaces Think's two loops (CX_501 .. zfTargetFarmer17) with one `PickAndSetTarget(SoldierCache, FarmerCache)` call. Needs the compiled class to exist.
-- Same idea for BP_SoldierSword's fight loop: an `ASoldierBase` with the per-zombie checks native, fed by `GetZombiesNear` (replaces C3's sphere sweep).
-- Switch the C1 rule to `bManageBodyCollision` and remove BPC_CrowdTier.
+## Then, one system at a time (each: script with dry run + backup, measured before / after)
+1. **Zombie target pick:** a graph_ops script replaces Think's two loops (CX_501 .. zfTargetFarmer17) with `PickAndSetTarget(SoldierCache, FarmerCache)`
+   (needs the compiled class; i5 writes it after step 5). Later `PickAndSetTargetFromRegistry` when soldiers / farmers register (below).
+2. **Registry:** BP_SoldierSword / BP_Farmer BeginPlay -> `Crowd > Register Soldier / Register Farmer`, EndPlay -> Unregister. Then the wave manager caches (fix A) can go.
+3. **Collision tiers:** set `Crowd Manages Body Collision` in Project Settings, remove BPC_CrowdTier from BP_Zombie (C1). Same rule, one loop.
+4. **Soldier fight loop:** an `ASoldierBase` C++ parent with the per-zombie checks of CX_145 native, fed by `GetZombiesNear` (replaces C3's sphere sweep). Needs TGA's SPEC_soldier.md.
+5. **Numbers:** make `DT_ZombieTypes` (row struct ZombieTypeRow), point Project Settings > Castle Defender > Zombie Types at it, and let the wave manager read MaxHP / damage / speeds from it.
+6. **Pools:** crossbow bolts, soldier bolts, BloodBurst: Acquire / Release instead of SpawnActor / SetLifeSpan; Niagara / Cascade spawners PoolingMethod AutoRelease.
+7. **Saves:** move the game's save to `CDSaveSubsystem` (LoadOrCreate / Save). Keep the old save readable until every player has migrated; never delete the owner's save.
+
+## How the team works after the switch
+- **Only C++ changes need a restart.** Blueprint, level and asset edits still go live through Multi-User as today.
+- After a C++ change, whoever compiled it shares `Binaries/Win64/*.dll` + `*.modules` + `Source/` + `.uproject` (sync zip, as with assets). Every editor closes, copies, reopens.
+  Everybody must run the same build, or the project will not open (it asks to rebuild).
+- C++ hand-offs from agents arrive as text diffs in `handoffs/`, with a build log from a machine that has Visual Studio. i5 can only pre-check C++ if Visual Studio (or the free Build Tools) is on i5 too.
+- Tuning numbers move to Project Settings / Data Tables: change them there, not in graph literals.
+
+## Risks
+- First build: expect small API differences (UE 5.8): fixed in minutes from the log.
+- Reparenting BP_Zombie: same parent chain (Character -> AZombieBase -> BP_Zombie), variables keep their values; the script refuses to save if new errors appear.
+- Pools: a pooled actor must reset itself (OnAcquired); anything with timers or Delays must be checked before pooling it.
+- Saves: version 1 starts now; the current Blueprint save stays as is until step 7.
+
+## Files
+`Source/` (copy as is) · `uproject_modules.json` · `reparent_zombie_ue.py` · `gitignore_for_project.txt` · `dump_BP_Zombie.txt`, `dump_BP_FleshBrute.txt` (live brains, 11-04) · TGA writes `SPEC_zombie.md`, `SPEC_soldier.md`.

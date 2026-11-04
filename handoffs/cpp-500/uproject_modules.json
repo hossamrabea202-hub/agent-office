@@ -1,0 +1,4 @@
+"Modules": [
+	{ "Name": "CastleDefender", "Type": "Runtime", "LoadingPhase": "Default" },
+	{ "Name": "CastleDefenderEditor", "Type": "Editor", "LoadingPhase": "Default" }
+],

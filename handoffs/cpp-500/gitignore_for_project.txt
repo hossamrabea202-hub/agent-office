@@ -1,0 +1,14 @@
+# #500: put this in the PROJECT root as .gitignore if the project goes into git (point 2: C++ is text, so git can diff and merge it).
+# Commit: Source/, Config/, CastleDefender.uproject, Content/ (with Git LFS for *.uasset *.umap). Never commit build output:
+Binaries/
+Intermediate/
+DerivedDataCache/
+Saved/
+.vs/
+.idea/
+*.sln
+*.suo
+*.VC.db
+*.opensdf
+*.sdf
+# Git LFS (run once: git lfs install; git lfs track "*.uasset" "*.umap" "*.png" "*.tga" "*.wav" "*.fbx")

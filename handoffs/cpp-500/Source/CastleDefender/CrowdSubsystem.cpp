@@ -1,8 +1,14 @@
 #include "CrowdSubsystem.h"
+#include "CDSettings.h"
+#include "CDStats.h"
 #include "ZombieBase.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
+
+DECLARE_CYCLE_STAT(TEXT("Crowd Tick"), STAT_CD_CrowdTick, STATGROUP_CastleDefender);
+DECLARE_CYCLE_STAT(TEXT("Crowd ZombiesNear"), STAT_CD_ZombiesNear, STATGROUP_CastleDefender);
+DECLARE_DWORD_COUNTER_STAT(TEXT("Zombies registered"), STAT_CD_Zombies, STATGROUP_CastleDefender);
 
 UCrowdSubsystem* UCrowdSubsystem::Get(const UObject* WorldContext)
 {
@@ -13,6 +19,15 @@ UCrowdSubsystem* UCrowdSubsystem::Get(const UObject* WorldContext)
 bool UCrowdSubsystem::DoesSupportWorldType(const EWorldType::Type WorldType) const
 {
 	return WorldType == EWorldType::Game || WorldType == EWorldType::PIE;
+}
+
+void UCrowdSubsystem::Initialize(FSubsystemCollectionBase& Collection)
+{
+	Super::Initialize(Collection);
+	const UCDSettings* Settings = GetDefault<UCDSettings>();
+	bManageBodyCollision = Settings->bCrowdManagesBodyCollision;
+	FullDetailRange = Settings->CrowdFullDetailRange;
+	UpdateInterval = Settings->CrowdUpdateInterval;
 }
 
 void UCrowdSubsystem::RegisterZombie(AZombieBase* Zombie)
@@ -26,6 +41,56 @@ void UCrowdSubsystem::RegisterZombie(AZombieBase* Zombie)
 void UCrowdSubsystem::UnregisterZombie(AZombieBase* Zombie)
 {
 	Zombies.Remove(Zombie);
+}
+
+void UCrowdSubsystem::RegisterSoldier(AActor* Soldier)
+{
+	if (IsValid(Soldier))
+	{
+		Soldiers.AddUnique(Soldier);
+	}
+}
+
+void UCrowdSubsystem::UnregisterSoldier(AActor* Soldier)
+{
+	Soldiers.Remove(Soldier);
+}
+
+void UCrowdSubsystem::RegisterFarmer(AActor* Farmer)
+{
+	if (IsValid(Farmer))
+	{
+		Farmers.AddUnique(Farmer);
+	}
+}
+
+void UCrowdSubsystem::UnregisterFarmer(AActor* Farmer)
+{
+	Farmers.Remove(Farmer);
+}
+
+TArray<AActor*> UCrowdSubsystem::Resolve(const TArray<TWeakObjectPtr<AActor>>& List)
+{
+	TArray<AActor*> Out;
+	Out.Reserve(List.Num());
+	for (const TWeakObjectPtr<AActor>& Weak : List)
+	{
+		if (AActor* Actor = Weak.Get())
+		{
+			Out.Add(Actor);
+		}
+	}
+	return Out;
+}
+
+TArray<AActor*> UCrowdSubsystem::GetSoldiers() const
+{
+	return Resolve(Soldiers);
+}
+
+TArray<AActor*> UCrowdSubsystem::GetFarmers() const
+{
+	return Resolve(Farmers);
 }
 
 int32 UCrowdSubsystem::GetAliveZombieCount() const
@@ -44,6 +109,7 @@ int32 UCrowdSubsystem::GetAliveZombieCount() const
 
 void UCrowdSubsystem::GetZombiesNear(FVector Location, float Radius, TArray<AActor*>& OutZombies) const
 {
+	CD_SCOPE(STAT_CD_ZombiesNear);
 	OutZombies.Reset();
 	const float RadiusSq = Radius * Radius;
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
@@ -59,7 +125,11 @@ void UCrowdSubsystem::GetZombiesNear(FVector Location, float Radius, TArray<AAct
 void UCrowdSubsystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	CD_SCOPE(STAT_CD_CrowdTick);
 	Zombies.RemoveAll([](const TWeakObjectPtr<AZombieBase>& Weak) { return !Weak.IsValid(); });
+	Soldiers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
+	Farmers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
+	SET_DWORD_STAT(STAT_CD_Zombies, Zombies.Num());
 
 	Accum += DeltaTime;
 	if (Accum < UpdateInterval)

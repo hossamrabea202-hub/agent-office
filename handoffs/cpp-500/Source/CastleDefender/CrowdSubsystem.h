@@ -1,7 +1,8 @@
-// #500: one native manager for all zombies (replaces per-zombie Blueprint polling step by step).
-// - keeps the zombie list (AZombieBase registers itself), so nobody needs GetAllActorsOfClass;
+// #500: one native registry and manager for the battle (point 4, shared systems): zombies, soldiers and farmers register here once,
+// so no Blueprint needs GetAllActorsOfClass / GetAllActorsWithTag to find them again.
+// - zombies register themselves (AZombieBase); soldiers and farmers call RegisterSoldier / RegisterFarmer from their BeginPlay until they get C++ parents;
 // - optional: the C1 body-collision rule for every zombie in one loop (off by default while BPC_CrowdTier still does it);
-// - GetZombiesNear: native radius query for soldiers (the C3 job, without a sphere sweep).
+// - native radius queries (the C3 job, without a sphere sweep).
 #pragma once
 
 #include "CoreMinimal.h"
@@ -21,6 +22,25 @@ public:
 	void RegisterZombie(AZombieBase* Zombie);
 	void UnregisterZombie(AZombieBase* Zombie);
 
+	// Soldiers / farmers are still pure Blueprints: call these from their BeginPlay and EndPlay.
+	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Soldier"))
+	void RegisterSoldier(AActor* Soldier);
+
+	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Soldier"))
+	void UnregisterSoldier(AActor* Soldier);
+
+	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Farmer"))
+	void RegisterFarmer(AActor* Farmer);
+
+	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Farmer"))
+	void UnregisterFarmer(AActor* Farmer);
+
+	UFUNCTION(BlueprintPure, Category = "Crowd")
+	TArray<AActor*> GetSoldiers() const;
+
+	UFUNCTION(BlueprintPure, Category = "Crowd")
+	TArray<AActor*> GetFarmers() const;
+
 	UFUNCTION(BlueprintPure, Category = "Crowd")
 	int32 GetAliveZombieCount() const;
 
@@ -38,6 +58,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Crowd")
 	float UpdateInterval = 0.25f;
 
+	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Tick(float DeltaTime) override;
 	virtual TStatId GetStatId() const override;
 
@@ -46,7 +67,10 @@ protected:
 
 private:
 	void ApplyBodyCollisionRule();
+	static TArray<AActor*> Resolve(const TArray<TWeakObjectPtr<AActor>>& List);
 
 	TArray<TWeakObjectPtr<AZombieBase>> Zombies;
+	TArray<TWeakObjectPtr<AActor>> Soldiers;
+	TArray<TWeakObjectPtr<AActor>> Farmers;
 	float Accum = 0.f;
 };

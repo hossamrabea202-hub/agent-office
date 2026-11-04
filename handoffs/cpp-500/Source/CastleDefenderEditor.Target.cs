@@ -7,6 +7,6 @@ public class CastleDefenderEditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.Latest;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
-		ExtraModuleNames.Add("CastleDefender");
+		ExtraModuleNames.AddRange(new string[] { "CastleDefender", "CastleDefenderEditor" });
 	}
 }
