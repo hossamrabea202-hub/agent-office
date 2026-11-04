@@ -1,9 +1,10 @@
 {
- "working": "waiting on i9: first C++ build log",
- "tokens": 760000,
+ "working": "waiting on i9: C++ build log; TGA offline for #502 art",
+ "tokens": 860000,
  "ctx": 1000000,
  "since": "2026-11-04T12:45:07Z",
  "done": [
+  "#502 medics: card corrected (reuse #248 gear, herb emblem not red cross) + buy key fix handed [14% tokens left]",
   "#500 C++ round 2 HUD written (ACDHudBase, swap + reparent scripts) [24% tokens left]",
   "#500 C++ kit rev 4: third review fixes [21% tokens left]",
   "#500 C++ kit rev 3: second review fixes [28% tokens left]",
@@ -12,8 +13,7 @@
   "#500 C++ transition kit for the 8 points written (not compiled) [50% tokens left]",
   "#500 C++ step 1 written ahead (AZombieBase, UCrowdSubsystem, reparent script), not compiled [56% tokens left]",
   "#493 C7 BarracksHUD scans handed; anim settings checked [59% tokens left]",
-  "#493 C2 wave cap + C6 CommanderHUD scan handed to i9 [60% tokens left]",
-  "#493 C2 read: spawn cap 45 exists, wave-start + swarm skip it (notes in CROWD_PLAN) [63% tokens left]"
+  "#493 C2 wave cap + C6 CommanderHUD scan handed to i9 [60% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-04T17:26:04Z",
+ "asOf": "2026-11-04T18:34:47Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "10ddbbaafa04",
