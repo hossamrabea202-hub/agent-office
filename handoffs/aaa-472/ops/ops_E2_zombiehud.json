@@ -1,0 +1,67 @@
+{
+"fix": "E2",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD",
+"vars": [],
+"nodes": [
+{
+"id": "e2Find",
+"kind": "call",
+"x": 0,
+"y": -300,
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+]
+],
+"path": "/Script/Engine.GameplayStatics:GetActorOfClass"
+},
+{
+"id": "e2Reg",
+"kind": "get",
+"x": 300,
+"y": -200,
+"defaults": [],
+"var": "ZombieReg",
+"cls": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+}
+],
+"links": [
+[
+"K2Node_CallFunction_H297.then",
+"e2Find.execute",
+true
+],
+[
+"K2Node_IfThenElse_H296.then",
+"e2Find.execute",
+true
+],
+[
+"K2Node_IfThenElse_H296.else",
+"e2Find.execute",
+true
+],
+[
+"e2Find.then",
+"K2Node_MacroInstance_H2129.Exec",
+true
+],
+[
+"e2Find.ReturnValue",
+"e2Reg.self",
+false
+],
+[
+"e2Reg.ZombieReg",
+"K2Node_MacroInstance_H2129.Array",
+true
+]
+],
+"remove": [
+"K2Node_CallFunction_H2128"
+],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}
