@@ -1,8 +1,8 @@
 # #440 ground, round 2 (i5, 2026-11-04), from i9's BaseColor measure (chat 1458): road 41/36/32 sRGB, covering 45-58 % of the view, meadow 53/58/29, covering 16 %.
 # Bare soil should sit near 100 sRGB. The road is hard-coded in M_MountainBackdrop (soilCol, mudCol x 0.5), so no tint could reach it: that was the real dark ground.
-# All in one recompile: road + mud x 3 (about 70 sRGB, still dirty and damp), meadow tints x 2 (about 78 sRGB), and the tyre tread removal, so skip no_tread_ue.py.
+# All in one recompile: road + mud x 3 (about 70 sRGB, still dirty and damp), meadow tints x 2 (about 78 sRGB), and the tyre tread removal if that line is still there (i9's wagon_ruts.py already replaced it on the Master).
 # Tentacle corrupted earth is deliberate and stays as it is. Backup of the old values: ground2_backup.json.
-#   py ground2_ue.py --dry-run                 finds all 3 lines + the MI, changes nothing
+#   py ground2_ue.py --dry-run                 finds the road colour lines + the MI, changes nothing
 #   py ground2_ue.py --apply                   edits, recompiles the landscape material (can take minutes), saves 2 assets. No map save
 #   py ground2_ue.py --apply --road 1.0 --tint 1.5   softer: road factor (0.5 = before), meadow tint multiplier on today's values
 #   py ground2_ue.py --revert                  everything back
@@ -35,7 +35,8 @@ if os.path.exists(BK): print('ALREADY APPLIED (ground2_backup.json exists): --re
 soil0, mud0 = SOIL % '0.5000', MUD % '0.5000'
 counts = {'soil': code.count(soil0), 'mud': code.count(mud0), 'tread old': code.count(TREAD_OLD), 'tread new': code.count(TREAD_NEW)}
 print('lines found:', counts)
-if counts['soil'] != 1 or counts['mud'] != 1 or counts['tread old'] + counts['tread new'] != 1: print('STOP: shader differs from what this was built on, nothing changed'); raise SystemExit
+if counts['soil'] != 1 or counts['mud'] != 1: print('STOP: road colour lines differ from what this was built on, nothing changed'); raise SystemExit
+if not counts['tread old']: print('tread line already replaced (i9 wagon_ruts.py): left alone')
 g, f = get('GrassTint'), get('ForestTint')
 ng, nf = [round(v * TINT, 3) for v in g[:3]], [round(v * TINT, 3) for v in f[:3]]
 print('road factor 0.5 ->', ROAD, '| GrassTint', [round(v, 3) for v in g[:3]], '->', ng, '| ForestTint', [round(v, 3) for v in f[:3]], '->', nf)
