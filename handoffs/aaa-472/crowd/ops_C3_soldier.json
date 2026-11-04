@@ -1,0 +1,11 @@
+{"fix": "C3", "bp": "/Game/CastleDefender/Characters/Knight/BP_SoldierSword",
+ "vars": [],
+ "nodes": [
+  {"id": "c3Comp", "kind": "call", "x": -400, "y": 1400, "path": "/Script/Engine.Actor:GetComponentByClass", "defaults": [["ComponentClass", "@NEARCLS"]]},
+  {"id": "c3Get", "kind": "get", "x": -150, "y": 1400, "var": "NearZombies", "cls": "@NEARCLS", "defaults": []}
+ ],
+ "links": [
+  ["c3Comp.ReturnValue", "c3Get.self", false],
+  ["c3Get.NearZombies", "CX_145.Array", true]
+ ],
+ "set_live": [], "remove": [], "dx": 0, "dy": 0}

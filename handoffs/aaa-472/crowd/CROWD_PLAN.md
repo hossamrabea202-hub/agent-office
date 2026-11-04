@@ -43,7 +43,7 @@ So a zombie the player can see, or one near a soldier, must keep it. Rule: **mes
 1. **Done, handed (#492): fix K** soldier AI 15 Hz on screen. Pays once frames are under 66 ms.
 2. **Handed (C1, README_C1.md): BPC_CrowdTier** (new component on BP_Zombie and BP_FleshBrute, 4 checks a second, staggered): mesh collision rule above; far + unseen zombies also get movement 4 Hz, animation 2 Hz, health bar hidden. Expected ~40-60 ms at 150-300 zombies.
 3. **C2 alive-zombie cap** in the wave manager: at most N fully alive (start 120); extra spawns wait their turn at the spawn point. Keeps the frame from growing without limit (480 seen). Changes gameplay a little: owner sees it first.
-4. **C3 soldier near-zombies list:** every 0.2 s each soldier keeps the zombies within 20 m (from the registry); the per-frame fight loop walks that list, not all zombies. Expected: soldier ~15 ms -> ~1-2 ms.
+4. **Handed (C3, README_C3.md): soldier near-zombies list:** every 0.2 s each soldier keeps the zombies within 20 m (from the registry); the per-frame fight loop walks that list, not all zombies. Expected: soldier ~15 ms -> ~1-2 ms.
 5. **C4 zombie Think spread:** Think timers get a random start and a lower rate when far / unseen.
 6. **C5 HUD:** ZombieHUD LineOfSightTo per zombie at 5 Hz and only on screen; early-outs for closed panels; cache the tag scans.
 7. **C6 cheaper bodies:** simpler physics asset for the zombie (fewer bodies), CharacterMovement tuning (NavWalking test again with a fixed zombie count), crowd LODs (`profile/crowd_lods_ue.py`, built, not applied).

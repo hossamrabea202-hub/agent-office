@@ -1,0 +1,219 @@
+{
+ "fix": "C3",
+ "bp": "/Game/CastleDefender/Gameplay/Crowd/BPC_NearZombies",
+ "vars": [
+  [
+   "NearZombies",
+   {
+    "array": true,
+    "object": "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie"
+   }
+  ]
+ ],
+ "nodes": [
+  {
+   "id": "nzBegin",
+   "kind": "override",
+   "member": "ReceiveBeginPlay",
+   "x": 0,
+   "y": 0,
+   "defaults": []
+  },
+  {
+   "id": "nzEvt",
+   "kind": "custom",
+   "name": "NearRefresh",
+   "x": 0,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "nzTimer",
+   "kind": "call",
+   "x": 400,
+   "y": 0,
+   "path": "/Script/Engine.KismetSystemLibrary:K2_SetTimerDelegate",
+   "defaults": [
+    [
+     "Time",
+     "0.2"
+    ],
+    [
+     "bLooping",
+     "true"
+    ],
+    [
+     "InitialStartDelayVariance",
+     "0.2"
+    ]
+   ]
+  },
+  {
+   "id": "nzOwner",
+   "kind": "call",
+   "x": 0,
+   "y": 600,
+   "path": "/Script/Engine.ActorComponent:GetOwner",
+   "defaults": []
+  },
+  {
+   "id": "nzLoc",
+   "kind": "call",
+   "x": 250,
+   "y": 600,
+   "path": "/Script/Engine.Actor:K2_GetActorLocation",
+   "defaults": []
+  },
+  {
+   "id": "nzArr",
+   "kind": "named",
+   "name": "Utilities|Array|MakeArray",
+   "x": 250,
+   "y": 800,
+   "defaults": [
+    [
+     "[0]",
+     "ObjectTypeQuery3"
+    ]
+   ]
+  },
+  {
+   "id": "nzOver",
+   "kind": "call",
+   "x": 600,
+   "y": 300,
+   "path": "/Script/Engine.KismetSystemLibrary:SphereOverlapActors",
+   "defaults": [
+    [
+     "SphereRadius",
+     "1200.0"
+    ],
+    [
+     "ActorClassFilter",
+     "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie.BP_Zombie_C"
+    ]
+   ]
+  },
+  {
+   "id": "nzGet",
+   "kind": "get",
+   "var": "NearZombies",
+   "x": 900,
+   "y": 600,
+   "defaults": []
+  },
+  {
+   "id": "nzClear",
+   "kind": "call",
+   "path": "/Script/Engine.KismetArrayLibrary:Array_Clear",
+   "x": 900,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "nzLoop",
+   "kind": "named",
+   "name": "Utilities|Array|ForEachLoop",
+   "x": 1150,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "nzCast",
+   "kind": "named",
+   "name": "Utilities|Casting|CastToBP_Zombie",
+   "x": 1450,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "nzAdd",
+   "kind": "call",
+   "path": "/Script/Engine.KismetArrayLibrary:Array_Add",
+   "x": 1750,
+   "y": 300,
+   "defaults": []
+  }
+ ],
+ "links": [
+  [
+   "nzBegin.then",
+   "nzTimer.execute",
+   false
+  ],
+  [
+   "nzEvt.OutputDelegate",
+   "nzTimer.Delegate",
+   false
+  ],
+  [
+   "nzEvt.then",
+   "nzOver.execute",
+   false
+  ],
+  [
+   "nzOwner.ReturnValue",
+   "nzLoc.self",
+   false
+  ],
+  [
+   "nzLoc.ReturnValue",
+   "nzOver.SpherePos",
+   false
+  ],
+  [
+   "nzArr.Array",
+   "nzOver.ObjectTypes",
+   false
+  ],
+  [
+   "nzOver.then",
+   "nzClear.execute",
+   false
+  ],
+  [
+   "nzGet.NearZombies",
+   "nzClear.TargetArray",
+   false
+  ],
+  [
+   "nzClear.then",
+   "nzLoop.Exec",
+   false
+  ],
+  [
+   "nzOver.OutActors",
+   "nzLoop.Array",
+   false
+  ],
+  [
+   "nzLoop.LoopBody",
+   "nzCast.execute",
+   false
+  ],
+  [
+   "nzLoop.Array Element",
+   "nzCast.Object",
+   false
+  ],
+  [
+   "nzCast.then",
+   "nzAdd.execute",
+   false
+  ],
+  [
+   "nzGet.NearZombies",
+   "nzAdd.TargetArray",
+   false
+  ],
+  [
+   "nzCast.AsBP Zombie",
+   "nzAdd.NewItem",
+   false
+  ]
+ ],
+ "set_live": [],
+ "remove": [],
+ "dx": 0,
+ "dy": 0
+}
