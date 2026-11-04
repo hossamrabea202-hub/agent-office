@@ -1,0 +1,2 @@
+PBR T_ObsidianSovereign_Helmet_BaseColor.png | non-metal p5/p50/p95 sRGB = 31/38/50 | metal 89% (p50 58) | rough p5/p95 0.20/0.88 | ISSUES: 88.2% of metal texels below 150 sRGB (metal too dark)
+baseline (set shield) PBR T_ObsidianSovereign_Shield_BaseColor.png | non-metal p5/p50/p95 sRGB = 29/31/33 | metal 64% (p50 48) | rough p5/p95 0.26/0.70 | ISSUES: 30.7% of non-metal texels darker than 30 sRGB (too black); 94.6% of metal texels below 150 sRGB (metal too dark); 62.8% of texels have in-between metallic (should be 0 or 1 except at rust edges)

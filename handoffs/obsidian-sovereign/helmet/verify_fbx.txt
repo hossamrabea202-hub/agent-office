@@ -1,0 +1,7 @@
+VERIFY name SM_ObsidianSovereign_Helmet polys 14196 tris 14196 material slots 1 uv layers 1
+VERIFY bounds cm blender min [-12.53, -11.92, 149.33] max [12.53, 17.97, 182.98]
+VERIFY UE bounds cm: x [-12.5, 12.5] y [-18.0, 11.9] z [149.3, 183.0]
+VERIFY origin [0.0, 0.0, 0.0] smooth 14196
+VERIFY UV range [0.0014, 0.0014] [0.9986, 0.9637] used 56.6% texels covered twice or more 830 degenerate UV tris 131
+VERIFY bake misses: 2028 black texels inside the islands of 2375707 (0.09%)
+VERIFY frame check Boots_L FBX cm: x [6.8, 20.2] y [-27.7, 10.4] z [0.0, 24.4] (UE asset measured: x 6.8..20.2, y -10.4..27.7, z 0..24.4)

@@ -1,0 +1,22 @@
+==== 07:40:53 nomu_run_at_ue_19106.py ['handoffs/obsidian-sovereign/helmet/setup_helmet_ue.py', '--dry-run'] OK
+ok   file SM_ObsidianSovereign_Helmet.fbx
+ok   file textures/T_ObsidianSovereign_Helmet_BaseColor.png
+ok   file textures/T_ObsidianSovereign_Helmet_ORM.png
+ok   file textures/T_ObsidianSovereign_Helmet_Normal_DirectX.png
+ok   parent material /Game/CastleDefender/Characters/Hero/Armor/ObsidianSovereign/M_ObsidianSovereign
+ok   knight /Game/ShadowKight/Mesh/ShadowknightUE_SK
+ok   head bone in knight ref pose [-0.0, -4.489, 157.109, 90.0, 0.0, -0.0, 1.0] (expected (0.0, -4.4892, 157.1086))
+     PROPOSED PieceOffset row: [-0.0, 157.109, 4.489, -90.0, 0.0, 0.0, 1.0] (translation x y z, roll pitch yaw, scale)
+ok   offset method reproduces the 15 saved rows: worst translation error 0.0001 cm
+     class: rows 15, AvailMask 991, KnightCover [198, 0, 1024, 32, 792], BundleMask [32, 1091, 132, 792]
+ok   new row index k = 15, tag ObsK15
+ok   KnightCover[3] = 32: the knight helmet slot hides exactly when the helm is worn
+ok   BundleMask[0] = 32, price 150
+WARN EmberMinTier not on the class (ember2_ue.py not applied here): left alone. If ember2 comes later, set it to 4 then.
+     overlay taken from Obs_Shoulders_L: /Game/CastleDefender/VFX/ObsidianSet/M_ObsidianSetAura.M_ObsidianSetAura
+     hero copy: rows 0, AvailMask 0, ObsOwned 0, ObsWorn 0
+STOP: hero copy differs from the class (rows 0 vs 15, AvailMask 0 vs 991): run faults-1205/f3_fix_ue.py --apply FIRST, then this
+ok   import API present: AssetImportTask True, FbxImportUI, add_new_subobject True, rename_subobject True, delete_subobject True
+DRY RUN: nothing changed. 1 STOP(s) above would block --apply.
+SystemExit: 
+

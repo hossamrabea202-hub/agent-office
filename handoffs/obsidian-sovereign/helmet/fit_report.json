@@ -1,0 +1,47 @@
+{
+ "head": {
+  "points": 12571,
+  "outside_or_beyond_shell": 0,
+  "min_clearance_cm": 0.47,
+  "at_blender_cm": [
+   10.2,
+   7.9,
+   168.5
+  ],
+  "p1_clearance_cm": 1.39
+ },
+ "gorget_neck": {
+  "points": 2716,
+  "outside_or_beyond_shell": 0,
+  "min_clearance_cm": 0.2,
+  "at_blender_cm": [
+   7.4,
+   11.0,
+   155.6
+  ],
+  "p1_clearance_cm": 0.62
+ },
+ "gorget_spine": {
+  "points": 4074,
+  "outside_or_beyond_shell": 4,
+  "min_clearance_cm": 1.75,
+  "at_blender_cm": [
+   0.0,
+   -7.4,
+   148.5
+  ],
+  "p1_clearance_cm": 2.26
+ },
+ "bbox_cm_blender": [
+  [
+   -12.53,
+   -11.92,
+   149.33
+  ],
+  [
+   12.53,
+   17.97,
+   182.98
+  ]
+ ]
+}
