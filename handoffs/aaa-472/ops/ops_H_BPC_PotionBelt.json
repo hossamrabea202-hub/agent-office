@@ -1,0 +1,27 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BPC_PotionBelt",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"ppSubtract_Doubl121",
+"B",
+"0.0"
+],
+[
+"ppSubtract_Doubl134",
+"B",
+"0.0"
+],
+[
+"ppSubtract_Doubl248",
+"B",
+"0.0"
+]
+],
+"dx": 0,
+"dy": 0
+}

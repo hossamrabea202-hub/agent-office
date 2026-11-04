@@ -1,0 +1,22 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BP_NoticeHUD",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"ToastSizeX",
+"B",
+"0"
+],
+[
+"ToastSizeY",
+"B",
+"0"
+]
+],
+"dx": 0,
+"dy": 0
+}

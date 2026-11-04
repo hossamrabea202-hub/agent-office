@@ -1,0 +1,17 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BP_SkillTreeHUD",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"spSubtract_Doubl29",
+"B",
+"0.0"
+]
+],
+"dx": 0,
+"dy": 0
+}

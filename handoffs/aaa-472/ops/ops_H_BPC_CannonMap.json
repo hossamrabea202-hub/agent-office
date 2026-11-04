@@ -1,0 +1,22 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/UI/CannonMap/BPC_CannonMap",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"cmSubtract_Doubl127",
+"B",
+"0.0"
+],
+[
+"cmSubtract_Doubl130",
+"B",
+"0.0"
+]
+],
+"dx": 0,
+"dy": 0
+}

@@ -1,0 +1,32 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BP_ArmoryHUD",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"HookSizeX",
+"B",
+"0"
+],
+[
+"HookSizeY",
+"B",
+"0"
+],
+[
+"WeaponSizeX",
+"B",
+"0"
+],
+[
+"WeaponSizeY",
+"B",
+"0"
+]
+],
+"dx": 0,
+"dy": 0
+}

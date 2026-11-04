@@ -1,0 +1,17 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BPC_WeaponKit",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"wkAdd_IntInt56",
+"B",
+"0"
+]
+],
+"dx": 0,
+"dy": 0
+}

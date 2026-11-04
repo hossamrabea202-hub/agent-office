@@ -1,0 +1,27 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BPC_Muster",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"vInputGameUI85",
+"bHideCursorDuringCapture",
+"false"
+],
+[
+"vAdd_DoubleDoub581",
+"B",
+"0.0"
+],
+[
+"vAdd_DoubleDoub608",
+"B",
+"0.0"
+]
+],
+"dx": 0,
+"dy": 0
+}

@@ -1,0 +1,37 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BPC_MotionFX",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"iSubtract_Doubl17",
+"B",
+"0.0"
+],
+[
+"iSubtract_Doubl60",
+"B",
+"0.0"
+],
+[
+"rvSubtract_Doubl217",
+"B",
+"0.0"
+],
+[
+"rvSubtract_Doubl251",
+"B",
+"0.0"
+],
+[
+"rvSubtract_Doubl273",
+"B",
+"0.0"
+]
+],
+"dx": 0,
+"dy": 0
+}

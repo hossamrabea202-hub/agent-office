@@ -1,0 +1,17 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Environment/Mud/BPC_MudPrints",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"mpFade63",
+"DestroyOwnerAfterFade",
+"false"
+]
+],
+"dx": 0,
+"dy": 0
+}

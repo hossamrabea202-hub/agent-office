@@ -1,0 +1,57 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"SWM_N13",
+"Min",
+"-400.0"
+],
+[
+"SWM_N13",
+"Max",
+"400.0"
+],
+[
+"SWM_N14",
+"Min",
+"-400.0"
+],
+[
+"SWM_N14",
+"Max",
+"400.0"
+],
+[
+"SWM_N15",
+"Max",
+"300.0"
+],
+[
+"SWM_N25",
+"Min",
+"-300.0"
+],
+[
+"SWM_N25",
+"Max",
+"300.0"
+],
+[
+"SWM_N26",
+"Min",
+"-300.0"
+],
+[
+"SWM_N26",
+"Max",
+"300.0"
+]
+],
+"dx": 0,
+"dy": 0
+}

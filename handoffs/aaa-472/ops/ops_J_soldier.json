@@ -1,0 +1,213 @@
+{
+"fix": "J",
+"bp": "/Game/CastleDefender/Characters/Knight/BP_SoldierSword",
+"vars": [
+[
+"SallyCache",
+{
+"object": "Actor",
+"array": true
+}
+]
+],
+"nodes": [
+{
+"id": "jGetS",
+"kind": "get",
+"x": 0,
+"y": 0,
+"defaults": [],
+"var": "SallyCache"
+},
+{
+"id": "jLen",
+"kind": "call",
+"x": 250,
+"y": 0,
+"defaults": [],
+"path": "/Script/Engine.KismetArrayLibrary:Array_Length"
+},
+{
+"id": "jMore",
+"kind": "call",
+"x": 500,
+"y": 0,
+"defaults": [
+[
+"B",
+"0"
+]
+],
+"path": "/Script/Engine.KismetMathLibrary:Greater_IntInt"
+},
+{
+"id": "jIf",
+"kind": "branch",
+"x": 750,
+"y": 0,
+"defaults": []
+},
+{
+"id": "jSet",
+"kind": "set",
+"x": 1100,
+"y": 200,
+"defaults": [],
+"var": "SallyCache"
+},
+{
+"id": "jGetS2",
+"kind": "get",
+"x": 1100,
+"y": 400,
+"defaults": [],
+"var": "SallyCache"
+},
+{
+"id": "jFind",
+"kind": "call",
+"x": 0,
+"y": 600,
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+]
+],
+"path": "/Script/Engine.GameplayStatics:GetActorOfClass"
+},
+{
+"id": "jSol",
+"kind": "get",
+"x": 300,
+"y": 700,
+"defaults": [],
+"var": "SoldierCache",
+"cls": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+},
+{
+"id": "jIsV",
+"kind": "call",
+"x": 300,
+"y": 850,
+"defaults": [],
+"path": "/Script/Engine.KismetSystemLibrary:IsValid"
+},
+{
+"id": "jIfV",
+"kind": "branch",
+"x": 600,
+"y": 800,
+"defaults": []
+}
+],
+"links": [
+[
+"jGetS.SallyCache",
+"jLen.TargetArray",
+false
+],
+[
+"jLen.ReturnValue",
+"jMore.A",
+false
+],
+[
+"jMore.ReturnValue",
+"jIf.Condition",
+false
+],
+[
+"CX_1032.then",
+"jIf.execute",
+true
+],
+[
+"CX_515.else",
+"jIf.execute",
+true
+],
+[
+"jIf.then",
+"CX_519.Exec",
+true
+],
+[
+"jIf.else",
+"CX_518.execute",
+true
+],
+[
+"CX_518.then",
+"jSet.execute",
+true
+],
+[
+"CX_518.OutActors",
+"jSet.SallyCache",
+false
+],
+[
+"jSet.then",
+"CX_519.Exec",
+false
+],
+[
+"jGetS2.SallyCache",
+"CX_519.Array",
+true
+],
+[
+"CX_496.then",
+"jFind.execute",
+true
+],
+[
+"jFind.ReturnValue",
+"jSol.self",
+false
+],
+[
+"jFind.then",
+"CX_999.execute",
+true
+],
+[
+"jSol.SoldierCache",
+"CX_1001.Array",
+true
+],
+[
+"CX_1001.LoopBody",
+"jIfV.execute",
+true
+],
+[
+"jIfV.then",
+"CX_1008.execute",
+false
+],
+[
+"CX_1001.Array Element",
+"jIsV.Object",
+false
+],
+[
+"jIsV.ReturnValue",
+"jIfV.Condition",
+false
+]
+],
+"remove": [
+"CX_499"
+],
+"set_live": [
+[
+"CX_497",
+"InitialStartDelayVariance",
+"0.15"
+]
+],
+"dx": 0,
+"dy": 22000
+}

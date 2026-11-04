@@ -11,6 +11,12 @@ Tentacle fix + hit reaction, A + B + C, D: all `compile True`, 0 failures, saved
 - Tentacle 4: i9 gave it Sway020 itself (my swap not run).
 - E brute: not run yet. i9's queue: no_tread, then wave_sweep, crowd_lods, sweep again, keep trim, then E.
 
+## Sent 11-04 late morning: `ops/README_GHJ.md`, none confirmed applied
+- G: half-horse + wasp values lost on paste (66 values). **Fix F made half-horse worse until G runs** (capsule 0 x 0).
+- H: 32 other lost values in 11 Blueprints (`lost_literals_1104.json`, tools `t3d_lost_literals.js`, `t3d_lost_all.js`).
+- J: soldier FocusCheck tag scan + soldier scan.
+- Audit by the other i5 session: `handoffs/vram-482/BP_AUDIT.md`. In my files and still open: rows E2 (5 per-frame zombie scans outside the zombie: HUD, Minimap, HitFeel, Variety, JellyShieldAll; hooks need spawn / hit events; ZombieReg misses brutes), E4 (rest of soldier Tick), E10 (6 wave managers, not 5).
+
 ## FPS: where it stands
 i9 calls it GPU-bound on the T1000; that is **not measured yet**. Waiting on i9:
 1. `profile/wave_sweep_ue.py` in Play (request filed, chat 1449): each feature off in turn, frame time, plus ProfileGPU table. Only tested on an empty map on i5.
@@ -34,7 +40,7 @@ Read from the assets (`profile/mesh_stats_ue.py`): zombie material is masked + s
 - **Simulate with a broken temp BP loaded = a compile-error modal nobody can click; it froze the editor and dropped Multi-User (23:07).** Delete temp copies and check they are gone first.
 - Scanner: `node handoffs/aaa-472/t3d_orphans.js <exports>`, exports via a script of AssetExportTask with a .T3D filename. Unwired impure node = None at runtime, compile only warns (micro-test 23:20). Worth running after big pastes.
 - Long bash heredocs get cut off: write files with the Write tool.
-- Another i5 session (`local_34eb18ca`) shares this editor's inbox and holds #461, #469, Obsidian skill, #458, #440, #453 + the after-save health check. This session holds the seat ticks, BP_Zombie, BP_ZombieWaveManager, ABP_Zombie. Check `ue_inbox/_log.txt` before a Simulate.
+- Another i5 session (`local_34eb18ca`) shares this editor's inbox, audits in `handoffs/vram-482/`, and holds #461, #469, Obsidian skill, #458, #440, #453 + the after-save health check. This session holds the seat ticks, BP_Zombie, BP_ZombieWaveManager, ABP_Zombie. Check `ue_inbox/_log.txt` before a Simulate.
 
 ## Editor state
 i5 editor restarted 06:00, /Game/_i5tmp472 cleaned. Only temp mesh copies are left there (L1, L2), no Blueprints, so they can't trigger the compile modal. Delete them after the next restart.

@@ -1,0 +1,17 @@
+{
+"fix": "H",
+"bp": "/Game/CastleDefender/Environment/Weather/BPC_Weather",
+"vars": [],
+"nodes": [],
+"links": [],
+"remove": [],
+"set_live": [
+[
+"wxRainLoop20",
+"bAutoDestroy",
+"false"
+]
+],
+"dx": 0,
+"dy": 0
+}
