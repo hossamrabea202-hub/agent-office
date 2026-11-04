@@ -45,16 +45,25 @@ W, H = (960, 540) if '--test' in A else (1600, 900)
 def cvars(d):
     for k, v in dict(BASE, **d).items(): unreal.SystemLibrary.execute_console_command(w, '%s %s' % (k, v))
 def lime(off):
+    if '--test' in A: return                        # i5 runs inside the Multi-User sandbox: no MI edits there
     for m, v in LIME: MEL.set_material_instance_scalar_parameter_value(m, 'LimewashAmount', 0.0 if off else v); MEL.update_material_instance(m)
 jobs = [(v, s) for v in VARIANTS for s in SPOTS]; state = {'i': 0, 'wait': 0, 'h': None}
 def restore():
     cvars({}); lime(False); unreal.unregister_slate_post_tick_callback(state['h']); print('REALISM done, %d shots in Saved/Screenshots, settings + materials back' % len(jobs))
 def tick(dt):
+    if state.get('busy'): return                    # an MI edit can pump Slate (Multi-User autosave) and re-enter this tick: froze i5 with a RecursionError
     if state['wait'] > 0: state['wait'] -= 1; return
-    if state['i'] >= len(jobs): restore(); return
+    if state['i'] >= len(jobs): state['busy'] = True; restore(); return
     (name, cv, nolime), (spot, cam, tgt) = jobs[state['i']]
     if state.get('armed') != state['i']:
-        cvars(cv); lime(nolime); c, t = unreal.Vector(*cam), unreal.Vector(*tgt)
-        ues.set_level_viewport_camera_info(c, unreal.MathLibrary.find_look_at_rotation(c, t)); state['armed'] = state['i']; state['wait'] = 150; return
-    unreal.AutomationLibrary.take_high_res_screenshot(W, H, 'realism486_%s_%s.png' % (spot, name)); print('shot', spot, name); state['i'] += 1; state['wait'] = 30
+        state['busy'] = True; state['armed'] = state['i']
+        try:
+            cvars(cv); lime(nolime); c, t = unreal.Vector(*cam), unreal.Vector(*tgt)
+            ues.set_level_viewport_camera_info(c, unreal.MathLibrary.find_look_at_rotation(c, t)); state['wait'] = 150
+        finally: state['busy'] = False
+        return
+    state['i'] += 1; state['wait'] = 90; state['busy'] = True          # count first: the screenshot call can pump Slate and re-enter this tick
+    try:
+        unreal.SystemLibrary.execute_console_command(w, 'HighResShot %dx%d filename=realism486_%s_%s' % (W, H, spot, name)); print('shot', spot, name)
+    finally: state['busy'] = False
 state['h'] = unreal.register_slate_post_tick_callback(tick)
