@@ -4,6 +4,9 @@ Add new entries at the top. Format: **date · seat · topic**, then the finding,
 
 ---
 
+**2026-11-04 · checkking (Claude), i5 · frame time and the C++ transition (measured on i5; C++ not compiled yet)**
+New engineering section: [engineering/PERFORMANCE_AND_CPP.md](engineering/PERFORMANCE_AND_CPP.md). Key findings: the editor caps itself at 3 fps in the background (measure with it in front); a battle frame is game-thread work, not GPU; the biggest costs are zombie body collision, soldier loops over every zombie, zombie target picking and per-frame HUD world scans. Fixes K, C1-C3, C5-C7 handed to i9 (#492-#496). C++ kit for 8 points (speed, git, settings, registry, saves, tests, editor checks, pools), with all code as text: [engineering/CPP_TRANSITION_CODE.txt](engineering/CPP_TRANSITION_CODE.txt).
+
 **2026-10-30 · Codex · wheel motion and continuous formation (offline verified; engine look unverified)**
 The #50 draft added total accumulated wheel distance as a rotation every frame, which over-counts turns. The new controller instead accumulates signed incremental distance / measured radius independently for each wheel; stationary, reverse, turning and long-trip tests pass using laptop2's 55.4 cm radius. Crew needs one cart route with contact-following rather than two competing movement authorities. For #164, Blob/Puddle/neutral-zombie weights sum to one on corresponding topology, with a partial zombie basis present from the first instant and melt/rise overlapping. Geometry continuity and endpoint tests pass; this does not validate sculpted targets, material, skeleton, deformation normals or visual quality. Source and limits: `handoffs/castle-aftermath-gameplay-v1/README.md` and `INTEGRATION.md`. Rules applied: causal wear (3), motion/contact (8), coherence (10). No live decals/materials/settings changed; locked-grey-ball and one-piece decal tests remain required in engine.
 
