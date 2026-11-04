@@ -49,6 +49,8 @@ So a wave adds about 200 ms and NOBODY KNOWS WHICH PART. Fixes A-D, LODs and E2/
 - Windows: a second python HTTP server can bind a port that is already in use (test servers on 8799 doubled up). Stop old ones first.
 - Grass speed work: the owner said no. Don't restart it. Real carved castle stone stays; never bake it back for fps.
 
+- **Temp test copies + live session = crash (11-04 18:09).** When i9 saves a Blueprint (BP_SoldierSword, BP_Zombie), the session makes i5 ReloadPackage it; temp copies of it on i5 (/Game/_i5tmp*, copies made by graph_ops --copy, Zc0/Zc1, X472c) cannot be re-linked and the editor crashes in CoreUObject. After a pre-check: restart the editor and move the _i5tmp* folders out of Content (they are in C:/UnrealProjects/CD58_i5_temp_tests_moved_1104 now). Better: make test copies only while NOT joined to the session.
+
 ## Waiting on i9 (not your task, but don't redo it)
 E2 (5 scripts, GitHub hand-off 490) and E3 (4 scripts, hand-off 491) to apply; #488 merlons (waiting for Alien's look OK); #491 stone kit
 `dump_wall_xforms_ue.py` then `layout_kit491.py --xforms wall_xforms.json --deck 680`; the chat server swap
