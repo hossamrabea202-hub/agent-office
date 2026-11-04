@@ -1,9 +1,10 @@
 {
- "working": "#472 read i9 results: GPU profile + tentacle 4",
- "tokens": 500000,
+ "working": "waiting on i9: FPS sweep + E/F status",
+ "tokens": 540000,
  "ctx": 1000000,
  "since": "2026-11-04T04:58:40Z",
  "done": [
+  "#472 sweep + LOD scripts, #457 explained [46% tokens left]",
   "#472 fix F handed to i9 [53% tokens left]",
   "#472 ragdoll + fix E handed to i9 [60% tokens left]",
   "#472 fix E + impact layers [66% tokens left]",
@@ -12,8 +13,7 @@
   "#450 #457 frozen tentacles fix handed to i9 [81% tokens left]",
   "#472 fix B handed to i9 [86% tokens left]",
   "#472 crowd fix A handed to i9 (#474, chat 1279) [88% tokens left]",
-  "#472 audit + roadmap + fix 1 (Think stagger) to i9; pick-up note [20% tokens left]",
-  "#470 fake crack overlay removal script (hand-off) [26% tokens left]"
+  "#472 audit + roadmap + fix 1 (Think stagger) to i9; pick-up note [20% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-04T04:58:40Z",
+ "asOf": "2026-11-04T05:09:45Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
