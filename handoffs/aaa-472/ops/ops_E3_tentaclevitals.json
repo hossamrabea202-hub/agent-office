@@ -1,0 +1,97 @@
+{
+"fix": "E3",
+"bp": "/Game/CastleDefender/Gameplay/Tentacle/BP_TentacleVitals",
+"vars": [],
+"nodes": [
+{
+"id": "e3Pawn",
+"kind": "call",
+"x": 0,
+"y": -500,
+"defaults": [],
+"path": "/Script/Engine.GameplayStatics:GetPlayerPawn"
+},
+{
+"id": "e3Dist",
+"kind": "call",
+"x": 250,
+"y": -500,
+"defaults": [],
+"path": "/Script/Engine.Actor:GetDistanceTo"
+},
+{
+"id": "e3Near",
+"kind": "call",
+"x": 500,
+"y": -500,
+"defaults": [
+[
+"B",
+"2000.0"
+]
+],
+"path": "/Script/Engine.KismetMathLibrary:Less_DoubleDouble"
+},
+{
+"id": "e3Sel",
+"kind": "call",
+"x": 750,
+"y": -500,
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.1"
+]
+],
+"path": "/Script/Engine.KismetMathLibrary:SelectFloat"
+},
+{
+"id": "e3Rate",
+"kind": "call",
+"x": 1000,
+"y": -300,
+"defaults": [],
+"path": "/Script/Engine.Actor:SetActorTickInterval"
+}
+],
+"links": [
+[
+"CX_49.then",
+"e3Rate.execute",
+true
+],
+[
+"e3Rate.then",
+"CX_55.execute",
+true
+],
+[
+"e3Pawn.ReturnValue",
+"e3Dist.OtherActor",
+false
+],
+[
+"e3Dist.ReturnValue",
+"e3Near.A",
+false
+],
+[
+"e3Near.ReturnValue",
+"e3Sel.bPickA",
+false
+],
+[
+"e3Sel.ReturnValue",
+"e3Rate.TickInterval",
+false
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

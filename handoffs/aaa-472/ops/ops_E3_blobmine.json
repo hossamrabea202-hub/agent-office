@@ -1,0 +1,36 @@
+{
+"fix": "E3",
+"bp": "/Game/CastleDefender/Realm/BP_BlobMine",
+"vars": [],
+"nodes": [
+{
+"id": "e3Rate",
+"kind": "call",
+"x": 0,
+"y": -300,
+"defaults": [
+[
+"TickInterval",
+"0.19"
+]
+],
+"path": "/Script/Engine.Actor:SetActorTickInterval"
+}
+],
+"links": [
+[
+"BLM_N1.then",
+"e3Rate.execute",
+true
+],
+[
+"e3Rate.then",
+"BLM_N2.execute",
+true
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

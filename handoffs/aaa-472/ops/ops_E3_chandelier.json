@@ -1,0 +1,66 @@
+{
+"fix": "E3",
+"bp": "/Game/CastleDefender/Props/Chandelier/BP_SwayChandelier",
+"vars": [],
+"nodes": [
+{
+"id": "e3Seen",
+"kind": "call",
+"x": 0,
+"y": -450,
+"defaults": [],
+"path": "/Script/Engine.Actor:WasRecentlyRendered"
+},
+{
+"id": "e3Sel",
+"kind": "call",
+"x": 250,
+"y": -450,
+"defaults": [
+[
+"A",
+"0.0"
+],
+[
+"B",
+"0.2"
+]
+],
+"path": "/Script/Engine.KismetMathLibrary:SelectFloat"
+},
+{
+"id": "e3Rate",
+"kind": "call",
+"x": 500,
+"y": -300,
+"defaults": [],
+"path": "/Script/Engine.Actor:SetActorTickInterval"
+}
+],
+"links": [
+[
+"CX_1.then",
+"e3Rate.execute",
+true
+],
+[
+"e3Rate.then",
+"CX_2.execute",
+true
+],
+[
+"e3Seen.ReturnValue",
+"e3Sel.bPickA",
+false
+],
+[
+"e3Sel.ReturnValue",
+"e3Rate.TickInterval",
+false
+]
+],
+"remove": [],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}
