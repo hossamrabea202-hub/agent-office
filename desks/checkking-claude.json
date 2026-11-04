@@ -1,9 +1,10 @@
 {
- "working": "#493 next: C2 zombie cap, HUD tag scans",
- "tokens": 345000,
+ "working": "plan nearly used: paused until 14:50 UTC reset",
+ "tokens": 350000,
  "ctx": 1000000,
  "since": "2026-11-04T12:45:07Z",
  "done": [
+  "#493 C5 handed; next steps noted on card [65% tokens left · 5h plan 86% left]",
   "#493 C5 ZombieHUD line-of-sight swap handed to i9 [65% tokens left]",
   "#493 C3 soldier near-zombies list handed to i9 (compiled, not run in Play) [67% tokens left]",
   "#493 crowd plan + C1 BPC_CrowdTier handed to i9 (compiled, not run in Play) [69% tokens left · 5h plan 80% left]",
@@ -12,8 +13,7 @@
   "#488 merlon kit v2 + #487 E2 handed to i9 (#490) [75% tokens left · 5h plan 71% left]",
   "#404 heavy cavalry handed off (#407); #400 closed [42% tokens left]",
   "#402 destrier + #403 knight kit handed off (#406) [54% tokens left]",
-  "#401 stables built + handed off (#405) [72% tokens left]",
-  "Texture budget script handed off [0% tokens left]"
+  "#401 stables built + handed off (#405) [72% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -24,25 +24,25 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-11-04T13:44:25Z",
+  "asOf": "2026-11-04T14:14:56Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 20,
+    "pct": 14,
     "resetsAt": "2026-11-04T14:50:00Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 89,
+    "pct": 88,
     "resetsAt": "2026-11-08T06:00:00Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-11-04T14:14:18Z",
+ "asOf": "2026-11-04T14:14:56Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "10ddbbaafa04",
