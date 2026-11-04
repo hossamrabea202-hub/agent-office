@@ -36,10 +36,12 @@ cand = []
 for a in actors:
     if str(a.get_folder_path()) not in FOLDERS: continue
     for c in a.get_components_by_class(unreal.StaticMeshComponent):
-        if hidden(a, c) and c.get_static_mesh() and c.get_collision_enabled() != unreal.CollisionEnabled.NO_COLLISION: cand.append((a, c))
+        if hidden(a, c) and c.get_editor_property('static_mesh') and c.get_collision_enabled() != unreal.CollisionEnabled.NO_COLLISION: cand.append((a, c))
 print('hidden actors ignored by the rays:', len(ignore), '| candidates:', len(cand))
 def ray(p, q, o, e):
-    h = unreal.SystemLibrary.line_trace_single(w, p, q, unreal.TraceTypeQuery.TRACE_TYPE_QUERY1, True, ignore, unreal.DrawDebugTrace.NONE, True).to_tuple()
+    r = unreal.SystemLibrary.line_trace_single(w, p, q, unreal.TraceTypeQuery.TRACE_TYPE_QUERY1, True, ignore, unreal.DrawDebugTrace.NONE, True)
+    if not r: return False                                 # 5.8 returns None on a miss (i9, chat 1445)
+    h = r.to_tuple()
     if not h[0] or isinstance(h[9], unreal.LandscapeProxy) or (h[9] and hidden(h[9])): return False
     l = h[4]
     return abs(l.x - o.x) <= e.x + NEAR and abs(l.y - o.y) <= e.y + NEAR and abs(l.z - o.z) <= e.z + NEAR
