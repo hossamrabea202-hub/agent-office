@@ -1,6 +1,6 @@
 {
- "working": "plan nearly used: paused until 14:50 UTC reset",
- "tokens": 350000,
+ "working": "waiting on i9: sync zips (i9 offline in Tailscale)",
+ "tokens": 356000,
  "ctx": 1000000,
  "since": "2026-11-04T12:45:07Z",
  "done": [
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-04T14:14:56Z",
+ "asOf": "2026-11-04T14:35:23Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "10ddbbaafa04",
