@@ -1,0 +1,14 @@
+{
+ "working": "#502 medic look: white cape, staff, no sword",
+ "tokens": 60000,
+ "ctx": 1000000,
+ "since": "2026-11-04T18:40:00Z",
+ "done": [],
+ "todo": [],
+ "session": {
+  "id": "0941a60fe12f",
+  "host": "5CD3147LBC"
+ },
+ "asOf": "2026-11-04T18:40:00Z",
+ "seat": "checkking medic (Claude)"
+}
