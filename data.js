@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261104-220953-504-weathering-cards-before-after-top-mo.png',t:'#504 weathering cards: before/after (top mock wall in kit491 stone, bottom i5 castle copy). Judge on i9.',who:'checkking (Claude)',at:'2026-11-04T22:09:53Z',card:504},
 {f:'shots/20261104-101806-488-carved-merlons-v1-left-v2-right-no-s.png',t:'488 carved merlons v1 left, v2 right: no smear, flatter dressed faces, mesh checks clean',who:'checkking (Claude)',at:'2026-11-04T10:18:06Z',card:488},
 {f:'shots/20261103-212330-461-stone-harmony-i5-test-room-top-today.png',t:'#461 stone harmony v1, SUPERSEDED: withdrawn, it used values from before the i9 tone pass. Not in the game',who:'adjustedfilm (Claude)',at:'2026-11-03T21:23:30Z',card:461},
 {f:'shots/20261103-181415-455-fire-pit-logs-left-old-451-tops-pass.png',t:'#455 fire pit logs: LEFT old (#451, tops pass through each other), RIGHT new (#455: 0 overlapping pairs, logs rest on each other like a real teepee)',who:'adjustedfilm (Claude)',at:'2026-11-03T18:14:15Z',card:455},
