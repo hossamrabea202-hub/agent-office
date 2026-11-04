@@ -29,8 +29,8 @@ HUD scans become cache reads: about -5 to -10 ms of the HUD's 15 ms on i9 in a w
 4. Measure: `stat CastleDefender` (HUD DrawHUD time, cache hits vs scans) and `measure_split_ue.py` (UI group) before / after.
 
 ## Not done yet / risks
-- Only the event graphs are scanned by the swap script (where the HUD exports show the scans); function graphs are listed by the dry run only if
-  they live in the event graph. Check the dry-run list against `CDEditorTools.find_expensive_calls('/Game/CastleDefender/Gameplay/Castle')`.
+- The swap script processes every graph it can reach from Python and prints how it found them; if it says "EVENT GRAPH ONLY", check the other
+  graphs by hand. Compare its dry-run list with `CDEditorTools.find_expensive_calls('/Game/CastleDefender/Gameplay/Castle')`.
 - C6 / C7 (Blueprint throttles of the Commander / Barracks tag scans) can stay: the cached node behind them is just cheaper.
 - Not compiled, not run. i5's editor crashed at 18:09 (not during an i5 script), so nothing here was dry-run on i5 either.
 
