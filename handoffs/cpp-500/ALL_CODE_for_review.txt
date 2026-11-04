@@ -1,5 +1,5 @@
-Castle Defender (UE 5.8.4) - C++ transition kit, REVISION 4 (third review fixes: see README_CPP.md 'Revision 4')
-Still NOT compiled: no compiler on the writing machine. Runtime module 'CastleDefender' + Editor module 'CastleDefenderEditor'.
+Castle Defender (UE 5.8.4) - C++ transition kit, REVISION 4 + ROUND 2 (HUD: ACDHudBase + swap script). See README_CPP.md and README_ROUND2_HUD.md
+Still NOT compiled: no compiler on the writing machine.
 
 ==================================================================
 FILE: Source/CastleDefender.Target.cs
@@ -535,6 +535,8 @@ public:
 
 	template <typename F> void ForEachSoldier(F&& Fn) const { for (const TWeakObjectPtr<AActor>& W : Soldiers) { if (AActor* A = W.Get()) { Fn(A); } } }
 	template <typename F> void ForEachFarmer(F&& Fn) const { for (const TWeakObjectPtr<AActor>& W : Farmers) { if (AActor* A = W.Get()) { Fn(A); } } }
+	// Every registered zombie, dead or alive (same set GetAllActorsOfClass would return for AZombieBase classes).
+	template <typename F> void ForEachZombie(F&& Fn) const { for (const TWeakObjectPtr<AZombieBase>& W : Zombies) { if (AZombieBase* Z = W.Get()) { Fn(Z); } } }
 
 	// Registered zombies that are not dead (see AZombieBase::IsDeadForCrowd).
 	UFUNCTION(BlueprintPure, Category = "Crowd")
@@ -882,6 +884,216 @@ void UCrowdSubsystem::Report() const
 TStatId UCrowdSubsystem::GetStatId() const
 {
 	RETURN_QUICK_DECLARE_CYCLE_STAT(UCrowdSubsystem, STATGROUP_Tickables);
+}
+
+==================================================================
+FILE: Source/CastleDefender/CDHudBase.h
+==================================================================
+// #500 C++ round 2: native parent for the HUD chain. BP_ZombieHUD (the bottom of the 11-level chain, parent HUD) becomes a child of ACDHudBase,
+// so every HUD level (Minimap, SkillTree, Barracks, Army, Controls, Queue, Hero, Commander, Armory, Notice) inherits these functions.
+// The HUD's drawing, menus, shop and input stay in the Blueprints. Only the expensive world lookups go native and get cached:
+//   GetActorOfClass       -> GetCachedActorOfClass     (kept until that actor is gone; a missing class is looked for again at most every MissingRetry s)
+//   GetAllActorsOfClass   -> GetCachedActorsOfClass    (zombie classes: read live from the crowd registry; other classes: reused for MaxAge s)
+//   GetAllActorsWithTag   -> GetCachedActorsWithTag    (reused for MaxAge s)
+// Same pins as the engine nodes, so hud_swap_scans_ue.py can swap them in place. Semantics differ in one way only, on purpose: a result can be up to
+// MaxAge old (a new actor shows up to MaxAge later; destroyed actors are always filtered out). Use the engine node where that matters.
+// `stat CastleDefender` shows "HUD DrawHUD (whole chain)" and the cache hit / miss counters.
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/HUD.h"
+#include "CDHudBase.generated.h"
+
+UCLASS(Abstract, Blueprintable)
+class CASTLEDEFENDER_API ACDHudBase : public AHUD
+{
+	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "Castle Defender|HUD", meta = (DeterminesOutputType = "ActorClass"))
+	AActor* GetCachedActorOfClass(TSubclassOf<AActor> ActorClass);
+
+	UFUNCTION(BlueprintCallable, Category = "Castle Defender|HUD", meta = (DeterminesOutputType = "ActorClass", DynamicOutputParam = "OutActors"))
+	void GetCachedActorsOfClass(TSubclassOf<AActor> ActorClass, TArray<AActor*>& OutActors);
+
+	UFUNCTION(BlueprintCallable, Category = "Castle Defender|HUD")
+	void GetCachedActorsWithTag(FName Tag, TArray<AActor*>& OutActors);
+
+	// Rendered in the last Tolerance seconds (cheap; replaces per-actor line-of-sight traces for "is it visible" checks).
+	UFUNCTION(BlueprintPure, Category = "Castle Defender|HUD")
+	static bool IsActorOnScreen(const AActor* Actor, float Tolerance = 0.1f);
+
+	// Drop every cache now (for example after a level change or a big spawn the HUD must show at once).
+	UFUNCTION(BlueprintCallable, Category = "Castle Defender|HUD")
+	void InvalidateHudCaches();
+
+	// How old a class / tag list may be before it is scanned again, seconds.
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Castle Defender|HUD", meta = (ClampMin = "0", UIMax = "2"))
+	float MaxAge = 0.25f;
+
+	// How often a class with no actor is looked for again, seconds.
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Castle Defender|HUD", meta = (ClampMin = "0", UIMax = "5"))
+	float MissingRetry = 0.5f;
+
+	virtual void DrawHUD() override;
+
+private:
+	struct FListCache
+	{
+		TArray<TWeakObjectPtr<AActor>> Actors;
+		double Time = -1.0;
+	};
+	struct FSingleCache
+	{
+		TWeakObjectPtr<AActor> Actor;
+		double MissedAt = -1.0;
+	};
+
+	double Now() const;
+	static void Resolve(const TArray<TWeakObjectPtr<AActor>>& In, TArray<AActor*>& Out);
+
+	TMap<TWeakObjectPtr<UClass>, FSingleCache> Singles;
+	TMap<TWeakObjectPtr<UClass>, FListCache> ClassLists;
+	TMap<FName, FListCache> TagLists;
+};
+
+==================================================================
+FILE: Source/CastleDefender/CDHudBase.cpp
+==================================================================
+#include "CDHudBase.h"
+#include "CDStats.h"
+#include "CrowdSubsystem.h"
+#include "ZombieBase.h"
+#include "Engine/World.h"
+#include "Kismet/GameplayStatics.h"
+
+DECLARE_CYCLE_STAT(TEXT("HUD DrawHUD (whole chain)"), STAT_CD_HudDraw, STATGROUP_CastleDefender);
+DECLARE_DWORD_ACCUMULATOR_STAT(TEXT("HUD cache hits"), STAT_CD_HudHits, STATGROUP_CastleDefender);
+DECLARE_DWORD_ACCUMULATOR_STAT(TEXT("HUD cache scans"), STAT_CD_HudScans, STATGROUP_CastleDefender);
+
+void ACDHudBase::DrawHUD()
+{
+	CD_SCOPE(STAT_CD_HudDraw);
+	Super::DrawHUD();   // runs every Blueprint level's Receive Draw HUD
+}
+
+double ACDHudBase::Now() const
+{
+	const UWorld* World = GetWorld();
+	return World ? World->GetTimeSeconds() : 0.0;
+}
+
+void ACDHudBase::Resolve(const TArray<TWeakObjectPtr<AActor>>& In, TArray<AActor*>& Out)
+{
+	Out.Reset(In.Num());
+	for (const TWeakObjectPtr<AActor>& W : In)
+	{
+		AActor* A = W.Get();
+		if (IsValid(A) && !A->IsActorBeingDestroyed())
+		{
+			Out.Add(A);
+		}
+	}
+}
+
+AActor* ACDHudBase::GetCachedActorOfClass(TSubclassOf<AActor> ActorClass)
+{
+	if (!*ActorClass)
+	{
+		return nullptr;
+	}
+	FSingleCache& C = Singles.FindOrAdd(*ActorClass);
+	AActor* Cached = C.Actor.Get();
+	if (IsValid(Cached) && !Cached->IsActorBeingDestroyed())
+	{
+		INC_DWORD_STAT(STAT_CD_HudHits);
+		return Cached;
+	}
+	const double T = Now();
+	if (C.MissedAt >= 0.0 && T - C.MissedAt < MissingRetry)
+	{
+		INC_DWORD_STAT(STAT_CD_HudHits);
+		return nullptr;   // looked very recently and there was none
+	}
+	INC_DWORD_STAT(STAT_CD_HudScans);
+	AActor* Found = UGameplayStatics::GetActorOfClass(this, ActorClass);
+	C.Actor = Found;
+	C.MissedAt = Found ? -1.0 : T;
+	return Found;
+}
+
+void ACDHudBase::GetCachedActorsOfClass(TSubclassOf<AActor> ActorClass, TArray<AActor*>& OutActors)
+{
+	OutActors.Reset();
+	if (!*ActorClass)
+	{
+		return;
+	}
+	// Zombies: the crowd registry is exact and costs nothing, no cache needed. Dead zombies included, like GetAllActorsOfClass.
+	if (ActorClass->IsChildOf(AZombieBase::StaticClass()))
+	{
+		if (const UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this))
+		{
+			UClass* Wanted = *ActorClass;
+			Crowd->ForEachZombie([&OutActors, Wanted](AZombieBase* Z)
+			{
+				if (Z->IsA(Wanted) && !Z->IsActorBeingDestroyed()) { OutActors.Add(Z); }
+			});
+			INC_DWORD_STAT(STAT_CD_HudHits);
+			return;
+		}
+	}
+	FListCache& C = ClassLists.FindOrAdd(*ActorClass);
+	const double T = Now();
+	if (C.Time < 0.0 || T - C.Time >= MaxAge)
+	{
+		INC_DWORD_STAT(STAT_CD_HudScans);
+		TArray<AActor*> Found;
+		UGameplayStatics::GetAllActorsOfClass(this, ActorClass, Found);
+		C.Actors.Reset(Found.Num());
+		for (AActor* A : Found) { C.Actors.Add(A); }
+		C.Time = T;
+	}
+	else
+	{
+		INC_DWORD_STAT(STAT_CD_HudHits);
+	}
+	Resolve(C.Actors, OutActors);
+}
+
+void ACDHudBase::GetCachedActorsWithTag(FName Tag, TArray<AActor*>& OutActors)
+{
+	OutActors.Reset();
+	FListCache& C = TagLists.FindOrAdd(Tag);
+	const double T = Now();
+	if (C.Time < 0.0 || T - C.Time >= MaxAge)
+	{
+		INC_DWORD_STAT(STAT_CD_HudScans);
+		TArray<AActor*> Found;
+		UGameplayStatics::GetAllActorsWithTag(this, Tag, Found);
+		C.Actors.Reset(Found.Num());
+		for (AActor* A : Found) { C.Actors.Add(A); }
+		C.Time = T;
+	}
+	else
+	{
+		INC_DWORD_STAT(STAT_CD_HudHits);
+	}
+	Resolve(C.Actors, OutActors);
+	// A tagged actor whose tag was removed since the scan is dropped here, so the list never shows something that no longer matches.
+	OutActors.RemoveAll([Tag](const AActor* A) { return !A->ActorHasTag(Tag); });
+}
+
+bool ACDHudBase::IsActorOnScreen(const AActor* Actor, float Tolerance)
+{
+	return IsValid(Actor) && Actor->WasRecentlyRendered(FMath::Max(0.f, Tolerance));
+}
+
+void ACDHudBase::InvalidateHudCaches()
+{
+	Singles.Reset();
+	ClassLists.Reset();
+	TagLists.Reset();
 }
 
 ==================================================================
@@ -2060,4 +2272,140 @@ FILE: uproject_modules.json
 	{ "Name": "CastleDefender", "Type": "Runtime", "LoadingPhase": "Default" },
 	{ "Name": "CastleDefenderEditor", "Type": "Editor", "LoadingPhase": "Default" }
 ],
+
+==================================================================
+FILE: reparent_hud_ue.py
+==================================================================
+# #500 C++ round 2 (i5 for i9): make ACDHudBase the parent of BP_ZombieHUD (the bottom of the HUD chain, parent HUD today).
+# Every HUD level above it then inherits the cached scan functions. Nothing in any graph changes. Editor idle, not in Play.
+#   py reparent_hud_ue.py --dry-run     checks: C++ class loaded, BP_ZombieHUD's parent is HUD, compile errors now
+#   py reparent_hud_ue.py --apply       backup Saved/bak500/BP_ZombieHUD.uasset.hudbase, reparent, compile the whole chain, save only without NEW errors
+#   --bp <path>  test on a copy first (reviewer's order): --bp /Game/_tmpX/BP_ZombieHUD_copy --apply --nosave
+import os, shutil, sys, unreal
+A = sys.argv[1:]
+BP = A[A.index('--bp') + 1] if '--bp' in A else '/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD'
+CHAIN = ['BP_MinimapHUD', 'BP_SkillTreeHUD', 'BP_BarracksHUD', 'BP_ArmyHUD', 'BP_ControlsHUD', 'BP_QueueHUD', 'BP_HeroHUD', 'BP_CommanderHUD', 'BP_ArmoryHUD', 'BP_NoticeHUD']
+BEL, GE, EA = unreal.BlueprintEditorLibrary, unreal.BlueprintGraphEditor, unreal.EditorAssetLibrary
+cls = unreal.load_class(None, '/Script/CastleDefender.CDHudBase')
+if not cls: print('STOP: /Script/CastleDefender.CDHudBase is not loaded. Build the C++ module first. Nothing changed.'); raise SystemExit
+bp = unreal.load_asset(BP); parent = bp.get_editor_property('parent_class')
+print('BP', BP, '| parent now', parent.get_name() if parent else None)
+if parent == cls: print('STOP: already reparented. Nothing changed.'); raise SystemExit
+if not parent or parent.get_name() != 'HUD': print('STOP: expected parent HUD. Nothing changed.'); raise SystemExit
+def errs(b):
+    BEL.compile_blueprint(b); return sorted(n.get_name() for n in GE.get_graph_editor(BEL.find_event_graph(b)).list_nodes_with_errors())
+chain = [unreal.load_asset('/Game/CastleDefender/Gameplay/Castle/' + h) for h in CHAIN] if '--bp' not in A else []
+before = {b.get_name(): errs(b) for b in [bp] + [c for c in chain if c]}
+print('errors before:', {k: len(v) for k, v in before.items()})
+if '--apply' not in A: print('dry run, nothing changed'); raise SystemExit
+if '--nosave' not in A:
+    src = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_content_dir()) + BP[len('/Game/'):] + '.uasset'
+    dst = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_saved_dir()) + 'bak500/' + os.path.basename(src) + '.hudbase'
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    if not os.path.exists(dst): shutil.copy2(src, dst); print('backup', dst)
+BEL.reparent_blueprint(bp, cls)
+new = {}
+for b in [bp] + [c for c in chain if c]:
+    e = errs(b); n = [x for x in e if x not in before.get(b.get_name(), [])]
+    if n: new[b.get_name()] = n
+print('RESULT parent', bp.get_editor_property('parent_class').get_name(), '| new errors', new)
+if new: print('NOT SAVED: new errors. Reload without saving (or restart the editor) and send i5 this output.'); raise SystemExit
+if '--nosave' in A: print('reparented, not saved (--nosave)')
+else: EA.save_asset(BP, only_if_is_dirty=False); print('saved', BP)
+
+==================================================================
+FILE: hud_swap_scans_ue.py
+==================================================================
+# #500 C++ round 2 (i5 for i9): swap the HUD chain's world scans for ACDHudBase's cached versions, in place, one Blueprint at a time.
+#   GetActorOfClass -> GetCachedActorOfClass,  GetAllActorsOfClass -> GetCachedActorsOfClass,  GetAllActorsWithTag -> GetCachedActorsWithTag
+# Same pin names: every link (exec in / out, inputs, outputs) and every pin value (class, tag) moves to the new node; the old node is removed.
+# Needs: the C++ module built, and BP_ZombieHUD reparented to CDHudBase first (reparent_hud_ue.py), so every HUD level inherits the cached functions.
+#   py hud_swap_scans_ue.py                      dry run: lists every node it would swap, per Blueprint; changes nothing
+#   py hud_swap_scans_ue.py --apply [--only BP_CommanderHUD]   backup Saved/bak500/<BP>.uasset.hud2, swap, compile, save ONLY if no new errors
+#   --skip <NodeName,...>   leave these nodes on the engine version (where a result must be exact this frame)
+# Revert: close the editor, copy Saved/bak500/<BP>.uasset.hud2 back over Content/CastleDefender/Gameplay/Castle/<BP>.uasset.
+import os, shutil, sys, unreal
+A = sys.argv[1:]
+APPLY = '--apply' in A
+ONLY = A[A.index('--only') + 1] if '--only' in A else None
+SKIP = set(A[A.index('--skip') + 1].split(',')) if '--skip' in A else set()
+BEL, PL, GE, EA = unreal.BlueprintEditorLibrary, unreal.BlueprintGraphPinLibrary, unreal.BlueprintGraphEditor, unreal.EditorAssetLibrary
+P = '/Game/CastleDefender/Gameplay/Castle/'
+HUDS = ['BP_ZombieHUD', 'BP_MinimapHUD', 'BP_SkillTreeHUD', 'BP_BarracksHUD', 'BP_ArmyHUD', 'BP_ControlsHUD', 'BP_QueueHUD', 'BP_HeroHUD',
+        'BP_CommanderHUD', 'BP_ArmoryHUD', 'BP_NoticeHUD']
+MAP = {  # engine title -> (cached function, input pins, output pins)
+    'GetActorOfClass': ('GetCachedActorOfClass', ['ActorClass'], ['ReturnValue']),
+    'GetAllActorsOfClass': ('GetCachedActorsOfClass', ['ActorClass'], ['OutActors']),
+    'GetAllActorsWithTag': ('GetCachedActorsWithTag', ['Tag'], ['OutActors']),
+}
+BASE = unreal.load_class(None, '/Script/CastleDefender.CDHudBase')
+if not BASE: print('STOP: /Script/CastleDefender.CDHudBase not loaded. Build the C++ module first. Nothing changed.'); raise SystemExit
+
+def inherits(bp):
+    return unreal.MathLibrary.class_is_child_of(bp.generated_class(), BASE)
+
+def pin(n, name, out):
+    p = BEL.find_output_pin(n, name) if out else BEL.find_input_pin(n, name)
+    return p if p and PL.is_valid(p) else None
+
+def title(n): return str(n.get_node_title()).replace(' ', '').replace('\n', '')
+
+def errors(bp):
+    BEL.compile_blueprint(bp)
+    return sorted(x.get_name() for x in GE.get_graph_editor(BEL.find_event_graph(bp)).list_nodes_with_errors())
+
+total = 0
+for h in HUDS:
+    if ONLY and h != ONLY: continue
+    bp = unreal.load_asset(P + h)
+    if not bp: print(h, 'missing'); continue
+    ge = GE.get_graph_editor(BEL.find_event_graph(bp))
+    targets = [n for n in ge.list_all_nodes() if n.get_class().get_name() == 'K2Node_CallFunction' and title(n) in MAP and n.get_name() not in SKIP]
+    print('%-16s %d to swap: %s' % (h, len(targets), ', '.join('%s(%s)' % (n.get_name(), title(n)) for n in targets)))
+    total += len(targets)
+    if not APPLY or not targets: continue
+    if not inherits(bp):
+        print('   STOP %s: does not inherit CDHudBase yet (run reparent_hud_ue.py on BP_ZombieHUD first). Nothing changed here.' % h); continue
+    before = errors(bp)
+    src = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_content_dir()) + (P + h)[len('/Game/'):] + '.uasset'
+    dst = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_saved_dir()) + 'bak500/' + h + '.uasset.hud2'
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    if not os.path.exists(dst): shutil.copy2(src, dst)
+    fails = []
+    for old in targets:
+        fn, ins, outs = MAP[title(old)]
+        new = ge.add_call_function_node('/Script/CastleDefender.CDHudBase:' + fn)
+        if not new: fails.append(old.get_name() + ' (could not create ' + fn + ')'); continue
+        try: BEL.set_node_pos(new, unreal.IntPoint(old.get_editor_property('node_pos_x'), old.get_editor_property('node_pos_y') + 40))
+        except Exception: pass
+        for name in ins:                                   # value or link of the class / tag pin first: it types the outputs
+            op, np = pin(old, name, False), pin(new, name, False)
+            if not op or not np: fails.append('%s.%s (no pin)' % (old.get_name(), name)); continue
+            src_links = PL.list_connected_pins(op)
+            if src_links:
+                for s in src_links:
+                    if not PL.try_create_connection(s, np): fails.append('%s.%s (in link)' % (old.get_name(), name))
+            elif not PL.set_pin_value(np, PL.get_pin_value(op)):
+                fails.append('%s.%s = %s (value refused)' % (old.get_name(), name, PL.get_pin_value(op)))
+        ex_old, ex_new = pin(old, 'execute', False), pin(new, 'execute', False)
+        if ex_old and ex_new:
+            for s in PL.list_connected_pins(ex_old):
+                if not PL.try_create_connection(s, ex_new): fails.append(old.get_name() + '.execute (link)')
+        elif ex_old and PL.list_connected_pins(ex_old):
+            fails.append(old.get_name() + '.execute (new node has no exec pin)')
+        for name in ['then'] + outs:
+            op, np = pin(old, name, True), pin(new, name, True)
+            if not op: continue
+            if not np: fails.append('%s.%s (no out pin)' % (old.get_name(), name)); continue
+            for t in PL.list_connected_pins(op):
+                PL.break_single_pin_link(op, t)
+                if not PL.try_create_connection(np, t): fails.append('%s.%s -> %s (out link)' % (old.get_name(), name, PL.get_owning_node(t).get_name()))
+        ge.remove_nodes([old])
+    after = errors(bp); new_err = [e for e in after if e not in before]
+    print('   RESULT %s | link/value failures %s | new errors %s | old errors %d' % (h, fails, new_err, len(before)))
+    if fails or new_err:
+        print('   NOT SAVED: reload %s without saving (or restart the editor) and send i5 this output.' % h); continue
+    EA.save_asset(P + h, only_if_is_dirty=False); print('   saved', h, '(backup', dst + ')')
+print('total nodes %s: %d' % ('swapped' if APPLY else 'to swap', total))
+if not APPLY: print('dry run, nothing changed')
 

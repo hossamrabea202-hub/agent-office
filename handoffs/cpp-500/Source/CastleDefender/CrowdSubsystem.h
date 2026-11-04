@@ -53,6 +53,8 @@ public:
 
 	template <typename F> void ForEachSoldier(F&& Fn) const { for (const TWeakObjectPtr<AActor>& W : Soldiers) { if (AActor* A = W.Get()) { Fn(A); } } }
 	template <typename F> void ForEachFarmer(F&& Fn) const { for (const TWeakObjectPtr<AActor>& W : Farmers) { if (AActor* A = W.Get()) { Fn(A); } } }
+	// Every registered zombie, dead or alive (same set GetAllActorsOfClass would return for AZombieBase classes).
+	template <typename F> void ForEachZombie(F&& Fn) const { for (const TWeakObjectPtr<AZombieBase>& W : Zombies) { if (AZombieBase* Z = W.Get()) { Fn(Z); } } }
 
 	// Registered zombies that are not dead (see AZombieBase::IsDeadForCrowd).
 	UFUNCTION(BlueprintPure, Category = "Crowd")
