@@ -4,8 +4,13 @@
 //   GetActorOfClass       -> GetCachedActorOfClass     (kept until that actor is gone; a missing class is looked for again at most every MissingRetry s)
 //   GetAllActorsOfClass   -> GetCachedActorsOfClass    (zombie classes: read live from the crowd registry; other classes: reused for MaxAge s)
 //   GetAllActorsWithTag   -> GetCachedActorsWithTag    (reused for MaxAge s)
-// Same pins as the engine nodes, so hud_swap_scans_ue.py can swap them in place. Semantics differ in one way only, on purpose: a result can be up to
-// MaxAge old (a new actor shows up to MaxAge later; destroyed actors are always filtered out). Use the engine node where that matters.
+// Same pins as the engine nodes, so hud_swap_scans_ue.py can swap them in place. Behaviour differences (all deliberate, check before swapping a node):
+//   - class / tag lists can be up to MaxAge old: a new actor, or an actor that GAINS the tag, shows up to MaxAge later; destroyed actors and actors
+//     that LOST the tag never show;
+//   - GetCachedActorOfClass keeps the first actor it found until that actor is destroyed: a stable choice, which the engine node does not promise
+//     when several actors match. Meant for singletons (wave manager, director, player helpers); the swap script leaves GetActorOfClass alone unless
+//     asked (--include-single);
+//   - refresh uses real time, so caches still refresh while the game is paused.
 // `stat CastleDefender` shows "HUD DrawHUD (whole chain)" and the cache hit / miss counters.
 #pragma once
 
@@ -28,9 +33,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Castle Defender|HUD")
 	void GetCachedActorsWithTag(FName Tag, TArray<AActor*>& OutActors);
 
-	// Rendered in the last Tolerance seconds (cheap; replaces per-actor line-of-sight traces for "is it visible" checks).
+	// Rendered by any view in the last Tolerance seconds. NOT a line-of-sight test and not "on this player's screen": an approximation for cosmetic
+	// HUD decisions only.
 	UFUNCTION(BlueprintPure, Category = "Castle Defender|HUD")
-	static bool IsActorOnScreen(const AActor* Actor, float Tolerance = 0.1f);
+	static bool WasActorRecentlyRendered(const AActor* Actor, float Tolerance = 0.1f);
 
 	// Drop every cache now (for example after a level change or a big spawn the HUD must show at once).
 	UFUNCTION(BlueprintCallable, Category = "Castle Defender|HUD")

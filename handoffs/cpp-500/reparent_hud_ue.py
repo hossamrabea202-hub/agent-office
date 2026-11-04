@@ -15,7 +15,14 @@ print('BP', BP, '| parent now', parent.get_name() if parent else None)
 if parent == cls: print('STOP: already reparented. Nothing changed.'); raise SystemExit
 if not parent or parent.get_name() != 'HUD': print('STOP: expected parent HUD. Nothing changed.'); raise SystemExit
 def errs(b):
-    BEL.compile_blueprint(b); return sorted(n.get_name() for n in GE.get_graph_editor(BEL.find_event_graph(b)).list_nodes_with_errors())
+    # real compile status first (reviewer: not only error nodes in the main graph), plus error nodes for the report
+    BEL.compile_blueprint(b)
+    out = sorted(n.get_name() for n in GE.get_graph_editor(BEL.find_event_graph(b)).list_nodes_with_errors())
+    try:
+        st = str(b.get_editor_property('status'))
+        if 'ERROR' in st.upper(): out.append('STATUS:' + st)
+    except Exception: pass
+    return out
 chain = [unreal.load_asset('/Game/CastleDefender/Gameplay/Castle/' + h) for h in CHAIN] if '--bp' not in A else []
 before = {b.get_name(): errs(b) for b in [bp] + [c for c in chain if c]}
 print('errors before:', {k: len(v) for k, v in before.items()})

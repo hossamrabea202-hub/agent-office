@@ -3,6 +3,7 @@
 #include "CrowdSubsystem.h"
 #include "ZombieBase.h"
 #include "Engine/World.h"
+#include "HAL/PlatformTime.h"
 #include "Kismet/GameplayStatics.h"
 
 DECLARE_CYCLE_STAT(TEXT("HUD DrawHUD (whole chain)"), STAT_CD_HudDraw, STATGROUP_CastleDefender);
@@ -12,13 +13,12 @@ DECLARE_DWORD_ACCUMULATOR_STAT(TEXT("HUD cache scans"), STAT_CD_HudScans, STATGR
 void ACDHudBase::DrawHUD()
 {
 	CD_SCOPE(STAT_CD_HudDraw);
-	Super::DrawHUD();   // runs every Blueprint level's Receive Draw HUD
+	Super::DrawHUD();   // runs the Blueprint Receive Draw HUD event; each HUD level still calls (or not) its parent level as its graph does today
 }
 
 double ACDHudBase::Now() const
 {
-	const UWorld* World = GetWorld();
-	return World ? World->GetTimeSeconds() : 0.0;
+	return FPlatformTime::Seconds();   // real time: refreshes while the game is paused
 }
 
 void ACDHudBase::Resolve(const TArray<TWeakObjectPtr<AActor>>& In, TArray<AActor*>& Out)
@@ -122,7 +122,7 @@ void ACDHudBase::GetCachedActorsWithTag(FName Tag, TArray<AActor*>& OutActors)
 	OutActors.RemoveAll([Tag](const AActor* A) { return !A->ActorHasTag(Tag); });
 }
 
-bool ACDHudBase::IsActorOnScreen(const AActor* Actor, float Tolerance)
+bool ACDHudBase::WasActorRecentlyRendered(const AActor* Actor, float Tolerance)
 {
 	return IsValid(Actor) && Actor->WasRecentlyRendered(FMath::Max(0.f, Tolerance));
 }

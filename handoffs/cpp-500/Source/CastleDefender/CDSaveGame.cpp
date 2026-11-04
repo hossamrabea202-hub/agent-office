@@ -164,6 +164,7 @@ UCDSaveGame* UCDSaveSubsystem::LoadOrCreate(const FString& Slot)
 			BestFile = File;
 		}
 	}
+	LastLoadResult = bBlocked ? ECDLoadResult::Incompatible : (!Best ? ECDLoadResult::Fresh : (BestFile == Slot ? ECDLoadResult::Loaded : ECDLoadResult::Recovered));
 	if (bBlocked)
 	{
 		ReadOnlySlots.Add(Slot);

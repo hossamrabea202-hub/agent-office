@@ -33,3 +33,15 @@ HUD scans become cache reads: about -5 to -10 ms of the HUD's 15 ms on i9 in a w
   they live in the event graph. Check the dry-run list against `CDEditorTools.find_expensive_calls('/Game/CastleDefender/Gameplay/Castle')`.
 - C6 / C7 (Blueprint throttles of the Commander / Barracks tag scans) can stay: the cached node behind them is just cheaper.
 - Not compiled, not run. i5's editor crashed at 18:09 (not during an i5 script), so nothing here was dry-run on i5 either.
+
+## Review of revision 4 + round 2 (11-04): fixes made, no new features
+- Swap script: every graph it can reach (says how; if only the event graph, it says so), nodes found by function reference (GameplayStatics),
+  `--apply` needs `--only <one Blueprint>`, runs the whole swap on a COPY first (compile status, link counts per node, no matching node left),
+  and only then on the original; refuses if the Blueprint did not compile cleanly before. GetActorOfClass only with `--include-single`.
+- Reparent script: also checks the real compile status of every level.
+- ACDHudBase: real time (refreshes while paused); `IsActorOnScreen` renamed `WasActorRecentlyRendered` (not a line-of-sight test); every behaviour
+  difference written in the header (stale lists, added tags late, stable singleton choice).
+- Pool: validity checked right after component restore (before OnAcquired) and after every Deactivate / tick change; stops if a callback destroyed something.
+- Save: crash policy written exactly (a verified newer _tmp is recovered after any crash, deliberately); `GetLastLoadResult` = Loaded / Recovered /
+  Fresh / Incompatible, so the game can say "needs a newer version" instead of looking like a fresh game.
+Reviewer's next milestone, agreed: build both modules -> reparent a DUPLICATE HUD -> swap ONE node / one Blueprint -> compare in Play. No revision 5.

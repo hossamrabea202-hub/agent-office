@@ -95,7 +95,7 @@ private:
 	void Park(AActor* Actor, uint32 ExpectedGeneration);
 	void PurgeInvalid(UClass* Class);
 	FRecord* FindCurrent(AActor* Actor, uint32 Generation, EState State);
-	static void ResetEngineState(AActor* Actor, FParkedState& Out);
+	static bool ResetEngineState(AActor* Actor, FParkedState& Out);   // false: a callback destroyed the actor or a component
 	static void RestoreComponents(const FParkedState& State);
 
 	TMap<TWeakObjectPtr<AActor>, FRecord> Records;

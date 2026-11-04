@@ -41,7 +41,7 @@ UCDPoolSubsystem::FRecord* UCDPoolSubsystem::FindCurrent(AActor* Actor, uint32 G
 	return (R && R->Generation == Generation && R->State == State) ? R : nullptr;
 }
 
-void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
+bool UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
 {
 	// Works on a local struct only: Deactivate / SetComponentTickEnabled may run callbacks that change the pool's maps.
 	if (UWorld* World = Actor->GetWorld())
@@ -65,13 +65,21 @@ void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
 			if (Mover->IsActive())
 			{
 				Out.MoversOff.Add(Mover);
-				Mover->Deactivate();
+				Mover->Deactivate();               // may run callbacks
+				if (!IsValid(Actor) || !IsValid(Comp))
+				{
+					return false;                  // the callback destroyed the actor or the component: stop touching it
+				}
 			}
 		}
 		if (Comp->IsComponentTickEnabled())
 		{
 			Out.TicksOff.Add(Comp);
 			Comp->SetComponentTickEnabled(false);
+			if (!IsValid(Actor))
+			{
+				return false;
+			}
 		}
 	}
 	if (UPrimitiveComponent* Root = Cast<UPrimitiveComponent>(Actor->GetRootComponent()))
@@ -82,6 +90,7 @@ void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
 			Root->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);
 		}
 	}
+	return IsValid(Actor);
 }
 
 void UCDPoolSubsystem::RestoreComponents(const FParkedState& State)
@@ -173,11 +182,15 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 		ICDPoolable::Execute_OnAcquired(Actor);   // fresh spawn: its own BeginPlay state, nothing to restore
 		return Actor;
 	}
-	RestoreComponents(Parked);                 // may run callbacks
+	RestoreComponents(Parked);                 // may run callbacks (component activation)
+	if (!IsValid(Actor) || !FindCurrent(Actor, Generation, EState::Active))
+	{
+		return nullptr;                        // a callback destroyed or released it: do not touch it again
+	}
 	ICDPoolable::Execute_OnAcquired(Actor);    // reset gameplay state while still hidden and without collision
 	if (!IsValid(Actor) || !FindCurrent(Actor, Generation, EState::Active))
 	{
-		return IsValid(Actor) ? Actor : nullptr;   // a callback released or destroyed it: leave it as that left it
+		return nullptr;
 	}
 	Actor->SetActorHiddenInGame(Parked.bWasHidden);
 	Actor->SetActorTickEnabled(Parked.bHadTick);
@@ -261,8 +274,8 @@ void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 		return;
 	}
 	FParkedState Parked;
-	ResetEngineState(Actor, Parked);            // may run callbacks: no record reference held
-	if (!IsValid(Actor))
+	const bool bResetOk = ResetEngineState(Actor, Parked);   // may run callbacks: no record reference held
+	if (!bResetOk || !IsValid(Actor))
 	{
 		Records.Remove(Actor);
 		return;

@@ -13,9 +13,13 @@
 //     main untouched (a failed save is never recovered later)
 //   3 write main and read it back. If this fails: return false, but the verified _tmp is KEPT as recoverable progress (main may be damaged now)
 //   4 delete _tmp.
-// Recovery (LoadOrCreate): among the Valid copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak. A _tmp can only be left
-//   by step 3 failing (or a crash between 3 and 4), so it is newer than main only when its commit did not complete. Corrupt / older copies never
-//   replace a newer valid one. An UnsupportedFormat or NewerVersion copy makes the slot read-only (per slot).
+// Recovery (LoadOrCreate): among the Valid copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak.
+//   POLICY (accepted, not a full transaction): a verified _tmp that is newer than main is recovered, whatever stopped the save: a crash right
+//   after step 1, a crash before step 4, or a failed main write. Only the error-return path of step 2 deletes _tmp (and that delete can itself fail).
+//   So "Save returned false" means "not committed by this call", not "can never come back after a crash". Corrupt / older copies never replace a
+//   newer valid one. An UnsupportedFormat or NewerVersion copy makes the slot read-only (per slot).
+// LoadOrCreate always returns an object; GetLastLoadResult tells the game what happened, so it can show "this save needs a newer version" instead
+// of a seemingly fresh game.
 // Note: SaveGameToMemory stores every non-transient UPROPERTY of UCDSaveGame.
 #pragma once
 
@@ -72,6 +76,15 @@ enum class ECDSaveFileStatus : uint8
 	NewerVersion
 };
 
+UENUM(BlueprintType)
+enum class ECDLoadResult : uint8
+{
+	Loaded,          // main was the newest valid copy
+	Recovered,       // _tmp or _bak was newer / main was not valid
+	Fresh,           // no save existed: a new game
+	Incompatible     // a copy is from a newer build (format or version): read-only; the returned object is that copy if readable, else empty
+};
+
 UCLASS()
 class CASTLEDEFENDER_API UCDSaveSubsystem : public UGameInstanceSubsystem
 {
@@ -87,6 +100,9 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "Save")
 	UCDSaveGame* GetCurrent() const { return Current; }
+
+	UFUNCTION(BlueprintPure, Category = "Save")
+	ECDLoadResult GetLastLoadResult() const { return LastLoadResult; }
 
 	// True when this slot holds a save from a newer game build: it is read-only, Save() refuses to write it. Other slots are unaffected.
 	UFUNCTION(BlueprintPure, Category = "Save")
@@ -107,4 +123,5 @@ private:
 	TObjectPtr<UCDSaveGame> Current;
 
 	TSet<FString> ReadOnlySlots;
+	ECDLoadResult LastLoadResult = ECDLoadResult::Fresh;
 };

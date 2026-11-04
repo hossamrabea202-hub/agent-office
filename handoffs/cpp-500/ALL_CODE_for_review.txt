@@ -1,5 +1,4 @@
-Castle Defender (UE 5.8.4) - C++ transition kit, REVISION 4 + ROUND 2 (HUD: ACDHudBase + swap script). See README_CPP.md and README_ROUND2_HUD.md
-Still NOT compiled: no compiler on the writing machine.
+Castle Defender (UE 5.8.4) - C++ kit REVISION 4.1 + ROUND 2 (HUD). Fixes from the 4th review; see README_ROUND2_HUD.md. Still NOT compiled.
 
 ==================================================================
 FILE: Source/CastleDefender.Target.cs
@@ -895,8 +894,13 @@ FILE: Source/CastleDefender/CDHudBase.h
 //   GetActorOfClass       -> GetCachedActorOfClass     (kept until that actor is gone; a missing class is looked for again at most every MissingRetry s)
 //   GetAllActorsOfClass   -> GetCachedActorsOfClass    (zombie classes: read live from the crowd registry; other classes: reused for MaxAge s)
 //   GetAllActorsWithTag   -> GetCachedActorsWithTag    (reused for MaxAge s)
-// Same pins as the engine nodes, so hud_swap_scans_ue.py can swap them in place. Semantics differ in one way only, on purpose: a result can be up to
-// MaxAge old (a new actor shows up to MaxAge later; destroyed actors are always filtered out). Use the engine node where that matters.
+// Same pins as the engine nodes, so hud_swap_scans_ue.py can swap them in place. Behaviour differences (all deliberate, check before swapping a node):
+//   - class / tag lists can be up to MaxAge old: a new actor, or an actor that GAINS the tag, shows up to MaxAge later; destroyed actors and actors
+//     that LOST the tag never show;
+//   - GetCachedActorOfClass keeps the first actor it found until that actor is destroyed: a stable choice, which the engine node does not promise
+//     when several actors match. Meant for singletons (wave manager, director, player helpers); the swap script leaves GetActorOfClass alone unless
+//     asked (--include-single);
+//   - refresh uses real time, so caches still refresh while the game is paused.
 // `stat CastleDefender` shows "HUD DrawHUD (whole chain)" and the cache hit / miss counters.
 #pragma once
 
@@ -919,9 +923,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Castle Defender|HUD")
 	void GetCachedActorsWithTag(FName Tag, TArray<AActor*>& OutActors);
 
-	// Rendered in the last Tolerance seconds (cheap; replaces per-actor line-of-sight traces for "is it visible" checks).
+	// Rendered by any view in the last Tolerance seconds. NOT a line-of-sight test and not "on this player's screen": an approximation for cosmetic
+	// HUD decisions only.
 	UFUNCTION(BlueprintPure, Category = "Castle Defender|HUD")
-	static bool IsActorOnScreen(const AActor* Actor, float Tolerance = 0.1f);
+	static bool WasActorRecentlyRendered(const AActor* Actor, float Tolerance = 0.1f);
 
 	// Drop every cache now (for example after a level change or a big spawn the HUD must show at once).
 	UFUNCTION(BlueprintCallable, Category = "Castle Defender|HUD")
@@ -965,6 +970,7 @@ FILE: Source/CastleDefender/CDHudBase.cpp
 #include "CrowdSubsystem.h"
 #include "ZombieBase.h"
 #include "Engine/World.h"
+#include "HAL/PlatformTime.h"
 #include "Kismet/GameplayStatics.h"
 
 DECLARE_CYCLE_STAT(TEXT("HUD DrawHUD (whole chain)"), STAT_CD_HudDraw, STATGROUP_CastleDefender);
@@ -974,13 +980,12 @@ DECLARE_DWORD_ACCUMULATOR_STAT(TEXT("HUD cache scans"), STAT_CD_HudScans, STATGR
 void ACDHudBase::DrawHUD()
 {
 	CD_SCOPE(STAT_CD_HudDraw);
-	Super::DrawHUD();   // runs every Blueprint level's Receive Draw HUD
+	Super::DrawHUD();   // runs the Blueprint Receive Draw HUD event; each HUD level still calls (or not) its parent level as its graph does today
 }
 
 double ACDHudBase::Now() const
 {
-	const UWorld* World = GetWorld();
-	return World ? World->GetTimeSeconds() : 0.0;
+	return FPlatformTime::Seconds();   // real time: refreshes while the game is paused
 }
 
 void ACDHudBase::Resolve(const TArray<TWeakObjectPtr<AActor>>& In, TArray<AActor*>& Out)
@@ -1084,7 +1089,7 @@ void ACDHudBase::GetCachedActorsWithTag(FName Tag, TArray<AActor*>& OutActors)
 	OutActors.RemoveAll([Tag](const AActor* A) { return !A->ActorHasTag(Tag); });
 }
 
-bool ACDHudBase::IsActorOnScreen(const AActor* Actor, float Tolerance)
+bool ACDHudBase::WasActorRecentlyRendered(const AActor* Actor, float Tolerance)
 {
 	return IsValid(Actor) && Actor->WasRecentlyRendered(FMath::Max(0.f, Tolerance));
 }
@@ -1114,9 +1119,13 @@ FILE: Source/CastleDefender/CDSaveGame.h
 //     main untouched (a failed save is never recovered later)
 //   3 write main and read it back. If this fails: return false, but the verified _tmp is KEPT as recoverable progress (main may be damaged now)
 //   4 delete _tmp.
-// Recovery (LoadOrCreate): among the Valid copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak. A _tmp can only be left
-//   by step 3 failing (or a crash between 3 and 4), so it is newer than main only when its commit did not complete. Corrupt / older copies never
-//   replace a newer valid one. An UnsupportedFormat or NewerVersion copy makes the slot read-only (per slot).
+// Recovery (LoadOrCreate): among the Valid copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak.
+//   POLICY (accepted, not a full transaction): a verified _tmp that is newer than main is recovered, whatever stopped the save: a crash right
+//   after step 1, a crash before step 4, or a failed main write. Only the error-return path of step 2 deletes _tmp (and that delete can itself fail).
+//   So "Save returned false" means "not committed by this call", not "can never come back after a crash". Corrupt / older copies never replace a
+//   newer valid one. An UnsupportedFormat or NewerVersion copy makes the slot read-only (per slot).
+// LoadOrCreate always returns an object; GetLastLoadResult tells the game what happened, so it can show "this save needs a newer version" instead
+// of a seemingly fresh game.
 // Note: SaveGameToMemory stores every non-transient UPROPERTY of UCDSaveGame.
 #pragma once
 
@@ -1173,6 +1182,15 @@ enum class ECDSaveFileStatus : uint8
 	NewerVersion
 };
 
+UENUM(BlueprintType)
+enum class ECDLoadResult : uint8
+{
+	Loaded,          // main was the newest valid copy
+	Recovered,       // _tmp or _bak was newer / main was not valid
+	Fresh,           // no save existed: a new game
+	Incompatible     // a copy is from a newer build (format or version): read-only; the returned object is that copy if readable, else empty
+};
+
 UCLASS()
 class CASTLEDEFENDER_API UCDSaveSubsystem : public UGameInstanceSubsystem
 {
@@ -1188,6 +1206,9 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "Save")
 	UCDSaveGame* GetCurrent() const { return Current; }
+
+	UFUNCTION(BlueprintPure, Category = "Save")
+	ECDLoadResult GetLastLoadResult() const { return LastLoadResult; }
 
 	// True when this slot holds a save from a newer game build: it is read-only, Save() refuses to write it. Other slots are unaffected.
 	UFUNCTION(BlueprintPure, Category = "Save")
@@ -1208,6 +1229,7 @@ private:
 	TObjectPtr<UCDSaveGame> Current;
 
 	TSet<FString> ReadOnlySlots;
+	ECDLoadResult LastLoadResult = ECDLoadResult::Fresh;
 };
 
 ==================================================================
@@ -1379,6 +1401,7 @@ UCDSaveGame* UCDSaveSubsystem::LoadOrCreate(const FString& Slot)
 			BestFile = File;
 		}
 	}
+	LastLoadResult = bBlocked ? ECDLoadResult::Incompatible : (!Best ? ECDLoadResult::Fresh : (BestFile == Slot ? ECDLoadResult::Loaded : ECDLoadResult::Recovered));
 	if (bBlocked)
 	{
 		ReadOnlySlots.Add(Slot);
@@ -1579,7 +1602,7 @@ private:
 	void Park(AActor* Actor, uint32 ExpectedGeneration);
 	void PurgeInvalid(UClass* Class);
 	FRecord* FindCurrent(AActor* Actor, uint32 Generation, EState State);
-	static void ResetEngineState(AActor* Actor, FParkedState& Out);
+	static bool ResetEngineState(AActor* Actor, FParkedState& Out);   // false: a callback destroyed the actor or a component
 	static void RestoreComponents(const FParkedState& State);
 
 	TMap<TWeakObjectPtr<AActor>, FRecord> Records;
@@ -1633,7 +1656,7 @@ UCDPoolSubsystem::FRecord* UCDPoolSubsystem::FindCurrent(AActor* Actor, uint32 G
 	return (R && R->Generation == Generation && R->State == State) ? R : nullptr;
 }
 
-void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
+bool UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
 {
 	// Works on a local struct only: Deactivate / SetComponentTickEnabled may run callbacks that change the pool's maps.
 	if (UWorld* World = Actor->GetWorld())
@@ -1657,13 +1680,21 @@ void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
 			if (Mover->IsActive())
 			{
 				Out.MoversOff.Add(Mover);
-				Mover->Deactivate();
+				Mover->Deactivate();               // may run callbacks
+				if (!IsValid(Actor) || !IsValid(Comp))
+				{
+					return false;                  // the callback destroyed the actor or the component: stop touching it
+				}
 			}
 		}
 		if (Comp->IsComponentTickEnabled())
 		{
 			Out.TicksOff.Add(Comp);
 			Comp->SetComponentTickEnabled(false);
+			if (!IsValid(Actor))
+			{
+				return false;
+			}
 		}
 	}
 	if (UPrimitiveComponent* Root = Cast<UPrimitiveComponent>(Actor->GetRootComponent()))
@@ -1674,6 +1705,7 @@ void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FParkedState& Out)
 			Root->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);
 		}
 	}
+	return IsValid(Actor);
 }
 
 void UCDPoolSubsystem::RestoreComponents(const FParkedState& State)
@@ -1765,11 +1797,15 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 		ICDPoolable::Execute_OnAcquired(Actor);   // fresh spawn: its own BeginPlay state, nothing to restore
 		return Actor;
 	}
-	RestoreComponents(Parked);                 // may run callbacks
+	RestoreComponents(Parked);                 // may run callbacks (component activation)
+	if (!IsValid(Actor) || !FindCurrent(Actor, Generation, EState::Active))
+	{
+		return nullptr;                        // a callback destroyed or released it: do not touch it again
+	}
 	ICDPoolable::Execute_OnAcquired(Actor);    // reset gameplay state while still hidden and without collision
 	if (!IsValid(Actor) || !FindCurrent(Actor, Generation, EState::Active))
 	{
-		return IsValid(Actor) ? Actor : nullptr;   // a callback released or destroyed it: leave it as that left it
+		return nullptr;
 	}
 	Actor->SetActorHiddenInGame(Parked.bWasHidden);
 	Actor->SetActorTickEnabled(Parked.bHadTick);
@@ -1853,8 +1889,8 @@ void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 		return;
 	}
 	FParkedState Parked;
-	ResetEngineState(Actor, Parked);            // may run callbacks: no record reference held
-	if (!IsValid(Actor))
+	const bool bResetOk = ResetEngineState(Actor, Parked);   // may run callbacks: no record reference held
+	if (!bResetOk || !IsValid(Actor))
 	{
 		Records.Remove(Actor);
 		return;
@@ -2293,7 +2329,14 @@ print('BP', BP, '| parent now', parent.get_name() if parent else None)
 if parent == cls: print('STOP: already reparented. Nothing changed.'); raise SystemExit
 if not parent or parent.get_name() != 'HUD': print('STOP: expected parent HUD. Nothing changed.'); raise SystemExit
 def errs(b):
-    BEL.compile_blueprint(b); return sorted(n.get_name() for n in GE.get_graph_editor(BEL.find_event_graph(b)).list_nodes_with_errors())
+    # real compile status first (reviewer: not only error nodes in the main graph), plus error nodes for the report
+    BEL.compile_blueprint(b)
+    out = sorted(n.get_name() for n in GE.get_graph_editor(BEL.find_event_graph(b)).list_nodes_with_errors())
+    try:
+        st = str(b.get_editor_property('status'))
+        if 'ERROR' in st.upper(): out.append('STATUS:' + st)
+    except Exception: pass
+    return out
 chain = [unreal.load_asset('/Game/CastleDefender/Gameplay/Castle/' + h) for h in CHAIN] if '--bp' not in A else []
 before = {b.get_name(): errs(b) for b in [bp] + [c for c in chain if c]}
 print('errors before:', {k: len(v) for k, v in before.items()})
@@ -2316,15 +2359,17 @@ else: EA.save_asset(BP, only_if_is_dirty=False); print('saved', BP)
 ==================================================================
 FILE: hud_swap_scans_ue.py
 ==================================================================
-# #500 C++ round 2 (i5 for i9): swap the HUD chain's world scans for ACDHudBase's cached versions, in place, one Blueprint at a time.
-#   GetActorOfClass -> GetCachedActorOfClass,  GetAllActorsOfClass -> GetCachedActorsOfClass,  GetAllActorsWithTag -> GetCachedActorsWithTag
-# Same pin names: every link (exec in / out, inputs, outputs) and every pin value (class, tag) moves to the new node; the old node is removed.
-# Needs: the C++ module built, and BP_ZombieHUD reparented to CDHudBase first (reparent_hud_ue.py), so every HUD level inherits the cached functions.
-#   py hud_swap_scans_ue.py                      dry run: lists every node it would swap, per Blueprint; changes nothing
-#   py hud_swap_scans_ue.py --apply [--only BP_CommanderHUD]   backup Saved/bak500/<BP>.uasset.hud2, swap, compile, save ONLY if no new errors
-#   --skip <NodeName,...>   leave these nodes on the engine version (where a result must be exact this frame)
+# #500 C++ round 2 (i5 for i9): swap the HUD chain's world scans for ACDHudBase's cached versions, in place, ONE Blueprint at a time.
+#   GetAllActorsOfClass -> GetCachedActorsOfClass,  GetAllActorsWithTag -> GetCachedActorsWithTag
+#   GetActorOfClass -> GetCachedActorOfClass ONLY with --include-single (the cache keeps the first actor found: right for singletons, not in general)
+# Reviewer's rules (11-04): every graph of the Blueprint, nodes found by their function reference (GameplayStatics), the swap is first done on a COPY,
+# compiled and compared (compile status + every link and value), and only then on the original. Start with ONE Blueprint and Play-check it.
+#   py hud_swap_scans_ue.py                                   dry run: every matching node per Blueprint and graph; changes nothing
+#   py hud_swap_scans_ue.py --apply --only BP_CommanderHUD    copy test, then the real one: backup Saved/bak500/<BP>.uasset.hud2, save only if clean
+#   --skip <NodeName,...>  keep these on the engine node     --include-single  also swap GetActorOfClass
+# Needs: the C++ module built and BP_ZombieHUD reparented to CDHudBase (reparent_hud_ue.py). Editor idle, not in Play.
 # Revert: close the editor, copy Saved/bak500/<BP>.uasset.hud2 back over Content/CastleDefender/Gameplay/Castle/<BP>.uasset.
-import os, shutil, sys, unreal
+import os, shutil, sys, time, unreal
 A = sys.argv[1:]
 APPLY = '--apply' in A
 ONLY = A[A.index('--only') + 1] if '--only' in A else None
@@ -2333,79 +2378,135 @@ BEL, PL, GE, EA = unreal.BlueprintEditorLibrary, unreal.BlueprintGraphPinLibrary
 P = '/Game/CastleDefender/Gameplay/Castle/'
 HUDS = ['BP_ZombieHUD', 'BP_MinimapHUD', 'BP_SkillTreeHUD', 'BP_BarracksHUD', 'BP_ArmyHUD', 'BP_ControlsHUD', 'BP_QueueHUD', 'BP_HeroHUD',
         'BP_CommanderHUD', 'BP_ArmoryHUD', 'BP_NoticeHUD']
-MAP = {  # engine title -> (cached function, input pins, output pins)
-    'GetActorOfClass': ('GetCachedActorOfClass', ['ActorClass'], ['ReturnValue']),
+MAP = {  # GameplayStatics function -> (cached function, input pins, output pins)
     'GetAllActorsOfClass': ('GetCachedActorsOfClass', ['ActorClass'], ['OutActors']),
     'GetAllActorsWithTag': ('GetCachedActorsWithTag', ['Tag'], ['OutActors']),
 }
+if '--include-single' in A:
+    MAP['GetActorOfClass'] = ('GetCachedActorOfClass', ['ActorClass'], ['ReturnValue'])
+if APPLY and not ONLY:
+    print('STOP: --apply needs --only <Blueprint> (one at a time, Play-check between). Nothing changed.'); raise SystemExit
 BASE = unreal.load_class(None, '/Script/CastleDefender.CDHudBase')
 if not BASE: print('STOP: /Script/CastleDefender.CDHudBase not loaded. Build the C++ module first. Nothing changed.'); raise SystemExit
 
-def inherits(bp):
-    return unreal.MathLibrary.class_is_child_of(bp.generated_class(), BASE)
+def graphs(bp):
+    """Every graph we can reach; says which way it got them."""
+    for fn in ('list_graphs', 'get_all_graphs'):
+        f = getattr(BEL, fn, None)
+        if f:
+            try:
+                g = list(f(bp))
+                if g: return g, fn
+            except Exception: pass
+    out = [BEL.find_event_graph(bp)]
+    for prop in ('ubergraph_pages', 'function_graphs', 'macro_graphs'):
+        try: out += [g for g in bp.get_editor_property(prop) if g not in out]
+        except Exception: pass
+    return [g for g in out if g], 'properties' if len(out) > 1 else 'EVENT GRAPH ONLY (other graphs not reachable from Python here: check them by hand)'
+
+def function_of(n):
+    """(owner class name, function name) from the node's function reference; title only as a labelled fallback."""
+    try:
+        ref = n.get_editor_property('function_reference')
+        name = str(ref.get_editor_property('member_name'))
+        parent = ref.get_editor_property('member_parent')
+        return (parent.get_name() if parent else '?'), name, 'ref'
+    except Exception:
+        t = str(n.get_node_title()).replace(' ', '').replace('\n', '')
+        has_ctx = any(str(PL.get_pin_name(p)) == 'WorldContextObject' for p in BEL.list_all_pins(n))
+        return ('GameplayStatics' if has_ctx else '?'), t, 'title'
 
 def pin(n, name, out):
     p = BEL.find_output_pin(n, name) if out else BEL.find_input_pin(n, name)
     return p if p and PL.is_valid(p) else None
 
-def title(n): return str(n.get_node_title()).replace(' ', '').replace('\n', '')
+def links(n):
+    return sum(len(PL.list_connected_pins(p)) for p in BEL.list_all_pins(n))
 
-def errors(bp):
+def compiled_ok(bp):
     BEL.compile_blueprint(bp)
-    return sorted(x.get_name() for x in GE.get_graph_editor(BEL.find_event_graph(bp)).list_nodes_with_errors())
+    try:
+        st = bp.get_editor_property('status')
+        if st is not None: return 'ERROR' not in str(st).upper(), str(st)
+    except Exception: pass
+    bad = []
+    for g, _ in [(g, 0) for g in graphs(bp)[0]]:
+        bad += [x.get_name() for x in GE.get_graph_editor(g).list_nodes_with_errors()]
+    return not bad, 'nodes with errors: %s' % bad
+
+def find_targets(bp):
+    gs, how = graphs(bp); found = []
+    for g in gs:
+        for n in GE.get_graph_editor(g).list_all_nodes():
+            if n.get_class().get_name() != 'K2Node_CallFunction': continue
+            owner, fn, via = function_of(n)
+            if fn in MAP and owner.startswith('GameplayStatics') and n.get_name() not in SKIP:
+                found.append((g, n, fn, via))
+    return found, how
+
+def swap(bp):
+    """Swap every target in bp. Returns (count, failures)."""
+    targets, _ = find_targets(bp); fails = []
+    for g, old, fn, via in targets:
+        ge = GE.get_graph_editor(g)
+        cfn, ins, outs = MAP[fn]
+        before = links(old)
+        new = ge.add_call_function_node('/Script/CastleDefender.CDHudBase:' + cfn)
+        if not new: fails.append('%s (could not create %s)' % (old.get_name(), cfn)); continue
+        try: BEL.set_node_pos(new, unreal.IntPoint(old.get_editor_property('node_pos_x'), old.get_editor_property('node_pos_y') + 40))
+        except Exception: pass
+        for name in ins:                      # class / tag first: it types the outputs
+            op, np = pin(old, name, False), pin(new, name, False)
+            if not op or not np: fails.append('%s.%s (no pin)' % (old.get_name(), name)); continue
+            srcs = PL.list_connected_pins(op)
+            for s in srcs:
+                if not PL.try_create_connection(s, np): fails.append('%s.%s (input link)' % (old.get_name(), name))
+            if not srcs and not PL.set_pin_value(np, PL.get_pin_value(op)):
+                fails.append('%s.%s = %s (value refused)' % (old.get_name(), name, PL.get_pin_value(op)))
+        ex_old, ex_new = pin(old, 'execute', False), pin(new, 'execute', False)
+        for s in (PL.list_connected_pins(ex_old) if ex_old else []):
+            if not ex_new or not PL.try_create_connection(s, ex_new): fails.append(old.get_name() + '.execute (link)')
+        for name in ['then'] + outs:
+            op, np = pin(old, name, True), pin(new, name, True)
+            if not op: continue
+            for t in list(PL.list_connected_pins(op)):
+                if not np or not PL.try_create_connection(np, t): fails.append('%s.%s -> %s (output link)' % (old.get_name(), name, PL.get_owning_node(t).get_name()))
+        after = links(new)
+        if after != before: fails.append('%s: %d links before, %d after on the new node' % (old.get_name(), before, after))
+        ge.remove_nodes([old])
+    return len(targets), fails
 
 total = 0
 for h in HUDS:
     if ONLY and h != ONLY: continue
     bp = unreal.load_asset(P + h)
     if not bp: print(h, 'missing'); continue
-    ge = GE.get_graph_editor(BEL.find_event_graph(bp))
-    targets = [n for n in ge.list_all_nodes() if n.get_class().get_name() == 'K2Node_CallFunction' and title(n) in MAP and n.get_name() not in SKIP]
-    print('%-16s %d to swap: %s' % (h, len(targets), ', '.join('%s(%s)' % (n.get_name(), title(n)) for n in targets)))
+    targets, how = find_targets(bp)
     total += len(targets)
+    print('%-16s graphs via %s | %d to swap: %s' % (h, how, len(targets), ', '.join('%s/%s(%s,%s)' % (g.get_name(), n.get_name(), fn, via) for g, n, fn, via in targets)))
     if not APPLY or not targets: continue
-    if not inherits(bp):
-        print('   STOP %s: does not inherit CDHudBase yet (run reparent_hud_ue.py on BP_ZombieHUD first). Nothing changed here.' % h); continue
-    before = errors(bp)
+    if not unreal.MathLibrary.class_is_child_of(bp.generated_class(), BASE):
+        print('   STOP: %s does not inherit CDHudBase yet (reparent_hud_ue.py first). Nothing changed.' % h); continue
+    ok0, st0 = compiled_ok(bp)
+    if not ok0: print('   STOP: %s does not compile cleanly BEFORE the swap (%s). Nothing changed.' % (h, st0)); continue
+    # 1. on a copy (new folder per run: never delete a temp Blueprint and reuse it in the same editor session)
+    tmp = '/Game/_hudswap_%s/%s_test' % (time.strftime('%H%M%S'), h)
+    EA.duplicate_asset(P + h, tmp); cp = unreal.load_asset(tmp)
+    n, fails = swap(cp); okc, stc = compiled_ok(cp)
+    rest, _ = find_targets(cp)
+    print('   COPY %s: swapped %d | failures %s | compile %s (%s) | matching nodes left %d' % (tmp, n, fails, okc, stc, len(rest)))
+    if fails or not okc or rest:
+        print('   STOP: the copy did not pass. The original is untouched.'); continue
+    # 2. the original
     src = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_content_dir()) + (P + h)[len('/Game/'):] + '.uasset'
     dst = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_saved_dir()) + 'bak500/' + h + '.uasset.hud2'
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     if not os.path.exists(dst): shutil.copy2(src, dst)
-    fails = []
-    for old in targets:
-        fn, ins, outs = MAP[title(old)]
-        new = ge.add_call_function_node('/Script/CastleDefender.CDHudBase:' + fn)
-        if not new: fails.append(old.get_name() + ' (could not create ' + fn + ')'); continue
-        try: BEL.set_node_pos(new, unreal.IntPoint(old.get_editor_property('node_pos_x'), old.get_editor_property('node_pos_y') + 40))
-        except Exception: pass
-        for name in ins:                                   # value or link of the class / tag pin first: it types the outputs
-            op, np = pin(old, name, False), pin(new, name, False)
-            if not op or not np: fails.append('%s.%s (no pin)' % (old.get_name(), name)); continue
-            src_links = PL.list_connected_pins(op)
-            if src_links:
-                for s in src_links:
-                    if not PL.try_create_connection(s, np): fails.append('%s.%s (in link)' % (old.get_name(), name))
-            elif not PL.set_pin_value(np, PL.get_pin_value(op)):
-                fails.append('%s.%s = %s (value refused)' % (old.get_name(), name, PL.get_pin_value(op)))
-        ex_old, ex_new = pin(old, 'execute', False), pin(new, 'execute', False)
-        if ex_old and ex_new:
-            for s in PL.list_connected_pins(ex_old):
-                if not PL.try_create_connection(s, ex_new): fails.append(old.get_name() + '.execute (link)')
-        elif ex_old and PL.list_connected_pins(ex_old):
-            fails.append(old.get_name() + '.execute (new node has no exec pin)')
-        for name in ['then'] + outs:
-            op, np = pin(old, name, True), pin(new, name, True)
-            if not op: continue
-            if not np: fails.append('%s.%s (no out pin)' % (old.get_name(), name)); continue
-            for t in PL.list_connected_pins(op):
-                PL.break_single_pin_link(op, t)
-                if not PL.try_create_connection(np, t): fails.append('%s.%s -> %s (out link)' % (old.get_name(), name, PL.get_owning_node(t).get_name()))
-        ge.remove_nodes([old])
-    after = errors(bp); new_err = [e for e in after if e not in before]
-    print('   RESULT %s | link/value failures %s | new errors %s | old errors %d' % (h, fails, new_err, len(before)))
-    if fails or new_err:
-        print('   NOT SAVED: reload %s without saving (or restart the editor) and send i5 this output.' % h); continue
-    EA.save_asset(P + h, only_if_is_dirty=False); print('   saved', h, '(backup', dst + ')')
-print('total nodes %s: %d' % ('swapped' if APPLY else 'to swap', total))
+    n, fails = swap(bp); ok, st = compiled_ok(bp)
+    print('   REAL %s: swapped %d | failures %s | compile %s (%s)' % (h, n, fails, ok, st))
+    if fails or not ok:
+        print('   NOT SAVED. The in-memory Blueprint is changed: File > Reload it (or restart the editor without saving) and send i5 this output.'); continue
+    EA.save_asset(P + h, only_if_is_dirty=False); print('   saved %s (backup %s). Play-check it before the next one.' % (h, dst))
+print('total matching nodes: %d' % total)
 if not APPLY: print('dry run, nothing changed')
 
