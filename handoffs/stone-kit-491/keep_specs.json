@@ -1,0 +1,1937 @@
+{
+"out": "C:/Users/hossa/sync58/tunnel/keep_fbx",
+"boxes": [
+{
+"name": "SM_Keep_Box_25x120x82",
+"size": [
+25,
+120,
+82
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 200
+},
+{
+"name": "SM_Keep_Box_25x120x107",
+"size": [
+25,
+120,
+107
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 201
+},
+{
+"name": "SM_Keep_Box_25x120x132",
+"size": [
+25,
+120,
+132
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 202
+},
+{
+"name": "SM_Keep_Box_25x120x157",
+"size": [
+25,
+120,
+157
+],
+"depth": 0.12,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 203
+},
+{
+"name": "SM_Keep_Box_25x120x182",
+"size": [
+25,
+120,
+182
+],
+"depth": 0.12,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 204
+},
+{
+"name": "SM_Keep_Box_25x120x207",
+"size": [
+25,
+120,
+207
+],
+"depth": 0.12,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 205
+},
+{
+"name": "SM_Keep_Box_28x120x38",
+"size": [
+28,
+120,
+38
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 206
+},
+{
+"name": "SM_Keep_Box_28x120x57",
+"size": [
+28,
+120,
+57
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 207
+},
+{
+"name": "SM_Keep_Box_28x120x76",
+"size": [
+28,
+120,
+76
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 208
+},
+{
+"name": "SM_Keep_Box_28x120x95",
+"size": [
+28,
+120,
+95
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 209
+},
+{
+"name": "SM_Keep_Box_28x120x114",
+"size": [
+28,
+120,
+114
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 210
+},
+{
+"name": "SM_Keep_Box_28x120x133",
+"size": [
+28,
+120,
+133
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 211
+},
+{
+"name": "SM_Keep_Box_30x120x377",
+"size": [
+30,
+120,
+377
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 212
+},
+{
+"name": "SM_Keep_Box_30x120x395",
+"size": [
+30,
+120,
+395
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 213
+},
+{
+"name": "SM_Keep_Box_40x140x170",
+"size": [
+40,
+140,
+170
+],
+"depth": 0.195,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 214
+},
+{
+"name": "SM_Keep_Box_40x230x448",
+"size": [
+40,
+230,
+448
+],
+"depth": 0.195,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 215
+},
+{
+"name": "SM_Keep_Box_40x600x448",
+"size": [
+40,
+600,
+448
+],
+"depth": 0.195,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 216
+},
+{
+"name": "SM_Keep_Box_50x85x808",
+"size": [
+50,
+85,
+808
+],
+"depth": 0.245,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 217
+},
+{
+"name": "SM_Keep_Box_50x120x35",
+"size": [
+50,
+120,
+35
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 218
+},
+{
+"name": "SM_Keep_Box_50x120x470",
+"size": [
+50,
+120,
+470
+],
+"depth": 0.245,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 219
+},
+{
+"name": "SM_Keep_Box_50x127x230",
+"size": [
+50,
+127,
+230
+],
+"depth": 0.245,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 220
+},
+{
+"name": "SM_Keep_Box_50x174x230",
+"size": [
+50,
+174,
+230
+],
+"depth": 0.245,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 221
+},
+{
+"name": "SM_Keep_Box_50x890x215",
+"size": [
+50,
+890,
+215
+],
+"depth": 0.245,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 222
+},
+{
+"name": "SM_Keep_Box_50x890x363",
+"size": [
+50,
+890,
+363
+],
+"depth": 0.245,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 223
+},
+{
+"name": "SM_Keep_Box_90x30x90",
+"size": [
+90,
+30,
+90
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 224
+},
+{
+"name": "SM_Keep_Box_100x34x60",
+"size": [
+100,
+34,
+60
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 225
+},
+{
+"name": "SM_Keep_Box_100x34x80",
+"size": [
+100,
+34,
+80
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 226
+},
+{
+"name": "SM_Keep_Box_100x34x99",
+"size": [
+100,
+34,
+99
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 227
+},
+{
+"name": "SM_Keep_Box_100x34x119",
+"size": [
+100,
+34,
+119
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 228
+},
+{
+"name": "SM_Keep_Box_100x34x139",
+"size": [
+100,
+34,
+139
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 229
+},
+{
+"name": "SM_Keep_Box_100x34x159",
+"size": [
+100,
+34,
+159
+],
+"depth": 0.165,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 230
+},
+{
+"name": "SM_Keep_Box_100x34x199",
+"size": [
+100,
+34,
+199
+],
+"depth": 0.165,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 231
+},
+{
+"name": "SM_Keep_Box_100x34x219",
+"size": [
+100,
+34,
+219
+],
+"depth": 0.165,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 232
+},
+{
+"name": "SM_Keep_Box_100x34x238",
+"size": [
+100,
+34,
+238
+],
+"depth": 0.165,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 233
+},
+{
+"name": "SM_Keep_Box_100x34x258",
+"size": [
+100,
+34,
+258
+],
+"depth": 0.165,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 234
+},
+{
+"name": "SM_Keep_Box_100x34x278",
+"size": [
+100,
+34,
+278
+],
+"depth": 0.165,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 235
+},
+{
+"name": "SM_Keep_Box_100x34x298",
+"size": [
+100,
+34,
+298
+],
+"depth": 0.165,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 236
+},
+{
+"name": "SM_Keep_Box_100x75x219",
+"size": [
+100,
+75,
+219
+],
+"depth": 0.37,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 237
+},
+{
+"name": "SM_Keep_Box_100x120x152",
+"size": [
+100,
+120,
+152
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 238
+},
+{
+"name": "SM_Keep_Box_100x160x152",
+"size": [
+100,
+160,
+152
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 239
+},
+{
+"name": "SM_Keep_Box_110x30x210",
+"size": [
+110,
+30,
+210
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 240
+},
+{
+"name": "SM_Keep_Box_110x60x185",
+"size": [
+110,
+60,
+185
+],
+"depth": 0.295,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 241
+},
+{
+"name": "SM_Keep_Box_110x90x160",
+"size": [
+110,
+90,
+160
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 242
+},
+{
+"name": "SM_Keep_Box_110x120x135",
+"size": [
+110,
+120,
+135
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 243
+},
+{
+"name": "SM_Keep_Box_110x150x110",
+"size": [
+110,
+150,
+110
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 244
+},
+{
+"name": "SM_Keep_Box_110x180x85",
+"size": [
+110,
+180,
+85
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 245
+},
+{
+"name": "SM_Keep_Box_120x27x37",
+"size": [
+120,
+27,
+37
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 246
+},
+{
+"name": "SM_Keep_Box_120x27x56",
+"size": [
+120,
+27,
+56
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 247
+},
+{
+"name": "SM_Keep_Box_120x27x75",
+"size": [
+120,
+27,
+75
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 248
+},
+{
+"name": "SM_Keep_Box_120x27x93",
+"size": [
+120,
+27,
+93
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 249
+},
+{
+"name": "SM_Keep_Box_120x27x112",
+"size": [
+120,
+27,
+112
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 250
+},
+{
+"name": "SM_Keep_Box_120x27x130",
+"size": [
+120,
+27,
+130
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 251
+},
+{
+"name": "SM_Keep_Box_120x27x149",
+"size": [
+120,
+27,
+149
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 252
+},
+{
+"name": "SM_Keep_Box_120x27x168",
+"size": [
+120,
+27,
+168
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 253
+},
+{
+"name": "SM_Keep_Box_120x27x186",
+"size": [
+120,
+27,
+186
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 254
+},
+{
+"name": "SM_Keep_Box_120x27x205",
+"size": [
+120,
+27,
+205
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 255
+},
+{
+"name": "SM_Keep_Box_120x27x224",
+"size": [
+120,
+27,
+224
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 256
+},
+{
+"name": "SM_Keep_Box_120x27x242",
+"size": [
+120,
+27,
+242
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 257
+},
+{
+"name": "SM_Keep_Box_120x27x261",
+"size": [
+120,
+27,
+261
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 258
+},
+{
+"name": "SM_Keep_Box_120x27x280",
+"size": [
+120,
+27,
+280
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 259
+},
+{
+"name": "SM_Keep_Box_120x27x298",
+"size": [
+120,
+27,
+298
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 260
+},
+{
+"name": "SM_Keep_Box_120x27x317",
+"size": [
+120,
+27,
+317
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 261
+},
+{
+"name": "SM_Keep_Box_120x27x336",
+"size": [
+120,
+27,
+336
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 262
+},
+{
+"name": "SM_Keep_Box_120x27x354",
+"size": [
+120,
+27,
+354
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 263
+},
+{
+"name": "SM_Keep_Box_120x27x373",
+"size": [
+120,
+27,
+373
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 264
+},
+{
+"name": "SM_Keep_Box_120x27x392",
+"size": [
+120,
+27,
+392
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 265
+},
+{
+"name": "SM_Keep_Box_120x27x410",
+"size": [
+120,
+27,
+410
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 266
+},
+{
+"name": "SM_Keep_Box_120x27x429",
+"size": [
+120,
+27,
+429
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 267
+},
+{
+"name": "SM_Keep_Box_120x27x447",
+"size": [
+120,
+27,
+447
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 268
+},
+{
+"name": "SM_Keep_Box_120x27x466",
+"size": [
+120,
+27,
+466
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 269
+},
+{
+"name": "SM_Keep_Box_120x27x485",
+"size": [
+120,
+27,
+485
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 270
+},
+{
+"name": "SM_Keep_Box_120x27x503",
+"size": [
+120,
+27,
+503
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 271
+},
+{
+"name": "SM_Keep_Box_120x27x522",
+"size": [
+120,
+27,
+522
+],
+"depth": 0.13,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 272
+},
+{
+"name": "SM_Keep_Box_120x30x24",
+"size": [
+120,
+30,
+24
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 273
+},
+{
+"name": "SM_Keep_Box_120x30x42",
+"size": [
+120,
+30,
+42
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 274
+},
+{
+"name": "SM_Keep_Box_120x30x61",
+"size": [
+120,
+30,
+61
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 275
+},
+{
+"name": "SM_Keep_Box_120x30x79",
+"size": [
+120,
+30,
+79
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 276
+},
+{
+"name": "SM_Keep_Box_120x30x98",
+"size": [
+120,
+30,
+98
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 277
+},
+{
+"name": "SM_Keep_Box_120x30x116",
+"size": [
+120,
+30,
+116
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 278
+},
+{
+"name": "SM_Keep_Box_120x30x135",
+"size": [
+120,
+30,
+135
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 279
+},
+{
+"name": "SM_Keep_Box_120x30x154",
+"size": [
+120,
+30,
+154
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 280
+},
+{
+"name": "SM_Keep_Box_120x30x172",
+"size": [
+120,
+30,
+172
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 281
+},
+{
+"name": "SM_Keep_Box_120x30x191",
+"size": [
+120,
+30,
+191
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 282
+},
+{
+"name": "SM_Keep_Box_120x30x209",
+"size": [
+120,
+30,
+209
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 283
+},
+{
+"name": "SM_Keep_Box_120x30x228",
+"size": [
+120,
+30,
+228
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 284
+},
+{
+"name": "SM_Keep_Box_120x30x246",
+"size": [
+120,
+30,
+246
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 285
+},
+{
+"name": "SM_Keep_Box_120x30x265",
+"size": [
+120,
+30,
+265
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 286
+},
+{
+"name": "SM_Keep_Box_120x30x284",
+"size": [
+120,
+30,
+284
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 287
+},
+{
+"name": "SM_Keep_Box_120x30x302",
+"size": [
+120,
+30,
+302
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 288
+},
+{
+"name": "SM_Keep_Box_120x30x321",
+"size": [
+120,
+30,
+321
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 289
+},
+{
+"name": "SM_Keep_Box_120x30x339",
+"size": [
+120,
+30,
+339
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 290
+},
+{
+"name": "SM_Keep_Box_120x30x358",
+"size": [
+120,
+30,
+358
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 291
+},
+{
+"name": "SM_Keep_Box_120x30x377",
+"size": [
+120,
+30,
+377
+],
+"depth": 0.145,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 292
+},
+{
+"name": "SM_Keep_Box_120x75x65",
+"size": [
+120,
+75,
+65
+],
+"single": true,
+"rb": 0.025,
+"rock": 1.4,
+"seed": 293
+},
+{
+"name": "SM_Keep_Box_120x580x65",
+"size": [
+120,
+580,
+65
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 294
+},
+{
+"name": "SM_Keep_Box_160x180x40",
+"size": [
+160,
+180,
+40
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 295
+},
+{
+"name": "SM_Keep_Box_160x300x220",
+"size": [
+160,
+300,
+220
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 296
+},
+{
+"name": "SM_Keep_Box_160x500x620",
+"size": [
+160,
+500,
+620
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 297
+},
+{
+"name": "SM_Keep_Box_190x500x90",
+"size": [
+190,
+500,
+90
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 298
+},
+{
+"name": "SM_Keep_Box_190x940x65",
+"size": [
+190,
+940,
+65
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 299
+},
+{
+"name": "SM_Keep_Box_190x2500x90",
+"size": [
+190,
+2500,
+90
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 300
+},
+{
+"name": "SM_Keep_Box_300x300x620",
+"size": [
+300,
+300,
+620
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 301
+},
+{
+"name": "SM_Keep_Box_330x325x44",
+"size": [
+330,
+325,
+44
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 302
+},
+{
+"name": "SM_Keep_Box_390x110x65",
+"size": [
+390,
+110,
+65
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 303
+},
+{
+"name": "SM_Keep_Box_390x940x65",
+"size": [
+390,
+940,
+65
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 304
+},
+{
+"name": "SM_Keep_Box_435x50x238",
+"size": [
+435,
+50,
+238
+],
+"depth": 0.245,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 305
+},
+{
+"name": "SM_Keep_Box_500x40x448",
+"size": [
+500,
+40,
+448
+],
+"depth": 0.195,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 306
+},
+{
+"name": "SM_Keep_Box_550x50x570",
+"size": [
+550,
+50,
+570
+],
+"depth": 0.245,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 307
+},
+{
+"name": "SM_Keep_Box_560x660x40",
+"size": [
+560,
+660,
+40
+],
+"depth": 0.38,
+"len": [
+0.45,
+0.95
+],
+"course": [
+0.42,
+0.56
+],
+"bottom": true,
+"damp": 0.3,
+"seed": 308
+}
+]
+}

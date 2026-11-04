@@ -1,0 +1,480 @@
+{
+ "out": "C:/Users/hossa/sync58/tunnel/curtain_fbx",
+ "boxes": [
+  {
+   "name": "SM_Curtain_SM_Bevel_007_1",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1104
+  },
+  {
+   "name": "SM_Curtain_SM_Bevel_007_10",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1105
+  },
+  {
+   "name": "SM_Curtain_BaileyNorthCurtain_SC",
+   "size": [
+    1220.0,
+    220.0,
+    65.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.7,
+    1.3
+   ],
+   "course": [
+    0.6,
+    0.7
+   ],
+   "damp": 0.0,
+   "seed": 1106
+  },
+  {
+   "name": "SM_Curtain_SM_Bevel_007_9",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1107
+  },
+  {
+   "name": "SM_Curtain_NorthCurtain_B138B_Mid",
+   "size": [
+    604.0,
+    160.0,
+    620.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1108
+  },
+  {
+   "name": "SM_Curtain_SM_Bevel_007_3",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1109
+  },
+  {
+   "name": "SM_Curtain_SM_Bevel_007_4",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1110
+  },
+  {
+   "name": "SM_Curtain_BaileyNorthCurtain",
+   "size": [
+    1220.0,
+    160.0,
+    620.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1111
+  },
+  {
+   "name": "SM_Curtain_SM_Bevel_007_0",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1112
+  },
+  {
+   "name": "SM_Curtain_SM_Bevel_007_8",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1113
+  },
+  {
+   "name": "SM_Curtain_SM_Bevel_007_6",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1114
+  },
+  {
+   "name": "SM_Curtain_BaileyEast_SC_B138C_Mid",
+   "size": [
+    195.0,
+    600.0,
+    45.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.7,
+    1.3
+   ],
+   "course": [
+    0.6,
+    0.7
+   ],
+   "damp": 0.0,
+   "seed": 1115
+  },
+  {
+   "name": "SM_Curtain_BaileyEastCurtain_B138C_Mid",
+   "size": [
+    160.0,
+    600.0,
+    620.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1116
+  },
+  {
+   "name": "SM_Curtain_SM_Bevel_007_2",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1117
+  },
+  {
+   "name": "SM_Curtain_SouthCurtain_B138A_Mid",
+   "size": [
+    604.0,
+    160.0,
+    620.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1118
+  },
+  {
+   "name": "SM_Curtain_Bailey_NorthCurtain_Buttress",
+   "size": [
+    120.0,
+    245.0,
+    540.0
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1119
+  },
+  {
+   "name": "SM_Curtain_WallFrontL_AAA",
+   "size": [
+    195.0,
+    1160.0,
+    712.5
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1120
+  },
+  {
+   "name": "SM_Curtain_WallFrontR_AAA",
+   "size": [
+    195.0,
+    1160.0,
+    712.5
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1121
+  },
+  {
+   "name": "SM_Curtain_WallSouthL_AAA",
+   "size": [
+    1160.0,
+    245.0,
+    712.5
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1122
+  },
+  {
+   "name": "SM_Curtain_WallSouthR_AAA",
+   "size": [
+    1160.0,
+    245.0,
+    712.5
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1123
+  },
+  {
+   "name": "SM_Curtain_WallNorthL_AAA",
+   "size": [
+    1160.0,
+    245.0,
+    712.5
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1124
+  },
+  {
+   "name": "SM_Curtain_WallNorthR_AAA",
+   "size": [
+    1160.0,
+    245.0,
+    712.5
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1125
+  },
+  {
+   "name": "SM_Curtain_WallBaileySouth_AAA",
+   "size": [
+    1218.0,
+    245.0,
+    847.7
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1126
+  },
+  {
+   "name": "SM_Curtain_WallBaileyEastL_AAA",
+   "size": [
+    195.0,
+    1551.0,
+    700.5
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1127
+  },
+  {
+   "name": "SM_Curtain_WallBaileyEastR_AAA",
+   "size": [
+    195.0,
+    825.0,
+    700.5
+   ],
+   "depth": 0.38,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6,
+   "seed": 1128
+  }
+ ]
+}

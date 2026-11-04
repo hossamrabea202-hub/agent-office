@@ -1,0 +1,900 @@
+{
+ "out": "C:/Users/hossa/sync58/tunnel/mason2_fbx",
+ "boxes": [
+  {
+   "name": "SM_Mason_BaileyTower_1",
+   "size": [
+    430.0,
+    430.0,
+    1020.0
+   ],
+   "depth": 0.38,
+   "seed": 2104,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6
+  },
+  {
+   "name": "SM_Mason_SouthCurtain_StringCourse_B138A_Mid_Skirt_1",
+   "size": [
+    604.0,
+    190.0,
+    40.0
+   ],
+   "depth": 0.38,
+   "seed": 2105,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.3920000073745847,
+    0.40800000767558814
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_CornerTower_1",
+   "size": [
+    430.0,
+    430.0,
+    1020.0
+   ],
+   "depth": 0.38,
+   "seed": 2106,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_1",
+   "size": [
+    520.0,
+    520.0,
+    75.0
+   ],
+   "depth": 0.38,
+   "seed": 2107,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.735,
+    0.765
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyNorthCurtain_SC_1",
+   "size": [
+    1220.0,
+    190.0,
+    90.0
+   ],
+   "depth": 0.38,
+   "seed": 2108,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.882,
+    0.918
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_KeepTurret_1",
+   "size": [
+    230.0,
+    230.0,
+    1180.0
+   ],
+   "depth": 0.38,
+   "seed": 2109,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_1",
+   "size": [
+    500.0,
+    500.0,
+    90.0
+   ],
+   "depth": 0.38,
+   "seed": 2110,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.882,
+    0.918
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_Skirt_1",
+   "size": [
+    500.0,
+    500.0,
+    180.7
+   ],
+   "depth": 0.38,
+   "seed": 2111,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.3
+  },
+  {
+   "name": "SM_Mason_KeepTurret_2",
+   "size": [
+    230.0,
+    230.0,
+    1180.0
+   ],
+   "depth": 0.38,
+   "seed": 2112,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6
+  },
+  {
+   "name": "SM_Mason_KeepTurret_Crenel5_1",
+   "size": [
+    95.0,
+    45.0,
+    40.0
+   ],
+   "depth": 0.38,
+   "seed": 2113,
+   "single": true,
+   "rb": 0.03,
+   "rock": 1.5
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_2",
+   "size": [
+    500.0,
+    500.0,
+    90.0
+   ],
+   "depth": 0.38,
+   "seed": 2114,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.882,
+    0.918
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyTower_2",
+   "size": [
+    430.0,
+    430.0,
+    1020.0
+   ],
+   "depth": 0.38,
+   "seed": 2115,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6
+  },
+  {
+   "name": "SM_Mason_NorthCurtain_StringCourse_B138B_Mid_Skirt_1",
+   "size": [
+    604.0,
+    190.0,
+    40.0
+   ],
+   "depth": 0.38,
+   "seed": 2116,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.3920000073745847,
+    0.40800000767558814
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyNorthCurtain_SC_Skirt_1",
+   "size": [
+    1220.0,
+    190.0,
+    148.9
+   ],
+   "depth": 0.38,
+   "seed": 2117,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.3
+  },
+  {
+   "name": "SM_Mason_BaileyEast_SC_B138C_Mid_1",
+   "size": [
+    190.0,
+    600.0,
+    90.0
+   ],
+   "depth": 0.38,
+   "seed": 2118,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.882,
+    0.918
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_3",
+   "size": [
+    520.0,
+    520.0,
+    75.0
+   ],
+   "depth": 0.38,
+   "seed": 2119,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.735,
+    0.765
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_NorthCurtain_StringCourse_B138B_Mid_1",
+   "size": [
+    604.0,
+    195.0,
+    45.0
+   ],
+   "depth": 0.38,
+   "seed": 2120,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_4",
+   "size": [
+    460.0,
+    460.0,
+    45.0
+   ],
+   "depth": 0.38,
+   "seed": 2121,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_2",
+   "size": [
+    500.0,
+    500.0,
+    90.0
+   ],
+   "depth": 0.38,
+   "seed": 2122,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.882,
+    0.918
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_KeepTurret_Crenel7_1",
+   "size": [
+    95.0,
+    45.0,
+    40.0
+   ],
+   "depth": 0.38,
+   "seed": 2123,
+   "single": true,
+   "rb": 0.03,
+   "rock": 1.5
+  },
+  {
+   "name": "SM_Mason_EastCurtain_StringCourse_1",
+   "size": [
+    195.0,
+    3300.0,
+    74.2
+   ],
+   "depth": 0.38,
+   "seed": 2124,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.726986335497752,
+    0.7566592471507215
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_5",
+   "size": [
+    520.0,
+    520.0,
+    75.0
+   ],
+   "depth": 0.38,
+   "seed": 2125,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.735,
+    0.765
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_6",
+   "size": [
+    490.0,
+    490.0,
+    60.0
+   ],
+   "depth": 0.38,
+   "seed": 2126,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.5880000373840332,
+    0.6120000389099122
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_KeepTurret_Crenel2_1",
+   "size": [
+    95.0,
+    45.0,
+    40.0
+   ],
+   "depth": 0.38,
+   "seed": 2127,
+   "single": true,
+   "rb": 0.03,
+   "rock": 1.5
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_3",
+   "size": [
+    460.0,
+    460.0,
+    45.0
+   ],
+   "depth": 0.38,
+   "seed": 2128,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_7",
+   "size": [
+    460.0,
+    460.0,
+    45.0
+   ],
+   "depth": 0.38,
+   "seed": 2129,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_4",
+   "size": [
+    490.0,
+    490.0,
+    60.0
+   ],
+   "depth": 0.38,
+   "seed": 2130,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.5880000373840332,
+    0.6120000389099122
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_SouthCurtain_StringCourse_B138A_Mid_1",
+   "size": [
+    604.0,
+    190.0,
+    90.0
+   ],
+   "depth": 0.38,
+   "seed": 2131,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.882,
+    0.918
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_5",
+   "size": [
+    520.0,
+    520.0,
+    75.0
+   ],
+   "depth": 0.38,
+   "seed": 2132,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.735,
+    0.765
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_6",
+   "size": [
+    460.0,
+    460.0,
+    45.0
+   ],
+   "depth": 0.38,
+   "seed": 2133,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_NorthCurtain_StringCourse_B138B_Mid_2",
+   "size": [
+    604.0,
+    220.0,
+    65.0
+   ],
+   "depth": 0.38,
+   "seed": 2134,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.637,
+    0.663
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_EastCurtain_StringCourse2_1",
+   "size": [
+    48.8,
+    1881.0,
+    45.0
+   ],
+   "depth": 0.24375036239624023,
+   "seed": 2135,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_Skirt_1",
+   "size": [
+    500.0,
+    500.0,
+    265.2
+   ],
+   "depth": 0.38,
+   "seed": 2136,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.3
+  },
+  {
+   "name": "SM_Mason_KeepTurret_Crenel3_1",
+   "size": [
+    95.0,
+    45.0,
+    40.0
+   ],
+   "depth": 0.38,
+   "seed": 2137,
+   "single": true,
+   "rb": 0.03,
+   "rock": 1.5
+  },
+  {
+   "name": "SM_Mason_KeepTurret_Crenel4_1",
+   "size": [
+    95.0,
+    45.0,
+    40.0
+   ],
+   "depth": 0.38,
+   "seed": 2138,
+   "single": true,
+   "rb": 0.03,
+   "rock": 1.5
+  },
+  {
+   "name": "SM_Mason_BaileyNorthCurtain_SC_2",
+   "size": [
+    1220.0,
+    195.0,
+    45.0
+   ],
+   "depth": 0.38,
+   "seed": 2139,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_SouthCurtain_StringCourse_B138A_Mid_2",
+   "size": [
+    604.0,
+    195.0,
+    45.0
+   ],
+   "depth": 0.38,
+   "seed": 2140,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_SouthCurtain_StringCourse_B138A_Mid_3",
+   "size": [
+    604.0,
+    220.0,
+    65.0
+   ],
+   "depth": 0.38,
+   "seed": 2141,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.637,
+    0.663
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_7",
+   "size": [
+    500.0,
+    500.0,
+    90.0
+   ],
+   "depth": 0.38,
+   "seed": 2142,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.882,
+    0.918
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_8",
+   "size": [
+    490.0,
+    490.0,
+    60.0
+   ],
+   "depth": 0.38,
+   "seed": 2143,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.5880000373840332,
+    0.6120000389099122
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_CornerTower_2",
+   "size": [
+    430.0,
+    430.0,
+    1020.0
+   ],
+   "depth": 0.38,
+   "seed": 2144,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.6
+  },
+  {
+   "name": "SM_Mason_BaileyTower_Cornice_Skirt_2",
+   "size": [
+    500.0,
+    500.0,
+    265.2
+   ],
+   "depth": 0.38,
+   "seed": 2145,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.3
+  },
+  {
+   "name": "SM_Mason_EastCurtain_StringCourse_2",
+   "size": [
+    220.0,
+    3300.0,
+    65.0
+   ],
+   "depth": 0.38,
+   "seed": 2146,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.637,
+    0.663
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_KeepTurret_Crenel6_1",
+   "size": [
+    95.0,
+    45.0,
+    40.0
+   ],
+   "depth": 0.38,
+   "seed": 2147,
+   "single": true,
+   "rb": 0.03,
+   "rock": 1.5
+  },
+  {
+   "name": "SM_Mason_EastCurtain_StringCourse3_1",
+   "size": [
+    48.8,
+    1881.0,
+    45.0
+   ],
+   "depth": 0.24375036239624023,
+   "seed": 2148,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.441,
+    0.459
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_BaileyEast_SC_B138C_Mid_Skirt_1",
+   "size": [
+    190.0,
+    600.0,
+    175.2
+   ],
+   "depth": 0.38,
+   "seed": 2149,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.3
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_Skirt_2",
+   "size": [
+    500.0,
+    500.0,
+    189.2
+   ],
+   "depth": 0.38,
+   "seed": 2150,
+   "len": [
+    0.45,
+    0.95
+   ],
+   "course": [
+    0.42,
+    0.56
+   ],
+   "damp": 0.3
+  },
+  {
+   "name": "SM_Mason_CornerTower_Cornice_8",
+   "size": [
+    490.0,
+    490.0,
+    60.0
+   ],
+   "depth": 0.38,
+   "seed": 2151,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.5880000373840332,
+    0.6120000389099122
+   ],
+   "damp": 0.0
+  },
+  {
+   "name": "SM_Mason_NorthCurtain_StringCourse_B138B_Mid_3",
+   "size": [
+    604.0,
+    190.0,
+    90.0
+   ],
+   "depth": 0.38,
+   "seed": 2152,
+   "len": [
+    0.6,
+    1.2
+   ],
+   "course": [
+    0.882,
+    0.918
+   ],
+   "damp": 0.0
+  }
+ ]
+}
