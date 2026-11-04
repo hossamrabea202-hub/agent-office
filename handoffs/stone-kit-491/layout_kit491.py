@@ -2,6 +2,9 @@
 # Turns the box specs (*_specs.json, the same boxes gen_boxmason.py builds) into kit placements: per wall a list of
 # kit blocks with centre, yaw, flip and scale, for i9's HISM spawner.
 #   python layout_kit491.py [specs.json ...]          default: curtain_specs.json keep_specs.json mason2_specs.json
+#   --xforms wall_xforms.json --deck 680              cut curtain walls at the deck (world z, cm): above it is the #488 merlon kit's.
+#                                                     wall_xforms.json comes from dump_wall_xforms_ue.py (read-only, i9's map)
+#   --cut 'Curtain|Wall'                              regex on the box name: which boxes get the deck cut (the keep never does)
 #   writes layout/<specs>_layout.json + layout/report.json, prints a summary per file
 # Corner stones (role 'quoin') are ordinary kit blocks: every kit stone is closed, so its end face is finished.
 # Same logic as gen_boxmason.masonry(): courses of 0.42-0.56 m, two 0.38 m skins on the long faces, end faces between them,
@@ -11,7 +14,7 @@
 # match the ones in today's merged meshes one for one.
 # Frame: wall-local = the box pivot (its centre), metres, UE axes (gen_boxmason mirrors Y for the FBX, UE's import mirrors it
 # back): x along the box size[0], y along size[1], z up. Yaw 0 = the block's length along +x.
-import json, math, os, random, sys
+import json, math, os, random, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 JOINT = 0.012
 KIT_H = (0.42, 0.46, 0.50, 0.55)            # stone heights (m), joint not included
@@ -59,14 +62,19 @@ def courses(z0, z1, r):
     return n_best[0], n_best[1], False
 
 
-def layout(spec):
+def layout(spec, cut=None):
+    """cut: wall-local z (m) of the deck, or None. Courses stop there; the cap sits just under it."""
     r = random.Random(spec.get('seed', 1103))
     S = [v / 100.0 for v in spec['size']]; H = [v / 2 for v in S]
     out = dict(name=spec['name'], size_cm=spec['size'], blocks=[], special=[], unfit=[])
+    if cut is not None:
+        out['deck_cut_m'] = round(cut, 4)
+        if cut <= -H[2] + 0.05:
+            out['special'].append(dict(role='parapet', note='wholly above the deck: #488 merlon kit', size_cm=spec['size'])); return out
     if spec.get('single'):
         out['special'].append(dict(role='single', note='one carved stone: keep its own mesh', size_cm=spec['size'])); return out
     t = spec.get('depth', KIT_D)
-    z0, z1 = -H[2], H[2]
+    z0, z1 = -H[2], H[2] if cut is None or cut >= H[2] else cut
     top_cap = spec.get('top', True) and not spec.get('coping'); bot = spec.get('bottom', False)
     if top_cap: z1 -= 0.2                                                 # gen_boxmason's cap is 0.2 m thick inside the faces
     if bot: z0 += 0.2
@@ -117,7 +125,8 @@ def layout(spec):
         z += ch
     inner = [S[0] - 2 * t, S[1] - 2 * t]
     if top_cap and min(inner) > 0.05:
-        out['special'].append(dict(role='cap', note='walk / top surface inside the faces, 0.2 m thick (coping slab or floor kit)', centre=[0, 0, round(H[2] - 0.1, 4)], size_m=[round(inner[0], 3), round(inner[1], 3), 0.2]))
+        top = H[2] if cut is None or cut >= H[2] else cut
+        out['special'].append(dict(role='cap', note='walk / top surface inside the faces, 0.2 m thick (coping slab or floor kit)', centre=[0, 0, round(top - 0.1, 4)], size_m=[round(inner[0], 3), round(inner[1], 3), 0.2]))
     if bot and min(inner) > 0.05:
         out['special'].append(dict(role='soffit', note='under a lintel, 0.2 m thick', centre=[0, 0, round(-H[2] + 0.1, 4)], size_m=[round(inner[0], 3), round(inner[1], 3), 0.2]))
     return out
@@ -140,12 +149,21 @@ def check(w):
 
 
 if __name__ == '__main__':
-    files = sys.argv[1:] or ['curtain_specs.json', 'keep_specs.json', 'mason2_specs.json']
+    A = sys.argv[1:]; opt = lambda k, d=None: A[A.index(k) + 1] if k in A else d
+    XF = json.load(open(opt('--xforms'))) if opt('--xforms') else {}; DECK = float(opt('--deck', 680)); CUT = re.compile(opt('--cut', 'Curtain|Wall'))
+    files = [a for i, a in enumerate(A) if not a.startswith('--') and (i == 0 or A[i - 1] not in ('--xforms', '--deck', '--cut'))] or ['curtain_specs.json', 'keep_specs.json', 'mason2_specs.json']
+    def deck_local(s):
+        if s['name'] not in XF or not CUT.search(s['name']): return None
+        ps = XF[s['name']]; zs = {round(p['loc'][2], 1) for p in ps}
+        if len(zs) > 1: print('  note: %s placed at %d heights %s, cut by the first' % (s['name'], len(zs), sorted(zs)))
+        p = ps[0]
+        if abs(p['rot'][0]) > 0.5 or abs(p['rot'][1]) > 0.5: print('  note: %s is tilted %s, no cut' % (s['name'], p['rot'])); return None
+        return (DECK - p['loc'][2]) / p['scale'][2] / 100.0
     os.makedirs(os.path.join(HERE, 'layout'), exist_ok=True)
     rep = {}
     for f in files:
         specs = json.load(open(os.path.join(HERE, f) if not os.path.isabs(f) else f))['boxes']
-        walls = [layout(s) for s in specs]
+        walls = [layout(s, deck_local(s)) for s in specs]
         use, worst, unfit, overlaps = {}, 0.0, 0, 0
         for w in walls:
             w['overlaps'] = check(w); overlaps += w['overlaps']; unfit += len(w['unfit'])
@@ -155,7 +173,7 @@ if __name__ == '__main__':
         name = os.path.splitext(os.path.basename(f))[0]
         json.dump(dict(source=f, joint_m=JOINT, kit=dict(heights=KIT_H, lengths=KIT_L, depth=KIT_D, max_scale=MAXS), walls=walls),
                   open(os.path.join(HERE, 'layout', name + '_layout.json'), 'w'), indent=0)
-        rep[name] = dict(walls=len(walls), blocks=sum(len(w['blocks']) for w in walls), specials=sum(len(w['special']) for w in walls),
+        rep[name] = dict(deck_cut=sum(1 for w in walls if 'deck_cut_m' in w), walls=len(walls), blocks=sum(len(w['blocks']) for w in walls), specials=sum(len(w['special']) for w in walls),
                          worst_scale=round(worst, 4), unfit=unfit, overlaps=overlaps, kit_use=dict(sorted(use.items(), key=lambda kv: -kv[1])))
         print('%-18s walls %3d  blocks %6d  special %3d  worst scale %.1f %%  unfit %d  overlaps %d' % (name, rep[name]['walls'], rep[name]['blocks'], rep[name]['specials'], worst * 100, unfit, overlaps))
     json.dump(rep, open(os.path.join(HERE, 'layout', 'report.json'), 'w'), indent=1)

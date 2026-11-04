@@ -4,6 +4,15 @@
 `layout/<specs>_layout.json` plus `layout/report.json`. `layout_preview.py` draws one wall's face as an elevation
 (`layout/preview_WallSouthL_outer.png`: grey = kit stones, brown = corner stones).
 
+## Cut at the deck (i9, 11-04: stone kit = walls up to the deck, z 6.80; above it is the #488 merlon kit)
+1. i9, in the editor (read-only, 10 s): `py <repo>/handoffs/stone-kit-491/dump_wall_xforms_ue.py` writes `wall_xforms.json`
+   (world transform of every placed box mesh). Push it, or run step 2 yourself.
+2. `python layout_kit491.py --xforms wall_xforms.json --deck 680` (`--cut 'Curtain|Wall'` = which boxes are cut; the keep isn't).
+   Courses stop at the deck, the 0.2 m cap sits just under it (its top = the deck), and a box wholly above it becomes
+   `special: parapet`. Each cut wall gets `deck_cut_m` (wall-local). Tilted walls are not cut and are printed.
+- Tested on a made-up transform only: i5's map has 103 keep boxes placed but none of the curtains
+  (`wall_xforms_i5_stale.json`, kept for reference). Without `--xforms` the layout is the full boxes, as before.
+
 ## JSON, per wall (`walls[]`)
 - `name`, `size_cm`: the spec box (same name as the mesh it replaces).
 - `blocks[]`: `kit` (`SM_Kit_H<cm>_L<cm>_V<1|2>`), `role` (`face` or `quoin` = corner stone, the same kit block), `face` (`-y +y -x +x`),
@@ -34,6 +43,5 @@
 - Boxes that are not coursed wall (trim, string courses, thin skins, single carved stones) are `special`, never forced into kit blocks.
 
 ## Not done / not checked
-- Copings and the parapet: the curtain specs have no coping, and the #488 merlon kit covers the parapet. Ask i9 where one ends and the
-  other starts.
+- Copings: the curtain specs have none; the parapet is the #488 merlon kit's (above the deck).
 - Nothing in UE. The HISM spawner is i9's (README). Wall-local to world = the replaced mesh actor's transform.
