@@ -1,0 +1,13 @@
+{"fix": "MedKey", "bp": "/Game/CastleDefender/Gameplay/Medics/BPC_Medics",
+ "vars": [],
+ "nodes": [
+  {"id": "mdFixSetElse", "kind": "set", "var": "MWas", "x": 0, "y": 0, "defaults": []}
+ ],
+ "links": [
+  ["MedKeys.then", "mdIfM41.execute", true],
+  ["mdIfM41.then", "mdSetMWas40.execute", true],
+  ["mdSetMWas40.then", "mdIfFull45.execute", true],
+  ["mdIfM41.else", "mdFixSetElse.execute", false],
+  ["mdKeyM34.ReturnValue", "mdFixSetElse.MWas", false]
+ ],
+ "set_live": [], "remove": [], "dx": 0, "dy": 300}
