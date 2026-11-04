@@ -1,8 +1,8 @@
 {
- "working": "",
- "tokens": 578051,
+ "working": "i5 core (laptop-i5): #488 merlon kit, then speed E2",
+ "tokens": 98000,
  "ctx": 1000000,
- "since": "2026-11-01T08:49:29Z",
+ "since": "2026-11-04T09:58:20Z",
  "done": [
   "#404 heavy cavalry handed off (#407); #400 closed [42% tokens left]",
   "#402 destrier + #403 knight kit handed off (#406) [54% tokens left]",
@@ -23,29 +23,29 @@
  ],
  "usage": {
   "who": "checkking (Claude)",
-  "plan": "Ultra",
-  "asOf": "2026-11-01T10:34:31Z",
+  "plan": "Pro",
+  "asOf": "2026-11-04T09:58:20Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 30,
-    "resetsAt": "2026-10-30T23:00:00Z",
+    "pct": 82,
+    "resetsAt": "2026-11-04T14:49:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 61,
-    "resetsAt": "2026-11-06T06:00:00Z",
+    "pct": 97,
+    "resetsAt": "2026-11-08T05:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-11-01T10:34:31Z",
+ "asOf": "2026-11-04T09:58:20Z",
  "seat": "checkking (Claude)",
  "session": {
-  "id": "d3e5fdbea530",
+  "id": "4c6f303ccd1f",
   "host": "5CD3147LBC"
  },
  "ask": {
