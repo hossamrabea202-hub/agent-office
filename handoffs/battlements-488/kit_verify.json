@@ -1,0 +1,281 @@
+{
+ "SM_Merlon488_A": {
+  "tris": 53531,
+  "bbox_m": [
+   [
+    -0.858,
+    -0.551,
+    -0.0
+   ],
+   [
+    0.859,
+    0.052,
+    1.893
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.92
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 2944
+ },
+ "SM_Merlon488_B": {
+  "tris": 51079,
+  "bbox_m": [
+   [
+    -0.859,
+    -0.552,
+    -0.0
+   ],
+   [
+    0.862,
+    0.052,
+    1.897
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.85
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 2944
+ },
+ "SM_Merlon488_C": {
+  "tris": 53649,
+  "bbox_m": [
+   [
+    -0.862,
+    -0.551,
+    -0.0
+   ],
+   [
+    0.86,
+    0.05,
+    1.895
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.86
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 2944
+ },
+ "SM_Merlon488_D": {
+  "tris": 53444,
+  "bbox_m": [
+   [
+    -0.854,
+    -0.55,
+    -0.0
+   ],
+   [
+    0.858,
+    0.052,
+    1.895
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.8
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 2944
+ },
+ "SM_CrenelSill488_A": {
+  "tris": 14870,
+  "bbox_m": [
+   [
+    -0.588,
+    -0.523,
+    -0.0
+   ],
+   [
+    0.59,
+    0.033,
+    0.75
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.71
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 992
+ },
+ "SM_CrenelSill488_B": {
+  "tris": 15075,
+  "bbox_m": [
+   [
+    -0.585,
+    -0.52,
+    -0.0
+   ],
+   [
+    0.586,
+    0.04,
+    0.76
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.82
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 992
+ },
+ "SM_MerlonCorner488": {
+  "tris": 75753,
+  "bbox_m": [
+   [
+    -0.065,
+    -1.417,
+    -0.001
+   ],
+   [
+    1.403,
+    0.051,
+    1.895
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.92
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 5888
+ },
+ "SM_InnerParapet488_A": {
+  "tris": 48529,
+  "bbox_m": [
+   [
+    -1.344,
+    -0.439,
+    -0.0
+   ],
+   [
+    1.346,
+    0.039,
+    1.045
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.86
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 3264
+ },
+ "SM_InnerParapet488_B": {
+  "tris": 48780,
+  "bbox_m": [
+   [
+    -1.353,
+    -0.439,
+    -0.0
+   ],
+   [
+    1.346,
+    0.039,
+    1.046
+   ]
+  ],
+  "stone_uv_in_clean_patch": 1.0,
+  "uv_layers": 1,
+  "col_name": "Col",
+  "col_R": [
+   0.1,
+   0.87
+  ],
+  "col_B": [
+   0.0,
+   1.0
+  ],
+  "slots": [
+   "MI_CastleMerlon488",
+   "M_CastleLimeMortar"
+  ],
+  "mortar_tris": 2976
+ }
+}
