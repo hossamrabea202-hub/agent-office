@@ -1,0 +1,57 @@
+{
+"fix": "E2",
+"bp": "/Game/CastleDefender/Gameplay/Polish/BP_HitFeel",
+"vars": [],
+"nodes": [
+{
+"id": "e2Find",
+"kind": "call",
+"x": 0,
+"y": -300,
+"defaults": [
+[
+"ActorClass",
+"/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+]
+],
+"path": "/Script/Engine.GameplayStatics:GetActorOfClass"
+},
+{
+"id": "e2Reg",
+"kind": "get",
+"x": 300,
+"y": -200,
+"defaults": [],
+"var": "ZombieReg",
+"cls": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C"
+}
+],
+"links": [
+[
+"CX_7.then",
+"e2Find.execute",
+true
+],
+[
+"e2Find.then",
+"CX_8.Exec",
+true
+],
+[
+"e2Find.ReturnValue",
+"e2Reg.self",
+false
+],
+[
+"e2Reg.ZombieReg",
+"CX_8.Array",
+true
+]
+],
+"remove": [
+"CX_2"
+],
+"set_live": [],
+"dx": 0,
+"dy": 0
+}

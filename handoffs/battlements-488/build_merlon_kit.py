@@ -340,16 +340,22 @@ def carve(ob, st, name, others, cull, core):
     Dist = edge_dist(u, d, v, st); e = np.sort(Dist, 1)[:, 1]
     r = random.Random(H(name, st['key'])); seed = r.randint(0, 99999); rock = st['rock']; wear = stone_style(name, st['key'])
     c = p.mean(0); tilt = np.array([r.uniform(-1, 1) for _ in range(3)]) * 0.006
-    face = sm(e / (1.8 + 3.8 * wear))
+    # three dressings, not one soft bulge on every stone (that read as pillows): flat-dressed with a crisp arris, a tooled
+    # drafted margin round a rougher face, or old rock-faced. The flat tilt stays, so a face is a plane, not a cushion.
+    cls = r.random()
+    if cls < 0.55: amp, rel, mw, ramp = 0.22, 0.35, 0.0, 0.9 + 1.2 * wear          # dressed
+    elif cls < 0.85: amp, rel, mw, ramp = 0.9, 0.75, r.uniform(2.0, 3.5), 0.8       # drafted margin
+    else: amp, rel, mw, ramp = 1.0, 1.0, 0.0, 1.8 + 3.8 * wear                     # old rock face
+    face = sm((e - mw) / ramp)
     high = sm(v / CFG['H'])
     relief = 0.55 * vnoise(p / 5.0, seed) + 0.32 * vnoise(p / 2.6, seed + 4) + 0.5 * vnoise(p / 12.0, seed + 1)
-    dd = ((0.5 + 0.9 * r.random()) * rock + r.uniform(-0.5, 0.5) + (p - c) @ tilt + relief * rock) * face
+    dd = ((0.5 + 0.9 * r.random()) * rock * amp + r.uniform(-0.5, 0.5) * amp + relief * rock * rel) * face + (p - c) @ tilt * sm(e / 1.5)
     # the arris changes along its length too: a stretch of sharp edge, then a worn one
     along = 0.35 + 1.3 * sm(0.5 + 0.9 * vnoise(p / 16.0, seed + 5))
     width = 1.0 + 2.2 * wear
     dd -= (0.35 + 0.8 * wear) * (0.8 + 0.5 * high) * along * (1 - sm(e / width))
     near = 1 - sm(e / (2.2 + 1.6 * wear))
-    dd -= np.maximum(0, vnoise(p / 3.2, seed + 2) - 0.2) * (2.6 + 1.4 * high) * near * rock                  # bigger bites
+    dd -= np.maximum(0, vnoise(p / 3.2, seed + 2) - 0.2) * (2.6 + 1.4 * high) * near * rock * (0.6 if cls < 0.55 else 1.0)   # bigger bites
     dd -= np.maximum(0, vnoise(p / 1.25, seed + 8) - 0.28) * (1.9 - 0.5 * min(wear, 1.5)) * (1 - sm(e / 2.2))  # small crisp chips on the edge
     dd -= np.maximum(0, vnoise(p / 1.7, seed + 3) - 0.55) * (1.2 + 0.8 * high)
     for _ in range(r.choice((0, 1, 1, 2))):                                  # spalls on an arris
@@ -394,11 +400,13 @@ def cull_hidden(ob, boxes):
 
 
 def pick_patch(fw, fh, r):
-    """a patch where this face fits at the target density, else one of the best fits at a lower density. fw, fh in cm."""
-    s = [(min(CFG['PX_CM'], (c - a) / fw, (e - b) / fh), i) for i, (a, b, c, e) in enumerate(PATCHES)]
+    """a patch where this face fits at the target density, else one of the best fits at a lower density. fw, fh in cm.
+    turn = True: the chart goes in turned 90 degrees (a tall chart in a wide patch)."""
+    s = [(min(CFG['PX_CM'], (c - a) / w_, (e - b) / h_), i, t_) for i, (a, b, c, e) in enumerate(PATCHES)
+         for t_, (w_, h_) in ((False, (fw, fh)), (True, (fh, fw)))]
     ok = [x for x in s if x[0] >= min(CFG['PX_MIN'], max(s)[0])]              # many candidates, so long stones don't all show the same patch
     pick = r.choice(ok)
-    return pick[1], pick[0]
+    return pick[1], pick[0], pick[2]
 
 
 def tri_min_angle(a, b, c):
@@ -444,6 +452,13 @@ def apply_uv_colour(ob, st, name, stat):
     u, d, v = to_cm(c); near = edge_dist(u, d, v, st); N = side_normals(st)
     fnp = np.stack([fn[:, 0], -fn[:, 1], fn[:, 2]], 1)
     label = (fnp @ N.T - near / 3.0).argmax(1)                               # the nearest side, unless the surface really faces another
+    # sides that meet at under 50 degrees (the two slopes of a coping ridge, a bevel and its face) are one chart: two planes
+    # on a shallow fold flatten without stretch, while a seam on the worn ridge folded the UVs (up to 240x on a sliver)
+    grp = np.arange(len(N))
+    for i_ in range(len(N)):
+        for j_ in range(i_):
+            if N[i_] @ N[j_] > math.cos(math.radians(50)): grp[grp == grp[i_]] = grp[j_]
+    label = grp[label]
     for _ in range(3):                                                       # no specks: a triangle follows its neighbours
         nxt = label.copy()
         for f in bm.faces:
@@ -452,17 +467,32 @@ def apply_uv_colour(ob, st, name, stat):
                 best = max(set(ns), key=ns.count)
                 if ns.count(best) >= 2: nxt[f.index] = best
         label = nxt
-    isl = np.full(len(bm.faces), -1); n_isl = 0
-    for f0 in bm.faces:
-        if isl[f0.index] >= 0: continue
-        isl[f0.index] = n_isl; todo = [f0]
-        while todo:
-            f = todo.pop()
-            for e in f.edges:
-                for g in e.link_faces:
-                    if isl[g.index] < 0 and label[g.index] == label[f0.index]:
-                        isl[g.index] = n_isl; todo.append(g)
-        n_isl += 1
+    def islands():
+        isl = np.full(len(bm.faces), -1); n = 0
+        for f0 in bm.faces:
+            if isl[f0.index] >= 0: continue
+            isl[f0.index] = n; todo = [f0]
+            while todo:
+                f = todo.pop()
+                for e in f.edges:
+                    for g in e.link_faces:
+                        if isl[g.index] < 0 and label[g.index] == label[f0.index]:
+                            isl[g.index] = n; todo.append(g)
+            n += 1
+        return isl, n
+    isl, n_isl = islands()
+    # a bed or joint face whose hidden middle was culled is a thin ring around the stone: as one chart it spans the whole
+    # stone and drops to ~1.5 px/cm (the smeared look). Cut such a ring into its strips, by the nearest other side.
+    fa = np.array([f.calc_area() for f in bm.faces]) / CM ** 2; cc = np.stack([u, d, v], 1); split = False
+    for i in range(n_isl):
+        m = np.where(isl == i)[0]
+        if len(m) < 12: continue
+        k = label[m[0]]; n_ = N[k]; a_ = np.cross(n_, (0, 0, 1) if abs(n_[2]) < 0.9 else (1, 0, 0)); a_ /= np.linalg.norm(a_); b_ = np.cross(n_, a_)
+        q = np.stack([cc[m] @ a_, cc[m] @ b_], 1); box2 = (q.max(0) - q.min(0)).prod()
+        if box2 > 3.0 * fa[m].sum():
+            other = near[m].copy(); other[:, grp == k] = 1e9
+            label[m] = k + 16 * (1 + other.argmin(1)); split = True
+    if split: isl, n_isl = islands()
     for e in bm.edges:
         e.seam = len(e.link_faces) == 2 and bool(label[e.link_faces[0].index] != label[e.link_faces[1].index])
     bm.to_mesh(ob.data); bm.free(); me = ob.data
@@ -489,13 +519,16 @@ def apply_uv_colour(ob, st, name, stat):
             if best is None or ext.prod() < best[0]: best = (ext.prod(), W, ext)
         W, ext = best[1], best[2]; W = W - W.min(0)
         fw, fh = max(ext[0], 0.5) + 0.3, max(ext[1], 0.5) + 0.3
-        pi, s_ = pick_patch(fw, fh, r); x0, y0, x1, y1 = PATCHES[pi]
+        pi, s_, turn = pick_patch(fw, fh, r); x0, y0, x1, y1 = PATCHES[pi]
+        if turn: W = W[:, ::-1].copy(); ext = ext[::-1].copy(); fw, fh = fh, fw
         if r.random() < 0.5: W[:, 0] = ext[0] - W[:, 0]
         if r.random() < 0.5: W[:, 1] = ext[1] - W[:, 1]
         ox = x0 + r.uniform(0, max(0.0, x1 - x0 - fw * s_)); oy = y0 + r.uniform(0, max(0.0, y1 - y0 - fh * s_))
         px = (W + 0.15) * s_ + np.array([ox, oy])
         out[m, :, 0] = (px[:, 0] / TEX).reshape(-1, 3); out[m, :, 1] = (1 - px[:, 1] / TEX).reshape(-1, 3)
         if A3[m].sum() > 50: stat.append(s_)
+        if os.environ.get('MERLON_DEBUG') and A3[m].sum() > 50 and s_ < CFG['PX_MIN']:
+            print('  LOWPX', name, st['key'], 'side', int(np.bincount(label[m]).argmax()), 'chart cm %.0f x %.0f' % (fw, fh), 'px/cm %.2f' % s_, flush=True)
     me.uv_layers[0].data.foreach_set('uv', out.ravel())
     e = np.sort(edge_dist(u, d, v, st), 1)[:, 1]
     tone = random.Random(H('tone', name, st['key'])).uniform(0.12, 0.92)
@@ -695,6 +728,10 @@ if STAGE == 'verify':
         ok = stone & (area > 0.02)                                           # 2 mm2: below that no pixel of the map lands on it
         Sg = np.linalg.svd(B[ok] @ np.linalg.inv(A[ok]), compute_uv=False)
         an = Sg[:, 0] / np.maximum(Sg[:, 1], 1e-6); w = area[ok]
+        if os.environ.get('MERLON_DEBUG'):
+            cen = ((P0 + P1 + P2) / 3)[ok]
+            for t_ in np.argsort(-(an - 1.25).clip(0) * w)[:8]:
+                print('  STRETCH', name, 'x %.0f y %.0f z %.0f' % (cen[t_, 0], -cen[t_, 1], cen[t_, 2]), 'aniso %.2f area %.2f cm2' % (an[t_], w[t_]), flush=True)
         # patch test
         pu, pv = uv[:, 0], 1 - uv[:, 1]; inside = np.zeros(len(uv), bool)
         for x0, y0, x1, y1 in rects:

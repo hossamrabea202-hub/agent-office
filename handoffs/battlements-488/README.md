@@ -20,17 +20,17 @@ From the vertices of `SM_CastleStones_1_-1_7`, `_2_0_11` and `_1_1_9` (read-only
 ## Modules (`fbx/`), pivot and triangles
 1 unit = 1 cm. Mesh +X runs along the wall, +Y points to the walk, Z is up. Pivot: bottom centre of the outer face, z 0 = deck top.
 
-| Module | Tris | Stones | Bbox x | y | z |
+| Module | Tris | Stones | Bbox x | y | z (y moves about 1 cm between builds) |
 |---|---|---|---|---|---|
-| SM_Merlon488_A | 53,531 | 25 | ±86 | -5..55 | 0..189.5 |
-| SM_Merlon488_B | 51,079 | 18 | ±86 | -5..55 | 0..189.5 |
-| SM_Merlon488_C | 53,649 | 25 | ±86 | -5..55 | 0..189.5 |
-| SM_Merlon488_D | 53,444 | 23 | ±86 | -5..55 | 0..189.5 |
-| SM_CrenelSill488_A | 14,870 | 4 | ±59 | -3.5..52 | 0..75 |
-| SM_CrenelSill488_B | 15,076 | 5 | ±59 | -3.5..52 | 0..76 |
-| SM_MerlonCorner488 | 75,754 | 25 | -6.5..140 | -5..142 | 0..189.5 |
-| SM_InnerParapet488_A | 48,529 | 15 | ±135 | -4..44 | 0..104.5 |
-| SM_InnerParapet488_B | 48,780 | 15 | ±135 | -4..44 | 0..104.5 |
+| SM_Merlon488_A | 52,654 | 25 | ±86 | -5..55 | 0..189.5 |
+| SM_Merlon488_B | 50,885 | 18 | ±86 | -5..55 | 0..189.5 |
+| SM_Merlon488_C | 53,171 | 25 | ±86 | -5..55 | 0..189.5 |
+| SM_Merlon488_D | 52,528 | 23 | ±86 | -5..55 | 0..189.5 |
+| SM_CrenelSill488_A | 14,889 | 4 | ±59 | -3.5..52 | 0..75 |
+| SM_CrenelSill488_B | 14,848 | 5 | ±59 | -3.5..52 | 0..76 |
+| SM_MerlonCorner488 | 71,018 | 25 | -6.5..140 | -5..142 | 0..189.5 |
+| SM_InnerParapet488_A | 45,250 | 15 | ±135 | -4..44 | 0..104.5 |
+| SM_InnerParapet488_B | 45,819 | 15 | ±135 | -4..44 | 0..104.5 |
 
 The low courses stick out past the body on purpose (merlon base course ±85, second course ±62, sill the inverse), so a row has no straight joint between merlon and sill. These overlaps are planned, so space by the grid below, not by the bbox.
 
@@ -77,5 +77,26 @@ Regenerate with `blender -b --factory-startup -P build_merlon_kit.py -- build`, 
 - **Sharpness:** on i5 T_vdbhdju has max size 1024, so UE shows half the renders' texels (about 2.5 px/cm). Close up it may be softer.
 - **Weathering:** moss and dirt in the MI go by world height (moss below z 650, dirt band 150), so they may not reach z 680+. The tops may read cleaner than the walls.
 
----
-**WORK IN PROGRESS (2026-11-04 10:55): NOT ready to place.** Stretch, pillow look and mesh checks still open, generator may be mid-edit. See `handoffs/laptop-i5/PICKUP_i5_core_2026-11-04_morning.md`.
+## Review fixes, v2 (2026-11-04, i5 core)
+Owner's review: texture stretch on the copings, smeared sides, pillow-like stones, n-gons and overlaps (as on i9's stair curtain).
+Measured by `verify` on the FBX files (`kit_verify.json`), before (v1) and after (v2):
+
+| Check, all 9 modules | v1 | v2 |
+|---|---|---|
+| n-gons, degenerate faces, duplicate faces | 0 | 0 |
+| Triangles crossing: inside a stone / stone on stone / next module | 0 / 0 / 0 | 0 / 0 / 0 |
+| Texture density, worst 1 % of triangles (px/cm) | 1.84-3.06 | **3.18-3.57** |
+| Worst stretch (anisotropy) | 2.8-10.5 | **2.0-8.3**, the 8.3 is a sliver 4 cm deep in a joint |
+| Stretch, 99 % of triangles under | 1.32 | 1.33 |
+| UVs inside a clean patch of the scan | 100 % | 100 % |
+
+What changed in `build_merlon_kit.py`:
+- **Smeared sides:** a bed or joint face whose hidden middle is culled is a ring round the stone. As one chart it spanned the whole stone (up to 27 x 202 cm) and fell to 1.5 px/cm. Rings are now cut into their strips. A chart may also turn 90 degrees to fit a patch. Low-density charts: about 30 to 2, worst 3.1 px/cm.
+- **Coping stretch:** the two ridge slopes were separate charts, and the seam on the worn ridge folded the UVs (240x on the inner parapet ridge). Sides meeting at under 50 degrees now share one chart (two planes on a shallow fold flatten with no stretch). Worst there: 240 to 2.0.
+- **Pillows:** every stone had the same soft bulge easing in from all edges. Now three dressings, like real ashlar: 55 % flat-dressed with a crisp arris and small bites; 30 % a tooled drafted margin (2-3.5 cm) round a rougher face; 15 % old rock-faced and rounded. The face tilt is a plane, not a cushion.
+- `MERLON_DEBUG=1` prints low-density charts (build) and the worst-stretched triangles (verify).
+
+Before / after: `renders/v2/ab_close_outer.png`, `renders/v2/ab_close_walk.png` (left v1, right v2), `renders/v2/*.png`. Blender stand-in material, same light and camera.
+Rules applied: realism KB (real carved geometry, no bake, the real scan at a checked texel density). INDUSTRY_SECRETS rule 3 (dirt has a cause: vertex-colour damp rises from the base, cavity sits at edges and joints) and rule 10 (coherence: the MI is a child of the castle's own MI_CastleAshlar, so the kit follows i9's live stone values). **Not done:** rule 1, lookdev under the locked grey ball in UE (i5's 2 GB GPU); judge in i9's lit A/B. Rule 4 (limewash) is i9's call for the whole castle.
+
+**Status:** ready for i9 to import and place, once Alien OKs the look. Same import script, same sizes and pivots as v1.

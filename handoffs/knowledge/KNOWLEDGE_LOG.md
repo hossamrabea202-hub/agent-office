@@ -290,3 +290,13 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
   (straw / olive-grey / greener in wet hollows, dead blades at the base). Sources in handoffs/grass-mountain-research/RESEARCH.md.
 - UE: landscape grass types fill a layer uniformly; height/slope/clumping must come from the material's grass-output
   weights (or PCG filters). One shared wind field for grass + particles (Ghost of Tsushima).
+
+## 2026-11-04 · i5 (checkking) · #488 carved merlons: UV charts on carved stone
+- **Measure stretch per triangle, not per chart:** singular values of the 3D -> texture-pixel map give density (px/cm)
+  and anisotropy. On the merlon kit, 99 % of triangles were fine while a few charts sat at 1.5 px/cm: the smeared look.
+- **Culled beds make ring charts.** Delete a stone's hidden middle and the visible bed is a thin ring; one chart for it spans
+  the whole stone and kills density. Cut rings into strips (by the nearest other side) and let charts turn 90 degrees.
+- **Don't seam a shallow ridge.** Two planes meeting at < 50 degrees (coping slopes, bevel + face) flatten into one chart with
+  no stretch; a seam on a worn, rounded ridge folded UVs (240x). Merge them.
+- **Pillow stones:** the same soft bulge on every block reads as cushions. Real ashlar mixes flat-dressed faces with a crisp
+  arris, tooled drafted margins (2-3.5 cm) round a rougher face, and a few old rounded rock faces. Keep the face a tilted plane.

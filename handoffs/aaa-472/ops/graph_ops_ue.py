@@ -59,7 +59,7 @@ if bad:
 print('check OK: every live node and pin the fix needs is there')
 if '--apply' not in A: print('dry run, nothing changed'); raise SystemExit
 # ---- backup
-if '--copy' not in A:
+if '--copy' not in A and '--nobackup' not in A:      # --nobackup: temp test copies only (Multi-User saves them to the sandbox, not Content)
     import shutil
     src = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_content_dir()) + PATH[len('/Game/'):] + '.uasset'
     dst_dir = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_saved_dir()) + 'bak472/'; os.makedirs(dst_dir, exist_ok=True)
