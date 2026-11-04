@@ -16,6 +16,8 @@ The audit table below came from a node-count scan and was partly wrong. Details:
 
 - Track L: the scanner found 10 Blueprints with never-made wires (`ops/README_F.md`); significance, hit-stop, flinch, ragdoll and impact layers are in the scripts.
 
+- 11-04: A-D applied: 0 runtime errors, 678 warnings -> 1, **no FPS gain** (3.6-4.3 fps at ~84 zombies). The frame is limited elsewhere; see `PICKUP_472.md` and the sweep in `profile/`.
+
 ## What the audit found (read-only, `bp_smells.js` on i9's 11-03 exports)
 | Blueprint | Finding | Why it matters |
 |---|---|---|

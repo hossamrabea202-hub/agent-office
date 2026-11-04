@@ -1,26 +1,28 @@
-# #472 pick-up note (i5 core, 2026-11-03 ~23:00)
+# #472 pick-up note (i5 core, 2026-11-04 ~06:15)
 
-Everything below is pushed. **Nothing is in the game yet, nothing has been measured, nothing has run on the real Blueprints.** i9 has not answered any of it; check the fast chat after 1309.
+Everything below is pushed.
 
-## With i9, in this order
-| What | Where | How tested |
-|---|---|---|
-| Frozen tentacles + hit reaction | `handoffs/tentacle-anim-457/FIX_FROZEN_README.md` | 2 scripts. Copies compile clean; idle + hit montage seen in Simulate. Real map not checked |
-| A wave manager | `ops/ops_A_wm.json` | final form on a copy: 0 failures, 0 new errors (6 old copy-only errors) |
-| A + B + C zombie | `ops/ops_ABC_zombie.json`, assets first | 128 nodes / 229 links on a copy; only 5 links fail, all copy artefacts. Includes impact sound layers and cannonball ragdoll (physics seen on a probe in Simulate) |
-| D soldier | `ops/ops_D_soldier.json`, after A | links only on a copy, not compiled |
-| E brute | `ops/ops_E_brute.json`, after A | links only on a copy: same 3 artefacts, not compiled |
+## Applied by i9 on the real Blueprints (chat 1332-1339, 11-03 night)
+Tentacle fix + hit reaction, A + B + C, D: all `compile True`, 0 failures, saved, child classes up to date. **Log: 0 Blueprint runtime errors, AnimBP-mode warnings 678 -> 1.**
+**FPS did NOT improve:** 3.9 fps / 85 zombies before; 3.6 and 4.3 after. Correct what I said earlier: the logic work fixed errors and bugs, not frame rate.
 
-i9 said (chat 1316) it will run them in this order: #470, harmony, #469, #455, F11, tentacle fix, #472 A-D, #477...
+## Not confirmed applied: asked i9 in chat 1449
+- E brute (`ops/ops_E_brute.json`), F never-made wires (`ops/README_F.md`).
+- Tentacle 4: `tentacle_anim_ue.py swap --only Env_CorruptedTentacle_4`.
 
-Instructions: `ops/README.md`. The paste versions in `fixes*/` are superseded; keep them only as generators. Hand-off cards #474 and the B / C ones point at the pastes; the script hand-off replaces them.
+## FPS: where it stands
+i9 calls it GPU-bound on the T1000; that is **not measured yet**. Waiting on i9:
+1. `profile/wave_sweep_ue.py` in Play (request filed, chat 1449): each feature off in turn, frame time, plus ProfileGPU table. Only tested on an empty map on i5.
+2. Then `profile/crowd_lods_ue.py --apply`, sweep again for before / after. On i5 copies: zombie 7447 verts -> 2232 / 1279 / 747, brute 33724 -> 10028 / 5518 / 3004, knight 37575 -> 10539 / 5777 / 3283. All 3 crowd meshes had ONE LOD. Not applied, not looked at in Play.
 
-| F never-made wires (10 Blueprints) | `ops/README_F.md`, `ops/ops_F_*.json` | links only on copies, not compiled. Independent of A to E. Gore, WallBreaker, saved upgrades + shields, half-horse |
+Read from the assets (`profile/mesh_stats_ue.py`): zombie material is masked + subsurface profile, 463 PS instructions, 2 sections; knight 5 sections, masked, two-sided, ~345 PS, and each soldier has 30 components. Those are the next suspects, sweep decides.
 
-## What each i9 outcome means
-- Compile error or link failure: the script does not save. Read its RESULT line, fix the generator (`fixes*/build_*.py`, `ops/build_ops.py`), rerun `build_ops.py`, push.
-- Dry run says a node is missing: i9's graph differs from the 11-03 / i5 exports. Get an export, regenerate.
-- Passes: ask for `log_health.js` output + `stat unit / game / ai` (#473, `IMAGE_AB.md`). Then decide Track V and whether Track C went far enough.
+## #457 tentacles: answered from bone tracks (`tentacle-anim-457/clip_motion_ue.py`)
+- No stretch: arm length is 11039 in every clip.
+- 02 / 04 / 05's far moves fit their idle clips (i9's numbers are at or near the idle's own limit; 05 is 15 % over, probably sampling). Not strikes, as far as these numbers show.
+- Tentacle 4 is frozen because its clip Ripple_Sway000 has zero motion.
+- The stretch Alien saw is not explained by bones: if he still sees it now, suspect skin / material (#366) or the strike's FABRIK. Needs his eyes or a camera.
+- Polished clips A / B / C still wait for Alien's OK: `tentacle_anim_ue.py swap --dry-run`, `--apply`.
 
 ## Lessons (also in memory: i5-graph-python-api)
 - UE 5.8 Python edits graphs: `unreal.BlueprintGraphEditor`. Far better than pastes.
@@ -34,9 +36,9 @@ Instructions: `ops/README.md`. The paste versions in `fixes*/` are superseded; k
 - Another i5 session (`local_34eb18ca`) shares this editor's inbox and holds #461, #469, Obsidian skill, #458, #440, #453 + the after-save health check. This session holds the seat ticks, BP_Zombie, BP_ZombieWaveManager, ABP_Zombie. Check `ue_inbox/_log.txt` before a Simulate.
 
 ## Editor state
-This i5 editor session has temp copies under `/Game/_i5tmp472` (Y4, Mic1, F1..F10). **No Simulate or Play until a restart, and delete that folder first thing after it.**
+i5 editor restarted 06:00, /Game/_i5tmp472 cleaned. Only temp mesh copies are left there (L1, L2), no Blueprints, so they can't trigger the compile modal. Delete them after the next restart.
 
-## Next, once A compiles
+## Next, after the sweep
 1. Hit stack: camera shake and SC_SwordHit already exist in BP_ZombieHUD; impact layers and hit-stop are in fix C. Left: shake scaled by weapon (HUD is the other session's for #458), physical-animation pulse on the hit bone.
 2. Rest of BP_SoldierSword's Tick: 5 soldier and 2 cannon scans; state lives in component positions. Big and risky: only with Play tests.
 3. Read the first Play log (`log_health.js`) and profile: they decide what is next. BP_JellyTrailManager checked: it only works while something burns, no fix needed.
