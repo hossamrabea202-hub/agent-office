@@ -16,6 +16,9 @@ adds what they learn. The goal is the most realistic result we can reach: "real 
 4. `research_notes/`. The raw findings behind the report, with sources: materials and PBR, geometry and baking,
    environment and vegetation, lighting and lookdev.
 
+5. **[Engineering: frame time and C++](engineering/PERFORMANCE_AND_CPP.md) (2026-11-04).** How to measure right, where a battle frame goes,
+   speed rules, and the C++ transition kit (all code as text: [CPP_TRANSITION_CODE.txt](engineering/CPP_TRANSITION_CODE.txt)).
+
 ## The rules that matter most (from the playbook)
 
 1. **Calibrated values.** Non-metal BaseColor is 30–240 sRGB (50 if strict). Bare metal is ≥ 180 sRGB. Metallic is 0 or 1
