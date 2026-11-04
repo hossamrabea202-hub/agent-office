@@ -39,3 +39,4 @@ Also still unconfirmed: #470, #469 stairs, #455, F11 Muster v2, Think stagger. T
 - 06:05: i9 confirmed: hidden colliders 70 off / 51 kept, nav 8/8, saved; ember2 saved, key 7 not played; tentacles 8/8 move, no stretch. Waiting: no_tread result, BaseColor shot, key 7 Play test.
 - 06:15: /Game/_i5tmpE2/A/SetF (mine, compiled clean) is still on i5: delete right after the next restart, not mid-session. Keep trim tint A/B asked from i9.
 - 06:25: ground2_ue.py replaces no_tread_ue.py in i9's queue. i9 next: wave_sweep, crowd LODs, keep trim A/B. If the road still reads modern after ground2: look at the swerve tracks + wander in M_MountainBackdrop (k >= 5).
+- 06:45: i5 took F9 (infection-card-f9/fix_card_ue.py) and F1 (faults-1205/f1_fix_ue.py) from silent TGA + TGA1: both with i9. Temp copy /Game/_i5tmpF1 on i5: delete after next restart. Obsidian helm being built (#485), handoffs/obsidian-sovereign/helmet/. Next if still silent: Tower9 shapes, carved battlements.
