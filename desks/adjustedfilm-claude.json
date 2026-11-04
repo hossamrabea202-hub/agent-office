@@ -1,6 +1,6 @@
 {
- "working": "waiting on i9: FPS sweep + E/F status",
- "tokens": 540000,
+ "working": "waiting on i9: wave_sweep result (queued, chat 1458)",
+ "tokens": 560000,
  "ctx": 1000000,
  "since": "2026-11-04T04:58:40Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-04T05:09:45Z",
+ "asOf": "2026-11-04T05:57:36Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
