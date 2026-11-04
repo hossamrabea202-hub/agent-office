@@ -1,0 +1,243 @@
+{
+ "fix": "C2",
+ "bp": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager",
+ "vars": [],
+ "nodes": [
+  {
+   "id": "c2aAll",
+   "kind": "call",
+   "x": 0,
+   "y": 0,
+   "path": "/Script/Engine.GameplayStatics:GetAllActorsOfClass",
+   "defaults": [
+    [
+     "ActorClass",
+     "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie.BP_Zombie_C"
+    ]
+   ]
+  },
+  {
+   "id": "c2aLen",
+   "kind": "call",
+   "x": 250,
+   "y": 150,
+   "path": "/Script/Engine.KismetArrayLibrary:Array_Length",
+   "defaults": []
+  },
+  {
+   "id": "c2aLess",
+   "kind": "call",
+   "x": 450,
+   "y": 150,
+   "path": "/Script/Engine.KismetMathLibrary:Less_IntInt",
+   "defaults": [
+    [
+     "B",
+     "60"
+    ]
+   ]
+  },
+  {
+   "id": "c2aBr",
+   "kind": "branch",
+   "x": 650,
+   "y": 0,
+   "defaults": []
+  },
+  {
+   "id": "c2aGet",
+   "kind": "get",
+   "var": "ToSpawn",
+   "x": 650,
+   "y": 250,
+   "defaults": []
+  },
+  {
+   "id": "c2aAdd",
+   "kind": "call",
+   "x": 850,
+   "y": 250,
+   "path": "/Script/Engine.KismetMathLibrary:Add_IntInt",
+   "defaults": [
+    [
+     "B",
+     "1"
+    ]
+   ]
+  },
+  {
+   "id": "c2aSet",
+   "kind": "set",
+   "var": "ToSpawn",
+   "x": 1050,
+   "y": 150,
+   "defaults": []
+  },
+  {
+   "id": "c2bAll",
+   "kind": "call",
+   "x": 0,
+   "y": 600,
+   "path": "/Script/Engine.GameplayStatics:GetAllActorsOfClass",
+   "defaults": [
+    [
+     "ActorClass",
+     "/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie.BP_Zombie_C"
+    ]
+   ]
+  },
+  {
+   "id": "c2bLen",
+   "kind": "call",
+   "x": 250,
+   "y": 750,
+   "path": "/Script/Engine.KismetArrayLibrary:Array_Length",
+   "defaults": []
+  },
+  {
+   "id": "c2bLess",
+   "kind": "call",
+   "x": 450,
+   "y": 750,
+   "path": "/Script/Engine.KismetMathLibrary:Less_IntInt",
+   "defaults": [
+    [
+     "B",
+     "60"
+    ]
+   ]
+  },
+  {
+   "id": "c2bBr",
+   "kind": "branch",
+   "x": 650,
+   "y": 600,
+   "defaults": []
+  },
+  {
+   "id": "c2bGet",
+   "kind": "get",
+   "var": "ToSpawn",
+   "x": 650,
+   "y": 850,
+   "defaults": []
+  },
+  {
+   "id": "c2bAdd",
+   "kind": "call",
+   "x": 850,
+   "y": 850,
+   "path": "/Script/Engine.KismetMathLibrary:Add_IntInt",
+   "defaults": [
+    [
+     "B",
+     "1"
+    ]
+   ]
+  },
+  {
+   "id": "c2bSet",
+   "kind": "set",
+   "var": "ToSpawn",
+   "x": 1050,
+   "y": 750,
+   "defaults": []
+  }
+ ],
+ "links": [
+  [
+   "WV_110.then",
+   "c2aAll.execute",
+   true
+  ],
+  [
+   "c2aAll.then",
+   "c2aBr.execute",
+   false
+  ],
+  [
+   "c2aAll.OutActors",
+   "c2aLen.TargetArray",
+   false
+  ],
+  [
+   "c2aLen.ReturnValue",
+   "c2aLess.A",
+   false
+  ],
+  [
+   "c2aLess.ReturnValue",
+   "c2aBr.Condition",
+   false
+  ],
+  [
+   "c2aBr.then",
+   "WV_114.execute",
+   false
+  ],
+  [
+   "c2aBr.else",
+   "c2aSet.execute",
+   false
+  ],
+  [
+   "c2aGet.ToSpawn",
+   "c2aAdd.A",
+   false
+  ],
+  [
+   "c2aAdd.ReturnValue",
+   "c2aSet.ToSpawn",
+   false
+  ],
+  [
+   "CX_26.LoopBody",
+   "c2bAll.execute",
+   true
+  ],
+  [
+   "c2bAll.then",
+   "c2bBr.execute",
+   false
+  ],
+  [
+   "c2bAll.OutActors",
+   "c2bLen.TargetArray",
+   false
+  ],
+  [
+   "c2bLen.ReturnValue",
+   "c2bLess.A",
+   false
+  ],
+  [
+   "c2bLess.ReturnValue",
+   "c2bBr.Condition",
+   false
+  ],
+  [
+   "c2bBr.then",
+   "CX_30.execute",
+   false
+  ],
+  [
+   "c2bBr.else",
+   "c2bSet.execute",
+   false
+  ],
+  [
+   "c2bGet.ToSpawn",
+   "c2bAdd.A",
+   false
+  ],
+  [
+   "c2bAdd.ReturnValue",
+   "c2bSet.ToSpawn",
+   false
+  ]
+ ],
+ "set_live": [],
+ "remove": [],
+ "dx": 0,
+ "dy": 2400
+}
