@@ -1,0 +1,15 @@
+{"fix": "K", "bp": "/Game/CastleDefender/Characters/Knight/BP_SoldierSword",
+ "vars": [],
+ "nodes": [
+  {"id": "skDt60", "kind": "call", "x": 0, "y": -400, "defaults": [["B", "60.0"]], "path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble"},
+  {"id": "skStep6", "kind": "call", "x": 250, "y": -400, "defaults": [["B", "6.0"]], "path": "/Script/Engine.KismetMathLibrary:Multiply_DoubleDouble"}
+ ],
+ "links": [
+  ["CX_135.DeltaSeconds", "skDt60.A", false],
+  ["skDt60.ReturnValue", "skStep6.A", false],
+  ["skStep6.ReturnValue", "CX_176.B", true],
+  ["skDt60.ReturnValue", "CX_579.B", true]
+ ],
+ "set_live": [["@DSEL", "A", "0.066667"]],
+ "remove": [],
+ "dx": 0, "dy": 0}

@@ -57,10 +57,8 @@ def tick(dt):
         if S['t'] < S['gpu_wait']: return
         S['done'] = True; unreal.unregister_slate_post_tick_callback(HANDLE)
         logf = unreal.SystemLibrary.convert_to_absolute_path(unreal.Paths.project_log_dir()) + 'CastleDefender.log'
-        rows = [l for l in open(logf, encoding='utf-8', errors='replace').read().split('
-')[-3000:] if 'LogRHI' in l and ' ms' in l]
-        open(S['gpu_file'], 'w', encoding='utf-8').write('
-'.join(l.split('Display:')[-1] for l in rows)); print('sweep: ALL DONE, git push the 3 files', len(rows), 'GPU rows'); return
+        rows = [l for l in open(logf, encoding='utf-8', errors='replace').read().split('\n')[-3000:] if 'LogRHI' in l and ' ms' in l]
+        open(S['gpu_file'], 'w', encoding='utf-8').write('\n'.join(l.split('Display:')[-1] for l in rows)); print('sweep: ALL DONE, git push the 3 files', len(rows), 'GPU rows'); return
     if S['phase'] == 'wait':                                         # get a busy wave first
         S['waited'] += dt
         n = alive()

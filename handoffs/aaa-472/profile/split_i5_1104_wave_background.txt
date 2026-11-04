@@ -1,0 +1,19 @@
+frames 63 cols 382
+FrameTime 333.3
+GameThreadTime 132.5
+RenderThreadTime 0.8
+RHIThreadTime 0.2
+GPUTime 64.2
+GameThreadTime_CriticalPath 132.5
+   35.62 Exclusive/GameThread/TickActors
+   23.29 Exclusive/GameThread/TimerManager
+   17.59 Exclusive/GameThread/CharacterMovement
+   15.59 Exclusive/GameThread/UI
+    7.87 Exclusive/GameThread/Pathfinding
+    5.97 Exclusive/GameThread/EventWait/EndPhysics
+    5.39 Exclusive/GameThread/Animation
+    3.06 Exclusive/GameThread/Effects
+    1.85 Exclusive/GameThread/SyncBodies
+    1.53 Exclusive/GameThread/EndOfFrameUpdates
+    1.47 Exclusive/GameThread/ActorSpawning
+    1.34 Exclusive/GameThread/Landscape
