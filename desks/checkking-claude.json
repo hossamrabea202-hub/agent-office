@@ -1,6 +1,6 @@
 {
- "working": "waiting on i9: C++ build log; TGA offline for #502 art",
- "tokens": 860000,
+ "working": "waiting on i9: first C++ build log (#500); medic-cpp session running",
+ "tokens": 880000,
  "ctx": 1000000,
  "since": "2026-11-04T12:45:07Z",
  "done": [
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-04T18:34:47Z",
+ "asOf": "2026-11-04T18:45:30Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "10ddbbaafa04",
