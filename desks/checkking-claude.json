@@ -1,9 +1,10 @@
 {
- "working": "#487 E2 part 2: ZombieHUD + Minimap zombie scans",
- "tokens": 250000,
+ "working": "waiting on i9: wall_xforms dump, chat swap; Alien OK on merlons",
+ "tokens": 420000,
  "ctx": 1000000,
  "since": "2026-11-04T09:58:20Z",
  "done": [
+  "#491 layout + deck cut; chat 24 h archive server for i9 [58% tokens left · 5h plan 55% left]",
   "#488 merlon kit v2 + #487 E2 handed to i9 (#490) [75% tokens left · 5h plan 71% left]",
   "#404 heavy cavalry handed off (#407); #400 closed [42% tokens left]",
   "#402 destrier + #403 knight kit handed off (#406) [54% tokens left]",
@@ -12,8 +13,7 @@
   "#256 torn cape masks [0% tokens left]",
   "Weapon batch 5, kit 25 [1% tokens left]",
   "Weapon batch 4 (estoc, zweihander, Lochaber axe), kit 22 [3% tokens left]",
-  "Weapon batch 3 (Viking sword, ranseur, pollaxe), kit 19 [5% tokens left]",
-  "Weapon kit v2: 16 weapons rebaked + pushed (#233 updated) [8% tokens left]"
+  "Weapon batch 3 (Viking sword, ranseur, pollaxe), kit 19 [5% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -24,25 +24,25 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-11-04T10:18:39Z",
+  "asOf": "2026-11-04T11:51:17Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 29,
+    "pct": 45,
     "resetsAt": "2026-11-04T14:50:00Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 4,
+    "pct": 6,
     "resetsAt": "2026-11-08T06:00:00Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-11-04T10:18:39Z",
+ "asOf": "2026-11-04T11:51:17Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "4c6f303ccd1f",
