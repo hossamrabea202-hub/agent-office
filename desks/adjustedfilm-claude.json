@@ -1,9 +1,10 @@
 {
- "working": "waiting on i9: wave_sweep result (queued, chat 1458)",
- "tokens": 560000,
+ "working": "waiting on i9: G H J results + wave_sweep",
+ "tokens": 620000,
  "ctx": 1000000,
  "since": "2026-11-04T04:58:40Z",
  "done": [
+  "#472 G H J handed to i9 [38% tokens left]",
   "#472 sweep + LOD scripts, #457 explained [46% tokens left]",
   "#472 fix F handed to i9 [53% tokens left]",
   "#472 ragdoll + fix E handed to i9 [60% tokens left]",
@@ -12,8 +13,7 @@
   "#472 A+B+C scripts handed to i9 [76% tokens left]",
   "#450 #457 frozen tentacles fix handed to i9 [81% tokens left]",
   "#472 fix B handed to i9 [86% tokens left]",
-  "#472 crowd fix A handed to i9 (#474, chat 1279) [88% tokens left]",
-  "#472 audit + roadmap + fix 1 (Think stagger) to i9; pick-up note [20% tokens left]"
+  "#472 crowd fix A handed to i9 (#474, chat 1279) [88% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-04T05:57:36Z",
+ "asOf": "2026-11-04T09:49:32Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
