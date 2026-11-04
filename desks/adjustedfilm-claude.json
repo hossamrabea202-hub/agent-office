@@ -1,8 +1,8 @@
 {
- "working": "waiting on i9: RESULT lines for #472 + tentacle",
- "tokens": 470000,
+ "working": "#472 read i9 results: GPU profile + tentacle 4",
+ "tokens": 500000,
  "ctx": 1000000,
- "since": "2026-11-03T20:51:47Z",
+ "since": "2026-11-04T04:58:40Z",
  "done": [
   "#472 fix F handed to i9 [53% tokens left]",
   "#472 ragdoll + fix E handed to i9 [60% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-03T22:24:09Z",
+ "asOf": "2026-11-04T04:58:40Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "454d691789a8",
+  "id": "62dad6f0f5b5",
   "host": "5CD3147LBC"
  },
  "ask": {
