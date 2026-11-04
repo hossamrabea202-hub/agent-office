@@ -1,0 +1,220 @@
+{
+ "fix": "C7",
+ "bp": "/Game/CastleDefender/Gameplay/Castle/BP_BarracksHUD",
+ "vars": [
+  [
+   "LastSquadScan",
+   {
+    "basic": "real"
+   }
+  ],
+  [
+   "LastCmdScanB",
+   {
+    "basic": "real"
+   }
+  ]
+ ],
+ "nodes": [
+  {
+   "id": "c7aBr",
+   "kind": "branch",
+   "x": 0,
+   "y": 0,
+   "defaults": []
+  },
+  {
+   "id": "c7aNow",
+   "kind": "call",
+   "path": "/Script/Engine.GameplayStatics:GetTimeSeconds",
+   "x": -600,
+   "y": 200,
+   "defaults": []
+  },
+  {
+   "id": "c7aLast",
+   "kind": "get",
+   "var": "LastSquadScan",
+   "x": -600,
+   "y": 350,
+   "defaults": []
+  },
+  {
+   "id": "c7aSub",
+   "kind": "call",
+   "path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+   "x": -400,
+   "y": 250,
+   "defaults": []
+  },
+  {
+   "id": "c7aLess",
+   "kind": "call",
+   "path": "/Script/Engine.KismetMathLibrary:Less_DoubleDouble",
+   "x": -200,
+   "y": 250,
+   "defaults": [
+    [
+     "B",
+     "0.5"
+    ]
+   ]
+  },
+  {
+   "id": "c7aSetT",
+   "kind": "set",
+   "var": "LastSquadScan",
+   "x": 250,
+   "y": 200,
+   "defaults": []
+  },
+  {
+   "id": "c7bBr",
+   "kind": "branch",
+   "x": 0,
+   "y": 0,
+   "defaults": []
+  },
+  {
+   "id": "c7bNow",
+   "kind": "call",
+   "path": "/Script/Engine.GameplayStatics:GetTimeSeconds",
+   "x": -600,
+   "y": 200,
+   "defaults": []
+  },
+  {
+   "id": "c7bLast",
+   "kind": "get",
+   "var": "LastCmdScanB",
+   "x": -600,
+   "y": 350,
+   "defaults": []
+  },
+  {
+   "id": "c7bSub",
+   "kind": "call",
+   "path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+   "x": -400,
+   "y": 250,
+   "defaults": []
+  },
+  {
+   "id": "c7bLess",
+   "kind": "call",
+   "path": "/Script/Engine.KismetMathLibrary:Less_DoubleDouble",
+   "x": -200,
+   "y": 250,
+   "defaults": [
+    [
+     "B",
+     "0.5"
+    ]
+   ]
+  },
+  {
+   "id": "c7bSetT",
+   "kind": "set",
+   "var": "LastCmdScanB",
+   "x": 250,
+   "y": 200,
+   "defaults": []
+  }
+ ],
+ "links": [
+  [
+   "CX_3451.then",
+   "c7aBr.execute",
+   true
+  ],
+  [
+   "c7aNow.ReturnValue",
+   "c7aSub.A",
+   false
+  ],
+  [
+   "c7aLast.LastSquadScan",
+   "c7aSub.B",
+   false
+  ],
+  [
+   "c7aSub.ReturnValue",
+   "c7aLess.A",
+   false
+  ],
+  [
+   "c7aLess.ReturnValue",
+   "c7aBr.Condition",
+   false
+  ],
+  [
+   "c7aBr.then",
+   "CX_940.execute",
+   false
+  ],
+  [
+   "c7aBr.else",
+   "c7aSetT.execute",
+   false
+  ],
+  [
+   "c7aNow.ReturnValue",
+   "c7aSetT.LastSquadScan",
+   false
+  ],
+  [
+   "c7aSetT.then",
+   "CX_3455.execute",
+   false
+  ],
+  [
+   "CX_266.then",
+   "c7bBr.execute",
+   true
+  ],
+  [
+   "c7bNow.ReturnValue",
+   "c7bSub.A",
+   false
+  ],
+  [
+   "c7bLast.LastCmdScanB",
+   "c7bSub.B",
+   false
+  ],
+  [
+   "c7bSub.ReturnValue",
+   "c7bLess.A",
+   false
+  ],
+  [
+   "c7bLess.ReturnValue",
+   "c7bBr.Condition",
+   false
+  ],
+  [
+   "c7bBr.then",
+   "CX_268.execute",
+   false
+  ],
+  [
+   "c7bBr.else",
+   "c7bSetT.execute",
+   false
+  ],
+  [
+   "c7bNow.ReturnValue",
+   "c7bSetT.LastCmdScanB",
+   false
+  ],
+  [
+   "c7bSetT.then",
+   "CX_3879.execute",
+   false
+  ]
+ ],
+ "set_live": [],
+ "remove": [],
+ "dx": 0,
+ "dy": -1500
+}
