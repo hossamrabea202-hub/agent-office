@@ -108,7 +108,8 @@ def set_values(paths):
             if PL.list_connected_pins(p): continue
             if not PL.set_pin_value(p, val): fails.append('%s.%s = %s (value refused)' % (n['id'], pname, val))
 set_values(True)
-for nm, pname, val in OPS.get('set_live', []): PL.set_pin_value(pin(live[nm], pname, False), val)
+for nm, pname, val in OPS.get('set_live', []):
+    if not PL.set_pin_value(pin(live[nm], pname, False), val): fails.append('%s.%s = %s (value refused)' % (nm, pname, val))
 # ---- links in order. replace: the one-link end (exec output, data input) lets go first
 for fr, to, rep in OPS['links']:
     a, pa = split(fr); b, pb = split(to)
