@@ -5,7 +5,7 @@ const http = require('http');
 const HOST = '100.87.149.123', PORT = 8765;
 const AGENTS = ['i9', 'TGA_PC', 'TGA1', 'TGA'];
 const req = (method, path, body) => new Promise((res, rej) => {
-  const r = http.request({ host: HOST, port: PORT, path, method, timeout: 20000 }, m => { let d = ''; m.on('data', c => d += c); m.on('end', () => res(d)); });
+  const r = http.request({ host: HOST, port: PORT, path, method, timeout: 20000, headers: body ? { 'Content-Length': Buffer.byteLength(body), 'Content-Type': 'text/plain' } : {} }, m => { let d = ''; m.on('data', c => d += c); m.on('end', () => res(d)); });
   r.on('error', rej); r.on('timeout', () => r.destroy(new Error('timeout'))); if (body) r.write(body); r.end();
 });
 const lastNudge = {}; const start = Date.now(); const HOURS = +process.argv[2] || 8;
@@ -23,8 +23,8 @@ async function tick() {
       const seen = lastSeen[a] || start, nudged = lastNudge[a] || 0;
       if (Date.now() - seen > 60 * 60e3 && Date.now() - nudged > 60 * 60e3) {
         lastNudge[a] = Date.now();
-        await req('POST', '/say', 'From: i5: @' + a + ' watchdog: no report from you for 60+ min. Alien\'s overnight order (1273): non-stop, work your queue, decide yourself, take the next open card (#461 harmony, #472, the whiteboard). Post one line when you resume, or a hand-off note if you are out of tokens.');
-        console.log(new Date().toISOString(), 'nudged', a);
+        const said = await req('POST', '/say', 'From: i5: @' + a + ' watchdog: no report from you for 60+ min. Alien\'s overnight order (1273): non-stop, work your queue, decide yourself, take the next open card (#461 harmony, #472, the whiteboard). Post one line when you resume, or a hand-off note if you are out of tokens.');
+        console.log(new Date().toISOString(), 'nudged', a, 'server:', said.slice(0, 20));   // log what the server answered: v1 logged success while every POST was dropped
       }
     }
   } catch (e) { console.log(new Date().toISOString(), 'chat error', e.message); }
