@@ -1,6 +1,6 @@
 {
- "working": "plan used up until 14:50 UTC; waiting on i9 sync zips",
- "tokens": 365000,
+ "working": "waiting on i9: sync_1104_f (BP_ZombieWaveManager); joined CastleDefender6",
+ "tokens": 380000,
  "ctx": 1000000,
  "since": "2026-11-04T12:45:07Z",
  "done": [
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-04T14:40:22Z",
+ "asOf": "2026-11-04T14:56:11Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "10ddbbaafa04",
