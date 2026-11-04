@@ -63,3 +63,10 @@ the zombie count changes during a run, the groups show where the change came fro
   Per-zombie costs above still hold; the totals at 300+ overstate a normal battle.
 - C2 plan: put the same "alive < cap" check (one shared cap, e.g. 60-80) in front of WV_114 and CX_30; extra spawns go into ToSpawn so the steady path releases them as zombies die.
   Build on i9's current graph (fix A replaced some GetAll with ZombieReg): needs a fresh export or a dry run on i9 first.
+
+## Status 11-04 16:05 (i5)
+Handed to i9: K (#492), C1 (#494), C3 (#495), C5 (#496) - all APPLIED on i9 15:20; C2 wave cap, C6 CommanderHUD scan, C7 BarracksHUD scans - new, waiting.
+Given to TGA (Claude) by the owner: C4 zombie Think + Tick (needs a fresh BP_Zombie export from i9).
+Checked, nothing to do: zombie and brute meshes already have Update Rate Optimization on and Only Tick Pose When Rendered. Soldiers have neither (few soldiers, small gain).
+Open: zombie physics asset body count (SK_Zombie_PhysicsAsset; not readable from Python - look in the Physics Asset editor; fewer bodies = cheaper body collision for the zombies C1 keeps on).
+Blocked: i5 Play checks for K / C1 / C3 / C5 need sync_1104_f (i9's BP_ZombieWaveManager with fix A). i9's FPS wave test does not need i5.
