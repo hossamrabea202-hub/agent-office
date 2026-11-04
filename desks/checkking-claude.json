@@ -1,8 +1,8 @@
 {
- "working": "waiting on i9: wall_xforms dump, chat swap; Alien OK on merlons",
- "tokens": 420000,
+ "working": "#487 measure battle frame split on i5 (stat unit + wave sweep)",
+ "tokens": 83115,
  "ctx": 1000000,
- "since": "2026-11-04T09:58:20Z",
+ "since": "2026-11-04T12:45:07Z",
  "done": [
   "#491 layout + deck cut; chat 24 h archive server for i9 [58% tokens left · 5h plan 55% left]",
   "#488 merlon kit v2 + #487 E2 handed to i9 (#490) [75% tokens left · 5h plan 71% left]",
@@ -24,28 +24,28 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-11-04T11:51:17Z",
+  "asOf": "2026-11-04T12:45:07Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 45,
-    "resetsAt": "2026-11-04T14:50:00Z",
+    "pct": 46,
+    "resetsAt": "2026-11-04T14:49:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 6,
-    "resetsAt": "2026-11-08T06:00:00Z",
+    "pct": 92,
+    "resetsAt": "2026-11-08T05:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-11-04T11:51:17Z",
+ "asOf": "2026-11-04T12:45:07Z",
  "seat": "checkking (Claude)",
  "session": {
-  "id": "4c6f303ccd1f",
+  "id": "10ddbbaafa04",
   "host": "5CD3147LBC"
  },
  "ask": {
