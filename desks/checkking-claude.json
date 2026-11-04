@@ -1,9 +1,10 @@
 {
- "working": "#493 next: C2 zombie cap, C5 HUD",
- "tokens": 325000,
+ "working": "#493 next: C2 zombie cap, HUD tag scans",
+ "tokens": 345000,
  "ctx": 1000000,
  "since": "2026-11-04T12:45:07Z",
  "done": [
+  "#493 C5 ZombieHUD line-of-sight swap handed to i9 [65% tokens left]",
   "#493 C3 soldier near-zombies list handed to i9 (compiled, not run in Play) [67% tokens left]",
   "#493 crowd plan + C1 BPC_CrowdTier handed to i9 (compiled, not run in Play) [69% tokens left · 5h plan 80% left]",
   "#487 measured wave split on i5 (game thread 162 ms, GPU 42); fix K soldier AI 15 Hz handed to i9 (#492) [78% tokens left · 5h plan 67% left]",
@@ -12,8 +13,7 @@
   "#404 heavy cavalry handed off (#407); #400 closed [42% tokens left]",
   "#402 destrier + #403 knight kit handed off (#406) [54% tokens left]",
   "#401 stables built + handed off (#405) [72% tokens left]",
-  "Texture budget script handed off [0% tokens left]",
-  "#256 torn cape masks [0% tokens left]"
+  "Texture budget script handed off [0% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-04T14:06:59Z",
+ "asOf": "2026-11-04T14:14:18Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "10ddbbaafa04",
