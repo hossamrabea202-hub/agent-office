@@ -6,9 +6,10 @@ Everything below is pushed.
 Tentacle fix + hit reaction, A + B + C, D: all `compile True`, 0 failures, saved, child classes up to date. **Log: 0 Blueprint runtime errors, AnimBP-mode warnings 678 -> 1.**
 **FPS did NOT improve:** 3.9 fps / 85 zombies before; 3.6 and 4.3 after. Correct what I said earlier: the logic work fixed errors and bugs, not frame rate.
 
-## Not confirmed applied: asked i9 in chat 1449
-- E brute (`ops/ops_E_brute.json`), F never-made wires (`ops/README_F.md`).
-- Tentacle 4: `tentacle_anim_ue.py swap --only Env_CorruptedTentacle_4`.
+## Status from i9 (chat 1456, 1458)
+- F: 10 of 10 applied + saved. `risen` failed on i9's copy (its Create Widget node is gone); i9 added one and it compiles. Play, wave forced, 84 zombies: 0 Accessed None, 0 runtime errors, 3 fps. **Not yet seen on screen:** limb cut, WallBreaker at breach, half-horse, upgrades + shields surviving reload.
+- Tentacle 4: i9 gave it Sway020 itself (my swap not run).
+- E brute: not run yet. i9's queue: no_tread, then wave_sweep, crowd_lods, sweep again, keep trim, then E.
 
 ## FPS: where it stands
 i9 calls it GPU-bound on the T1000; that is **not measured yet**. Waiting on i9:
