@@ -54,3 +54,12 @@ Measure after each step on i9 with the editor in front: `profile/measure_split_u
 ## Test rule for every step
 Forced wave, fixed camera at the gate, editor in front, note zombie and soldier counts. Compare CSV game-thread groups (`profile/csv_split.js`), not only fps:
 the zombie count changes during a run, the groups show where the change came from.
+
+## C2 findings (i5, 11-04 15:40, read-only, i5's older BP_ZombieWaveManager)
+- The steady spawn (WaveTick WV_22 > ToSpawn > 0 > WV_26 GetAll zombies > **WV_29: alive < 45** > SpawnActor WV_35) already has a cap of 45 alive BP_Zombie.
+- Two spawn paths skip it: wave start WV_114 (inside WV_92 For Each over WV_91 GetAllActorsOfClass, after Set Wave WV_95 / Set ToSpawn WV_105) and the swarm burst CX_30
+  (For Loop CX_26, up to Min(...,4) per manager, gate CX_22: near the gate point and every 3rd wave from wave 2). With 6 wave managers these add up.
+- **Correction:** the 300-480 zombie runs in my tests came partly from my own ForceNextWave calls on all 6 managers stacking wave starts. Real battles on i9 had ~84.
+  Per-zombie costs above still hold; the totals at 300+ overstate a normal battle.
+- C2 plan: put the same "alive < cap" check (one shared cap, e.g. 60-80) in front of WV_114 and CX_30; extra spawns go into ToSpawn so the steady path releases them as zombies die.
+  Build on i9's current graph (fix A replaced some GetAll with ZombieReg): needs a fresh export or a dry run on i9 first.
