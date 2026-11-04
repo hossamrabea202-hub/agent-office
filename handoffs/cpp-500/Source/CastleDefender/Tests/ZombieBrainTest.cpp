@@ -6,6 +6,7 @@
 #include "Misc/AutomationTest.h"
 #include "CDSaveGame.h"
 #include "Kismet/GameplayStatics.h"
+#include "Misc/Guid.h"
 #include "ZombieBase.h"
 
 #if WITH_DEV_AUTOMATION_TESTS
@@ -67,11 +68,10 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCDSaveTest, "CastleDefender.Save.SafeWritePath
 
 bool FCDSaveTest::RunTest(const FString& Parameters)
 {
-	const FString Slot = TEXT("CDTest_Save");
-	auto Clean = [&Slot]()
-	{
-		for (const TCHAR* Suffix : { TEXT(""), TEXT("_bak"), TEXT("_tmp") }) { UGameplayStatics::DeleteGameInSlot(Slot + Suffix, 0); }
-	};
+	// A fresh slot name per run: the test can never delete real or older test data.
+	const FString Slot = FString::Printf(TEXT("CDTest_%s"), *FGuid::NewGuid().ToString(EGuidFormats::Digits));
+	const FString Tmp = Slot + TEXT("_tmp"), Bak = Slot + TEXT("_bak");
+	auto Clean = [&]() { for (const FString& F : { Slot, Tmp, Bak }) { UGameplayStatics::DeleteGameInSlot(F, 0); } };
 	auto Make = [](int32 Gold, int32 Version = UCDSaveGame::CurrentVersion)
 	{
 		UCDSaveGame* D = Cast<UCDSaveGame>(UGameplayStatics::CreateSaveGameObject(UCDSaveGame::StaticClass()));
@@ -79,32 +79,86 @@ bool FCDSaveTest::RunTest(const FString& Parameters)
 		D->SaveVersion = Version;
 		return D;
 	};
+	// Writes a valid enveloped file directly (to set up recovery cases).
+	auto WriteRaw = [](UCDSaveGame* D, int64 Seq, const FString& File)
+	{
+		D->Sequence = Seq;
+		TArray<uint8> Payload, Out;
+		UGameplayStatics::SaveGameToMemory(D, Payload);
+		UCDSaveSubsystem::Wrap(Payload, Seq, Out);
+		return UGameplayStatics::SaveDataToSlot(Out, File, 0);
+	};
+	// Null-safe check of one file's Gold.
+	auto ExpectGold = [this](const FString& What, const FString& File, int32 Gold)
+	{
+		const UCDSaveGame* L = UCDSaveSubsystem::LoadValid(File);
+		if (TestNotNull(*(What + TEXT(" (loads)")), L)) { TestEqual(*What, L->GetInt(TEXT("Gold"), -1), Gold); }
+	};
+	auto ExpectLoaded = [this](const FString& What, const UCDSaveGame* L, int32 Gold)
+	{
+		if (TestNotNull(*(What + TEXT(" (object)")), L)) { TestEqual(*What, L->GetInt(TEXT("Gold"), -1), Gold); }
+	};
 	const TArray<uint8> Garbage = { 1, 2, 3, 4, 5, 6, 7, 8 };
 	UCDSaveSubsystem* Saves = NewObject<UCDSaveSubsystem>(GetTransientPackage());
 
 	Clean();
-	TestEqual(TEXT("missing save -> fresh default"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold"), -1), -1);
+	ExpectLoaded(TEXT("missing save -> fresh default"), Saves->LoadOrCreate(Slot), -1);
 
 	TestTrue(TEXT("first save works"), Saves->Save(Make(10), Slot));
 	TestTrue(TEXT("second save works"), Saves->Save(Make(20), Slot));
-	TestEqual(TEXT("main holds the newest"), UCDSaveSubsystem::LoadValid(Slot)->GetInt(TEXT("Gold")), 20);
-	TestEqual(TEXT("backup holds the previous"), UCDSaveSubsystem::LoadValid(Slot + TEXT("_bak"))->GetInt(TEXT("Gold")), 10);
-	TestFalse(TEXT("temp slot removed"), UGameplayStatics::DoesSaveGameExist(Slot + TEXT("_tmp"), 0));
+	ExpectGold(TEXT("main holds the newest"), Slot, 20);
+	ExpectGold(TEXT("backup holds the previous"), Bak, 10);
+	TestFalse(TEXT("temp file removed after commit"), UGameplayStatics::DoesSaveGameExist(Tmp, 0));
 
-	UGameplayStatics::SaveDataToSlot(Garbage, Slot, 0);
-	TestEqual(TEXT("corrupt main -> verified backup is loaded"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold")), 10);
+	// checksum: one flipped byte makes the file invalid
+	TArray<uint8> Bytes;
+	UGameplayStatics::LoadDataFromSlot(Bytes, Slot, 0);
+	if (TestTrue(TEXT("main file has bytes"), Bytes.Num() > 30))
+	{
+		Bytes.Last() ^= 0xFF;
+		UGameplayStatics::SaveDataToSlot(Bytes, Slot, 0);
+		TestNull(TEXT("flipped byte -> invalid (CRC)"), UCDSaveSubsystem::LoadValid(Slot));
+	}
+	ExpectLoaded(TEXT("corrupt main -> verified backup is loaded"), Saves->LoadOrCreate(Slot), 10);
 	TestTrue(TEXT("save over a corrupt main works"), Saves->Save(Make(30), Slot));
-	TestEqual(TEXT("corrupt main did not replace the good backup"), UCDSaveSubsystem::LoadValid(Slot + TEXT("_bak"))->GetInt(TEXT("Gold")), 10);
+	ExpectGold(TEXT("corrupt main did not replace the good backup"), Bak, 10);
 
-	UGameplayStatics::SaveDataToSlot(Garbage, Slot + TEXT("_bak"), 0);
-	TestEqual(TEXT("corrupt backup never replaces a valid main"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold")), 30);
+	UGameplayStatics::SaveDataToSlot(Garbage, Bak, 0);
+	ExpectLoaded(TEXT("corrupt backup never replaces a valid main"), Saves->LoadOrCreate(Slot), 30);
 
+	// Bug B: an interrupted save leaves a verified _tmp that is newer than main
 	Clean();
-	UGameplayStatics::SaveGameToSlot(Make(99, UCDSaveGame::CurrentVersion + 1), Slot, 0);
-	Saves->LoadOrCreate(Slot);
-	TestTrue(TEXT("newer-version save loads read-only"), Saves->IsReadOnly());
-	TestFalse(TEXT("newer-version save is never overwritten"), Saves->Save(Make(1), Slot));
-	TestEqual(TEXT("newer-version save still there"), UCDSaveSubsystem::LoadValid(Slot)->SaveVersion, UCDSaveGame::CurrentVersion + 1);
+	WriteRaw(Make(40), 4, Slot);
+	WriteRaw(Make(50), 5, Tmp);
+	ExpectLoaded(TEXT("_tmp newer than main (commit interrupted) -> _tmp recovered"), Saves->LoadOrCreate(Slot), 50);
+	Clean();
+	WriteRaw(Make(60), 6, Slot);
+	WriteRaw(Make(55), 5, Tmp);
+	ExpectLoaded(TEXT("stale _tmp older than main -> main wins"), Saves->LoadOrCreate(Slot), 60);
+	Clean();
+	WriteRaw(Make(70), 7, Tmp);
+	ExpectLoaded(TEXT("first save interrupted, only _tmp exists -> _tmp recovered"), Saves->LoadOrCreate(Slot), 70);
+	TestTrue(TEXT("saving after recovery continues the sequence"), Saves->Save(Make(71), Slot));
+	const UCDSaveGame* AfterRecovery = UCDSaveSubsystem::LoadValid(Slot);
+	if (TestNotNull(TEXT("main after recovery save"), AfterRecovery)) { TestTrue(TEXT("sequence > 7"), AfterRecovery->Sequence > 7); }
+
+	// Bug A: a fresh object must not overwrite a newer build's save on disk, even without LoadOrCreate first
+	Clean();
+	WriteRaw(Make(99, UCDSaveGame::CurrentVersion + 1), 3, Slot);
+	UCDSaveSubsystem* Fresh = NewObject<UCDSaveSubsystem>(GetTransientPackage());
+	TestFalse(TEXT("fresh object over a newer on-disk save is refused"), Fresh->Save(Make(1), Slot));
+	const UCDSaveGame* StillNewer = UCDSaveSubsystem::LoadValid(Slot);
+	if (TestNotNull(TEXT("newer save still there"), StillNewer)) { TestEqual(TEXT("newer version kept"), StillNewer->SaveVersion, UCDSaveGame::CurrentVersion + 1); }
+	TestTrue(TEXT("that slot is now read-only"), Fresh->IsReadOnly(Slot));
+	const FString Other = Slot + TEXT("B");
+	TestTrue(TEXT("another slot is still writable (read-only is per slot)"), Fresh->Save(Make(2), Other) && !Fresh->IsReadOnly(Other));
+	for (const FString& F : { Other, Other + TEXT("_tmp"), Other + TEXT("_bak") }) { UGameplayStatics::DeleteGameInSlot(F, 0); }
+
+	// Bug F: an old-version object passed straight to Save is migrated, not just relabelled
+	Clean();
+	UCDSaveGame* Old = Make(5, 0);
+	TestTrue(TEXT("old-version object saves"), Saves->Save(Old, Slot));
+	TestEqual(TEXT("it was migrated to the current version"), Old->SaveVersion, UCDSaveGame::CurrentVersion);
 
 	UCDSaveGame* M = Make(5, 1);
 	TestTrue(TEXT("migration runs"), M->Migrate());

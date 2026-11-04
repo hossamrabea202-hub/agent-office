@@ -24,8 +24,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Zombie|Brain")
 	AActor* PickAndSetTargetFromRegistry();
 
+	// The current target, or null if it was destroyed since the pick (weak reference: a dead target is never kept alive).
 	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
-	AActor* GetCurrentTarget() const { return CurrentTarget; }
+	AActor* GetCurrentTarget() const { AActor* T = CurrentTarget.Get(); return IsValid(T) ? T : nullptr; }
+
+	// Call at the START of the death transition (before the death code sets its collision): the crowd manager stops touching this body.
+	UFUNCTION(BlueprintCallable, Category = "Zombie|Crowd")
+	void NotifyDying();
 
 	// Think's "heavy part every Nth tick" divisor: 1 within ZombieNearPlayer, 2 within ZombieMidPlayer, else 4 (K2Node_IfThenElse_11).
 	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
@@ -35,7 +40,7 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
 	bool IsFullDetail() const;
 
-	// Dead for the crowd's purposes: the Blueprint bool "Dead" if the class has it, else being destroyed. Override when a C++ death state exists.
+	// Dead for the crowd's purposes: being destroyed, or NotifyDying was called, or the Blueprint bool "Dead" is true. Override when a C++ death state exists.
 	virtual bool IsDeadForCrowd() const;
 
 	// Engaged by a soldier. Today BP_SoldierSword marks its zombie with CustomTimeDilation 0.999 (fragile; replace with an explicit state later).
@@ -71,8 +76,8 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
-	UPROPERTY(Transient, BlueprintReadOnly, Category = "Zombie|Brain")
-	TObjectPtr<AActor> CurrentTarget;
+	TWeakObjectPtr<AActor> CurrentTarget;
+	bool bDying = false;
 
 	// Transition: BP_Zombie still uses Owner as its target slot. Turn off when the Blueprint reads CurrentTarget (Owner also drives net ownership).
 	UPROPERTY(EditDefaultsOnly, Category = "Zombie|Brain")

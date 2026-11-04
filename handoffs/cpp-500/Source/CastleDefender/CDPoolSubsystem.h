@@ -3,7 +3,9 @@
 //
 // RESET CONTRACT: only classes that implement ICDPoolable are pooled. OnAcquired must bring the actor back to a just-spawned state
 // (BeginPlay does NOT run again): health / damage state, velocity, projectile movement, ignored actors, attached children, effects, delegates.
-// OnReleased must stop everything it started. The pool itself also clears the actor's timers, life span, movement velocity, and hides it.
+// OnReleased must stop everything it started. The pool itself also: clears the actor's timers and life span, zeroes physics velocity, stops and
+// DEACTIVATES its active movement components, turns off every component tick (actor tick and component ticks are separate in Unreal), hides it and
+// turns off its collision. On Acquire it re-enables exactly the component ticks and re-activates exactly the movers it turned off, then calls OnAcquired.
 // A class without ICDPoolable is spawned normally by Acquire and destroyed by Release: never pooled.
 //
 // Lifecycle per actor: Active -> (Release with delay) PendingRelease -> Pooled -> (Acquire) Active ... Each Acquire bumps a generation number;
@@ -74,11 +76,14 @@ private:
 		EState State = EState::Active;
 		uint32 Generation = 0;
 		FTimerHandle Timer;
+		TArray<TWeakObjectPtr<UActorComponent>> TicksOff;      // component ticks the pool turned off
+		TArray<TWeakObjectPtr<UActorComponent>> MoversOff;     // movement components the pool deactivated
 	};
 
 	void Park(AActor* Actor, uint32 ExpectedGeneration);
 	void PurgeInvalid(UClass* Class);
-	static void ResetEngineState(AActor* Actor);
+	static void ResetEngineState(AActor* Actor, FRecord& Rec);
+	static void RestoreEngineState(FRecord& Rec);
 
 	TMap<TWeakObjectPtr<AActor>, FRecord> Records;
 	TMap<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>> Free;

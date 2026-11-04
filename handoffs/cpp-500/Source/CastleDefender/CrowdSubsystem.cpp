@@ -43,7 +43,8 @@ void UCrowdSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	bManageBodyCollision = Settings->bCrowdManagesBodyCollision;
 	FullDetailRange = Settings->CrowdFullDetailRange;
 	UpdateInterval = FMath::Max(0.05f, Settings->CrowdUpdateInterval);
-	MaxAliveZombies = Settings->MaxAliveZombies;
+	FullDetailRange = FMath::Max(0.f, FullDetailRange);
+	MaxAliveZombies = FMath::Max(0, Settings->MaxAliveZombies);   // values from .ini are not clamped by the editor UI
 }
 
 void UCrowdSubsystem::Deinitialize()
@@ -62,8 +63,22 @@ void UCrowdSubsystem::RegisterZombie(AZombieBase* Zombie)
 
 void UCrowdSubsystem::UnregisterZombie(AZombieBase* Zombie)
 {
-	RestoreBodyCollision(Zombie);
+	if (Zombie && !Zombie->IsDeadForCrowd() && !Relinquished.Contains(Zombie))
+	{
+		RestoreBodyCollision(Zombie);
+	}
+	OriginalCollision.Remove(Zombie);
+	Relinquished.Remove(Zombie);
 	Zombies.Remove(Zombie);
+}
+
+void UCrowdSubsystem::RelinquishBodyCollision(AZombieBase* Zombie)
+{
+	if (Zombie)
+	{
+		OriginalCollision.Remove(Zombie);
+		Relinquished.Add(Zombie);
+	}
 }
 
 void UCrowdSubsystem::RegisterSoldier(AActor* Soldier)
@@ -129,6 +144,10 @@ void UCrowdSubsystem::GetZombiesNear(FVector Location, float Radius, TArray<AAct
 {
 	CD_SCOPE(STAT_CD_ZombiesNear);
 	OutZombies.Reset();
+	if (!(Radius > 0.f))
+	{
+		return;   // negative, zero or NaN radius: nothing
+	}
 	const float RadiusSq = Radius * Radius;
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
@@ -154,6 +173,13 @@ void UCrowdSubsystem::PurgeInvalid()
 	Zombies.RemoveAll([](const TWeakObjectPtr<AZombieBase>& Weak) { return !Weak.IsValid(); });
 	Soldiers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
 	Farmers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
+	for (auto It = Relinquished.CreateIterator(); It; ++It)
+	{
+		if (!It->IsValid())
+		{
+			It.RemoveCurrent();
+		}
+	}
 	for (auto It = OriginalCollision.CreateIterator(); It; ++It)
 	{
 		if (!It.Key().IsValid())
@@ -191,7 +217,7 @@ void UCrowdSubsystem::RestoreBodyCollision(AZombieBase* Zombie)
 	}
 	if (const TEnumAsByte<ECollisionEnabled::Type>* Original = OriginalCollision.Find(Zombie))
 	{
-		// Do not undo what the zombie's own death code set (ragdoll profile, physics).
+		// Alive zombies only (callers check); only undo our own change (the mesh is still at the NoCollision we set).
 		USkeletalMeshComponent* Mesh = Zombie->GetMesh();
 		if (Mesh && !Mesh->IsSimulatingPhysics() && Mesh->GetCollisionEnabled() == ECollisionEnabled::NoCollision)
 		{
@@ -205,9 +231,14 @@ void UCrowdSubsystem::RestoreAll()
 {
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
-		RestoreBodyCollision(Weak.Get());
+		AZombieBase* Zombie = Weak.Get();
+		if (Zombie && !Zombie->IsDeadForCrowd() && !Relinquished.Contains(Zombie))
+		{
+			RestoreBodyCollision(Zombie);
+		}
 	}
 	OriginalCollision.Reset();
+	Relinquished.Reset();
 }
 
 void UCrowdSubsystem::ApplyBodyCollisionRule()
@@ -223,9 +254,13 @@ void UCrowdSubsystem::ApplyBodyCollisionRule()
 			continue;
 		}
 		USkeletalMeshComponent* Mesh = Zombie->GetMesh();
-		if (!Mesh || Mesh->IsSimulatingPhysics() || Zombie->IsDeadForCrowd())
+		if (!Mesh || Relinquished.Contains(Zombie))
 		{
-			RestoreBodyCollision(Zombie);   // dead / ragdoll: hand the body back to the zombie's own code
+			continue;
+		}
+		if (Mesh->IsSimulatingPhysics() || Zombie->IsDeadForCrowd())
+		{
+			RelinquishBodyCollision(Zombie);   // dying / ragdoll: the death code owns the body from now on, nothing is restored
 			continue;
 		}
 		const bool bNear = !Player || FVector::DistSquared(Zombie->GetActorLocation(), Player->GetActorLocation()) < RangeSq;

@@ -45,9 +45,17 @@ bool AZombieBase::ReadBlueprintBool(const UObject* Object, FName Name, bool* bFo
 
 bool AZombieBase::IsDeadForCrowd() const
 {
-	bool bFound = false;
-	const bool bDead = ReadBlueprintBool(this, TEXT("Dead"), &bFound);
-	return bFound ? bDead : (IsActorBeingDestroyed() || !IsValid(this));
+	// Destruction and NotifyDying always win; the Blueprint flag can only add "dead", never hide it.
+	return IsActorBeingDestroyed() || !IsValid(this) || bDying || ReadBlueprintBool(this, TEXT("Dead"));
+}
+
+void AZombieBase::NotifyDying()
+{
+	bDying = true;
+	if (UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this))
+	{
+		Crowd->RelinquishBodyCollision(this);
+	}
 }
 
 bool AZombieBase::IsEngagedForCrowd() const
@@ -64,9 +72,10 @@ float AZombieBase::DistanceToPlayer() const
 
 AZombieBase::FTargetRule::FTargetRule(const FVector& InSelf, const FVector* Player, float SoldierRange, float InSoldierHeightRange, float FarmerRange, bool bNoPlayerBlocks)
 	: Self(InSelf)
-	, SoldierRangeSq(SoldierRange * SoldierRange)
-	, SoldierHeightRange(InSoldierHeightRange)
-	, FarmerRangeSq(FarmerRange * FarmerRange)
+	, BestDistSq(0.f)
+	, SoldierRangeSq(FMath::Square(FMath::Max(0.f, SoldierRange)))       // settings from .ini are not clamped by the editor UI
+	, SoldierHeightRange(FMath::Max(0.f, InSoldierHeightRange))
+	, FarmerRangeSq(FMath::Square(FMath::Max(0.f, FarmerRange)))
 {
 	// Blueprint parity: with no player, GetDistanceTo(None) = 0, so nothing is "nearer" and no soldier / farmer is picked.
 	// bNoPlayerBlocks = false is the alternative (pick the nearest valid target); TGA's SPEC_zombie.md decides which is intended.

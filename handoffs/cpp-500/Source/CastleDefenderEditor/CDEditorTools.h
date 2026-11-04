@@ -15,7 +15,8 @@ class CASTLEDEFENDEREDITOR_API UCDEditorTools : public UBlueprintFunctionLibrary
 
 public:
 	// Blueprints under Path whose compile status is Error or that have nodes with errors.
-	// bRecompile = true compiles each one first (slow on big folders; nothing is saved). false = the status from the last compile.
+	// bRecompile = true compiles each one first (slow on big folders; nothing is saved, BUT the in-memory Blueprints are changed: run it on a
+	// clean editor, never with unsaved Blueprint work open). false = the status from the last compile.
 	UFUNCTION(BlueprintCallable, Category = "Castle Defender|Checks", meta = (DevelopmentOnly))
 	static TArray<FString> FindBlueprintsWithErrors(const FString& Path = TEXT("/Game/CastleDefender"), bool bRecompile = false);
 

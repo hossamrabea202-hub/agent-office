@@ -3,7 +3,9 @@
 // - zombies register themselves (AZombieBase, in its native BeginPlay / EndPlay: Blueprint children need no "call parent" for this);
 // - soldiers and farmers call RegisterSoldier / RegisterFarmer from their BeginPlay and EndPlay until they get C++ parents;
 // - optional: the C1 body-collision rule for every zombie in one loop (off by default while BPC_CrowdTier still does it).
-//   It remembers each zombie's own collision setting and puts it back when the zombie dies, unregisters, or the rule is switched off;
+//   It remembers each zombie's own collision setting and puts it back when the zombie comes into full detail again, unregisters ALIVE, or the rule is
+//   switched off. The moment a zombie is dying or dead it lets go WITHOUT restoring anything: from then on the death code owns the body collision
+//   (call AZombieBase::NotifyDying at the start of the death transition, before the death code sets its collision; the crowd also detects Dead itself);
 // - native radius queries (the C3 job, without a sphere sweep);
 // - `cd.CrowdReport` (console): registry counts against the actors really in the world, to catch a spawn path that does not register.
 #pragma once
@@ -25,6 +27,9 @@ public:
 
 	void RegisterZombie(AZombieBase* Zombie);
 	void UnregisterZombie(AZombieBase* Zombie);
+
+	// Death transition starts: stop managing this zombie's body collision and forget its stored setting (nothing is restored).
+	void RelinquishBodyCollision(AZombieBase* Zombie);
 
 	// Soldiers / farmers are still pure Blueprints: call these from their BeginPlay and EndPlay (every spawn path).
 	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Soldier"))
@@ -80,7 +85,7 @@ protected:
 
 private:
 	void ApplyBodyCollisionRule();
-	void RestoreBodyCollision(AZombieBase* Zombie);
+	void RestoreBodyCollision(AZombieBase* Zombie);   // alive zombies only
 	void RestoreAll();
 	void PurgeInvalid();
 
@@ -89,6 +94,8 @@ private:
 	TArray<TWeakObjectPtr<AActor>> Farmers;
 	// The collision each zombie's mesh had before this subsystem first changed it.
 	TMap<TWeakObjectPtr<AZombieBase>, TEnumAsByte<ECollisionEnabled::Type>> OriginalCollision;
+	// Zombies whose body collision now belongs to their death code.
+	TSet<TWeakObjectPtr<AZombieBase>> Relinquished;
 
 	bool bManageBodyCollision = false;
 	float FullDetailRange = 2500.f;

@@ -74,3 +74,21 @@ Expect a few compile errors on the first build; send i5 the full Output window t
 
 Still NOT implemented (designed only): alive cap enforced in spawners (needs the wave manager to call Can Spawn Zombie), DT_ZombieTypes loading, Think divisor applied in BP, soldier / farmer registration in their Blueprints, native collision parity test, save migration steps, pooled spawners, runtime / PIE integration tests.
 Order (reviewer's, agreed): 1 build Runtime + Editor, UHT clean, tests green, BEFORE any reparent; 2 zombie brain on a DUPLICATE of BP_Zombie, compared with the original; 3 registry; 4 saves + pools; 5 profile each step.
+
+## Revision 3: second review (11-04) fixes
+| Review item | Fix |
+|---|---|
+| A newer saves overwritten by a fresh object | Save() reads every copy of the slot on disk (main / _tmp / _bak) first and refuses if any is from a newer build; read-only is now per slot |
+| B _tmp never recovered | written recovery rule: among VALID copies take the highest Sequence, tie main > _tmp > _bak; _tmp wins only when its commit did not finish |
+| Valid vs merely deserializable | every file is an envelope: magic, format, sequence, CRC32, length, payload; old plain saves still read (sequence 0) |
+| F Save() skipped Migrate | Save() calls Migrate() before serializing |
+| C death vs collision ownership | AZombieBase::NotifyDying() (call at the start of the death transition) and automatic hand-off when Dead / ragdoll is seen: the crowd forgets the zombie WITHOUT restoring; it restores only alive zombies and only its own NoCollision |
+| D pool component ticks / movers | on release the pool records and turns off every component tick and deactivates active movement components; on acquire it restores exactly those, then OnAcquired |
+| Park() held a record pointer across map changes | record looked up again after PurgeInvalid / OnReleased; Acquire never holds it across OnAcquired |
+| E IsDeadForCrowd edge case | destruction / NotifyDying / BP Dead: any of them = dead |
+| CurrentTarget | weak reference + IsValid-checked getter |
+| GetZombiesNear negative radius | returns nothing for radius <= 0 or NaN |
+| .ini values | clamped in code (target rule, crowd), not only in the editor UI |
+| Editor recompile | documented: changes in-memory Blueprints; run on a clean editor |
+| Tests | null-safe pattern everywhere, unique slot name per run (GUID), new cases for A, B (3 recovery orders), F, CRC flip, per-slot read-only, sequence after recovery |
+Still open (reviewer's list): wiring CanSpawnZombie into every spawner, soldier / farmer comparison in cd.CrowdReport once their classes have C++ parents, pool + PIE integration tests (delayed release and component-tick tests first), schema validation beyond CRC. Not compiled yet.

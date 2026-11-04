@@ -35,17 +35,32 @@ void UCDPoolSubsystem::Deinitialize()
 	Super::Deinitialize();
 }
 
-void UCDPoolSubsystem::ResetEngineState(AActor* Actor)
+void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FRecord& Rec)
 {
 	if (UWorld* World = Actor->GetWorld())
 	{
 		World->GetTimerManager().ClearAllTimersForObject(Actor);
 	}
 	Actor->SetLifeSpan(0.f);
-	TInlineComponentArray<UMovementComponent*> Movers(Actor);
-	for (UMovementComponent* Mover : Movers)
+	Rec.TicksOff.Reset();
+	Rec.MoversOff.Reset();
+	TInlineComponentArray<UActorComponent*> Components(Actor);
+	for (UActorComponent* Comp : Components)
 	{
-		Mover->StopMovementImmediately();
+		if (UMovementComponent* Mover = Cast<UMovementComponent>(Comp))
+		{
+			Mover->StopMovementImmediately();
+			if (Mover->IsActive())
+			{
+				Mover->Deactivate();
+				Rec.MoversOff.Add(Mover);
+			}
+		}
+		if (Comp->IsComponentTickEnabled())
+		{
+			Comp->SetComponentTickEnabled(false);
+			Rec.TicksOff.Add(Comp);
+		}
 	}
 	if (UPrimitiveComponent* Root = Cast<UPrimitiveComponent>(Actor->GetRootComponent()))
 	{
@@ -55,6 +70,20 @@ void UCDPoolSubsystem::ResetEngineState(AActor* Actor)
 			Root->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);
 		}
 	}
+}
+
+void UCDPoolSubsystem::RestoreEngineState(FRecord& Rec)
+{
+	for (const TWeakObjectPtr<UActorComponent>& W : Rec.TicksOff)
+	{
+		if (UActorComponent* Comp = W.Get()) { Comp->SetComponentTickEnabled(true); }
+	}
+	for (const TWeakObjectPtr<UActorComponent>& W : Rec.MoversOff)
+	{
+		if (UActorComponent* Comp = W.Get()) { Comp->Activate(true); }
+	}
+	Rec.TicksOff.Reset();
+	Rec.MoversOff.Reset();
 }
 
 void UCDPoolSubsystem::PurgeInvalid(UClass* Class)
@@ -118,11 +147,14 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 		}
 	}
 
-	FRecord& Rec = Records.FindOrAdd(Actor);
-	World->GetTimerManager().ClearTimer(Rec.Timer);
-	Rec.State = EState::Active;
-	Rec.Generation = NextGeneration++;
-	ICDPoolable::Execute_OnAcquired(Actor);
+	{
+		FRecord& Rec = Records.FindOrAdd(Actor);   // no map changes between here and the end of this block
+		World->GetTimerManager().ClearTimer(Rec.Timer);
+		RestoreEngineState(Rec);
+		Rec.State = EState::Active;
+		Rec.Generation = NextGeneration++;
+	}
+	ICDPoolable::Execute_OnAcquired(Actor);   // may call into the pool: do not hold the record across it
 	return Actor;
 }
 
@@ -176,14 +208,19 @@ void UCDPoolSubsystem::ReleasePooledActor(AActor* Actor, float LifeSeconds)
 
 void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 {
-	FRecord* Rec = Records.Find(Actor);
-	if (!Rec || Rec->Generation != ExpectedGeneration || Rec->State != EState::PendingRelease)
+	// Never hold an FRecord pointer across anything that can change Records (PurgeInvalid, OnReleased, Destroy): look it up again.
+	auto Current = [this, Actor, ExpectedGeneration]() -> FRecord*
+	{
+		FRecord* R = Records.Find(Actor);
+		return (R && R->Generation == ExpectedGeneration && R->State == EState::PendingRelease) ? R : nullptr;
+	};
+	if (FRecord* Rec = Current())
+	{
+		if (UWorld* World = GetWorld()) { World->GetTimerManager().ClearTimer(Rec->Timer); }
+	}
+	else
 	{
 		return;   // reacquired since the release was scheduled, or already parked
-	}
-	if (UWorld* World = GetWorld())
-	{
-		World->GetTimerManager().ClearTimer(Rec->Timer);
 	}
 	ICDPoolable::Execute_OnReleased(Actor);
 	if (!IsValid(Actor))
@@ -191,8 +228,12 @@ void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 		Records.Remove(Actor);   // OnReleased destroyed it
 		return;
 	}
-	ResetEngineState(Actor);
 	PurgeInvalid(Actor->GetClass());
+	FRecord* Rec = Current();
+	if (!Rec)
+	{
+		return;   // OnReleased re-acquired it
+	}
 	TArray<TWeakObjectPtr<AActor>>& List = Free.FindOrAdd(Actor->GetClass());
 	if (List.Num() >= MaxPerClass)
 	{
@@ -200,6 +241,7 @@ void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 		Actor->Destroy();
 		return;
 	}
+	ResetEngineState(Actor, *Rec);
 	Actor->SetActorHiddenInGame(true);
 	Actor->SetActorEnableCollision(false);
 	Actor->SetActorTickEnabled(false);

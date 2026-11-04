@@ -1,4 +1,4 @@
-Castle Defender (UE 5.8.4) - C++ transition kit, REVISION 2 (external review fixes applied, see README_CPP.md 'Review fixes')
+Castle Defender (UE 5.8.4) - C++ transition kit, REVISION 3 (second review fixes: see README_CPP.md 'Revision 3')
 Still NOT compiled: no compiler on the writing machine. Runtime module 'CastleDefender' + Editor module 'CastleDefenderEditor'.
 
 ==================================================================
@@ -207,8 +207,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Zombie|Brain")
 	AActor* PickAndSetTargetFromRegistry();
 
+	// The current target, or null if it was destroyed since the pick (weak reference: a dead target is never kept alive).
 	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
-	AActor* GetCurrentTarget() const { return CurrentTarget; }
+	AActor* GetCurrentTarget() const { AActor* T = CurrentTarget.Get(); return IsValid(T) ? T : nullptr; }
+
+	// Call at the START of the death transition (before the death code sets its collision): the crowd manager stops touching this body.
+	UFUNCTION(BlueprintCallable, Category = "Zombie|Crowd")
+	void NotifyDying();
 
 	// Think's "heavy part every Nth tick" divisor: 1 within ZombieNearPlayer, 2 within ZombieMidPlayer, else 4 (K2Node_IfThenElse_11).
 	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
@@ -218,7 +223,7 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
 	bool IsFullDetail() const;
 
-	// Dead for the crowd's purposes: the Blueprint bool "Dead" if the class has it, else being destroyed. Override when a C++ death state exists.
+	// Dead for the crowd's purposes: being destroyed, or NotifyDying was called, or the Blueprint bool "Dead" is true. Override when a C++ death state exists.
 	virtual bool IsDeadForCrowd() const;
 
 	// Engaged by a soldier. Today BP_SoldierSword marks its zombie with CustomTimeDilation 0.999 (fragile; replace with an explicit state later).
@@ -254,8 +259,8 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
-	UPROPERTY(Transient, BlueprintReadOnly, Category = "Zombie|Brain")
-	TObjectPtr<AActor> CurrentTarget;
+	TWeakObjectPtr<AActor> CurrentTarget;
+	bool bDying = false;
 
 	// Transition: BP_Zombie still uses Owner as its target slot. Turn off when the Blueprint reads CurrentTarget (Owner also drives net ownership).
 	UPROPERTY(EditDefaultsOnly, Category = "Zombie|Brain")
@@ -316,9 +321,17 @@ bool AZombieBase::ReadBlueprintBool(const UObject* Object, FName Name, bool* bFo
 
 bool AZombieBase::IsDeadForCrowd() const
 {
-	bool bFound = false;
-	const bool bDead = ReadBlueprintBool(this, TEXT("Dead"), &bFound);
-	return bFound ? bDead : (IsActorBeingDestroyed() || !IsValid(this));
+	// Destruction and NotifyDying always win; the Blueprint flag can only add "dead", never hide it.
+	return IsActorBeingDestroyed() || !IsValid(this) || bDying || ReadBlueprintBool(this, TEXT("Dead"));
+}
+
+void AZombieBase::NotifyDying()
+{
+	bDying = true;
+	if (UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this))
+	{
+		Crowd->RelinquishBodyCollision(this);
+	}
 }
 
 bool AZombieBase::IsEngagedForCrowd() const
@@ -335,9 +348,10 @@ float AZombieBase::DistanceToPlayer() const
 
 AZombieBase::FTargetRule::FTargetRule(const FVector& InSelf, const FVector* Player, float SoldierRange, float InSoldierHeightRange, float FarmerRange, bool bNoPlayerBlocks)
 	: Self(InSelf)
-	, SoldierRangeSq(SoldierRange * SoldierRange)
-	, SoldierHeightRange(InSoldierHeightRange)
-	, FarmerRangeSq(FarmerRange * FarmerRange)
+	, BestDistSq(0.f)
+	, SoldierRangeSq(FMath::Square(FMath::Max(0.f, SoldierRange)))       // settings from .ini are not clamped by the editor UI
+	, SoldierHeightRange(FMath::Max(0.f, InSoldierHeightRange))
+	, FarmerRangeSq(FMath::Square(FMath::Max(0.f, FarmerRange)))
 {
 	// Blueprint parity: with no player, GetDistanceTo(None) = 0, so nothing is "nearer" and no soldier / farmer is picked.
 	// bNoPlayerBlocks = false is the alternative (pick the nearest valid target); TGA's SPEC_zombie.md decides which is intended.
@@ -471,7 +485,9 @@ FILE: Source/CastleDefender/CrowdSubsystem.h
 // - zombies register themselves (AZombieBase, in its native BeginPlay / EndPlay: Blueprint children need no "call parent" for this);
 // - soldiers and farmers call RegisterSoldier / RegisterFarmer from their BeginPlay and EndPlay until they get C++ parents;
 // - optional: the C1 body-collision rule for every zombie in one loop (off by default while BPC_CrowdTier still does it).
-//   It remembers each zombie's own collision setting and puts it back when the zombie dies, unregisters, or the rule is switched off;
+//   It remembers each zombie's own collision setting and puts it back when the zombie comes into full detail again, unregisters ALIVE, or the rule is
+//   switched off. The moment a zombie is dying or dead it lets go WITHOUT restoring anything: from then on the death code owns the body collision
+//   (call AZombieBase::NotifyDying at the start of the death transition, before the death code sets its collision; the crowd also detects Dead itself);
 // - native radius queries (the C3 job, without a sphere sweep);
 // - `cd.CrowdReport` (console): registry counts against the actors really in the world, to catch a spawn path that does not register.
 #pragma once
@@ -493,6 +509,9 @@ public:
 
 	void RegisterZombie(AZombieBase* Zombie);
 	void UnregisterZombie(AZombieBase* Zombie);
+
+	// Death transition starts: stop managing this zombie's body collision and forget its stored setting (nothing is restored).
+	void RelinquishBodyCollision(AZombieBase* Zombie);
 
 	// Soldiers / farmers are still pure Blueprints: call these from their BeginPlay and EndPlay (every spawn path).
 	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Soldier"))
@@ -548,7 +567,7 @@ protected:
 
 private:
 	void ApplyBodyCollisionRule();
-	void RestoreBodyCollision(AZombieBase* Zombie);
+	void RestoreBodyCollision(AZombieBase* Zombie);   // alive zombies only
 	void RestoreAll();
 	void PurgeInvalid();
 
@@ -557,6 +576,8 @@ private:
 	TArray<TWeakObjectPtr<AActor>> Farmers;
 	// The collision each zombie's mesh had before this subsystem first changed it.
 	TMap<TWeakObjectPtr<AZombieBase>, TEnumAsByte<ECollisionEnabled::Type>> OriginalCollision;
+	// Zombies whose body collision now belongs to their death code.
+	TSet<TWeakObjectPtr<AZombieBase>> Relinquished;
 
 	bool bManageBodyCollision = false;
 	float FullDetailRange = 2500.f;
@@ -613,7 +634,8 @@ void UCrowdSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	bManageBodyCollision = Settings->bCrowdManagesBodyCollision;
 	FullDetailRange = Settings->CrowdFullDetailRange;
 	UpdateInterval = FMath::Max(0.05f, Settings->CrowdUpdateInterval);
-	MaxAliveZombies = Settings->MaxAliveZombies;
+	FullDetailRange = FMath::Max(0.f, FullDetailRange);
+	MaxAliveZombies = FMath::Max(0, Settings->MaxAliveZombies);   // values from .ini are not clamped by the editor UI
 }
 
 void UCrowdSubsystem::Deinitialize()
@@ -632,8 +654,22 @@ void UCrowdSubsystem::RegisterZombie(AZombieBase* Zombie)
 
 void UCrowdSubsystem::UnregisterZombie(AZombieBase* Zombie)
 {
-	RestoreBodyCollision(Zombie);
+	if (Zombie && !Zombie->IsDeadForCrowd() && !Relinquished.Contains(Zombie))
+	{
+		RestoreBodyCollision(Zombie);
+	}
+	OriginalCollision.Remove(Zombie);
+	Relinquished.Remove(Zombie);
 	Zombies.Remove(Zombie);
+}
+
+void UCrowdSubsystem::RelinquishBodyCollision(AZombieBase* Zombie)
+{
+	if (Zombie)
+	{
+		OriginalCollision.Remove(Zombie);
+		Relinquished.Add(Zombie);
+	}
 }
 
 void UCrowdSubsystem::RegisterSoldier(AActor* Soldier)
@@ -699,6 +735,10 @@ void UCrowdSubsystem::GetZombiesNear(FVector Location, float Radius, TArray<AAct
 {
 	CD_SCOPE(STAT_CD_ZombiesNear);
 	OutZombies.Reset();
+	if (!(Radius > 0.f))
+	{
+		return;   // negative, zero or NaN radius: nothing
+	}
 	const float RadiusSq = Radius * Radius;
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
@@ -724,6 +764,13 @@ void UCrowdSubsystem::PurgeInvalid()
 	Zombies.RemoveAll([](const TWeakObjectPtr<AZombieBase>& Weak) { return !Weak.IsValid(); });
 	Soldiers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
 	Farmers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
+	for (auto It = Relinquished.CreateIterator(); It; ++It)
+	{
+		if (!It->IsValid())
+		{
+			It.RemoveCurrent();
+		}
+	}
 	for (auto It = OriginalCollision.CreateIterator(); It; ++It)
 	{
 		if (!It.Key().IsValid())
@@ -761,7 +808,7 @@ void UCrowdSubsystem::RestoreBodyCollision(AZombieBase* Zombie)
 	}
 	if (const TEnumAsByte<ECollisionEnabled::Type>* Original = OriginalCollision.Find(Zombie))
 	{
-		// Do not undo what the zombie's own death code set (ragdoll profile, physics).
+		// Alive zombies only (callers check); only undo our own change (the mesh is still at the NoCollision we set).
 		USkeletalMeshComponent* Mesh = Zombie->GetMesh();
 		if (Mesh && !Mesh->IsSimulatingPhysics() && Mesh->GetCollisionEnabled() == ECollisionEnabled::NoCollision)
 		{
@@ -775,9 +822,14 @@ void UCrowdSubsystem::RestoreAll()
 {
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
-		RestoreBodyCollision(Weak.Get());
+		AZombieBase* Zombie = Weak.Get();
+		if (Zombie && !Zombie->IsDeadForCrowd() && !Relinquished.Contains(Zombie))
+		{
+			RestoreBodyCollision(Zombie);
+		}
 	}
 	OriginalCollision.Reset();
+	Relinquished.Reset();
 }
 
 void UCrowdSubsystem::ApplyBodyCollisionRule()
@@ -793,9 +845,13 @@ void UCrowdSubsystem::ApplyBodyCollisionRule()
 			continue;
 		}
 		USkeletalMeshComponent* Mesh = Zombie->GetMesh();
-		if (!Mesh || Mesh->IsSimulatingPhysics() || Zombie->IsDeadForCrowd())
+		if (!Mesh || Relinquished.Contains(Zombie))
 		{
-			RestoreBodyCollision(Zombie);   // dead / ragdoll: hand the body back to the zombie's own code
+			continue;
+		}
+		if (Mesh->IsSimulatingPhysics() || Zombie->IsDeadForCrowd())
+		{
+			RelinquishBodyCollision(Zombie);   // dying / ragdoll: the death code owns the body from now on, nothing is restored
 			continue;
 		}
 		const bool bNear = !Player || FVector::DistSquared(Zombie->GetActorLocation(), Player->GetActorLocation()) < RangeSq;
@@ -831,13 +887,21 @@ TStatId UCrowdSubsystem::GetStatId() const
 ==================================================================
 FILE: Source/CastleDefender/CDSaveGame.h
 ==================================================================
-// #500 point 5: a versioned save game with a safe write path.
-// - Every save carries SaveVersion; Migrate() upgrades old saves step by step (each step idempotent), so changing the game never breaks a player's save.
-// - Save(): serialize + verify in memory -> write <slot>_tmp + read back -> copy the current, VALID main save byte-for-byte to <slot>_bak and verify it
-//   (if that fails: stop, main untouched) -> write main + verify -> delete _tmp.
-// - Load: main if valid, else _bak if valid, else a fresh save. A corrupt backup never replaces a valid main; a save from a NEWER build loads
-//   read-only and is never overwritten.
-// Note: SaveGameToSlot / SaveGameToMemory store every non-transient UPROPERTY of this class.
+// #500 point 5: a versioned save game with a safe write path and a written recovery rule.
+//
+// File format: every slot file is an envelope: magic "CDSV", envelope format, sequence number, CRC32 of the payload, payload length, payload
+// (= UGameplayStatics::SaveGameToMemory bytes). A file is VALID only if the magic, length and CRC match AND the payload deserializes into a
+// UCDSaveGame. Old plain saves (no envelope) are still read, as sequence 0.
+//
+// Write (Save):
+//   refuse if the slot is read-only, the incoming object is from a newer build, or ANY existing copy of the slot (main / _tmp / _bak) is newer;
+//   Migrate() the incoming object first; sequence = highest existing sequence + 1;
+//   write <slot>_tmp and read it back -> copy the current VALID main byte-for-byte to <slot>_bak and read it back (if that fails: stop, main untouched)
+//   -> write main and read it back -> delete _tmp.
+// Recovery (LoadOrCreate): among the VALID copies main, _tmp, _bak, take the highest sequence; on a tie main > _tmp > _bak.
+//   _tmp only survives when a save was interrupted after its own verified write, so it is newer than main only if main never got the commit.
+//   A corrupt or older copy never replaces a newer valid one. A save from a NEWER build makes that slot read-only (per slot).
+// Note: SaveGameToMemory stores every non-transient UPROPERTY of UCDSaveGame.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -857,6 +921,10 @@ public:
 	UPROPERTY(SaveGame, BlueprintReadOnly, Category = "Save")
 	int32 SaveVersion = CurrentVersion;
 
+	// Monotonic per slot: decides which copy is newest during recovery.
+	UPROPERTY(SaveGame, BlueprintReadOnly, Category = "Save")
+	int64 Sequence = 0;
+
 	UPROPERTY(SaveGame, BlueprintReadOnly, Category = "Save")
 	FDateTime SavedAt;
 
@@ -874,7 +942,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Save") void SetFlag(FName Key, bool bOn) { if (bOn) { Flags.Add(Key); } else { Flags.Remove(Key); } }
 	UFUNCTION(BlueprintPure, Category = "Save") bool HasFlag(FName Key) const { return Flags.Contains(Key); }
 
-	// Upgrades an older save to CurrentVersion (safe to call again). False if the save is from a newer build.
+	// Upgrades an older save to CurrentVersion (each step safe to run twice). False if the save is from a newer build (left unchanged).
 	bool Migrate();
 	bool IsNewerThanBuild() const { return SaveVersion > CurrentVersion; }
 };
@@ -888,25 +956,29 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Save")
 	UCDSaveGame* LoadOrCreate(const FString& Slot = TEXT("Main"));
 
-	// False if anything failed; the main slot is then unchanged (or, if only the final write failed, the verified backup still holds the last good save).
+	// False if anything failed or was refused; the main slot is then unchanged, or (if only the final write failed) the newest verified copy is in _tmp / _bak.
 	UFUNCTION(BlueprintCallable, Category = "Save")
 	bool Save(UCDSaveGame* Data, const FString& Slot = TEXT("Main"));
 
 	UFUNCTION(BlueprintPure, Category = "Save")
 	UCDSaveGame* GetCurrent() const { return Current; }
 
-	// True when the loaded save came from a newer game build: it is read-only, Save() refuses to overwrite it.
+	// True when this slot holds a save from a newer game build: it is read-only, Save() refuses to write it. Other slots are unaffected.
 	UFUNCTION(BlueprintPure, Category = "Save")
-	bool IsReadOnly() const { return bReadOnly; }
+	bool IsReadOnly(const FString& Slot = TEXT("Main")) const { return ReadOnlySlots.Contains(Slot); }
 
-	// Test seam: reads a slot and returns it only if it deserializes into a UCDSaveGame.
-	static UCDSaveGame* LoadValid(const FString& Slot);
+	// One slot file, fully checked (envelope + CRC + deserialize). Null if missing or invalid. Public for tests.
+	static UCDSaveGame* LoadValid(const FString& SlotFile);
+
+	// Envelope helpers (public for tests).
+	static void Wrap(const TArray<uint8>& Payload, int64 Sequence, TArray<uint8>& Out);
+	static bool Unwrap(const TArray<uint8>& File, TArray<uint8>& OutPayload);
 
 private:
 	UPROPERTY()
 	TObjectPtr<UCDSaveGame> Current;
 
-	bool bReadOnly = false;
+	TSet<FString> ReadOnlySlots;
 };
 
 ==================================================================
@@ -914,6 +986,34 @@ FILE: Source/CastleDefender/CDSaveGame.cpp
 ==================================================================
 #include "CDSaveGame.h"
 #include "Kismet/GameplayStatics.h"
+#include "Misc/Crc.h"
+#include "Serialization/MemoryReader.h"
+#include "Serialization/MemoryWriter.h"
+
+namespace
+{
+	const uint32 EnvelopeMagic = 0x56534443;   // "CDSV" little-endian
+	const uint32 EnvelopeFormat = 1;
+	const int32 HeaderSize = 4 + 4 + 8 + 4 + 4;
+
+	bool ReadBytes(const FString& SlotFile, TArray<uint8>& Out)
+	{
+		Out.Reset();
+		return UGameplayStatics::DoesSaveGameExist(SlotFile, 0) && UGameplayStatics::LoadDataFromSlot(Out, SlotFile, 0) && Out.Num() > 0;
+	}
+
+	bool WriteVerified(const TArray<uint8>& Bytes, const FString& SlotFile)
+	{
+		TArray<uint8> Back;
+		return UGameplayStatics::SaveDataToSlot(Bytes, SlotFile, 0) && ReadBytes(SlotFile, Back) && Back == Bytes;
+	}
+
+	// The three files of one slot, in tie-break order.
+	TArray<FString, TInlineAllocator<3>> SlotFiles(const FString& Slot)
+	{
+		return { Slot, Slot + TEXT("_tmp"), Slot + TEXT("_bak") };
+	}
+}
 
 bool UCDSaveGame::Migrate()
 {
@@ -927,50 +1027,92 @@ bool UCDSaveGame::Migrate()
 	return true;
 }
 
-UCDSaveGame* UCDSaveSubsystem::LoadValid(const FString& Slot)
+void UCDSaveSubsystem::Wrap(const TArray<uint8>& Payload, int64 Sequence, TArray<uint8>& Out)
 {
-	if (!UGameplayStatics::DoesSaveGameExist(Slot, 0))
+	Out.Reset(HeaderSize + Payload.Num());
+	FMemoryWriter W(Out);
+	uint32 Magic = EnvelopeMagic, Format = EnvelopeFormat, Crc = FCrc::MemCrc32(Payload.GetData(), Payload.Num()), Len = Payload.Num();
+	W << Magic << Format << Sequence << Crc << Len;
+	Out.Append(Payload);
+}
+
+bool UCDSaveSubsystem::Unwrap(const TArray<uint8>& File, TArray<uint8>& OutPayload)
+{
+	OutPayload.Reset();
+	if (File.Num() >= HeaderSize)
+	{
+		FMemoryReader R(File);
+		uint32 Magic = 0, Format = 0, Crc = 0, Len = 0;
+		int64 Sequence = 0;
+		R << Magic;
+		if (Magic == EnvelopeMagic)
+		{
+			R << Format << Sequence << Crc << Len;
+			if (Format != EnvelopeFormat || (int64)Len != (int64)File.Num() - HeaderSize)
+			{
+				return false;
+			}
+			OutPayload.Append(File.GetData() + HeaderSize, Len);
+			return FCrc::MemCrc32(OutPayload.GetData(), OutPayload.Num()) == Crc;
+		}
+	}
+	OutPayload = File;   // legacy plain save (no envelope): validity is decided by deserializing
+	return File.Num() > 0;
+}
+
+UCDSaveGame* UCDSaveSubsystem::LoadValid(const FString& SlotFile)
+{
+	TArray<uint8> File, Payload;
+	if (!ReadBytes(SlotFile, File) || !Unwrap(File, Payload))
 	{
 		return nullptr;
 	}
-	return Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromSlot(Slot, 0));
+	return Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Payload));
 }
 
 UCDSaveGame* UCDSaveSubsystem::LoadOrCreate(const FString& Slot)
 {
-	bReadOnly = false;
-	UCDSaveGame* Data = LoadValid(Slot);
-	if (!Data)
+	ReadOnlySlots.Remove(Slot);
+	UCDSaveGame* Best = nullptr;
+	FString BestFile;
+	bool bAnyNewer = false;
+	for (const FString& File : SlotFiles(Slot))
 	{
-		if (UGameplayStatics::DoesSaveGameExist(Slot, 0))
+		UCDSaveGame* Copy = LoadValid(File);
+		if (!Copy)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("CDSave: %s is unreadable; trying %s_bak (the main file is left as it is)"), *Slot, *Slot);
+			if (UGameplayStatics::DoesSaveGameExist(File, 0))
+			{
+				UE_LOG(LogTemp, Warning, TEXT("CDSave: %s is not valid (checksum or format); ignored, left on disk"), *File);
+			}
+			continue;
 		}
-		Data = LoadValid(Slot + TEXT("_bak"));
+		bAnyNewer |= Copy->IsNewerThanBuild();
+		if (!Best || Copy->Sequence > Best->Sequence)   // strict >: on a tie the earlier file (main > _tmp > _bak) wins
+		{
+			Best = Copy;
+			BestFile = File;
+		}
 	}
-	if (Data && !Data->Migrate())
+	if (bAnyNewer)
 	{
-		bReadOnly = true;
-		UE_LOG(LogTemp, Error, TEXT("CDSave: %s is version %d, newer than this build (%d): loaded read-only"), *Slot, Data->SaveVersion, UCDSaveGame::CurrentVersion);
+		ReadOnlySlots.Add(Slot);
+		UE_LOG(LogTemp, Error, TEXT("CDSave: slot %s holds a save from a newer build: loaded read-only"), *Slot);
 	}
-	if (!Data)
+	if (Best && !bAnyNewer)
 	{
-		Data = Cast<UCDSaveGame>(UGameplayStatics::CreateSaveGameObject(UCDSaveGame::StaticClass()));
+		if (BestFile != Slot)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("CDSave: recovered slot %s from %s (sequence %lld)"), *Slot, *BestFile, Best->Sequence);
+		}
+		Best->Migrate();
 	}
-	Current = Data;
-	return Data;
-}
-
-static bool ReadBytes(const FString& Slot, TArray<uint8>& Out)
-{
-	Out.Reset();
-	return UGameplayStatics::DoesSaveGameExist(Slot, 0) && UGameplayStatics::LoadDataFromSlot(Out, Slot, 0) && Out.Num() > 0;
-}
-
-static bool WriteVerified(const TArray<uint8>& Bytes, const FString& Slot)
-{
-	TArray<uint8> Back;
-	return UGameplayStatics::SaveDataToSlot(Bytes, Slot, 0) && ReadBytes(Slot, Back) && Back == Bytes;
+	if (!Best)
+	{
+		Best = Cast<UCDSaveGame>(UGameplayStatics::CreateSaveGameObject(UCDSaveGame::StaticClass()));
+	}
+	Current = Best;
+	return Best;
 }
 
 bool UCDSaveSubsystem::Save(UCDSaveGame* Data, const FString& Slot)
@@ -979,49 +1121,69 @@ bool UCDSaveSubsystem::Save(UCDSaveGame* Data, const FString& Slot)
 	{
 		return false;
 	}
-	if (bReadOnly || Data->IsNewerThanBuild())
+	if (ReadOnlySlots.Contains(Slot) || Data->IsNewerThanBuild())
 	{
-		UE_LOG(LogTemp, Error, TEXT("CDSave: refusing to overwrite %s: it holds a save from a newer build"), *Slot);
+		UE_LOG(LogTemp, Error, TEXT("CDSave: refusing to write %s: read-only or data from a newer build"), *Slot);
 		return false;
 	}
-	Data->SaveVersion = UCDSaveGame::CurrentVersion;
+	// Look at what is on disk now, whatever this session loaded: never overwrite a newer build's save; continue the sequence.
+	int64 MaxSequence = 0;
+	for (const FString& File : SlotFiles(Slot))
+	{
+		if (const UCDSaveGame* Existing = LoadValid(File))
+		{
+			if (Existing->IsNewerThanBuild())
+			{
+				ReadOnlySlots.Add(Slot);
+				UE_LOG(LogTemp, Error, TEXT("CDSave: %s on disk is from a newer build (version %d); refusing to overwrite"), *File, Existing->SaveVersion);
+				return false;
+			}
+			MaxSequence = FMath::Max(MaxSequence, Existing->Sequence);
+		}
+	}
+	if (!Data->Migrate())
+	{
+		return false;
+	}
+	Data->Sequence = MaxSequence + 1;
 	Data->SavedAt = FDateTime::UtcNow();
 
-	// 1. serialize and verify in memory
-	TArray<uint8> Bytes;
-	if (!UGameplayStatics::SaveGameToMemory(Data, Bytes) || !Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Bytes)))
+	// 1. serialize, check it reads back as a save, wrap with checksum
+	TArray<uint8> Payload, File;
+	if (!UGameplayStatics::SaveGameToMemory(Data, Payload) || !Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Payload)))
 	{
 		UE_LOG(LogTemp, Error, TEXT("CDSave: %s did not serialize cleanly; nothing written"), *Slot);
 		return false;
 	}
-	// 2. temp slot, read back
+	Wrap(Payload, Data->Sequence, File);
+	// 2. temp copy, read back
 	const FString Tmp = Slot + TEXT("_tmp");
-	if (!WriteVerified(Bytes, Tmp))
+	if (!WriteVerified(File, Tmp))
 	{
 		UE_LOG(LogTemp, Error, TEXT("CDSave: could not write %s; main untouched"), *Tmp);
 		return false;
 	}
-	// 3. back up the current main save byte-for-byte, only if it is a valid save (a corrupt main never replaces a good backup)
+	// 3. back up the current main byte-for-byte, only if it is valid (a corrupt main never replaces a good backup)
 	TArray<uint8> Old;
 	if (ReadBytes(Slot, Old))
 	{
-		if (Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Old)))
+		if (LoadValid(Slot))
 		{
 			if (!WriteVerified(Old, Slot + TEXT("_bak")))
 			{
-				UE_LOG(LogTemp, Error, TEXT("CDSave: backup of %s failed; main untouched"), *Slot);
+				UE_LOG(LogTemp, Error, TEXT("CDSave: backup of %s failed; main untouched, the new save stays in %s"), *Slot, *Tmp);
 				return false;
 			}
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("CDSave: %s was unreadable; keeping the existing %s_bak"), *Slot, *Slot);
+			UE_LOG(LogTemp, Warning, TEXT("CDSave: %s was not valid; keeping the existing %s_bak"), *Slot, *Slot);
 		}
 	}
 	// 4. main
-	if (!WriteVerified(Bytes, Slot))
+	if (!WriteVerified(File, Slot))
 	{
-		UE_LOG(LogTemp, Error, TEXT("CDSave: writing %s failed; the verified %s_bak holds the last good save, %s_tmp the new one"), *Slot, *Slot, *Tmp);
+		UE_LOG(LogTemp, Error, TEXT("CDSave: writing %s failed; recovery will use %s (sequence %lld)"), *Slot, *Tmp, Data->Sequence);
 		return false;
 	}
 	UGameplayStatics::DeleteGameInSlot(Tmp, 0);
@@ -1037,7 +1199,9 @@ FILE: Source/CastleDefender/CDPoolSubsystem.h
 //
 // RESET CONTRACT: only classes that implement ICDPoolable are pooled. OnAcquired must bring the actor back to a just-spawned state
 // (BeginPlay does NOT run again): health / damage state, velocity, projectile movement, ignored actors, attached children, effects, delegates.
-// OnReleased must stop everything it started. The pool itself also clears the actor's timers, life span, movement velocity, and hides it.
+// OnReleased must stop everything it started. The pool itself also: clears the actor's timers and life span, zeroes physics velocity, stops and
+// DEACTIVATES its active movement components, turns off every component tick (actor tick and component ticks are separate in Unreal), hides it and
+// turns off its collision. On Acquire it re-enables exactly the component ticks and re-activates exactly the movers it turned off, then calls OnAcquired.
 // A class without ICDPoolable is spawned normally by Acquire and destroyed by Release: never pooled.
 //
 // Lifecycle per actor: Active -> (Release with delay) PendingRelease -> Pooled -> (Acquire) Active ... Each Acquire bumps a generation number;
@@ -1108,11 +1272,14 @@ private:
 		EState State = EState::Active;
 		uint32 Generation = 0;
 		FTimerHandle Timer;
+		TArray<TWeakObjectPtr<UActorComponent>> TicksOff;      // component ticks the pool turned off
+		TArray<TWeakObjectPtr<UActorComponent>> MoversOff;     // movement components the pool deactivated
 	};
 
 	void Park(AActor* Actor, uint32 ExpectedGeneration);
 	void PurgeInvalid(UClass* Class);
-	static void ResetEngineState(AActor* Actor);
+	static void ResetEngineState(AActor* Actor, FRecord& Rec);
+	static void RestoreEngineState(FRecord& Rec);
 
 	TMap<TWeakObjectPtr<AActor>, FRecord> Records;
 	TMap<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>> Free;
@@ -1159,17 +1326,32 @@ void UCDPoolSubsystem::Deinitialize()
 	Super::Deinitialize();
 }
 
-void UCDPoolSubsystem::ResetEngineState(AActor* Actor)
+void UCDPoolSubsystem::ResetEngineState(AActor* Actor, FRecord& Rec)
 {
 	if (UWorld* World = Actor->GetWorld())
 	{
 		World->GetTimerManager().ClearAllTimersForObject(Actor);
 	}
 	Actor->SetLifeSpan(0.f);
-	TInlineComponentArray<UMovementComponent*> Movers(Actor);
-	for (UMovementComponent* Mover : Movers)
+	Rec.TicksOff.Reset();
+	Rec.MoversOff.Reset();
+	TInlineComponentArray<UActorComponent*> Components(Actor);
+	for (UActorComponent* Comp : Components)
 	{
-		Mover->StopMovementImmediately();
+		if (UMovementComponent* Mover = Cast<UMovementComponent>(Comp))
+		{
+			Mover->StopMovementImmediately();
+			if (Mover->IsActive())
+			{
+				Mover->Deactivate();
+				Rec.MoversOff.Add(Mover);
+			}
+		}
+		if (Comp->IsComponentTickEnabled())
+		{
+			Comp->SetComponentTickEnabled(false);
+			Rec.TicksOff.Add(Comp);
+		}
 	}
 	if (UPrimitiveComponent* Root = Cast<UPrimitiveComponent>(Actor->GetRootComponent()))
 	{
@@ -1179,6 +1361,20 @@ void UCDPoolSubsystem::ResetEngineState(AActor* Actor)
 			Root->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);
 		}
 	}
+}
+
+void UCDPoolSubsystem::RestoreEngineState(FRecord& Rec)
+{
+	for (const TWeakObjectPtr<UActorComponent>& W : Rec.TicksOff)
+	{
+		if (UActorComponent* Comp = W.Get()) { Comp->SetComponentTickEnabled(true); }
+	}
+	for (const TWeakObjectPtr<UActorComponent>& W : Rec.MoversOff)
+	{
+		if (UActorComponent* Comp = W.Get()) { Comp->Activate(true); }
+	}
+	Rec.TicksOff.Reset();
+	Rec.MoversOff.Reset();
 }
 
 void UCDPoolSubsystem::PurgeInvalid(UClass* Class)
@@ -1242,11 +1438,14 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 		}
 	}
 
-	FRecord& Rec = Records.FindOrAdd(Actor);
-	World->GetTimerManager().ClearTimer(Rec.Timer);
-	Rec.State = EState::Active;
-	Rec.Generation = NextGeneration++;
-	ICDPoolable::Execute_OnAcquired(Actor);
+	{
+		FRecord& Rec = Records.FindOrAdd(Actor);   // no map changes between here and the end of this block
+		World->GetTimerManager().ClearTimer(Rec.Timer);
+		RestoreEngineState(Rec);
+		Rec.State = EState::Active;
+		Rec.Generation = NextGeneration++;
+	}
+	ICDPoolable::Execute_OnAcquired(Actor);   // may call into the pool: do not hold the record across it
 	return Actor;
 }
 
@@ -1300,14 +1499,19 @@ void UCDPoolSubsystem::ReleasePooledActor(AActor* Actor, float LifeSeconds)
 
 void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 {
-	FRecord* Rec = Records.Find(Actor);
-	if (!Rec || Rec->Generation != ExpectedGeneration || Rec->State != EState::PendingRelease)
+	// Never hold an FRecord pointer across anything that can change Records (PurgeInvalid, OnReleased, Destroy): look it up again.
+	auto Current = [this, Actor, ExpectedGeneration]() -> FRecord*
+	{
+		FRecord* R = Records.Find(Actor);
+		return (R && R->Generation == ExpectedGeneration && R->State == EState::PendingRelease) ? R : nullptr;
+	};
+	if (FRecord* Rec = Current())
+	{
+		if (UWorld* World = GetWorld()) { World->GetTimerManager().ClearTimer(Rec->Timer); }
+	}
+	else
 	{
 		return;   // reacquired since the release was scheduled, or already parked
-	}
-	if (UWorld* World = GetWorld())
-	{
-		World->GetTimerManager().ClearTimer(Rec->Timer);
 	}
 	ICDPoolable::Execute_OnReleased(Actor);
 	if (!IsValid(Actor))
@@ -1315,8 +1519,12 @@ void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 		Records.Remove(Actor);   // OnReleased destroyed it
 		return;
 	}
-	ResetEngineState(Actor);
 	PurgeInvalid(Actor->GetClass());
+	FRecord* Rec = Current();
+	if (!Rec)
+	{
+		return;   // OnReleased re-acquired it
+	}
 	TArray<TWeakObjectPtr<AActor>>& List = Free.FindOrAdd(Actor->GetClass());
 	if (List.Num() >= MaxPerClass)
 	{
@@ -1324,6 +1532,7 @@ void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 		Actor->Destroy();
 		return;
 	}
+	ResetEngineState(Actor, *Rec);
 	Actor->SetActorHiddenInGame(true);
 	Actor->SetActorEnableCollision(false);
 	Actor->SetActorTickEnabled(false);
@@ -1360,6 +1569,7 @@ FILE: Source/CastleDefender/Tests/ZombieBrainTest.cpp
 #include "Misc/AutomationTest.h"
 #include "CDSaveGame.h"
 #include "Kismet/GameplayStatics.h"
+#include "Misc/Guid.h"
 #include "ZombieBase.h"
 
 #if WITH_DEV_AUTOMATION_TESTS
@@ -1421,11 +1631,10 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCDSaveTest, "CastleDefender.Save.SafeWritePath
 
 bool FCDSaveTest::RunTest(const FString& Parameters)
 {
-	const FString Slot = TEXT("CDTest_Save");
-	auto Clean = [&Slot]()
-	{
-		for (const TCHAR* Suffix : { TEXT(""), TEXT("_bak"), TEXT("_tmp") }) { UGameplayStatics::DeleteGameInSlot(Slot + Suffix, 0); }
-	};
+	// A fresh slot name per run: the test can never delete real or older test data.
+	const FString Slot = FString::Printf(TEXT("CDTest_%s"), *FGuid::NewGuid().ToString(EGuidFormats::Digits));
+	const FString Tmp = Slot + TEXT("_tmp"), Bak = Slot + TEXT("_bak");
+	auto Clean = [&]() { for (const FString& F : { Slot, Tmp, Bak }) { UGameplayStatics::DeleteGameInSlot(F, 0); } };
 	auto Make = [](int32 Gold, int32 Version = UCDSaveGame::CurrentVersion)
 	{
 		UCDSaveGame* D = Cast<UCDSaveGame>(UGameplayStatics::CreateSaveGameObject(UCDSaveGame::StaticClass()));
@@ -1433,32 +1642,86 @@ bool FCDSaveTest::RunTest(const FString& Parameters)
 		D->SaveVersion = Version;
 		return D;
 	};
+	// Writes a valid enveloped file directly (to set up recovery cases).
+	auto WriteRaw = [](UCDSaveGame* D, int64 Seq, const FString& File)
+	{
+		D->Sequence = Seq;
+		TArray<uint8> Payload, Out;
+		UGameplayStatics::SaveGameToMemory(D, Payload);
+		UCDSaveSubsystem::Wrap(Payload, Seq, Out);
+		return UGameplayStatics::SaveDataToSlot(Out, File, 0);
+	};
+	// Null-safe check of one file's Gold.
+	auto ExpectGold = [this](const FString& What, const FString& File, int32 Gold)
+	{
+		const UCDSaveGame* L = UCDSaveSubsystem::LoadValid(File);
+		if (TestNotNull(*(What + TEXT(" (loads)")), L)) { TestEqual(*What, L->GetInt(TEXT("Gold"), -1), Gold); }
+	};
+	auto ExpectLoaded = [this](const FString& What, const UCDSaveGame* L, int32 Gold)
+	{
+		if (TestNotNull(*(What + TEXT(" (object)")), L)) { TestEqual(*What, L->GetInt(TEXT("Gold"), -1), Gold); }
+	};
 	const TArray<uint8> Garbage = { 1, 2, 3, 4, 5, 6, 7, 8 };
 	UCDSaveSubsystem* Saves = NewObject<UCDSaveSubsystem>(GetTransientPackage());
 
 	Clean();
-	TestEqual(TEXT("missing save -> fresh default"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold"), -1), -1);
+	ExpectLoaded(TEXT("missing save -> fresh default"), Saves->LoadOrCreate(Slot), -1);
 
 	TestTrue(TEXT("first save works"), Saves->Save(Make(10), Slot));
 	TestTrue(TEXT("second save works"), Saves->Save(Make(20), Slot));
-	TestEqual(TEXT("main holds the newest"), UCDSaveSubsystem::LoadValid(Slot)->GetInt(TEXT("Gold")), 20);
-	TestEqual(TEXT("backup holds the previous"), UCDSaveSubsystem::LoadValid(Slot + TEXT("_bak"))->GetInt(TEXT("Gold")), 10);
-	TestFalse(TEXT("temp slot removed"), UGameplayStatics::DoesSaveGameExist(Slot + TEXT("_tmp"), 0));
+	ExpectGold(TEXT("main holds the newest"), Slot, 20);
+	ExpectGold(TEXT("backup holds the previous"), Bak, 10);
+	TestFalse(TEXT("temp file removed after commit"), UGameplayStatics::DoesSaveGameExist(Tmp, 0));
 
-	UGameplayStatics::SaveDataToSlot(Garbage, Slot, 0);
-	TestEqual(TEXT("corrupt main -> verified backup is loaded"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold")), 10);
+	// checksum: one flipped byte makes the file invalid
+	TArray<uint8> Bytes;
+	UGameplayStatics::LoadDataFromSlot(Bytes, Slot, 0);
+	if (TestTrue(TEXT("main file has bytes"), Bytes.Num() > 30))
+	{
+		Bytes.Last() ^= 0xFF;
+		UGameplayStatics::SaveDataToSlot(Bytes, Slot, 0);
+		TestNull(TEXT("flipped byte -> invalid (CRC)"), UCDSaveSubsystem::LoadValid(Slot));
+	}
+	ExpectLoaded(TEXT("corrupt main -> verified backup is loaded"), Saves->LoadOrCreate(Slot), 10);
 	TestTrue(TEXT("save over a corrupt main works"), Saves->Save(Make(30), Slot));
-	TestEqual(TEXT("corrupt main did not replace the good backup"), UCDSaveSubsystem::LoadValid(Slot + TEXT("_bak"))->GetInt(TEXT("Gold")), 10);
+	ExpectGold(TEXT("corrupt main did not replace the good backup"), Bak, 10);
 
-	UGameplayStatics::SaveDataToSlot(Garbage, Slot + TEXT("_bak"), 0);
-	TestEqual(TEXT("corrupt backup never replaces a valid main"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold")), 30);
+	UGameplayStatics::SaveDataToSlot(Garbage, Bak, 0);
+	ExpectLoaded(TEXT("corrupt backup never replaces a valid main"), Saves->LoadOrCreate(Slot), 30);
 
+	// Bug B: an interrupted save leaves a verified _tmp that is newer than main
 	Clean();
-	UGameplayStatics::SaveGameToSlot(Make(99, UCDSaveGame::CurrentVersion + 1), Slot, 0);
-	Saves->LoadOrCreate(Slot);
-	TestTrue(TEXT("newer-version save loads read-only"), Saves->IsReadOnly());
-	TestFalse(TEXT("newer-version save is never overwritten"), Saves->Save(Make(1), Slot));
-	TestEqual(TEXT("newer-version save still there"), UCDSaveSubsystem::LoadValid(Slot)->SaveVersion, UCDSaveGame::CurrentVersion + 1);
+	WriteRaw(Make(40), 4, Slot);
+	WriteRaw(Make(50), 5, Tmp);
+	ExpectLoaded(TEXT("_tmp newer than main (commit interrupted) -> _tmp recovered"), Saves->LoadOrCreate(Slot), 50);
+	Clean();
+	WriteRaw(Make(60), 6, Slot);
+	WriteRaw(Make(55), 5, Tmp);
+	ExpectLoaded(TEXT("stale _tmp older than main -> main wins"), Saves->LoadOrCreate(Slot), 60);
+	Clean();
+	WriteRaw(Make(70), 7, Tmp);
+	ExpectLoaded(TEXT("first save interrupted, only _tmp exists -> _tmp recovered"), Saves->LoadOrCreate(Slot), 70);
+	TestTrue(TEXT("saving after recovery continues the sequence"), Saves->Save(Make(71), Slot));
+	const UCDSaveGame* AfterRecovery = UCDSaveSubsystem::LoadValid(Slot);
+	if (TestNotNull(TEXT("main after recovery save"), AfterRecovery)) { TestTrue(TEXT("sequence > 7"), AfterRecovery->Sequence > 7); }
+
+	// Bug A: a fresh object must not overwrite a newer build's save on disk, even without LoadOrCreate first
+	Clean();
+	WriteRaw(Make(99, UCDSaveGame::CurrentVersion + 1), 3, Slot);
+	UCDSaveSubsystem* Fresh = NewObject<UCDSaveSubsystem>(GetTransientPackage());
+	TestFalse(TEXT("fresh object over a newer on-disk save is refused"), Fresh->Save(Make(1), Slot));
+	const UCDSaveGame* StillNewer = UCDSaveSubsystem::LoadValid(Slot);
+	if (TestNotNull(TEXT("newer save still there"), StillNewer)) { TestEqual(TEXT("newer version kept"), StillNewer->SaveVersion, UCDSaveGame::CurrentVersion + 1); }
+	TestTrue(TEXT("that slot is now read-only"), Fresh->IsReadOnly(Slot));
+	const FString Other = Slot + TEXT("B");
+	TestTrue(TEXT("another slot is still writable (read-only is per slot)"), Fresh->Save(Make(2), Other) && !Fresh->IsReadOnly(Other));
+	for (const FString& F : { Other, Other + TEXT("_tmp"), Other + TEXT("_bak") }) { UGameplayStatics::DeleteGameInSlot(F, 0); }
+
+	// Bug F: an old-version object passed straight to Save is migrated, not just relabelled
+	Clean();
+	UCDSaveGame* Old = Make(5, 0);
+	TestTrue(TEXT("old-version object saves"), Saves->Save(Old, Slot));
+	TestEqual(TEXT("it was migrated to the current version"), Old->SaveVersion, UCDSaveGame::CurrentVersion);
 
 	UCDSaveGame* M = Make(5, 1);
 	TestTrue(TEXT("migration runs"), M->Migrate());
@@ -1512,7 +1775,8 @@ class CASTLEDEFENDEREDITOR_API UCDEditorTools : public UBlueprintFunctionLibrary
 
 public:
 	// Blueprints under Path whose compile status is Error or that have nodes with errors.
-	// bRecompile = true compiles each one first (slow on big folders; nothing is saved). false = the status from the last compile.
+	// bRecompile = true compiles each one first (slow on big folders; nothing is saved, BUT the in-memory Blueprints are changed: run it on a
+	// clean editor, never with unsaved Blueprint work open). false = the status from the last compile.
 	UFUNCTION(BlueprintCallable, Category = "Castle Defender|Checks", meta = (DevelopmentOnly))
 	static TArray<FString> FindBlueprintsWithErrors(const FString& Path = TEXT("/Game/CastleDefender"), bool bRecompile = false);
 
