@@ -1945,6 +1945,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -3613,6 +3614,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -4421,6 +4423,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 0.4,
 "overlaps": 0
 },
 {
@@ -6349,6 +6352,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -10817,6 +10821,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.7,
 "overlaps": 0
 },
 {
@@ -12725,6 +12730,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -14433,6 +14439,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -22861,6 +22868,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.7,
 "overlaps": 0
 },
 {
@@ -24789,6 +24797,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -26697,6 +26706,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -28605,6 +28615,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -28627,6 +28638,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 0.4,
 "overlaps": 0
 },
 {
@@ -33395,6 +33407,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.7,
 "overlaps": 0
 },
 {
@@ -35243,6 +35256,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -39591,6 +39605,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.7,
 "overlaps": 0
 },
 {
@@ -41439,6 +41454,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.1,
 "overlaps": 0
 },
 {
@@ -50587,6 +50603,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.6375,
 "overlaps": 0
 },
 {
@@ -60415,6 +60432,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.6375,
 "overlaps": 0
 },
 {
@@ -71263,6 +71281,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.6375,
 "overlaps": 0
 },
 {
@@ -81451,6 +81470,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.6375,
 "overlaps": 0
 },
 {
@@ -91679,6 +91699,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.6375,
 "overlaps": 0
 },
 {
@@ -101527,6 +101548,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.6375,
 "overlaps": 0
 },
 {
@@ -114095,6 +114117,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 4.3133,
 "overlaps": 0
 },
 {
@@ -126903,6 +126926,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.6775,
 "overlaps": 0
 },
 {
@@ -133771,6 +133795,7 @@
 }
 ],
 "unfit": [],
+"deck_cut_m": 3.6775,
 "overlaps": 0
 }
 ]

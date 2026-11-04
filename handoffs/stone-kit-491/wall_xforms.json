@@ -1,0 +1,3776 @@
+{
+ "SM_Keep_Box_100x34x119": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_62",
+   "loc": [
+    2719.0,
+    1792.0,
+    261.62
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_160x180x40": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_31",
+   "loc": [
+    4540.0,
+    3145.0,
+    660.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_117",
+   "loc": [
+    4690.0,
+    3145.0,
+    660.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_118",
+   "loc": [
+    4840.0,
+    3145.0,
+    660.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_5",
+   "loc": [
+    4440.0,
+    355.0,
+    660.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_KeepTurret_2": [
+  {
+   "actor": "Mason_KeepTurret_2",
+   "loc": [
+    2530.0,
+    1310.0,
+    590.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x580x65": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_7",
+   "loc": [
+    2460.0,
+    1930.0,
+    1010.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x317": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_111",
+   "loc": [
+    2460.0,
+    1692.14,
+    678.46
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_1": [
+  {
+   "actor": "Curtain_SM_Bevel_007_1",
+   "loc": [
+    2950.0,
+    3070.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_435x50x238": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_19",
+   "loc": [
+    2617.5,
+    1330.0,
+    321.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_39",
+   "loc": [
+    2617.5,
+    2170.0,
+    321.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyNorthCurtain_SC_2": [
+  {
+   "actor": "Mason_BaileyNorthCurtain_SC_2",
+   "loc": [
+    3775.0,
+    3450.0,
+    580.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x280": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_17",
+   "loc": [
+    2460.0,
+    1746.43,
+    659.82
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_5": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_5",
+   "loc": [
+    4600.0,
+    50.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x186": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_6",
+   "loc": [
+    2459.0,
+    1882.14,
+    613.21
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_SouthCurtain_StringCourse_B138A_Mid_3": [
+  {
+   "actor": "Mason_SouthCurtain_StringCourse_B138A_Mid_3",
+   "loc": [
+    1500.0,
+    50.0,
+    640.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_2": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_2",
+   "loc": [
+    4600.0,
+    50.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x116": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_80",
+   "loc": [
+    4760.0,
+    730.0,
+    733.23
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_50x120x470": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_30",
+   "loc": [
+    2860.0,
+    1460.0,
+    437.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x93": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_47",
+   "loc": [
+    2437.14,
+    2010.71,
+    566.61
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x447": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_75",
+   "loc": [
+    2460.0,
+    1502.14,
+    743.71
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_1": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_1",
+   "loc": [
+    4900.0,
+    3750.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_90x30x90": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_12",
+   "loc": [
+    3315.0,
+    455.0,
+    725.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_6",
+   "loc": [
+    3415.0,
+    455.0,
+    725.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_4",
+   "loc": [
+    3715.0,
+    455.0,
+    725.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_11",
+   "loc": [
+    4315.0,
+    455.0,
+    725.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x339": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_50",
+   "loc": [
+    4760.0,
+    370.0,
+    844.69
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_KeepTurret_Crenel6_1": [
+  {
+   "actor": "Mason_KeepTurret_Crenel6_1",
+   "loc": [
+    220.0,
+    2370.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x284": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_16",
+   "loc": [
+    4760.0,
+    460.0,
+    816.82
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_EastCurtain_StringCourse3_1": [
+  {
+   "actor": "Mason_EastCurtain_StringCourse3_1",
+   "loc": [
+    1360.0,
+    3070.0,
+    690.0
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_3": [
+  {
+   "actor": "Mason_CornerTower_Cornice_3",
+   "loc": [
+    2950.0,
+    3450.0,
+    530.4
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_1": [
+  {
+   "actor": "Mason_BaileyTower_1",
+   "loc": [
+    4600.0,
+    50.0,
+    510.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_560x660x40": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_14",
+   "loc": [
+    3900.0,
+    1750.0,
+    470.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_50x890x363": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_12",
+   "loc": [
+    2260.0,
+    1750.0,
+    383.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_50x127x230": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_54",
+   "loc": [
+    2260.0,
+    2131.5,
+    680.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_57",
+   "loc": [
+    2260.0,
+    1368.5,
+    680.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_KeepTurret_Crenel3_1": [
+  {
+   "actor": "Mason_KeepTurret_Crenel3_1",
+   "loc": [
+    220.0,
+    1120.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_550x50x570": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_38",
+   "loc": [
+    2560.0,
+    2170.0,
+    725.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_110",
+   "loc": [
+    2560.0,
+    1330.0,
+    725.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_0": [
+  {
+   "actor": "Curtain_SM_Bevel_007_0",
+   "loc": [
+    2950.0,
+    2410.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x149": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_32",
+   "loc": [
+    2460.0,
+    1936.43,
+    594.57
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_NorthCurtain_StringCourse_B138B_Mid_3": [
+  {
+   "actor": "Mason_NorthCurtain_StringCourse_B138B_Mid_3",
+   "loc": [
+    1500.0,
+    3450.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_2": [
+  {
+   "actor": "Curtain_SM_Bevel_007_2",
+   "loc": [
+    4600.0,
+    1750.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_8": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_8",
+   "loc": [
+    4610.0,
+    3450.0,
+    955.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_390x110x65": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_5",
+   "loc": [
+    2715.0,
+    1335.0,
+    900.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x199": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_106",
+   "loc": [
+    2815.0,
+    1792.0,
+    291.38
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x37": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_113",
+   "loc": [
+    2518.57,
+    2010.71,
+    538.64
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x302": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_98",
+   "loc": [
+    4760.0,
+    430.0,
+    826.11
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x429": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_79",
+   "loc": [
+    2456.0,
+    1529.29,
+    734.39
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x224": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_112",
+   "loc": [
+    2456.0,
+    1827.86,
+    631.86
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_28x120x38": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_61",
+   "loc": [
+    2581.0,
+    1460.0,
+    539.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_KeepTurret_Crenel7_1": [
+  {
+   "actor": "Mason_KeepTurret_Crenel7_1",
+   "loc": [
+    -90.0,
+    2370.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x61": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_2",
+   "loc": [
+    4760.0,
+    820.0,
+    705.36
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_NorthCurtain_StringCourse_B138B_Mid_Skirt_1": [
+  {
+   "actor": "Mason_NorthCurtain_StringCourse_B138B_Mid_Skirt_1",
+   "loc": [
+    1500.0,
+    3450.0,
+    -20.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_190x2500x90": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_9",
+   "loc": [
+    2950.0,
+    2150.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_6": [
+  {
+   "actor": "Curtain_SM_Bevel_007_6",
+   "loc": [
+    4600.0,
+    1090.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_30x120x377": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_4",
+   "loc": [
+    3210.0,
+    180.0,
+    863.26
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x160x152": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_18",
+   "loc": [
+    2785.0,
+    1470.0,
+    596.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_SouthCurtain_StringCourse_B138A_Mid_2": [
+  {
+   "actor": "Mason_SouthCurtain_StringCourse_B138A_Mid_2",
+   "loc": [
+    1500.0,
+    50.0,
+    580.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyEast_SC_B138C_Mid_Skirt_1": [
+  {
+   "actor": "Mason_BaileyEast_SC_B138C_Mid_Skirt_1",
+   "loc": [
+    4600.0,
+    2110.0,
+    -87.58
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_7": [
+  {
+   "actor": "Mason_CornerTower_Cornice_7",
+   "loc": [
+    2950.0,
+    50.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_6": [
+  {
+   "actor": "Mason_CornerTower_Cornice_6",
+   "loc": [
+    2950.0,
+    50.0,
+    530.4
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x135": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_108",
+   "loc": [
+    4760.0,
+    700.0,
+    742.52
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_50x174x230": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_27",
+   "loc": [
+    2260.0,
+    1615.0,
+    680.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_56",
+   "loc": [
+    2260.0,
+    1885.0,
+    680.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x60": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_10",
+   "loc": [
+    2617.0,
+    1792.0,
+    231.81
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_119",
+   "loc": [
+    2577.0,
+    1792.0,
+    201.81
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallSouthR_AAA": [
+  {
+   "actor": "Curtain_WallSouthR_AAA",
+   "loc": [
+    2376.0,
+    50.0,
+    316.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_25x120x82": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_7",
+   "loc": [
+    3167.5,
+    1910.0,
+    36.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_30x120x395": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_77",
+   "loc": [
+    3180.0,
+    180.0,
+    872.55
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x522": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_74",
+   "loc": [
+    2460.0,
+    1393.57,
+    781.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallFrontL_AAA": [
+  {
+   "actor": "Curtain_WallFrontL_AAA",
+   "loc": [
+    50.0,
+    680.0,
+    316.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x466": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_49",
+   "loc": [
+    2460.0,
+    1475.0,
+    753.04
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_4": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_4",
+   "loc": [
+    4900.0,
+    3750.0,
+    530.4
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x139": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_21",
+   "loc": [
+    2753.0,
+    1792.0,
+    271.56
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_25x120x132": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_73",
+   "loc": [
+    3117.5,
+    1910.0,
+    61.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x191": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_3",
+   "loc": [
+    4760.0,
+    610.0,
+    770.38
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallSouthL_AAA": [
+  {
+   "actor": "Curtain_WallSouthL_AAA",
+   "loc": [
+    624.0,
+    50.0,
+    316.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x298": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_67",
+   "loc": [
+    2460.0,
+    1719.29,
+    669.14
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x358": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_37",
+   "loc": [
+    4760.0,
+    340.0,
+    853.97
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_3": [
+  {
+   "actor": "Curtain_SM_Bevel_007_3",
+   "loc": [
+    2950.0,
+    1090.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_25x120x107": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_92",
+   "loc": [
+    3142.5,
+    1910.0,
+    48.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_50x890x215": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_8",
+   "loc": [
+    2260.0,
+    1750.0,
+    902.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_2": [
+  {
+   "actor": "Mason_BaileyTower_2",
+   "loc": [
+    4590.0,
+    3450.0,
+    510.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x238": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_46",
+   "loc": [
+    2765.0,
+    1694.0,
+    321.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallNorthR_AAA": [
+  {
+   "actor": "Curtain_WallNorthR_AAA",
+   "loc": [
+    2376.0,
+    3450.0,
+    316.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_50x120x35": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_23",
+   "loc": [
+    2860.0,
+    1460.0,
+    992.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_Skirt_1": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_Skirt_1",
+   "loc": [
+    4900.0,
+    3750.0,
+    -42.58
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x336": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_44",
+   "loc": [
+    2460.0,
+    1665.0,
+    687.79
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_Skirt_2": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_Skirt_2",
+   "loc": [
+    4600.0,
+    50.0,
+    -42.58
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_25x120x157": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_89",
+   "loc": [
+    3092.5,
+    1910.0,
+    73.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_KeepTurret_Crenel2_1": [
+  {
+   "actor": "Mason_KeepTurret_Crenel2_1",
+   "loc": [
+    320.0,
+    1120.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x373": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_104",
+   "loc": [
+    2460.0,
+    1610.71,
+    706.43
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_EastCurtain_StringCourse_2": [
+  {
+   "actor": "Mason_EastCurtain_StringCourse_2",
+   "loc": [
+    2950.0,
+    1750.0,
+    660.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_BaileyEastCurtain_B138C_Mid": [
+  {
+   "actor": "Curtain_BaileyEastCurtain_B138C_Mid",
+   "loc": [
+    4600.0,
+    2110.0,
+    310.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_28x120x133": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_87",
+   "loc": [
+    2721.0,
+    1460.0,
+    586.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x98": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_20",
+   "loc": [
+    4760.0,
+    760.0,
+    723.94
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_Skirt_1": [
+  {
+   "actor": "Mason_CornerTower_Cornice_Skirt_1",
+   "loc": [
+    2950.0,
+    3450.0,
+    -0.35
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x24": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_35",
+   "loc": [
+    4760.0,
+    880.0,
+    686.79
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_SouthCurtain_StringCourse_B138A_Mid_Skirt_1": [
+  {
+   "actor": "Mason_SouthCurtain_StringCourse_B138A_Mid_Skirt_1",
+   "loc": [
+    1500.0,
+    50.0,
+    -20.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x261": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_96",
+   "loc": [
+    2460.0,
+    1773.57,
+    650.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_NorthCurtain_StringCourse_B138B_Mid_1": [
+  {
+   "actor": "Mason_NorthCurtain_StringCourse_B138B_Mid_1",
+   "loc": [
+    1500.0,
+    3450.0,
+    580.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_EastCurtain_StringCourse2_1": [
+  {
+   "actor": "Mason_EastCurtain_StringCourse2_1",
+   "loc": [
+    1360.0,
+    430.0,
+    690.0
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallNorthL_AAA": [
+  {
+   "actor": "Curtain_WallNorthL_AAA",
+   "loc": [
+    624.0,
+    3450.0,
+    316.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_160x300x220": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_100",
+   "loc": [
+    2950.0,
+    750.0,
+    510.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_6": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_6",
+   "loc": [
+    4600.0,
+    50.0,
+    955.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_EastCurtain_StringCourse_1": [
+  {
+   "actor": "Mason_EastCurtain_StringCourse_1",
+   "loc": [
+    2950.0,
+    1750.0,
+    615.07
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_8": [
+  {
+   "actor": "Mason_CornerTower_Cornice_8",
+   "loc": [
+    2950.0,
+    50.0,
+    955.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x503": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_109",
+   "loc": [
+    2460.0,
+    1420.71,
+    771.68
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_10": [
+  {
+   "actor": "Curtain_SM_Bevel_007_10",
+   "loc": [
+    2950.0,
+    1750.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x42": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_51",
+   "loc": [
+    4760.0,
+    850.0,
+    696.08
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_8": [
+  {
+   "actor": "Curtain_SM_Bevel_007_8",
+   "loc": [
+    4600.0,
+    3070.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_190x500x90": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_16",
+   "loc": [
+    2950.0,
+    350.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x154": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_11",
+   "loc": [
+    4760.0,
+    670.0,
+    751.8
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_BaileyNorthCurtain_SC": [
+  {
+   "actor": "Curtain_BaileyNorthCurtain_SC",
+   "loc": [
+    3775.0,
+    3450.0,
+    640.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallBaileySouth_AAA": [
+  {
+   "actor": "Curtain_WallBaileySouth_AAA",
+   "loc": [
+    3775.0,
+    50.0,
+    248.67
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_190x940x65": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_8",
+   "loc": [
+    2305.0,
+    1750.0,
+    1010.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_17",
+   "loc": [
+    2235.0,
+    1750.0,
+    900.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_NorthCurtain_StringCourse_B138B_Mid_2": [
+  {
+   "actor": "Mason_NorthCurtain_StringCourse_B138B_Mid_2",
+   "loc": [
+    1500.0,
+    3450.0,
+    640.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_40x140x170": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_91",
+   "loc": [
+    3670.0,
+    1750.0,
+    365.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x258": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_60",
+   "loc": [
+    2765.0,
+    1660.0,
+    331.19
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallFrontR_AAA": [
+  {
+   "actor": "Curtain_WallFrontR_AAA",
+   "loc": [
+    50.0,
+    2820.0,
+    316.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_SouthCurtain_StringCourse_B138A_Mid_1": [
+  {
+   "actor": "Mason_SouthCurtain_StringCourse_B138A_Mid_1",
+   "loc": [
+    1500.0,
+    50.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x75x65": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_2",
+   "loc": [
+    2460.0,
+    1317.5,
+    1010.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_28x120x76": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_69",
+   "loc": [
+    2637.0,
+    1460.0,
+    558.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x377": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_24",
+   "loc": [
+    4760.0,
+    310.0,
+    863.26
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x112": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_43",
+   "loc": [
+    2410.0,
+    2010.71,
+    575.93
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_25x120x182": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_45",
+   "loc": [
+    3067.5,
+    1910.0,
+    86.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x219": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_33",
+   "loc": [
+    2765.0,
+    1728.0,
+    311.31
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_1": [
+  {
+   "actor": "Mason_CornerTower_Cornice_1",
+   "loc": [
+    2950.0,
+    50.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x354": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_34",
+   "loc": [
+    2460.0,
+    1637.86,
+    697.11
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_KeepTurret_Crenel5_1": [
+  {
+   "actor": "Mason_KeepTurret_Crenel5_1",
+   "loc": [
+    320.0,
+    2370.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_9": [
+  {
+   "actor": "Curtain_SM_Bevel_007_9",
+   "loc": [
+    4600.0,
+    430.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x120x152": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_0",
+   "loc": [
+    2785.0,
+    1460.0,
+    596.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x168": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_29",
+   "loc": [
+    2460.0,
+    1909.29,
+    603.89
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x205": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_18",
+   "loc": [
+    2456.0,
+    1855.0,
+    622.54
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_5": [
+  {
+   "actor": "Mason_CornerTower_Cornice_5",
+   "loc": [
+    2950.0,
+    3450.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_390x940x65": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_15",
+   "loc": [
+    2715.0,
+    1750.0,
+    1010.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x246": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_9",
+   "loc": [
+    4760.0,
+    520.0,
+    798.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x80": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_26",
+   "loc": [
+    2651.0,
+    1792.0,
+    241.75
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallBaileyEastL_AAA": [
+  {
+   "actor": "Curtain_WallBaileyEastL_AAA",
+   "loc": [
+    4600.0,
+    1037.5,
+    312.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_28x120x57": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_28",
+   "loc": [
+    2609.0,
+    1460.0,
+    548.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_BaileyNorthCurtain": [
+  {
+   "actor": "Curtain_BaileyNorthCurtain",
+   "loc": [
+    3775.0,
+    3315.0,
+    310.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_2": [
+  {
+   "actor": "Mason_CornerTower_2",
+   "loc": [
+    2950.0,
+    3450.0,
+    510.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x172": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_85",
+   "loc": [
+    4760.0,
+    640.0,
+    761.09
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_BaileyEast_SC_B138C_Mid": [
+  {
+   "actor": "Curtain_BaileyEast_SC_B138C_Mid",
+   "loc": [
+    4600.0,
+    2110.0,
+    640.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SM_Bevel_007_4": [
+  {
+   "actor": "Curtain_SM_Bevel_007_4",
+   "loc": [
+    4600.0,
+    2410.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_25x120x207": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_48",
+   "loc": [
+    3042.5,
+    1910.0,
+    98.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_500x40x448": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_42",
+   "loc": [
+    3900.0,
+    1470.0,
+    226.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "actor": "Keep_SM_Cube_Nanite_81",
+   "loc": [
+    3900.0,
+    2030.0,
+    226.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyEast_SC_B138C_Mid_1": [
+  {
+   "actor": "Mason_BaileyEast_SC_B138C_Mid_1",
+   "loc": [
+    4600.0,
+    2110.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_1": [
+  {
+   "actor": "Mason_CornerTower_1",
+   "loc": [
+    2950.0,
+    50.0,
+    510.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x265": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_99",
+   "loc": [
+    4760.0,
+    490.0,
+    807.53
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_KeepTurret_1": [
+  {
+   "actor": "Mason_KeepTurret_1",
+   "loc": [
+    2530.0,
+    2240.0,
+    590.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_Bailey_NorthCurtain_Buttress": [
+  {
+   "actor": "Curtain_Bailey_NorthCurtain_Buttress",
+   "loc": [
+    3702.5,
+    3450.0,
+    270.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x159": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_52",
+   "loc": [
+    2787.0,
+    1792.0,
+    281.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyNorthCurtain_SC_1": [
+  {
+   "actor": "Mason_BaileyNorthCurtain_SC_1",
+   "loc": [
+    3775.0,
+    3450.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyNorthCurtain_SC_Skirt_1": [
+  {
+   "actor": "Mason_BaileyNorthCurtain_SC_Skirt_1",
+   "loc": [
+    3775.0,
+    3450.0,
+    -74.44
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x410": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_36",
+   "loc": [
+    2456.0,
+    1556.43,
+    725.07
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_40x600x448": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_107",
+   "loc": [
+    4130.0,
+    1750.0,
+    226.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x75x219": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_116",
+   "loc": [
+    2785.0,
+    1748.0,
+    251.31
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_40x230x448": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_22",
+   "loc": [
+    3670.0,
+    1935.0,
+    226.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x278": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_63",
+   "loc": [
+    2765.0,
+    1626.0,
+    341.12
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_28x120x95": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_25",
+   "loc": [
+    2665.0,
+    1460.0,
+    567.5
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_SouthCurtain_B138A_Mid": [
+  {
+   "actor": "Curtain_SouthCurtain_B138A_Mid",
+   "loc": [
+    1500.0,
+    50.0,
+    310.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_Skirt_2": [
+  {
+   "actor": "Mason_CornerTower_Cornice_Skirt_2",
+   "loc": [
+    2950.0,
+    50.0,
+    -4.62
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_160x500x620": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_66",
+   "loc": [
+    2950.0,
+    350.0,
+    310.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_KeepTurret_Crenel4_1": [
+  {
+   "actor": "Mason_KeepTurret_Crenel4_1",
+   "loc": [
+    -90.0,
+    1120.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x209": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_95",
+   "loc": [
+    4760.0,
+    580.0,
+    779.67
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x130": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_86",
+   "loc": [
+    2460.0,
+    1963.57,
+    585.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_NorthCurtain_B138B_Mid": [
+  {
+   "actor": "Curtain_NorthCurtain_B138B_Mid",
+   "loc": [
+    1500.0,
+    3450.0,
+    310.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x79": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_90",
+   "loc": [
+    4760.0,
+    790.0,
+    714.65
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x75": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_93",
+   "loc": [
+    2464.29,
+    2010.71,
+    557.29
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_50x85x808": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_103",
+   "loc": [
+    2860.0,
+    1347.5,
+    606.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x242": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_40",
+   "loc": [
+    2456.0,
+    1800.71,
+    641.18
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x485": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_78",
+   "loc": [
+    2460.0,
+    1447.86,
+    762.36
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Curtain_WallBaileyEastR_AAA": [
+  {
+   "actor": "Curtain_WallBaileyEastR_AAA",
+   "loc": [
+    4600.0,
+    2822.5,
+    312.25
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_2": [
+  {
+   "actor": "Mason_CornerTower_Cornice_2",
+   "loc": [
+    2950.0,
+    3450.0,
+    45.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x56": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_101",
+   "loc": [
+    2491.43,
+    2010.71,
+    547.96
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    -90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x298": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_55",
+   "loc": [
+    2765.0,
+    1592.0,
+    351.06
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_7": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_7",
+   "loc": [
+    4600.0,
+    50.0,
+    530.4
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x228": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_82",
+   "loc": [
+    4760.0,
+    550.0,
+    788.96
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x30x321": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_68",
+   "loc": [
+    4760.0,
+    400.0,
+    835.4
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_28x120x114": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_53",
+   "loc": [
+    2693.0,
+    1460.0,
+    577.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_CornerTower_Cornice_4": [
+  {
+   "actor": "Mason_CornerTower_Cornice_4",
+   "loc": [
+    2950.0,
+    3450.0,
+    955.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_100x34x99": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_59",
+   "loc": [
+    2685.0,
+    1792.0,
+    251.69
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    90.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_300x300x620": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_41",
+   "loc": [
+    4535.0,
+    3385.0,
+    310.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_120x27x392": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_15",
+   "loc": [
+    2456.0,
+    1583.57,
+    715.75
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Mason_BaileyTower_Cornice_3": [
+  {
+   "actor": "Mason_BaileyTower_Cornice_3",
+   "loc": [
+    4610.0,
+    3450.0,
+    1000.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "SM_Keep_Box_330x325x44": [
+  {
+   "actor": "Keep_SM_Cube_Nanite_3",
+   "loc": [
+    4535.0,
+    3382.5,
+    642.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ]
+}
