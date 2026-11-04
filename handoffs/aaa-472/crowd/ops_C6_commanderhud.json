@@ -1,0 +1,156 @@
+{
+ "fix": "C6",
+ "bp": "/Game/CastleDefender/Gameplay/Castle/BP_CommanderHUD",
+ "vars": [
+  [
+   "LastCmdScan",
+   {
+    "basic": "real"
+   }
+  ]
+ ],
+ "nodes": [
+  {
+   "id": "c6Br",
+   "kind": "branch",
+   "x": 0,
+   "y": 0,
+   "defaults": []
+  },
+  {
+   "id": "c6Ref",
+   "kind": "get",
+   "var": "CommanderRef",
+   "x": -600,
+   "y": 200,
+   "defaults": []
+  },
+  {
+   "id": "c6Valid",
+   "kind": "call",
+   "path": "/Script/Engine.KismetSystemLibrary:IsValid",
+   "x": -350,
+   "y": 200,
+   "defaults": []
+  },
+  {
+   "id": "c6Now",
+   "kind": "call",
+   "path": "/Script/Engine.GameplayStatics:GetTimeSeconds",
+   "x": -800,
+   "y": 400,
+   "defaults": []
+  },
+  {
+   "id": "c6Last",
+   "kind": "get",
+   "var": "LastCmdScan",
+   "x": -800,
+   "y": 550,
+   "defaults": []
+  },
+  {
+   "id": "c6Sub",
+   "kind": "call",
+   "path": "/Script/Engine.KismetMathLibrary:Subtract_DoubleDouble",
+   "x": -550,
+   "y": 450,
+   "defaults": []
+  },
+  {
+   "id": "c6Less",
+   "kind": "call",
+   "path": "/Script/Engine.KismetMathLibrary:Less_DoubleDouble",
+   "x": -350,
+   "y": 450,
+   "defaults": [
+    [
+     "B",
+     "0.5"
+    ]
+   ]
+  },
+  {
+   "id": "c6Or",
+   "kind": "call",
+   "path": "/Script/Engine.KismetMathLibrary:BooleanOR",
+   "x": -150,
+   "y": 300,
+   "defaults": []
+  },
+  {
+   "id": "c6SetT",
+   "kind": "set",
+   "var": "LastCmdScan",
+   "x": 250,
+   "y": 200,
+   "defaults": []
+  }
+ ],
+ "links": [
+  [
+   "K2Node_VariableSet_5.then",
+   "c6Br.execute",
+   true
+  ],
+  [
+   "c6Ref.CommanderRef",
+   "c6Valid.Object",
+   false
+  ],
+  [
+   "c6Now.ReturnValue",
+   "c6Sub.A",
+   false
+  ],
+  [
+   "c6Last.LastCmdScan",
+   "c6Sub.B",
+   false
+  ],
+  [
+   "c6Sub.ReturnValue",
+   "c6Less.A",
+   false
+  ],
+  [
+   "c6Valid.ReturnValue",
+   "c6Or.A",
+   false
+  ],
+  [
+   "c6Less.ReturnValue",
+   "c6Or.B",
+   false
+  ],
+  [
+   "c6Or.ReturnValue",
+   "c6Br.Condition",
+   false
+  ],
+  [
+   "c6Br.then",
+   "K2Node_ExecutionSequence_0.execute",
+   false
+  ],
+  [
+   "c6Br.else",
+   "c6SetT.execute",
+   false
+  ],
+  [
+   "c6Now.ReturnValue",
+   "c6SetT.LastCmdScan",
+   false
+  ],
+  [
+   "c6SetT.then",
+   "K2Node_CallFunction_7.execute",
+   false
+  ]
+ ],
+ "set_live": [],
+ "remove": [],
+ "dx": 0,
+ "dy": -1200
+}
