@@ -1,0 +1,10 @@
+{"fix": "C5", "bp": "/Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD",
+ "vars": [],
+ "nodes": [
+  {"id": "c5Seen", "kind": "call", "x": 0, "y": 0, "path": "/Script/Engine.Actor:WasRecentlyRendered", "defaults": [["Tolerance", "0.1"]]}
+ ],
+ "links": [
+  ["K2Node_MacroInstance_H2129.Array Element", "c5Seen.self", false],
+  ["c5Seen.ReturnValue", "K2Node_CallFunction_H2150.B", true]
+ ],
+ "set_live": [], "remove": ["K2Node_CallFunction_H2149"], "dx": 0, "dy": 0}
