@@ -1,0 +1,491 @@
+# /Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie event graph dump (841 nodes)
+## variables
+Attacking, Dead, DamageTaken, Runner, Staggered, XPValue, AttackDamage, MaxHP, ZType, LastHitAt, LastDmg, TrailMgr, LastTrailPos, ThinkTick, LastFlinchAt, WMRef, LastMoveGoal, LastMoveAt
+
+## EVENT Think  (K2Node_CustomEvent_ZB16)
+K2Node_CustomEvent_ZB16  Think  
+  K2Node_IfThenElse_ZB20  Branch  (Condition=OR Boolean(A=OR Boolean(A=Get Dead(), B=Get Attacking()), B=Get Staggered()))
+    K2Node_VariableSet_3  Set ThinkTick  (ThinkTick=int + int(A=Get ThinkTick(), B=1))
+      K2Node_IfThenElse_11  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=Get ThinkTick(), B=SelectInt(A=1, B=[SelectInt.ReturnValue], bPickA=[float < float.ReturnValue])), B=_))
+        K2Node_CallFunction_42  SetComponentTickInterval  (TickInterval=SelectFloat(A=0.0, B=0.1, bPickA=OR Boolean(A=float < float(A=[GetDistanceTo.ReturnValue], B=3000.0), B=Was Actor Recently Rendered(Tolerance=0.200000))))
+          K2Node_CallFunction_43  SetActorTickInterval  (TickInterval=SelectFloat(A=0.0, B=0.25, bPickA=OR Boolean(A=float < float(A=[GetDistanceTo.ReturnValue], B=3000.0), B=Was Actor Recently Rendered(Tolerance=0.200000))))
+            CX_501  SetOwner  (NewOwner=GetPlayerCharacter(PlayerIndex=0))
+              CX_503  For Each Loop  (Array=Get SoldierCache())
+                .Completed:
+                .LoopBody:
+                  K2Node_IfThenElse_1  Branch  (Condition=IsValid(Object=[For Each Loop.Array Element]))
+                    CX_521  Branch  (Condition=AND Boolean(A=AND Boolean(A=float < float(A=[GetLifeSpan.ReturnValue], B=0.01), B=float < float(A=[Absolute (Float).ReturnValue], B=250)), B=AND Boolean(A=float < float(A=[GetDistanceTo.ReturnValue], B=2500), B=float < float(A=[GetDistanceTo.ReturnValue], B=[GetDistanceTo.ReturnValue]))))
+                      CX_522  SetOwner  (NewOwner=[For Each Loop.Array Element])
+                  zfAsFarmerTarget  Cast To BP_Farmer  (Object=GetOwner())
+                    .CastFailed:
+                    .then:
+                      zfIfTargetDead3  Branch  (Condition=Get Dead())
+                        .else:
+                        .then:
+                          zfBackToPlayer5  SetOwner  (NewOwner=GetPlayerCharacter(PlayerIndex=0))
+                            zfForEach6  For Each Loop  (Array=Get FarmerCache())
+                              .Completed:
+                              .LoopBody:
+                                K2Node_IfThenElse_2  Branch  (Condition=IsValid(Object=[For Each Loop.Array Element]))
+                                  zfIfRaidFarmer16  Branch  (Condition=AND Boolean(A=AND Boolean(A=NOT Boolean(A=[Get Dead.Dead]), B=float < float(A=[GetDistanceTo.ReturnValue], B=2500.0)), B=float < float(A=GetDistanceTo(OtherActor=[For Each Loop.Array Element]), B=GetDistanceTo(OtherActor=[GetOwner.ReturnValue]))))
+                                    zfTargetFarmer17  SetOwner  (NewOwner=[For Each Loop.Array Element])
+                                CX_1  Branch  (Condition=float < float(A=Get GlobalAnimRateScale(), B=0.9))
+                                  .else:
+                                  .then:
+                                    CX_5  Set ZType  (ZType=5)
+                                      CX_6  Branch  (Condition=AND Boolean(A=float < float(A=GetDistanceTo(OtherActor=[GetPlayerCharacter.ReturnValue]), B=600.0), B=NOT Boolean(A=AND Boolean(A=[float < float.ReturnValue], B=[float < float.ReturnValue]))))
+                                        .else:
+                                        .then:
+                                          CX_16  Set Attacking  (Attacking=true)
+                                            CX_17  StopMovementImmediately  
+                                              CX_19  Set Actor Rotation  (NewRotation=MakeRotator(Roll=0.0, Pitch=0.0, Yaw=BreakRotator(InRot=FindLookAtRotation(Start=[Get Actor Location.ReturnValue], Target=[Get Actor Location.ReturnValue]))); bTeleportPhysics=false)
+                                                CX_21  Set GlobalAnimRateScale  (GlobalAnimRateScale=0.7)
+                                                  Ps_CX_23  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Attack.A_Attack; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                    CX_25  Delay  (Duration=1.7)
+                                                      CX_26  Branch  (Condition=AND Boolean(A=float < float(A=GetDistanceTo(OtherActor=[GetPlayerCharacter.ReturnValue]), B=700.0), B=NOT Boolean(A=Get Dead())))
+                                                        .else:
+                                                        .then:
+                                                          CX_34  ApplyDamage  (DamagedActor=GetPlayerCharacter(PlayerIndex=0); BaseDamage=Get AttackDamage(); EventInstigator=_; DamageCauser=Self-Reference(); DamageTypeClass=_)
+                                                            CX_38  LaunchCharacter  (LaunchVelocity=MakeVector(X=BreakVector(InVec=vector * float(A=[Normalize.ReturnValue], B=800.0)), Y=BreakVector(InVec=vector * float(A=[Normalize.ReturnValue], B=800.0)), Z=SelectFloat(A=180.0, B=-150.0, bPickA=float < float(A=[BreakVector.Z], B=60.0))); bXYOverride=true; bZOverride=true)
+                                                              CX_47  PlayWorldCameraShake  (Shake=/Game/CastleDefender/Gameplay/Cannon/BP_CannonShake_Impact.BP_CannonShake_Impact_C; Epicenter=Get Actor Location(); InnerRadius=0.0; OuterRadius=2500.0; Falloff=1.5; bOrientShakeTowardsEpicenter=false)
+                                                                CX_50  PlaySoundAtLocation  (Sound=/Game/Audio/Kenney/SFX_impactPunch_heavy_002.SFX_impactPunch_heavy_002; Location=Get Actor Location(); Rotation=0, 0, 0; VolumeMultiplier=1.4; PitchMultiplier=0.45; StartTime=0.000000; AttenuationSettings=_; ConcurrencySettings=_; OwningActor=_; InitialParams=_)
+                                                                  CX_53  Delay  (Duration=2.0)
+                                                                    K2Node_IfThenElse_4  Branch  (Condition=Get Dead())
+                                                                      CX_54  Set GlobalAnimRateScale  (GlobalAnimRateScale=0.2)
+                                                                        CX_56  Set Attacking  (Attacking=false)
+                                                                          K2Node_IfThenElse_ZB10  Branch  (Condition=Get Dead())
+                                                                            K2Node_CallFunction_27  SetAnimationMode  (InAnimationMode=AnimationBlueprint; bForceInitAnimScriptInstance=false)
+                                                                              CX_300  Branch  (Condition=AND Boolean(A=float < float(A=Get GlobalAnimRateScale(), B=0.9), B=float < float(A=Get MaxWalkSpeed(), B=75.0)))
+                                                                                .else:
+                                                                                .then:
+                                                                                  Ps_CX_301  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                  CX_319  Branch  (Condition=AND Boolean(A=AND Boolean(A=AND Boolean(A=[Equal (Integer).ReturnValue], B=[Equal (Integer).ReturnValue]), B=float >= float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9)), B=NOT Boolean(A=Get Runner())))
+                                                                                    .else:
+                                                                                    .then:
+                                                                                      CX_320  Set MaxWalkSpeed  (MaxWalkSpeed=45.0)
+                                                                                        CX_327  Branch  (Condition=RandomBoolWithWeight(Weight=0.5))
+                                                                                          .else:
+                                                                                          .then:
+                                                                                            Ps_CX_324  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                            Ps_CX_328  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_B.ZA_Belly_Crawling_B; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                      K2Node_IfThenElse_ZB12  Branch  (Condition=Get Runner())
+                                                                                        .else:
+                                                                                        .then:
+                                                                                          CX_340  Branch  (Condition=AND Boolean(A=Equal (Integer)(A=% (Integer)(A=[String To Integer.ReturnValue], B=2), B=1), B=float >= float(A=Get GlobalAnimRateScale(), B=0.9)))
+                                                                                            CX_341  Set MaxWalkSpeed  (MaxWalkSpeed=260.0)
+                                                                                          CX_355  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=4), B=0))
+                                                                                            CX_364  Branch  (Condition=AND Boolean(A=float >= float(A=Get GlobalAnimRateScale(), B=0.9), B=Equal (Integer)(A=Get ZType(), B=5)))
+                                                                                              CX_365  Set MaxWalkSpeed  (MaxWalkSpeed=65.0)
+                                                                                                CX_381  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=3), B=0))
+                                                                                                  CX_388  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=3), B=1))
+                                                          -> (again) CX_53
+                                          CX_400  Branch  (Condition=OR Boolean(A=OR Boolean(A=Get GateBroken(), B=float > float(A=[Absolute (Float).ReturnValue], B=5.0)), B=AND Boolean(A=float < float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9), B=float < float(A=[Get MaxWalkSpeed.MaxWalkSpeed], B=75.0))))
+                                            .else:
+                                            .then:
+                                              CX_408  Branch  (Condition=AND Boolean(A=float < float(A=Get GlobalAnimRateScale(), B=0.9), B=float < float(A=Get MaxWalkSpeed(), B=75.0)))
+                                                .else:
+                                                .then:
+                                                  CX_413  Branch  (Condition=AND Boolean(A=AND Boolean(A=float > float(A=[BreakVector.X], B=1100.0), B=float > float(A=[BreakVector.Y], B=700.0)), B=float < float(A=BreakVector(InVec=[Get Actor Location.ReturnValue]), B=2800.0)))
+                                                    .else:
+                                                    .then:
+                                                      CX_421  Set Attacking  (Attacking=true)
+                                                        CX_422  StopMovementImmediately  
+                                                          CX_473  Add Actor World Offset  (DeltaLocation=vector * float(A=GetActorForwardVector(), B=-207.3); bSweep=false; bTeleport=true)
+                                                            CX_474  Set Relative Location  (NewLocation=0.000000,0.000000,-90.000000; bSweep=false; bTeleport=true)
+                                                              CX_476  SetRelativeScale3D  (NewScale3D=3.000000,3.000000,3.000000)
+                                                                CX_424  Set MaxWalkSpeed  (MaxWalkSpeed=90.0)
+                                                                  CX_426  Set GlobalAnimRateScale  (GlobalAnimRateScale=0.5)
+                                                                    Ps_CX_428  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_H.ZA_Burst_H; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                      CX_434  Delay  (Duration=5.4)
+                                                                        K2Node_IfThenElse_5  Branch  (Condition=Get Dead())
+                                                                          CX_437  Set GlobalAnimRateScale  (GlobalAnimRateScale=0.2)
+                                                                            CX_439  Set Attacking  (Attacking=false)
+                                                                              -> (again) K2Node_IfThenElse_ZB10
+                                                      CX_482  SimpleMoveToLocation  (Controller=GetController(); Goal=MakeVector(X=1350.0, Y=1750.0, Z=3.0))
+                                                  CX_420  Branch  (Condition=AND Boolean(A=AND Boolean(A=float < float(A=[BreakVector.X], B=250.0), B=float > float(A=[BreakVector.X], B=-1050.0)), B=float < float(A=Absolute (Float)(A=[float - float.ReturnValue]), B=700.0)))
+                                                    .else:
+                                                    .then:
+                                                      CX_441  Set Attacking  (Attacking=true)
+                                                        CX_442  StopMovementImmediately  
+                                                          CX_444  Set GlobalAnimRateScale  (GlobalAnimRateScale=0.5)
+                                                            Ps_CX_446  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Burst_H.ZA_Burst_H; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                              CX_448  Delay  (Duration=2.8)
+                                                                K2Node_IfThenElse_6  Branch  (Condition=Get Dead())
+                                                                  CX_458  SpawnEmitterAtLocation  (EmitterTemplate=/Game/CastleDefender/VFX/Smoke/P_Smoke_Burst.P_Smoke_Burst; Location=Get Actor Location(); Rotation=0, 0, 0; Scale=3.000000,3.000000,0.800000; bAutoDestroy=true; PoolingMethod=None; bAutoActivateSystem=true)
+                                                                    CX_449  Set MaxWalkSpeed  (MaxWalkSpeed=70.0)
+                                                                      CX_466  Add Actor World Offset  (DeltaLocation=vector * float(A=GetActorForwardVector(), B=207.3); bSweep=false; bTeleport=true)
+                                                                        CX_467  Set Relative Location  (NewLocation=-207.272727,0.000000,-90.000000; bSweep=false; bTeleport=true)
+                                                                          CX_469  SetRelativeScale3D  (NewScale3D=2.290909,3.000000,3.000000)
+                                                                            CX_451  Set GlobalAnimRateScale  (GlobalAnimRateScale=0.45)
+                                                                              Ps_CX_453  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                CX_457  Set Attacking  (Attacking=false)
+                                                      K2Node_IfThenElse_ZB25  Branch  (Condition=float < float(A=GetDistanceTo(OtherActor=GetOwner()), B=150.0))
+                                                        .else:
+                                                        .then:
+                                                          K2Node_VariableSet_ZB29  Set Attacking  (Attacking=true)
+                                                            K2Node_CallFunction_ZB31  StopMovementImmediately  
+                                                              K2Node_CallFunction_ZB38  Set Actor Rotation  (NewRotation=MakeRotator(Roll=0.0, Pitch=0.0, Yaw=BreakRotator(InRot=FindLookAtRotation(Start=[Get Actor Location.ReturnValue], Target=[Get Actor Location.ReturnValue]))); bTeleportPhysics=false)
+                                                                CX_249  Branch  (Condition=OR Boolean(A=AND Boolean(A=AND Boolean(A=[AND Boolean.ReturnValue], B=[float >= float.ReturnValue]), B=NOT Boolean(A=[Get Runner.Runner])), B=AND Boolean(A=float < float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9), B=float < float(A=[Get MaxWalkSpeed.MaxWalkSpeed], B=75.0))))
+                                                                  .else:
+                                                                  .then:
+                                                                    Ps_CX_250  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Laying_Idle_A.ZA_Laying_Idle_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                      K2Node_CallFunction_ZB41  Delay  (Duration=0.75)
+                                                                        K2Node_IfThenElse_ZB43  Branch  (Condition=OR Boolean(A=Get Dead(), B=Get Staggered()))
+                                                                          K2Node_IfThenElse_ZB48  Branch  (Condition=float < float(A=GetDistanceTo(OtherActor=GetOwner()), B=210.0))
+                                                                            .else:
+                                                                            .then:
+                                                                              K2Node_CallFunction_ZB49  ApplyDamage  (DamagedActor=GetOwner(); BaseDamage=Get AttackDamage(); EventInstigator=_; DamageCauser=Self-Reference(); DamageTypeClass=_)
+                                                                                K2Node_CallFunction_ZB51  Delay  (Duration=0.9)
+                                                                                  K2Node_IfThenElse_ZB59  Branch  (Condition=Get Staggered())
+                                                                                    K2Node_VariableSet_ZB52  Set Attacking  (Attacking=false)
+                                                                                      -> (again) K2Node_IfThenElse_ZB10
+                                                                              -> (again) K2Node_CallFunction_ZB51
+                                                                    CX_255  Branch  (Condition=RandomBoolWithWeight(Weight=0.5))
+                                                                      .else:
+                                                                      .then:
+                                                                        Ps_CX_252  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Attack.A_Attack; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                          -> (again) K2Node_CallFunction_ZB41
+                                                                        Ps_CX_256  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Attack_D.ZA_Attack_D; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                          -> (again) K2Node_CallFunction_ZB41
+                                                          G_AtGate  Branch  (Condition=AND Boolean(A=AND Boolean(A=float < float(A=[Absolute (Float).ReturnValue], B=75.0), B=float < float(A=[Absolute (Float).ReturnValue], B=270.0)), B=Is Collision Enabled()))
+                                                            .else:
+                                                            .then:
+                                                              S_Atk  Set Attacking  (Attacking=true)
+                                                                S_Stop  StopMovementImmediately  
+                                                                  S_Face  Set Actor Rotation  (NewRotation=0, 0, 0; bTeleportPhysics=false)
+                                                                    CX_284  Branch  (Condition=OR Boolean(A=AND Boolean(A=AND Boolean(A=[AND Boolean.ReturnValue], B=[float >= float.ReturnValue]), B=NOT Boolean(A=[Get Runner.Runner])), B=AND Boolean(A=float < float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9), B=float < float(A=[Get MaxWalkSpeed.MaxWalkSpeed], B=75.0))))
+                                                                      .else:
+                                                                      .then:
+                                                                        Ps_CX_285  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Laying_Idle_A.ZA_Laying_Idle_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                          S_Wait  Delay  (Duration=RandomFloatInRange(Min=1.2, Max=1.7))
+                                                                            S_Done  Set Attacking  (Attacking=false)
+                                                                              -> (again) K2Node_IfThenElse_ZB10
+                                                                        CX_290  Branch  (Condition=RandomBoolWithWeight(Weight=0.5))
+                                                                          .else:
+                                                                          .then:
+                                                                            Ps_CX_287  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Attack.A_Attack; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                              -> (again) S_Wait
+                                                                            Ps_CX_291  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Attack_D.ZA_Attack_D; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                              -> (again) S_Wait
+                                                              K2Node_IfThenElse_3  Branch  (Condition=NOT Boolean(A=AND Boolean(A=AND Boolean(A=[Equal (Object).ReturnValue], B=[float > float.ReturnValue]), B=float < float(A=[float - float.ReturnValue], B=2.0))))
+                                                                K2Node_CallFunction_ZB28  SimpleMoveToActor  (Controller=GetController(); Goal=GetOwner())
+                                                                  K2Node_VariableSet_1  Set LastMoveGoal  (LastMoveGoal=GetOwner())
+                                                                    K2Node_VariableSet_2  Set LastMoveAt  (LastMoveAt=GetTimeSeconds())
+                                              CX_58  Branch  (Condition=AND Boolean(A=float < float(A=Absolute (Float)(A=[float + float.ReturnValue]), B=60.0), B=float < float(A=Absolute (Float)(A=[float - float.ReturnValue]), B=500.0)))
+                                                .else:
+                                                .then:
+                                                  CX_68  Set Attacking  (Attacking=true)
+                                                    CX_69  StopMovementImmediately  
+                                                      CX_71  Set Actor Rotation  (NewRotation=MakeRotator(Roll=0.0, Pitch=0.0, Yaw=0.0); bTeleportPhysics=false)
+                                                        CX_73  Set GlobalAnimRateScale  (GlobalAnimRateScale=0.5)
+                                                          Ps_CX_75  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Attack.A_Attack; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                            CX_77  Delay  (Duration=2.4)
+                                                              CX_78  Branch  (Condition=NOT Boolean(A=Get Dead()))
+                                                                .else:
+                                                                .then:
+                                                                  fzAsZombieHUD3_c1  Cast To BP_ZombieHUD  (Object=GetHUD())
+                                                                    .CastFailed:
+                                                                    .then:
+                                                                      CX_85  Set GateDamage  (GateDamage=Min (Float)(A=float + float(A=Get GateDamage(), B=float / float(A=[float - float.ReturnValue], B=[float + float.ReturnValue])), B=100.0))
+                                                                        CX_91  SpawnEmitterAtLocation  (EmitterTemplate=/Game/CastleDefender/VFX/Smoke/P_Smoke_Burst.P_Smoke_Burst; Location=vector + vector(A=Get Actor Location(), B=140.000000,0.000000,-80.000000); Rotation=0, 0, 0; Scale=6.000000,6.000000,1.600000; bAutoDestroy=true; PoolingMethod=None; bAutoActivateSystem=true)
+                                                                          CX_92  Delay  (Duration=2.4)
+                                                                            CX_93  Deactivate  
+                                                                              K2Node_IfThenElse_7  Branch  (Condition=Get Dead())
+                                                                                CX_94  Set GlobalAnimRateScale  (GlobalAnimRateScale=0.2)
+                                                                                  CX_96  Set Attacking  (Attacking=false)
+                                                                      -> (again) CX_85
+                                                                  -> (again) K2Node_IfThenElse_7
+                                                  -> (again) K2Node_IfThenElse_ZB25
+                                    -> (again) K2Node_IfThenElse_ZB25
+                          -> (again) zfForEach6
+                      -> (again) zfForEach6
+
+## EVENT ResumeMove  (K2Node_CustomEvent_ZB8)
+K2Node_CustomEvent_ZB8  ResumeMove  
+  K2Node_IfThenElse_ZB10  Branch  (Condition=Get Dead())
+    K2Node_CallFunction_27  SetAnimationMode  (InAnimationMode=AnimationBlueprint; bForceInitAnimScriptInstance=false)
+      CX_300  Branch  (Condition=AND Boolean(A=float < float(A=Get GlobalAnimRateScale(), B=0.9), B=float < float(A=Get MaxWalkSpeed(), B=75.0)))
+        .else:
+        .then:
+          Ps_CX_301  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+          CX_319  Branch  (Condition=AND Boolean(A=AND Boolean(A=AND Boolean(A=[Equal (Integer).ReturnValue], B=[Equal (Integer).ReturnValue]), B=float >= float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9)), B=NOT Boolean(A=Get Runner())))
+            .else:
+            .then:
+              CX_320  Set MaxWalkSpeed  (MaxWalkSpeed=45.0)
+                CX_327  Branch  (Condition=RandomBoolWithWeight(Weight=0.5))
+                  .else:
+                  .then:
+                    Ps_CX_324  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                    Ps_CX_328  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_B.ZA_Belly_Crawling_B; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+              K2Node_IfThenElse_ZB12  Branch  (Condition=Get Runner())
+                .else:
+                .then:
+                  CX_340  Branch  (Condition=AND Boolean(A=Equal (Integer)(A=% (Integer)(A=[String To Integer.ReturnValue], B=2), B=1), B=float >= float(A=Get GlobalAnimRateScale(), B=0.9)))
+                    CX_341  Set MaxWalkSpeed  (MaxWalkSpeed=260.0)
+                  CX_355  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=4), B=0))
+                    CX_364  Branch  (Condition=AND Boolean(A=float >= float(A=Get GlobalAnimRateScale(), B=0.9), B=Equal (Integer)(A=Get ZType(), B=5)))
+                      CX_365  Set MaxWalkSpeed  (MaxWalkSpeed=65.0)
+                        CX_381  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=3), B=0))
+                          CX_388  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=3), B=1))
+
+## EVENT Event Tick  (CX_524)
+CX_524  Event Tick  
+  CX_532  Sequence  
+    .then_1:
+    .then_0:
+      JTZ_11  Branch  (Condition=AND Boolean(A=AND Boolean(A=Equal (Integer)(A=[Get ZType.ZType], B=5), B=NOT Boolean(A=[Get Dead.Dead])), B=float > float(A=Distance2D (Vector)(V1=[Get Actor Location.ReturnValue], V2=[Get LastTrailPos.LastTrailPos]), B=60.0)))
+        JTZ_14  Branch  (Condition=IsValid(Object=Get TrailMgr()))
+          .else:
+          .then:
+            JTZ_17  Set LastTrailPos  (LastTrailPos=Get Actor Location())
+              JTZ_20  Branch  (Condition=IsValid(Object=Get TrailMgr()))
+                JTZ_25  AddTrail  (Loc=vector - vector(A=Get Actor Location(), B=MakeVector(X=0.0, Y=0.0, Z=GetScaledCapsuleHalfHeight())); PieceSize=115.000000)
+            JTZ_15  GetActorOfClass  (ActorClass=/Game/CastleDefender/Gameplay/JellyTrail/BP_JellyTrailManager.BP_JellyTrailManager_C)
+              JTZ_16  Set TrailMgr  (TrailMgr=[GetActorOfClass.ReturnValue])
+                -> (again) JTZ_17
+      CX_537  Branch  (Condition=float < float(A=BreakVector(InVec=Get RelativeLocation()), B=-100.0))
+        CX_538  Cast To BP_ThirdPersonCharacter  (Object=GetPlayerCharacter(PlayerIndex=0))
+          CX_558  Branch  (Condition=AND Boolean(A=AND Boolean(A=Get HitWindow(), B=float < float(A=[Distance (Vector).ReturnValue], B=320.0)), B=AND Boolean(A=float > float(A=[float - float.ReturnValue], B=0.35), B=NOT Boolean(A=[Get Dead.Dead]))))
+            CX_559  ApplyDamage  (DamagedActor=Self-Reference(); BaseDamage=float + float(A=float * float(A=To Float (Integer)(InInt=[Get Level.Level]), B=6.0), B=35.0); EventInstigator=_; DamageCauser=[Cast To BP_ThirdPersonCharacter.AsBP Third Person Character]; DamageTypeClass=_)
+
+## EVENT Event BeginPlay  (K2Node_Event_ZB0)
+K2Node_Event_ZB0  Event BeginPlay  
+  K2Node_CallFunction_0  GetActorOfClass  (ActorClass=/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C)
+    K2Node_VariableSet_0  Set WMRef  (WMRef=[GetActorOfClass.ReturnValue])
+      K2Node_CallArrayFunction_0  Add Unique  (TargetArray=Get ZombieReg(); NewItem=Self-Reference())
+        QX_CallFunction_1  SetActorScale3D  (NewScale3D=MakeVector(X=RandomFloatInRange(Min=0.9, Max=1.12), Y=RandomFloatInRange(Min=0.9, Max=1.12), Z=RandomFloatInRange(Min=0.9, Max=1.12)))
+          K2Node_VariableSet_ZB2  Set Runner  (Runner=RandomBoolWithWeight(Weight=0.3))
+            K2Node_VariableSet_ZB5  Set MaxWalkSpeed  (MaxWalkSpeed=SelectFloat(A=RandomFloatInRange(Min=290.0, Max=410.0), B=RandomFloatInRange(Min=80.0, Max=145.0), bPickA=RandomBoolWithWeight(Weight=0.3)))
+              K2Node_CallFunction_ZB6  Set Timer by Function Name  (Object=_; FunctionName=Think; Time=0.25; bLooping=true; bMaxOncePerFrame=false; InitialStartDelay=0.000000; InitialStartDelayVariance=0.25)
+                K2Node_IfThenElse_ZB10  Branch  (Condition=Get Dead())
+                  K2Node_CallFunction_27  SetAnimationMode  (InAnimationMode=AnimationBlueprint; bForceInitAnimScriptInstance=false)
+                    CX_300  Branch  (Condition=AND Boolean(A=float < float(A=Get GlobalAnimRateScale(), B=0.9), B=float < float(A=Get MaxWalkSpeed(), B=75.0)))
+                      .else:
+                      .then:
+                        Ps_CX_301  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                        CX_319  Branch  (Condition=AND Boolean(A=AND Boolean(A=AND Boolean(A=[Equal (Integer).ReturnValue], B=[Equal (Integer).ReturnValue]), B=float >= float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9)), B=NOT Boolean(A=Get Runner())))
+                          .else:
+                          .then:
+                            CX_320  Set MaxWalkSpeed  (MaxWalkSpeed=45.0)
+                              CX_327  Branch  (Condition=RandomBoolWithWeight(Weight=0.5))
+                                .else:
+                                .then:
+                                  Ps_CX_324  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                  Ps_CX_328  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_B.ZA_Belly_Crawling_B; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                            K2Node_IfThenElse_ZB12  Branch  (Condition=Get Runner())
+                              .else:
+                              .then:
+                                CX_340  Branch  (Condition=AND Boolean(A=Equal (Integer)(A=% (Integer)(A=[String To Integer.ReturnValue], B=2), B=1), B=float >= float(A=Get GlobalAnimRateScale(), B=0.9)))
+                                  CX_341  Set MaxWalkSpeed  (MaxWalkSpeed=260.0)
+                                CX_355  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=4), B=0))
+                                  CX_364  Branch  (Condition=AND Boolean(A=float >= float(A=Get GlobalAnimRateScale(), B=0.9), B=Equal (Integer)(A=Get ZType(), B=5)))
+                                    CX_365  Set MaxWalkSpeed  (MaxWalkSpeed=65.0)
+                                      CX_381  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=3), B=0))
+                                        CX_388  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=3), B=1))
+
+## EVENT Event AnyDamage  (K2Node_Event_ZB60)
+K2Node_Event_ZB60  Event AnyDamage  
+  K2Node_VariableSet_DN0  Set LastDmg  (LastDmg=[Event AnyDamage.Damage])
+    K2Node_VariableSet_DN2  Set LastHitAt  (LastHitAt=GetTimeSeconds())
+      K2Node_IfThenElse_ZB62  Branch  (Condition=Get Dead())
+        K2Node_IfThenElse_12  Branch  (Condition=float >= float(A=[Event AnyDamage.Damage], B=float * float(A=Get MaxHP(), B=0.25)))
+          .else:
+          .then:
+            K2Node_VariableSet_4  Set bPauseAnims  (bPauseAnims=false)
+              K2Node_CallFunction_44  Set Timer by Function Name  (Object=_; FunctionName=HitStopEnd; Time=0.06; bLooping=false; bMaxOncePerFrame=false; InitialStartDelay=0.000000; InitialStartDelayVariance=0.000000)
+                K2Node_IfThenElse_13  Branch  (Condition=Equal (Object)(A=[Event AnyDamage.DamageCauser], B=GetPlayerCharacter(PlayerIndex=0)))
+                  .else:
+                  .then:
+                    K2Node_CallFunction_46  PlaySoundAtLocation  (Sound=/Game/Audio/SFX_FleshHit.SFX_FleshHit; Location=Get Actor Location(); Rotation=0, 0, 0; VolumeMultiplier=0.7; PitchMultiplier=RandomFloatInRange(Min=0.9, Max=1.1); StartTime=0.000000; AttenuationSettings=_; ConcurrencySettings=_; OwningActor=_; InitialParams=_)
+                      K2Node_CallFunction_48  PlaySoundAtLocation  (Sound=/Game/Audio/Kenney/SFX_impactPunch_heavy_002.SFX_impactPunch_heavy_002; Location=Get Actor Location(); Rotation=0, 0, 0; VolumeMultiplier=0.5; PitchMultiplier=RandomFloatInRange(Min=0.55, Max=0.7); StartTime=0.000000; AttenuationSettings=_; ConcurrencySettings=_; OwningActor=_; InitialParams=_)
+                        fzAsZombieHUD3  Cast To BP_ZombieHUD  (Object=GetHUD())
+                          .CastFailed:
+                          .then:
+                            fzAsRisen7  Cast To BP_ZombieRisen  (Object=Self-Reference())
+                              .CastFailed:
+                              .then:
+                                fzAsBolt12  Cast To BP_SoldierBolt  (Object=[Event AnyDamage.DamageCauser])
+                                  .CastFailed:
+                                  .then:
+                                    K2Node_VariableSet_ZB65  Set DamageTaken  (DamageTaken=float + float(A=Get DamageTaken(), B=float * float(A=[Event AnyDamage.Damage], B=SelectFloat(A=[float + float.ReturnValue], B=1.0, bPickA=[IsValid.ReturnValue]))))
+                                      K2Node_SpawnActorFromClass_ZB93  SpawnActor BP Blood Burst  (Class=/Game/CastleDefender/VFX/BP_BloodBurst.BP_BloodBurst_C; SpawnTransform=MakeTransform(Location=vector + vector(A=Get Actor Location(), B=0.000000,0.000000,35.000000), Rotation=0, 0, 0, Scale=1.000000,1.000000,1.000000); CollisionHandlingOverride=AlwaysSpawn; TransformScaleMethod=SelectDefaultAtRuntime; Owner=_; Instigator=_)
+                                        zgGoreHit5  OnHit  (Damage=[Event AnyDamage.Damage]; Causer=[Event AnyDamage.DamageCauser]; Killing=float >= float(A=Get DamageTaken(), B=Get MaxHP()); MaxHP=Get MaxHP())
+                                          K2Node_IfThenElse_ZB68  Branch  (Condition=float >= float(A=Get DamageTaken(), B=Get MaxHP()))
+                                            .else:
+                                            .then:
+                                              K2Node_VariableSet_ZB69  Set Dead  (Dead=true)
+                                                K2Node_DynamicCast_ZV33  Cast To BP_ThirdPersonCharacter  (Object=GetPlayerCharacter(PlayerIndex=0))
+                                                  .CastFailed:
+                                                  .then:
+                                                    K2Node_VariableSet_ZV37  Set XP  (XP=int + int(A=Get XP(), B=Get XPValue()))
+                                                      K2Node_CallFunction_ZV38  CheckLevelUp  
+                                                        K2Node_CallFunction_ZB71  SetCollisionEnabled  (NewType=NoCollision)
+                                                          K2Node_CallFunction_ZB73  StopMovementImmediately  
+                                                            K2Node_CallFunction_22  SetAnimationMode  (InAnimationMode=AnimationBlueprint; bForceInitAnimScriptInstance=false)
+                                                              K2Node_IfThenElse_8  Branch  (Condition=ClassIsChildOf(TestClass=Get Class(Object=[Event AnyDamage.DamageCauser]), ParentClass=/Game/CastleDefender/Gameplay/Cannon/BP_Cannonball.BP_Cannonball_C))
+                                                                .else:
+                                                                .then:
+                                                                  K2Node_CallFunction_23  SetCollisionProfileName  (InCollisionProfileName=Ragdoll; bUpdateOverlaps=true)
+                                                                    K2Node_CallFunction_24  SetAllBodiesSimulatePhysics  (bNewSimulate=true)
+                                                                      K2Node_CallFunction_25  AddRadialImpulse  (Origin=vector - vector(A=Get Actor Location(), B=0, 0, 120); Radius=800.0; Strength=900.0; Falloff=RIF_Linear; bVelChange=true)
+                                                                        K2Node_CallFunction_ZB76  SetLifeSpan  (InLifespan=6.0)
+                                                                          CX_565  Delay  (Duration=0.9)
+                                                                            CX_566  SpawnEmitterAtLocation  (EmitterTemplate=/Game/CastleDefender/VFX/Smoke/P_Smoke_Burst.P_Smoke_Burst; Location=vector - vector(A=Get Actor Location(), B=0.000000,0.000000,85.000000); Rotation=0, 0, 0; Scale=0.450000,0.450000,0.450000; bAutoDestroy=true; PoolingMethod=None; bAutoActivateSystem=true)
+                                                                  CX_123  Branch  (Condition=OR Boolean(A=AND Boolean(A=AND Boolean(A=[AND Boolean.ReturnValue], B=[float >= float.ReturnValue]), B=NOT Boolean(A=[Get Runner.Runner])), B=AND Boolean(A=float < float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9), B=float < float(A=[Get MaxWalkSpeed.MaxWalkSpeed], B=75.0))))
+                                                                    .else:
+                                                                    .then:
+                                                                      K2Node_CallFunction_10  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                        -> (again) K2Node_CallFunction_ZB76
+                                                                      CX_129  Branch  (Condition=RandomBoolWithWeight(Weight=0.0909))
+                                                                        .else:
+                                                                        .then:
+                                                                          K2Node_CallFunction_11  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                            -> (again) K2Node_CallFunction_ZB76
+                                                                          CX_133  Branch  (Condition=RandomBoolWithWeight(Weight=0.1000))
+                                                                            .else:
+                                                                            .then:
+                                                                              K2Node_CallFunction_12  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                -> (again) K2Node_CallFunction_ZB76
+                                                                              CX_137  Branch  (Condition=RandomBoolWithWeight(Weight=0.1111))
+                                                                                .else:
+                                                                                .then:
+                                                                                  K2Node_CallFunction_13  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                    -> (again) K2Node_CallFunction_ZB76
+                                                                                  CX_141  Branch  (Condition=RandomBoolWithWeight(Weight=0.1250))
+                                                                                    .else:
+                                                                                    .then:
+                                                                                      K2Node_CallFunction_14  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                        -> (again) K2Node_CallFunction_ZB76
+                                                                                      CX_145  Branch  (Condition=RandomBoolWithWeight(Weight=0.1429))
+                                                                                        .else:
+                                                                                        .then:
+                                                                                          K2Node_CallFunction_15  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                            -> (again) K2Node_CallFunction_ZB76
+                                                                                          CX_149  Branch  (Condition=RandomBoolWithWeight(Weight=0.1667))
+                                                                                            .else:
+                                                                                            .then:
+                                                                                              K2Node_CallFunction_16  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                                -> (again) K2Node_CallFunction_ZB76
+                                                                                              CX_153  Branch  (Condition=RandomBoolWithWeight(Weight=0.2000))
+                                                                                                .else:
+                                                                                                .then:
+                                                                                                  K2Node_CallFunction_17  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                                    -> (again) K2Node_CallFunction_ZB76
+                                                                                                  CX_157  Branch  (Condition=RandomBoolWithWeight(Weight=0.2500))
+                                                                                                    .else:
+                                                                                                    .then:
+                                                                                                      K2Node_CallFunction_18  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                                        -> (again) K2Node_CallFunction_ZB76
+                                                                                                      CX_161  Branch  (Condition=RandomBoolWithWeight(Weight=0.3333))
+                                                                                                        .else:
+                                                                                                        .then:
+                                                                                                          K2Node_CallFunction_19  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                                            -> (again) K2Node_CallFunction_ZB76
+                                                                                                          CX_165  Branch  (Condition=RandomBoolWithWeight(Weight=0.5))
+                                                                                                            .else:
+                                                                                                            .then:
+                                                                                                              K2Node_CallFunction_20  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                                                -> (again) K2Node_CallFunction_ZB76
+                                                                                                              K2Node_CallFunction_21  Montage_Play  (MontageToPlay=_; InPlayRate=1.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=true)
+                                                                                                                -> (again) K2Node_CallFunction_ZB76
+                                                    -> (again) K2Node_CallFunction_ZB71
+                                              CX_531  Branch  (Condition=AND Boolean(A=float < float(A=Get GlobalAnimRateScale(), B=0.9), B=NOT Boolean(A=ClassIsChildOf(TestClass=[Get Class.ReturnValue], ParentClass=/Game/CastleDefender/Gameplay/Cannon/BP_Cannonball.BP_Cannonball_C))))
+                                                .else:
+                                                .then:
+                                                  K2Node_IfThenElse_14  Branch  (Condition=AND Boolean(A=float > float(A=float - float(A=[GetTimeSeconds.ReturnValue], B=[Get LastFlinchAt.LastFlinchAt]), B=1.0), B=IsValid(Object=[Event AnyDamage.DamageCauser])))
+                                                    K2Node_VariableSet_6  Set LastFlinchAt  (LastFlinchAt=GetTimeSeconds())
+                                                      K2Node_IfThenElse_15  Branch  (Condition=float < float(A=Dot Product(A=GetActorForwardVector(), B=Normalize(A=[vector - vector.ReturnValue], Tolerance=0.000100)), B=_))
+                                                        .else:
+                                                        .then:
+                                                          K2Node_CallFunction_59  Montage_Play  (MontageToPlay=_; InPlayRate=3.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=false)
+                                                          K2Node_CallFunction_60  Montage_Play  (MontageToPlay=_; InPlayRate=3.000000; ReturnValueType=MontageLength; InTimeToStartMontageAt=0.000000; bStopAllMontages=false)
+                                                  K2Node_VariableSet_ZB77  Set Staggered  (Staggered=true)
+                                                    K2Node_CallFunction_ZB79  StopMovementImmediately  
+                                                      K2Node_CallFunction_ZB83  LaunchCharacter  (LaunchVelocity=vector + vector(A=vector * float(A=GetActorForwardVector(), B=600.0), B=0.000000,0.000000,160.000000); bXYOverride=true; bZOverride=true)
+                                                        CX_194  Branch  (Condition=OR Boolean(A=AND Boolean(A=AND Boolean(A=[AND Boolean.ReturnValue], B=[float >= float.ReturnValue]), B=NOT Boolean(A=[Get Runner.Runner])), B=AND Boolean(A=float < float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9), B=float < float(A=[Get MaxWalkSpeed.MaxWalkSpeed], B=75.0))))
+                                                          .else:
+                                                          .then:
+                                                            Ps_CX_195  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Laying_Idle_A.ZA_Laying_Idle_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                              K2Node_CallFunction_ZB86  Delay  (Duration=0.7)
+                                                                K2Node_VariableSet_ZB87  Set Staggered  (Staggered=false)
+                                                                  K2Node_VariableSet_ZB88  Set Attacking  (Attacking=false)
+                                                                    K2Node_IfThenElse_ZB10  Branch  (Condition=Get Dead())
+                                                                      K2Node_CallFunction_27  SetAnimationMode  (InAnimationMode=AnimationBlueprint; bForceInitAnimScriptInstance=false)
+                                                                        CX_300  Branch  (Condition=AND Boolean(A=float < float(A=Get GlobalAnimRateScale(), B=0.9), B=float < float(A=Get MaxWalkSpeed(), B=75.0)))
+                                                                          .else:
+                                                                          .then:
+                                                                            Ps_CX_301  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                            CX_319  Branch  (Condition=AND Boolean(A=AND Boolean(A=AND Boolean(A=[Equal (Integer).ReturnValue], B=[Equal (Integer).ReturnValue]), B=float >= float(A=[Get GlobalAnimRateScale.GlobalAnimRateScale], B=0.9)), B=NOT Boolean(A=Get Runner())))
+                                                                              .else:
+                                                                              .then:
+                                                                                CX_320  Set MaxWalkSpeed  (MaxWalkSpeed=45.0)
+                                                                                  CX_327  Branch  (Condition=RandomBoolWithWeight(Weight=0.5))
+                                                                                    .else:
+                                                                                    .then:
+                                                                                      Ps_CX_324  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_A.ZA_Belly_Crawling_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                      Ps_CX_328  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Belly_Crawling_B.ZA_Belly_Crawling_B; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=9999; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                K2Node_IfThenElse_ZB12  Branch  (Condition=Get Runner())
+                                                                                  .else:
+                                                                                  .then:
+                                                                                    CX_340  Branch  (Condition=AND Boolean(A=Equal (Integer)(A=% (Integer)(A=[String To Integer.ReturnValue], B=2), B=1), B=float >= float(A=Get GlobalAnimRateScale(), B=0.9)))
+                                                                                      CX_341  Set MaxWalkSpeed  (MaxWalkSpeed=260.0)
+                                                                                    CX_355  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=4), B=0))
+                                                                                      CX_364  Branch  (Condition=AND Boolean(A=float >= float(A=Get GlobalAnimRateScale(), B=0.9), B=Equal (Integer)(A=Get ZType(), B=5)))
+                                                                                        CX_365  Set MaxWalkSpeed  (MaxWalkSpeed=65.0)
+                                                                                          CX_381  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=3), B=0))
+                                                                                            CX_388  Branch  (Condition=Equal (Integer)(A=% (Integer)(A=String To Integer(InString=[RightChop.ReturnValue]), B=3), B=1))
+                                                            K2Node_IfThenElse_9  Branch  (Condition=IsValid(Object=[Event AnyDamage.DamageCauser]))
+                                                              .else:
+                                                              .then:
+                                                                K2Node_IfThenElse_10  Branch  (Condition=float < float(A=Dot Product(A=GetActorForwardVector(), B=Normalize(A=[vector - vector.ReturnValue], Tolerance=0.000100)), B=-0.25))
+                                                                  .else:
+                                                                  .then:
+                                                                    Ps_CX_209  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_C.ZA_Taking_Damage_C; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                      -> (again) K2Node_CallFunction_ZB86
+                                                                    CX_200  Branch  (Condition=RandomBoolWithWeight(Weight=0.1429))
+                                                                      .else:
+                                                                      .then:
+                                                                        Ps_CX_197  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Hit.A_Hit; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                          -> (again) K2Node_CallFunction_ZB86
+                                                                        CX_204  Branch  (Condition=RandomBoolWithWeight(Weight=0.1667))
+                                                                          .else:
+                                                                          .then:
+                                                                            Ps_CX_201  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_A.ZA_Taking_Damage_A; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                              -> (again) K2Node_CallFunction_ZB86
+                                                                            CX_208  Branch  (Condition=RandomBoolWithWeight(Weight=0.2000))
+                                                                              .else:
+                                                                              .then:
+                                                                                Ps_CX_205  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_B.ZA_Taking_Damage_B; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                  -> (again) K2Node_CallFunction_ZB86
+                                                                                CX_212  Branch  (Condition=RandomBoolWithWeight(Weight=0.2500))
+                                                                                  .else:
+                                                                                  .then:
+                                                                                    -> (again) Ps_CX_205
+                                                                                    CX_216  Branch  (Condition=RandomBoolWithWeight(Weight=0.3333))
+                                                                                      .else:
+                                                                                      .then:
+                                                                                        Ps_CX_213  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_D.ZA_Taking_Damage_D; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                          -> (again) K2Node_CallFunction_ZB86
+                                                                                        CX_220  Branch  (Condition=RandomBoolWithWeight(Weight=0.5))
+                                                                                          .else:
+                                                                                          .then:
+                                                                                            Ps_CX_217  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_E.ZA_Taking_Damage_E; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                              -> (again) K2Node_CallFunction_ZB86
+                                                                                            Ps_CX_221  PlaySlotAnimationAsDynamicMontage  (Asset=/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Taking_Damage_F.ZA_Taking_Damage_F; SlotNodeName=DefaultSlot; BlendInTime=0.2; BlendOutTime=0.250000; InPlayRate=1.000000; LoopCount=1; BlendOutTriggerTime=-1.000000; InTimeToStartMontageAt=0.000000)
+                                                                                              -> (again) K2Node_CallFunction_ZB86
+                                                                -> (again) CX_200
+                                    -> (again) K2Node_VariableSet_ZB65
+                                -> (again) fzAsBolt12
+                            -> (again) fzAsRisen7
+                    -> (again) fzAsZombieHUD3
+            -> (again) fzAsZombieHUD3
+
+## EVENT Event End Play  (K2Node_Event_0)
+K2Node_Event_0  Event End Play  
+  K2Node_CallFunction_1  GetActorOfClass  (ActorClass=/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C)
+    K2Node_IfThenElse_0  Branch  (Condition=IsValid(Object=[GetActorOfClass.ReturnValue]))
+      K2Node_CallArrayFunction_1  Remove Item  (TargetArray=Get ZombieReg(); Item=Self-Reference())
+
+## EVENT HitStopEnd  (K2Node_CustomEvent_0)
+K2Node_CustomEvent_0  HitStopEnd  
+  K2Node_VariableSet_5  Set bPauseAnims  (bPauseAnims=false)
