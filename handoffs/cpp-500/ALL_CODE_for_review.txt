@@ -1,6 +1,5 @@
-Castle Defender (UE 5.8.4) - C++ transition kit for review
-Written ahead on a machine without a compiler: NOT compiled yet. Blueprint-only project today; this adds a Runtime module 'CastleDefender' and an Editor module 'CastleDefenderEditor'.
-Please check: compile errors for UE 5.8, API misuse, threading/GC safety (weak pointers, timers), and whether the patterns are sound.
+Castle Defender (UE 5.8.4) - C++ transition kit, REVISION 2 (external review fixes applied, see README_CPP.md 'Review fixes')
+Still NOT compiled: no compiler on the writing machine. Runtime module 'CastleDefender' + Editor module 'CastleDefenderEditor'.
 
 ==================================================================
 FILE: Source/CastleDefender.Target.cs
@@ -12,8 +11,8 @@ public class CastleDefenderTarget : TargetRules
 	public CastleDefenderTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.Latest;
-		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
+		DefaultBuildSettings = BuildSettingsVersion.V5;            // pinned (review); raise on purpose with an engine upgrade
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_5;  // pinned; if 5.8 offers Unreal5_8 and the build is clean, move to it
 		ExtraModuleNames.Add("CastleDefender");
 	}
 }
@@ -28,8 +27,8 @@ public class CastleDefenderEditorTarget : TargetRules
 	public CastleDefenderEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.Latest;
-		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
+		DefaultBuildSettings = BuildSettingsVersion.V5;            // pinned (review); raise on purpose with an engine upgrade
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_5;  // pinned; if 5.8 offers Unreal5_8 and the build is clean, move to it
 		ExtraModuleNames.AddRange(new string[] { "CastleDefender", "CastleDefenderEditor" });
 	}
 }
@@ -76,6 +75,7 @@ FILE: Source/CastleDefender/CDSettings.h
 ==================================================================
 // #500 point 3: one place for the game's tuning numbers. Edit them in Project Settings > Game > Castle Defender; saved in Config/DefaultGame.ini
 // (plain text: diffs and git history show every change). C++ reads them with GetDefault<UCDSettings>(); Blueprints with "Get CD Settings".
+// Status per setting is in its tooltip: [used] = read by code now, [not wired yet] = designed, nothing reads it yet.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -95,61 +95,83 @@ public:
 	static const UCDSettings* Get() { return GetDefault<UCDSettings>(); }
 
 	// ---- zombie brain (BP_Zombie Think, read from the live graph 11-04)
-	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie")
+	/** [used] Soldier range for a zombie's target pick, cm. */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie", meta = (ClampMin = "0", UIMax = "10000"))
 	float ZombieSoldierRange = 2500.f;
 
-	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie")
+	/** [used] Max height difference to a soldier target, cm (soldiers up on the wall are ignored). */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie", meta = (ClampMin = "0", UIMax = "2000"))
 	float ZombieSoldierHeightRange = 250.f;
 
-	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie")
+	/** [used] Farmer range for a zombie's target pick, cm. */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie", meta = (ClampMin = "0", UIMax = "10000"))
 	float ZombieFarmerRange = 2500.f;
 
-	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie")
+	/** [used] Within this distance to the player a zombie thinks fully every Think (divisor 1), cm. */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie", meta = (ClampMin = "0", UIMax = "20000"))
 	float ZombieNearPlayer = 3000.f;
 
-	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie")
+	/** [used] Within this distance divisor 2, beyond it 4, cm. Must be >= ZombieNearPlayer. */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie", meta = (ClampMin = "0", UIMax = "40000"))
 	float ZombieMidPlayer = 6000.f;
 
+	/** [used] Blueprint parity: with no player, no soldier / farmer is picked (GetDistanceTo(None) = 0). Off = pick the nearest valid target. TGA's spec decides. */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Zombie")
+	bool bZombieNoPlayerBlocksTargets = true;
+
 	// ---- crowd (crowd/CROWD_PLAN.md)
+	/** [used] Run the C1 body-collision rule natively (then remove BPC_CrowdTier). Off until parity is tested. */
 	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Crowd")
 	bool bCrowdManagesBodyCollision = false;
 
-	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Crowd")
+	/** [used] Full body collision within this distance of the player, cm. */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Crowd", meta = (ClampMin = "0", UIMax = "20000"))
 	float CrowdFullDetailRange = 2500.f;
 
-	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Crowd")
+	/** [used] Seconds between crowd updates (min 0.05). */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Crowd", meta = (ClampMin = "0.05", UIMax = "2"))
 	float CrowdUpdateInterval = 0.25f;
 
-	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Crowd")
+	/** [used by Crowd > Can Spawn Zombie; spawners not wired yet] Alive zombie cap; 0 = no cap. */
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Crowd", meta = (ClampMin = "0", UIMax = "500"))
 	int32 MaxAliveZombies = 60;
 
-	// ---- data tables (point 3): one row per zombie type / soldier rank instead of numbers spread over Blueprint nodes
+	// ---- data tables (point 3)
+	/** [not wired yet] One row per zombie type (FZombieTypeRow); the wave manager will read MaxHP / damage / speeds from it. */
 	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = "Data", meta = (RequiredAssetDataTags = "RowStructure=/Script/CastleDefender.ZombieTypeRow"))
 	TSoftObjectPtr<UDataTable> ZombieTypes;
+
+#if WITH_EDITOR
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& Event) override
+	{
+		Super::PostEditChangeProperty(Event);
+		ZombieMidPlayer = FMath::Max(ZombieMidPlayer, ZombieNearPlayer);
+	}
+#endif
 };
 
-// One zombie type (ZType in BP_Zombie). Make a Data Table with this row struct; the wave manager / BP_Zombie read their numbers from it.
+// One zombie type (ZType in BP_Zombie). [not wired yet] Make a Data Table with this row struct; nothing reads it until the wave manager is converted.
 USTRUCT(BlueprintType)
 struct CASTLEDEFENDER_API FZombieTypeRow : public FTableRowBase
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (ClampMin = "0"))
 	int32 ZType = 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (ClampMin = "1"))
 	float MaxHP = 100.f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (ClampMin = "0"))
 	float AttackDamage = 10.f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (ClampMin = "0"))
 	float XPValue = 10.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FVector2D WalkSpeedRange = FVector2D(80.f, 145.f);
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (ClampMin = "0", ClampMax = "1"))
 	float RunnerChance = 0.3f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -174,15 +196,19 @@ class CASTLEDEFENDER_API AZombieBase : public ACharacter
 public:
 	AZombieBase();
 
-	// BP_Zombie Think's target pick (nodes CX_501..zfTargetFarmer17), in one native call. Same rules:
-	// start from the player; take a soldier that is not dying (LifeSpan < 0.01), within ZombieSoldierHeightRange height and ZombieSoldierRange, if nearer than the current pick;
-	// then a farmer that is not Dead, within ZombieFarmerRange, if nearer. Sets the result as Owner (BP_Zombie uses Owner as its target) and returns it.
+	// BP_Zombie Think's target pick (nodes CX_501..zfTargetFarmer17), in one native call. Same rules as the live graph:
+	// start from the player; a soldier that is not dying (LifeSpan < 0.01), within ZombieSoldierHeightRange height and ZombieSoldierRange, if strictly nearer;
+	// then a farmer that is not Dead, within ZombieFarmerRange, if strictly nearer (equal distance: the earlier pick wins, soldiers before farmers).
+	// Writes CurrentTarget. While BP_Zombie still reads GetOwner() as its target, it also sets Owner (bAlsoSetOwner); drop that once the Blueprint reads CurrentTarget.
 	UFUNCTION(BlueprintCallable, Category = "Zombie|Brain")
 	AActor* PickAndSetTarget(const TArray<AActor*>& Soldiers, const TArray<AActor*>& Farmers);
 
-	// The same, with soldiers and farmers from the crowd registry (no caches on the wave manager needed).
+	// The same, reading soldiers and farmers straight from the crowd registry (no arrays built per call).
 	UFUNCTION(BlueprintCallable, Category = "Zombie|Brain")
 	AActor* PickAndSetTargetFromRegistry();
+
+	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
+	AActor* GetCurrentTarget() const { return CurrentTarget; }
 
 	// Think's "heavy part every Nth tick" divisor: 1 within ZombieNearPlayer, 2 within ZombieMidPlayer, else 4 (K2Node_IfThenElse_11).
 	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
@@ -192,26 +218,52 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Zombie|Brain")
 	bool IsFullDetail() const;
 
-	// Reads a Blueprint bool variable (for example "Dead") from any actor; false when missing.
-	static bool ReadBlueprintBool(const UObject* Object, FName Name);
+	// Dead for the crowd's purposes: the Blueprint bool "Dead" if the class has it, else being destroyed. Override when a C++ death state exists.
+	virtual bool IsDeadForCrowd() const;
 
-	// Pure target rule, no world needed (unit-tested in Tests/ZombieBrainTest.cpp).
+	// Engaged by a soldier. Today BP_SoldierSword marks its zombie with CustomTimeDilation 0.999 (fragile; replace with an explicit state later).
+	virtual bool IsEngagedForCrowd() const;
+
+	// Reads a Blueprint bool variable from any object. bFound tells whether the variable exists.
+	static bool ReadBlueprintBool(const UObject* Object, FName Name, bool* bFound = nullptr);
+
+	// The pure target rule (no world), shared by PickAndSetTarget and the unit tests. Feed candidates with Consider(); Best is the chosen index or INDEX_NONE.
+	struct FTargetRule
+	{
+		FVector Self;
+		float BestDistSq;
+		float SoldierRangeSq, SoldierHeightRange, FarmerRangeSq;
+		int32 Best = INDEX_NONE;
+
+		FTargetRule(const FVector& InSelf, const FVector* Player, float SoldierRange, float InSoldierHeightRange, float FarmerRange, bool bNoPlayerBlocks);
+		void ConsiderSoldier(int32 Index, const FVector& Location, bool bValid, bool bDying);
+		void ConsiderFarmer(int32 Index, const FVector& Location, bool bValid, bool bDead);
+	};
+
+	// Test helper: candidates as plain data. Returns the chosen index in Soldiers (0..), Farmers (Soldiers.Num()..), or INDEX_NONE (keep the player).
 	struct FCandidate
 	{
 		FVector Location;
 		bool bValid = true;
 		bool bDyingOrDead = false;
 	};
-	// Returns the index of the chosen candidate in Soldiers (0..) or Farmers (Soldiers.Num()..), or INDEX_NONE for "keep the player".
 	static int32 ChooseTarget(const FVector& Self, const FVector* Player, const TArray<FCandidate>& Soldiers, const TArray<FCandidate>& Farmers,
-		float SoldierRange, float SoldierHeightRange, float FarmerRange);
+		float SoldierRange, float SoldierHeightRange, float FarmerRange, bool bNoPlayerBlocks = true);
 
 protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
+	UPROPERTY(Transient, BlueprintReadOnly, Category = "Zombie|Brain")
+	TObjectPtr<AActor> CurrentTarget;
+
+	// Transition: BP_Zombie still uses Owner as its target slot. Turn off when the Blueprint reads CurrentTarget (Owner also drives net ownership).
+	UPROPERTY(EditDefaultsOnly, Category = "Zombie|Brain")
+	bool bAlsoSetOwner = true;
+
 private:
 	float DistanceToPlayer() const;
+	AActor* FinishPick(AActor* Player, AActor* Picked);
 };
 
 ==================================================================
@@ -233,7 +285,7 @@ AZombieBase::AZombieBase()
 
 void AZombieBase::BeginPlay()
 {
-	Super::BeginPlay();
+	Super::BeginPlay();   // runs the Blueprint's Event BeginPlay; registration below does not depend on it
 	if (UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this))
 	{
 		Crowd->RegisterZombie(this);
@@ -246,17 +298,32 @@ void AZombieBase::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	{
 		Crowd->UnregisterZombie(this);
 	}
+	CurrentTarget = nullptr;
 	Super::EndPlay(EndPlayReason);
 }
 
-bool AZombieBase::ReadBlueprintBool(const UObject* Object, FName Name)
+bool AZombieBase::ReadBlueprintBool(const UObject* Object, FName Name, bool* bFound)
 {
+	if (bFound) { *bFound = false; }
 	if (!IsValid(Object))
 	{
 		return false;
 	}
 	const FBoolProperty* Prop = FindFProperty<FBoolProperty>(Object->GetClass(), Name);
+	if (bFound) { *bFound = Prop != nullptr; }
 	return Prop && Prop->GetPropertyValue_InContainer(Object);
+}
+
+bool AZombieBase::IsDeadForCrowd() const
+{
+	bool bFound = false;
+	const bool bDead = ReadBlueprintBool(this, TEXT("Dead"), &bFound);
+	return bFound ? bDead : (IsActorBeingDestroyed() || !IsValid(this));
+}
+
+bool AZombieBase::IsEngagedForCrowd() const
+{
+	return !FMath::IsNearlyEqual(CustomTimeDilation, 1.f);
 }
 
 float AZombieBase::DistanceToPlayer() const
@@ -266,79 +333,129 @@ float AZombieBase::DistanceToPlayer() const
 	return Player ? GetDistanceTo(Player) : 0.f;
 }
 
-int32 AZombieBase::ChooseTarget(const FVector& Self, const FVector* Player, const TArray<FCandidate>& Soldiers, const TArray<FCandidate>& Farmers,
-	float SoldierRange, float SoldierHeightRange, float FarmerRange)
+AZombieBase::FTargetRule::FTargetRule(const FVector& InSelf, const FVector* Player, float SoldierRange, float InSoldierHeightRange, float FarmerRange, bool bNoPlayerBlocks)
+	: Self(InSelf)
+	, SoldierRangeSq(SoldierRange * SoldierRange)
+	, SoldierHeightRange(InSoldierHeightRange)
+	, FarmerRangeSq(FarmerRange * FarmerRange)
 {
-	int32 Best = INDEX_NONE;
-	float BestDist = Player ? FVector::Dist(Self, *Player) : 0.f;
+	// Blueprint parity: with no player, GetDistanceTo(None) = 0, so nothing is "nearer" and no soldier / farmer is picked.
+	// bNoPlayerBlocks = false is the alternative (pick the nearest valid target); TGA's SPEC_zombie.md decides which is intended.
+	BestDistSq = Player ? FVector::DistSquared(Self, *Player) : (bNoPlayerBlocks ? 0.f : TNumericLimits<float>::Max());
+}
+
+void AZombieBase::FTargetRule::ConsiderSoldier(int32 Index, const FVector& Location, bool bValid, bool bDying)
+{
+	if (!bValid || bDying || FMath::Abs(Location.Z - Self.Z) >= SoldierHeightRange)
+	{
+		return;
+	}
+	const float DistSq = FVector::DistSquared(Self, Location);
+	if (DistSq < SoldierRangeSq && DistSq < BestDistSq)
+	{
+		Best = Index;
+		BestDistSq = DistSq;
+	}
+}
+
+void AZombieBase::FTargetRule::ConsiderFarmer(int32 Index, const FVector& Location, bool bValid, bool bDead)
+{
+	if (!bValid || bDead)
+	{
+		return;
+	}
+	const float DistSq = FVector::DistSquared(Self, Location);
+	if (DistSq < FarmerRangeSq && DistSq < BestDistSq)
+	{
+		Best = Index;
+		BestDistSq = DistSq;
+	}
+}
+
+int32 AZombieBase::ChooseTarget(const FVector& Self, const FVector* Player, const TArray<FCandidate>& Soldiers, const TArray<FCandidate>& Farmers,
+	float SoldierRange, float SoldierHeightRange, float FarmerRange, bool bNoPlayerBlocks)
+{
+	FTargetRule Rule(Self, Player, SoldierRange, SoldierHeightRange, FarmerRange, bNoPlayerBlocks);
 	for (int32 i = 0; i < Soldiers.Num(); ++i)
 	{
-		const FCandidate& S = Soldiers[i];
-		if (!S.bValid || S.bDyingOrDead || FMath::Abs(S.Location.Z - Self.Z) >= SoldierHeightRange)
-		{
-			continue;
-		}
-		const float Dist = FVector::Dist(Self, S.Location);
-		if (Dist < SoldierRange && Dist < BestDist)
-		{
-			Best = i;
-			BestDist = Dist;
-		}
+		Rule.ConsiderSoldier(i, Soldiers[i].Location, Soldiers[i].bValid, Soldiers[i].bDyingOrDead);
 	}
 	for (int32 i = 0; i < Farmers.Num(); ++i)
 	{
-		const FCandidate& F = Farmers[i];
-		if (!F.bValid || F.bDyingOrDead)
-		{
-			continue;
-		}
-		const float Dist = FVector::Dist(Self, F.Location);
-		if (Dist < FarmerRange && Dist < BestDist)
-		{
-			Best = Soldiers.Num() + i;
-			BestDist = Dist;
-		}
+		Rule.ConsiderFarmer(Soldiers.Num() + i, Farmers[i].Location, Farmers[i].bValid, Farmers[i].bDyingOrDead);
+	}
+	return Rule.Best;
+}
+
+AActor* AZombieBase::FinishPick(AActor* Player, AActor* Picked)
+{
+	AActor* Best = Picked ? Picked : Player;
+	CurrentTarget = Best;
+	if (bAlsoSetOwner)
+	{
+		SetOwner(Best);
 	}
 	return Best;
 }
+
+// "Dying" for a soldier = a life span is set (Blueprint parity: GetLifeSpan < 0.01 means alive). Replace with an explicit state with ASoldierBase.
+static bool IsSoldierDying(const AActor* Soldier) { return Soldier->GetLifeSpan() >= 0.01f; }
 
 AActor* AZombieBase::PickAndSetTarget(const TArray<AActor*>& Soldiers, const TArray<AActor*>& Farmers)
 {
 	CD_SCOPE(STAT_CD_PickTarget);
-	const UCDSettings* Settings = GetDefault<UCDSettings>();
+	const UCDSettings* S = GetDefault<UCDSettings>();
 	AActor* Player = UGameplayStatics::GetPlayerCharacter(this, 0);
 	const FVector PlayerLoc = Player ? Player->GetActorLocation() : FVector::ZeroVector;
-
-	TArray<FCandidate> S, F;
-	S.Reserve(Soldiers.Num());
-	F.Reserve(Farmers.Num());
-	for (const AActor* A : Soldiers)
+	FTargetRule Rule(GetActorLocation(), Player ? &PlayerLoc : nullptr, S->ZombieSoldierRange, S->ZombieSoldierHeightRange, S->ZombieFarmerRange, S->bZombieNoPlayerBlocksTargets);
+	for (int32 i = 0; i < Soldiers.Num(); ++i)
 	{
-		// Soldier "dying" = LifeSpan set (BP_Zombie: GetLifeSpan < 0.01 means alive).
-		S.Add({ IsValid(A) ? A->GetActorLocation() : FVector::ZeroVector, IsValid(A), IsValid(A) && A->GetLifeSpan() >= 0.01f });
+		const AActor* A = Soldiers[i];
+		if (IsValid(A)) { Rule.ConsiderSoldier(i, A->GetActorLocation(), true, IsSoldierDying(A)); }
 	}
-	for (const AActor* A : Farmers)
+	for (int32 i = 0; i < Farmers.Num(); ++i)
 	{
-		F.Add({ IsValid(A) ? A->GetActorLocation() : FVector::ZeroVector, IsValid(A), ReadBlueprintBool(A, TEXT("Dead")) });
+		const AActor* A = Farmers[i];
+		if (IsValid(A)) { Rule.ConsiderFarmer(Soldiers.Num() + i, A->GetActorLocation(), true, ReadBlueprintBool(A, TEXT("Dead"))); }
 	}
-	const int32 Pick = ChooseTarget(GetActorLocation(), Player ? &PlayerLoc : nullptr, S, F,
-		Settings->ZombieSoldierRange, Settings->ZombieSoldierHeightRange, Settings->ZombieFarmerRange);
-	AActor* Best = Pick == INDEX_NONE ? Player : (Pick < Soldiers.Num() ? Soldiers[Pick] : Farmers[Pick - Soldiers.Num()]);
-	SetOwner(Best);
-	return Best;
+	AActor* Picked = Rule.Best == INDEX_NONE ? nullptr : (Rule.Best < Soldiers.Num() ? Soldiers[Rule.Best] : Farmers[Rule.Best - Soldiers.Num()]);
+	return FinishPick(Player, Picked);
 }
 
 AActor* AZombieBase::PickAndSetTargetFromRegistry()
 {
-	UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this);
-	return Crowd ? PickAndSetTarget(Crowd->GetSoldiers(), Crowd->GetFarmers()) : PickAndSetTarget({}, {});
+	CD_SCOPE(STAT_CD_PickTarget);
+	const UCDSettings* S = GetDefault<UCDSettings>();
+	AActor* Player = UGameplayStatics::GetPlayerCharacter(this, 0);
+	const UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this);
+	if (!Crowd)
+	{
+		return FinishPick(Player, nullptr);
+	}
+	const FVector PlayerLoc = Player ? Player->GetActorLocation() : FVector::ZeroVector;
+	FTargetRule Rule(GetActorLocation(), Player ? &PlayerLoc : nullptr, S->ZombieSoldierRange, S->ZombieSoldierHeightRange, S->ZombieFarmerRange, S->bZombieNoPlayerBlocksTargets);
+	AActor* Picked = nullptr;
+	int32 Index = 0;
+	Crowd->ForEachSoldier([&](AActor* A)
+	{
+		const int32 Before = Rule.Best;
+		Rule.ConsiderSoldier(Index++, A->GetActorLocation(), true, IsSoldierDying(A));
+		if (Rule.Best != Before) { Picked = A; }
+	});
+	Crowd->ForEachFarmer([&](AActor* A)
+	{
+		const int32 Before = Rule.Best;
+		Rule.ConsiderFarmer(Index++, A->GetActorLocation(), true, ReadBlueprintBool(A, TEXT("Dead")));
+		if (Rule.Best != Before) { Picked = A; }
+	});
+	return FinishPick(Player, Picked);
 }
 
 int32 AZombieBase::GetThinkDivisor() const
 {
-	const UCDSettings* Settings = GetDefault<UCDSettings>();
+	const UCDSettings* S = GetDefault<UCDSettings>();
 	const float Dist = DistanceToPlayer();
-	return Dist < Settings->ZombieNearPlayer ? 1 : (Dist < Settings->ZombieMidPlayer ? 2 : 4);
+	return Dist < S->ZombieNearPlayer ? 1 : (Dist < S->ZombieMidPlayer ? 2 : 4);
 }
 
 bool AZombieBase::IsFullDetail() const
@@ -351,12 +468,16 @@ FILE: Source/CastleDefender/CrowdSubsystem.h
 ==================================================================
 // #500: one native registry and manager for the battle (point 4, shared systems): zombies, soldiers and farmers register here once,
 // so no Blueprint needs GetAllActorsOfClass / GetAllActorsWithTag to find them again.
-// - zombies register themselves (AZombieBase); soldiers and farmers call RegisterSoldier / RegisterFarmer from their BeginPlay until they get C++ parents;
-// - optional: the C1 body-collision rule for every zombie in one loop (off by default while BPC_CrowdTier still does it);
-// - native radius queries (the C3 job, without a sphere sweep).
+// - zombies register themselves (AZombieBase, in its native BeginPlay / EndPlay: Blueprint children need no "call parent" for this);
+// - soldiers and farmers call RegisterSoldier / RegisterFarmer from their BeginPlay and EndPlay until they get C++ parents;
+// - optional: the C1 body-collision rule for every zombie in one loop (off by default while BPC_CrowdTier still does it).
+//   It remembers each zombie's own collision setting and puts it back when the zombie dies, unregisters, or the rule is switched off;
+// - native radius queries (the C3 job, without a sphere sweep);
+// - `cd.CrowdReport` (console): registry counts against the actors really in the world, to catch a spawn path that does not register.
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/EngineTypes.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "CrowdSubsystem.generated.h"
 
@@ -373,7 +494,7 @@ public:
 	void RegisterZombie(AZombieBase* Zombie);
 	void UnregisterZombie(AZombieBase* Zombie);
 
-	// Soldiers / farmers are still pure Blueprints: call these from their BeginPlay and EndPlay.
+	// Soldiers / farmers are still pure Blueprints: call these from their BeginPlay and EndPlay (every spawn path).
 	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Soldier"))
 	void RegisterSoldier(AActor* Soldier);
 
@@ -386,30 +507,39 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Farmer"))
 	void UnregisterFarmer(AActor* Farmer);
 
-	UFUNCTION(BlueprintPure, Category = "Crowd")
+	// Copies for Blueprint. C++ should use ForEachSoldier / ForEachFarmer (no array per call).
+	UFUNCTION(BlueprintCallable, Category = "Crowd")
 	TArray<AActor*> GetSoldiers() const;
 
-	UFUNCTION(BlueprintPure, Category = "Crowd")
+	UFUNCTION(BlueprintCallable, Category = "Crowd")
 	TArray<AActor*> GetFarmers() const;
 
+	template <typename F> void ForEachSoldier(F&& Fn) const { for (const TWeakObjectPtr<AActor>& W : Soldiers) { if (AActor* A = W.Get()) { Fn(A); } } }
+	template <typename F> void ForEachFarmer(F&& Fn) const { for (const TWeakObjectPtr<AActor>& W : Farmers) { if (AActor* A = W.Get()) { Fn(A); } } }
+
+	// Registered zombies that are not dead (see AZombieBase::IsDeadForCrowd).
 	UFUNCTION(BlueprintPure, Category = "Crowd")
 	int32 GetAliveZombieCount() const;
 
-	// Zombies (registered, not Dead) within Radius of Location. Native loop: ~100 zombies cost microseconds.
+	// False when MaxAliveZombies (Project Settings > Castle Defender) is reached. Spawners call this before SpawnActor.
+	UFUNCTION(BlueprintPure, Category = "Crowd")
+	bool CanSpawnZombie() const;
+
+	// Zombies (registered, not dead) within Radius of Location.
 	UFUNCTION(BlueprintCallable, Category = "Crowd")
 	void GetZombiesNear(FVector Location, float Radius, TArray<AActor*>& OutZombies) const;
 
-	// When true, this subsystem applies the C1 rule to every zombie 4x a second, and BPC_CrowdTier can be removed from BP_Zombie.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Crowd")
-	bool bManageBodyCollision = false;
+	// When true, the C1 rule runs here for every zombie; then BPC_CrowdTier can be removed from BP_Zombie. Switching it off restores every zombie.
+	UFUNCTION(BlueprintCallable, Category = "Crowd")
+	void SetManageBodyCollision(bool bOn);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Crowd")
-	float FullDetailRange = 2500.f;
+	UFUNCTION(BlueprintPure, Category = "Crowd")
+	bool GetManageBodyCollision() const { return bManageBodyCollision; }
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Crowd")
-	float UpdateInterval = 0.25f;
+	void Report() const;
 
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+	virtual void Deinitialize() override;
 	virtual void Tick(float DeltaTime) override;
 	virtual TStatId GetStatId() const override;
 
@@ -418,11 +548,20 @@ protected:
 
 private:
 	void ApplyBodyCollisionRule();
-	static TArray<AActor*> Resolve(const TArray<TWeakObjectPtr<AActor>>& List);
+	void RestoreBodyCollision(AZombieBase* Zombie);
+	void RestoreAll();
+	void PurgeInvalid();
 
 	TArray<TWeakObjectPtr<AZombieBase>> Zombies;
 	TArray<TWeakObjectPtr<AActor>> Soldiers;
 	TArray<TWeakObjectPtr<AActor>> Farmers;
+	// The collision each zombie's mesh had before this subsystem first changed it.
+	TMap<TWeakObjectPtr<AZombieBase>, TEnumAsByte<ECollisionEnabled::Type>> OriginalCollision;
+
+	bool bManageBodyCollision = false;
+	float FullDetailRange = 2500.f;
+	float UpdateInterval = 0.25f;
+	int32 MaxAliveZombies = 60;
 	float Accum = 0.f;
 };
 
@@ -435,11 +574,26 @@ FILE: Source/CastleDefender/CrowdSubsystem.cpp
 #include "ZombieBase.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
+#include "HAL/IConsoleManager.h"
 #include "Kismet/GameplayStatics.h"
 
 DECLARE_CYCLE_STAT(TEXT("Crowd Tick"), STAT_CD_CrowdTick, STATGROUP_CastleDefender);
 DECLARE_CYCLE_STAT(TEXT("Crowd ZombiesNear"), STAT_CD_ZombiesNear, STATGROUP_CastleDefender);
 DECLARE_DWORD_COUNTER_STAT(TEXT("Zombies registered"), STAT_CD_Zombies, STATGROUP_CastleDefender);
+DECLARE_DWORD_COUNTER_STAT(TEXT("Soldiers registered"), STAT_CD_Soldiers, STATGROUP_CastleDefender);
+DECLARE_DWORD_COUNTER_STAT(TEXT("Farmers registered"), STAT_CD_Farmers, STATGROUP_CastleDefender);
+
+static FAutoConsoleCommandWithWorld GCDCrowdReport(
+	TEXT("cd.CrowdReport"),
+	TEXT("Castle Defender: crowd registry counts against the actors really in the world."),
+	FConsoleCommandWithWorldDelegate::CreateLambda([](UWorld* World)
+	{
+		if (const UCrowdSubsystem* Crowd = World ? World->GetSubsystem<UCrowdSubsystem>() : nullptr)
+		{
+			Crowd->Report();
+		}
+	}));
 
 UCrowdSubsystem* UCrowdSubsystem::Get(const UObject* WorldContext)
 {
@@ -458,12 +612,19 @@ void UCrowdSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	const UCDSettings* Settings = GetDefault<UCDSettings>();
 	bManageBodyCollision = Settings->bCrowdManagesBodyCollision;
 	FullDetailRange = Settings->CrowdFullDetailRange;
-	UpdateInterval = Settings->CrowdUpdateInterval;
+	UpdateInterval = FMath::Max(0.05f, Settings->CrowdUpdateInterval);
+	MaxAliveZombies = Settings->MaxAliveZombies;
+}
+
+void UCrowdSubsystem::Deinitialize()
+{
+	RestoreAll();
+	Super::Deinitialize();
 }
 
 void UCrowdSubsystem::RegisterZombie(AZombieBase* Zombie)
 {
-	if (IsValid(Zombie))
+	if (IsValid(Zombie) && Zombie->GetWorld() == GetWorld())
 	{
 		Zombies.AddUnique(Zombie);
 	}
@@ -471,12 +632,13 @@ void UCrowdSubsystem::RegisterZombie(AZombieBase* Zombie)
 
 void UCrowdSubsystem::UnregisterZombie(AZombieBase* Zombie)
 {
+	RestoreBodyCollision(Zombie);
 	Zombies.Remove(Zombie);
 }
 
 void UCrowdSubsystem::RegisterSoldier(AActor* Soldier)
 {
-	if (IsValid(Soldier))
+	if (IsValid(Soldier) && Soldier->GetWorld() == GetWorld())
 	{
 		Soldiers.AddUnique(Soldier);
 	}
@@ -489,7 +651,7 @@ void UCrowdSubsystem::UnregisterSoldier(AActor* Soldier)
 
 void UCrowdSubsystem::RegisterFarmer(AActor* Farmer)
 {
-	if (IsValid(Farmer))
+	if (IsValid(Farmer) && Farmer->GetWorld() == GetWorld())
 	{
 		Farmers.AddUnique(Farmer);
 	}
@@ -500,28 +662,18 @@ void UCrowdSubsystem::UnregisterFarmer(AActor* Farmer)
 	Farmers.Remove(Farmer);
 }
 
-TArray<AActor*> UCrowdSubsystem::Resolve(const TArray<TWeakObjectPtr<AActor>>& List)
-{
-	TArray<AActor*> Out;
-	Out.Reserve(List.Num());
-	for (const TWeakObjectPtr<AActor>& Weak : List)
-	{
-		if (AActor* Actor = Weak.Get())
-		{
-			Out.Add(Actor);
-		}
-	}
-	return Out;
-}
-
 TArray<AActor*> UCrowdSubsystem::GetSoldiers() const
 {
-	return Resolve(Soldiers);
+	TArray<AActor*> Out;
+	ForEachSoldier([&Out](AActor* A) { Out.Add(A); });
+	return Out;
 }
 
 TArray<AActor*> UCrowdSubsystem::GetFarmers() const
 {
-	return Resolve(Farmers);
+	TArray<AActor*> Out;
+	ForEachFarmer([&Out](AActor* A) { Out.Add(A); });
+	return Out;
 }
 
 int32 UCrowdSubsystem::GetAliveZombieCount() const
@@ -530,12 +682,17 @@ int32 UCrowdSubsystem::GetAliveZombieCount() const
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
 		const AZombieBase* Zombie = Weak.Get();
-		if (Zombie && !AZombieBase::ReadBlueprintBool(Zombie, TEXT("Dead")))
+		if (Zombie && !Zombie->IsDeadForCrowd())
 		{
 			++Count;
 		}
 	}
 	return Count;
+}
+
+bool UCrowdSubsystem::CanSpawnZombie() const
+{
+	return MaxAliveZombies <= 0 || GetAliveZombieCount() < MaxAliveZombies;
 }
 
 void UCrowdSubsystem::GetZombiesNear(FVector Location, float Radius, TArray<AActor*>& OutZombies) const
@@ -546,55 +703,124 @@ void UCrowdSubsystem::GetZombiesNear(FVector Location, float Radius, TArray<AAct
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
 		AZombieBase* Zombie = Weak.Get();
-		if (Zombie && FVector::DistSquared(Zombie->GetActorLocation(), Location) <= RadiusSq && !AZombieBase::ReadBlueprintBool(Zombie, TEXT("Dead")))
+		if (Zombie && FVector::DistSquared(Zombie->GetActorLocation(), Location) <= RadiusSq && !Zombie->IsDeadForCrowd())
 		{
 			OutZombies.Add(Zombie);
 		}
 	}
 }
 
-void UCrowdSubsystem::Tick(float DeltaTime)
+void UCrowdSubsystem::SetManageBodyCollision(bool bOn)
 {
-	Super::Tick(DeltaTime);
-	CD_SCOPE(STAT_CD_CrowdTick);
+	if (bManageBodyCollision && !bOn)
+	{
+		RestoreAll();
+	}
+	bManageBodyCollision = bOn;
+}
+
+void UCrowdSubsystem::PurgeInvalid()
+{
 	Zombies.RemoveAll([](const TWeakObjectPtr<AZombieBase>& Weak) { return !Weak.IsValid(); });
 	Soldiers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
 	Farmers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
-	SET_DWORD_STAT(STAT_CD_Zombies, Zombies.Num());
+	for (auto It = OriginalCollision.CreateIterator(); It; ++It)
+	{
+		if (!It.Key().IsValid())
+		{
+			It.RemoveCurrent();
+		}
+	}
+}
 
+void UCrowdSubsystem::Tick(float DeltaTime)
+{
+	// No Super::Tick: the base has nothing to do and the reviewer flagged it for 5.8.
+	CD_SCOPE(STAT_CD_CrowdTick);
 	Accum += DeltaTime;
 	if (Accum < UpdateInterval)
 	{
 		return;
 	}
 	Accum = 0.f;
+	PurgeInvalid();
+	SET_DWORD_STAT(STAT_CD_Zombies, Zombies.Num());
+	SET_DWORD_STAT(STAT_CD_Soldiers, Soldiers.Num());
+	SET_DWORD_STAT(STAT_CD_Farmers, Farmers.Num());
 	if (bManageBodyCollision)
 	{
 		ApplyBodyCollisionRule();
 	}
 }
 
+void UCrowdSubsystem::RestoreBodyCollision(AZombieBase* Zombie)
+{
+	if (!Zombie)
+	{
+		return;
+	}
+	if (const TEnumAsByte<ECollisionEnabled::Type>* Original = OriginalCollision.Find(Zombie))
+	{
+		// Do not undo what the zombie's own death code set (ragdoll profile, physics).
+		USkeletalMeshComponent* Mesh = Zombie->GetMesh();
+		if (Mesh && !Mesh->IsSimulatingPhysics() && Mesh->GetCollisionEnabled() == ECollisionEnabled::NoCollision)
+		{
+			Mesh->SetCollisionEnabled(Original->GetValue());
+		}
+		OriginalCollision.Remove(Zombie);
+	}
+}
+
+void UCrowdSubsystem::RestoreAll()
+{
+	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
+	{
+		RestoreBodyCollision(Weak.Get());
+	}
+	OriginalCollision.Reset();
+}
+
 void UCrowdSubsystem::ApplyBodyCollisionRule()
 {
-	// Same rule as BPC_CrowdTier (crowd/README_C1.md): body collision on screen, near the player or soldier-engaged (CustomTimeDilation 0.999); off elsewhere.
+	// Same rule as BPC_CrowdTier (crowd/README_C1.md): body collision as the zombie had it on screen, near the player or engaged; off elsewhere.
 	const AActor* Player = UGameplayStatics::GetPlayerPawn(this, 0);
 	const float RangeSq = FullDetailRange * FullDetailRange;
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
 		AZombieBase* Zombie = Weak.Get();
-		if (!Zombie || AZombieBase::ReadBlueprintBool(Zombie, TEXT("Dead")))
+		if (!Zombie)
 		{
 			continue;
 		}
 		USkeletalMeshComponent* Mesh = Zombie->GetMesh();
-		if (!Mesh)
+		if (!Mesh || Mesh->IsSimulatingPhysics() || Zombie->IsDeadForCrowd())
 		{
+			RestoreBodyCollision(Zombie);   // dead / ragdoll: hand the body back to the zombie's own code
 			continue;
 		}
 		const bool bNear = !Player || FVector::DistSquared(Zombie->GetActorLocation(), Player->GetActorLocation()) < RangeSq;
-		const bool bFull = bNear || Zombie->WasRecentlyRendered(0.2f) || !FMath::IsNearlyEqual(Zombie->CustomTimeDilation, 1.f);
-		Mesh->SetCollisionEnabled(bFull ? ECollisionEnabled::QueryOnly : ECollisionEnabled::NoCollision);
+		const bool bFull = bNear || Zombie->WasRecentlyRendered(0.2f) || Zombie->IsEngagedForCrowd();
+		if (bFull)
+		{
+			RestoreBodyCollision(Zombie);
+		}
+		else if (Mesh->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+		{
+			OriginalCollision.FindOrAdd(Zombie, Mesh->GetCollisionEnabled());
+			Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		}
 	}
+}
+
+void UCrowdSubsystem::Report() const
+{
+	int32 WorldZombies = 0;
+	for (TActorIterator<AZombieBase> It(GetWorld()); It; ++It)
+	{
+		++WorldZombies;
+	}
+	UE_LOG(LogTemp, Display, TEXT("cd.CrowdReport: zombies registered %d / in world %d (alive %d, cap %d) | soldiers %d | farmers %d | body collision managed %s, %d changed"),
+		Zombies.Num(), WorldZombies, GetAliveZombieCount(), MaxAliveZombies, Soldiers.Num(), Farmers.Num(), bManageBodyCollision ? TEXT("yes") : TEXT("no"), OriginalCollision.Num());
 }
 
 TStatId UCrowdSubsystem::GetStatId() const
@@ -605,8 +831,13 @@ TStatId UCrowdSubsystem::GetStatId() const
 ==================================================================
 FILE: Source/CastleDefender/CDSaveGame.h
 ==================================================================
-// #500 point 5: a versioned save game. Every save carries SaveVersion; Migrate() upgrades old saves step by step, so changing the game
-// never breaks a player's save. Data is kept in simple named maps, so new values need no new C++ (Blueprints: SetInt / GetInt ...).
+// #500 point 5: a versioned save game with a safe write path.
+// - Every save carries SaveVersion; Migrate() upgrades old saves step by step (each step idempotent), so changing the game never breaks a player's save.
+// - Save(): serialize + verify in memory -> write <slot>_tmp + read back -> copy the current, VALID main save byte-for-byte to <slot>_bak and verify it
+//   (if that fails: stop, main untouched) -> write main + verify -> delete _tmp.
+// - Load: main if valid, else _bak if valid, else a fresh save. A corrupt backup never replaces a valid main; a save from a NEWER build loads
+//   read-only and is never overwritten.
+// Note: SaveGameToSlot / SaveGameToMemory store every non-transient UPROPERTY of this class.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -635,19 +866,19 @@ public:
 	UPROPERTY(SaveGame) TSet<FName> Flags;
 
 	UFUNCTION(BlueprintCallable, Category = "Save") void SetInt(FName Key, int32 Value) { Ints.Add(Key, Value); }
-	UFUNCTION(BlueprintPure, Category = "Save") int32 GetInt(FName Key, int32 Default = 0) const { const int32* V = Ints.Find(Key); return V ? *V : Default; }
+	UFUNCTION(BlueprintPure, Category = "Save") int32 GetInt(FName Key, int32 Fallback = 0) const { const int32* V = Ints.Find(Key); return V ? *V : Fallback; }
 	UFUNCTION(BlueprintCallable, Category = "Save") void SetFloat(FName Key, float Value) { Floats.Add(Key, Value); }
-	UFUNCTION(BlueprintPure, Category = "Save") float GetFloat(FName Key, float Default = 0.f) const { const float* V = Floats.Find(Key); return V ? *V : Default; }
+	UFUNCTION(BlueprintPure, Category = "Save") float GetFloat(FName Key, float Fallback = 0.f) const { const float* V = Floats.Find(Key); return V ? *V : Fallback; }
 	UFUNCTION(BlueprintCallable, Category = "Save") void SetString(FName Key, const FString& Value) { Strings.Add(Key, Value); }
 	UFUNCTION(BlueprintPure, Category = "Save") FString GetString(FName Key) const { const FString* V = Strings.Find(Key); return V ? *V : FString(); }
 	UFUNCTION(BlueprintCallable, Category = "Save") void SetFlag(FName Key, bool bOn) { if (bOn) { Flags.Add(Key); } else { Flags.Remove(Key); } }
 	UFUNCTION(BlueprintPure, Category = "Save") bool HasFlag(FName Key) const { return Flags.Contains(Key); }
 
-	// Upgrades an older save to CurrentVersion. Returns false if the save is newer than this game build (do not overwrite it).
+	// Upgrades an older save to CurrentVersion (safe to call again). False if the save is from a newer build.
 	bool Migrate();
+	bool IsNewerThanBuild() const { return SaveVersion > CurrentVersion; }
 };
 
-// Save / load with a safety copy: before overwriting slot X it copies X to X_bak, so one bad save never loses the player's progress.
 UCLASS()
 class CASTLEDEFENDER_API UCDSaveSubsystem : public UGameInstanceSubsystem
 {
@@ -657,15 +888,25 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Save")
 	UCDSaveGame* LoadOrCreate(const FString& Slot = TEXT("Main"));
 
+	// False if anything failed; the main slot is then unchanged (or, if only the final write failed, the verified backup still holds the last good save).
 	UFUNCTION(BlueprintCallable, Category = "Save")
 	bool Save(UCDSaveGame* Data, const FString& Slot = TEXT("Main"));
 
 	UFUNCTION(BlueprintPure, Category = "Save")
 	UCDSaveGame* GetCurrent() const { return Current; }
 
+	// True when the loaded save came from a newer game build: it is read-only, Save() refuses to overwrite it.
+	UFUNCTION(BlueprintPure, Category = "Save")
+	bool IsReadOnly() const { return bReadOnly; }
+
+	// Test seam: reads a slot and returns it only if it deserializes into a UCDSaveGame.
+	static UCDSaveGame* LoadValid(const FString& Slot);
+
 private:
 	UPROPERTY()
 	TObjectPtr<UCDSaveGame> Current;
+
+	bool bReadOnly = false;
 };
 
 ==================================================================
@@ -676,31 +917,41 @@ FILE: Source/CastleDefender/CDSaveGame.cpp
 
 bool UCDSaveGame::Migrate()
 {
-	if (SaveVersion > CurrentVersion)
+	if (IsNewerThanBuild())
 	{
 		return false;
 	}
-	// Add one step per version bump, oldest first. Example for a future version 2:
-	// if (SaveVersion < 2) { Ints.Add(TEXT("Gems"), 0); SaveVersion = 2; }
+	// One step per version bump, oldest first; each step must be safe to run twice. Example for a future version 2:
+	// if (SaveVersion < 2) { Ints.FindOrAdd(TEXT("Gems")); SaveVersion = 2; }
 	SaveVersion = CurrentVersion;
 	return true;
 }
 
+UCDSaveGame* UCDSaveSubsystem::LoadValid(const FString& Slot)
+{
+	if (!UGameplayStatics::DoesSaveGameExist(Slot, 0))
+	{
+		return nullptr;
+	}
+	return Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromSlot(Slot, 0));
+}
+
 UCDSaveGame* UCDSaveSubsystem::LoadOrCreate(const FString& Slot)
 {
-	UCDSaveGame* Data = nullptr;
-	if (UGameplayStatics::DoesSaveGameExist(Slot, 0))
+	bReadOnly = false;
+	UCDSaveGame* Data = LoadValid(Slot);
+	if (!Data)
 	{
-		Data = Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromSlot(Slot, 0));
-	}
-	if (!Data && UGameplayStatics::DoesSaveGameExist(Slot + TEXT("_bak"), 0))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("CDSave: %s unreadable, using %s_bak"), *Slot, *Slot);
-		Data = Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromSlot(Slot + TEXT("_bak"), 0));
+		if (UGameplayStatics::DoesSaveGameExist(Slot, 0))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("CDSave: %s is unreadable; trying %s_bak (the main file is left as it is)"), *Slot, *Slot);
+		}
+		Data = LoadValid(Slot + TEXT("_bak"));
 	}
 	if (Data && !Data->Migrate())
 	{
-		UE_LOG(LogTemp, Error, TEXT("CDSave: %s is version %d, newer than this build (%d); loaded read-only"), *Slot, Data->SaveVersion, UCDSaveGame::CurrentVersion);
+		bReadOnly = true;
+		UE_LOG(LogTemp, Error, TEXT("CDSave: %s is version %d, newer than this build (%d): loaded read-only"), *Slot, Data->SaveVersion, UCDSaveGame::CurrentVersion);
 	}
 	if (!Data)
 	{
@@ -710,28 +961,72 @@ UCDSaveGame* UCDSaveSubsystem::LoadOrCreate(const FString& Slot)
 	return Data;
 }
 
+static bool ReadBytes(const FString& Slot, TArray<uint8>& Out)
+{
+	Out.Reset();
+	return UGameplayStatics::DoesSaveGameExist(Slot, 0) && UGameplayStatics::LoadDataFromSlot(Out, Slot, 0) && Out.Num() > 0;
+}
+
+static bool WriteVerified(const TArray<uint8>& Bytes, const FString& Slot)
+{
+	TArray<uint8> Back;
+	return UGameplayStatics::SaveDataToSlot(Bytes, Slot, 0) && ReadBytes(Slot, Back) && Back == Bytes;
+}
+
 bool UCDSaveSubsystem::Save(UCDSaveGame* Data, const FString& Slot)
 {
 	if (!Data)
 	{
 		return false;
 	}
-	if (Data->SaveVersion > UCDSaveGame::CurrentVersion)
+	if (bReadOnly || Data->IsNewerThanBuild())
 	{
-		UE_LOG(LogTemp, Error, TEXT("CDSave: refusing to overwrite %s with a newer-version save"), *Slot);
+		UE_LOG(LogTemp, Error, TEXT("CDSave: refusing to overwrite %s: it holds a save from a newer build"), *Slot);
 		return false;
-	}
-	if (UGameplayStatics::DoesSaveGameExist(Slot, 0))
-	{
-		if (USaveGame* Old = UGameplayStatics::LoadGameFromSlot(Slot, 0))
-		{
-			UGameplayStatics::SaveGameToSlot(Old, Slot + TEXT("_bak"), 0);
-		}
 	}
 	Data->SaveVersion = UCDSaveGame::CurrentVersion;
 	Data->SavedAt = FDateTime::UtcNow();
+
+	// 1. serialize and verify in memory
+	TArray<uint8> Bytes;
+	if (!UGameplayStatics::SaveGameToMemory(Data, Bytes) || !Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Bytes)))
+	{
+		UE_LOG(LogTemp, Error, TEXT("CDSave: %s did not serialize cleanly; nothing written"), *Slot);
+		return false;
+	}
+	// 2. temp slot, read back
+	const FString Tmp = Slot + TEXT("_tmp");
+	if (!WriteVerified(Bytes, Tmp))
+	{
+		UE_LOG(LogTemp, Error, TEXT("CDSave: could not write %s; main untouched"), *Tmp);
+		return false;
+	}
+	// 3. back up the current main save byte-for-byte, only if it is a valid save (a corrupt main never replaces a good backup)
+	TArray<uint8> Old;
+	if (ReadBytes(Slot, Old))
+	{
+		if (Cast<UCDSaveGame>(UGameplayStatics::LoadGameFromMemory(Old)))
+		{
+			if (!WriteVerified(Old, Slot + TEXT("_bak")))
+			{
+				UE_LOG(LogTemp, Error, TEXT("CDSave: backup of %s failed; main untouched"), *Slot);
+				return false;
+			}
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("CDSave: %s was unreadable; keeping the existing %s_bak"), *Slot, *Slot);
+		}
+	}
+	// 4. main
+	if (!WriteVerified(Bytes, Slot))
+	{
+		UE_LOG(LogTemp, Error, TEXT("CDSave: writing %s failed; the verified %s_bak holds the last good save, %s_tmp the new one"), *Slot, *Slot, *Tmp);
+		return false;
+	}
+	UGameplayStatics::DeleteGameInSlot(Tmp, 0);
 	Current = Data;
-	return UGameplayStatics::SaveGameToSlot(Data, Slot, 0);
+	return true;
 }
 
 ==================================================================
@@ -739,16 +1034,25 @@ FILE: Source/CastleDefender/CDPoolSubsystem.h
 ==================================================================
 // #500 point 8: reuse short-lived actors (bolts, blood bursts, gore pieces) instead of spawning and destroying one per hit.
 // Blueprint: "Acquire Pooled Actor" instead of SpawnActor, "Release Pooled Actor" instead of DestroyActor / SetLifeSpan.
-// An actor class can implement ICDPoolable (OnAcquired / OnReleased) to reset itself. For Niagara / Cascade effects use the engine's own
-// pooling instead: set PoolingMethod = AutoRelease on SpawnSystemAtLocation / SpawnEmitterAtLocation (all 49 spawners use None today, BP_AUDIT C).
+//
+// RESET CONTRACT: only classes that implement ICDPoolable are pooled. OnAcquired must bring the actor back to a just-spawned state
+// (BeginPlay does NOT run again): health / damage state, velocity, projectile movement, ignored actors, attached children, effects, delegates.
+// OnReleased must stop everything it started. The pool itself also clears the actor's timers, life span, movement velocity, and hides it.
+// A class without ICDPoolable is spawned normally by Acquire and destroyed by Release: never pooled.
+//
+// Lifecycle per actor: Active -> (Release with delay) PendingRelease -> Pooled -> (Acquire) Active ... Each Acquire bumps a generation number;
+// a delayed release only parks the actor if it is still the same generation and still pending, so an old timer can never park a reused actor.
+//
+// Niagara / Cascade effects: use the engine's pooling instead (PoolingMethod = AutoRelease on SpawnSystemAtLocation / SpawnEmitterAtLocation).
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/TimerHandle.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "UObject/Interface.h"
 #include "CDPoolSubsystem.generated.h"
 
-UINTERFACE(BlueprintType)
+UINTERFACE(BlueprintType, Blueprintable)
 class CASTLEDEFENDER_API UCDPoolable : public UInterface
 {
 	GENERATED_BODY()
@@ -759,9 +1063,11 @@ class CASTLEDEFENDER_API ICDPoolable
 	GENERATED_BODY()
 
 public:
+	// Reset to a just-spawned state (see the contract above).
 	UFUNCTION(BlueprintNativeEvent, Category = "Pool")
 	void OnAcquired();
 
+	// Stop everything this actor started (sounds, effects, timers it owns elsewhere).
 	UFUNCTION(BlueprintNativeEvent, Category = "Pool")
 	void OnReleased();
 };
@@ -775,24 +1081,42 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Pool", meta = (DeterminesOutputType = "Class"))
 	AActor* AcquirePooledActor(TSubclassOf<AActor> Class, const FTransform& Transform);
 
-	// Hides the actor, turns off its collision and ticking, and keeps it for the next Acquire. LifeSeconds > 0: release after that delay.
+	// Active actor only (a second release, or a release of something this pool did not hand out, is ignored with a warning).
+	// LifeSeconds > 0: release after that delay. Non-poolable classes are destroyed.
 	UFUNCTION(BlueprintCallable, Category = "Pool")
 	void ReleasePooledActor(AActor* Actor, float LifeSeconds = 0.f);
 
 	UFUNCTION(BlueprintPure, Category = "Pool")
 	int32 GetPooledCount(TSubclassOf<AActor> Class) const;
 
-	// Per class, at most this many are kept; extra releases are destroyed.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pool")
+	UFUNCTION(BlueprintPure, Category = "Pool")
+	static bool IsPoolable(TSubclassOf<AActor> Class);
+
+	// Per class, at most this many are kept parked; extra releases are destroyed.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pool", meta = (ClampMin = "0"))
 	int32 MaxPerClass = 64;
+
+	virtual void Deinitialize() override;
 
 protected:
 	virtual bool DoesSupportWorldType(const EWorldType::Type WorldType) const override;
 
 private:
-	void Park(AActor* Actor);
+	enum class EState : uint8 { Active, PendingRelease, Pooled };
+	struct FRecord
+	{
+		EState State = EState::Active;
+		uint32 Generation = 0;
+		FTimerHandle Timer;
+	};
 
-	TMap<UClass*, TArray<TWeakObjectPtr<AActor>>> Free;
+	void Park(AActor* Actor, uint32 ExpectedGeneration);
+	void PurgeInvalid(UClass* Class);
+	static void ResetEngineState(AActor* Actor);
+
+	TMap<TWeakObjectPtr<AActor>, FRecord> Records;
+	TMap<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>> Free;
+	uint32 NextGeneration = 1;
 };
 
 ==================================================================
@@ -800,10 +1124,13 @@ FILE: Source/CastleDefender/CDPoolSubsystem.cpp
 ==================================================================
 #include "CDPoolSubsystem.h"
 #include "CDStats.h"
+#include "Components/PrimitiveComponent.h"
 #include "Engine/World.h"
+#include "GameFramework/MovementComponent.h"
 #include "TimerManager.h"
 
 DECLARE_CYCLE_STAT(TEXT("Pool Acquire"), STAT_CD_PoolAcquire, STATGROUP_CastleDefender);
+DECLARE_DWORD_COUNTER_STAT(TEXT("Pool parked actors"), STAT_CD_PoolParked, STATGROUP_CastleDefender);
 
 void ICDPoolable::OnAcquired_Implementation() {}
 void ICDPoolable::OnReleased_Implementation() {}
@@ -811,6 +1138,62 @@ void ICDPoolable::OnReleased_Implementation() {}
 bool UCDPoolSubsystem::DoesSupportWorldType(const EWorldType::Type WorldType) const
 {
 	return WorldType == EWorldType::Game || WorldType == EWorldType::PIE;
+}
+
+bool UCDPoolSubsystem::IsPoolable(TSubclassOf<AActor> Class)
+{
+	return *Class && Class->ImplementsInterface(UCDPoolable::StaticClass());
+}
+
+void UCDPoolSubsystem::Deinitialize()
+{
+	if (UWorld* World = GetWorld())
+	{
+		for (TPair<TWeakObjectPtr<AActor>, FRecord>& Pair : Records)
+		{
+			World->GetTimerManager().ClearTimer(Pair.Value.Timer);
+		}
+	}
+	Records.Reset();
+	Free.Reset();
+	Super::Deinitialize();
+}
+
+void UCDPoolSubsystem::ResetEngineState(AActor* Actor)
+{
+	if (UWorld* World = Actor->GetWorld())
+	{
+		World->GetTimerManager().ClearAllTimersForObject(Actor);
+	}
+	Actor->SetLifeSpan(0.f);
+	TInlineComponentArray<UMovementComponent*> Movers(Actor);
+	for (UMovementComponent* Mover : Movers)
+	{
+		Mover->StopMovementImmediately();
+	}
+	if (UPrimitiveComponent* Root = Cast<UPrimitiveComponent>(Actor->GetRootComponent()))
+	{
+		if (Root->IsSimulatingPhysics())
+		{
+			Root->SetPhysicsLinearVelocity(FVector::ZeroVector);
+			Root->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);
+		}
+	}
+}
+
+void UCDPoolSubsystem::PurgeInvalid(UClass* Class)
+{
+	if (TArray<TWeakObjectPtr<AActor>>* List = Free.Find(Class))
+	{
+		List->RemoveAll([](const TWeakObjectPtr<AActor>& W) { return !W.IsValid(); });
+	}
+	for (auto It = Records.CreateIterator(); It; ++It)
+	{
+		if (!It.Key().IsValid())
+		{
+			It.RemoveCurrent();
+		}
+	}
 }
 
 AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FTransform& Transform)
@@ -821,14 +1204,26 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 	{
 		return nullptr;
 	}
+	if (!IsPoolable(Class))
+	{
+		return World->SpawnActor<AActor>(Class, Transform);   // not poolable: plain spawn, Release will destroy it
+	}
+
+	PurgeInvalid(*Class);
 	AActor* Actor = nullptr;
 	if (TArray<TWeakObjectPtr<AActor>>* List = Free.Find(*Class))
 	{
 		while (List->Num() > 0 && !Actor)
 		{
-			Actor = List->Pop().Get();
+			AActor* Candidate = List->Pop().Get();
+			const FRecord* Rec = Candidate ? Records.Find(Candidate) : nullptr;
+			if (Rec && Rec->State == EState::Pooled && Candidate->GetWorld() == World)
+			{
+				Actor = Candidate;
+			}
 		}
 	}
+
 	if (Actor)
 	{
 		Actor->SetActorTransform(Transform, false, nullptr, ETeleportType::ResetPhysics);
@@ -841,99 +1236,235 @@ AActor* UCDPoolSubsystem::AcquirePooledActor(TSubclassOf<AActor> Class, const FT
 		FActorSpawnParameters Params;
 		Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 		Actor = World->SpawnActor<AActor>(Class, Transform, Params);
+		if (!Actor)
+		{
+			return nullptr;
+		}
 	}
-	if (Actor && Actor->GetClass()->ImplementsInterface(UCDPoolable::StaticClass()))
-	{
-		ICDPoolable::Execute_OnAcquired(Actor);
-	}
+
+	FRecord& Rec = Records.FindOrAdd(Actor);
+	World->GetTimerManager().ClearTimer(Rec.Timer);
+	Rec.State = EState::Active;
+	Rec.Generation = NextGeneration++;
+	ICDPoolable::Execute_OnAcquired(Actor);
 	return Actor;
 }
 
 void UCDPoolSubsystem::ReleasePooledActor(AActor* Actor, float LifeSeconds)
 {
-	if (!IsValid(Actor))
+	UWorld* World = GetWorld();
+	if (!IsValid(Actor) || !World)
 	{
 		return;
 	}
+	if (Actor->GetWorld() != World)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CDPool: %s belongs to another world; not released here"), *Actor->GetName());
+		return;
+	}
+	if (!IsPoolable(Actor->GetClass()))
+	{
+		if (LifeSeconds > 0.f)
+		{
+			Actor->SetLifeSpan(LifeSeconds);
+		}
+		else
+		{
+			Actor->Destroy();
+		}
+		return;
+	}
+	FRecord* Rec = Records.Find(Actor);
+	if (!Rec || Rec->State != EState::Active)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CDPool: %s released twice or not handed out by the pool; ignored"), *Actor->GetName());
+		return;
+	}
+	const uint32 Generation = Rec->Generation;
 	if (LifeSeconds > 0.f)
 	{
-		FTimerHandle Handle;
+		Rec->State = EState::PendingRelease;
 		TWeakObjectPtr<AActor> Weak(Actor);
-		GetWorld()->GetTimerManager().SetTimer(Handle, FTimerDelegate::CreateWeakLambda(this, [this, Weak]()
+		World->GetTimerManager().SetTimer(Rec->Timer, FTimerDelegate::CreateWeakLambda(this, [this, Weak, Generation]()
 		{
-			if (AActor* A = Weak.Get()) { Park(A); }
+			if (AActor* A = Weak.Get())
+			{
+				Park(A, Generation);
+			}
 		}), LifeSeconds, false);
 		return;
 	}
-	Park(Actor);
+	Rec->State = EState::PendingRelease;
+	Park(Actor, Generation);
 }
 
-void UCDPoolSubsystem::Park(AActor* Actor)
+void UCDPoolSubsystem::Park(AActor* Actor, uint32 ExpectedGeneration)
 {
-	if (Actor->GetClass()->ImplementsInterface(UCDPoolable::StaticClass()))
+	FRecord* Rec = Records.Find(Actor);
+	if (!Rec || Rec->Generation != ExpectedGeneration || Rec->State != EState::PendingRelease)
 	{
-		ICDPoolable::Execute_OnReleased(Actor);
+		return;   // reacquired since the release was scheduled, or already parked
 	}
+	if (UWorld* World = GetWorld())
+	{
+		World->GetTimerManager().ClearTimer(Rec->Timer);
+	}
+	ICDPoolable::Execute_OnReleased(Actor);
+	if (!IsValid(Actor))
+	{
+		Records.Remove(Actor);   // OnReleased destroyed it
+		return;
+	}
+	ResetEngineState(Actor);
+	PurgeInvalid(Actor->GetClass());
 	TArray<TWeakObjectPtr<AActor>>& List = Free.FindOrAdd(Actor->GetClass());
 	if (List.Num() >= MaxPerClass)
 	{
+		Records.Remove(Actor);
 		Actor->Destroy();
 		return;
 	}
 	Actor->SetActorHiddenInGame(true);
 	Actor->SetActorEnableCollision(false);
 	Actor->SetActorTickEnabled(false);
+	Rec->State = EState::Pooled;
 	List.Add(Actor);
+	int32 Parked = 0;
+	for (const TPair<TWeakObjectPtr<UClass>, TArray<TWeakObjectPtr<AActor>>>& Pair : Free) { Parked += Pair.Value.Num(); }
+	SET_DWORD_STAT(STAT_CD_PoolParked, Parked);
 }
 
 int32 UCDPoolSubsystem::GetPooledCount(TSubclassOf<AActor> Class) const
 {
 	const TArray<TWeakObjectPtr<AActor>>* List = Free.Find(*Class);
-	return List ? List->Num() : 0;
+	if (!List)
+	{
+		return 0;
+	}
+	int32 Count = 0;
+	for (const TWeakObjectPtr<AActor>& W : *List)
+	{
+		Count += W.IsValid() ? 1 : 0;
+	}
+	return Count;
 }
 
 ==================================================================
 FILE: Source/CastleDefender/Tests/ZombieBrainTest.cpp
 ==================================================================
 // #500 point 6: automated tests. Run in the editor: Tools > Session Frontend > Automation, filter "CastleDefender", or from the command line:
-//   UnrealEditor-Cmd.exe "<project>.uproject" -ExecCmds="Automation RunTests CastleDefender; Quit" -unattended -nopause -nullrhi
-// They test the pure zombie target rule (AZombieBase::ChooseTarget), with no map or Play needed.
+//   UnrealEditor-Cmd.exe "<project>.uproject" -ExecCmds="Automation RunTests CastleDefender; Quit" -unattended -nopause -nullrhi -ReportExportPath="<folder>"
+// Pure tests: the zombie target rule (no map, no Play) and the save path (writes and deletes its own test slots).
+// Still to add once the module builds (they need a world): pool lifecycle (delayed + immediate release + reacquire, duplicate release,
+// destroyed while pending, cross-world, capacity, OnReleased destroys) and one PIE test (zombie registers, picks a target, unregisters, no stale ref).
 #include "Misc/AutomationTest.h"
+#include "CDSaveGame.h"
+#include "Kismet/GameplayStatics.h"
 #include "ZombieBase.h"
 
 #if WITH_DEV_AUTOMATION_TESTS
+
+namespace CDTest
+{
+	using FC = AZombieBase::FCandidate;
+	const float SR = 2500.f, SH = 250.f, FR = 2500.f;
+	int32 Pick(const FVector* Player, const TArray<FC>& S, const TArray<FC>& F, bool bNoPlayerBlocks = true)
+	{
+		return AZombieBase::ChooseTarget(FVector::ZeroVector, Player, S, F, SR, SH, FR, bNoPlayerBlocks);
+	}
+}
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCDZombieTargetTest, "CastleDefender.Zombie.ChooseTarget",
 	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
 
 bool FCDZombieTargetTest::RunTest(const FString& Parameters)
 {
-	using FC = AZombieBase::FCandidate;
-	const FVector Self(0, 0, 0);
+	using namespace CDTest;
 	const FVector Player(5000, 0, 0);
-	const float SR = 2500.f, SH = 250.f, FR = 2500.f;
 
-	TestEqual(TEXT("no soldiers or farmers: keep the player"), AZombieBase::ChooseTarget(Self, &Player, {}, {}, SR, SH, FR), INDEX_NONE);
+	TestEqual(TEXT("no soldiers or farmers: keep the player"), Pick(&Player, {}, {}), INDEX_NONE);
 
-	TArray<FC> Soldiers = { FC{ FVector(1000, 0, 0) }, FC{ FVector(500, 0, 0) } };
-	TestEqual(TEXT("nearest soldier in range wins"), AZombieBase::ChooseTarget(Self, &Player, Soldiers, {}, SR, SH, FR), 1);
+	TArray<FC> S = { FC{ FVector(1000, 0, 0) }, FC{ FVector(500, 0, 0) } };
+	TestEqual(TEXT("nearest soldier in range wins"), Pick(&Player, S, {}), 1);
 
-	Soldiers[1].bDyingOrDead = true;
-	TestEqual(TEXT("dying soldier is skipped"), AZombieBase::ChooseTarget(Self, &Player, Soldiers, {}, SR, SH, FR), 0);
+	S[1].bDyingOrDead = true;
+	TestEqual(TEXT("dying soldier is skipped"), Pick(&Player, S, {}), 0);
 
-	TArray<FC> High = { FC{ FVector(300, 0, 400) } };
-	TestEqual(TEXT("soldier 400 cm higher (on the wall) is skipped"), AZombieBase::ChooseTarget(Self, &Player, High, {}, SR, SH, FR), INDEX_NONE);
+	TArray<FC> Invalid = { FC{ FVector(100, 0, 0), false } };
+	TestEqual(TEXT("invalid soldier is skipped"), Pick(&Player, Invalid, {}), INDEX_NONE);
 
-	TArray<FC> Far = { FC{ FVector(3000, 0, 0) } };
-	TestEqual(TEXT("soldier beyond 2500 cm is skipped"), AZombieBase::ChooseTarget(Self, &Player, Far, {}, SR, SH, FR), INDEX_NONE);
+	TestEqual(TEXT("soldier 400 cm higher (on the wall) is skipped"), Pick(&Player, { FC{ FVector(300, 0, 400) } }, {}), INDEX_NONE);
+	TestEqual(TEXT("height difference exactly at the limit (250) is skipped"), Pick(&Player, { FC{ FVector(300, 0, 250) } }, {}), INDEX_NONE);
+	TestEqual(TEXT("height difference just under the limit is taken"), Pick(&Player, { FC{ FVector(300, 0, 249) } }, {}), 0);
 
-	TArray<FC> Farmers = { FC{ FVector(200, 0, 0) } };
-	TestEqual(TEXT("nearer farmer beats a soldier (index after soldiers)"), AZombieBase::ChooseTarget(Self, &Player, Soldiers, Farmers, SR, SH, FR), Soldiers.Num());
+	TestEqual(TEXT("soldier beyond the range is skipped"), Pick(&Player, { FC{ FVector(3000, 0, 0) } }, {}), INDEX_NONE);
+	TestEqual(TEXT("soldier exactly at the range (2500) is skipped (strict <)"), Pick(&Player, { FC{ FVector(2500, 0, 0) } }, {}), INDEX_NONE);
+	TestEqual(TEXT("soldier just inside the range is taken"), Pick(&Player, { FC{ FVector(2499, 0, 0) } }, {}), 0);
+
+	TestEqual(TEXT("equal distance: the first soldier wins"), Pick(&Player, { FC{ FVector(800, 0, 0) }, FC{ FVector(0, 800, 0) } }, {}), 0);
+	TestEqual(TEXT("equal distance soldier vs farmer: the soldier wins"), Pick(&Player, { FC{ FVector(800, 0, 0) } }, { FC{ FVector(0, 800, 0) } }), 0);
+
+	TestEqual(TEXT("nearer farmer beats a soldier (index after soldiers)"), Pick(&Player, S, { FC{ FVector(200, 0, 0) } }), S.Num());
+	TArray<FC> DeadFarmer = { FC{ FVector(200, 0, 0), true, true } };
+	TestEqual(TEXT("dead farmer is skipped"), Pick(&Player, S, DeadFarmer), 0);
 
 	const FVector NearPlayer(100, 0, 0);
-	TestEqual(TEXT("player nearer than everyone: keep the player"), AZombieBase::ChooseTarget(Self, &NearPlayer, Soldiers, Farmers, SR, SH, FR), INDEX_NONE);
+	TestEqual(TEXT("player nearer than everyone: keep the player"), Pick(&NearPlayer, S, { FC{ FVector(200, 0, 0) } }), INDEX_NONE);
 
-	TestEqual(TEXT("no player (distance 0, as in Blueprint): nothing beats it"), AZombieBase::ChooseTarget(Self, nullptr, Soldiers, Farmers, SR, SH, FR), INDEX_NONE);
+	TestEqual(TEXT("no player, Blueprint parity: nothing is picked"), Pick(nullptr, S, {}), INDEX_NONE);
+	TestEqual(TEXT("no player, alternative rule: the nearest valid target is picked"), Pick(nullptr, S, {}, false), 0);
+	return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCDSaveTest, "CastleDefender.Save.SafeWritePath",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FCDSaveTest::RunTest(const FString& Parameters)
+{
+	const FString Slot = TEXT("CDTest_Save");
+	auto Clean = [&Slot]()
+	{
+		for (const TCHAR* Suffix : { TEXT(""), TEXT("_bak"), TEXT("_tmp") }) { UGameplayStatics::DeleteGameInSlot(Slot + Suffix, 0); }
+	};
+	auto Make = [](int32 Gold, int32 Version = UCDSaveGame::CurrentVersion)
+	{
+		UCDSaveGame* D = Cast<UCDSaveGame>(UGameplayStatics::CreateSaveGameObject(UCDSaveGame::StaticClass()));
+		D->SetInt(TEXT("Gold"), Gold);
+		D->SaveVersion = Version;
+		return D;
+	};
+	const TArray<uint8> Garbage = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	UCDSaveSubsystem* Saves = NewObject<UCDSaveSubsystem>(GetTransientPackage());
+
+	Clean();
+	TestEqual(TEXT("missing save -> fresh default"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold"), -1), -1);
+
+	TestTrue(TEXT("first save works"), Saves->Save(Make(10), Slot));
+	TestTrue(TEXT("second save works"), Saves->Save(Make(20), Slot));
+	TestEqual(TEXT("main holds the newest"), UCDSaveSubsystem::LoadValid(Slot)->GetInt(TEXT("Gold")), 20);
+	TestEqual(TEXT("backup holds the previous"), UCDSaveSubsystem::LoadValid(Slot + TEXT("_bak"))->GetInt(TEXT("Gold")), 10);
+	TestFalse(TEXT("temp slot removed"), UGameplayStatics::DoesSaveGameExist(Slot + TEXT("_tmp"), 0));
+
+	UGameplayStatics::SaveDataToSlot(Garbage, Slot, 0);
+	TestEqual(TEXT("corrupt main -> verified backup is loaded"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold")), 10);
+	TestTrue(TEXT("save over a corrupt main works"), Saves->Save(Make(30), Slot));
+	TestEqual(TEXT("corrupt main did not replace the good backup"), UCDSaveSubsystem::LoadValid(Slot + TEXT("_bak"))->GetInt(TEXT("Gold")), 10);
+
+	UGameplayStatics::SaveDataToSlot(Garbage, Slot + TEXT("_bak"), 0);
+	TestEqual(TEXT("corrupt backup never replaces a valid main"), Saves->LoadOrCreate(Slot)->GetInt(TEXT("Gold")), 30);
+
+	Clean();
+	UGameplayStatics::SaveGameToSlot(Make(99, UCDSaveGame::CurrentVersion + 1), Slot, 0);
+	Saves->LoadOrCreate(Slot);
+	TestTrue(TEXT("newer-version save loads read-only"), Saves->IsReadOnly());
+	TestFalse(TEXT("newer-version save is never overwritten"), Saves->Save(Make(1), Slot));
+	TestEqual(TEXT("newer-version save still there"), UCDSaveSubsystem::LoadValid(Slot)->SaveVersion, UCDSaveGame::CurrentVersion + 1);
+
+	UCDSaveGame* M = Make(5, 1);
+	TestTrue(TEXT("migration runs"), M->Migrate());
+	TestTrue(TEXT("migration is repeatable"), M->Migrate() && M->SaveVersion == UCDSaveGame::CurrentVersion && M->GetInt(TEXT("Gold")) == 5);
+
+	Clean();
 	return true;
 }
 
@@ -965,7 +1496,7 @@ IMPLEMENT_MODULE(FDefaultModuleImpl, CastleDefenderEditor);
 FILE: Source/CastleDefenderEditor/CDEditorTools.h
 ==================================================================
 // #500 point 7: editor checks as one click / one line. From Python:
-//   unreal.CDEditorTools.find_blueprints_with_errors('/Game/CastleDefender')
+//   unreal.CDEditorTools.find_blueprints_with_errors('/Game/CastleDefender', True)   # True = recompile each Blueprint first
 //   unreal.CDEditorTools.find_expensive_calls('/Game/CastleDefender')
 // Each returns readable lines ("BP_X | EventGraph | K2Node_CallFunction_7 | GetAllActorsWithTag"), also printed to the Output Log.
 #pragma once
@@ -980,9 +1511,10 @@ class CASTLEDEFENDEREDITOR_API UCDEditorTools : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 
 public:
-	// Blueprints under Path whose last compile failed (Status = Error) or that have nodes with errors.
+	// Blueprints under Path whose compile status is Error or that have nodes with errors.
+	// bRecompile = true compiles each one first (slow on big folders; nothing is saved). false = the status from the last compile.
 	UFUNCTION(BlueprintCallable, Category = "Castle Defender|Checks", meta = (DevelopmentOnly))
-	static TArray<FString> FindBlueprintsWithErrors(const FString& Path = TEXT("/Game/CastleDefender"));
+	static TArray<FString> FindBlueprintsWithErrors(const FString& Path = TEXT("/Game/CastleDefender"), bool bRecompile = false);
 
 	// Every call to a known-expensive function in any Blueprint graph under Path (world scans, traces, widget scans).
 	// A call on Tick / DrawHUD / a short timer is a frame-rate problem; on BeginPlay or an event it is usually fine.
@@ -996,8 +1528,12 @@ FILE: Source/CastleDefenderEditor/CDEditorTools.cpp
 #include "CDEditorTools.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "EdGraph/EdGraph.h"
+#include "EdGraph/EdGraphNode.h"
 #include "Engine/Blueprint.h"
 #include "K2Node_CallFunction.h"
+#include "Kismet2/KismetEditorUtilities.h"
+#include "Logging/TokenizedMessage.h"
+#include "Modules/ModuleManager.h"
 
 namespace
 {
@@ -1022,7 +1558,7 @@ namespace
 		return Out;
 	}
 
-	TArray<UEdGraph*> AllGraphs(UBlueprint* BP)
+	TArray<UEdGraph*> AllGraphs(const UBlueprint* BP)
 	{
 		TArray<UEdGraph*> Graphs;
 		BP->GetAllGraphs(Graphs);
@@ -1030,22 +1566,29 @@ namespace
 	}
 }
 
-TArray<FString> UCDEditorTools::FindBlueprintsWithErrors(const FString& Path)
+TArray<FString> UCDEditorTools::FindBlueprintsWithErrors(const FString& Path, bool bRecompile)
 {
 	TArray<FString> Lines;
 	for (UBlueprint* BP : LoadBlueprints(Path))
 	{
-		bool bNodeError = false;
-		for (UEdGraph* Graph : AllGraphs(BP))
+		if (bRecompile)
+		{
+			FKismetEditorUtilities::CompileBlueprint(BP, EBlueprintCompileOptions::SkipSave);
+		}
+		int32 NodeErrors = 0;
+		for (const UEdGraph* Graph : AllGraphs(BP))
 		{
 			for (const UEdGraphNode* Node : Graph->Nodes)
 			{
-				bNodeError |= Node && Node->bHasCompilerMessage && Node->ErrorType <= EMessageSeverity::Error;
+				if (Node && Node->bHasCompilerMessage && Node->ErrorType <= EMessageSeverity::Error)
+				{
+					++NodeErrors;
+				}
 			}
 		}
-		if (BP->Status == BS_Error || bNodeError)
+		if (BP->Status == BS_Error || NodeErrors > 0)
 		{
-			Lines.Add(FString::Printf(TEXT("%s | status %d | node errors %s"), *BP->GetPathName(), (int32)BP->Status, bNodeError ? TEXT("yes") : TEXT("no")));
+			Lines.Add(FString::Printf(TEXT("%s | status %d | nodes with errors %d"), *BP->GetPathName(), (int32)BP->Status, NodeErrors));
 		}
 	}
 	for (const FString& L : Lines) { UE_LOG(LogTemp, Warning, TEXT("CD errors: %s"), *L); }

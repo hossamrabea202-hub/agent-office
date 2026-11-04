@@ -1,11 +1,15 @@
 // #500: one native registry and manager for the battle (point 4, shared systems): zombies, soldiers and farmers register here once,
 // so no Blueprint needs GetAllActorsOfClass / GetAllActorsWithTag to find them again.
-// - zombies register themselves (AZombieBase); soldiers and farmers call RegisterSoldier / RegisterFarmer from their BeginPlay until they get C++ parents;
-// - optional: the C1 body-collision rule for every zombie in one loop (off by default while BPC_CrowdTier still does it);
-// - native radius queries (the C3 job, without a sphere sweep).
+// - zombies register themselves (AZombieBase, in its native BeginPlay / EndPlay: Blueprint children need no "call parent" for this);
+// - soldiers and farmers call RegisterSoldier / RegisterFarmer from their BeginPlay and EndPlay until they get C++ parents;
+// - optional: the C1 body-collision rule for every zombie in one loop (off by default while BPC_CrowdTier still does it).
+//   It remembers each zombie's own collision setting and puts it back when the zombie dies, unregisters, or the rule is switched off;
+// - native radius queries (the C3 job, without a sphere sweep);
+// - `cd.CrowdReport` (console): registry counts against the actors really in the world, to catch a spawn path that does not register.
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/EngineTypes.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "CrowdSubsystem.generated.h"
 
@@ -22,7 +26,7 @@ public:
 	void RegisterZombie(AZombieBase* Zombie);
 	void UnregisterZombie(AZombieBase* Zombie);
 
-	// Soldiers / farmers are still pure Blueprints: call these from their BeginPlay and EndPlay.
+	// Soldiers / farmers are still pure Blueprints: call these from their BeginPlay and EndPlay (every spawn path).
 	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Soldier"))
 	void RegisterSoldier(AActor* Soldier);
 
@@ -35,30 +39,39 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Crowd", meta = (DefaultToSelf = "Farmer"))
 	void UnregisterFarmer(AActor* Farmer);
 
-	UFUNCTION(BlueprintPure, Category = "Crowd")
+	// Copies for Blueprint. C++ should use ForEachSoldier / ForEachFarmer (no array per call).
+	UFUNCTION(BlueprintCallable, Category = "Crowd")
 	TArray<AActor*> GetSoldiers() const;
 
-	UFUNCTION(BlueprintPure, Category = "Crowd")
+	UFUNCTION(BlueprintCallable, Category = "Crowd")
 	TArray<AActor*> GetFarmers() const;
 
+	template <typename F> void ForEachSoldier(F&& Fn) const { for (const TWeakObjectPtr<AActor>& W : Soldiers) { if (AActor* A = W.Get()) { Fn(A); } } }
+	template <typename F> void ForEachFarmer(F&& Fn) const { for (const TWeakObjectPtr<AActor>& W : Farmers) { if (AActor* A = W.Get()) { Fn(A); } } }
+
+	// Registered zombies that are not dead (see AZombieBase::IsDeadForCrowd).
 	UFUNCTION(BlueprintPure, Category = "Crowd")
 	int32 GetAliveZombieCount() const;
 
-	// Zombies (registered, not Dead) within Radius of Location. Native loop: ~100 zombies cost microseconds.
+	// False when MaxAliveZombies (Project Settings > Castle Defender) is reached. Spawners call this before SpawnActor.
+	UFUNCTION(BlueprintPure, Category = "Crowd")
+	bool CanSpawnZombie() const;
+
+	// Zombies (registered, not dead) within Radius of Location.
 	UFUNCTION(BlueprintCallable, Category = "Crowd")
 	void GetZombiesNear(FVector Location, float Radius, TArray<AActor*>& OutZombies) const;
 
-	// When true, this subsystem applies the C1 rule to every zombie 4x a second, and BPC_CrowdTier can be removed from BP_Zombie.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Crowd")
-	bool bManageBodyCollision = false;
+	// When true, the C1 rule runs here for every zombie; then BPC_CrowdTier can be removed from BP_Zombie. Switching it off restores every zombie.
+	UFUNCTION(BlueprintCallable, Category = "Crowd")
+	void SetManageBodyCollision(bool bOn);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Crowd")
-	float FullDetailRange = 2500.f;
+	UFUNCTION(BlueprintPure, Category = "Crowd")
+	bool GetManageBodyCollision() const { return bManageBodyCollision; }
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Crowd")
-	float UpdateInterval = 0.25f;
+	void Report() const;
 
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+	virtual void Deinitialize() override;
 	virtual void Tick(float DeltaTime) override;
 	virtual TStatId GetStatId() const override;
 
@@ -67,10 +80,19 @@ protected:
 
 private:
 	void ApplyBodyCollisionRule();
-	static TArray<AActor*> Resolve(const TArray<TWeakObjectPtr<AActor>>& List);
+	void RestoreBodyCollision(AZombieBase* Zombie);
+	void RestoreAll();
+	void PurgeInvalid();
 
 	TArray<TWeakObjectPtr<AZombieBase>> Zombies;
 	TArray<TWeakObjectPtr<AActor>> Soldiers;
 	TArray<TWeakObjectPtr<AActor>> Farmers;
+	// The collision each zombie's mesh had before this subsystem first changed it.
+	TMap<TWeakObjectPtr<AZombieBase>, TEnumAsByte<ECollisionEnabled::Type>> OriginalCollision;
+
+	bool bManageBodyCollision = false;
+	float FullDetailRange = 2500.f;
+	float UpdateInterval = 0.25f;
+	int32 MaxAliveZombies = 60;
 	float Accum = 0.f;
 };

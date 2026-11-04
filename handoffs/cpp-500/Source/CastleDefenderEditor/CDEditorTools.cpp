@@ -1,8 +1,12 @@
 #include "CDEditorTools.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "EdGraph/EdGraph.h"
+#include "EdGraph/EdGraphNode.h"
 #include "Engine/Blueprint.h"
 #include "K2Node_CallFunction.h"
+#include "Kismet2/KismetEditorUtilities.h"
+#include "Logging/TokenizedMessage.h"
+#include "Modules/ModuleManager.h"
 
 namespace
 {
@@ -27,7 +31,7 @@ namespace
 		return Out;
 	}
 
-	TArray<UEdGraph*> AllGraphs(UBlueprint* BP)
+	TArray<UEdGraph*> AllGraphs(const UBlueprint* BP)
 	{
 		TArray<UEdGraph*> Graphs;
 		BP->GetAllGraphs(Graphs);
@@ -35,22 +39,29 @@ namespace
 	}
 }
 
-TArray<FString> UCDEditorTools::FindBlueprintsWithErrors(const FString& Path)
+TArray<FString> UCDEditorTools::FindBlueprintsWithErrors(const FString& Path, bool bRecompile)
 {
 	TArray<FString> Lines;
 	for (UBlueprint* BP : LoadBlueprints(Path))
 	{
-		bool bNodeError = false;
-		for (UEdGraph* Graph : AllGraphs(BP))
+		if (bRecompile)
+		{
+			FKismetEditorUtilities::CompileBlueprint(BP, EBlueprintCompileOptions::SkipSave);
+		}
+		int32 NodeErrors = 0;
+		for (const UEdGraph* Graph : AllGraphs(BP))
 		{
 			for (const UEdGraphNode* Node : Graph->Nodes)
 			{
-				bNodeError |= Node && Node->bHasCompilerMessage && Node->ErrorType <= EMessageSeverity::Error;
+				if (Node && Node->bHasCompilerMessage && Node->ErrorType <= EMessageSeverity::Error)
+				{
+					++NodeErrors;
+				}
 			}
 		}
-		if (BP->Status == BS_Error || bNodeError)
+		if (BP->Status == BS_Error || NodeErrors > 0)
 		{
-			Lines.Add(FString::Printf(TEXT("%s | status %d | node errors %s"), *BP->GetPathName(), (int32)BP->Status, bNodeError ? TEXT("yes") : TEXT("no")));
+			Lines.Add(FString::Printf(TEXT("%s | status %d | nodes with errors %d"), *BP->GetPathName(), (int32)BP->Status, NodeErrors));
 		}
 	}
 	for (const FString& L : Lines) { UE_LOG(LogTemp, Warning, TEXT("CD errors: %s"), *L); }

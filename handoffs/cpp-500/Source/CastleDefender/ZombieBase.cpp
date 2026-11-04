@@ -14,7 +14,7 @@ AZombieBase::AZombieBase()
 
 void AZombieBase::BeginPlay()
 {
-	Super::BeginPlay();
+	Super::BeginPlay();   // runs the Blueprint's Event BeginPlay; registration below does not depend on it
 	if (UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this))
 	{
 		Crowd->RegisterZombie(this);
@@ -27,17 +27,32 @@ void AZombieBase::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	{
 		Crowd->UnregisterZombie(this);
 	}
+	CurrentTarget = nullptr;
 	Super::EndPlay(EndPlayReason);
 }
 
-bool AZombieBase::ReadBlueprintBool(const UObject* Object, FName Name)
+bool AZombieBase::ReadBlueprintBool(const UObject* Object, FName Name, bool* bFound)
 {
+	if (bFound) { *bFound = false; }
 	if (!IsValid(Object))
 	{
 		return false;
 	}
 	const FBoolProperty* Prop = FindFProperty<FBoolProperty>(Object->GetClass(), Name);
+	if (bFound) { *bFound = Prop != nullptr; }
 	return Prop && Prop->GetPropertyValue_InContainer(Object);
+}
+
+bool AZombieBase::IsDeadForCrowd() const
+{
+	bool bFound = false;
+	const bool bDead = ReadBlueprintBool(this, TEXT("Dead"), &bFound);
+	return bFound ? bDead : (IsActorBeingDestroyed() || !IsValid(this));
+}
+
+bool AZombieBase::IsEngagedForCrowd() const
+{
+	return !FMath::IsNearlyEqual(CustomTimeDilation, 1.f);
 }
 
 float AZombieBase::DistanceToPlayer() const
@@ -47,79 +62,129 @@ float AZombieBase::DistanceToPlayer() const
 	return Player ? GetDistanceTo(Player) : 0.f;
 }
 
-int32 AZombieBase::ChooseTarget(const FVector& Self, const FVector* Player, const TArray<FCandidate>& Soldiers, const TArray<FCandidate>& Farmers,
-	float SoldierRange, float SoldierHeightRange, float FarmerRange)
+AZombieBase::FTargetRule::FTargetRule(const FVector& InSelf, const FVector* Player, float SoldierRange, float InSoldierHeightRange, float FarmerRange, bool bNoPlayerBlocks)
+	: Self(InSelf)
+	, SoldierRangeSq(SoldierRange * SoldierRange)
+	, SoldierHeightRange(InSoldierHeightRange)
+	, FarmerRangeSq(FarmerRange * FarmerRange)
 {
-	int32 Best = INDEX_NONE;
-	float BestDist = Player ? FVector::Dist(Self, *Player) : 0.f;
+	// Blueprint parity: with no player, GetDistanceTo(None) = 0, so nothing is "nearer" and no soldier / farmer is picked.
+	// bNoPlayerBlocks = false is the alternative (pick the nearest valid target); TGA's SPEC_zombie.md decides which is intended.
+	BestDistSq = Player ? FVector::DistSquared(Self, *Player) : (bNoPlayerBlocks ? 0.f : TNumericLimits<float>::Max());
+}
+
+void AZombieBase::FTargetRule::ConsiderSoldier(int32 Index, const FVector& Location, bool bValid, bool bDying)
+{
+	if (!bValid || bDying || FMath::Abs(Location.Z - Self.Z) >= SoldierHeightRange)
+	{
+		return;
+	}
+	const float DistSq = FVector::DistSquared(Self, Location);
+	if (DistSq < SoldierRangeSq && DistSq < BestDistSq)
+	{
+		Best = Index;
+		BestDistSq = DistSq;
+	}
+}
+
+void AZombieBase::FTargetRule::ConsiderFarmer(int32 Index, const FVector& Location, bool bValid, bool bDead)
+{
+	if (!bValid || bDead)
+	{
+		return;
+	}
+	const float DistSq = FVector::DistSquared(Self, Location);
+	if (DistSq < FarmerRangeSq && DistSq < BestDistSq)
+	{
+		Best = Index;
+		BestDistSq = DistSq;
+	}
+}
+
+int32 AZombieBase::ChooseTarget(const FVector& Self, const FVector* Player, const TArray<FCandidate>& Soldiers, const TArray<FCandidate>& Farmers,
+	float SoldierRange, float SoldierHeightRange, float FarmerRange, bool bNoPlayerBlocks)
+{
+	FTargetRule Rule(Self, Player, SoldierRange, SoldierHeightRange, FarmerRange, bNoPlayerBlocks);
 	for (int32 i = 0; i < Soldiers.Num(); ++i)
 	{
-		const FCandidate& S = Soldiers[i];
-		if (!S.bValid || S.bDyingOrDead || FMath::Abs(S.Location.Z - Self.Z) >= SoldierHeightRange)
-		{
-			continue;
-		}
-		const float Dist = FVector::Dist(Self, S.Location);
-		if (Dist < SoldierRange && Dist < BestDist)
-		{
-			Best = i;
-			BestDist = Dist;
-		}
+		Rule.ConsiderSoldier(i, Soldiers[i].Location, Soldiers[i].bValid, Soldiers[i].bDyingOrDead);
 	}
 	for (int32 i = 0; i < Farmers.Num(); ++i)
 	{
-		const FCandidate& F = Farmers[i];
-		if (!F.bValid || F.bDyingOrDead)
-		{
-			continue;
-		}
-		const float Dist = FVector::Dist(Self, F.Location);
-		if (Dist < FarmerRange && Dist < BestDist)
-		{
-			Best = Soldiers.Num() + i;
-			BestDist = Dist;
-		}
+		Rule.ConsiderFarmer(Soldiers.Num() + i, Farmers[i].Location, Farmers[i].bValid, Farmers[i].bDyingOrDead);
+	}
+	return Rule.Best;
+}
+
+AActor* AZombieBase::FinishPick(AActor* Player, AActor* Picked)
+{
+	AActor* Best = Picked ? Picked : Player;
+	CurrentTarget = Best;
+	if (bAlsoSetOwner)
+	{
+		SetOwner(Best);
 	}
 	return Best;
 }
+
+// "Dying" for a soldier = a life span is set (Blueprint parity: GetLifeSpan < 0.01 means alive). Replace with an explicit state with ASoldierBase.
+static bool IsSoldierDying(const AActor* Soldier) { return Soldier->GetLifeSpan() >= 0.01f; }
 
 AActor* AZombieBase::PickAndSetTarget(const TArray<AActor*>& Soldiers, const TArray<AActor*>& Farmers)
 {
 	CD_SCOPE(STAT_CD_PickTarget);
-	const UCDSettings* Settings = GetDefault<UCDSettings>();
+	const UCDSettings* S = GetDefault<UCDSettings>();
 	AActor* Player = UGameplayStatics::GetPlayerCharacter(this, 0);
 	const FVector PlayerLoc = Player ? Player->GetActorLocation() : FVector::ZeroVector;
-
-	TArray<FCandidate> S, F;
-	S.Reserve(Soldiers.Num());
-	F.Reserve(Farmers.Num());
-	for (const AActor* A : Soldiers)
+	FTargetRule Rule(GetActorLocation(), Player ? &PlayerLoc : nullptr, S->ZombieSoldierRange, S->ZombieSoldierHeightRange, S->ZombieFarmerRange, S->bZombieNoPlayerBlocksTargets);
+	for (int32 i = 0; i < Soldiers.Num(); ++i)
 	{
-		// Soldier "dying" = LifeSpan set (BP_Zombie: GetLifeSpan < 0.01 means alive).
-		S.Add({ IsValid(A) ? A->GetActorLocation() : FVector::ZeroVector, IsValid(A), IsValid(A) && A->GetLifeSpan() >= 0.01f });
+		const AActor* A = Soldiers[i];
+		if (IsValid(A)) { Rule.ConsiderSoldier(i, A->GetActorLocation(), true, IsSoldierDying(A)); }
 	}
-	for (const AActor* A : Farmers)
+	for (int32 i = 0; i < Farmers.Num(); ++i)
 	{
-		F.Add({ IsValid(A) ? A->GetActorLocation() : FVector::ZeroVector, IsValid(A), ReadBlueprintBool(A, TEXT("Dead")) });
+		const AActor* A = Farmers[i];
+		if (IsValid(A)) { Rule.ConsiderFarmer(Soldiers.Num() + i, A->GetActorLocation(), true, ReadBlueprintBool(A, TEXT("Dead"))); }
 	}
-	const int32 Pick = ChooseTarget(GetActorLocation(), Player ? &PlayerLoc : nullptr, S, F,
-		Settings->ZombieSoldierRange, Settings->ZombieSoldierHeightRange, Settings->ZombieFarmerRange);
-	AActor* Best = Pick == INDEX_NONE ? Player : (Pick < Soldiers.Num() ? Soldiers[Pick] : Farmers[Pick - Soldiers.Num()]);
-	SetOwner(Best);
-	return Best;
+	AActor* Picked = Rule.Best == INDEX_NONE ? nullptr : (Rule.Best < Soldiers.Num() ? Soldiers[Rule.Best] : Farmers[Rule.Best - Soldiers.Num()]);
+	return FinishPick(Player, Picked);
 }
 
 AActor* AZombieBase::PickAndSetTargetFromRegistry()
 {
-	UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this);
-	return Crowd ? PickAndSetTarget(Crowd->GetSoldiers(), Crowd->GetFarmers()) : PickAndSetTarget({}, {});
+	CD_SCOPE(STAT_CD_PickTarget);
+	const UCDSettings* S = GetDefault<UCDSettings>();
+	AActor* Player = UGameplayStatics::GetPlayerCharacter(this, 0);
+	const UCrowdSubsystem* Crowd = UCrowdSubsystem::Get(this);
+	if (!Crowd)
+	{
+		return FinishPick(Player, nullptr);
+	}
+	const FVector PlayerLoc = Player ? Player->GetActorLocation() : FVector::ZeroVector;
+	FTargetRule Rule(GetActorLocation(), Player ? &PlayerLoc : nullptr, S->ZombieSoldierRange, S->ZombieSoldierHeightRange, S->ZombieFarmerRange, S->bZombieNoPlayerBlocksTargets);
+	AActor* Picked = nullptr;
+	int32 Index = 0;
+	Crowd->ForEachSoldier([&](AActor* A)
+	{
+		const int32 Before = Rule.Best;
+		Rule.ConsiderSoldier(Index++, A->GetActorLocation(), true, IsSoldierDying(A));
+		if (Rule.Best != Before) { Picked = A; }
+	});
+	Crowd->ForEachFarmer([&](AActor* A)
+	{
+		const int32 Before = Rule.Best;
+		Rule.ConsiderFarmer(Index++, A->GetActorLocation(), true, ReadBlueprintBool(A, TEXT("Dead")));
+		if (Rule.Best != Before) { Picked = A; }
+	});
+	return FinishPick(Player, Picked);
 }
 
 int32 AZombieBase::GetThinkDivisor() const
 {
-	const UCDSettings* Settings = GetDefault<UCDSettings>();
+	const UCDSettings* S = GetDefault<UCDSettings>();
 	const float Dist = DistanceToPlayer();
-	return Dist < Settings->ZombieNearPlayer ? 1 : (Dist < Settings->ZombieMidPlayer ? 2 : 4);
+	return Dist < S->ZombieNearPlayer ? 1 : (Dist < S->ZombieMidPlayer ? 2 : 4);
 }
 
 bool AZombieBase::IsFullDetail() const

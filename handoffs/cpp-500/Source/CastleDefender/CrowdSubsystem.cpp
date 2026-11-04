@@ -4,11 +4,26 @@
 #include "ZombieBase.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
+#include "HAL/IConsoleManager.h"
 #include "Kismet/GameplayStatics.h"
 
 DECLARE_CYCLE_STAT(TEXT("Crowd Tick"), STAT_CD_CrowdTick, STATGROUP_CastleDefender);
 DECLARE_CYCLE_STAT(TEXT("Crowd ZombiesNear"), STAT_CD_ZombiesNear, STATGROUP_CastleDefender);
 DECLARE_DWORD_COUNTER_STAT(TEXT("Zombies registered"), STAT_CD_Zombies, STATGROUP_CastleDefender);
+DECLARE_DWORD_COUNTER_STAT(TEXT("Soldiers registered"), STAT_CD_Soldiers, STATGROUP_CastleDefender);
+DECLARE_DWORD_COUNTER_STAT(TEXT("Farmers registered"), STAT_CD_Farmers, STATGROUP_CastleDefender);
+
+static FAutoConsoleCommandWithWorld GCDCrowdReport(
+	TEXT("cd.CrowdReport"),
+	TEXT("Castle Defender: crowd registry counts against the actors really in the world."),
+	FConsoleCommandWithWorldDelegate::CreateLambda([](UWorld* World)
+	{
+		if (const UCrowdSubsystem* Crowd = World ? World->GetSubsystem<UCrowdSubsystem>() : nullptr)
+		{
+			Crowd->Report();
+		}
+	}));
 
 UCrowdSubsystem* UCrowdSubsystem::Get(const UObject* WorldContext)
 {
@@ -27,12 +42,19 @@ void UCrowdSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	const UCDSettings* Settings = GetDefault<UCDSettings>();
 	bManageBodyCollision = Settings->bCrowdManagesBodyCollision;
 	FullDetailRange = Settings->CrowdFullDetailRange;
-	UpdateInterval = Settings->CrowdUpdateInterval;
+	UpdateInterval = FMath::Max(0.05f, Settings->CrowdUpdateInterval);
+	MaxAliveZombies = Settings->MaxAliveZombies;
+}
+
+void UCrowdSubsystem::Deinitialize()
+{
+	RestoreAll();
+	Super::Deinitialize();
 }
 
 void UCrowdSubsystem::RegisterZombie(AZombieBase* Zombie)
 {
-	if (IsValid(Zombie))
+	if (IsValid(Zombie) && Zombie->GetWorld() == GetWorld())
 	{
 		Zombies.AddUnique(Zombie);
 	}
@@ -40,12 +62,13 @@ void UCrowdSubsystem::RegisterZombie(AZombieBase* Zombie)
 
 void UCrowdSubsystem::UnregisterZombie(AZombieBase* Zombie)
 {
+	RestoreBodyCollision(Zombie);
 	Zombies.Remove(Zombie);
 }
 
 void UCrowdSubsystem::RegisterSoldier(AActor* Soldier)
 {
-	if (IsValid(Soldier))
+	if (IsValid(Soldier) && Soldier->GetWorld() == GetWorld())
 	{
 		Soldiers.AddUnique(Soldier);
 	}
@@ -58,7 +81,7 @@ void UCrowdSubsystem::UnregisterSoldier(AActor* Soldier)
 
 void UCrowdSubsystem::RegisterFarmer(AActor* Farmer)
 {
-	if (IsValid(Farmer))
+	if (IsValid(Farmer) && Farmer->GetWorld() == GetWorld())
 	{
 		Farmers.AddUnique(Farmer);
 	}
@@ -69,28 +92,18 @@ void UCrowdSubsystem::UnregisterFarmer(AActor* Farmer)
 	Farmers.Remove(Farmer);
 }
 
-TArray<AActor*> UCrowdSubsystem::Resolve(const TArray<TWeakObjectPtr<AActor>>& List)
-{
-	TArray<AActor*> Out;
-	Out.Reserve(List.Num());
-	for (const TWeakObjectPtr<AActor>& Weak : List)
-	{
-		if (AActor* Actor = Weak.Get())
-		{
-			Out.Add(Actor);
-		}
-	}
-	return Out;
-}
-
 TArray<AActor*> UCrowdSubsystem::GetSoldiers() const
 {
-	return Resolve(Soldiers);
+	TArray<AActor*> Out;
+	ForEachSoldier([&Out](AActor* A) { Out.Add(A); });
+	return Out;
 }
 
 TArray<AActor*> UCrowdSubsystem::GetFarmers() const
 {
-	return Resolve(Farmers);
+	TArray<AActor*> Out;
+	ForEachFarmer([&Out](AActor* A) { Out.Add(A); });
+	return Out;
 }
 
 int32 UCrowdSubsystem::GetAliveZombieCount() const
@@ -99,12 +112,17 @@ int32 UCrowdSubsystem::GetAliveZombieCount() const
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
 		const AZombieBase* Zombie = Weak.Get();
-		if (Zombie && !AZombieBase::ReadBlueprintBool(Zombie, TEXT("Dead")))
+		if (Zombie && !Zombie->IsDeadForCrowd())
 		{
 			++Count;
 		}
 	}
 	return Count;
+}
+
+bool UCrowdSubsystem::CanSpawnZombie() const
+{
+	return MaxAliveZombies <= 0 || GetAliveZombieCount() < MaxAliveZombies;
 }
 
 void UCrowdSubsystem::GetZombiesNear(FVector Location, float Radius, TArray<AActor*>& OutZombies) const
@@ -115,55 +133,124 @@ void UCrowdSubsystem::GetZombiesNear(FVector Location, float Radius, TArray<AAct
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
 		AZombieBase* Zombie = Weak.Get();
-		if (Zombie && FVector::DistSquared(Zombie->GetActorLocation(), Location) <= RadiusSq && !AZombieBase::ReadBlueprintBool(Zombie, TEXT("Dead")))
+		if (Zombie && FVector::DistSquared(Zombie->GetActorLocation(), Location) <= RadiusSq && !Zombie->IsDeadForCrowd())
 		{
 			OutZombies.Add(Zombie);
 		}
 	}
 }
 
-void UCrowdSubsystem::Tick(float DeltaTime)
+void UCrowdSubsystem::SetManageBodyCollision(bool bOn)
 {
-	Super::Tick(DeltaTime);
-	CD_SCOPE(STAT_CD_CrowdTick);
+	if (bManageBodyCollision && !bOn)
+	{
+		RestoreAll();
+	}
+	bManageBodyCollision = bOn;
+}
+
+void UCrowdSubsystem::PurgeInvalid()
+{
 	Zombies.RemoveAll([](const TWeakObjectPtr<AZombieBase>& Weak) { return !Weak.IsValid(); });
 	Soldiers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
 	Farmers.RemoveAll([](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid(); });
-	SET_DWORD_STAT(STAT_CD_Zombies, Zombies.Num());
+	for (auto It = OriginalCollision.CreateIterator(); It; ++It)
+	{
+		if (!It.Key().IsValid())
+		{
+			It.RemoveCurrent();
+		}
+	}
+}
 
+void UCrowdSubsystem::Tick(float DeltaTime)
+{
+	// No Super::Tick: the base has nothing to do and the reviewer flagged it for 5.8.
+	CD_SCOPE(STAT_CD_CrowdTick);
 	Accum += DeltaTime;
 	if (Accum < UpdateInterval)
 	{
 		return;
 	}
 	Accum = 0.f;
+	PurgeInvalid();
+	SET_DWORD_STAT(STAT_CD_Zombies, Zombies.Num());
+	SET_DWORD_STAT(STAT_CD_Soldiers, Soldiers.Num());
+	SET_DWORD_STAT(STAT_CD_Farmers, Farmers.Num());
 	if (bManageBodyCollision)
 	{
 		ApplyBodyCollisionRule();
 	}
 }
 
+void UCrowdSubsystem::RestoreBodyCollision(AZombieBase* Zombie)
+{
+	if (!Zombie)
+	{
+		return;
+	}
+	if (const TEnumAsByte<ECollisionEnabled::Type>* Original = OriginalCollision.Find(Zombie))
+	{
+		// Do not undo what the zombie's own death code set (ragdoll profile, physics).
+		USkeletalMeshComponent* Mesh = Zombie->GetMesh();
+		if (Mesh && !Mesh->IsSimulatingPhysics() && Mesh->GetCollisionEnabled() == ECollisionEnabled::NoCollision)
+		{
+			Mesh->SetCollisionEnabled(Original->GetValue());
+		}
+		OriginalCollision.Remove(Zombie);
+	}
+}
+
+void UCrowdSubsystem::RestoreAll()
+{
+	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
+	{
+		RestoreBodyCollision(Weak.Get());
+	}
+	OriginalCollision.Reset();
+}
+
 void UCrowdSubsystem::ApplyBodyCollisionRule()
 {
-	// Same rule as BPC_CrowdTier (crowd/README_C1.md): body collision on screen, near the player or soldier-engaged (CustomTimeDilation 0.999); off elsewhere.
+	// Same rule as BPC_CrowdTier (crowd/README_C1.md): body collision as the zombie had it on screen, near the player or engaged; off elsewhere.
 	const AActor* Player = UGameplayStatics::GetPlayerPawn(this, 0);
 	const float RangeSq = FullDetailRange * FullDetailRange;
 	for (const TWeakObjectPtr<AZombieBase>& Weak : Zombies)
 	{
 		AZombieBase* Zombie = Weak.Get();
-		if (!Zombie || AZombieBase::ReadBlueprintBool(Zombie, TEXT("Dead")))
+		if (!Zombie)
 		{
 			continue;
 		}
 		USkeletalMeshComponent* Mesh = Zombie->GetMesh();
-		if (!Mesh)
+		if (!Mesh || Mesh->IsSimulatingPhysics() || Zombie->IsDeadForCrowd())
 		{
+			RestoreBodyCollision(Zombie);   // dead / ragdoll: hand the body back to the zombie's own code
 			continue;
 		}
 		const bool bNear = !Player || FVector::DistSquared(Zombie->GetActorLocation(), Player->GetActorLocation()) < RangeSq;
-		const bool bFull = bNear || Zombie->WasRecentlyRendered(0.2f) || !FMath::IsNearlyEqual(Zombie->CustomTimeDilation, 1.f);
-		Mesh->SetCollisionEnabled(bFull ? ECollisionEnabled::QueryOnly : ECollisionEnabled::NoCollision);
+		const bool bFull = bNear || Zombie->WasRecentlyRendered(0.2f) || Zombie->IsEngagedForCrowd();
+		if (bFull)
+		{
+			RestoreBodyCollision(Zombie);
+		}
+		else if (Mesh->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+		{
+			OriginalCollision.FindOrAdd(Zombie, Mesh->GetCollisionEnabled());
+			Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		}
 	}
+}
+
+void UCrowdSubsystem::Report() const
+{
+	int32 WorldZombies = 0;
+	for (TActorIterator<AZombieBase> It(GetWorld()); It; ++It)
+	{
+		++WorldZombies;
+	}
+	UE_LOG(LogTemp, Display, TEXT("cd.CrowdReport: zombies registered %d / in world %d (alive %d, cap %d) | soldiers %d | farmers %d | body collision managed %s, %d changed"),
+		Zombies.Num(), WorldZombies, GetAliveZombieCount(), MaxAliveZombies, Soldiers.Num(), Farmers.Num(), bManageBodyCollision ? TEXT("yes") : TEXT("no"), OriginalCollision.Num());
 }
 
 TStatId UCrowdSubsystem::GetStatId() const
