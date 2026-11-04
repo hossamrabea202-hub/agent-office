@@ -1,14 +1,16 @@
 {
- "working": "#502 medic look: white cape, staff, no sword",
- "tokens": 60000,
+ "working": "",
+ "tokens": 125000,
  "ctx": 1000000,
  "since": "2026-11-04T18:40:00Z",
- "done": [],
+ "done": [
+  "#502 cape+staff assets (UE script, lookdev, hand-off still open) [87% tokens left]"
+ ],
  "todo": [],
  "session": {
   "id": "0941a60fe12f",
   "host": "5CD3147LBC"
  },
- "asOf": "2026-11-04T18:40:00Z",
+ "asOf": "2026-11-04T18:48:27Z",
  "seat": "checkking medic (Claude)"
 }
