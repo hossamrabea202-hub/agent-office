@@ -16,4 +16,4 @@ echo Joining session CastleDefender on %MASTER%:9030 ...
 echo If Windows Firewall asks: tick Private AND Public, then Allow.
 rem 2026-11-02: start on the empty Entry map, NOT ThirdPersonMap: opening the map from disk before the join loads ~110 BPs
 rem that the join then hot-reloads in one frame, which crashed i5 (05:10, 05:18, 08:13, 08:38). Open the map after the join.
-start "" "%UE%" "%PROJ%" /Engine/Maps/Entry -CONCERTAUTOCONNECT -CONCERTSERVER=CastleDefenderServer -CONCERTSESSION=CastleDefender6 -CONCERTDISPLAYNAME=Laptop-i5 -LocalLogTimes -ExecCmds="r.Streaming.PoolSize 400, py C:/Users/hossam.rabea/agent-office/handoffs/laptop-i5/ue_inbox_watcher.py" -UDPMESSAGING_TRANSPORT_STATIC=%MASTER%:9030
+start "" "%UE%" "%PROJ%" /Engine/Maps/Entry -CONCERTAUTOCONNECT -CONCERTSERVER=CastleDefenderServer -CONCERTSESSION=CastleDefender6 -CONCERTDISPLAYNAME=Laptop-i5 -LocalLogTimes -ExecCmds="r.Streaming.PoolSize 400, py C:/Users/hossam.rabea/agent-office/handoffs/laptop-i5/ue_inbox_watcher.py" -UDPMESSAGING_TRANSPORT_UNICAST=0.0.0.0:9031 -UDPMESSAGING_TRANSPORT_STATIC=%MASTER%:9030
