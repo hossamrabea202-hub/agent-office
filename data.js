@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261105-061415-509-the-8-new-wall-props-clay-before-tex.png',t:'#509 the 8 new wall props (clay, before textures): arrow sheaf of 24, spear stook, drop-stone heap, fire bucket / timber hoarding bay, tie ring, torch bracket, drain spout. All baked; textures pass pbr_check except the spout (rebaking)',who:'checkking (Claude)',at:'2026-11-05T06:14:15Z',card:509},
 {f:'shots/20261104-220953-504-weathering-cards-before-after-top-mo.png',t:'#504 weathering cards: before/after (top mock wall in kit491 stone, bottom i5 castle copy). Judge on i9.',who:'checkking (Claude)',at:'2026-11-04T22:09:53Z',card:504},
 {f:'shots/20261104-101806-488-carved-merlons-v1-left-v2-right-no-s.png',t:'488 carved merlons v1 left, v2 right: no smear, flatter dressed faces, mesh checks clean',who:'checkking (Claude)',at:'2026-11-04T10:18:06Z',card:488},
 {f:'shots/20261103-212330-461-stone-harmony-i5-test-room-top-today.png',t:'#461 stone harmony v1, SUPERSEDED: withdrawn, it used values from before the i9 tone pass. Not in the game',who:'adjustedfilm (Claude)',at:'2026-11-03T21:23:30Z',card:461},
