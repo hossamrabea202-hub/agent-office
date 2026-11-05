@@ -1,5 +1,5 @@
 {
- "working": "#509 wall props: 10 new props baking on i5; placers dry-run OK; lookdev next",
+ "working": "#509: 8 props baked + pbr OK; screenshots on the office; waiting on i9 (offline) for #505/#507/#508",
  "tokens": 150000,
  "ctx": 1000000,
  "since": "2026-11-04T21:43:02Z",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-05T05:30:30Z",
+ "asOf": "2026-11-05T06:14:39Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "19ade82950ba",
