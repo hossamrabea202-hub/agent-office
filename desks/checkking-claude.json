@@ -1,5 +1,5 @@
 {
- "working": "waiting on i9: Multi-User server down; #505 preview needs Alien's OK",
+ "working": "#509 wall props: 10 new props baking on i5; placers dry-run OK; lookdev next",
  "tokens": 150000,
  "ctx": 1000000,
  "since": "2026-11-04T21:43:02Z",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-04T22:10:04Z",
+ "asOf": "2026-11-05T05:30:30Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "19ade82950ba",
