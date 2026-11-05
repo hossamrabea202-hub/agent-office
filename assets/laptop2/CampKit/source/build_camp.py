@@ -12,7 +12,7 @@ from propkit import plank, strap, nails, board_prof, group
 from shieldkit import fbm, sstep, mesh, grid_quads, unit, sweep, rrect, circ, superellipsoid, orient, HIGH, PI
 D = os.path.dirname(os.path.abspath(__file__))
 VAR = os.environ.get('VARIANT', 'HayBale')
-rng = np.random.default_rng({'TorchPost': 151, 'Campfire': 152, 'HayBale': 153, 'Well': 154, 'HandCart': 155, 'MarketStall': 156, 'Anvil': 157, 'Tent': 158, 'SiegeLadder': 159, 'CannonCart': 160, 'Workbench': 161, 'Grindstone': 162, 'Forge': 163, 'Banner': 164, 'GoldPile': 165, 'Firewood': 166, 'Lantern': 167, 'Signpost': 168, 'TargetDummy': 169, 'Burrow': 170}[VAR])
+rng = np.random.default_rng({'TorchPost': 151, 'Campfire': 152, 'HayBale': 153, 'Well': 154, 'HandCart': 155, 'MarketStall': 156, 'Anvil': 157, 'Tent': 158, 'SiegeLadder': 159, 'CannonCart': 160, 'Workbench': 161, 'Grindstone': 162, 'Forge': 163, 'Banner': 164, 'GoldPile': 165, 'Firewood': 166, 'Lantern': 167, 'Signpost': 168, 'TargetDummy': 169, 'Burrow': 170, 'ArrowSheaf': 171, 'SpearStook': 172, 'DropStones': 173, 'FireBucket': 174, 'HoardingBay': 175, 'HoardingEnd': 176, 'TieRing': 177, 'WallBracket': 178, 'AnchorPlate': 179, 'DrainSpout': 180}[VAR])
 j = lambda a=0.004: rng.uniform(-a, a)
 
 def rotm(yaw, pitch, roll=0.0):
@@ -20,10 +20,11 @@ def rotm(yaw, pitch, roll=0.0):
     Rz = np.array([[cy, -sy, 0], [sy, cy, 0], [0, 0, 1.0]]); Rx = np.array([[1.0, 0, 0], [0, cp, -sp], [0, sp, cp]]); Ry = np.array([[cr, 0, sr], [0, 1.0, 0], [-sr, 0, cr]])
     return Rz @ Rx @ Ry
 
-def rock(name, c, sz, seed, mname='Stone', soot=None, yaw=None, boxy=False, dressed=False):
+def rock(name, c, sz, seed, mname='Stone', soot=None, yaw=None, boxy=False, dressed=False, e_=None):
     """a fieldstone: lumpy superellipsoid, sz = (x, y, z) half sizes; soot = per-vertex 0..1 or None; boxy = dressed-ish wall stone."""
     r = np.random.default_rng(seed)
     e = r.uniform(0.06, 0.1) if dressed else (r.uniform(0.12, 0.22) if boxy else r.uniform(0.3, 0.5))
+    if e_ is not None: e = r.uniform(*e_)        # #509: water-worn river stones are round
     Vs, Qs, Ts = superellipsoid(32 if HIGH else 12, 16 if HIGH else 6, e)
     lump = 0.03 if dressed else (0.10 if boxy else 0.16)
     V = Vs * (1 + lump * (fbm(Vs[:, 0] * 1.5 + seed, Vs[:, 1] * 1.5 + Vs[:, 2] * 1.2, seed, 3) - 0.5) * 2 + (0.05 if boxy and not dressed else 0.0) * (fbm(Vs[:, 0] * 4 + seed, Vs[:, 2] * 4, seed + 7, 3) - 0.5) * 2)[:, None]
@@ -631,6 +632,215 @@ elif VAR == 'Burrow':   # #20: tentacle burrow: a 3 m ring of heaved earth and t
         if HIGH: p = p + 0.01 * (fbm(s_[:, 0] * 6 + k, np.zeros(len(s_)), 2210 + k, 3) - 0.5)[:, None] * 2
         tube('Root_%d' % k, p, [0, 0, 1.0], 0.02, 'WoodCut', n=10 if HIGH else 5, rad=list(0.022 * (1 - s_[:, 0]) ** 0.8 + 0.004))
     meta = {'size': [3.2, 3.2, 0.4], 'hole_radius_m': 0.55, 'note': 'the tentacle actor sits at the origin and rises from z -0.5; add DecalKit GroundCrack x3 around it, realm fog low'}
+
+elif VAR in ('ArrowSheaf', 'SpearStook', 'DropStones', 'FireBucket'):
+    # #509 wall-walk defence stores (i5 checkking 2026-11-05). Real castles kept their ammunition ON the wall: arrows tied in sheaves
+    # of 24 (the English war-arrow unit), spears stooked so they stand by themselves, heaps of rounded stones to drop on the
+    # men at the wall foot, and buckets of water against fire arrows.
+    def taper_tube(name, path, up, prof, scale, mname, attrs=None):
+        """sweep prof along path, per-ring scale (N,) or (N,2) for (side, up); caps follow."""
+        path = np.asarray(path, float); n = len(path)
+        V, Q, Tr, uv = sweep(path, np.tile(np.asarray(up, float), (n, 1)), prof)
+        M1 = len(prof) + 1; G = V[:n * M1].reshape(n, M1, 3); ctr = path[:, None, :]
+        sc = np.asarray(scale, float); sc = np.stack([sc, sc], -1) if sc.ndim == 1 else sc
+        tang = unit(np.gradient(path, axis=0)); u = unit(np.cross(tang, np.asarray(up, float))); w = np.cross(u, tang)
+        off = G - ctr; a = (off * u[:, None]).sum(-1, keepdims=True); b = (off * w[:, None]).sum(-1, keepdims=True)
+        G = ctr + a * u[:, None] * sc[:, None, 0:1] + b * w[:, None] * sc[:, None, 1:2]
+        V[:n * M1] = G.reshape(-1, 3); K = M1 - 1; V[n * M1:n * M1 + K] = G[0, :K]; V[n * M1 + K:n * M1 + 2 * K] = G[-1, :K]
+        return mesh(name, V, [Q, Tr], mname, uv=uv, attrs=attrs)
+    def vane(name, base, tang, rad, L, seed):
+        """one goose-feather vane: a thin curved sheet from the shaft out along rad, L long, trimmed to the classic low parabola."""
+        nu, nv = (24, 6) if HIGH else (5, 2)
+        s = np.linspace(0, 1, nu); r_ = np.linspace(0, 1, nv)
+        hgt = 0.013 * np.sqrt(np.clip(s, 0, 1)) * (1 - 0.25 * s) + 0.002                    # rises from the nock end, trimmed
+        S, R_ = np.meshgrid(s, r_, indexing='ij')
+        side = unit(np.cross(tang, rad))
+        P = base[None, None] + tang[None, None] * (-S * L)[..., None] + rad[None, None] * (0.0045 + R_ * hgt[:, None])[..., None]
+        P = P + side[None, None] * (0.0012 * np.sin(S * PI) * R_)[..., None]                    # the vane curls a little (helical fletch)
+        if HIGH: P = P + side[None, None] * (0.0004 * (fbm(S * 30 + seed, R_ * 4, seed, 3) - 0.5))[..., None]   # ruffled barbs
+        th = 0.0006
+        Vf = np.vstack([(P + side * th).reshape(-1, 3), (P - side * th).reshape(-1, 3)])
+        Qa = grid_quads(nu, nv, False); Qb = Qa[:, ::-1] + nu * nv
+        uvv = np.stack([S * L, R_ * 0.015], -1).reshape(-1, 2); uvv = np.vstack([uvv, uvv])
+        return mesh(name, Vf, [np.vstack([Qa, Qb])], 'Feather', uv=uvv)
+    if VAR == 'ArrowSheaf':   # 24 war arrows (0.76 m ash shafts, bodkin heads down, grey goose fletching up), crossed into an hourglass, tied at the waist
+        Hs, NA = 0.78, 24
+        tie_z = 0.40
+        for k in range(NA):
+            ring_ = 0 if k < 6 else (1 if k < 14 else 2)
+            Rk = (0.022, 0.045, 0.066)[ring_] + j(0.004); th0 = 2 * PI * k / (6, 8, 10)[ring_] + ring_ * 0.4 + j(0.05)
+            phi = (1.0, 1.25, 1.35)[ring_] + j(0.06)                                                                     # crossing angle -> waist
+            p0 = np.array([Rk * math.cos(th0), Rk * math.sin(th0), 0.004 + rng.uniform(0, 0.02)])
+            p1 = np.array([Rk * math.cos(th0 + phi), Rk * math.sin(th0 + phi), Hs - rng.uniform(0, 0.03)])
+            tang = unit(p1 - p0); L = np.linalg.norm(p1 - p0); n = 24 if HIGH else 4
+            s = np.linspace(0.075, 1.0, n); path = p0 + tang * (s * L)[:, None]
+            bar = 0.0048 * (1 - 0.12 * s)                                                                                # barrelled-down toward the nock
+            up = unit(np.cross(tang, [0, 0, 1.0]) + 1e-6)
+            taper_tube('Shaft_%02d' % k, path, up, circ(0.0048, 12 if HIGH else 5), bar / 0.0048, 'Shaft')
+            # bodkin: a square iron point 6.5 cm long with a socket over the shaft
+            hs = np.linspace(0, 1, 12 if HIGH else 3); hp = p0 + tang * (hs * L * 0.085)[:, None]
+            hsc = np.where(hs < 0.7, 0.15 + 0.85 * (hs / 0.7) ** 0.8, 1.0)
+            taper_tube('Head_%02d' % k, hp, up, rrect(0.010, 0.010, 4 if HIGH else 1, 3.0), hsc, 'Iron')
+            # nock: a dark horn insert at the top
+            taper_tube('Nock_%02d' % k, p1[None] - tang[None] * np.array([[0.012], [0.0]]), up, circ(0.0046, 10 if HIGH else 4), [1.0, 0.9], 'Plank')
+            for v_ in range(3):
+                a = 2 * PI * v_ / 3 + k * 0.7; rad = unit(math.cos(a) * up + math.sin(a) * np.cross(tang, up))
+                vane('Vane_%02d_%d' % (k, v_), p1 - tang * 0.03, tang, rad, 0.13, 700 + k * 3 + v_)
+        a = np.linspace(0, 2 * PI * 3, 180 if HIGH else 24)
+        tw = np.stack([0.038 * np.cos(a), 0.038 * np.sin(a), tie_z - 0.012 + 0.008 * a / (2 * PI)], -1)
+        kitlog.rope('Tie', tw, 0.0025, 731)
+        meta = {'size': [0.16, 0.16, Hs], 'note': 'stand it on the wall walk against the parapet, or 2-3 in a barrel/crate; random yaw'}
+    elif VAR == 'SpearStook':   # 6 ash spears (2.3 m) stooked: feet splayed on a 0.5 m circle, lashed together at 1.75 m, leaf heads up
+        NS, Ls, tz = 6, 2.3, 1.75
+        for k in range(NS):
+            th = 2 * PI * k / NS + j(0.15); Rb = 0.26 + j(0.03)
+            b0 = np.array([Rb * math.cos(th), Rb * math.sin(th), 0.0]); t0 = np.array([0.022 * math.cos(th + 2.6), 0.022 * math.sin(th + 2.6), tz])
+            tang = unit(t0 - b0); n = 40 if HIGH else 6; s = np.linspace(0, 1, n); path = b0 + tang * (s * Ls)[:, None]
+            path = path + np.array([0, 0, 1.0]) * 0 + unit(np.cross(tang, [0, 0, 1.0]) + 1e-6) * (0.006 * np.sin(s * PI))[:, None]   # a slight bow
+            up = unit(np.cross(tang, [0, 0, 1.0]) + 1e-6)
+            taper_tube('Shaft_%d' % k, path, up, circ(0.014, 16 if HIGH else 6), 1 - 0.18 * s, 'Shaft')
+            # iron butt ferrule
+            fp = path[0] + tang * np.array([[0.0], [0.07]]); taper_tube('Ferrule_%d' % k, fp, up, circ(0.0155, 16 if HIGH else 6), [0.9, 1.0], 'Iron')
+            # the head: a 7 cm socket, then a 22 cm leaf blade (flat, a mid-rib), point up
+            top = path[-1]; hs = np.linspace(0, 1, 30 if HIGH else 6); hp = top + tang * (hs * 0.29)[:, None]
+            sock = hs < 0.24
+            wid = np.where(sock, 1.0, np.sin(np.clip((hs - 0.24) / 0.76, 0, 1) ** 0.6 * PI) * 2.6 + 0.02)
+            thk = np.where(sock, 1.0, 0.45 * (1 - (hs - 0.24) / 0.76) + 0.12)
+            taper_tube('Head_%d' % k, hp, up, rrect(0.024, 0.024, 8 if HIGH else 2, 2.2), np.stack([wid, thk], -1), 'Iron')
+        # the lashing: hemp rope wound round the crossing, a tail hanging
+        a = np.linspace(0, 2 * PI * 4, 240 if HIGH else 32)
+        lw = np.stack([0.05 * np.cos(a), 0.05 * np.sin(a), tz - 0.03 + 0.012 * a / (2 * PI)], -1)
+        tail = np.array([[0.05, 0.0, tz + 0.02], [0.07, 0.01, tz - 0.10], [0.075, 0.02, tz - 0.24]])
+        kitlog.rope('Lashing', np.vstack([lw, tail]), 0.006, 741)
+        meta = {'size': [0.6, 0.6, 2.35], 'note': 'self-standing; one per 6-10 m of wall walk, never in the walking line'}
+    elif VAR == 'DropStones':   # a heap of 17 rounded river stones (20-32 cm, 12-35 kg each) to drop from the parapet
+        k = 0
+        for layer, (cnt, rr, z0) in enumerate(((9, 0.34, 0.0), (6, 0.18, 0.17), (2, 0.06, 0.32))):
+            for i in range(cnt):
+                a = 2 * PI * i / cnt + layer * 0.5 + j(0.2); r_ = rr * (0.6 + 0.4 * rng.random()) if i else (0.0 if layer == 0 else rr * 0.5)
+                sz = (rng.uniform(0.10, 0.16), rng.uniform(0.09, 0.13), rng.uniform(0.08, 0.11))
+                rock('Stone_%02d' % k, (r_ * math.cos(a), r_ * math.sin(a), z0 + sz[2] * 0.85), sz, 750 + k, mname='RiverStone', e_=(0.75, 1.0)); k += 1
+        meta = {'size': [0.95, 0.95, 0.5], 'note': 'against the parapet, 1 per merlon gap over the gate and the wall stretches the zombies climb'}
+    else:   # FireBucket: a 32 cm oak stave bucket with two iron hoops and a rope handle, brim-full of water (fire arrows)
+        R0, H, ns = 0.15, 0.32, 18
+        for k in range(ns):
+            a = 2 * PI * (k + 0.5) / ns; c, s_ = math.cos(a), math.sin(a)
+            plank('Stave_%02d' % k, (R0 * c, R0 * s_, 0.0), (R0 * c, R0 * s_, H + j(0.004)), 2 * PI * R0 / ns - 0.0012, 0.016, 760 + k, (c, s_, 0.0), rot=0.0)
+        for zh in (0.05, H - 0.05):     # hoops: built like the barrel's
+            rr = R0 + 0.0105; a = np.linspace(0, 2 * PI, 160 if HIGH else 28, endpoint=False)
+            hoop = np.stack([rr * np.cos(a), rr * np.sin(a), np.full_like(a, zh)], -1)
+            V, Q, Tr, uv = sweep(hoop, np.tile([0, 0, 1.0], (len(a), 1)), rrect(0.004, 0.028, 10 if HIGH else 4, 5.0), closed=True, caps=False)
+            mesh('Hoop_%d' % int(zh * 100), V, [Q], 'Iron', uv=uv)
+        for b in range(4):
+            y = -R0 + 0.02 + (2 * R0 - 0.04) * (b + 0.5) / 4; hw = math.sqrt(max(R0 ** 2 - y ** 2, 0.0004)) - 0.01
+            plank('Bottom_%d' % b, (-hw, y, 0.02), (hw, y, 0.02), (2 * R0 - 0.04) / 4 - 0.002, 0.018, 770 + b, (0, 0, 1.0), rot=0.0)
+        Vs, Qs, Ts = superellipsoid(48 if HIGH else 16, 6 if HIGH else 2, 0.9)
+        mesh('Water', np.array([0, 0, H - 0.035]) + Vs * np.array([R0 - 0.010, R0 - 0.010, 0.004]), [Qs, Ts], 'Water', uv=np.stack([Vs[:, 0], Vs[:, 1]], -1) * 0.15)
+        t = np.linspace(0, PI, 24)      # rope handle: a sagging arc between two staves
+        hp = np.stack([(R0 + 0.006) * np.cos(t), 0.015 * np.sin(t), H - 0.03 + 0.14 * np.sin(t) ** 0.8], -1)
+        kitlog.rope('Handle', hp, 0.007, 781)
+        meta = {'size': [0.33, 0.33, 0.46], 'note': 'beside each gate tower door and every ~15 m of wall walk'}
+
+elif VAR in ('HoardingBay', 'HoardingEnd'):
+    # #509 step 3: timber hoarding (hourd), the covered wooden gallery hung OUTSIDE the parapet in a siege, built over the
+    # gate first (12th-14th c.; Carcassonne's are the reconstructed reference). Putlog beams run through holes in the wall
+    # under the parapet; a plank floor with an open DROP SLOT along the wall face (stones and boiling water go straight down
+    # onto the men at the wall foot); a plank front wall with a propped shutter per bay; a lean-to board roof against the wall
+    # (fire arrows: real ones were often covered in wet hides). Rough-sawn oak, weathered.
+    # Frame: X along the wall (bay -1.5..1.5 m), Y = out from the wall's OUTER face (0) to 1.65, Z = 0 = the wall-walk floor.
+    RZ = lambda y: 2.75 - 0.75 * (y + 0.05) / 1.9             # roof underside height over y
+    if VAR == 'HoardingBay':
+        for k, x in enumerate((-0.75, 0.75)):
+            plank('Putlog_%d' % k, (x, -0.45, -0.13), (x, 1.78, -0.13), 0.16, 0.20, 900 + k, (0, 0, 1.0), rot=0.0)
+            d_ = unit(np.array([0, 1.13, 1.05])); up_ = np.cross([1.0, 0, 0], d_)
+            plank('Brace_%d' % k, (x, 0.03, -1.32), (x, 1.13, -0.27), 0.12, 0.12, 910 + k, up_, rot=0.1)
+            plank('Post_%d' % k, (x, 1.58, -0.03), (x, 1.58, 2.08), 0.14, 0.14, 920 + k, (0, 1.0, 0), rot=0.2)
+            plank('Rafter_%d' % k, (x, -0.05, RZ(-0.05) + 0.06), (x, 1.88, RZ(1.88) + 0.06), 0.10, 0.12, 930 + k, (0, 0.37, 0.93), rot=0.0)
+        for b in range(4):      # floor: 4 boards from 0.38 m out; 0-0.36 m along the wall face stays OPEN (the drop slot)
+            y = 0.38 + 0.29 * (b + 0.5)
+            plank('Floor_%d' % b, (-1.5, y, -0.01 + j(0.003)), (1.5, y + j(0.006), -0.01 + j(0.003)), 0.28, 0.04, 940 + b, (0, 0, 1.0), rot=0.0)
+        plank('Sill', (-1.5, 1.58, -0.12), (1.5, 1.58, -0.12), 0.14, 0.16, 950, (0, 0, 1.0), rot=0.0)
+        plank('TopPlate', (-1.5, 1.58, 2.08), (1.5, 1.58, 2.08), 0.14, 0.12, 951, (0, 0, 1.0), rot=0.0)
+        nb = 15
+        for b in range(nb):     # front wall: vertical boards, a 0.6 x 0.5 m window in the middle of the bay
+            x = -1.5 + 3.0 * (b + 0.5) / nb; z1 = 2.0 + j(0.01)
+            spans = ((0.0, 0.95), (1.45, z1)) if abs(x) < 0.3 else ((0.0, z1),)
+            for si, (za, zb) in enumerate(spans):
+                plank('Front_%02d_%d' % (b, si), (x + j(0.003), 1.66, za - 0.06), (x + j(0.003), 1.66 + j(0.004), zb), 3.0 / nb - 0.006, 0.03, 960 + b * 2 + si, (0, 1.0, 0), rot=0.45 if za < 0.1 else 0.1)
+        hz, ang = 1.47, math.radians(38)     # the shutter: 3 boards hinged at the top, propped open outward
+        o = np.array([0, 1.69, hz]); dn = np.array([0, math.sin(ang), -math.cos(ang)]); nrm = np.array([0, math.cos(ang), math.sin(ang)])
+        for b in range(3):
+            x = -0.3 + 0.6 * (b + 0.5) / 3
+            plank('Shutter_%d' % b, o + np.array([x, 0, 0]), o + np.array([x, 0, 0]) + dn * 0.52, 0.2 - 0.005, 0.025, 980 + b, nrm, rot=0.0)
+        plank('ShutterBatten', o + dn * 0.12 + nrm * 0.022 + np.array([-0.3, 0, 0]), o + dn * 0.12 + nrm * 0.022 + np.array([0.3, 0, 0]), 0.06, 0.02, 984, nrm)
+        tube('Prop', np.array([[0.25, 1.66, 0.97], [0.25, 1.69 + 0.47 * math.sin(ang), hz - 0.47 * math.cos(ang)]]), [1.0, 0, 0], 0.015, 'WoodCut', n=10 if HIGH else 5)
+        for b in range(7):      # roof boards across the slope, lapped
+            t0 = (b + 0.5) / 7; y = -0.05 + 1.93 * t0
+            plank('Roof_%d' % b, (-1.5, y, RZ(y) + 0.14 + 0.012 * (b % 2)), (1.5, y + j(0.005), RZ(y) + 0.14 + 0.012 * (b % 2)), 0.29, 0.03, 990 + b, (0, 0.37, 0.93), rot=0.0)
+        nails('Nails', [(x, 1.68, z) for x in (-1.2, -0.6, 0.6, 1.2) for z in (0.1, 1.9)], (0, 1.0, 0), None, r=0.008)
+        meta = {'size': [3.0, 2.25, 4.1], 'bay_length_m': 3.0, 'note': 'pivot = wall OUTER face at wall-walk floor height, bay centre; +Y points away from the castle; repeat every 3.0 m, HoardingEnd at both ends (mirror X for the left end)'}
+    else:   # HoardingEnd: the closed side wall + an end putlog, at x = 0 (place it at a bay's +1.5 m end; scale X -1 at the -1.5 m end)
+        plank('Putlog_End', (0.08, -0.45, -0.13), (0.08, 1.78, -0.13), 0.16, 0.20, 1000, (0, 0, 1.0), rot=0.0)
+        d_ = unit(np.array([0, 1.13, 1.05])); plank('Brace_End', (0.08, 0.03, -1.32), (0.08, 1.13, -0.27), 0.12, 0.12, 1001, np.cross([1.0, 0, 0], d_), rot=0.1)
+        plank('Post_End', (0.08, 1.58, -0.03), (0.08, 1.58, 2.08), 0.14, 0.14, 1002, (0, 1.0, 0), rot=0.2)
+        plank('Rafter_End', (0.08, -0.05, RZ(-0.05) + 0.06), (0.08, 1.88, RZ(1.88) + 0.06), 0.10, 0.12, 1003, (0, 0.37, 0.93))
+        for b in range(8):
+            y = 0.0 + 1.62 * (b + 0.5) / 8
+            plank('Side_%d' % b, (0.16, y, -0.06), (0.16, y + j(0.004), RZ(y) + 0.1), 1.62 / 8 - 0.006, 0.03, 1010 + b, (1.0, 0, 0), rot=0.4)
+        meta = {'size': [0.2, 2.25, 4.1], 'note': 'end wall: at the +1.5 m end of the last bay; mirrored (scale X -1) at the first'}
+
+elif VAR in ('TieRing', 'WallBracket', 'AnchorPlate', 'DrainSpout'):
+    # #509 steps 4 + 5: iron and stone wall fittings. Frame: pivot ON the wall face, +Y out of the wall, Z up.
+    def hoop(name, c, r, rb, plane_n, mname='Iron', n=None):
+        """closed round bar (radius rb) on a circle of radius r around c, in the plane with normal plane_n."""
+        n = n or (96 if HIGH else 16); pn = unit(np.asarray(plane_n, float)); u = unit(np.cross(pn, [0, 0, 1.0] if abs(pn[2]) < 0.9 else [1.0, 0, 0])); v = np.cross(pn, u)
+        a = np.linspace(0, 2 * PI, n, endpoint=False); P = np.asarray(c) + r * (np.cos(a)[:, None] * u + np.sin(a)[:, None] * v)
+        V, Q, Tr, uv = sweep(P, np.tile(pn, (n, 1)), circ(rb, 14 if HIGH else 6), closed=True, caps=False)
+        if HIGH: V = V * 1.0 + np.asarray(V) * 0 + (0.0006 * (fbm(V[:, 0] * 200, V[:, 2] * 200, 1301, 3) - 0.5))[:, None] * np.array([1.0, 1.0, 1.0])   # hammered
+        return mesh(name, V, [Q], mname, uv=uv)
+    if VAR == 'TieRing':   # a hand-forged ring (11 cm, 16 mm bar) hanging from an eye staple leaded into a drilled stone
+        Vs, Qs, Ts = superellipsoid(32 if HIGH else 10, 6 if HIGH else 2, 0.9)
+        mesh('LeadPlug', Vs * np.array([0.032, 0.006, 0.032]) + np.array([0, 0.002, 0]), [Qs, Ts], 'Mortar', uv=np.stack([Vs[:, 0], Vs[:, 2]], -1) * 0.05)
+        hoop('Eye', (0, 0.045, 0.0), 0.022, 0.008, (1.0, 0, 0))                                             # the staple's eye, sticking out
+        tube('Shank', np.array([[0, -0.02, 0], [0, 0.03, 0]]), [0, 0, 1.0], 0.009, 'Iron', n=12 if HIGH else 6)
+        tilt = math.radians(14); pn = np.array([0, math.sin(tilt), math.cos(tilt)]) * 0 + np.array([1.0, 0, 0])
+        hoop('Ring', (0, 0.058, -0.075), 0.055, 0.008, unit(np.array([1.0, 0.0, 0.0]) + np.array([0, 0.25, 0])))   # hangs a little off the wall
+        meta = {'size': [0.13, 0.12, 0.14], 'note': 'on the wall face at 1.2-1.4 m: by the gate, the stables, the barracks door. Add a rust streak card below (#504 MI, tint) where it hangs on a weather face'}
+    elif VAR == 'WallBracket':   # torch bracket: a spiked back plate, an arm, a ring holder; a burnt-out torch stub in it (no flame: a lit one needs a real light)
+        plate = np.array([[0, 0.004, -0.13], [0, 0.005, 0.0], [0, 0.004, 0.11]])
+        V, Q, Tr, uv = sweep(plate, np.tile([0, 1.0, 0], (3, 1)), rrect(0.055, 0.008, 10 if HIGH else 4, 5.0)); mesh('BackPlate', V, [Q, Tr], 'Iron', uv=uv)
+        nails('Spikes', [(0, 0.009, -0.10), (0, 0.009, 0.085)], (0, 1.0, 0), None, r=0.009)
+        arm = np.array([[0, 0.006, -0.02], [0, 0.07, 0.0], [0, 0.13, 0.03], [0, 0.16, 0.05]])
+        V, Q, Tr, uv = sweep(arm, np.tile([1.0, 0, 0], (4, 1)), rrect(0.012, 0.022, 6 if HIGH else 3, 5.0)); mesh('Arm', V, [Q, Tr], 'Iron', uv=uv)
+        hoop('Holder', (0, 0.20, 0.05), 0.04, 0.006, (0, 0, 1.0))
+        hoop('Holder2', (0, 0.20, -0.07), 0.03, 0.005, (0, 0, 1.0))
+        tube('Stay', np.array([[0, 0.006, -0.11], [0, 0.17, -0.07]]), [1.0, 0, 0], 0.005, 'Iron', n=8 if HIGH else 4)
+        d = unit([0.0, 0.12, 1.0]); B = np.array([0, 0.195, -0.10]); s = np.linspace(0, 1, 30 if HIGH else 8); path = B + d * (s * 0.30)[:, None]
+        wrap = sstep(0.55, 0.65, s); M1 = (24 if HIGH else 8) + 1; K = M1 - 1
+        wa = np.concatenate([np.repeat(wrap, M1), np.full(K, wrap[0]), np.full(K, wrap[-1]), [wrap[0], wrap[-1]]])
+        rad = 0.019 * (1 + 0.7 * wrap * (1 - 0.4 * sstep(0.85, 1.0, s)))
+        tube('TorchStub', path, [1.0, 0, 0], 0.019, 'Shaft', rad=rad, attrs={'wrap': wa})
+        meta = {'size': [0.1, 0.25, 0.36], 'note': 'beside tower and gate doors at 1.9-2.1 m, never alone in an empty wall. A lit version = this + the Camp torch flame Niagara + an 1800 K light (KB rule 6)'}
+    elif VAR == 'AnchorPlate':   # the S-shaped end plate of an iron tie-rod (a period repair holding a bulging wall), with the rod end and its wedge
+        t = np.linspace(-1, 1, 60 if HIGH else 14)
+        path = np.stack([0.055 * np.sin(t * PI * 0.95) * (1 - 0.15 * t * t), np.full_like(t, 0.009), 0.24 * t], -1)
+        V, Q, Tr, uv = sweep(path, np.tile([0, 1.0, 0], (len(t), 1)), rrect(0.042, 0.014, 10 if HIGH else 4, 5.0)); mesh('S', V, [Q, Tr], 'Iron', uv=uv)
+        Vs, Qs, Ts = superellipsoid(16 if HIGH else 6, 6 if HIGH else 2, 0.25)
+        mesh('Boss', Vs * np.array([0.035, 0.02, 0.035]) + np.array([0, 0.022, 0]), [Qs, Ts], 'Iron', uv=np.stack([Vs[:, 0], Vs[:, 2]], -1) * 0.05)
+        tube('RodEnd', np.array([[0, 0.0, 0], [0, 0.065, 0]]), [0, 0, 1.0], 0.013, 'Iron', n=12 if HIGH else 6)
+        plank('Wedge', (-0.004, 0.05, -0.05), (-0.004, 0.05, 0.05), 0.012, 0.02, 1310, (1.0, 0, 0), mname='Iron')
+        meta = {'size': [0.13, 0.07, 0.5], 'note': 'pairs, 3-5 m apart, at a floor or wall-walk level on a long outer face; rare (2-3 per wall); rust streak card below'}
+    else:   # DrainSpout: a projecting stone spout (scupper) that throws the wall-walk rain clear of the wall face; a worn channel on top
+        L, Wd, Hs = 0.55, 0.22, 0.20
+        Vs, Qs, Ts = superellipsoid(128 if HIGH else 28, 64 if HIGH else 12, 0.12)
+        P = Vs * np.array([Wd / 2, L / 2, Hs / 2]) + np.array([0, L / 2 - 0.12, 0])      # 12 cm of it sits inside the wall
+        y_ = P[:, 1]; top = P[:, 2] > Hs * 0.15
+        ch = np.exp(-(P[:, 0] / 0.045) ** 2) * top * sstep(-0.05, 0.05, y_)                  # the water channel cut in the top
+        P[:, 2] -= 0.06 * ch
+        P[:, 2] -= 0.04 * sstep(0.1, L - 0.12, y_) * (P[:, 2] > -Hs * 0.3)                  # the end droops a little (worn, tapered lip)
+        if HIGH: P = P + (0.004 * (fbm(P[:, 0] * 30 + P[:, 1] * 10, P[:, 2] * 30, 1320, 4) - 0.5))[:, None] * unit(P - np.array([0, L / 2 - 0.12, 0]))
+        mesh('Spout', P, [Qs, Ts], 'Stone', uv=np.stack([P[:, 0] + P[:, 1], P[:, 2] + P[:, 1]], -1), attrs={'soot': np.zeros(len(P))})
+        meta = {'size': [Wd, L, Hs], 'outlet': [0.0, L - 0.12, 0.02], 'note': 'at wall-walk floor level on the OUTER face, every 6-10 m and at low points; the #504 streak card goes under its outlet (the water falls clear, the wall below the lip still stains)'}
 
 json.dump({'grip': [0, 0, 0], **meta}, open(os.path.join(D, 'camp%s_meta.json' % VAR.lower()), 'w'))
 tris = sum(len(p.vertices) - 2 for o in bpy.data.objects if o.type == 'MESH' for p in o.data.polygons)

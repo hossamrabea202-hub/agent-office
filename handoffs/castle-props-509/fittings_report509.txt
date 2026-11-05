@@ -1,0 +1,6 @@
+fittings {'HoardingBay': 3, 'HoardingEnd': 2} | spout streak cards 0 | gate castle_gatelanding
+HoardingBay      -175     2050     983 yaw   90  bay
+HoardingBay      -175     1750     983 yaw   90  bay
+HoardingBay      -175     1450     983 yaw   90  bay
+HoardingEnd      -175     1300     983 yaw   90  end
+HoardingEnd      -175     2200     983 yaw   90  end (mirrored)

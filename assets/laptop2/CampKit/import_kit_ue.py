@@ -14,12 +14,13 @@ KIT = os.path.basename(SRC)
 KITS = {  # kit: (UE folder, {item: (mesh names, texture prefix, emissive, collision)})
     'BarracksProps': ('/Game/CastleDefender/Environment/Barracks', {v: (['SM_Barracks_' + v], 'T_Barracks_' + v, False, True) for v in ('Crate', 'Barrel', 'Sack', 'WeaponRack')}),
     'SiegeGate': ('/Game/CastleDefender/Environment/Boundaries/SiegeGate', {'Gate': (['SM_SiegeGate_' + p for p in ('Frame', 'LeafL', 'LeafR', 'Bar', 'Lever')], 'T_SiegeGate', False, True)}),
-    'CampKit': ('/Game/CastleDefender/Environment/Camp', {v: (['SM_Camp_' + v], 'T_Camp_' + v, v in ('TorchPost', 'Campfire'), v != 'Campfire') for v in ('TorchPost', 'Campfire', 'HayBale', 'Well', 'HandCart', 'MarketStall', 'Anvil', 'Tent', 'SiegeLadder', 'Workbench', 'Grindstone', 'Forge', 'Banner', 'GoldPile', 'Firewood', 'Lantern', 'Signpost', 'TargetDummy', 'Burrow')}),
+    'CampKit': ('/Game/CastleDefender/Environment/Camp', {v: (['SM_Camp_' + v], 'T_Camp_' + v, v in ('TorchPost', 'Campfire'), v != 'Campfire') for v in ('TorchPost', 'Campfire', 'HayBale', 'Well', 'HandCart', 'MarketStall', 'Anvil', 'Tent', 'SiegeLadder', 'Workbench', 'Grindstone', 'Forge', 'Banner', 'GoldPile', 'Firewood', 'Lantern', 'Signpost', 'TargetDummy', 'Burrow', 'ArrowSheaf', 'SpearStook', 'DropStones', 'FireBucket', 'HoardingBay', 'HoardingEnd', 'TieRing', 'WallBracket', 'AnchorPlate', 'DrainSpout')}),
     'CannonCart': ('/Game/CastleDefender/Environment/Camp', {'CannonCart': (['SM_Camp_CannonCart_' + p for p in ('Body', 'WheelL', 'WheelR')], 'T_Camp_CannonCart', False, True)}),
     'FireBallista': ('/Game/CastleDefender/Weapons/FireBallista', {'Ballista': (['SM_FireBallista_' + p for p in ('Base', 'Frame', 'Slider', 'Spear')], 'T_FireBallista', True, True)}),
 }
 if KIT not in KITS: raise RuntimeError('run this from inside one of the kit folders: ' + ', '.join(KITS))
 ROOT, ITEMS = KITS[KIT]
+if '--temp' in sys.argv: ROOT = '/Game/_i5tmpWS509'          # #509 i5 lookdev: a throwaway folder, deleted after the shots
 pick = [a for a in sys.argv[1:] if a in ITEMS] or list(ITEMS)
 EAL, MEL, SML = unreal.EditorAssetLibrary, unreal.MaterialEditingLibrary, unreal.EditorStaticMeshLibrary
 tools = unreal.AssetToolsHelpers.get_asset_tools()

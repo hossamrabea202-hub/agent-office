@@ -1,0 +1,457 @@
+WPO audit: 452 swaying level components, 0 swaying foliage types, dry run
+
+# level components
+NOWIND -      cur      0  inst      0  JellyTrailManager | SM_SlimeGrid | M_JellyTrail_v3
+NOWIND -      cur      0  inst      1  AshenGate_Portal | SM_AshenGate_PortalPlane | M_AshenGate_PortalLive
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_00 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_01 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_02 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_03 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_04 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_05 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_06 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_07 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  CorruptionBubble_Road_08 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_01 | SkeletalMeshComponent | M_CorruptedTentacle_Ripple2
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_01 | SkeletalMeshComponent | M_TentacleJellyShell
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_02 | SkeletalMeshComponent | M_CorruptedTentacle_Ripple2
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_02 | SkeletalMeshComponent | M_TentacleJellyShell
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_03 | SkeletalMeshComponent | M_CorruptedTentacle_Ripple2
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_03 | SkeletalMeshComponent | M_TentacleJellyShell
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_04 | SkeletalMeshComponent | M_CorruptedTentacle_Ripple2
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_04 | SkeletalMeshComponent | M_TentacleJellyShell
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_05 | SkeletalMeshComponent | M_CorruptedTentacle_Ripple2
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_05 | SkeletalMeshComponent | M_TentacleJellyShell
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_4 | SkeletalMeshComponent | M_CorruptedTentacle_Ripple2
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_4 | SkeletalMeshComponent | M_TentacleJellyShell
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_5 | SkeletalMeshComponent | M_CorruptedTentacle_Ripple2
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_5 | SkeletalMeshComponent | M_TentacleJellyShell
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_Fog1 | SkeletalMeshComponent | M_CorruptedTentacle_Ripple2
+NOWIND -      cur      0  inst      1  Env_CorruptedTentacle_Fog1 | SkeletalMeshComponent | M_TentacleJellyShell
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_00 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_01 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_02 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_03 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_04 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_05 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_06 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_07 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_08 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyBubble_Gate_09 | SM_BubbleSphere_LOD | M_JellyBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_00 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_00 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_01 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_01 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_02 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_02 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_03 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_03 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_04 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_04 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_05 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_05 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_06 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_06 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_07 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_07 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_08 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_08 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Gate_09 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Gate_09 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_00 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_00 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_01 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_01 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_02 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_02 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_03 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_03 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_04 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_04 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_05 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_05 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_06 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_06 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_07 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_07 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  JellyMine_Road_08 | SM_BubbleSphere_LOD | M_CorruptionBubble
+NOWIND -      cur      0  inst      1  JellyMine_Road_08 | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  Lookdev386_New | Sphere | M_JellyBlob_Real
+NOWIND -      cur      0  inst      1  Lookdev386_Old | Sphere | M_JellyBlob
+NOWIND -      cur      0  inst      1  NPC_BarracksWarden | SkeletalMeshComponent | M_armor_set_1_Barracks
+NOWIND -      cur      0  inst      1  NPC_QuestGiver | SkeletalMeshComponent | M_armor_set_1
+NOWIND -      cur      0  inst      1  Realm_Bubble_Inner | SM_RealmBubbleHi | M_RealmBubble3_Dream
+NOWIND -      cur      0  inst      1  Realm_Bubble_Owner | SM_RealmBubbleHi | M_RealmBubble3_Dream
+cloth  set 4000 cur      0  inst      1  Castle_RoyalStandard2_Cloth | SkeletalMeshComponent | M_ClothStandard
+cloth  set 4000 cur      0  inst      1  Castle_RoyalStandard3_Cloth | SkeletalMeshComponent | M_ClothStandard
+cloth  set 4000 cur      0  inst      1  Castle_RoyalStandard4_Cloth | SkeletalMeshComponent | M_ClothStandard
+cloth  set 4000 cur      0  inst      1  Castle_RoyalStandard_Cloth | SkeletalMeshComponent | M_ClothStandard
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_3_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_3_4_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_3_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst      0  LandscapeStreamingProxy_4_4_0 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     19  Meadow351 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     21  Meadow351 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     24  Meadow351 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     25  Meadow351 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     25  Meadow351 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     25  Meadow351 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     27  Meadow351 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     32  Meadow351 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     76  Meadow351 | SM_vdknafgha_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     78  Meadow351 | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     82  Meadow351 | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     84  Meadow351 | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     85  Meadow351 | SM_vdknafgha_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     87  Meadow351 | SM_vdknafgha_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     87  Meadow351 | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst     87  Meadow351 | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    120  Env_BaseRubble | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    126  Env_BaseRubble | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    126  Env_BaseRubble | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    128  Env_BaseRubble | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    132  Meadow351 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    137  Meadow351 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    140  Meadow351 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    143  Meadow351 | SM_MWAM_GrassA | MTL_MWAM_CoverFoliage_MASTER
+plant  set 2500 cur      0  inst    143  Meadow351 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    144  Meadow351 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    147  Meadow351 | SM_MWAM_GrassC | MTL_MWAM_CoverFoliage_MASTER
+plant  set 2500 cur      0  inst    147  Meadow351 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    150  Meadow351 | SM_MWAM_GrassB | MTL_MWAM_CoverFoliage_MASTER
+plant  set 2500 cur      0  inst    151  Meadow351 | SM_MWAM_GrassD | MTL_MWAM_CoverFoliage_MASTER
+plant  set 2500 cur      0  inst    151  Meadow351 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    151  Meadow351 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    152  Meadow351 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    152  Meadow351 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    152  Meadow351 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    153  Meadow351 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    156  Meadow351 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    157  Meadow351 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    159  Meadow351 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    162  Meadow351 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    288  Meadow351 | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    297  Meadow351 | SM_MWAM_GrassC | MTL_MWAM_CoverFoliage_MASTER
+plant  set 2500 cur      0  inst    299  Meadow351 | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    302  Meadow351 | SM_MWAM_GrassB | MTL_MWAM_CoverFoliage_MASTER
+plant  set 2500 cur      0  inst    305  Meadow351 | SM_MWAM_GrassA | MTL_MWAM_CoverFoliage_MASTER
+plant  set 2500 cur      0  inst    309  Meadow351 | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    312  Meadow351 | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    313  Meadow351 | SM_MWAM_GrassD | MTL_MWAM_CoverFoliage_MASTER
+plant  set 2500 cur      0  inst    316  Meadow351 | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    319  Meadow351 | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    320  Meadow351 | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    321  Meadow351 | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    328  Meadow351 | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    343  Meadow351 | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    345  Meadow351 | SM_vczndjqja_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    347  Meadow351 | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    348  Meadow351 | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    351  Meadow351 | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    358  Meadow351 | SM_vlkhcbxia_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur      0  inst    359  Meadow351 | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst    147  Env_Shrubs | SM_vdknafgha_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst    155  Env_Shrubs | SM_vdknafgha_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst    157  Env_Shrubs | SM_vdknafgha_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst    162  Env_Shrubs | SM_vdknafgha_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst    167  Env_Shrubs | SM_vdknafgha_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   2980  Env_GrassShort | SM_vlkhcbxia_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3004  Env_GrassShort | SM_vlkhcbxia_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3018  Env_GrassShort | SM_vlkhcbxia_VarC | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3027  Env_GrassShort | SM_vlkhcbxia_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3032  Env_GrassShort | SM_vlkhcbxia_VarG | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3045  Env_GrassShort | SM_vlkhcbxia_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3065  Env_GrassShort | SM_vlkhcbxia_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3221  Env_GrassTall | SM_vczndjqja_VarH | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3229  Env_GrassTall | SM_vczndjqja_VarD | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3259  Env_GrassTall | SM_vczndjqja_VarB | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3287  Env_GrassTall | SM_vczndjqja_VarA | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3318  Env_GrassTall | SM_vczndjqja_VarF | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3333  Env_GrassTall | SM_vczndjqja_VarE | M_MS_Foliage_RootDark
+plant  set 2500 cur   4000  inst   3448  Env_GrassTall | SM_vczndjqja_VarG | M_MS_Foliage_RootDark
+
+# foliage types

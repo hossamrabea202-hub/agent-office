@@ -1,0 +1,21 @@
+wall-walk floor points 230, clusters 20 {'arrows': 9, 'stones': 4, 'fire': 6, 'spears': 1}, gate ('castle_gatelanding', <Struct 'Vector' (0x000002367B54B080) {x: -254.000000, y: 1750.000000, z: -34.500000}>)
+arrows      3300      400    680  parapet  57 cm  lane 124 cm
+arrows       200      500   1070  parapet  54 cm  lane 169 cm  GATE
+stones      -100     -400   1070  parapet 202 cm  lane 184 cm
+arrows      4600      700    680  parapet 141 cm  lane 192 cm
+fire        2400     3200    680  parapet 125 cm  lane 204 cm
+stones      -100     3000   1070  parapet  54 cm  lane 184 cm  GATE
+fire        -100     1800    983  parapet  62 cm  lane 204 cm  GATE
+arrows      4500      100   1070  parapet  51 cm  lane 104 cm
+arrows      2700     1500   1042  parapet 175 cm  lane 192 cm
+fire        4700     3400   1070  parapet  96 cm  lane 204 cm
+arrows       400     3600   1070  parapet 173 cm  lane 112 cm
+spears      2200      300    680  parapet 177 cm  lane 196 cm
+arrows       800      100    677  parapet 125 cm  lane 192 cm
+fire        2900     3500   1070  parapet 253 cm  lane 204 cm
+arrows      3000     2300    692  parapet  73 cm  lane 192 cm
+fire         300     2500    677  parapet 116 cm  lane 135 cm  GATE
+stones      -200     3600    680  parapet  97 cm  lane 184 cm
+arrows       800     3100    677  parapet  31 cm  lane 192 cm
+fire        2300     2100   1042  parapet  84 cm  lane 204 cm
+stones       300     1200    983  parapet 104 cm  lane 184 cm  GATE

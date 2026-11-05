@@ -314,3 +314,22 @@ far sky and renders black; put fog in a bounded box. Notes, sources: handoffs/wi
   ~half the drip-edge columns streak. Use lane width x (1 - 0.7 t), a 1-D noise meander and a hash skip.
 - Transient-package materials (`unreal.new_object`) never compile, not even 1 node. Use an unsaved real package (/Game/_tmp).
 - Instanced Modulate cards with PerInstanceCustomData seed = a few draw calls for thousands of stains (`used_with_instanced_static_meshes`).
+
+## 2026-11-05 · #509 castle wall props (i5 checkking)
+- **Iron in the camp kit was "dark metal":** pbr_check flagged 65-75 % of metal texels < 150 sRGB and 10-12 % in-between
+  metallic. Cause: shieldmat.iron gives the oxide scale metallic 0.35. Scale and rust are NON-metal layers (KB rule 1):
+  `campmat.iron_cal` remaps metallic so bare iron = 1, scale/rust = 0, in-between only at layer edges. Arrow heads then
+  read metal p50 185 sRGB, clean. Other kits still use the shared one: fix on their next rebake.
+- **"Roughness nearly flat" on stone and wooden shafts:** a physical cause per scale fixes it, not noise for its own sake:
+  water-worn stones polish on their convex high points (bevel/edge mask -> rough ~0.55, hollows ~0.9); handled shafts
+  polish at the grips plus dull grain streaks. DropStones went from std 0.04 to p5/p95 0.71/0.89, OK.
+- **Wall-walk finder that works on this castle** (place_stores509): downward grid traces for stone floors; a parapet
+  20-260 cm to one side; the DROP behind it found by stepping outward 50 cm at a time (walls here are > 1.5 m thick, a
+  single test point lands on the wall top); >= 1.6 m free on the walk side; floor under the lane. Exclude tree canopies
+  (Env_Trees read as flat 'floor' from above).
+- **Wall feet:** castle pieces run BELOW the ground, so "the bottom of the mesh is at the ground" is wrong; test that
+  the ground meets the face (ground z < piece top - 80 cm) and accept any stone piece hit at 25 cm (plinths, skirts).
+- **Gate tops have parapets both ways (and merlons):** the nearest parapet can be the courtyard side. Take "outward" from
+  the castle centre through the gate, and sample the face just BELOW the walk floor (the coping face) for hoardings.
+- **Bake pipeline gotcha:** laptop2's run_shield.ps1 deletes `<Name>_high.blend` after a bake: keep a copy before a rebake.
+  All kit modules must sit in ONE folder (bake_shield imports gatemat, floramat, groundmat...).

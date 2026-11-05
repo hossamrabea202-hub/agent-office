@@ -26,7 +26,8 @@ def plank(name, p0, p1, w, t, seed, up, mname='Plank', rot=0.0, gname=None):
     rot: how rotten its lower end is (0..1): eroded edges, a ragged, splintered bottom."""
     rng = np.random.default_rng(seed)
     p0, p1 = np.asarray(p0, float), np.asarray(p1, float); L = np.linalg.norm(p1 - p0)
-    nl = max(int(L / (0.006 if HIGH else 0.5)), 2) + 1
+    HS = float(__import__('os').environ.get('HIGH_SCALE', '1'))      # >1 = coarser high mesh for big assets seen from afar (#509 hoarding)
+    nl = max(int(L / (0.006 * HS if HIGH else 0.5)), 2) + 1
     path = p0[None] + np.linspace(0, 1, nl)[:, None] * (p1 - p0)[None]
     prof = board_prof(w, t, HIGH)
     V, Q, Tr, uv = sweep(path, np.tile(np.asarray(up, float), (nl, 1)), prof)

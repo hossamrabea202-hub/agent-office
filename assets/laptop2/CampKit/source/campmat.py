@@ -192,7 +192,57 @@ def gold(m):
     _finish(nt, col, rg, mt, ao)
     nt.links.new(bump.outputs['Normal'], nt.nodes['BSDF'].inputs['Normal'])
 
-KIND = {'Plank': gatemat.plank, 'Iron': shieldmat.iron, 'Coal': ballistamat.coal, 'Shaft': ballistamat.shaft, 'Twine': potionmat.twine,
+def feather(m):
+    """#509 grey goose fletching: barbs along the vane (UV u = along the shaft), a pale quill edge, darker tip bars, soiled near the shaft."""
+    m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    co = _co(nt); uv = _n(nt, 'ShaderNodeTexCoord').outputs['UV']; cav, ao = _cav(nt, 0.004)
+    s = _sep(nt, uv); v = s[1]
+    barb = _n(nt, 'ShaderNodeTexWave', wave_type='BANDS', bands_direction='X', in_Scale=900.0, in_Distortion=1.5, in_Detail=2.0); nt.links.new(uv, barb.inputs['Vector'])
+    tone = _noise(nt, co, 40, 3, 0.55)
+    col = _mix_col(nt, tone, (0.17, 0.165, 0.155), (0.30, 0.29, 0.27))                    # grey goose: ~115-150 sRGB
+    col = _mix_col(nt, _math(nt, 'MULTIPLY', _maprange(nt, barb.outputs['Fac'], 0.3, 0.9), 0.35), col, _mul_col(nt, col, 0.7))
+    col = _mix_col(nt, _maprange(nt, v, 0.012, 0.015, 0, 0.6), col, (0.10, 0.095, 0.09))    # darker outer edge of the vane
+    col = _mix_col(nt, _maprange(nt, v, 0.002, 0.0, 0, 0.7), col, (0.55, 0.52, 0.46))     # pale quill along the shaft
+    col = _mix_col(nt, _maprange(nt, cav, 0.2, 0.7, 0, 0.5), col, (0.06, 0.05, 0.04))      # grime where it meets the shaft
+    rg = _mix_f(nt, tone, 0.62, 0.78)
+    _finish(nt, col, rg, 0.0, ao)
+
+def water(m):
+    """#509 still water in a wooden bucket: near-black body (the stave shadow), a faint brown tannin tint, glossy."""
+    m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    co = _co(nt); cav, ao = _cav(nt, 0.01)
+    col = _mix_col(nt, _noise(nt, co, 8, 3, 0.5), (0.020, 0.018, 0.013), (0.032, 0.028, 0.020))   # >= 30 sRGB floor
+    rg = _mix_f(nt, _noise(nt, co, 30, 3, 0.6), 0.04, 0.09)
+    _finish(nt, col, rg, 0.0, ao)
+
+def iron_cal(m):
+    """#509: shieldmat.iron with KB rule 1 enforced: the oxide scale and the rust are NON-metal layers, so metallic is 0 there and
+    1 on bare iron, in-between only at the edges of the layers (pbr_check flagged 10 % in-between texels and dark 'metal')."""
+    shieldmat.iron(m); nt = m.node_tree
+    out = nt.nodes['OUT_MT']; src = out.inputs[0].links[0].from_socket
+    nt.links.new(_maprange(nt, src, 0.80, 0.97), out.inputs[0])
+
+def river_stone(m):
+    """#509 drop stones: the fieldstone, but water-worn: convex high points polished (rough ~0.55), hollows and lichen stay rough,
+    plus mid-scale patchiness (pbr_check: 'roughness nearly flat' on the plain Stone)."""
+    stone(m); nt = m.node_tree; co = _co(nt)
+    out = nt.nodes['OUT_RG']; src = out.inputs[0].links[0].from_socket
+    edge = _edge(nt, 0.02)
+    polish = _math(nt, 'MULTIPLY', _maprange(nt, edge, 0.02, 0.25), 0.30)
+    patch = _math(nt, 'MULTIPLY', _math(nt, 'SUBTRACT', _noise(nt, co, 3, 3, 0.55), 0.5), 0.22)
+    rg = _math(nt, 'ADD', _math(nt, 'SUBTRACT', src, polish), patch)
+    nt.links.new(_maprange(nt, rg, 0.0, 1.0, 0.35, 0.95), out.inputs[0])
+
+def shaft_cal(m):
+    """#509: ballistamat.shaft + roughness at two more scales (pbr_check: 'nearly flat'): hand-polished grip patches (glossier)
+    and dull weathered grain streaks along the shaft."""
+    ballistamat.shaft(m); nt = m.node_tree; co = _co(nt)
+    out = nt.nodes['OUT_RG']; src = out.inputs[0].links[0].from_socket
+    polish = _math(nt, 'MULTIPLY', _maprange(nt, _noise(nt, co, 2.5, 3, 0.5), 0.45, 0.70), 0.22)
+    grain = _math(nt, 'MULTIPLY', _math(nt, 'SUBTRACT', _noise(nt, _scale(nt, co, 1.0, 1.0, 0.08), 90, 3, 0.6), 0.5), 0.16)
+    nt.links.new(_maprange(nt, _math(nt, 'ADD', _math(nt, 'SUBTRACT', src, polish), grain), 0.0, 1.0, 0.3, 0.95), out.inputs[0])
+
+KIND = {'RiverStone': river_stone, 'Feather': feather, 'Water': water, 'Plank': gatemat.plank, 'Iron': iron_cal, 'Coal': ballistamat.coal, 'Shaft': shaft_cal, 'Twine': potionmat.twine,
         'Stone': stone, 'Grindstone': grindstone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'CanvasEnd': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold, 'Burlap': propmat.burlap, 'Grain': propmat.grain, 'WaxRed': potionmat.KIND['WaxRed']}
 def build_all():
     woodmat.build_all()
