@@ -25,3 +25,16 @@ Hint shows at <50% HP. Q drinks (x0, sweep, green glow). Q in cooldown = red ref
 
 ## Not done
 - The hero regenerates HP very fast (~20 HP/s in Play), which makes potions nearly pointless. That's a balance call for Alien.
+
+## 2026-11-05: swap Q and xN + move the 7 badge (owner)
+Alien: *"on the potion icon x1 is down and Q up, switch their places. Also icon 7 (armor skill) is hiding the health value bar."*
+`hud_swap_ue.py` (live-graph edit, no paste): 4 number literals in BPC_PotionBelt, so xN goes top-left and the Q cap bottom-right; plus
+#477's 7-badge spot (`EmberX/EmberY` on BPC_ObsidianSet, right of the HP bar, the old `ember_pos_ue.py` with a check).
+```
+py "<repo>/handoffs/potion-polish-1102/hud_swap_ue.py" --dry-run     # must print 4 'potion ...' lines + the badge line
+py "<repo>/handoffs/potion-polish-1102/hud_swap_ue.py" --apply       # compiles, saves only if clean
+```
+If it says the badge is ALREADY at 0.5922 / 0.9324, the owner still sees it on the HP value: send a Play shot, or try `--badge-only --apply --x 0.5922 --y 0.80`.
+Undo the potion part: `--apply --revert --potion-only`.
+Tested on i5: dry run finds each literal exactly once; apply on a copy compiles clean and the values stick; revert works. NOT tested: how it looks
+in Play, and the badge (i5's project has no #477).
