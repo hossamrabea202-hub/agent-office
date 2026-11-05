@@ -11,6 +11,10 @@ HERE = 'C:/Users/hossam.rabea/agent-office/handoffs/castle-props-509'
 REPO = 'C:/Users/hossam.rabea/agent-office'
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem); V = unreal.Vector
 step = [a for a in sys.argv[1:] if not a.startswith('--')][0]
+# --real (i9 preview on the live castle): the real asset paths (import / build done by the README steps first), 'after' removes
+# everything again, nothing is saved. Without it: i5's temp folder.
+REAL = '--real' in sys.argv
+TMP = [] if REAL else ['--temp']
 
 
 def run(path, argv):
@@ -72,11 +76,17 @@ elif step in ('before', 'after'):
     os.makedirs(HERE + '/shots', exist_ok=True)
     for line in open(HERE + '/views509.txt'):
         k, *c = line.split(); c = [float(x) for x in c]
-        lookdev_cap.shot('%s/shots/ws509_%s_%s.png' % (HERE, k, step), V(*c[:3]), V(*c[3:]), 1.5, 50.0)
+        lookdev_cap.shot('%s/shots/ws509_%s%s_%s.png' % (HERE, 'i9_' if REAL else '', k, step), V(*c[:3]), V(*c[3:]), 1.5, 50.0)
+    if step == 'after' and REAL:          # i9 preview: take it all out again, nothing saved
+        gone = [x for x in EAS.get_all_level_actors() if set(str(t) for t in x.tags) & {'WS509', 'FX509', 'FW509', 'LD504'}]
+        for x in gone: EAS.destroy_actor(x)
+        print('preview removed', len(gone), 'actors: do NOT save the level')
+    elif step == 'before':
+        for x in [x for x in EAS.get_all_level_actors() if 'LD504' in [str(t) for t in x.tags]]: EAS.destroy_actor(x)
 elif step == 'place':
-    run(HERE + '/place_stores509_ue.py', ['--apply', '--temp'])
-    run(HERE + '/place_fittings509_ue.py', ['--apply', '--temp'])
-    run(HERE + '/place_foot509_ue.py', ['--apply', '--temp'])
+    run(HERE + '/place_stores509_ue.py', ['--apply'] + TMP)
+    run(HERE + '/place_fittings509_ue.py', ['--apply'] + TMP)
+    run(HERE + '/place_foot509_ue.py', ['--apply'] + TMP)
 elif step == 'clear':
     gone = [x for x in EAS.get_all_level_actors() if set(str(t) for t in x.tags) & {'WS509', 'FX509', 'FW509', 'LD504'}]
     for x in gone: EAS.destroy_actor(x)

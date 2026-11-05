@@ -36,6 +36,12 @@ py "<repo>/handoffs/castle-props-509/place_stores509_ue.py"
 py "<repo>/handoffs/castle-props-509/place_fittings509_ue.py"
 py "<repo>/handoffs/castle-props-509/place_foot509_ue.py"
 py "<repo>/handoffs/castle-props-509/wpo_audit509_ue.py"
+# preview on the real castle (Play stopped): places everything, before/after shots, then takes it all out. Do NOT save the level.
+py "<repo>/handoffs/castle-props-509/nomu_lookdev509_ue.py" views --real
+py "<repo>/handoffs/castle-props-509/nomu_lookdev509_ue.py" before --real
+py "<repo>/handoffs/castle-props-509/nomu_lookdev509_ue.py" place --real
+py "<repo>/handoffs/castle-props-509/nomu_lookdev509_ue.py" after --real          # a separate run: the new shaders compile first
+#   -> push handoffs/castle-props-509/shots/ws509_i9_*.png, post them on the office page (tools/shot.js --card 509)
 #   ---- owner's OK on the before/after shots ----
 py "<repo>/handoffs/castle-props-509/place_stores509_ue.py" --apply
 py "<repo>/handoffs/castle-props-509/place_fittings509_ue.py" --apply
@@ -56,3 +62,10 @@ Parts only: `place_fittings509_ue.py --only hoarding,spouts,rings,brackets,ancho
 
 ## Status
 See the bottom of this file (updated as the work goes).
+
+### Status 2026-11-05 07:40 (i5)
+- All 10 props built, baked and **pass pbr_check** (5df85eb). FBX cleaned for UE 5.8 Interchange (it refused one mesh: "unable to
+  triangulate"; now triangulated, degenerate faces removed). Imported cleanly on i5.
+- Placers + WPO audit: dry runs OK on i5's copy (counts above). Before shots on i5: `shots/ws509_*_before.png`.
+- **i5's after shots did not happen:** i5's editor ran out of VIDEO memory compiling the card shaders after 9 h of lookdev
+  (render targets add up), then restarted into the live session. So the preview runs on i9 against the real castle (steps above).
