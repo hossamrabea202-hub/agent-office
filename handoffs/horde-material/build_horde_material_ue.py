@@ -190,9 +190,33 @@ return float3(lerp(float3(0.030, 0.028, 0.018), float3(0.060, 0.050, 0.030), smo
     MEL.recompile_material(m); SAVE(DST + '/M_CD_MeltPool')
 
 
+def assign_da():
+    """i9 (chat 1675): put MI_CD_Horde_A / _B into DA_HordeZombie.Materials, in SM_HordeZombie's slot order. Which look a slot gets:
+    the slot's own material (copied from SK_Zombie by the bake) tells it, by the zombie texture it uses (T_Zombie_B_* = B);
+    if that can't be read, slot 0 = A, the others B."""
+    H = '/Game/CastleDefender/Horde/'
+    if not (EAL.does_asset_exist(H + 'DA_HordeZombie') and EAL.does_asset_exist(H + 'SM_HordeZombie')):
+        log.append('DA_HordeZombie / SM_HordeZombie not baked yet: run this script again after the bake'); return
+    sm = unreal.load_asset(H + 'SM_HordeZombie'); da = unreal.load_asset(H + 'DA_HordeZombie')
+    slots = sm.get_editor_property('static_materials'); pick = []
+    for i, s in enumerate(slots):
+        look = 'A' if i == 0 else 'B'
+        mat = s.get_editor_property('material_interface')
+        try:
+            names = ' '.join(t.get_name() for t in unreal.MaterialEditingLibrary.get_used_textures(mat)) if mat else ''
+            if 'Zombie_B' in names: look = 'B'
+            elif 'Zombie_A' in names: look = 'A'
+        except Exception: pass
+        pick.append(look); log.append('slot %d %s -> MI_CD_Horde_%s' % (i, s.get_editor_property('material_slot_name'), look))
+    if DRY: return
+    da.set_editor_property('materials', [unreal.load_asset(DST + '/MI_CD_Horde_' + k) for k in pick])
+    SAVE(H + 'DA_HordeZombie')
+
+
 if not DRY and not EAL.does_directory_exist(DST): EAL.make_directory(DST)
 for t in ('T_Zombie_A_BC', 'T_Zombie_A_ORMS', 'T_Zombie_B_BC', 'T_Zombie_B_ORMS', 'T_Zombie_Glow'):
     if not EAL.does_asset_exist(ZT + t): log.append('MISSING texture ' + ZT + t)
 build_zombie()
 build_pool()
+assign_da()
 print('\n'.join(log))
