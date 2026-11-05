@@ -839,7 +839,7 @@ elif VAR in ('TieRing', 'WallBracket', 'AnchorPlate', 'DrainSpout'):
         P[:, 2] -= 0.06 * ch
         P[:, 2] -= 0.04 * sstep(0.1, L - 0.12, y_) * (P[:, 2] > -Hs * 0.3)                  # the end droops a little (worn, tapered lip)
         if HIGH: P = P + (0.004 * (fbm(P[:, 0] * 30 + P[:, 1] * 10, P[:, 2] * 30, 1320, 4) - 0.5))[:, None] * unit(P - np.array([0, L / 2 - 0.12, 0]))
-        mesh('Spout', P, [Qs, Ts], 'Stone', uv=np.stack([P[:, 0] + P[:, 1], P[:, 2] + P[:, 1]], -1), attrs={'soot': np.zeros(len(P))})
+        mesh('Spout', P, [Qs, Ts], 'SpoutStone', uv=np.stack([P[:, 0] + P[:, 1], P[:, 2] + P[:, 1]], -1), attrs={'soot': np.zeros(len(P))})
         meta = {'size': [Wd, L, Hs], 'outlet': [0.0, L - 0.12, 0.02], 'note': 'at wall-walk floor level on the OUTER face, every 6-10 m and at low points; the #504 streak card goes under its outlet (the water falls clear, the wall below the lip still stains)'}
 
 json.dump({'grip': [0, 0, 0], **meta}, open(os.path.join(D, 'camp%s_meta.json' % VAR.lower()), 'w'))

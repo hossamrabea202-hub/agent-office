@@ -242,7 +242,20 @@ def shaft_cal(m):
     grain = _math(nt, 'MULTIPLY', _math(nt, 'SUBTRACT', _noise(nt, _scale(nt, co, 1.0, 1.0, 0.08), 90, 3, 0.6), 0.5), 0.16)
     nt.links.new(_maprange(nt, _math(nt, 'ADD', _math(nt, 'SUBTRACT', src, polish), grain), 0.0, 1.0, 0.3, 0.95), out.inputs[0])
 
-KIND = {'RiverStone': river_stone, 'Feather': feather, 'Water': water, 'Plank': gatemat.plank, 'Iron': iron_cal, 'Coal': ballistamat.coal, 'Shaft': shaft_cal, 'Twine': potionmat.twine,
+def spout_stone(m):
+    """#509 drain spout: the fieldstone, plus the water channel along the top (|x| < ~5 cm, up-facing): worn smooth and usually
+    damp, a dark green algae film in it (rough ~0.35), the rest weathered with mid-scale patches (pbr_check: 'nearly flat')."""
+    stone(m); nt = m.node_tree; co = _co(nt); s = _sep(nt, co)
+    g = _n(nt, 'ShaderNodeNewGeometry'); nz = _sep(nt, g.outputs['Normal'])[2]
+    ch = _math(nt, 'MULTIPLY', _maprange(nt, _math(nt, 'ABSOLUTE', s[0]), 0.06, 0.03), _maprange(nt, nz, 0.3, 0.8))
+    out = nt.nodes['OUT_RG']; src = out.inputs[0].links[0].from_socket
+    patch = _math(nt, 'MULTIPLY', _math(nt, 'SUBTRACT', _noise(nt, co, 12, 3, 0.55), 0.5), 0.25)
+    rg = _mix_f(nt, ch, _math(nt, 'ADD', src, patch), 0.35)
+    nt.links.new(_maprange(nt, rg, 0.0, 1.0, 0.25, 0.95), out.inputs[0])
+    bc = nt.nodes['OUT_BC']; bsrc = bc.inputs[0].links[0].from_socket
+    nt.links.new(_mix_col(nt, _math(nt, 'MULTIPLY', ch, 0.7), bsrc, (0.05, 0.07, 0.03)), bc.inputs[0])
+
+KIND = {'SpoutStone': spout_stone, 'RiverStone': river_stone, 'Feather': feather, 'Water': water, 'Plank': gatemat.plank, 'Iron': iron_cal, 'Coal': ballistamat.coal, 'Shaft': shaft_cal, 'Twine': potionmat.twine,
         'Stone': stone, 'Grindstone': grindstone, 'Mortar': mortar, 'Hay': hay, 'Canvas': canvas, 'CanvasPlain': lambda m: canvas(m, False), 'CanvasEnd': lambda m: canvas(m, False), 'Leather': shieldmat.leather, 'Banner': banner, 'Gold': gold, 'Burlap': propmat.burlap, 'Grain': propmat.grain, 'WaxRed': potionmat.KIND['WaxRed']}
 def build_all():
     woodmat.build_all()
