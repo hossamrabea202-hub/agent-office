@@ -1,4 +1,5 @@
 # #509 steps 3-5 (i5 checkking, 2026-11-05): timber hoarding over the gate, drain spouts, iron tie rings, torch brackets, tie-rod
+import os
 # anchor plates. Finds the places from the real wall geometry (the wall-walk finder of place_stores509 and the wall-foot finder of
 # place_foot509), so nothing floats and nothing is placed on a face that is not there.
 #   py place_fittings509_ue.py            DRY RUN: writes fittings_report509.txt
@@ -14,7 +15,7 @@
 #   ANCHORS   tie-rod plates, in pairs 4 m apart, ~4.5 m up on a few long faces: the period repair that holds a bulging wall.
 import math, random, sys, unreal
 args = sys.argv[1:]
-HERE = 'C:/Users/hossam.rabea/agent-office/handoffs/castle-props-509'
+HERE = os.path.dirname(os.path.abspath(__file__))   # Master: was i5's absolute path
 TAG = 'FX509'
 ONLY = set(args[args.index('--only') + 1].split(',')) if '--only' in args else {'hoarding', 'spouts', 'rings', 'brackets', 'anchors'}
 CAMP = '/Game/_i5tmpWS509/' if '--temp' in args else '/Game/CastleDefender/Environment/Camp/'
