@@ -117,16 +117,38 @@ if STRIKE:                              # bake clip + simulated IK into keys, so
             f_s = f0 + int(round((T0 + dt) * 24)); P0 = hd.get(f_s, hd[max(k for k in hd)]).copy()
             Tg = _B + _Dr * (75.0 if THROW == 'catapult' else 40.0) + Vector((off[0], off[1], 0.8)); fl = 1.6 * math.sqrt(max(1.0, (P0 - Tg).length) / G_) * 0.62
             vx = (Tg - P0 + Vector((0, 0, 0.5 * G_ * fl * fl))) / fl
-            bpy.ops.mesh.primitive_uv_sphere_add(radius=0.8, segments=16, ring_count=10); o = bpy.context.object; o.parent = root; o.data.materials.append(mat)
+            def flying(radius, mt, scl=(1, 1, 1)):
+                bpy.ops.mesh.primitive_uv_sphere_add(radius=radius, segments=10, ring_count=6); q = bpy.context.object; q.parent = root; q.data.materials.append(mt); q.scale = scl; return q
+            def key(q, f, loc, sc_):
+                q.location = loc; q.scale = sc_; q.keyframe_insert('location', frame=f); q.keyframe_insert('scale', frame=f)
+            o = flying(0.31, mat)                       # true size: 1.65 m at the placed scale of 2.7
             for f in range(f0, sc.frame_end + 1):
-                t_ = (f - f_s) / 24.0
-                o.scale = (0.001, 0.001, 0.001) if t_ < 0 else (1, 1, 1)
-                o.location = P0 if t_ < 0 else (Tg if t_ >= fl else P0 + vx * t_ + Vector((0, 0, -0.5 * G_ * t_ * t_)))
-                o.keyframe_insert('location', frame=f); o.keyframe_insert('scale', frame=f)
+                t_ = (f - f_s) / 24.0; key(o, f, P0 if t_ < 0 else (Tg if t_ >= fl else P0 + vx * t_ + Vector((0, 0, -0.5 * G_ * t_ * t_))), (0.001,) * 3 if t_ < 0 or t_ > fl + 0.4 else (1, 1, 1))
+            # the trail: a streak every 0.1 s, falling and shrinking for 0.8 s
+            wet = bpy.data.materials.get('wet') or bpy.data.materials.new('wet'); wet.diffuse_color = (0.14, 0.02, 0.015, 1)
+            for j in range(int(fl / 0.1)):
+                t0_ = j * 0.1; Q0 = P0 + vx * t0_ + Vector((0, 0, -0.5 * G_ * t0_ * t0_)); q = flying(0.14, wet); q.rotation_euler = (0, 0.3, 0)
+                for f in range(f_s + int(t0_ * 24) - 1, f_s + int((t0_ + 0.85) * 24) + 1):
+                    u = (f - f_s) / 24.0 - t0_
+                    if u < 0 or u > 0.8: key(q, f, Q0, (0.001,) * 3)
+                    else: k_ = 1 - u / 0.9; key(q, f, Q0 + Vector((0, 0, -0.5 * G_ * u * u)), (0.55 * k_, 0.55 * k_, 1.4 * k_))
+            # the landing: a 5.2 m splat and the burst's chunks
+            f_l = f_s + int(fl * 24); bpy.ops.mesh.primitive_circle_add(vertices=48, radius=0.96, fill_type='NGON'); d_ = bpy.context.object; d_.parent = root; d_.data.materials.append(wet)
+            key(d_, f_l - 1, Tg + Vector((0, 0, -0.75)), (0.001,) * 3); key(d_, f_l + 2, Tg + Vector((0, 0, -0.75)), (1, 1, 1))
+            for c_ in range(14):
+                an = c_ * 2.4; vc = Vector((math.cos(an) * (1.0 + c_ % 3), math.sin(an) * (1.0 + c_ % 3), 3.0 + c_ % 4)); q = flying(0.07, wet)
+                for f in range(f_l - 1, f_l + 22):
+                    u = (f - f_l) / 24.0
+                    pz = Tg + vc * max(0, u) + Vector((0, 0, -0.5 * G_ * max(0, u) ** 2))
+                    key(q, f, pz, (1, 1, 1) if 0 <= u < 0.8 and pz.z > Tg.z - 0.8 else (0.001,) * 3)
             print('BLOB', n, 'flight %.1f s, leaves at %.2f s' % (fl, T0 + dt))
         act_fix = sc.frame_end
 cd = bpy.data.cameras.new('c'); cam = bpy.data.objects.new('c', cd); sc.collection.objects.link(cam); sc.camera = cam
 cam.location = (0, -270, 48); cam.rotation_euler = (math.radians(90), 0, 0); cd.lens = 35
+if os.environ.get('NEAR'):                  # the close-up of the landing: a low camera near the target
+    from mathutils import Euler
+    tw = sides[-1][0].parent.matrix_world @ (_B + _Dr * (75.0 if THROW == 'catapult' else 40.0)); cam.location = tw + Vector((-3, -24, 4)); cam.rotation_euler = (Vector((tw.x, tw.y, tw.z + 3)) - cam.location).to_track_quat('-Z', 'Y').to_euler(); cd.lens = 35
+    bpy.ops.mesh.primitive_plane_add(size=600, location=(tw.x, tw.y, tw.z - 0.01)); gr_ = bpy.data.materials.new('ground'); gr_.diffuse_color = (0.20, 0.19, 0.15, 1); bpy.context.object.data.materials.append(gr_)
 sc.render.engine = 'BLENDER_WORKBENCH'; sh = sc.display.shading; sh.light = 'STUDIO'; sh.color_type = 'MATERIAL'; sh.show_cavity = True; sh.show_shadows = True
 sc.render.resolution_x, sc.render.resolution_y = 1280, 720
 if STILLS:
