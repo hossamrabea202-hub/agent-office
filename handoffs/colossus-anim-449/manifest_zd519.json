@@ -1,0 +1,184 @@
+{
+ "blueprint": "BP_Zombie",
+ "pastes": [
+  "BP_Zombie_ZD519_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "CX_133.then",
+   "to": "zdDeathBack1.execute",
+   "replace": true,
+   "note": "death pick Back: was K2Node_CallFunction_12"
+  },
+  {
+   "from": "zdDeathBack1.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathBack1.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_145.then",
+   "to": "zdDeathBack2.execute",
+   "replace": true,
+   "note": "death pick Back: was K2Node_CallFunction_15"
+  },
+  {
+   "from": "zdDeathBack2.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathBack2.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_157.then",
+   "to": "zdDeathBack3.execute",
+   "replace": true,
+   "note": "death pick Back: was K2Node_CallFunction_18"
+  },
+  {
+   "from": "zdDeathBack3.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathBack3.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_137.then",
+   "to": "zdDeathSide4.execute",
+   "replace": true,
+   "note": "death pick Side: was K2Node_CallFunction_13"
+  },
+  {
+   "from": "zdDeathSide4.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathSide4.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_149.then",
+   "to": "zdDeathSide5.execute",
+   "replace": true,
+   "note": "death pick Side: was K2Node_CallFunction_16"
+  },
+  {
+   "from": "zdDeathSide5.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathSide5.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_161.then",
+   "to": "zdDeathSide6.execute",
+   "replace": true,
+   "note": "death pick Side: was K2Node_CallFunction_19"
+  },
+  {
+   "from": "zdDeathSide6.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathSide6.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_141.then",
+   "to": "zdDeathCrumple7.execute",
+   "replace": true,
+   "note": "death pick Crumple: was K2Node_CallFunction_14"
+  },
+  {
+   "from": "zdDeathCrumple7.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathCrumple7.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_153.then",
+   "to": "zdDeathCrumple8.execute",
+   "replace": true,
+   "note": "death pick Crumple: was K2Node_CallFunction_17"
+  },
+  {
+   "from": "zdDeathCrumple8.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathCrumple8.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_165.then",
+   "to": "zdDeathCrumple9.execute",
+   "replace": true,
+   "note": "death pick Crumple: was K2Node_CallFunction_20"
+  },
+  {
+   "from": "zdDeathCrumple9.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathCrumple9.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_165.else",
+   "to": "zdDeathCollapse10.execute",
+   "replace": true,
+   "note": "death pick Collapse: was K2Node_CallFunction_21"
+  },
+  {
+   "from": "zdDeathCollapse10.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathCollapse10.self",
+   "note": "the anim instance"
+  },
+  {
+   "from": "CX_123.then",
+   "to": "zdDeathCollapse11.execute",
+   "replace": true,
+   "note": "death pick Collapse: was K2Node_CallFunction_10"
+  },
+  {
+   "from": "zdDeathCollapse11.then",
+   "to": "K2Node_CallFunction_ZB76.execute",
+   "note": "then as before"
+  },
+  {
+   "from": "PsAnimInst.ReturnValue",
+   "to": "zdDeathCollapse11.self",
+   "note": "the anim instance"
+  }
+ ]
+}

@@ -114,6 +114,31 @@ Tests (Play, wave 1+): idle zombies sway, breathe and twitch; walkers limp at 11
 arms out; a hit snaps the zombie back and it recovers without a pop; a heavy hit drops it to a knee; a death folds and
 falls face down and stays; the claw rake and the bite land at the old moments (the damage timing is untouched).
 
+## Stage 4: real deaths for every pick (`zw_deaths_ue.py` + the BP_Zombie paste `manifest_zd519.json`)
+
+BP_Zombie picks one of 12 death montages; 11 wrap the blob-rise clips `ZA_Burst_A-K` and `ZA_Laying_Idle_B` (a zombie
+dies by playing its spawn animation). The raw burst clips are untouched (the wave manager plays them for the rise);
+only what the death picks play changes.
+
+| New clip / montage | Frames | What |
+|---|---|---|
+| `ZW_Death_Back` / `AM_ZDeath_ZW_Back` | 89 | hit from the front: thrown back, a stumbling step, sits down hard, flat on its back, the arm slides off |
+| `ZW_Death_Side` / `AM_ZDeath_ZW_Side` | 89 | struck on its left: the legs give, it crumples onto its right side, the top arm and leg flop down |
+| `ZW_Death_Crumple` / `AM_ZDeath_ZW_Crumple` | 89 | the strings cut: straight down onto both knees, a beat, folds forward into a heap |
+| `ZW_Death_Collapse` / `AM_ZDeath_ZW_Collapse` | 89 | the #521 collapse as a montage |
+
+Picks after the paste: Back x3 (`Burst_A/D/G`), Side x3 (`B/E/H`), Crumple x3 (`C/F/I`), Collapse x3 (`K`, `Laying_Idle_B`
+and `A_Death`). Previews: `preview/ZW_Death_Back|Side|Crumple_before_after.mp4` (before = the blob rise they replace).
+
+Steps (Master, after #521): `py ".../zw_deaths_ue.py" --dry-run` then `py ".../zw_deaths_ue.py"` (imports 3 clips, creates
+the 4 montages in `Zombie/Anim/Death/`, DefaultSlot, blend 0.25; touches no existing asset). Then the paste: BP_Zombie >
+EventGraph > Ctrl+A, Ctrl+C -> `live.t3d`;
+`python tools/applyall/applyall.py merge --live live.t3d --manifest handoffs/colossus-anim-449/manifest_zd519.json --out merged.t3d`
+(or paste `merged_zd519.t3d` if the graph has not changed since export #518); Ctrl+A, Delete, Ctrl+V, Refresh All Nodes,
+compile, save. Pre-checked on #518: 11 pasted `Montage_Play` nodes, 33 rewires, `Validation: OK`, +44 link entries as
+expected. Rollback: paste the `live.t3d` you copied (the 4 new montages can stay). Test: kill 10 zombies, see four
+different real deaths and never a blob rise; the candle melt still runs on top.
+
 ## Rules applied
 
 INDUSTRY_SECRETS §0 rule 8, §3.4 #2 (speed match, no play-rate hack), #5 (no pops). RESEARCH.md: Gilman's retime-don't-stretch

@@ -108,3 +108,13 @@ strikes, knees never ~180) -> `ue_import_anims.py` (into `Anims_Colossus`) -> `e
   fix_impure (no change), applyall merge on the #518 EventGraph (`t3d_eventgraph.js` flattens a whole-BP export into
   the clipboard layout applyall reads): Validation OK, 24 nodes, 6 rewires, +54 link entries as expected
   (`merged_cz519.t3d`). Handed off. Tool: `tools/t3d_nodes.js` lists any export's nodes with their links.
+- **10:50 Stage 4: real deaths.** Owner: "start 1 and 2". (2) ZA_Attack_A/B/C are played by no Blueprint (only A_Attack and
+  ZA_Attack_D are), so nothing to fix there. (1) Three more deaths authored (`zperf_walkers.py`: ZW_Death_Back / Side /
+  Crumple, 89 frames each; 20-40 deg/frame on the snaps only). The parent's death pick: 12 `Montage_Play` nodes behind
+  an if-chain (CX_123..CX_165 -> K2Node_CallFunction_10..21 -> ZB76); 11 of them play blob-rise clips. Tried re-pointing
+  the montages by script: the montage keeps its old length (SequenceLength is read-only from Python) and headless
+  `delete_asset` / `consolidate_assets` do not persist, so that road is dropped. Instead: `zw_deaths_ue.py` creates 4 new
+  montages with the factory (correct length, DefaultSlot; new assets only) and `gen_zd519.py` makes a BP_Zombie paste
+  that bypasses the 11 old nodes with new ones (manifest_zd519.json: 11 nodes, 33 rewires; merge on the #518 EventGraph
+  via `t3d_eventgraph.js`: Validation OK, +44 entries as expected, `merged_zd519.t3d`). Lab: montages built from the right
+  clips (2.97 s each). Handed off.
