@@ -1,0 +1,21 @@
+{
+ "report": {
+  "ZA_Taking_Damage_B": {
+   "from": "ZW_Hit_Back",
+   "frames": 20,
+   "max_diff_deg": 0.0
+  },
+  "ZA_Taking_Damage_C": {
+   "from": "ZW_Hit_SideRight",
+   "frames": 30,
+   "max_diff_deg": 0.0
+  }
+ },
+ "log": [
+  "mode INSTALL",
+  "import ZW_Hit_Back (new)",
+  "import ZW_Hit_SideRight (new)",
+  "ZA_Taking_Damage_B <- ZW_Hit_Back {\"from\": \"ZW_Hit_Back\", \"frames\": 20, \"max_diff_deg\": 0.0}",
+  "ZA_Taking_Damage_C <- ZW_Hit_SideRight {\"from\": \"ZW_Hit_SideRight\", \"frames\": 30, \"max_diff_deg\": 0.0}"
+ ]
+}

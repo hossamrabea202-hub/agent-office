@@ -67,5 +67,6 @@ moved = {}
 for a in movers:
     p = a.get_actor_location(); moved[a.get_path_name()] = [p.x, p.y, p.z]; a.set_actor_location(unreal.Vector(p.x, p.y + MOVE_DY, p.z), False, True)
 json.dump({'hidden': [a.get_path_name() for a in hidden], 'moved': moved}, open(BK, 'w'), indent=0)
+hidden = [a for a in hidden if 'CDLock' not in [str(x) for x in a.tags]]   # Master: the four locked Mason towers are never hidden (owner's lock, 11-06)
 for a in hidden: hide(a, True)
 say('DONE applied; save the level and rebuild navigation')
