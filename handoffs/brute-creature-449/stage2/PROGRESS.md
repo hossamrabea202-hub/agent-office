@@ -11,7 +11,7 @@ is handed off as #515.
 
 | Stage | Clips | State |
 |---|---|---|
-| 1 | Pipeline round-trip; **heavy walk** at the game speed (71.5 cm/s, in place); **living idle** | in progress |
+| 1 | Pipeline round-trip; **heavy walk** at the game speed (71.5 cm/s, in place); **living idle** | **done, waiting on the owner's review** |
 | 2 | Threat roar, charge/run, 2 attacks | todo |
 | 3 | 3 hits (front / left / right), 2 deaths (forward slam, side collapse) | todo |
 | 4 | Handoff: import script (new assets in `FleshBrute/Anims_Creature/`), blend-space and BP swap with dry-run and backup | todo |
@@ -82,3 +82,10 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
   15 cm forward, crouch 12 cm, heel lift 12°. Checks printed by the script: knee angle 82–134° (never locked), worst bone
   turn **7.8°/frame** (target < 15), planted-toe speed error **0.00 cm/s**.
 - Next: import walk v2 + idle v2, run the layer (`--src Anims_Creature`), re-export from UE, render the mp4s for the owner.
+- **08:40 STAGE 1 DONE.** Walk v2 and idle v2 imported into `fblab` `Anims_Creature/`, the layer applied (`--src Anims_Creature`),
+  re-exported from UE and rendered: `preview/CR_Walk_Heavy_v2_vs_FB_A_Run.mp4`, `preview/CR_Idle_Hunt_v2_vs_FB_ZA_Idle_A.mp4`.
+  In UE (`ue_pops.py`) **0 bones over 12°/frame** in both, and the layer found two footfalls per walk cycle (frames 5, 31).
+  Shown to the owner; next is stage 2 (roar, charge, 2 attacks) after the owner's feedback.
+  **How to continue stage 2:** copy `author_idle.py` as the template (per-frame `pose_frame(f)` → `P.key`), keep the feet on
+  `P.leg_ik`, check with the built-in knee/snap prints, import → layer `--src Anims_Creature` → `export_fbx.py` → `render_mesh.py`.
+  Attacks: keep the strike readable, anticipation ≥ 0.4 s, strike 3–5 frames, a long settle (RESEARCH.md: Gilman).
