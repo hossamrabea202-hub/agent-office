@@ -1,9 +1,10 @@
 {
- "working": "#519 stage 3: the walkers (locomotion at measured speeds, hits, death)",
- "tokens": 330000,
+ "working": "#519: waiting on export #518 for the breaker wiring paste",
+ "tokens": 420000,
  "ctx": 1000000,
  "since": "2026-11-06T07:24:55Z",
  "done": [
+  "#519 stage 3: walker set handed off [58% tokens left]",
   "#519 stage 1: colossus walk/smash/death handed off [67% tokens left]",
   "#472 G H J handed to i9 [38% tokens left]",
   "#472 sweep + LOD scripts, #457 explained [46% tokens left]",
@@ -12,8 +13,7 @@
   "#472 fix E + impact layers [66% tokens left]",
   "#472 fix D + pick-up note [70% tokens left]",
   "#472 A+B+C scripts handed to i9 [76% tokens left]",
-  "#450 #457 frozen tentacles fix handed to i9 [81% tokens left]",
-  "#472 fix B handed to i9 [86% tokens left]"
+  "#450 #457 frozen tentacles fix handed to i9 [81% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T07:49:25Z",
+ "asOf": "2026-11-06T08:05:01Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
