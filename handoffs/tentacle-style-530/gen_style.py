@@ -10,6 +10,7 @@
 #   an asymmetric breath pulse climbing the arm, a small organic residue. Variants differ in posture, looks, breath and twitches.
 # WOUNDED (20 s seamless loop): sagging posture, laboured breath, tremor bursts on the hurt side.
 # ENRAGED / ENRAGED_HURT (8 s seamless loops): fast pose-to-pose thrashing with a strain tremor and head jabs; HURT sags, shakes harder and lurches.
+# ERUPT (6 s, #541): the arm bursts up: tip whipping, big snaking waves that shrink as it reaches height, a shudder, rest.
 # SPIT (1.75 s, #533): a swallow bulge climbs the arm, the head rears, thrusts on 0.55 s (blobs leave), gags twice, rest.
 # CATAPULT (7.0 s, #533): the sting of the hit, then the arm loads (slow coil, twist, a bulge climbing, 12 Hz strain);
 #   release on 2.5 s (matches the Delays in wire_spit_ue.py), whip with overlap base -> tip, follow-through, a long settle.
@@ -21,7 +22,7 @@ AMP = float(argv[3]) if len(argv) > 3 else 1.0
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.fbx(filepath=SRC, use_anim=True)
 arm = next(o for o in bpy.data.objects if o.type == 'ARMATURE')
-FPS = 24; SEC = {'STRIKE': 7.6, 'WOUNDED': 20.0, 'SPIT': 1.75, 'CATAPULT': 7.0, 'ENRAGED': 8.0, 'ENRAGED_HURT': 8.0}.get(WHICH, 40.0); N = int(round(FPS * SEC))
+FPS = 24; SEC = {'STRIKE': 7.6, 'WOUNDED': 20.0, 'SPIT': 1.75, 'CATAPULT': 7.0, 'ENRAGED': 8.0, 'ENRAGED_HURT': 8.0, 'ERUPT': 6.0}.get(WHICH, 40.0); N = int(round(FPS * SEC))
 sc = bpy.context.scene; sc.render.fps = FPS; sc.frame_start, sc.frame_end = 1, N + 1
 def depth(b):
     d = 0
@@ -184,6 +185,13 @@ def enraged(t, i, s, R):
         x += 6.0 * gauss(s, 0.62, 0.3) - 2.5 * b * gauss(s, 0.55, 0.32); z += -2.0 * env; y += -4.0 * s                         # the sag and laboured breath of the wounded idle
     return x, y, z
 
+def erupt(t, i, s):
+    dec = math.exp(-t / 1.7); w = lambda c, p, lag: math.sin(TAU * c * t + p - lag * i)
+    x = (-16.0 * math.exp(-t / 0.5)) * s ** 1.5 + 13.0 * dec * w(0.95, 0.2, 0.62) * (0.2 + 0.8 * s) + 5.0 * dec * w(2.3, 1.1, 0.9) * s
+    z = 11.0 * dec * w(0.8, 1.9, 0.55) * (0.2 + 0.8 * s) + 4.0 * dec * w(2.1, 3.0, 0.85) * s; y = 20.0 * dec * math.sin(TAU * 0.6 * t) * s
+    x += 1.6 * bump(t, 3.2, 4.8) * math.sin(TAU * 9.0 * t + 0.8 * i) * (0.3 + 0.7 * s)                        # the shudder as it stops
+    k = 1.0 - ease((t - 5.2) / 0.8); return x * k, y * k, z * k
+
 act = bpy.data.actions.new('Tentacle' + WHICH); arm.animation_data_create(); arm.animation_data.action = act
 for b in bones: b.rotation_mode = 'XYZ'
 for f in range(N + 1):
@@ -193,6 +201,7 @@ for f in range(N + 1):
         if WHICH == 'STRIKE': x, y, z = strike(t, i, s)
         elif WHICH == 'WOUNDED': x, y, z = wounded(t, i, s)
         elif WHICH == 'SPIT': x, y, z = spit(t, i, s)
+        elif WHICH == 'ERUPT': x, y, z = erupt(t, i, s)
         elif WHICH in RAGE: x, y, z = enraged(t, i, s, RAGE[WHICH])
         elif WHICH == 'CATAPULT': x, y, z = catapult(t, i, s)
         else: x, y, z = hunt(t, i, s, HUNT[WHICH[-1]])
