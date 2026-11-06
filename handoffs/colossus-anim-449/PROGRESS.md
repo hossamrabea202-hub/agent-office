@@ -94,3 +94,17 @@ strikes, knees never ~180) -> `ue_import_anims.py` (into `Anims_Colossus`) -> `e
 - **09:50 STAGE 3 DONE.** 11 clips in `fbx/`, 11 mp4s in `preview/`. `zw_walkers_ue.py` tested in the lab: dry-run, install
   (14 targets written, every `max_diff_deg` 0.0, `ZA_Walk_A` with 2 stomps), restore (0.00005 deg vs the backups), reinstall.
   Handed off. Open: the smash pin + death wiring for the breaker (export #518 not landed yet); the 11 burst-based death picks.
+- **10:05 Export #518 landed** (BP_ZombieWallBreaker, BP_Zombie, ABP, BS; 09:24). Breaker graph unchanged since 11-03 except
+  the #317 merge. Two findings: (1) the breaker sets **GlobalAnimRateScale 0.2** at BeginPlay (BP_Rate) and after each
+  smash (SM_Rate2): the human A_Walk was slowed 5x to hide its 1.2 m steps; (2) **MaxWalkSpeed = 30 x GiantScale**
+  (117-174), not 90. So CZ_Walk_Colossus is re-authored at **30 cm/s at scale 1** (the feet then match at every size at
+  rate 1): 5.1 deg/frame, knees 106-133, 0.01 cm/s skate; fbx + mp4 replaced. BP_Zombie now parents the C++ ZombieBase;
+  its death runs inside the AnyDamage handler: SetAnimationMode(AnimationBlueprint) + one of 12 Montage_Play (CX_123
+  picks), and the C++ candle melt hides the mesh ~2.3 s after death (cd.Zombie.CandleMelt).
+- **10:20 Wiring paste built** (`gen_cz519.py` on bpkit): rate 1.0 after BP_Rate and after SM_D2 (replacing the 0.2),
+  PlayAnimation(CZ_Attack_Smash) between SM_Rate and SM_D1, and an AnyDamage override (Parent -> if Dead and not
+  GiantDead -> GiantDead = true, rate 1.0, PlayAnimation(CZ_Death_Colossus); PlayAnimation puts the mesh back in
+  single-node mode so the giant death replaces the montage from frame 0). New var GiantDead (VARIABLES.md). Pre-checks:
+  fix_impure (no change), applyall merge on the #518 EventGraph (`t3d_eventgraph.js` flattens a whole-BP export into
+  the clipboard layout applyall reads): Validation OK, 24 nodes, 6 rewires, +54 link entries as expected
+  (`merged_cz519.t3d`). Handed off. Tool: `tools/t3d_nodes.js` lists any export's nodes with their links.

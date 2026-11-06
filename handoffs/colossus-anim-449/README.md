@@ -18,7 +18,7 @@ at x5 the feet travel 5x faster than the body, so the giant moonwalks at a human
 
 | Clip | Frames | What |
 |---|---|---|
-| `CZ_Walk_Colossus` | 79 (2.6 s loop) | a step every 1.3 s (a 9 m body: sqrt(5) x a human's period). In place, the feet matched to **90 cm/s at x4.85** (18.6 cm/s at scale 1, 0.01 cm/s skate error). Long double support, a fast impact drop + slow recovery on every footfall, 6 cm sway (30 cm in game), hunched predator lean, heavy late arms, stabilised head, curled claws. Knees 109-129 deg, worst bone turn 4.4 deg/frame |
+| `CZ_Walk_Colossus` | 79 (2.6 s loop) | a step every 1.3 s (a 9 m body: sqrt(5) x a human's period). In place, the feet at **30 cm/s at scale 1 = the breaker's MaxWalkSpeed (30 x GiantScale) at every size** (0.01 cm/s skate error; needs the rate-1.0 paste, step 4). Long double support, a fast impact drop + slow recovery on every footfall, 6 cm sway (30 cm in game), hunched predator lean, heavy late arms, stabilised head, curled claws. Knees 109-129 deg, worst bone turn 4.4 deg/frame |
 | `CZ_Attack_Smash` | 79, blow on frame 26 | **same length and blow frame as `A_Attack`**, so `SM_D1`/`SM_D2` and the 0.45 rate keep their timing (in game: a 1.9 s wind-up, 5.9 s total). Step in, both arms gathered overhead, a held breath, a 6-frame two-fisted blow forward onto the wall face, the mass keeps dropping on impact (shudder), long settle, step back |
 | `CZ_Death_Colossus` | 121 (4.0 s), holds the last frame | the blow lands, the head snaps back, the knees give, a kneeling beat, the whole mass topples forward and slams face-down with a tremble, a rebound, the claws close, one arm drags. Sprawled flat at the end |
 
@@ -37,8 +37,20 @@ if the owner prefers them out of the public repo, Taildrop them to the i9).
    `Zombie/Anims_Colossus/`, backs up `Zombie/Anims/A_Walk` into `Zombie/Anims_BAKCZ/`, writes the giant walk INTO
    `A_Walk` (only the breaker plays it) and puts the two `AN_ColossusStomp` notifies on the new footfalls (0.0 s, 1.3 s).
    The `A_Walk <- CZ_Walk_Colossus` line must show `"max_diff_deg": 0.0` and `"notifies": ["AN_ColossusStomp", "AN_ColossusStomp"]`.
-4. **One pin, on the spot:** `BP_ZombieWallBreaker` > EventGraph > the `PlayAnimation` node right after `SM_Rate`
-   (node name `SM_Anim`): set **New Anim To Play = `Anims_Colossus/CZ_Attack_Smash`**. Compile, save.
+4. **The breaker paste** (`gen_cz519.py` -> `BP_ZombieWallBreaker_CZ519_graph.txt` + `manifest_cz519.json`, built on
+   export #518 of 09:24 and pre-checked: fix_impure, applyall merge `Validation: OK`, +54 link entries as expected):
+   - add the variable from [VARIABLES.md](VARIABLES.md) (`GiantDead`, Boolean), compile;
+   - EventGraph > Ctrl+A, Ctrl+C -> `live.t3d`, then
+     `python tools/applyall/applyall.py merge --live live.t3d --manifest handoffs/colossus-anim-449/manifest_cz519.json --out merged.t3d`
+     (or, if the graph has not changed since 09:24, paste `merged_cz519.t3d` as it is);
+   - EventGraph > Ctrl+A, Delete, Ctrl+V, Refresh All Nodes, compile, save.
+   What it does: (a) **GlobalAnimRateScale 0.2 -> 1.0** at BeginPlay and after every smash. The breaker slowed the human
+   walk to 0.2 to hide its 1.2 m steps; the giant walk is authored at **30 cm/s per unit of scale = MaxWalkSpeed
+   (30 x GiantScale)**, so at rate 1 the feet match the ground at any size. (b) The smash plays `CZ_Attack_Smash`
+   (same 79 frames / blow 26 as A_Attack, so the 0.45 rate and the 1.5 s / 1.7 s delays keep their timing). (c) An
+   AnyDamage override: Parent (HP, gore, XP, the candle melt, the human death montage) -> if Dead and not GiantDead ->
+   GiantDead = true, rate 1.0, `PlayAnimation(CZ_Death_Colossus)`: single-node mode takes over, so the giant death
+   plays from frame 0 instead of the human montage.
 5. Play.
 
 **Rollback:** `py ".../cz_colossus_ue.py" --restore` puts `A_Walk` (animation + notifies) back exactly; set the pin back to `A_Attack`.
@@ -49,7 +61,9 @@ if the owner prefers them out of the public repo, Taildrop them to the i9).
    moonwalk); the body sways and dips on each footfall; the stomp shake/notify fires on the footfalls.
 2. **Smash:** at the wall it gathers both arms overhead for about 2 s, then a heavy two-fisted blow. The wall damage
    lands at the same moment as before (the BP timing is untouched).
-3. **Death:** still the old human death (the giant death is imported but waits for the wiring paste, export #518).
+3. **Death:** the killing blow snaps the head back, the knees give, the whole mass topples forward and slams. The
+   candle melt (C++, `cd.Zombie.CandleMelt`) hides the mesh about 2.3 s in, so the slam at 2.0 s still shows; turn the
+   melt off to see the full 4 s. No T-pose, no stand-up.
 4. Ordinary zombies are untouched (they never play `A_Walk`).
 5. Post a Play clip on #519.
 

@@ -1,0 +1,41 @@
+{
+ "blueprint": "BP_ZombieWallBreaker",
+ "pastes": [
+  "BP_ZombieWallBreaker_CZ519_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "BP_Rate.then",
+   "to": "czSetGlobalAnimR3.execute",
+   "replace": true,
+   "note": "BeginPlay: after the old rate 0.2 set, set it to 1.0 (was -> BP_HP)"
+  },
+  {
+   "from": "czSetGlobalAnimR3.then",
+   "to": "BP_HP.execute",
+   "note": "then carry on with MaxHP"
+  },
+  {
+   "from": "SM_D2.then",
+   "to": "czSetGlobalAnimR6.execute",
+   "replace": true,
+   "note": "after the smash: rate 1.0 (was -> SM_Rate2 = 0.2)"
+  },
+  {
+   "from": "czSetGlobalAnimR6.then",
+   "to": "SM_Walk.execute",
+   "note": "then back to the walk"
+  },
+  {
+   "from": "SM_Rate.then",
+   "to": "czSmash9.execute",
+   "replace": true,
+   "note": "smash plays CZ_Attack_Smash (was SM_Anim = A_Attack)"
+  },
+  {
+   "from": "czSmash9.then",
+   "to": "SM_D1.execute",
+   "note": "then the old damage delay"
+  }
+ ]
+}

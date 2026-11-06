@@ -129,4 +129,4 @@ else:
 
 json.dump({'report': report, 'log': log}, open(os.path.join(os.environ.get('CZ_OUT', HERE), 'install_report.json'), 'w'), indent=1)
 say('DONE', 'dry-run, nothing changed' if DRY else 'installed; backup in ' + BAK)
-say('NEXT (Master, on the spot): BP_ZombieWallBreaker > EventGraph > node SM_Anim (PlayAnimation after SM_Rate): set New Anim To Play = Anims_Colossus/CZ_Attack_Smash. Compile, save.')
+say('NEXT (Master): the breaker paste (README step 4): add GiantDead (bool), merge manifest_cz519.json on a fresh EventGraph export (or paste merged_cz519.t3d), Refresh All Nodes, compile, save. It sets the anim rate to 1.0, swaps the smash to CZ_Attack_Smash and plays CZ_Death_Colossus on death.')
