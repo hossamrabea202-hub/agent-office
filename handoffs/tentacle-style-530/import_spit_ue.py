@@ -1,10 +1,10 @@
-# #533: import fbx/Tentacle_SPIT.fbx and Tentacle_CATAPULT.fbx as AS_Tentacle_Spit / _Catapult into Rig/Style530/ and make AM_Tentacle_Spit / _Catapult.
+# #533: import fbx/Tentacle_SPIT, CATAPULT, ENRAGED, ENRAGED_HURT and WOUNDED as AS_Tentacle_* into Rig/Style530/ and make their AM_Tentacle_* montages.
 #   py import_spit_ue.py [--dry-run]       (editor idle; new assets only, re-running replaces the clips and keeps the montages)
 import unreal, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); DRY = '--dry-run' in (sys.argv[1:] + os.environ.get('ST_ARGS', '').split())
 R = '/Game/CastleDefender/Environment/Tentacles/Rig'; DST = R + '/Style530'
 EAL = unreal.EditorAssetLibrary; AT = unreal.AssetToolsHelpers.get_asset_tools(); skel = unreal.load_asset(R + '/SK_CorruptedTentacle_01_Skeleton')
-CLIPS = [('SPIT', 'Spit', 0.15, 0.4), ('CATAPULT', 'Catapult', 0.12, 0.6)]
+CLIPS = [('SPIT', 'Spit', 0.15, 0.4), ('CATAPULT', 'Catapult', 0.12, 0.6), ('ENRAGED', 'Enraged', 0.4, 1.0), ('ENRAGED_HURT', 'EnragedHurt', 0.4, 1.0), ('WOUNDED', 'Wounded', 0.8, 1.0)]
 for k, nm, bi, bo in CLIPS:
     f = os.path.join(HERE, 'fbx', 'Tentacle_%s.fbx' % k)
     if not os.path.exists(f): raise SystemExit('SPIT533 missing FBX (git pull?): ' + f)

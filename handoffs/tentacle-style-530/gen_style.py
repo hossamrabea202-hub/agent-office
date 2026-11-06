@@ -9,6 +9,7 @@
 # HUNT_x (40 s seamless loops): head-led pose-to-pose search with holds, startle twitches right before a look,
 #   an asymmetric breath pulse climbing the arm, a small organic residue. Variants differ in posture, looks, breath and twitches.
 # WOUNDED (20 s seamless loop): sagging posture, laboured breath, tremor bursts on the hurt side.
+# ENRAGED / ENRAGED_HURT (8 s seamless loops): fast pose-to-pose thrashing with a strain tremor and head jabs; HURT sags, shakes harder and lurches.
 # SPIT (1.75 s, #533): a swallow bulge climbs the arm, the head rears, thrusts on 0.55 s (blobs leave), gags twice, rest.
 # CATAPULT (7.0 s, #533): the sting of the hit, then the arm loads (slow coil, twist, a bulge climbing, 12 Hz strain);
 #   release on 2.5 s (matches the Delays in wire_spit_ue.py), whip with overlap base -> tip, follow-through, a long settle.
@@ -20,7 +21,7 @@ AMP = float(argv[3]) if len(argv) > 3 else 1.0
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.fbx(filepath=SRC, use_anim=True)
 arm = next(o for o in bpy.data.objects if o.type == 'ARMATURE')
-FPS = 24; SEC = {'STRIKE': 7.6, 'WOUNDED': 20.0, 'SPIT': 1.75, 'CATAPULT': 7.0}.get(WHICH, 40.0); N = int(round(FPS * SEC))
+FPS = 24; SEC = {'STRIKE': 7.6, 'WOUNDED': 20.0, 'SPIT': 1.75, 'CATAPULT': 7.0, 'ENRAGED': 8.0, 'ENRAGED_HURT': 8.0}.get(WHICH, 40.0); N = int(round(FPS * SEC))
 sc = bpy.context.scene; sc.render.fps = FPS; sc.frame_start, sc.frame_end = 1, N + 1
 def depth(b):
     d = 0
@@ -166,6 +167,23 @@ def catapult(t, i, s):
     k = 1.0 - ease((t - 6.4) / 0.6)
     return x * k, y * k, z * k
 
+# ---------- ENRAGED ----------
+RAGE = {'ENRAGED': dict(a=1.0, sag=0.0, tr=1.1, looks=[(0.3, 0.42, 9.0, -3.0), (1.5, 0.35, -8.0, 2.0), (2.6, 0.55, 3.0, -5.0), (3.7, 0.32, -10.0, -1.0), (4.9, 0.45, 8.0, 3.0), (6.2, 0.38, -3.0, -4.5)], jab=[(1.1, 15.0), (3.4, 18.0), (5.8, 14.0)]),
+        'ENRAGED_HURT': dict(a=0.7, sag=1.0, tr=2.2, looks=[(0.5, 0.7, 6.0, 1.0), (2.2, 0.55, -5.5, 2.5), (4.0, 0.8, 3.5, 0.0), (5.9, 0.6, -6.5, 2.0)], jab=[(1.8, 11.0), (5.2, 9.0)])}
+def enraged(t, i, s, R):
+    env = 0.12 + 0.88 * s ** 1.15
+    yaw, pit = look_at(t - 0.05 * (nb - 1 - i), R['looks'])                 # fast, head first
+    x = pit * env * R['a']; z = yaw * env * R['a']; y = 1.8 * yaw * s ** 2 * R['a']
+    w = lambda c, p, lag=0.55: math.sin(TAU * c * t / SEC + p - lag * i)
+    x += (2.4 * w(5, 0.3) + 1.2 * w(9, 2.1, 0.8)) * env * R['a']; z += (2.2 * w(4, 1.2) + 1.0 * w(7, 4.0, 0.8)) * env * R['a']   # waves running up the arm
+    x += R['tr'] * w(72, 0.0, 0.8) * (0.25 + 0.75 * s); z += 0.7 * R['tr'] * w(64, 1.0, 1.1) * (0.25 + 0.75 * s)                # 8-9 Hz strain
+    for c, a in R['jab']:
+        u = wrapd(t, c) - 0.012 * (nb - 1 - i); k = snap(u, 0.06, 0.2) * s ** 1.8; x += a * k
+    if R['sag']:
+        ph = (t * 3 / SEC - 0.05 * i) % 1.0; b = ease(ph / 0.3) if ph < 0.3 else (1.0 - ease((ph - 0.4) / 0.55) if ph >= 0.4 else 1.0)
+        x += 6.0 * gauss(s, 0.62, 0.3) - 2.5 * b * gauss(s, 0.55, 0.32); z += -2.0 * env; y += -4.0 * s                         # the sag and laboured breath of the wounded idle
+    return x, y, z
+
 act = bpy.data.actions.new('Tentacle' + WHICH); arm.animation_data_create(); arm.animation_data.action = act
 for b in bones: b.rotation_mode = 'XYZ'
 for f in range(N + 1):
@@ -175,6 +193,7 @@ for f in range(N + 1):
         if WHICH == 'STRIKE': x, y, z = strike(t, i, s)
         elif WHICH == 'WOUNDED': x, y, z = wounded(t, i, s)
         elif WHICH == 'SPIT': x, y, z = spit(t, i, s)
+        elif WHICH in RAGE: x, y, z = enraged(t, i, s, RAGE[WHICH])
         elif WHICH == 'CATAPULT': x, y, z = catapult(t, i, s)
         else: x, y, z = hunt(t, i, s, HUNT[WHICH[-1]])
         b.rotation_euler = (math.radians(x * AMP), math.radians(y * AMP), math.radians(z * AMP))
