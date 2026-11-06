@@ -13,7 +13,7 @@ is handed off as #515.
 |---|---|---|
 | 1 | Pipeline round-trip; **heavy walk** at the game speed (71.5 cm/s, in place); **living idle** | **done, waiting on the owner's review** |
 | 2 | Threat roar, charge/run, 2 attacks | **done** (owner: "Good, do stage 3") |
-| 3 | 3 hits (front / left / right), 2 deaths (forward slam, side collapse) | **in progress** |
+| 3 | 3 hits (front / left / right), 2 deaths (forward slam, side collapse) | **done, waiting on the owner's review** |
 | 4 | Handoff: import script (new assets in `FleshBrute/Anims_Creature/`), blend-space and BP swap with dry-run and backup | todo |
 
 After the import, the #449 layer (`../fb449_creature_ue.py`) can run on the new clips too (jaw, flesh, heft).
@@ -124,3 +124,15 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
   - **Metric fix:** the snap check reported quaternion sign flips as ~300°; it now uses min(a, 360-a).
 - Next: import the 5 clips + run the layer (`--src Anims_Creature`), export from UE, render, push, show the owner; then
   stage 4 (the Master handoff: import script, BS/BP swaps with dry-run + backup, roar trigger).
+- **09:55 STAGE 3 DONE.** All 5 imported into `fblab` `Anims_Creature/` and layered (hits get the slack jaw drop, deaths
+  the slack open jaw). Side death v2: the top arm and leg flop down under gravity (v1 had a stiff arm pointing at the sky).
+  Previews: `preview/CR_Hit_Front.mp4`, `CR_Hit_Left.mp4`, `CR_Death_Forward.mp4`, `CR_Death_Side.mp4`
+  (CR_Hit_Right is the mirror of Left). Known tunable: in the side death the top leg still sprawls a little.
+- **Clip set in `fblab/.../FleshBrute/Anims_Creature/` (11):** CR_Idle_Hunt, CR_Walk_Heavy, CR_Charge, CR_Roar_Threat,
+  CR_Attack_Slam, CR_Attack_Swipe, CR_Hit_Front, CR_Hit_Left, CR_Hit_Right, CR_Death_Forward, CR_Death_Side
+  (+ RT_Idle_A = the test clip, exclude). FBX sources: `ckw/fbtools/authored/CR_*.fbx`.
+- **Next = stage 4, the Master handoff:** a script that imports the 11 FBX into the game's `FleshBrute/Anims_Creature/`
+  (the FBX contain only skeleton animation and no licensed mesh, so they can live in the repo), runs the layer
+  `--src Anims_Creature`, rebuilds `BS_FleshBrute_Locomotion` (Idle_Hunt 0 / Walk_Heavy 71.5 / Charge 170, with a backup)
+  and swaps the BP's FB_* references to the CR clips (dry-run + backup; BP_FleshBrute EventGraph export needed for the
+  hit/death/roar wiring).
