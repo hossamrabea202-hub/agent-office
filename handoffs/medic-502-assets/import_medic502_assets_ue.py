@@ -76,8 +76,10 @@ def child_mi(name, parent, textures, vectors=None):
 
 
 def guess(names, *keys):
+    for n in names:                              # exact short names first (MI_Hero_Cloth_Crimson uses BC / N / ORM)
+        if n.lower() in [k.lower() for k in keys]: return n
     for n in names:
-        if any(k.lower() in n.lower() for k in keys): return n
+        if any(k.lower() in n.lower() for k in keys if len(k) > 2): return n
     return None
 
 
@@ -93,7 +95,7 @@ else:
         names = param_names(unreal.load_asset(cp))
         print('  cape parent %s params: %s' % (cp, names))
         print('  cape will set: BaseColor -> %s, Normal -> %s, ORM/Roughness -> %s, Tint -> %s' % (
-            guess(names['texture'], 'basecolor', 'albedo', 'diffuse', 'color'), guess(names['texture'], 'normal'),
+            guess(names['texture'], 'BC', 'basecolor', 'albedo', 'diffuse', 'color'), guess(names['texture'], 'N', 'normal'),
             guess(names['texture'], 'orm', 'rough', 'mask'), guess(names['vector'], 'tint', 'color')))
     for b in bad: print('MISMATCH', b)
     if bad: raise SystemExit('STOP: %d problem(s), nothing changed' % len(bad))
@@ -127,8 +129,8 @@ else:
             sm = unreal.load_asset(DST + '/' + n); sm.set_material(0, unreal.load_asset(DST + '/' + mi)); sub.remove_collisions(sm); EAL.save_loaded_asset(sm)
         # cape: child of the soldier's cape MI so Cloth shading / Masked / HideBackFlap stay exactly as on the soldiers
         cpm = unreal.load_asset(cp); names = param_names(cpm)
-        texmap = {k: v for k, v in ((guess(names['texture'], 'basecolor', 'albedo', 'diffuse', 'color'), 'T_MedicCape_BC'),
-                                    (guess(names['texture'], 'normal'), 'T_MedicCape_N'), (guess(names['texture'], 'orm', 'rough', 'mask'), 'T_MedicCape_ORM')) if k}
+        texmap = {k: v for k, v in ((guess(names['texture'], 'BC', 'basecolor', 'albedo', 'diffuse', 'color'), 'T_MedicCape_BC'),
+                                    (guess(names['texture'], 'N', 'normal'), 'T_MedicCape_N'), (guess(names['texture'], 'orm', 'rough', 'mask'), 'T_MedicCape_ORM')) if k}
         vec = {k: LINEN for k in [guess(names['vector'], 'tint', 'color')] if k}
         log.append('MI_MedicCape: ' + (', '.join(child_mi('MI_MedicCape', cpm, texmap, vec)) or 'NO params matched, it is a plain child: see README'))
         for l in log: print('  ' + l)
