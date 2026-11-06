@@ -4,7 +4,7 @@
 import bpy, sys, os, math
 from mathutils import Vector
 a = sys.argv[sys.argv.index('--') + 1:]
-MESH, OUT, LC, LL, RC, RL = a[:6]; STRIKE = 'strike' in a[6:]
+MESH, OUT, LC, LL, RC, RL = a[:6]; STRIKE = 'strike' in a[6:]; THROW = 'catapult' if 'catapult' in a[6:] else 'spit' if 'spit' in a[6:] else None
 STILLS = [float(x) for x in os.environ.get('STILLS', '').split(',') if x]
 bpy.ops.wm.read_factory_settings(use_empty=True); sc = bpy.context.scene; sc.render.fps = 24
 def action_of(fbx):
@@ -35,6 +35,7 @@ if LC != '-': sides.append((side(LC, dxs[0], LL), True))
 sides.append((side(RC, dxs[-1], RL), False))
 act = sides[-1][0].animation_data.action; f0, f1 = int(act.frame_range[0]), int(act.frame_range[1])
 sc.frame_start, sc.frame_end = f0, f1
+if 'catapult' in a[6:] or 'spit' in a[6:]: sc.frame_end = f0 + int(float(os.environ.get('HOLDSEC', '9')) * 24)
 if os.environ.get('MAXSEC'): sc.frame_end = min(f1, f0 + int(float(os.environ['MAXSEC']) * 24))
 SEG = ['seg_%02d' % i for i in range(14)]
 def fabrik(pts, target, lens):
@@ -67,6 +68,22 @@ def apply_ik(ar, alpha, aim):
         b = ch[i]; cur = ch[i + 1].head - b.head; want = sol[i + 1] - sol[i]
         q = cur.rotation_difference(want); h = b.head.copy(); m = b.matrix.copy(); m.translation = (0, 0, 0)
         nm = q.to_matrix().to_4x4() @ m; nm.translation = h; b.matrix = nm; bpy.context.view_layer.update()
+# #533: the IK easing of wire_spit_ue.py, in rig metres (the tentacle's placed scale is about 2.7). The target is at -Y.
+_B = Vector((-7.5, 3.1, -0.8)); _Dr = Vector((0, -1, 0)); _Zv = Vector((0, 0, 1)); _R = 98.0
+_ik = {'t': -1.0, 'a': 0.0, 'p': None}
+def throw_state(t, ar):
+    if THROW == 'catapult':
+        plan = [(0.1, _B + _Zv * _R * 0.85 + _Dr * _R * -0.5, 0.85, 1.5), (2.4, _B + _Zv * _R * 0.55 + _Dr * _R * 0.75, 1.0, 16.0), (3.2, None, 0.0, 1.2)]
+    else:
+        plan = [(0.0, ar.pose.bones['seg_13'].head + _Dr * 9.0, 0.45, 5.0), (1.4, None, 0.0, 2.5)]
+    goal, ag, sp = None, 0.0, 1.0
+    for ts, g, al, spd in plan:
+        if t >= ts: goal = g if g is not None else goal; ag, sp = al, spd
+    if goal is None: return 0.0, Vector((0, 0, 0))
+    if _ik['p'] is None: _ik['p'] = ar.pose.bones['seg_13'].head.copy()
+    k = min(1.0, sp / 24.0); _ik['a'] += (ag - _ik['a']) * k; _ik['p'] = _ik['p'].lerp(goal, k)
+    return _ik['a'], _ik['p'].copy()
+if THROW: STRIKE = True; state = None
 if STRIKE:                              # bake clip + simulated IK into keys, so the render needs no handlers
     baked = []
     def clip_pose(ar, curves, f):       # sample the clip directly: frame_set does not restore channels whose keyed value did not change, so IK edits would stick
@@ -81,16 +98,33 @@ if STRIKE:                              # bake clip + simulated IK into keys, so
                 curves[(fc.data_path.split('"')[1], fc.data_path.rsplit('.', 1)[1], fc.array_index)] = fc
         ar.animation_data.action = None
         for f in range(f0, sc.frame_end + 1):
-            clip_pose(ar, curves, f_own + (f - f0)); apply_ik(ar, *state((f - f0) / 24.0, old))
+            clip_pose(ar, curves, f_own + (f - f0)); apply_ik(ar, *(throw_state((f - f0) / 24.0, ar) if THROW else state((f - f0) / 24.0, old)))
+            if THROW: fr.setdefault('head', {})[f] = ar.pose.bones['seg_13'].head.copy()
             fr[f] = {b.name: b.matrix_basis.copy() for b in ar.pose.bones}
         baked.append(fr)
     for (ar, old), fr in zip(sides, baked):
         ar.animation_data.action = None; ac = bpy.data.actions.new(ar.name + '_baked'); ar.animation_data.action = ac
         for b in ar.pose.bones: b.rotation_mode = 'QUATERNION'
         for f, pose in fr.items():
+            if f == 'head': continue
             for b in ar.pose.bones:
                 b.matrix_basis = pose[b.name]; b.keyframe_insert('rotation_quaternion', frame=f); b.keyframe_insert('location', frame=f)
     print('BAKED', [len(fr) for fr in baked])
+    if THROW:                           # 3 blobs on the same ballistics as the game (2.2 m wide, gravity and scale in rig units), staggered 0.16 and 0.24 s
+        G_ = 9.8 / 2.7; T0 = 2.6 if THROW == 'catapult' else 0.5; ar = sides[-1][0]; hd = baked[-1]['head']; root = ar.parent
+        mat = bpy.data.materials.new('blob'); mat.diffuse_color = (0.75, 0.32, 0.2, 1)
+        for n, (dt, off) in enumerate(((0.0, (-5, -2)), (0.16, (6, 3)), (0.40, (1, -6)))):
+            f_s = f0 + int(round((T0 + dt) * 24)); P0 = hd.get(f_s, hd[max(k for k in hd)]).copy()
+            Tg = _B + _Dr * (75.0 if THROW == 'catapult' else 40.0) + Vector((off[0], off[1], 0.8)); fl = 1.6 * math.sqrt(max(1.0, (P0 - Tg).length) / G_) * 0.62
+            vx = (Tg - P0 + Vector((0, 0, 0.5 * G_ * fl * fl))) / fl
+            bpy.ops.mesh.primitive_uv_sphere_add(radius=0.8, segments=16, ring_count=10); o = bpy.context.object; o.parent = root; o.data.materials.append(mat)
+            for f in range(f0, sc.frame_end + 1):
+                t_ = (f - f_s) / 24.0
+                o.scale = (0.001, 0.001, 0.001) if t_ < 0 else (1, 1, 1)
+                o.location = P0 if t_ < 0 else (Tg if t_ >= fl else P0 + vx * t_ + Vector((0, 0, -0.5 * G_ * t_ * t_)))
+                o.keyframe_insert('location', frame=f); o.keyframe_insert('scale', frame=f)
+            print('BLOB', n, 'flight %.1f s, leaves at %.2f s' % (fl, T0 + dt))
+        act_fix = sc.frame_end
 cd = bpy.data.cameras.new('c'); cam = bpy.data.objects.new('c', cd); sc.collection.objects.link(cam); sc.camera = cam
 cam.location = (0, -270, 48); cam.rotation_euler = (math.radians(90), 0, 0); cd.lens = 35
 sc.render.engine = 'BLENDER_WORKBENCH'; sh = sc.display.shading; sh.light = 'STUDIO'; sh.color_type = 'MATERIAL'; sh.show_cavity = True; sh.show_shadows = True

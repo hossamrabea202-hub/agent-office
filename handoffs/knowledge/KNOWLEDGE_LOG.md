@@ -366,3 +366,4 @@ The full note is `research_notes/creature_studio_method.md`. The findings that c
 - **Blender `frame_set` does not restore a channel whose keyed value did not change.** Anything you edited by script on a flat curve stays edited. For IK previews, sample `fcurve.evaluate(frame)` yourself.
 - **UE-exported FBX clips hold empty fcurves.** `evaluate` returns 0 on them, which zeroes bone scale. Skip curves with no keyframes.
 - **Judge a clip under FABRIK together with the IK, not alone.** The input pose changes the arc the solver finds, so a coil or a curve in the clip survives into the strike shape.
+- **UE 5.8 Python offers no cast to Blueprint classes** (`create_node_from_name` only knows native ones). `KismetSystemLibrary:SetVectorPropertyByName` and `SetDoublePropertyByName` can be added as nodes and need no cast (#533, not yet proven at runtime).

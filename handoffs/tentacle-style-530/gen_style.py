@@ -9,6 +9,10 @@
 # HUNT_x (40 s seamless loops): head-led pose-to-pose search with holds, startle twitches right before a look,
 #   an asymmetric breath pulse climbing the arm, a small organic residue. Variants differ in posture, looks, breath and twitches.
 # WOUNDED (20 s seamless loop): sagging posture, laboured breath, tremor bursts on the hurt side.
+# SPIT (1.75 s, #533): a swallow bulge climbs the arm, the head rears, thrusts on 0.55 s (blobs leave), gags twice, rest.
+# CATAPULT (7.0 s, #533): the sting of the hit, then the arm loads (slow coil, twist, a bulge climbing, 12 Hz strain);
+#   release on 2.5 s (matches the Delays in wire_spit_ue.py), whip with overlap base -> tip, follow-through, a long settle.
+#   SPIT and CATAPULT only shape the arm: FABRIK aims them at the target in world space, so they fit every placed tentacle.
 import bpy, sys, math
 argv = sys.argv[sys.argv.index('--') + 1:]
 SRC, OUT, WHICH = argv[0], argv[1], argv[2].upper()
@@ -16,7 +20,7 @@ AMP = float(argv[3]) if len(argv) > 3 else 1.0
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.fbx(filepath=SRC, use_anim=True)
 arm = next(o for o in bpy.data.objects if o.type == 'ARMATURE')
-FPS = 24; SEC = {'STRIKE': 7.6, 'WOUNDED': 20.0}.get(WHICH, 40.0); N = int(round(FPS * SEC))
+FPS = 24; SEC = {'STRIKE': 7.6, 'WOUNDED': 20.0, 'SPIT': 1.75, 'CATAPULT': 7.0}.get(WHICH, 40.0); N = int(round(FPS * SEC))
 sc = bpy.context.scene; sc.render.fps = FPS; sc.frame_start, sc.frame_end = 1, N + 1
 def depth(b):
     d = 0
@@ -125,6 +129,43 @@ def wounded(t, i, s):
     x += 0.8 * w(1, 0.7) * env; z += 1.0 * w(2, 2.2) * env
     return x, y, z
 
+# ---------- SPIT and CATAPULT (#533) ----------
+def bulge(t, a, b, i, amp):          # a swallow: a kink pair that climbs the arm between a and b seconds
+    if t < a or t > b + 0.3: return 0.0
+    c = (nb - 1) * (t - a) / (b - a)
+    return amp * ((i - c) / 1.6) * gauss(i, c, 2.0) * (1.0 - ease((t - b) / 0.3)) * ease((t - a) / 0.15)
+def spit(t, i, s):
+    x = bulge(t, 0.0, 0.5, i, 11.0)
+    x += -22.0 * bump(t, 0.05, 0.60, 1.6) * s ** 2                           # the head rears
+    u = t - 0.50 - 0.006 * i
+    x += 30.0 * snap(u, 0.06, 0.20) * s ** 1.8                               # the thrust, tip last
+    d = t - 0.75
+    if d > 0: x += 6.0 * math.exp(-d / 0.28) * math.sin(TAU * 4.5 * d - 0.5 * i) * (0.2 + 0.8 * s)
+    z = 5.0 * bump(t, 0.55, 1.2) * math.sin(i * 0.9) * s
+    k = 1.0 - ease((t - 1.40) / 0.35)
+    return x * k, 7.0 * bump(t, 0.1, 1.2) * s * k, z * k
+def catapult(t, i, s):
+    x = -16.0 * gauss(i, 11.0, 3.0) * snap(t - 0.012 * abs(i - 11), 0.06, 0.28)   # the sting of the hit
+    z = 9.0 * gauss(i, 11.0, 3.0) * snap(t - 0.012 * abs(i - 11), 0.06, 0.32)
+    T_R = 2.5; rel = ease((t - (T_R + 0.012 * i)) / 0.10)                     # release, base first
+    L = ease((t - 0.35) / 2.0) * (1 - rel)
+    x += L * (-5.0 * gauss(s, 0.2, 0.25) + 11.0 * gauss(s, 0.62, 0.2) - 21.0 * gauss(s, 0.93, 0.14))     # the loaded S
+    y = -20.0 * L * s
+    x += bulge(t, 1.3, 2.4, i, 8.0)                                          # the load climbs inside the arm
+    q = ease((t - 1.7) / 0.7) * (1 - rel)
+    x += 1.6 * q * math.sin(TAU * 12.0 * t + 0.8 * i) * (0.4 + 0.6 * s); z += 1.2 * q * math.sin(TAU * 9.0 * t + 1.1 * i) * s
+    u = t - T_R
+    if u > 0:
+        out = 1.0 - ease((t - (3.0 + 0.09 * i)) / 2.2)
+        x += 20.0 * rel * out * (0.3 + 0.7 * s); y += 16.0 * rel * out * s
+        x += 14.0 * bump(t - 0.02 * i, T_R + 0.1, T_R + 0.8, 1.5) * s ** 2    # the head overshoots
+        d = t - 3.6
+        if d > 0:
+            x += 5.5 * math.exp(-d / 0.8) * ease(d / 0.25) * math.sin(TAU * 0.95 * d - 0.42 * i) * (0.2 + 0.8 * s)
+            z += 3.0 * math.exp(-d / 1.0) * ease(d / 0.3) * math.sin(TAU * 0.8 * d - 0.42 * i + 1.3) * s
+    k = 1.0 - ease((t - 6.4) / 0.6)
+    return x * k, y * k, z * k
+
 act = bpy.data.actions.new('Tentacle' + WHICH); arm.animation_data_create(); arm.animation_data.action = act
 for b in bones: b.rotation_mode = 'XYZ'
 for f in range(N + 1):
@@ -133,6 +174,8 @@ for f in range(N + 1):
         s = i / (nb - 1)
         if WHICH == 'STRIKE': x, y, z = strike(t, i, s)
         elif WHICH == 'WOUNDED': x, y, z = wounded(t, i, s)
+        elif WHICH == 'SPIT': x, y, z = spit(t, i, s)
+        elif WHICH == 'CATAPULT': x, y, z = catapult(t, i, s)
         else: x, y, z = hunt(t, i, s, HUNT[WHICH[-1]])
         b.rotation_euler = (math.radians(x * AMP), math.radians(y * AMP), math.radians(z * AMP))
         b.keyframe_insert('rotation_euler', frame=f + 1)
