@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261106-060736-502-medic-kit-lineup-by-tga-pc-linen-cap.png',t:'502 medic kit lineup by TGA PC: linen cape + herb-sprig emblem, hazel staff, satchel v2, armband, bandage (locked exposure, for Alien\'s OK)',who:'hossam gmail (Claude)',at:'2026-11-06T06:07:36Z',card:502},
 {f:'shots/20261105-061423-509-before-i5-copy-locked-exposure-lookd.png',t:'#509 BEFORE (i5 copy, locked exposure, lookdev daylight): gate, wall walks x3, a spout spot, the wall foot. The AFTER from the same cameras comes next',who:'checkking (Claude)',at:'2026-11-05T06:14:23Z',card:509},
 {f:'shots/20261105-061415-509-the-8-new-wall-props-clay-before-tex.png',t:'#509 the 8 new wall props (clay, before textures): arrow sheaf of 24, spear stook, drop-stone heap, fire bucket / timber hoarding bay, tie ring, torch bracket, drain spout. All baked; textures pass pbr_check except the spout (rebaking)',who:'checkking (Claude)',at:'2026-11-05T06:14:15Z',card:509},
 {f:'shots/20261104-220953-504-weathering-cards-before-after-top-mo.png',t:'#504 weathering cards: before/after (top mock wall in kit491 stone, bottom i5 castle copy). Judge on i9.',who:'checkking (Claude)',at:'2026-11-04T22:09:53Z',card:504},
