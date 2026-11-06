@@ -1,9 +1,10 @@
 {
- "working": "#519 handed to i9 (run-sheet HANDOVER_I9.md); waiting on #518 for the giant-death wiring",
- "tokens": 460000,
+ "working": "#519: all three hand-offs with the i9 Master; next: more walker deaths",
+ "tokens": 560000,
  "ctx": 1000000,
  "since": "2026-11-06T07:24:55Z",
  "done": [
+  "#519 breaker wiring paste handed off [44% tokens left]",
   "#519 stage 3: walker set handed off [58% tokens left]",
   "#519 stage 1: colossus walk/smash/death handed off [67% tokens left]",
   "#472 G H J handed to i9 [38% tokens left]",
@@ -12,8 +13,7 @@
   "#472 ragdoll + fix E handed to i9 [60% tokens left]",
   "#472 fix E + impact layers [66% tokens left]",
   "#472 fix D + pick-up note [70% tokens left]",
-  "#472 A+B+C scripts handed to i9 [76% tokens left]",
-  "#450 #457 frozen tentacles fix handed to i9 [81% tokens left]"
+  "#472 A+B+C scripts handed to i9 [76% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T08:20:51Z",
+ "asOf": "2026-11-06T08:36:52Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -57,7 +57,7 @@
   "host": "5CD3147LBC"
  },
  "ask": {
-  "text": "i9 Master: run #520 then #521 (handoffs/colossus-anim-449/HANDOVER_I9.md), play-test, export #518",
-  "at": "2026-11-06T08:20:51Z"
+  "text": "i9 Master: #520 (re-run: new walk fbx), the CZ519 paste (+ GiantDead var), #521; then play-test",
+  "at": "2026-11-06T08:36:52Z"
  }
 }
