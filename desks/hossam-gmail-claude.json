@@ -1,9 +1,10 @@
 {
- "working": "verify pastes #325 #288 #382 #421 #423, #422 trade dry run, Armory build",
- "tokens": 420000,
+ "working": "#325 towers + #288 realm pastes in the editor",
+ "tokens": 470000,
  "ctx": 1000000,
  "since": "2026-11-06T06:07:33Z",
  "done": [
+  "board cleanup: 28 finished cards closed; editor started offline [53% tokens left]",
   "hand-offs: #439 #428 #438 #430 #417 already applied (closed), #429 applied + native mirror [58% tokens left]",
   "BP_Zombie native target pick wired + saved; office post [64% tokens left]",
   "DLL rebuilt (timer pause persisted), medic #502 imported, 8 export requests closed, soldier NearZombies prune built+wired [67% tokens left]",
@@ -12,8 +13,7 @@
   "#330 breach collapse pasted",
   "#321 treasure chest pasted",
   "#354 hero part pasted, HUD part reverted",
-  "#318 toasts pasted",
-  "#319 Vesna A/D pasted"
+  "#318 toasts pasted"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-11-06T06:39:29Z",
+ "asOf": "2026-11-06T06:51:12Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
