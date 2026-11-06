@@ -1,0 +1,22 @@
+{
+  "note": "TGA's 5 AAA weapons (#397, 2026-11-01) as Vesna trade rows. kit_index = row in BPC_WeaponKit (Names/Prices/Damage/Speed/Meshes). Base price/damage/speed are the live kit values and stay 1:1; upgrades and perks are additive on top (C++ CDWeaponPerks). Damage per level = round(base * (1 + 0.12 * level)).",
+  "upgrade_rule": {"damage_mul_per_level": 0.12, "cost_fraction_of_price": [0.5, 0.8, 1.2], "max_level": 3},
+  "attach": {"component": "KitWeapon (StaticMeshComponent under KnightMesh, tag KitWeapon)", "socket": "weapon_r (BPC_WeaponKit.KnightSwordBone)", "rotation": "BPC_WeaponKit.WeaponRot (one value for the whole kit)", "pivot": "grip at origin, +Z along the blade / haft, same as the live CK kit", "per_weapon_offset": "0,0,0 (TGA kept the CK pivots; the import log prints live vs AAA bounds, must match within ~1 cm)"},
+  "weapons": [
+    {"kit_index": 0, "folder": "ArmingSword", "name": "Arming Sword", "price": 300, "damage": 40, "speed": 1.1, "block": 0.0,
+     "perk": {"id": "Regen", "name": "Knight's Vigil", "text": "Wounds close on their own", "value_by_level": [2.0, 3.0, 4.0, 5.0], "unit": "HP per second, paused while infected and for 3 s after a hit"},
+     "upgrades": [{"level": 1, "cost": 150, "damage": 45}, {"level": 2, "cost": 240, "damage": 50}, {"level": 3, "cost": 360, "damage": 54}]},
+    {"kit_index": 6, "folder": "Longsword", "name": "Longsword", "price": 600, "damage": 58, "speed": 0.95, "block": 0.12,
+     "perk": {"id": "Parry", "name": "Half-Sword Parry", "text": "Chance to turn a blow aside", "value_by_level": [0.12, 0.15, 0.18, 0.22], "unit": "block chance; a parried hit does 50 % (stacks with a shield roll)"},
+     "upgrades": [{"level": 1, "cost": 300, "damage": 65}, {"level": 2, "cost": 480, "damage": 72}, {"level": 3, "cost": 720, "damage": 79}]},
+    {"kit_index": 10, "folder": "WarAxe", "name": "War Axe", "price": 450, "damage": 52, "speed": 1.0, "block": 0.0,
+     "perk": {"id": "Crit", "name": "Executioner's Edge", "text": "Chance of a triple-damage blow", "value_by_level": [0.15, 0.18, 0.22, 0.25], "unit": "chance per hit that the damage is x3"},
+     "upgrades": [{"level": 1, "cost": 230, "damage": 58}, {"level": 2, "cost": 360, "damage": 64}, {"level": 3, "cost": 540, "damage": 71}]},
+    {"kit_index": 14, "folder": "FlangedMace", "name": "Flanged Mace", "price": 500, "damage": 56, "speed": 0.9, "block": 0.0,
+     "perk": {"id": "Stagger", "name": "Bone Breaker", "text": "Every blow staggers; crushes colossi", "value_by_level": [0.15, 0.25, 0.35, 0.50], "unit": "bonus damage vs colossi (WallBreaker / Colossus); the stagger is at every level"},
+     "upgrades": [{"level": 1, "cost": 250, "damage": 63}, {"level": 2, "cost": 400, "damage": 69}, {"level": 3, "cost": 600, "damage": 76}]},
+    {"kit_index": 23, "folder": "Halberd", "name": "Halberd", "price": 1100, "damage": 75, "speed": 0.75, "block": 0.0,
+     "perk": {"id": "Reach", "name": "Reaper's Reach", "text": "The sweep reaches further", "value_by_level": [210, 230, 250, 270], "unit": "slash damage radius in cm (live kit: 150)"},
+     "upgrades": [{"level": 1, "cost": 550, "damage": 84}, {"level": 2, "cost": 880, "damage": 93}, {"level": 3, "cost": 1320, "damage": 102}]}
+  ]
+}
