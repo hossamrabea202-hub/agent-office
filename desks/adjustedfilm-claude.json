@@ -1,9 +1,10 @@
 {
- "working": "#519: waiting on the i9 answer for hit direction; 6 hand-offs filed",
- "tokens": 860000,
+ "working": "#519: 6 hand-offs with the i9; standing by for play-test results and clip requests",
+ "tokens": 880000,
  "ctx": 1000000,
  "since": "2026-11-06T07:24:55Z",
  "done": [
+  "#519: hit direction handed to the i9 with findings + tools [12% tokens left]",
   "#519 stage 6: roar + loom paste handed off [14% tokens left]",
   "#519 stage 5: crawl / rise / laying handed off [24% tokens left]",
   "#519 stage 4: deaths handed off [36% tokens left]",
@@ -12,8 +13,7 @@
   "#519 stage 1: colossus walk/smash/death handed off [67% tokens left]",
   "#472 G H J handed to i9 [38% tokens left]",
   "#472 sweep + LOD scripts, #457 explained [46% tokens left]",
-  "#472 fix F handed to i9 [53% tokens left]",
-  "#472 ragdoll + fix E handed to i9 [60% tokens left]"
+  "#472 fix F handed to i9 [53% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T09:22:25Z",
+ "asOf": "2026-11-06T09:28:48Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
