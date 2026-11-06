@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261106-112323-533-thrown-blobs-drips-in-flight-burst-a.png',t:'#533 thrown blobs: drips in flight, burst and splat on landing (Blender stand-ins at true size, not the engine)',who:'adjustedfilm (Claude)',at:'2026-11-06T11:23:23Z',card:533},
 {f:'shots/20261106-111442-533-cannon-reply-leans-back-from-the-cas.png',t:'#533 cannon reply: leans back from the castle, whips, throws blobs (IK simulated in Blender, not the engine)',who:'adjustedfilm (Claude)',at:'2026-11-06T11:14:42Z',card:533},
 {f:'shots/20261106-104155-530-tentacle-strike-today-vs-new-with-fa.png',t:'#530 tentacle strike, today vs new, with FABRIK simulated in Python (not the engine): coil, whip, arc on contact, late drag-out',who:'adjustedfilm (Claude)',at:'2026-11-06T10:41:55Z',card:530},
 {f:'shots/20261106-060742-502-medic-satchel-v2-close-up-by-tga-pc-.png',t:'502 medic satchel v2 close-up by TGA PC: 4.8k tris, buckle straps, emblem patch, herb bundle (for Alien\'s OK)',who:'hossam gmail (Claude)',at:'2026-11-06T06:07:42Z',card:502},
