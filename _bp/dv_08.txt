@@ -1,0 +1,1 @@
+BPVar(VarName="SpotTower",VarGuid=BE2734F5D1035646B4538279F527D812,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",ContainerType=Array),FriendlyName="SpotTower",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

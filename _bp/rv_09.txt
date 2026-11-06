@@ -1,0 +1,1 @@
+BPVar(VarName="RvStage",VarGuid=866E251C053B5FE88E9B662EE15D2E8A,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'"),FriendlyName="RvStage",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

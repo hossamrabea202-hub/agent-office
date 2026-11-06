@@ -1,0 +1,1 @@
+BPVar(VarName="LastWave",VarGuid=23F54EBA3F075AAFA6736B24C5363561,VarType=(PinCategory="int",ContainerType=Array),FriendlyName="LastWave",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

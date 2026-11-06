@@ -1,0 +1,14 @@
+#297 part 4 mine workers
+MinerGear found
+  montage AM_Slash1: inner sequence not readable (AnimMontage: Failed to find property 'slot_anim_tracks' for attribute 'slot_anim_tracks' on 'AnimMontage'), playing the montage
+swing anim AM_Slash1, idle anim MF_Idle
+socket via SCS failed: Blueprint: Failed to find property 'simple_construction_script' for attribute 'simple_construction_script' on 'Blueprint'
+  SM_MinerPick -> socket hand_r NOT SET
+socket via SCS failed: Blueprint: Failed to find property 'simple_construction_script' for attribute 'simple_construction_script' on 'Blueprint'
+  SM_MinerHelmet -> socket head NOT SET
+socket via SCS failed: Blueprint: Failed to find property 'simple_construction_script' for attribute 'simple_construction_script' on 'Blueprint'
+  SM_MinerSatchel -> socket spine_03 NOT SET
+BP_MineWorker: Body (hidden, swing loop), Knight, gear + candle
+  Mine297_Worker_0 <Struct 'Vector' (0x00000218059C0BF0) {x: -456.000000, y: -2016.000000, z: -5122.000000}> yaw 90 (AM_Slash1)
+  Mine297_Worker_1 <Struct 'Vector' (0x00000218059C0AB0) {x: -731.000000, y: -2019.000000, z: -5122.000000}> yaw 100 (AM_Slash1)
+  Mine297_Worker_2 <Struct 'Vector' (0x00000218059C0C40) {x: -256.000000, y: -2551.000000, z: -5122.000000}> yaw 0 (MF_Idle)

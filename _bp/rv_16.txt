@@ -1,0 +1,1 @@
+BPVar(VarName="RvFrontMID",VarGuid=536D71FC12945C828B652DBEBC5CB12F,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.MaterialInstanceDynamic'"),FriendlyName="RvFrontMID",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

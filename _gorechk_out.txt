@@ -1,0 +1,12 @@
+/Game/CastleDefender/Gameplay/Gore/BPC_Gore337 False
+/Game/CastleDefender/Gameplay/Gore/BP_SeveredLimb337 False
+/Game/CastleDefender/Gameplay/Gore/BP_WoundCap337 False
+BPC_Gore337 -> [Name("/Game/CastleDefender/VFX/Blood337/BPC_Gore337")]
+   graph ? EdGraph: Property 'Nodes' for attribute 'nodes' on 'EdGraph' is protected and cannot be read
+BP_SeveredLimb337 -> [Name("/Game/CastleDefender/VFX/Blood337/BP_SeveredLimb337")]
+   graph ? EdGraph: Property 'Nodes' for attribute 'nodes' on 'EdGraph' is protected and cannot be read
+BP_WoundCap337 -> [Name("/Game/CastleDefender/VFX/Blood337/BP_WoundCap337")]
+   graph ? EdGraph: Property 'Nodes' for attribute 'nodes' on 'EdGraph' is protected and cannot be read
+BP_Zombie -> [Name("/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie")]
+   graph ? EdGraph: Property 'Nodes' for attribute 'nodes' on 'EdGraph' is protected and cannot be read
+   comps ['CollisionCylinder', 'Arrow', 'CharMoveComp', 'CharacterMesh0']

@@ -1,0 +1,1 @@
+BPVar(VarName="SpillPeriod",VarGuid=225E0A11B2C34D5E8F90A1B2C3D4E00D,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="SpillPeriod",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2.5")

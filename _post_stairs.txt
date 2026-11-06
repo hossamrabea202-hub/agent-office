@@ -1,0 +1,1 @@
+card rc=0 https://github.com/hossamrabea202-hub/agent-office/issues/279  | stair decals removed 426 | base grime removed 533 kept 190 | stairs exported 238 | actors 5211

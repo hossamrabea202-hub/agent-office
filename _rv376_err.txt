@@ -1,0 +1,14 @@
+#376 realm vision --place
+bubble Realm_Bubble_Owner (StaticMeshActor), 1 static mesh component(s): [('StaticMeshComponent0', 'SM_RealmBubbleHi')]
+collision: complexity <CollisionTraceFlag.CTF_USE_DEFAULT: 0>, double sided False, profile OverlapAllDynamic
+bounds origin <Struct 'Vector' (0x00000218059C6B00) {x: -15587.439353, y: 10684.959128, z: 1872.661665}>, half size <Struct 'Vector' (0x00000218059C69C0) {x: 13008.822860, y: 13032.054204, z: 9262.285723}>
+material 0: /Game/CastleDefender/Realm/MI_RealmBubble3.MI_RealmBubble3
+  scalar FilmGlow                 0.6000000238418579
+  scalar OpacityHead              0.029999999329447746
+  scalar OpacityRim               0.3499999940395355
+  scalar FilmScale                1.0
+  scalar TentacleScale            3.0
+  scalar TentacleAmount           0.11999999731779099
+two-sided test: front hit at z -6176; trace back out from inside missed -> TwoSided = False
+place Realm_Vision
+  Bubble = Realm_Bubble_Owner, TwoSided = False

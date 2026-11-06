@@ -1,0 +1,1 @@
+BPVar(VarName="Mark",VarGuid=FAB61564BC5C57CF8FD90A51D646A44C,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="Mark",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")

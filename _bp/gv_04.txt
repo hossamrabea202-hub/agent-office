@@ -1,0 +1,1 @@
+BPVar(VarName="GoreLevel",VarGuid=D342BDE973E75BD9A226E668AA304443,VarType=(PinCategory="int"),FriendlyName="GoreLevel",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1")

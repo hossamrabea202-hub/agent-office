@@ -1,0 +1,1 @@
+BPVar(VarName="PusherScale",VarGuid=225E0A11B2C34D5E8F90A1B2C3D4E017,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="PusherScale",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1.25")

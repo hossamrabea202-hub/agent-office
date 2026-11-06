@@ -1,0 +1,1 @@
+BPVar(VarName="Hits",VarGuid=D4D2BCEFB99A5023ADAA246DE3187A66,VarType=(PinCategory="int"),FriendlyName="Hits",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")

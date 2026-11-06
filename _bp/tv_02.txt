@@ -1,0 +1,1 @@
+BPVar(VarName="HP",VarGuid=57822B382FB25D8DB041C02554D37B3E,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="HP",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="600.0")

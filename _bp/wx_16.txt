@@ -1,0 +1,1 @@
+BPVar(VarName="NextBolt",VarGuid=282E7CDFA381524AA119481D67049C64,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="NextBolt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

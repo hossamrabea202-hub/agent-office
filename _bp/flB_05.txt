@@ -1,0 +1,1 @@
+BPVar(VarName="FlareHeight",VarGuid=02786CF5F737584B87C221C424C7BFDE,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FlareHeight",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2200.0")

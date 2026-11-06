@@ -1,0 +1,1 @@
+BPVar(VarName="GlowBase",VarGuid=0F39BD544EC65B89B886952CF1051CB2,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="GlowBase",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="60.0")

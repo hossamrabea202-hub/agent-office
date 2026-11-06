@@ -1,0 +1,27 @@
+MI /Game/CastleDefender/Realm/MI_RealmBubble3.MI_RealmBubble3
+base /Game/CastleDefender/Realm/M_RealmBubble3.M_RealmBubble3 blend <BlendMode.BLEND_TRANSLUCENT: 2> shading <MaterialShadingModel.MSM_DEFAULT_LIT: 1> twosided True
+translucency_lighting_mode=<TranslucencyLightingMode.TLM_SURFACE_PER_PIXEL_LIGHTING: 5>
+disable_depth_test=False
+output_translucent_velocity=False
+used_with_static_lighting=False
+scalar FilmGlow=0.6000000238418579
+scalar OpacityHead=0.029999999329447746
+scalar OpacityRim=0.3499999940395355
+scalar FilmScale=1.0
+scalar TentacleScale=3.0
+scalar TentacleAmount=0.11999999731779099
+== <MaterialProperty.MP_OPACITY: 1>
+MaterialExpressionComponentMask
+  MaterialExpressionCustom CODE:float2 p = UV * float2(6.0, 3.0) * FilmScale; float w1; { float2 q = p * 0.7 + T * 0.02 + 5.3; float2 i = floor(q), f = frac(q); f = f * f * (3.0 - 2.0 * f);   float a = frac(sin(dot(i, float2(127.1, 311.7))) * 43758.5453), b = frac(sin(dot(i + float2(1, 0), float2(127.1, 311.7))) * 43758.5453);   float c = frac(sin(dot(i + float2(0, 1), float2(127.1, 311.7))) * 43758.5453), d = frac(sin(dot(i + float2(1, 1), float2(127.1, 311.7))) * 43758.5453);   w1 = lerp(lerp(a, b, f.x), lerp(c, d, f.x), f.y); } float th; { float2 q = p + w1 * 1.5 + T * 0.015 + 11.9; float2 i = floor(q), f = frac(q); f = f * f * (3.0 - 2.0 * f);   float a = frac(sin(dot(i, float2(127.1, 311.7))) * 43758.5453), b = frac(sin(dot(i + float2(1, 0), float2(127.1, 311.7))) * 43758.5453);   float c = frac(sin(dot(i + float2(0, 1), float2(127.1, 311.7))) * 43758.5453), d = frac(sin(dot(i + float2(1, 1), float2(127.1, 311.7))) * 43758.5453);   th = lerp(lerp(a, b, f.x), lerp(c, d, f.x), f.y); } float tn; { float2 q = UV * float2(TentacleScale * 2.0, TentacleScale) + float2(T * 0.010, -T * 0.006) + 29.4; float2 i = floor(q), f = frac(q); f = f * f * (3.0 - 2.0 * f);   float a = frac(sin(dot(i, float2(127.1, 311.7))) * 43758.5453), b = frac(sin(dot(i + float2(1, 0), float2(127.1, 311.7))) * 43758.5453);   float c = frac(sin(dot(i + float2(0, 1), float2(127.1, 311.7))) * 43758.5453), d = frac(sin(dot(i + float2(1, 1), float2(127.1, 311.7))) * 43758.5453);   tn = lerp(lerp(a, b, f.x), lerp(c, d, f.x), f.y); }  float k
+    MaterialExpressionTextureCoordinate
+    MaterialExpressionTime
+    MaterialExpressionFresnel
+    MaterialExpressionCollectionParameter
+    MaterialExpressionScalarParameter FilmGlow
+    MaterialExpressionScalarParameter OpacityHead
+    MaterialExpressionScalarParameter OpacityRim
+    MaterialExpressionScalarParameter FilmScale
+    MaterialExpressionScalarParameter TentacleScale
+    MaterialExpressionScalarParameter TentacleAmount
+== <MaterialProperty.MP_EMISSIVE_COLOR: 0>
+MaterialExpressionComponentMask

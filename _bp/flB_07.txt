@@ -1,0 +1,1 @@
+BPVar(VarName="Light",VarGuid=BC12666901545089BF5C5716269E57AB,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.PointLightComponent'"),FriendlyName="Light",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

@@ -1,0 +1,5 @@
+#337 gore setup
+BPC_Gore337 Caps = ['SM_WoundCap_Forearm_337', 'SM_WoundCap_UpperArm_337', 'SM_WoundCap_Calf_337', 'SM_WoundCap_Neck_337'], DecalMat = MI_BloodDecal_337
+BP_Zombie: + component Gore (BPC_Gore337)
+  + BP_Zombie.Gore
+Next: README step 4 (BP_Zombie hook merge)

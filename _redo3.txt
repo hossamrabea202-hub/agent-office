@@ -1,0 +1,7 @@
+Realm_Gate_Torch_1 z 13112 -> -757.6990127563477
+Realm_Wall_015 z 13071 -> -692.3890113830566
+Realm_BlobMine_10 z -887 -> -887.371301651001
+Realm_BlobMine_08 z -1161 -> -1160.581111907959
+Realm_Gate_Tower_1 z 13241 -> -743.415355682373
+Realm_Wall_014 z 13234 -> -736.3951206207275
+save True

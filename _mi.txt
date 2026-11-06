@@ -1,0 +1,2 @@
+/Game/CastleDefender/Realm/MI_RealmBubble3_Dream: WormIntensity2=18, PulseIntensity=1.4, CellIntensity=0.2, Layer4_Marble=0.25, Layer5_Motes=3, Layer6_Sheen=1.5, Layer7_Veins=0.6, Layer8_Aurora=0.6, Layer9_Seam=2, VortexIntensity=4, FilmGlow=0.6, OpacityRim=0.35
+/Game/CastleDefender/Realm/MI_RealmBubble3_Inner: WormIntensity2=0, PulseIntensity=0, CellIntensity=0, Layer4_Marble=0, Layer5_Motes=0, Layer6_Sheen=0, Layer7_Veins=0.7, Layer8_Aurora=0, Layer9_Seam=0, VortexIntensity=0, FilmGlow=0, OpacityRim=0

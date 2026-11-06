@@ -1,0 +1,16 @@
+order hit SM_Cube_Nanite_102
+GatePassage_WallBase_L <Struct 'Vector' (0x00000282D172A8D0) {x: 150.000000, y: 1595.000000, z: 25.000000}>
+PFX_Courtyard <Struct 'Vector' (0x00000282D172A9C0) {x: 2380.000000, y: 1750.000000, z: 500.000000}>
+Castle_CourtyardFloor_Single <Struct 'Vector' (0x00000282D172A8D0) {x: 1500.000000, y: 1740.000000, z: -7.500000}>
+BreachSpot_B <Struct 'Vector' (0x00000282D172A9C0) {x: 1500.000000, y: 3450.000000, z: 0.000000}>
+BreachSpot_A <Struct 'Vector' (0x00000282D172A9C0) {x: 1500.000000, y: 50.000000, z: 0.000000}>
+GatePassage_WallBase_R <Struct 'Vector' (0x00000282D172A8D0) {x: 150.000000, y: 1905.000000, z: 25.000000}>
+AP_Fire_CourtyardPit <Struct 'Vector' (0x00000282D172A8D0) {x: 3950.000000, y: 2600.000000, z: 62.000000}>
+PlayerStart <Struct 'Vector' (0x00000282D172A9C0) {x: 964.000000, y: 1750.000000, z: 120.000000}>
+CourtyardFountain <Struct 'Vector' (0x00000282D172A9C0) {x: 1440.000000, y: 1750.000000, z: 1.599967}>
+BreachSpot_C <Struct 'Vector' (0x00000282D172A8D0) {x: 4600.000000, y: 2110.000000, z: 0.000000}>
+SiegeWall_2 <Struct 'Vector' (0x00000282D172A9C0) {x: 4771.496878, y: 2077.664659, z: 700.100083}>
+TowerBallista_0 <Struct 'Vector' (0x00000282D172A9C0) {x: 50.000000, y: 3450.000000, z: 1285.653112}>
+TowerBallista_1 <Struct 'Vector' (0x00000282D172A9C0) {x: 50.000000, y: 50.000000, z: 1074.999996}>
+TowerBallista_2 <Struct 'Vector' (0x00000282D172A9C0) {x: 4600.000000, y: 50.000000, z: 1075.100017}>
+[('SM_WalkSlab', 102), ('Castle_WallWalk_EMPTY', 2), ('Tower9_B_Parapet', 1), ('HISM_SM_ParapetStone_0_BACKUP_hidden', 1), ('Tower9_A_Parapet', 1)]

@@ -1,0 +1,1 @@
+BPVar(VarName="LoopA",VarGuid=0F6A65F417B35E05B6F05D0111F04ACE,VarType=(PinCategory="bool"),FriendlyName="LoopA",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="true")

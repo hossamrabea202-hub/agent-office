@@ -1,0 +1,14 @@
+#376 realm vision setup
+create /Game/CastleDefender/Gameplay/Realm/BP_RealmVision
+  + PostProcess Vision
+  color_saturation = <Struct 'Vector4' (0x0000021806EEF330) {x: 0.780000, y: 0.860000, z: 0.800000, w: 1.000000}>
+  color_contrast = <Struct 'Vector4' (0x0000021806EEF1F0) {x: 1.120000, y: 1.120000, z: 1.120000, w: 1.000000}>
+  color_gain = <Struct 'Vector4' (0x0000021806EEFFB0) {x: 0.920000, y: 1.040000, z: 0.940000, w: 1.000000}>
+  color_gamma = <Struct 'Vector4' (0x0000021806EEFE70) {x: 0.970000, y: 1.000000, z: 1.020000, w: 1.000000}>
+  scene_color_tint = <Struct 'LinearColor' (0x0000021806EF0FE0) {r: 0.860000, g: 1.000000, b: 0.880000, a: 1.000000}>
+  scene_fringe_intensity = 1.6
+  vignette_intensity = 0.75
+  bloom_intensity = 1.6
+  film_grain_intensity = 0.25
+  auto_exposure_bias = -0.35
+Next: VARIABLES_BPVar.txt (8 lines) + BP_RealmVision_graph.txt paste, Compile, then --place.

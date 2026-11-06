@@ -1,0 +1,4 @@
+Env_CorruptedTentacle_Fog3 z -2680 -> -4880
+Env_CorruptedTentacle_Fog2 z -2076 -> -4276
+save True
+extra -800, save True

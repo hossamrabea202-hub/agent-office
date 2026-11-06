@@ -1,0 +1,1 @@
+BPVar(VarName="ExitTime",VarGuid=C1F9487A688D5E9A92E7147A8A147D86,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ExitTime",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="0.8")

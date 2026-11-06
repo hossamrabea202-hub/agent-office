@@ -1,0 +1,1 @@
+BPVar(VarName="RemindEvery",VarGuid=21D2A419F4D85C2E843E13194EAD6C78,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="RemindEvery",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="600.0")

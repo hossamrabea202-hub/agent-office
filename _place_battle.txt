@@ -1,0 +1,6 @@
+center <Struct 'Vector' (0x0000028482DFB060) {x: 2533.333333, y: 1870.000000, z: 0.000000}> gate ['BP_GateBreachLeaf', 'BP_GateBreachLeaf']
+director at <Struct 'Vector' (0x0000028482DF7BA0) {x: -3582.226516, y: 1094.951116, z: -20.045185}> yaw 7
+SiegeWall_0 at <Struct 'Vector' (0x00000282CF401510) {x: 1654.527678, y: 3655.959880, z: 0.100017}> (from BreachSpot_B)
+SiegeWall_1 at <Struct 'Vector' (0x0000028482DF7BF0) {x: 1641.386351, y: -149.828328, z: 0.100017}> (from BreachSpot_A)
+SiegeWall_2 at <Struct 'Vector' (0x0000028482DF7B00) {x: 4771.496878, y: 2077.664659, z: 680.100083}> (from BreachSpot_C)
+SAVED

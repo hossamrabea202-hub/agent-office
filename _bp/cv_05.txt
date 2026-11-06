@@ -1,0 +1,1 @@
+BPVar(VarName="Crew",VarGuid=CFC60176D366488896B096F7CEE74D6C,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",ContainerType=Array),PropertyFlags=5,DefaultValue="")

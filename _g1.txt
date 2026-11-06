@@ -1,0 +1,12 @@
+#337 blood decals import
+import T_BloodSplat_337_BC (ok)
+import T_BloodSplat_337_N (ok)
+import T_BloodSplat_337_M (ok)
+rebuild /Game/CastleDefender/VFX/Blood337/M_BloodDecal_337
+made M_BloodDecal_337 + MI_BloodDecal_337
+cap Forearm
+cap UpperArm
+cap Calf
+cap Neck
+made 4 wound caps + M_WoundCap_337 + 4 MIs in /Game/CastleDefender/VFX/Blood337/WoundCaps
+particle materials: M_BloodParticle_337, M_BloodMist_337

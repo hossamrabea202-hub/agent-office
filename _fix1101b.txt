@@ -1,0 +1,18 @@
+restored FirePit_Rock_01
+restored Realm_Wall_Breach_B
+restored Realm_Wall_Breach_A
+restored Realm_Wall_Breached
+restored FirePit_Rock_00
+restored FirePit_Rock_11
+restored FirePit_Rock_12
+restored FirePit_Rock_13
+restored FirePit_Rock_14
+restored FirePit_Rock_19
+restored FirePit_Rock_20
+hid BreachSpot_A.Rubble2 (SM_Rock_03)
+hid BreachSpot_A.Rubble3 (SM_Rock_04)
+hid BreachSpot_A.Rubble4 (SM_Rock_05)
+hid BreachSpot_A.Rubble5 (SM_Rock_06)
+hid BreachSpot_A.Rubble6 (SM_Rock_07)
+hid BreachSpot_A.Rubble7 (SM_Rock_08)
+SAVED

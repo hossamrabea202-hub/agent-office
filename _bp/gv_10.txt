@@ -1,0 +1,1 @@
+BPVar(VarName="Caps",VarGuid=4B44A50F6E2E55C5B732D4009107629E,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.StaticMesh'",ContainerType=Array),FriendlyName="Caps",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

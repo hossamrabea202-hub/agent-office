@@ -1,0 +1,1 @@
+BPVar(VarName="GaitMax",VarGuid=147C99B42DE85F94B9DE1F2DBF787A30,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="GaitMax",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1.2")

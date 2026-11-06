@@ -1,0 +1,4 @@
+#44 zombie towers setup
+place TowerDirector at the origin
+#44 zombie towers setup
+place TowerDirector at the origin

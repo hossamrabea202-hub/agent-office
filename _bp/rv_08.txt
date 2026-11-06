@@ -1,0 +1,1 @@
+BPVar(VarName="RvBagYaw0",VarGuid=4E775DB0A06C54A4A3ABCA0F4DB9D0DB,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="RvBagYaw0",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="25.0")

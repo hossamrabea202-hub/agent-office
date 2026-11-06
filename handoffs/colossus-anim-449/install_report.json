@@ -1,0 +1,23 @@
+{
+ "report": {
+  "A_Walk": {
+   "from": "CZ_Walk_Colossus",
+   "frames": 78,
+   "max_diff_deg": 0.0,
+   "notifies": [
+    "AN_ColossusStomp",
+    "AN_ColossusStomp"
+   ]
+  }
+ },
+ "log": [
+  "mode INSTALL",
+  "import CZ_Walk_Colossus (new)",
+  "import CZ_Attack_Smash (new)",
+  "import CZ_Death_Colossus (new)",
+  "imported CZ_Walk_Colossus frames 78 len 2.6",
+  "imported CZ_Attack_Smash frames 79 len 2.633",
+  "imported CZ_Death_Colossus frames 120 len 4.0",
+  "A_Walk <- CZ_Walk_Colossus {\"from\": \"CZ_Walk_Colossus\", \"frames\": 78, \"max_diff_deg\": 0.0, \"notifies\": [\"AN_ColossusStomp\", \"AN_ColossusStomp\"]}"
+ ]
+}

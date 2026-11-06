@@ -1,0 +1,1 @@
+BPVar(VarName="Jitter",VarGuid=EF29168DFB3550E78AA3D799179E08AD,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Jitter",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1.0")

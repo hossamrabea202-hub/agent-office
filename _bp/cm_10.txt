@@ -1,0 +1,1 @@
+BPVar(VarName="CastleCentre",VarGuid=87A1C4942A1B555C8CD9FF04E853AFB0,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="CastleCentre",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2300.000000,1725.000000,0.000000")

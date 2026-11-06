@@ -1,0 +1,1 @@
+AvailMask HiddenMat Knight KnightCover KnightMats LastWorn MsgUntil NextPrice NextShieldPrice ObsBought ObsOwned ObsPriceMul ObsWorn PanelScale PieceBone PieceComps PieceId PieceOffset SetNames ShieldLevel ShockCooldown ShockDamage ShockRadius ShockReadyAt Tier TierAt TierDR WasComplete WornCount WornEff

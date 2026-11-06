@@ -1,0 +1,4 @@
+Castle_GateLever_NATIVE.LeafColL pawn=<CollisionResponseType.ECR_IGNORE: 0>
+Castle_GateLever_NATIVE.TRASH_BoxComponent_64 pawn=<CollisionResponseType.ECR_IGNORE: 0>
+child BP_GateBreachLeaf pawn=<CollisionResponseType.ECR_IGNORE: 0>
+child BP_GateBreachLeaf pawn=<CollisionResponseType.ECR_IGNORE: 0>

@@ -1,0 +1,1 @@
+BPVar(VarName="FireCooldown",VarGuid=CDA1FF17A6B549F195A4B38294894EE1,VarType=(PinCategory="real",PinSubCategory="double"),PropertyFlags=5,DefaultValue="1.0")

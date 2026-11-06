@@ -1,0 +1,44 @@
+Vesna's Trade setup (#361)
+DRY_RUN = False
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet
+ok       /Game/CastleDefender/Gameplay/Castle/BP_ArmoryHUD
+ok       /Game/CastleDefender/Gameplay/Castle/BP_ZombieHUD
+ok       /Game/CastleDefender/UI/Fonts/Font_Cinzel
+ok       /Game/CastleDefender/UI/SkillTree/MPC_SkillTree
+ok       /Game/CastleDefender/UI/Trade/SFX_TradeSwipe
+ok       /Game/CastleDefender/UI/Trade/SFX_TradeBuy
+ok       /Game/CastleDefender/UI/Trade/SFX_TradeFail
+ok       /Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Frame.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Atlas.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Icons.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Chest.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Shoulders.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Gauntlets.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Shins.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Boots.png
+ok       BPC_ObsidianSet.ObsOwned
+ok       BPC_ObsidianSet.WornEff
+ok       BPC_ObsidianSet.AvailMask
+ok       BPC_ObsidianSet.NextPrice
+ok       BPC_ObsidianSet.WornCount
+ok       BPC_ObsidianSet.Tier
+ok       BPC_ObsidianSet.ShieldLevel
+existing BPC_VesnaTrade: True
+existing textures: ['T_VT_Frame', 'T_VT_Atlas', 'T_VT_Icons', 'T_VT_Turn_Chest', 'T_VT_Turn_Shoulders', 'T_VT_Turn_Gauntlets', 'T_VT_Turn_Shins', 'T_VT_Turn_Boots']
+Vesna actors in the level (portrait): ['NPCFill_Vesna']
+texture T_VT_Frame 1920x1080
+texture T_VT_Atlas 2048x2048
+texture T_VT_Icons 1024x256
+texture T_VT_Turn_Chest 2048x2040
+texture T_VT_Turn_Shoulders 2048x2040
+texture T_VT_Turn_Gauntlets 2048x2040
+texture T_VT_Turn_Shins 2048x2040
+texture T_VT_Turn_Boots 2048x2040
+reusing M_UI_VTHero
+reusing T_VT_Portrait
+reusing /Game/CastleDefender/Gameplay/Castle/BPC_VesnaTrade
+BPC_VesnaTrade defaults: 11 pieces, 12 slots, turntables ['T_VT_Turn_Chest', 'T_VT_Turn_Shoulders', 'T_VT_Turn_Gauntlets', 'T_VT_Turn_Shins', 'T_VT_Turn_Boots']
+hero already has VesnaTrade
+hero already has VTCapture
+Next: README step 2 (paste BPC_VesnaTrade_graph.txt into BPC_VesnaTrade, Compile, Save).

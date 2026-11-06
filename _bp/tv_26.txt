@@ -1,0 +1,1 @@
+BPVar(VarName="BestD",VarGuid=CB2B369A20055E0BAD4BC03338D9BF06,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="BestD",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

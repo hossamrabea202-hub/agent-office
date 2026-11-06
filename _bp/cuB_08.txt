@@ -1,0 +1,1 @@
+BPVar(VarName="ShotTo",VarGuid=706527E72ED05BA18F32BA2AF21BE865,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="ShotTo",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")

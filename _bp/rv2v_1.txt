@@ -1,0 +1,1 @@
+BPVar(VarName="DeepDist",VarGuid=879F536FAB6553EB9BA090E57ADDBDDC,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="DeepDist",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="800.0")

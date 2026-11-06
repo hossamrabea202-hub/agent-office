@@ -1,0 +1,1 @@
+BPVar(VarName="Prints",VarGuid=BC7237CB8C3255A2951A8C1B796ECB95,VarType=(PinCategory="int"),FriendlyName="Prints",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="6")

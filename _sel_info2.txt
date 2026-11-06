@@ -1,0 +1,49 @@
+BreachSpot_A | /Game/CastleDefender/Gameplay/Siege/BP_WallBreachSpot.BP_WallBreachSpot_C | Siege_138/Breach_A
+   DefaultSceneRoot [SceneComponent] vis=True hidden=False
+   BillboardComponent_1 [BillboardComponent] vis=False hidden=True
+   AttackPoint [SceneComponent] vis=True hidden=False
+   SpawnPoint [SceneComponent] vis=True hidden=False
+   InsidePoint [SceneComponent] vis=True hidden=False
+   HitFX [SceneComponent] vis=True hidden=False
+   Rubble0 [StaticMeshComponent] vis=True hidden=False mesh=SM_Rock_01 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Rubble1 [StaticMeshComponent] vis=True hidden=False mesh=SM_Rock_02 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Rubble2 [StaticMeshComponent] vis=True hidden=False mesh=SM_Rock_03 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Rubble3 [StaticMeshComponent] vis=True hidden=False mesh=SM_Rock_04 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Rubble4 [StaticMeshComponent] vis=True hidden=False mesh=SM_Rock_05 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Rubble5 [StaticMeshComponent] vis=True hidden=False mesh=SM_Rock_06 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Rubble6 [StaticMeshComponent] vis=True hidden=False mesh=SM_Rock_07 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Rubble7 [StaticMeshComponent] vis=True hidden=False mesh=SM_Rock_08 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris0 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_01 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris1 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_02 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris2 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_03 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris3 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_04 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris4 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_01 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris5 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_02 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris6 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_03 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris7 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_04 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris8 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_01 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris9 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_02 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris10 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_03 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Debris11 [StaticMeshComponent] vis=False hidden=False mesh=SM_BlastRock_04 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk0 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk1 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk2 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk3 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk4 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk5 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk6 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk7 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk8 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk9 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk10 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk11 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk12 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk13 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk14 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk15 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk16 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk17 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk18 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk19 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+   Brk20 [StaticMeshComponent] vis=True hidden=False mesh=SM_Bevel_008 coll=<CollisionEnabled.NO_COLLISION: 0> stepup=<CanBeCharacterBase.ECB_YES: 1>
+SAME CLASS: BreachSpot_B, BreachSpot_A, BreachSpot_C

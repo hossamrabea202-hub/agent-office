@@ -1,0 +1,1 @@
+BPVar(VarName="LimbsOn",VarGuid=E4F017D57D5458D09DDA8113851685D8,VarType=(PinCategory="bool"),FriendlyName="LimbsOn",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="true")

@@ -1,0 +1,1 @@
+BPVar(VarName="KnightSwordBone",VarGuid=5C5D4EDC15BD4DBCBB17EAC39469CE46,VarType=(PinCategory="name"),PropertyFlags=5,DefaultValue="weapon_r")

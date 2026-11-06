@@ -1,0 +1,27 @@
+comp Infection (BPC_Infection_C) MaxHP was 100.0
+  now 250.0
+saved hero True
+VFX/Berserk: ["/Game/CastleDefender/VFX/Berserk/M_BerserkAura.M_BerserkAura", "/Game/CastleDefender/VFX/Berserk/M_BerserkEmber.M_BerserkEmber", "/Game/CastleDefender/VFX/Berserk/M_BerserkGround.M_BerserkGround", "/Game/CastleDefender/VFX/Berserk/M_BerserkWisp.M_BerserkWisp", "/Game/CastleDefender/VFX/Berserk/NS_BerserkAura.NS_BerserkAura", "/Game/CastleDefender/VFX/Berserk/T_BerserkEmber.T_BerserkEmber", "/Game/CastleDefender/VFX/Berserk/T_BerserkNoise.T_BerserkNoise", "/Game/CastleDefender/VFX/Berserk/T_BerserkRing.T_BerserkRing", "/Game/CastleDefender/VFX/Berserk/T_BerserkWisp.T_BerserkWisp"]
+named berserk/rage:
+  /Game/CastleDefender/VFX/Berserk/T_BerserkNoise (Texture2D)
+  /Game/CastleDefender/VFX/Berserk/M_BerserkAura (Material)
+  /Game/CastleDefender/VFX/Berserk/T_BerserkRing (Texture2D)
+  /Game/CastleDefender/VFX/Berserk/M_BerserkGround (Material)
+  /Game/CastleDefender/VFX/Berserk/T_BerserkEmber (Texture2D)
+  /Game/CastleDefender/VFX/Berserk/M_BerserkEmber (Material)
+  /Game/CastleDefender/VFX/Berserk/T_BerserkWisp (Texture2D)
+  /Game/CastleDefender/VFX/Berserk/M_BerserkWisp (Material)
+  /Game/CastleDefender/VFX/Berserk/NS_BerserkAura (NiagaraSystem)
+  /Game/CastleDefender/Gameplay/Skills/BP_Berserk (Blueprint)
+refs of /Game/CastleDefender/VFX/Berserk/T_BerserkNoise: ['/Game/CastleDefender/VFX/Berserk/M_BerserkAura', '/Game/CastleDefender/VFX/Berserk/M_BerserkWisp', '/Game/CastleDefender/VFX/Berserk/M_BerserkGround']
+refs of /Game/CastleDefender/VFX/Berserk/M_BerserkAura: ['/Game/CastleDefender/Gameplay/Skills/BP_Berserk']
+refs of /Game/CastleDefender/VFX/Berserk/T_BerserkRing: ['/Game/CastleDefender/VFX/Berserk/M_BerserkGround']
+refs of /Game/CastleDefender/VFX/Berserk/M_BerserkGround: ['/Game/CastleDefender/VFX/Berserk/NS_BerserkAura', '/Game/CastleDefender/Gameplay/Skills/BP_Berserk']
+refs of /Game/CastleDefender/VFX/Berserk/T_BerserkEmber: ['/Game/CastleDefender/VFX/Berserk/M_BerserkEmber']
+refs of /Game/CastleDefender/VFX/Berserk/M_BerserkEmber: ['/Game/CastleDefender/VFX/Berserk/NS_BerserkAura']
+refs of /Game/CastleDefender/VFX/Berserk/T_BerserkWisp: ['/Game/CastleDefender/VFX/Berserk/M_BerserkWisp']
+refs of /Game/CastleDefender/VFX/Berserk/M_BerserkWisp: ['/Game/CastleDefender/VFX/Berserk/NS_BerserkAura']
+refs of /Game/CastleDefender/VFX/Berserk/NS_BerserkAura: ['/Game/CastleDefender/Gameplay/Skills/BP_Berserk']
+refs of /Game/CastleDefender/Gameplay/Skills/BP_Berserk: ['/Game/CastleDefender/Gameplay/Skills/BP_HeroAbilities']
+Infection ['/Game/CastleDefender/Gameplay/Castle/BPC_Infection'] refs ['/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter', '/Game/CastleDefender/Gameplay/Castle/BP_NoticeHUD']
+MaxHP default 250.0

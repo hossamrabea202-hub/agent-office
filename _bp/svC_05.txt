@@ -1,0 +1,1 @@
+BPVar(VarName="ArriveDist",VarGuid=152BA2B03910589898E06765532209C7,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ArriveDist",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="3000.0")

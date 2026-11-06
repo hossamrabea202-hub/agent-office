@@ -1,0 +1,1 @@
+BPVar(VarName="ToastText",VarGuid=FB6F80124B585D38A7E3EC83B0D1E18C,VarType=(PinCategory="string"),FriendlyName="ToastText",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

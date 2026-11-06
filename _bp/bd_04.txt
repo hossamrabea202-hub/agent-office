@@ -1,0 +1,1 @@
+BPVar(VarName="BruteClass",VarGuid=8BAC57108D4C599EAC7ED235892E51E8,VarType=(PinCategory="class",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'"),FriendlyName="BruteClass",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

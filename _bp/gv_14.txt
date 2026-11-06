@@ -1,0 +1,1 @@
+BPVar(VarName="CutChild",VarGuid=40118071349E55D48C3219475D57C3BC,VarType=(PinCategory="name"),FriendlyName="CutChild",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

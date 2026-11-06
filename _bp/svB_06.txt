@@ -1,0 +1,1 @@
+BPVar(VarName="MaxArmy",VarGuid=31591CD1FE48518AA9233872D526FABC,VarType=(PinCategory="int"),FriendlyName="MaxArmy",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="30")

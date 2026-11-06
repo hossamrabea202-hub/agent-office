@@ -1,0 +1,1 @@
+BPVar(VarName="WallWalk",VarGuid=8192C12A93315CF58772D376DC3CF8C0,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="WallWalk",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")

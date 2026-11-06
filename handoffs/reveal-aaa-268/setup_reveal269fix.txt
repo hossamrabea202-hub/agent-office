@@ -1,0 +1,27 @@
+#268 reveal setup #269 fix
+delete + rebuild /Game/CastleDefender/UI/Reveal/RT_Reveal
+create /Game/CastleDefender/UI/Reveal/RT_Reveal
+reusing /Game/CastleDefender/UI/Reveal/MPC_Reveal
+delete + rebuild /Game/CastleDefender/UI/Reveal/M_RevealItem
+create /Game/CastleDefender/UI/Reveal/M_RevealItem
+delete + rebuild /Game/CastleDefender/UI/Reveal/BP_RevealStage
+create /Game/CastleDefender/UI/Reveal/BP_RevealStage
+  skip Ring_GEN_VARIABLE /Engine/BasicShapes/Plane.Plane
+  skip Ring_GEN_VARIABLE /Engine/BasicShapes/Plane.Plane
+  skip Shaft_GEN_VARIABLE /Engine/BasicShapes/Cylinder.Cylinder
+  skip Shaft_GEN_VARIABLE /Engine/BasicShapes/Cylinder.Cylinder
+  BP_SkillBookPickup: StaticMeshComponent /Game/Fab/Old_Book/old_book__GLTF_.old_book__GLTF_ (radius 24.8 cm)
+  skip Ring_GEN_VARIABLE /Engine/BasicShapes/Plane.Plane
+  skip Ring_GEN_VARIABLE /Engine/BasicShapes/Plane.Plane
+  skip Shaft_GEN_VARIABLE /Engine/BasicShapes/Cylinder.Cylinder
+  skip Shaft_GEN_VARIABLE /Engine/BasicShapes/Cylinder.Cylinder
+  BP_BagPickup: StaticMeshComponent /Game/CastleDefender/Gameplay/BagPickup/SM_Satchel.SM_Satchel (radius 31.7 cm)
+  stage + Pivot
+  stage + RevealBook
+  stage + RevealBag
+  stage + Capture
+  stage + KeyLight
+  stage + RimLight
+  stage + FillLight
+hero cameras: []
+Next: README step 3 (BPVar lines on BPC_MotionFX, then the graph paste).

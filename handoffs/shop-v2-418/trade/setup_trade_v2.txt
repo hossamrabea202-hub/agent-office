@@ -1,0 +1,26 @@
+#418 Vesna trade v2 setup
+DRY_RUN = False
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Atlas_418.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Icons.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Forearms.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_UpperArms.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Waist.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Thighs.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_HeaterShield.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_RoundShield.png
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_VesnaTrade
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_ShieldKit
+backup: /Game/CastleDefender/Gameplay/Castle/BPC_VesnaTrade_v1_backup
+texture T_VT_Atlas_418
+texture T_VT_Icons
+texture T_VT_Turn_Forearms
+texture T_VT_Turn_UpperArms
+texture T_VT_Turn_Waist
+texture T_VT_Turn_Thighs
+texture T_VT_Turn_HeaterShield
+texture T_VT_Turn_RoundShield
+  + BPC_VesnaTrade.Kit
+  + BPC_VesnaTrade.PrevDown
+  + BPC_VesnaTrade.ModeUI
+BPC_VesnaTrade defaults: 14 rows (11 set pieces + 3 shields)
+Next: paste trade/BPC_VesnaTrade_graph.txt over BPC_VesnaTrade's EventGraph (select all, delete, paste), Compile, Save.

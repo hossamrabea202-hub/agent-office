@@ -1,0 +1,1 @@
+BPVar(VarName="MudLeft",VarGuid=A4F3DF1B130751DCA0F39DF178AAE6D6,VarType=(PinCategory="int"),FriendlyName="MudLeft",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")

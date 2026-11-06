@@ -1,0 +1,1 @@
+BPVar(VarName="Best",VarGuid=DB09B14DF5E65CA083E3F05BD3E0C5F3,VarType=(PinCategory="object",PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie.BP_Zombie_C'"),FriendlyName="Best",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

@@ -1,0 +1,1 @@
+BPVar(VarName="GreyMID",VarGuid=FBC79A625CA55AB2AEF00B28A7737175,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.MaterialInstanceDynamic'"),FriendlyName="GreyMID",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

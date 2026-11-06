@@ -1,0 +1,1 @@
+BPVar(VarName="ZMesh",VarGuid=0B69D3B4F1485310BA10F3C752167886,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SkeletalMeshComponent'"),FriendlyName="ZMesh",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

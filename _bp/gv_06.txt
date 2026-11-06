@@ -1,0 +1,1 @@
+BPVar(VarName="MeleeRange",VarGuid=BE88EC6769B251CAB509AF3A03F5E5CF,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="MeleeRange",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="350.0")

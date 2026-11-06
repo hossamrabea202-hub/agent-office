@@ -1,0 +1,1 @@
+BPVar(VarName="UseRange",VarGuid=41F219F57B135D67B7D437034825ABED,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="UseRange",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="220.0")

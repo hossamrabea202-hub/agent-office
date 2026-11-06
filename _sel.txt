@@ -1,0 +1,2 @@
+Realm_Gate_Tower_1|StaticMeshActor|<Struct 'Vector' (0x000002180556D5B0) {x: -14346.674068, y: 2332.858652, z: 13240.609210}>|['laptop2_realm']|Gameplay/Realm
+Env_TentacleFog__03_0|StaticMeshActor|<Struct 'Vector' (0x000002180556D5B0) {x: -13375.699716, y: 5638.736000, z: 12915.103939}>|[]|Environment/TentacleFog

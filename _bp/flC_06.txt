@@ -1,0 +1,1 @@
+BPVar(VarName="FlareGap",VarGuid=B0A1E1F57BB15B6AB9B879C2D70B49FE,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FlareGap",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="6.0")

@@ -1,0 +1,1097 @@
+ArchWeathering_Face | StaticMeshActor | loc -185,1750,356 | half 0,340,323 | hidden False | StaticMeshComp:Plane:MI_ArchWeathering_Face
+ArchWeathering_Inside | StaticMeshActor | loc -185,1750,340 | half 30,214,261 | hidden False | StaticMeshComp:SM_ArchInnerStrip:MI_ArchWeathering_Inside
+ArchWeathering_Wall | StaticMeshActor | loc -140,1750,416 | half 0,480,383 | hidden False | StaticMeshComp:Plane:MI_ArchWeathering_Wall
+Atmos_Smoke_10 | Emitter | loc 185,1150,406 | half 251,165,351 | hidden False | ParticleSystem::M_smoke_subUV ; BillboardCompo:: ; ArrowComponent::
+Atmos_Smoke_2 | Emitter | loc 278,2198,390 | half 256,180,338 | hidden False | ParticleSystem::M_smoke_subUV ; BillboardCompo:: ; ArrowComponent::
+BP_ArmySplit | BP_ArmySplit_C | loc 0,0,0 | half 128,128,128 | hidden False | BillboardCompo::
+BP_GateBreachLeaf | BP_GateBreachLeaf_C | loc -110,1535,0 | half 20,109,259 | hidden False | SkeletalMeshCo::MI_GateBreach_Scratched_L
+BP_GateBreachLeaf | BP_GateBreachLeaf_C | loc -110,1965,0 | half 20,109,259 | hidden False | SkeletalMeshCo::MI_GateBreach_Scratched_L
+BP_MudPad2 | BP_MudPad_C | loc 164,1750,30 | half 128,128,128 | hidden False | BillboardCompo:: ; Decal:M_MudPuddle
+BP_MudPad3 | BP_MudPad_C | loc -235,1750,30 | half 128,128,128 | hidden False | BillboardCompo:: ; Decal:M_MudPuddle
+BagPickup | BP_BagPickup_C | loc 275,2556,4 | half 435,400,274 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:SM_Satchel:M_Satchel_Leather ; StaticMeshComp:Plane:M_BagPickup_Ring
+BannerWallWind_2 | WindDirectionalSource | loc 0,1310,610 | half 184,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+BannerWallWind_3 | WindDirectionalSource | loc 0,2190,610 | half 184,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+BattleDirector_1 | BP_BattleDirector_C | loc -3582,1094,-20 | half 128,128,128 | hidden False | BillboardCompo::
+Blend_Contact_1 | StaticMeshActor | loc -254,2057,-123 | half 100,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_10 | StaticMeshActor | loc 64,2712,766 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_11 | StaticMeshActor | loc 64,2516,906 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_12 | StaticMeshActor | loc -72,2527,876 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_140 | StaticMeshActor | loc 194,1057,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_154 | StaticMeshActor | loc 202,595,686 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_159 | StaticMeshActor | loc 194,763,15 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_198 | StaticMeshActor | loc 65,787,766 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_2 | StaticMeshActor | loc -254,1442,-106 | half 100,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_203 | StaticMeshActor | loc 65,955,886 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_210 | StaticMeshActor | loc 194,2737,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_215 | StaticMeshActor | loc 64,2600,846 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_223 | StaticMeshActor | loc 194,2485,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_240 | StaticMeshActor | loc 320,2324,989 | half 61,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_250 | StaticMeshActor | loc 64,2684,786 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_254 | StaticMeshActor | loc 412,210,9 | half 82,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_255 | StaticMeshActor | loc 412,-110,6 | half 82,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_274 | StaticMeshActor | loc 194,2905,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_3 | StaticMeshActor | loc 194,805,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_300 | StaticMeshActor | loc 194,2527,15 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_310 | StaticMeshActor | loc -1012,1490,-5 | half 37,33,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_311 | StaticMeshActor | loc -585,1518,8 | half 412,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_349 | StaticMeshActor | loc 329,208,9 | half 42,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_365 | StaticMeshActor | loc 65,1067,966 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_394 | StaticMeshActor | loc -110,2820,6 | half 37,82,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_414 | StaticMeshActor | loc 194,889,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_441 | StaticMeshActor | loc 194,1015,15 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_470 | StaticMeshActor | loc -19,2370,989 | half 22,36,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_471 | StaticMeshActor | loc -90,2324,989 | half 61,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_474 | StaticMeshActor | loc 194,2611,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_476 | StaticMeshActor | loc 371,208,15 | half 38,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_497 | StaticMeshActor | loc 64,2656,806 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_517 | StaticMeshActor | loc 64,2572,866 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_518 | StaticMeshActor | loc 378,2710,686 | half 37,372,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_519 | StaticMeshActor | loc 320,1165,989 | half 61,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_528 | StaticMeshActor | loc 194,2653,15 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_553 | StaticMeshActor | loc 194,511,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_554 | StaticMeshActor | loc 65,843,806 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_574 | StaticMeshActor | loc 194,2947,15 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_606 | StaticMeshActor | loc 292,2190,8 | half 37,237,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_607 | StaticMeshActor | loc -212,2190,6 | half 37,237,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_614 | StaticMeshActor | loc 194,2443,15 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_624 | StaticMeshActor | loc 194,847,15 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_65 | StaticMeshActor | loc 64,2460,946 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_650 | StaticMeshActor | loc 194,931,15 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_670 | StaticMeshActor | loc 293,1750,9 | half 37,247,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_676 | StaticMeshActor | loc -213,1750,9 | half 37,247,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_70 | StaticMeshActor | loc 65,899,846 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_705 | StaticMeshActor | loc 149,1120,989 | half 22,36,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_706 | StaticMeshActor | loc 220,1165,989 | half 61,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_727 | StaticMeshActor | loc -19,1120,989 | half 22,36,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_728 | StaticMeshActor | loc -90,1165,989 | half 61,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_732 | StaticMeshActor | loc 412,3610,13 | half 82,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_784 | StaticMeshActor | loc -110,680,13 | half 37,82,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_799 | StaticMeshActor | loc -1012,2010,-5 | half 37,33,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_800 | StaticMeshActor | loc -585,1994,8 | half 412,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_805 | StaticMeshActor | loc 64,2432,966 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_806 | StaticMeshActor | loc -72,2401,914 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_807 | StaticMeshActor | loc 202,2401,914 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_81 | StaticMeshActor | loc 292,1310,8 | half 37,237,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_82 | StaticMeshActor | loc -212,1310,6 | half 37,237,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_85 | StaticMeshActor | loc 194,973,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_858 | StaticMeshActor | loc 149,2370,989 | half 22,36,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_859 | StaticMeshActor | loc 220,2324,989 | half 61,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_884 | StaticMeshActor | loc 388,789,686 | half 37,372,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_95 | StaticMeshActor | loc 65,1011,926 | half 122,25,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_Contact_99 | StaticMeshActor | loc 194,2989,9 | half 37,43,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Blend_GateKerbOuter_Bridge | StaticMeshActor | loc -236,1750,2 | half 60,235,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_FloorContact
+Blend_GateKerbOuter_Corner | StaticMeshActor | loc -100,1750,21 | half 40,235,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_CornerDust
+Blend_GateKerb_CornerDust | StaticMeshActor | loc 180,1750,21 | half 40,235,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_CornerDust
+Blend_GateKerb_FloorContact | StaticMeshActor | loc 316,1750,3 | half 60,235,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_FloorContact
+BreachFX | BP_BreachFX_C | loc 0,0,0 | half 128,128,128 | hidden False | BillboardCompo::
+BruteDirector | BP_BruteDirector_C | loc 0,0,0 | half 128,128,128 | hidden False | BillboardCompo::
+Cannon_front_field_N | BP_Cannon_C | loc -900,900,-125 | half 1010,1010,1010 | hidden False | BillboardCompo:: ; BoxComponent:: ; StaticMeshComp:SM_FieldCannon_HD:M_CannonGilded ; ArrowComponent::
+Cannon_front_field_S | BP_Cannon_C | loc -900,2600,-131 | half 1010,1010,1010 | hidden False | BillboardCompo:: ; BoxComponent:: ; StaticMeshComp:SM_FieldCannon_HD:M_CannonGilded ; ArrowComponent::
+Cannon_old_field_cannon3 | BP_Cannon_C | loc 95,190,1075 | half 1010,1010,1009 | hidden False | BillboardCompo:: ; BoxComponent:: ; StaticMeshComp:SM_FieldCannon_HD:M_CannonGilded ; ArrowComponent::
+Cannon_old_field_cannon4 | BP_Cannon_C | loc 60,3450,1075 | half 1010,1010,1009 | hidden False | BillboardCompo:: ; BoxComponent:: ; StaticMeshComp:SM_FieldCannon_HD:M_CannonGilded ; ArrowComponent::
+CastleStones_-1_0_0 | StaticMeshActor | loc -48,855,770 | half 88,711,244 | hidden False | StaticMeshComp:SM_CastleStones_-1_0_0:MI_Castle_Trim_World
+CastleStones_-1_1_1 | StaticMeshActor | loc -166,2250,995 | half 88,434,244 | hidden False | StaticMeshComp:SM_CastleStones_-1_1_1:MI_Castle_Trim_World
+CastleStones_0_1_5 | StaticMeshActor | loc 396,2050,1047 | half 898,788,584 | hidden False | StaticMeshComp:SM_CastleStones_0_1_5:MI_Castle_Trim_World
+Castle_BannerRod | StaticMeshActor | loc -150,1310,740 | half 12,82,7 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_AshenGate_Iron
+Castle_BannerRod | StaticMeshActor | loc -150,2190,740 | half 12,82,7 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_AshenGate_Iron
+Castle_BridgeEdge | StaticMeshActor | loc -585,1490,15 | half 390,11,17 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Drawbridge_Curb
+Castle_BridgeEdge | StaticMeshActor | loc -585,2010,15 | half 390,11,17 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Drawbridge_Curb
+Castle_EastCurtain_StringCourse6 | StaticMeshActor | loc 324,1105,690 | half 112,24,22 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_Trim_World
+Castle_EastCurtain_StringCourse7 | StaticMeshActor | loc 324,2393,691 | half 112,24,22 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_Trim_World
+Castle_EastCurtain_StringCourse8 | StaticMeshActor | loc 324,2393,772 | half 112,24,22 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_Trim_World
+Castle_EastCurtain_StringCourse9 | StaticMeshActor | loc 324,1120,772 | half 112,24,22 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_Trim_World
+Castle_Flagpole | StaticMeshActor | loc 373,3130,1280 | half 6,6,205 | hidden False | StaticMeshComp:SM_Cylinder_Nanite:MI_AshenGate_Iron
+Castle_Flagpole2 | StaticMeshActor | loc 380,379,1256 | half 6,6,205 | hidden False | StaticMeshComp:SM_Cylinder_Nanite:MI_AshenGate_Iron
+Castle_FrontLeftCurtain | StaticMeshActor | loc 50,680,310 | half 80,580,310 | hidden False | StaticMeshComp:SM_Bevel_014:MI_Castle_StoneWall_World
+Castle_FrontLeftCurtain_StringCourse | StaticMeshActor | loc 50,680,45 | half 95,580,45 | hidden False | StaticMeshComp:SM_Bevel_015:MI_Castle_Trim_World
+Castle_FrontLeftCurtain_StringCourse | StaticMeshActor | loc 50,680,580 | half 97,580,22 | hidden False | StaticMeshComp:SM_Bevel_016:MI_Castle_Trim_World
+Castle_FrontLeftCurtain_StringCourse | StaticMeshActor | loc 50,680,640 | half 110,580,32 | hidden False | StaticMeshComp:SM_Bevel_017:MI_Castle_Trim_World
+Castle_FrontLeftCurtain_StringCourse_Skirt | StaticMeshActor | loc 50,680,-117 | half 95,580,117 | hidden False | StaticMeshComp:SM_Bevel_015:MI_Castle_Trim_World
+Castle_FrontRightCurtain | StaticMeshActor | loc 50,2820,310 | half 80,580,310 | hidden False | StaticMeshComp:SM_Bevel_014:MI_Castle_StoneWall_World
+Castle_FrontRightCurtain_StringCourse | StaticMeshActor | loc 50,2820,45 | half 95,580,45 | hidden False | StaticMeshComp:SM_Bevel_015:MI_Castle_Trim_World
+Castle_FrontRightCurtain_StringCourse | StaticMeshActor | loc 50,2820,580 | half 97,580,22 | hidden False | StaticMeshComp:SM_Bevel_016:MI_Castle_Trim_World
+Castle_FrontRightCurtain_StringCourse | StaticMeshActor | loc 50,2820,640 | half 110,580,32 | hidden False | StaticMeshComp:SM_Bevel_017:MI_Castle_Trim_World
+Castle_FrontRightCurtain_StringCourse_Skirt | StaticMeshActor | loc 50,2820,-117 | half 95,580,117 | hidden False | StaticMeshComp:SM_Bevel_015:MI_Castle_Trim_World
+Castle_GateArch | StaticMeshActor | loc -155,1486,371 | half 30,54,43 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1502,433 | half 30,60,52 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1531,490 | half 30,62,59 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1574,538 | half 30,61,62 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1626,574 | half 30,56,61 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1686,597 | half 30,48,57 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1750,605 | half 30,37,50 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1813,597 | half 30,48,57 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1873,574 | half 30,56,61 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1925,538 | half 30,61,62 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1968,490 | half 30,62,59 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,1997,433 | half 30,60,52 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateArch | StaticMeshActor | loc -155,2013,371 | half 30,54,43 | hidden False | StaticMeshComp:SM_Bevel_033:MI_Castle_GateArch
+Castle_GateJamb | StaticMeshActor | loc -155,1485,170 | half 30,50,170 | hidden False | StaticMeshComp:SM_BevR_60x100x340_1c5699:MI_Castle_Trim_World
+Castle_GateJamb | StaticMeshActor | loc -155,2015,170 | half 30,50,170 | hidden False | StaticMeshComp:SM_BevR_60x100x340_6eacd9:MI_Castle_Trim_World
+Castle_GateLanding | StaticMeshActor | loc -254,1750,-34 | half 78,270,35 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateLanding_Cap | StaticMeshActor | loc -254,1750,1 | half 78,270,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Castle_GateLever_Left | BP_CastleGateLever_C | loc 220,1330,134 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_GateLever_Handle:M_GateLever ; TextRenderComp::DefaultTextMaterialOpaque ; StaticMeshComp:SM_GateLever_Mount:MI_GateLever
+Castle_GateLever_NATIVE | BP_CastleMainGate_C | loc 250,2170,140 | half 291,417,270 | hidden False | BillboardCompo:: ; InstancedStati:SM_StoneModule:M_GateWood_Scratched ; InstancedStati:SM_StoneModule:M_Metal_Steel ; InstancedStati:SM_StoneModule:M_GateWood_Scratched
+Castle_GateSpandrel_0 | StaticMeshActor | loc -100,1388,530 | half 40,8,110 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_1 | StaticMeshActor | loc -100,1404,530 | half 40,8,110 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_10 | StaticMeshActor | loc -100,1548,593 | half 40,8,106 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_11 | StaticMeshActor | loc -100,1564,599 | half 40,8,100 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_12 | StaticMeshActor | loc -100,1580,604 | half 40,8,95 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_13 | StaticMeshActor | loc -100,1596,608 | half 40,8,91 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_14 | StaticMeshActor | loc -100,1612,612 | half 40,8,87 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_15 | StaticMeshActor | loc -100,1628,616 | half 40,8,83 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_16 | StaticMeshActor | loc -100,1644,619 | half 40,8,80 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_17 | StaticMeshActor | loc -100,1660,621 | half 40,8,78 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_18 | StaticMeshActor | loc -100,1676,623 | half 40,8,76 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_19 | StaticMeshActor | loc -100,1692,625 | half 40,8,74 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_2 | StaticMeshActor | loc -100,1420,530 | half 40,8,110 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_20 | StaticMeshActor | loc -100,1708,626 | half 40,8,73 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_21 | StaticMeshActor | loc -100,1724,627 | half 40,8,72 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_22 | StaticMeshActor | loc -100,1740,627 | half 40,8,72 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_23 | StaticMeshActor | loc -100,1756,627 | half 40,8,72 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_24 | StaticMeshActor | loc -100,1772,627 | half 40,8,72 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_25 | StaticMeshActor | loc -100,1788,626 | half 40,8,73 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_26 | StaticMeshActor | loc -100,1804,625 | half 40,8,74 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_27 | StaticMeshActor | loc -100,1820,624 | half 40,8,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_28 | StaticMeshActor | loc -100,1836,622 | half 40,8,77 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_29 | StaticMeshActor | loc -100,1852,619 | half 40,8,80 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_3 | StaticMeshActor | loc -100,1436,513 | half 40,8,186 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_30 | StaticMeshActor | loc -100,1868,617 | half 40,8,82 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_31 | StaticMeshActor | loc -100,1884,613 | half 40,8,86 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_32 | StaticMeshActor | loc -100,1900,609 | half 40,8,90 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_33 | StaticMeshActor | loc -100,1916,605 | half 40,8,94 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_34 | StaticMeshActor | loc -100,1932,600 | half 40,8,99 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_35 | StaticMeshActor | loc -100,1948,594 | half 40,8,105 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_36 | StaticMeshActor | loc -100,1964,588 | half 40,8,111 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_37 | StaticMeshActor | loc -100,1980,581 | half 40,8,118 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_38 | StaticMeshActor | loc -100,1996,572 | half 40,8,127 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_39 | StaticMeshActor | loc -100,2012,563 | half 40,8,136 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_4 | StaticMeshActor | loc -100,1452,533 | half 40,8,166 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_40 | StaticMeshActor | loc -100,2028,551 | half 40,8,148 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_41 | StaticMeshActor | loc -100,2044,537 | half 40,8,162 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_42 | StaticMeshActor | loc -100,2060,518 | half 40,8,181 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_43 | StaticMeshActor | loc -100,2076,486 | half 40,8,213 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_44 | StaticMeshActor | loc -100,2092,530 | half 40,8,110 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_45 | StaticMeshActor | loc -100,2108,530 | half 40,8,110 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_46 | StaticMeshActor | loc -100,2124,530 | half 40,8,110 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_5 | StaticMeshActor | loc -100,1468,548 | half 40,8,151 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_6 | StaticMeshActor | loc -100,1484,560 | half 40,8,139 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_7 | StaticMeshActor | loc -100,1500,570 | half 40,8,129 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_8 | StaticMeshActor | loc -100,1516,579 | half 40,8,120 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateSpandrel_9 | StaticMeshActor | loc -100,1532,586 | half 40,8,113 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+Castle_GateThreshold | StaticMeshActor | loc 48,1750,11 | half 188,247,9 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Castle_GateThreshold_Kerb | StaticMeshActor | loc 238,1750,12 | half 18,225,9 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_Trim_World
+Castle_GateThreshold_KerbOuter | StaticMeshActor | loc -158,1750,12 | half 18,225,9 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_Trim_World
+Castle_GateTowerLeft | StaticMeshActor | loc 40,1310,430 | half 180,180,430 | hidden False | StaticMeshComp:SM_BevR_360x360x860_ff58b3:MI_Castle_StoneWall_World
+Castle_GateTowerLeft_ArrowSlit | StaticMeshActor | loc -141,1310,720 | half 1,17,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_Shadow
+Castle_GateTowerLeft_ArrowSlit | StaticMeshActor | loc 40,1129,380 | half 17,1,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_Shadow
+Castle_GateTowerLeft_ArrowSlit | StaticMeshActor | loc 40,1129,720 | half 17,1,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_Shadow
+Castle_GateTowerLeft_ArrowSlit | StaticMeshActor | loc 40,1491,720 | half 17,1,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_Shadow
+Castle_GateTowerLeft_Cornice | StaticMeshActor | loc 40,1310,447 | half 195,195,22 | hidden False | StaticMeshComp:SM_BevR_390x390x45_1f6908:MI_Castle_Trim_World
+Castle_GateTowerLeft_Cornice | StaticMeshActor | loc 40,1310,45 | half 215,215,45 | hidden False | StaticMeshComp:SM_BevR_430x430x90_e28c0e:MI_Castle_Trim_World
+Castle_GateTowerLeft_Cornice | StaticMeshActor | loc 40,1310,795 | half 209,210,30 | hidden False | StaticMeshComp:SM_BevR_420x420x60_37fbd1:MI_Castle_Trim_World
+Castle_GateTowerLeft_Cornice | StaticMeshActor | loc 40,1310,870 | half 225,225,37 | hidden False | StaticMeshComp:SM_BevR_450x450x75_08b5fd:MI_Castle_Trim_World
+Castle_GateTowerLeft_Cornice_Skirt | StaticMeshActor | loc 40,1310,-71 | half 215,215,162 | hidden False | StaticMeshComp:SM_BevR_430x430x90_e28c0e:MI_Castle_Trim_World
+Castle_GateTowerRight | StaticMeshActor | loc 40,2190,430 | half 180,180,430 | hidden False | StaticMeshComp:SM_BevR_360x360x860_ff58b3:MI_Castle_StoneWall_World
+Castle_GateTowerRight_ArrowSlit | StaticMeshActor | loc -141,2190,720 | half 1,17,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_Shadow
+Castle_GateTowerRight_ArrowSlit | StaticMeshActor | loc 40,2009,720 | half 17,1,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_Shadow
+Castle_GateTowerRight_ArrowSlit | StaticMeshActor | loc 40,2371,380 | half 17,1,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_Shadow
+Castle_GateTowerRight_ArrowSlit | StaticMeshActor | loc 40,2371,720 | half 17,1,75 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_Shadow
+Castle_GateTowerRight_Cornice | StaticMeshActor | loc 40,2190,447 | half 195,195,22 | hidden False | StaticMeshComp:SM_BevR_390x390x45_7759e0:MI_Castle_Trim_World
+Castle_GateTowerRight_Cornice | StaticMeshActor | loc 40,2190,45 | half 215,215,45 | hidden False | StaticMeshComp:SM_BevR_430x430x90_3048cf:MI_Castle_Trim_World
+Castle_GateTowerRight_Cornice | StaticMeshActor | loc 40,2190,795 | half 209,210,30 | hidden False | StaticMeshComp:SM_BevR_420x420x60_37fbd1:MI_Castle_Trim_World
+Castle_GateTowerRight_Cornice | StaticMeshActor | loc 40,2190,870 | half 225,225,37 | hidden False | StaticMeshComp:SM_BevR_450x450x75_08b5fd:MI_Castle_Trim_World
+Castle_GateTowerRight_Cornice_Skirt | StaticMeshActor | loc 40,2190,-71 | half 215,215,162 | hidden False | StaticMeshComp:SM_BevR_430x430x90_3048cf:MI_Castle_Trim_World
+Castle_GatehouseBridge | StaticMeshActor | loc 40,1750,755 | half 185,285,165 | hidden False | StaticMeshComp:SM_BevR_370x570x330_a6a7a7:MI_Castle_StoneWall_World
+Castle_GatehouseCoping | StaticMeshActor | loc 40,1750,945 | half 215,325,32 | hidden False | StaticMeshComp:SM_BevR_430x650x65_da3bcb:MI_Castle_Trim_World
+Castle_InteractiveGate_Left | Actor | loc -110,1535,0 | half 128,170,334 | hidden False | InstancedStati:SM_StoneModule:M_Castle_LocalWood ; InstancedStati:SM_StoneModule:MI_AshenGate_Iron ; BillboardCompo::
+Castle_InteractiveGate_Right | Actor | loc -110,1965,0 | half 128,170,334 | hidden False | InstancedStati:SM_StoneModule:M_Castle_LocalWood ; InstancedStati:SM_StoneModule:MI_AshenGate_Iron ; BillboardCompo::
+Castle_KeepTurret_Crenel2 | StaticMeshActor | loc 320,1120,1000 | half 47,22,20 | hidden False | StaticMeshComp:SM_Bevel_023:MI_Castle_Trim_World
+Castle_KeepTurret_Crenel3 | StaticMeshActor | loc 220,1120,1000 | half 47,22,20 | hidden False | StaticMeshComp:SM_Bevel_023:MI_Castle_Trim_World
+Castle_KeepTurret_Crenel4 | StaticMeshActor | loc -90,1120,1000 | half 47,22,20 | hidden False | StaticMeshComp:SM_Bevel_023:MI_Castle_Trim_World
+Castle_KeepTurret_Crenel5 | StaticMeshActor | loc 320,2370,1000 | half 47,22,20 | hidden False | StaticMeshComp:SM_Bevel_023:MI_Castle_Trim_World
+Castle_KeepTurret_Crenel6 | StaticMeshActor | loc 220,2370,1000 | half 47,22,20 | hidden False | StaticMeshComp:SM_Bevel_023:MI_Castle_Trim_World
+Castle_KeepTurret_Crenel7 | StaticMeshActor | loc -90,2370,1000 | half 47,22,20 | hidden False | StaticMeshComp:SM_Bevel_023:MI_Castle_Trim_World
+Castle_RoyalBanner_Cloth | SkeletalMeshActor | loc -150,1310,610 | half 0,60,120 | hidden False | SkeletalMeshCo::M_ClothBanner
+Castle_RoyalBanner_Cloth | SkeletalMeshActor | loc -150,2190,610 | half 0,60,120 | hidden False | SkeletalMeshCo::M_ClothBanner
+Castle_StandardGoldStripe | StaticMeshActor | loc 45,155,1400 | half 2,105,7 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_AntiqueGold
+Castle_StandardGoldStripe | StaticMeshActor | loc 45,3555,1400 | half 2,105,7 | hidden False | StaticMeshComp:SM_Cube_Nanite:M_AntiqueGold
+Castle_TimberDrawbridge | StaticMeshActor | loc -650,1750,-18 | half 325,270,20 | hidden False | StaticMeshComp:SM_Bevel_036:MI_Drawbridge_Deck
+Castle_Torch_08_Flame3 | Emitter | loc 235,2237,371 | half 153,128,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Castle_Torch_08_Flame4 | Emitter | loc 235,1311,371 | half 153,128,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Castle_Torch_08_Light3 | PointLight | loc 280,2237,408 | half 128,128,128 | hidden False | BillboardCompo::
+Castle_Torch_08_Light4 | PointLight | loc 280,1311,408 | half 128,128,128 | hidden False | BillboardCompo::
+Castle_Torch_08_Light5 | PointLight | loc 258,1018,408 | half 128,128,128 | hidden False | BillboardCompo::
+Castle_Torch_09_Flame | Emitter | loc 185,1114,358 | half 153,128,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Castle_Torch_10_Flame | Emitter | loc 185,2385,358 | half 153,128,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Castle_Torch_10_Flame2 | Emitter | loc 185,2385,358 | half 153,128,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Castle_Torch_10_Light | PointLight | loc 185,2430,395 | half 127,128,128 | hidden False | BillboardCompo::
+Castle_WallWalk_EMPTY | Actor | loc 0,0,0 | half 128,128,128 | hidden False | InstancedStati:SM_Cube_Nanite:WorldGridMaterial ; InstancedStati:SM_WalkSlab:MI_Castle_StoneWall_World ; InstancedStati:SM_WalkSlab:MI_Castle_StoneWall_World ; InstancedStati:SM_ParapetStone:MI_Castle_Trim_World
+CliffBreakup_West | DecalActor | loc -27000,1500,9500 | half 184,128,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_CliffBreakup_West
+CorruptionBubble_Road_00 | BP_CorruptionBubble_Hero_C | loc -1350,1290,-126 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_00
+CorruptionBubble_Road_01 | BP_CorruptionBubble_Hero_C | loc -1750,2300,-128 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_01
+CorruptionBubble_Road_02 | BP_CorruptionBubble_Hero_C | loc -2250,1270,-135 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_02
+CorruptionBubble_Road_03 | BP_CorruptionBubble_Hero_C | loc -2550,2330,-135 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_03
+CorruptionBubble_Road_04 | BP_CorruptionBubble_Hero_C | loc -1950,1050,-57 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_04
+CorruptionBubble_Road_05 | BP_CorruptionBubble_Hero_C | loc -2350,600,-60 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_05
+CorruptionBubble_Road_06 | BP_CorruptionBubble_Hero_C | loc -3100,1300,-135 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_06
+CorruptionBubble_Road_07 | BP_CorruptionBubble_Hero_C | loc -3450,2280,-135 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_07
+CorruptionBubble_Road_08 | BP_CorruptionBubble_Hero_C | loc -3900,1320,-128 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie ; Decal:MI_CorruptionFoam_Zombie ; Decal:MI_CorruptionRoots_08
+CrawlerBlood_Drag00 | DecalActor | loc -17844,-4343,-1158 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_CB2_CrawlerBlood_Drag00
+CrawlerBlood_Drag01 | DecalActor | loc -17993,-4696,-1182 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_CB2_CrawlerBlood_Drag01
+CrawlerBlood_Drag02 | DecalActor | loc -18230,-4998,-1171 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_CB2_CrawlerBlood_Drag02
+CrawlerBlood_Pool | DecalActor | loc -17803,-4250,-1149 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_CB2_CrawlerBlood_Pool
+CrawlerBlood_Spatter | DecalActor | loc -17690,-4137,-1135 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_CB2_CrawlerBlood_Spatter
+CrawlerBlood_Spatter2 | DecalActor | loc -17853,-4273,-1155 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_CB2_CrawlerBlood_Spatter2
+Cube_1 | StaticMeshActor | loc 150,1885,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_116 | StaticMeshActor | loc 150,1015,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_124 | StaticMeshActor | loc 115,1750,983 | half 295,650,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_13 | StaticMeshActor | loc 0,0,128 | half 128,128,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_14 | StaticMeshActor | loc 0,0,128 | half 128,128,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_2 | StaticMeshActor | loc 150,3335,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_224 | StaticMeshActor | loc 65,770,739 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_225 | StaticMeshActor | loc 65,798,759 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_226 | StaticMeshActor | loc 65,826,779 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_227 | StaticMeshActor | loc 65,854,799 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_228 | StaticMeshActor | loc 65,882,819 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_229 | StaticMeshActor | loc 65,910,839 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_230 | StaticMeshActor | loc 65,938,859 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_231 | StaticMeshActor | loc 65,966,879 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_232 | StaticMeshActor | loc 65,994,899 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_233 | StaticMeshActor | loc 65,1022,919 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_234 | StaticMeshActor | loc 65,1050,939 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_235 | StaticMeshActor | loc 65,1078,959 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_236 | StaticMeshActor | loc 65,1107,979 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_239 | StaticMeshActor | loc 65,2729,739 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_240 | StaticMeshActor | loc 65,2701,759 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_241 | StaticMeshActor | loc 65,2673,779 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_242 | StaticMeshActor | loc 65,2645,799 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_243 | StaticMeshActor | loc 65,2617,819 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_244 | StaticMeshActor | loc 65,2589,839 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_245 | StaticMeshActor | loc 65,2561,859 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_246 | StaticMeshActor | loc 65,2533,879 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_247 | StaticMeshActor | loc 65,2505,899 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_248 | StaticMeshActor | loc 65,2477,919 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_249 | StaticMeshActor | loc 65,2449,939 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_250 | StaticMeshActor | loc 65,2421,959 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_251 | StaticMeshActor | loc 65,2392,979 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Cube_30 | StaticMeshActor | loc 150,2175,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_30 | StaticMeshActor | loc 190,720,677 | half 250,410,0 | hidden False | StaticMeshComp:Cube:MI_Castle_WalkFlag_World
+Cube_31 | StaticMeshActor | loc 190,2780,677 | half 250,410,0 | hidden False | StaticMeshComp:Cube:MI_Castle_WalkFlag_World
+Cube_32 | StaticMeshActor | loc 150,3045,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_48 | StaticMeshActor | loc 150,725,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_50 | StaticMeshActor | loc 150,2465,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_61 | StaticMeshActor | loc 150,2755,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_63 | StaticMeshActor | loc 150,435,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_74 | StaticMeshActor | loc 150,1595,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_86 | StaticMeshActor | loc 150,145,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+Cube_96 | StaticMeshActor | loc 150,1305,2 | half 149,144,0 | hidden False | StaticMeshComp:Cube:MI_Castle_Paving_POM
+DB_CornerMud_L | StaticMeshActor | loc -254,1480,2 | half 98,60,0 | hidden False | StaticMeshComp:Plane:MI_DB_SeamMud_CornerL
+DB_CornerMud_R | StaticMeshActor | loc -254,2020,2 | half 98,60,0 | hidden False | StaticMeshComp:Plane:MI_DB_SeamMud_CornerR
+DB_MudSeam_Inner | StaticMeshActor | loc -325,1750,2 | half 80,295,0 | hidden False | StaticMeshComp:Plane:MI_DB_SeamMud_End
+DB_MudSeam_Outer | StaticMeshActor | loc -975,1750,2 | half 80,295,0 | hidden False | StaticMeshComp:Plane:MI_DB_SeamMud_EndOuter
+DayNight | BP_DayNight_C | loc 0,0,3000 | half 128,128,128 | hidden False | BillboardCompo::
+DirectionalLight | DirectionalLight | loc 0,0,920 | half 310,404,311 | hidden False | ArrowComponent:: ; BillboardCompo::
+Env_BaseRubble | Actor | loc 0,0,0 | half 10851,14186,953 | hidden False | HierarchicalIn:SM_Rock_01:MI_Rock_01 ; HierarchicalIn:SM_Rock_02:MI_Rock_02 ; HierarchicalIn:SM_vczndjqja_VarC:MI_vczndjqja ; HierarchicalIn:SM_vczndjqja_VarD:MI_vczndjqja
+Env_CorruptedTentacle_03 | SkeletalMeshActor | loc -17087,14671,-5437 | half 12679,10251,14580 | hidden False | SkeletalMeshCo::MI_CorruptedTentacle_NoStretch ; SkeletalMeshCo::MI_TentacleJellyShell_03
+Env_CorruptedTentacle_5 | SkeletalMeshActor | loc -17619,10727,-4130 | half 7519,11155,12568 | hidden False | SkeletalMeshCo::MI_CorruptedTentacle_NoStretch ; SkeletalMeshCo::MI_TentacleJellyShell_5
+Env_TentacleFog__03_0 | StaticMeshActor | loc -13375,5638,12915 | half 12245,12361,5278 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__03_1 | StaticMeshActor | loc -12238,14921,14423 | half 10076,16951,6786 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__03_2 | StaticMeshActor | loc -20355,13741,15931 | half 13180,17664,8293 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__03_3 | StaticMeshActor | loc -21882,21393,15177 | half 13126,14716,7540 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__03_4 | StaticMeshActor | loc -30228,18937,14423 | half 8096,15401,6785 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__03_5 | StaticMeshActor | loc -11093,21304,13669 | half 1495,12672,6032 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__03_6 | StaticMeshActor | loc -23927,4104,13669 | half 11722,5041,6032 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__04_0 | StaticMeshActor | loc -1691,15943,9771 | half 14631,3304,4550 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__04_6 | StaticMeshActor | loc -7633,22957,10421 | half 9040,6266,5200 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__5_0 | StaticMeshActor | loc -18423,-3099,10748 | half 2007,14865,4550 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__5_1 | StaticMeshActor | loc -22461,3878,12048 | half 1868,16897,5850 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__5_2 | StaticMeshActor | loc -27434,-1148,13348 | half 102,18999,7150 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_TentacleFog__5_5 | StaticMeshActor | loc -24988,8865,11398 | half 5551,9496,5200 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+Env_Trees | Actor | loc 0,0,0 | half 7089,8265,1805 | hidden False | HierarchicalIn:SM_Pine_A:M_Pine_bark ; HierarchicalIn:SM_Pine_B:M_Pine_bark ; HierarchicalIn:SM_Pine_C:M_Pine_bark ; BillboardCompo::
+Env_WornGround_Decal | DecalActor | loc -850,1750,0 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_Castle_WornGround_Decal
+GateMudPath | DecalActor | loc -170,1750,40 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_GateMudPath
+GatePassage_WallBase_L | DecalActor | loc 150,1595,25 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_GatePassage_WallBase_L
+GatePassage_WallBase_R | DecalActor | loc 150,1905,25 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_GatePassage_WallBase_R
+GodRay_03_0 | StaticMeshActor | loc -12576,17577,14724 | half 6153,12847,7588 | hidden False | StaticMeshComp:SM_GodRayCyl:MI_GodRay_02
+GodRay_03_1 | StaticMeshActor | loc -12576,17577,14724 | half 4336,9681,5530 | hidden False | StaticMeshComp:SM_GodRayCyl:MI_GodRay_03
+GodRay_5_0 | StaticMeshActor | loc -15827,6462,13250 | half 4649,9276,5607 | hidden False | StaticMeshComp:SM_GodRayCyl:MI_GodRay_02
+GodRay_5_1 | StaticMeshActor | loc -15827,6462,13250 | half 3228,6946,4041 | hidden False | StaticMeshComp:SM_GodRayCyl:MI_GodRay_03
+Grime_GateEntrance | StaticMeshActor | loc 30,1750,22 | half 180,180,0 | hidden False | StaticMeshComp:Plane:M_FloorGrimeCard
+GuardStation_ArmorStand | StaticMeshActor | loc 206,2819,2 | half 44,45,95 | hidden False | StaticMeshComp:SM_ArmorStand:MI_ArmorStand
+GuardStation_ArmorStand_DustCard | StaticMeshActor | loc 212,2819,3 | half 75,75,0 | hidden False | StaticMeshComp:Plane:M_FloorDustCard
+HISM_SM_ParapetStone_0_BACKUP_hidden | StaticMeshActor | loc 0,0,0 | half 2597,1969,629 | hidden False | StaticMeshComp:: ; HierarchicalIn:SM_ParapetStone:MI_Castle_Trim_World
+HeroAbilities | BP_HeroAbilities_C | loc 0,0,500 | half 128,128,128 | hidden False | BillboardCompo::
+HeroAuras | BP_HeroAuras_C | loc 0,0,520 | half 128,128,128 | hidden False | BillboardCompo::
+JellyBubble_Gate_00 | StaticMeshActor | loc -1080,1400,-37 | half 76,76,46 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_01 | StaticMeshActor | loc -1165,1325,-93 | half 35,35,24 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_02 | StaticMeshActor | loc -1015,1300,-65 | half 20,19,16 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_03 | StaticMeshActor | loc -1255,1440,-99 | half 48,47,32 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_04 | StaticMeshActor | loc -1100,2085,-6 | half 84,85,56 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_05 | StaticMeshActor | loc -1030,2175,-38 | half 39,39,23 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_06 | StaticMeshActor | loc -1215,2145,-84 | half 57,57,35 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_07 | StaticMeshActor | loc -1150,2005,-32 | half 24,24,14 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_08 | StaticMeshActor | loc -700,1395,-14 | half 62,62,37 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyBubble_Gate_09 | StaticMeshActor | loc -820,2125,3 | half 46,46,31 | hidden False | StaticMeshComp:SM_BubbleSphere_LOD:MI_JellyBubble_Gate
+JellyMineDecal_00_Foam | DecalActor | loc -1080,1400,-21 | half 190,137,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_01_Foam | DecalActor | loc -1165,1325,-82 | half 183,169,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_02_Foam | DecalActor | loc -1015,1300,-58 | half 163,185,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_03_Foam | DecalActor | loc -1255,1440,-87 | half 189,128,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_04_Foam | DecalActor | loc -1100,2085,13 | half 141,190,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_05_Foam | DecalActor | loc -1030,2175,-28 | half 156,188,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_06_Foam | DecalActor | loc -1215,2145,-72 | half 128,187,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_07_Foam | DecalActor | loc -1150,2005,-26 | half 128,189,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_08_Foam | DecalActor | loc -700,1395,0 | half 149,189,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMineDecal_09_Foam | DecalActor | loc -820,2125,13 | half 154,188,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:
+JellyMine_Gate_00 | BP_JellyMine_C | loc -1080,1400,-21 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_01 | BP_JellyMine_C | loc -1165,1325,-82 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_02 | BP_JellyMine_C | loc -1015,1300,-58 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_03 | BP_JellyMine_C | loc -1255,1440,-87 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_04 | BP_JellyMine_C | loc -1100,2085,13 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_05 | BP_JellyMine_C | loc -1030,2175,-28 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_06 | BP_JellyMine_C | loc -1215,2145,-72 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_07 | BP_JellyMine_C | loc -1150,2005,-26 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_08 | BP_JellyMine_C | loc -700,1395,0 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Gate_09 | BP_JellyMine_C | loc -820,2125,13 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_00 | BP_JellyMine_C | loc -1350,1290,-88 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_01 | BP_JellyMine_C | loc -1750,2300,-81 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_02 | BP_JellyMine_C | loc -2250,1270,-102 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_03 | BP_JellyMine_C | loc -2550,2330,-93 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_04 | BP_JellyMine_C | loc -1950,1050,-28 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_05 | BP_JellyMine_C | loc -2350,600,-16 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_06 | BP_JellyMine_C | loc -3100,1300,-89 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_07 | BP_JellyMine_C | loc -3450,2280,-100 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyMine_Road_08 | BP_JellyMine_C | loc -3900,1320,-90 | half 128,128,128 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:Sphere:MI_JellyMine_State ; StaticMeshComp:SM_BubbleSphere_LOD:MI_CorruptionBubble_Zombie
+JellyShieldAll | BP_JellyShieldAll_C | loc 0,0,520 | half 128,128,128 | hidden False | BillboardCompo::
+JellyTrailManager | BP_JellyTrailManager_C | loc 0,0,0 | half 128,128,128 | hidden False | BillboardCompo:: ; InstancedStati:SM_SlimeGrid:M_JellyTrail_v3
+MB_FogWisp_00 | StaticMeshActor | loc -17619,10727,1361 | half 3185,5169,2870 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+MB_FogWisp_01 | StaticMeshActor | loc -17087,14671,3021 | half 1608,5855,2870 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+MB_FogWisp_07 | StaticMeshActor | loc -12130,-1446,934 | half 5392,2790,2870 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+MB_FogWisp_8 | StaticMeshActor | loc -3376,-3902,934 | half 2790,5392,2870 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+MB_FogWisp_9 | StaticMeshActor | loc -4155,10275,934 | half 4486,4091,2870 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+MB_Forest | Actor | loc 0,0,0 | half 45603,49735,7350 | hidden False | HierarchicalIn:SM_Pine_A:M_Pine_bark ; HierarchicalIn:SM_Pine_B:M_Pine_bark ; HierarchicalIn:SM_Pine_C:M_Pine_bark ; BillboardCompo::
+MB_Rock_06 | StaticMeshActor | loc -11144,20964,4502 | half 6219,6347,2123 | hidden False | StaticMeshComp:wcrmbiar_tier_0:MI_wcrmbiar
+MapPickup | BP_MapPickup_C | loc 258,921,2 | half 421,393,276 | hidden False | BillboardCompo:: ; SphereComponen:: ; StaticMeshComp:SM_Map_01a:MI_Map_01a ; StaticMeshComp:Plane:M_MapPickup_Ring
+Meadow351 | StaticMeshActor | loc 0,0,0 | half 15034,14868,3899 | hidden False | StaticMeshComp:: ; HierarchicalIn:SM_vczndjqja_VarH:MI_vczndjqja ; HierarchicalIn:SM_vlkhcbxia_VarH:MI_vlkhcbxia ; HierarchicalIn:SM_vczndjqja_VarB:MI_vczndjqja
+Mine297_Cart_18 | StaticMeshActor | loc -256,-2401,-5122 | half 64,43,49 | hidden False | StaticMeshComp:SM_Mine_Cart:MI_MineOak
+Mine297_Chamber_00 | StaticMeshActor | loc -1106,-2401,-5122 | half 700,600,350 | hidden False | StaticMeshComp:SM_Mine_Chamber:MI_MineRock
+Mine297_LanternLight_0 | PointLight | loc -756,-2041,-2862 | half 128,128,128 | hidden False | BillboardCompo::
+Mine297_LanternLight_1 | PointLight | loc -56,-2791,-2882 | half 128,128,128 | hidden False | BillboardCompo::
+Mine297_LanternLight_2 | PointLight | loc 394,-2276,-2932 | half 128,128,128 | hidden False | BillboardCompo::
+Mine297_LanternLight_4 | PointLight | loc -406,-2821,-2872 | half 128,128,128 | hidden False | BillboardCompo::
+Mine297_Lantern_0 | StaticMeshActor | loc -756,-2041,-4862 | half 9,13,24 | hidden False | StaticMeshComp:SM_Mine_Lantern:MI_MineIron
+Mine297_Lantern_1 | StaticMeshActor | loc -56,-2791,-4882 | half 9,13,24 | hidden False | StaticMeshComp:SM_Mine_Lantern:MI_MineIron
+Mine297_Lantern_2 | StaticMeshActor | loc 394,-2276,-4932 | half 9,13,24 | hidden False | StaticMeshComp:SM_Mine_Lantern:MI_MineIron
+Mine297_Lantern_4 | StaticMeshActor | loc -406,-2821,-4872 | half 9,13,24 | hidden False | StaticMeshComp:SM_Mine_Lantern:MI_MineIron
+Mine297_NavBounds | NavMeshBoundsVolume | loc -256,-2401,-4822 | half 1850,900,400 | hidden False | BrushComponent::
+Mine297_OreVein_19 | StaticMeshActor | loc -456,-1926,-5122 | half 160,44,130 | hidden False | StaticMeshComp:SM_Mine_OreVein:MI_MineOre
+Mine297_OreVein_20 | StaticMeshActor | loc -746,-1931,-5102 | half 165,71,130 | hidden False | StaticMeshComp:SM_Mine_OreVein:MI_MineOre
+Mine297_Rail_4m_12 | StaticMeshActor | loc -1306,-2401,-5122 | half 200,55,9 | hidden False | StaticMeshComp:SM_Mine_Rail_4m:MI_MineOak
+Mine297_Rail_4m_13 | StaticMeshActor | loc -906,-2401,-5122 | half 200,55,9 | hidden False | StaticMeshComp:SM_Mine_Rail_4m:MI_MineOak
+Mine297_Rail_4m_14 | StaticMeshActor | loc -506,-2401,-5122 | half 200,55,9 | hidden False | StaticMeshComp:SM_Mine_Rail_4m:MI_MineOak
+Mine297_Rail_4m_15 | StaticMeshActor | loc -106,-2401,-5122 | half 200,55,9 | hidden False | StaticMeshComp:SM_Mine_Rail_4m:MI_MineOak
+Mine297_Rail_4m_16 | StaticMeshActor | loc 294,-2401,-5122 | half 200,55,9 | hidden False | StaticMeshComp:SM_Mine_Rail_4m:MI_MineOak
+Mine297_SpoilHeap_21 | StaticMeshActor | loc -56,-2721,-5122 | half 134,135,50 | hidden False | StaticMeshComp:SM_Mine_SpoilHeap:MI_MineRock
+Mine297_TimberSet_06 | StaticMeshActor | loc 394,-2401,-5122 | half 15,160,135 | hidden False | StaticMeshComp:SM_Mine_TimberSet:MI_MineOak
+Mine297_TimberSet_10 | StaticMeshActor | loc -1256,-2401,-5122 | half 15,160,135 | hidden False | StaticMeshComp:SM_Mine_TimberSet:MI_MineOak
+Mine297_TimberSet_11 | StaticMeshActor | loc -1456,-2401,-5122 | half 15,160,135 | hidden False | StaticMeshComp:SM_Mine_TimberSet:MI_MineOak
+Mine297_Tunnel_Straight_01 | StaticMeshActor | loc 294,-2401,-5122 | half 200,200,210 | hidden False | StaticMeshComp:SM_Mine_Tunnel_Straight:MI_MineRock
+Mine297_Tunnel_Straight_04 | StaticMeshActor | loc -1506,-2401,-5122 | half 200,200,210 | hidden False | StaticMeshComp:SM_Mine_Tunnel_Straight:MI_MineRock
+Mine297_Tunnel_Turn_05 | StaticMeshActor | loc -1506,-2401,-5122 | half 200,200,210 | hidden False | StaticMeshComp:SM_Mine_Tunnel_Turn:MI_MineRock
+Mine297_Worker_0 | BP_MineWorker_C | loc -456,-2016,-5122 | half 134,128,215 | hidden False | BillboardCompo:: ; SkeletalMeshCo::MI_Quinn_01 ; SkeletalMeshCo::Arms_M ; StaticMeshComp:SM_MinerPick:MI_MinerGear
+Mine297_Worker_1 | BP_MineWorker_C | loc -731,-2019,-5122 | half 133,129,215 | hidden False | BillboardCompo:: ; SkeletalMeshCo::MI_Quinn_01 ; SkeletalMeshCo::Arms_M ; StaticMeshComp:SM_MinerPick:MI_MinerGear
+Mine297_Worker_2 | BP_MineWorker_C | loc -256,-2551,-5122 | half 128,134,215 | hidden False | BillboardCompo:: ; SkeletalMeshCo::MI_Quinn_01 ; SkeletalMeshCo::Arms_M ; StaticMeshComp:SM_MinerPick:MI_MinerGear
+MineDoor_Up | BP_CaveDoor_C | loc 359,-2502,-95 | half 302,184,174 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Mine_Door:MI_MineOak ; ArrowComponent::
+Mine_01 | BP_Mine_C | loc 94,-2401,-122 | half 488,443,295 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Camp_MineEntrance_Split:MI_CaveRock_Natural ; ArrowComponent:: ; StaticMeshComp:SM_Camp_Lantern:MI_Camp_Lantern
+NavMeshBounds_Arena | NavMeshBoundsVolume | loc -500,1750,600 | half 6500,5500,1200 | hidden False | BrushComponent::
+NavMeshBounds_KillingField | NavMeshBoundsVolume | loc -16000,-875,-960 | half 16000,13125,1560 | hidden False | BrushComponent::
+Nav_GateLink_0 | NavLinkProxy | loc -110,1650,30 | half 215,0,10 | hidden False | NavLinkRenderi:: ; BillboardCompo::
+Nav_GateLink_1 | NavLinkProxy | loc -110,1750,30 | half 215,0,10 | hidden False | NavLinkRenderi:: ; BillboardCompo::
+Nav_GateLink_2 | NavLinkProxy | loc -110,1850,30 | half 215,0,10 | hidden False | NavLinkRenderi:: ; BillboardCompo::
+PPV_Realm | PostProcessVolume | loc -14171,5263,-713 | half 5941,3164,2990 | hidden False | BrushComponent::
+PostProcessVolume | PostProcessVolume | loc 100,100,500 | half 100,100,100 | hidden False | BrushComponent::
+Realm_BlobMine_00 | BP_BlobMine_C | loc -16767,5705,-1050 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_01 | BP_BlobMine_C | loc -16711,4719,-996 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_02 | BP_BlobMine_C | loc -17233,5115,-1069 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_03 | BP_BlobMine_C | loc -12064,5793,-533 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_04 | BP_BlobMine_C | loc -9224,4082,-271 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_05 | BP_BlobMine_C | loc -16946,4112,-1014 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_06 | BP_BlobMine_C | loc -11898,6952,-539 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_07 | BP_BlobMine_C | loc -10438,5791,-375 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_08 | BP_BlobMine_C | loc -18574,3569,-1160 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_09 | BP_BlobMine_C | loc -10585,5931,-393 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_10 | BP_BlobMine_C | loc -15154,6324,-887 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_11 | BP_BlobMine_C | loc -9770,4214,-326 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_12 | BP_BlobMine_C | loc -18380,6056,-1183 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_13 | BP_BlobMine_C | loc -14077,6582,-752 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_14 | BP_BlobMine_C | loc -11957,6037,-529 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_15 | BP_BlobMine_C | loc -17181,6856,-1119 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_16 | BP_BlobMine_C | loc -12396,4343,-569 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_17 | BP_BlobMine_C | loc -18480,7025,-1233 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_18 | BP_BlobMine_C | loc -18442,6295,-1202 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_19 | BP_BlobMine_C | loc -11091,5299,-445 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_20 | BP_BlobMine_C | loc -11504,5175,-488 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_BlobMine_21 | BP_BlobMine_C | loc -12900,5632,-622 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:SM_Flora_BlobMine:MI_BlobMine_Flesh ; Decal:M_BlobMineContactAO
+Realm_Breach_BP | BP_RealmBreach_C | loc -10550,2891,-459 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Breach_Point | TargetPoint | loc -10500,2620,-693 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_CrackLight | PointLight | loc -15071,13286,3791 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Gate_Frame | StaticMeshActor | loc -14983,2077,-828 | half 351,129,257 | hidden False | StaticMeshComp:SM_SiegeGate_Frame:MI_SiegeGate
+Realm_Gate_Torch_0 | StaticMeshActor | loc -15356,1937,-836 | half 15,9,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Gate_Torch_0_Fire | Emitter | loc -15366,1934,-658 | half 244,127,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Gate_Torch_0_Light | PointLight | loc -15366,1934,-633 | half 128,127,128 | hidden False | BillboardCompo::
+Realm_Gate_Torch_1 | StaticMeshActor | loc -14597,1978,-757 | half 15,9,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Gate_Torch_1_Fire | Emitter | loc -14607,1975,-595 | half 244,127,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Gate_Torch_1_Light | PointLight | loc -14607,1975,-570 | half 128,127,128 | hidden False | BillboardCompo::
+Realm_Gate_Tower_1 | StaticMeshActor | loc -14346,2332,-743 | half 251,286,476 | hidden False | StaticMeshComp:SM_SiegeBarricade_Watchtower:MI_SiegeBarricade_Watchtower
+Realm_Gate_Trigger | TargetPoint | loc -14975,1928,-693 | half 128,127,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_MountainCrack | StaticMeshActor | loc -15088,13435,3411 | half 7,4,5 | hidden False | StaticMeshComp:SM_RealmCrack:M_RealmCrack
+Realm_Spawn_Giant_00 | TargetPoint | loc -15919,6485,12723 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Giant_01 | TargetPoint | loc -11119,7085,-327 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Wasp | TargetPoint | loc -12219,10627,6356 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_00 | TargetPoint | loc -13808,4140,-618 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_01 | TargetPoint | loc -19107,4851,-1123 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_02 | TargetPoint | loc -14968,6815,-767 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_03 | TargetPoint | loc -13606,4915,-593 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_04 | TargetPoint | loc -12257,7012,-479 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_05 | TargetPoint | loc -10775,6377,-320 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_06 | TargetPoint | loc -12674,6264,-507 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_07 | TargetPoint | loc -17766,7040,-1074 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_08 | TargetPoint | loc -13838,5802,-618 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_09 | TargetPoint | loc -9689,6948,-197 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_10 | TargetPoint | loc -17778,6568,-1058 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Spawn_Zombie_11 | TargetPoint | loc -18313,5448,-1067 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_SwarmSpawn | TargetPoint | loc -15021,12839,3911 | half 128,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+Realm_Torch_00 | StaticMeshActor | loc -19481,1547,-1228 | half 15,6,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_00_Fire | Emitter | loc -19491,1548,-1050 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_00_Light | PointLight | loc -19491,1548,-1025 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Torch_01 | StaticMeshActor | loc -18289,1731,-1128 | half 15,6,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_01_Fire | Emitter | loc -18299,1730,-951 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_01_Light | PointLight | loc -18299,1730,-926 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Torch_02 | StaticMeshActor | loc -17089,1775,-1008 | half 15,8,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_02_Fire | Emitter | loc -17099,1772,-831 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_02_Light | PointLight | loc -17099,1772,-806 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Torch_03 | StaticMeshActor | loc -15879,1618,-897 | half 14,5,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_03_Fire | Emitter | loc -15889,1618,-720 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_03_Light | PointLight | loc -15889,1618,-695 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Torch_05 | StaticMeshActor | loc -13505,2151,-661 | half 15,9,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_05_Fire | Emitter | loc -13514,2147,-484 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_05_Light | PointLight | loc -13514,2147,-459 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Torch_06 | StaticMeshActor | loc -12326,2578,-577 | half 14,5,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_06_Fire | Emitter | loc -12336,2577,-399 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_06_Light | PointLight | loc -12336,2577,-374 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Torch_07 | StaticMeshActor | loc -11129,2668,-478 | half 14,5,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_07_Fire | Emitter | loc -11139,2669,-301 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_07_Light | PointLight | loc -11139,2669,-276 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Torch_08 | StaticMeshActor | loc -9915,2443,-362 | half 15,6,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_08_Fire | Emitter | loc -9925,2441,-185 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_08_Light | PointLight | loc -9925,2441,-160 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Torch_09 | StaticMeshActor | loc -8718,2519,-270 | half 15,9,99 | hidden False | StaticMeshComp:SM_Camp_TorchPost:MI_Camp_TorchPost
+Realm_Torch_09_Fire | Emitter | loc -8727,2522,-93 | half 244,128,128 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Realm_Torch_09_Light | PointLight | loc -8727,2522,-68 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Tower_3 | StaticMeshActor | loc -14261,2143,-721 | half 300,311,507 | hidden False | StaticMeshComp:SM_SiegeBarricade_Watchtower:MI_SiegeBarricade_Watchtower
+Realm_Vision | BP_RealmVision_C | loc -15433,10496,1756 | half 128,128,128 | hidden False | BillboardCompo::
+Realm_Wall_000 | StaticMeshActor | loc -19914,2027,-1256 | half 227,166,175 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_001 | StaticMeshActor | loc -19489,1862,-1250 | half 227,146,179 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_002 | StaticMeshActor | loc -19097,1907,-1216 | half 227,163,176 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_003 | StaticMeshActor | loc -18699,2011,-1185 | half 240,142,194 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_004 | StaticMeshActor | loc -18315,2045,-1152 | half 238,130,196 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_005 | StaticMeshActor | loc -17902,2021,-1110 | half 223,115,186 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_006 | StaticMeshActor | loc -17508,2043,-1068 | half 216,119,178 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_007 | StaticMeshActor | loc -17104,2090,-1028 | half 213,116,176 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_008 | StaticMeshActor | loc -16697,2097,-986 | half 226,111,192 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_009 | StaticMeshActor | loc -16295,2043,-946 | half 233,157,182 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_010 | StaticMeshActor | loc -15895,1946,-905 | half 233,145,185 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_011 | StaticMeshActor | loc -15508,1945,-868 | half 241,134,197 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_014 | StaticMeshActor | loc -14310,2213,-736 | half 226,125,186 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_015 | StaticMeshActor | loc -13900,2306,-692 | half 233,160,182 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_016 | StaticMeshActor | loc -13531,2482,-675 | half 250,209,194 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_017 | StaticMeshActor | loc -13133,2706,-651 | half 256,213,198 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_018 | StaticMeshActor | loc -12741,2853,-623 | half 239,165,186 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_019 | StaticMeshActor | loc -12350,2908,-591 | half 210,102,179 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_020 | StaticMeshActor | loc -11957,2911,-560 | half 203,98,173 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_021 | StaticMeshActor | loc -11530,2946,-528 | half 235,134,191 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_022 | StaticMeshActor | loc -11144,2989,-493 | half 210,103,178 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_025 | StaticMeshActor | loc -9918,2775,-375 | half 210,112,174 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_026 | StaticMeshActor | loc -9539,2774,-346 | half 230,140,184 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_027 | StaticMeshActor | loc -9127,2869,-305 | half 240,146,193 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_028 | StaticMeshActor | loc -8747,2836,-281 | half 243,153,193 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_029 | StaticMeshActor | loc -8342,2765,-254 | half 234,134,191 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_17 | StaticMeshActor | loc -13912,2294,-675 | half 250,182,194 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_Breach_A | StaticMeshActor | loc -10755,2947,-459 | half 234,140,188 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_Breach_B | StaticMeshActor | loc -10344,2834,-417 | half 235,161,183 | hidden False | StaticMeshComp:SM_SiegeBarricade_Palisade:MI_SiegeBarricade_Palisade
+Realm_Wall_Breached | StaticMeshActor | loc -10550,2891,-459 | half 249,236,176 | hidden False | StaticMeshComp:SM_SiegeBarricade_Breach:MI_SiegeBarricade_Breach
+RecastNavMesh-Default | RecastNavMesh | loc 0,0,0 | half 30134,20748,3925 | hidden False | NavMeshRenderi::
+SM_Bevel_001_1 | StaticMeshActor | loc 150,1885,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_112 | StaticMeshActor | loc 150,1015,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_2 | StaticMeshActor | loc 150,3335,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_28 | StaticMeshActor | loc 150,2175,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_30 | StaticMeshActor | loc 150,3045,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_46 | StaticMeshActor | loc 150,725,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_48 | StaticMeshActor | loc 150,2465,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_59 | StaticMeshActor | loc 150,2755,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_61 | StaticMeshActor | loc 150,435,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_72 | StaticMeshActor | loc 150,1595,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_84 | StaticMeshActor | loc 150,145,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_001_94 | StaticMeshActor | loc 150,1305,-8 | half 149,144,10 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_007_5 | StaticMeshActor | loc 50,680,270 | half 122,60,270 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Bevel_007_7 | StaticMeshActor | loc 50,2820,270 | half 122,60,270 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_Castle_StoneWall_World
+SM_Cube | StaticMeshActor | loc 0,0,-20050 | half 1500,1750,25 | hidden False | StaticMeshComp:SM_Cube:MI_PrototypeGrid_Gray
+SM_Cube11 | StaticMeshActor | loc 400,2600,-20000 | half 150,150,100 | hidden False | StaticMeshComp:SM_Cube:MI_PrototypeGrid_TopDark
+SM_Cube13 | StaticMeshActor | loc 400,2800,-20000 | half 50,50,100 | hidden False | StaticMeshComp:SM_Cube:MI_PrototypeGrid_TopDark
+SM_Cube2 | StaticMeshActor | loc 0,0,-20000 | half 1500,50,200 | hidden False | StaticMeshComp:SM_Cube:MI_PrototypeGrid_Gray
+SM_Cube3 | StaticMeshActor | loc 0,3400,-20000 | half 1500,50,200 | hidden False | StaticMeshComp:SM_Cube:MI_PrototypeGrid_Gray
+SM_Cube5 | StaticMeshActor | loc 100,100,-20000 | half 50,1650,200 | hidden False | StaticMeshComp:SM_Cube:MI_PrototypeGrid_Gray
+SM_Cube_Nanite_0 | StaticMeshActor | loc 171,2350,307 | half 14,2,2 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_AshenGate_Iron
+SM_Cube_Nanite_1 | StaticMeshActor | loc 158,2350,320 | half 2,9,21 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_AshenGate_Iron
+SM_Cube_Nanite_3 | StaticMeshActor | loc 158,1150,320 | half 2,9,21 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_AshenGate_Iron
+SM_Cube_Nanite_9 | StaticMeshActor | loc 171,1150,307 | half 14,2,2 | hidden False | StaticMeshComp:SM_Cube_Nanite:MI_AshenGate_Iron
+SM_Dry_Goods_NN_03a2 | StaticMeshActor | loc -20507,897,-1026 | half 24,27,17 | hidden False | StaticMeshComp:SM_Dry_Goods_NN_03a:MI_Drygoods_NN_03a
+SM_QuarterCylinder4 | StaticMeshActor | loc 400,2700,-20000 | half 50,49,99 | hidden False | StaticMeshComp:SM_QuarterCylinder:MI_PrototypeGrid_TopDark
+SM_QuarterCylinder5 | StaticMeshActor | loc 400,2800,-20000 | half 49,50,99 | hidden False | StaticMeshComp:SM_QuarterCylinder:MI_PrototypeGrid_TopDark
+SM_StairTread_144 | StaticMeshActor | loc 65,770,730 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_145 | StaticMeshActor | loc 65,798,750 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_146 | StaticMeshActor | loc 65,826,770 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_147 | StaticMeshActor | loc 65,854,790 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_148 | StaticMeshActor | loc 65,882,810 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_149 | StaticMeshActor | loc 65,910,830 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_150 | StaticMeshActor | loc 65,938,850 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_151 | StaticMeshActor | loc 65,966,870 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_152 | StaticMeshActor | loc 65,994,890 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_153 | StaticMeshActor | loc 65,1022,910 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_154 | StaticMeshActor | loc 65,1050,930 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_155 | StaticMeshActor | loc 65,1078,950 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_156 | StaticMeshActor | loc 65,1107,970 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_159 | StaticMeshActor | loc 65,2729,730 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_160 | StaticMeshActor | loc 65,2701,750 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_161 | StaticMeshActor | loc 65,2673,770 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_162 | StaticMeshActor | loc 65,2645,790 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_163 | StaticMeshActor | loc 65,2617,810 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_164 | StaticMeshActor | loc 65,2589,830 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_165 | StaticMeshActor | loc 65,2561,850 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_166 | StaticMeshActor | loc 65,2533,870 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_167 | StaticMeshActor | loc 65,2505,890 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_168 | StaticMeshActor | loc 65,2477,910 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_169 | StaticMeshActor | loc 65,2449,930 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_170 | StaticMeshActor | loc 65,2421,950 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StairTread_171 | StaticMeshActor | loc 65,2392,970 | half 100,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+SM_StoneModule_142 | StaticMeshActor | loc 65,770,360 | half 92,14,360 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_143 | StaticMeshActor | loc 65,800,370 | half 92,11,370 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_144 | StaticMeshActor | loc 65,826,380 | half 92,14,380 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_145 | StaticMeshActor | loc 65,852,390 | half 92,12,390 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_146 | StaticMeshActor | loc 65,882,400 | half 92,14,400 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_147 | StaticMeshActor | loc 65,910,410 | half 92,14,410 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_148 | StaticMeshActor | loc 65,938,420 | half 92,14,420 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_149 | StaticMeshActor | loc 65,966,430 | half 92,14,430 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_150 | StaticMeshActor | loc 65,994,440 | half 92,14,440 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_151 | StaticMeshActor | loc 65,1022,450 | half 92,14,450 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_152 | StaticMeshActor | loc 65,1050,460 | half 92,14,460 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_153 | StaticMeshActor | loc 65,1078,470 | half 92,14,470 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_154 | StaticMeshActor | loc 65,1107,480 | half 92,14,480 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_157 | StaticMeshActor | loc 65,2729,360 | half 92,14,360 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_158 | StaticMeshActor | loc 65,2699,370 | half 92,11,370 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_159 | StaticMeshActor | loc 65,2673,380 | half 92,14,380 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_160 | StaticMeshActor | loc 65,2647,390 | half 92,12,390 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_161 | StaticMeshActor | loc 65,2617,400 | half 92,14,400 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_162 | StaticMeshActor | loc 65,2589,410 | half 92,14,410 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_163 | StaticMeshActor | loc 65,2561,420 | half 92,14,420 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_164 | StaticMeshActor | loc 65,2533,430 | half 92,14,430 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_165 | StaticMeshActor | loc 65,2505,440 | half 92,14,440 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_166 | StaticMeshActor | loc 65,2477,450 | half 92,14,450 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_167 | StaticMeshActor | loc 65,2449,460 | half 92,14,460 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_168 | StaticMeshActor | loc 65,2421,470 | half 92,14,470 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_169 | StaticMeshActor | loc 65,2392,480 | half 92,14,480 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_170 | StaticMeshActor | loc 40,1310,935 | half 210,200,29 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_StoneModule_171 | StaticMeshActor | loc 40,2190,935 | half 210,200,29 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+SM_WalkSlab_26 | StaticMeshActor | loc 202,720,661 | half 275,410,16 | hidden False | StaticMeshComp:SM_WalkSlab:MI_Castle_WalkFlag_World
+SM_WalkSlab_27 | StaticMeshActor | loc 202,2780,661 | half 275,410,16 | hidden False | StaticMeshComp:SM_WalkSlab:MI_Castle_WalkFlag_World
+SM_WalkSlab_28 | StaticMeshActor | loc 115,1750,967 | half 295,650,16 | hidden False | StaticMeshComp:SM_WalkSlab:MI_Castle_WalkFlag_World
+ShockAudio_03 | BP_ShockAudio_C | loc -17087,14671,-5437 | half 128,128,128 | hidden False | BillboardCompo::
+ShockAudio_5 | BP_ShockAudio_C | loc -17619,10727,-4130 | half 128,128,128 | hidden False | BillboardCompo::
+ShockRider_03 | BP_ShockRider_C | loc -17087,14671,-5437 | half 8632,7424,2807 | hidden False | BillboardCompo:: ; StaticMeshComp:Plane:M_ShockRingMesh ; StaticMeshComp:SM_ShockBandCyl:M_ShockRingBand
+ShockRider_5 | BP_ShockRider_C | loc -17619,10727,-4130 | half 8898,5452,2154 | hidden False | BillboardCompo:: ; StaticMeshComp:Plane:M_ShockRingMesh ; StaticMeshComp:SM_ShockBandCyl:M_ShockRingBand
+SkillUnlockFX | BP_SkillUnlockFX_C | loc 0,0,520 | half 128,128,128 | hidden False | BillboardCompo::
+SkyAtmosphere | SkyAtmosphere | loc 0,0,1020 | half 184,128,128 | hidden False | BillboardCompo:: ; ArrowComponent::
+SkyLight | SkyLight | loc 0,0,690 | half 256,256,473 | hidden False | BillboardCompo:: ; BillboardCompo::
+SoldierLevelWatch | BP_SoldierLevelWatch_C | loc 0,0,520 | half 128,128,128 | hidden False | BillboardCompo::
+StairPace | BP_StairPace_C | loc 0,0,0 | half 128,128,128 | hidden False | BillboardCompo::
+StairRamp_09 | StaticMeshActor | loc 65,2613,823 | half 95,237,159 | hidden False | StaticMeshComp:Cube:BasicShapeMaterial
+StairRamp_10 | StaticMeshActor | loc 65,886,823 | half 95,237,159 | hidden False | StaticMeshComp:Cube:BasicShapeMaterial
+Start_Xbow_1 | BP_SoldierXbow_C | loc -105,1800,1079 | half 149,80,148 | hidden False | CapsuleCompone:: ; ArrowComponent:: ; SkeletalMeshCo::MI_Quinn_01 ; SkeletalMeshCo::MI_Hero_Arms
+Start_Xbow_2 | BP_SoldierXbow_C | loc -105,1555,1079 | half 149,80,148 | hidden False | CapsuleCompone:: ; ArrowComponent:: ; SkeletalMeshCo::MI_Quinn_01 ; SkeletalMeshCo::MI_Hero_Arms
+SwayChandelier | BP_SwayChandelier_C | loc 330,2790,653 | half 128,128,229 | hidden False | BillboardCompo:: ; StaticMeshComp:sm_chandelier:M_Chandelier ; BillboardCompo::
+SwayChandelier2 | BP_SwayChandelier_C | loc 330,735,653 | half 128,128,229 | hidden False | BillboardCompo:: ; StaticMeshComp:sm_chandelier:M_Chandelier ; BillboardCompo::
+SwayChandelier3 | BP_SwayChandelier_C | loc 330,1755,953 | half 128,128,318 | hidden False | BillboardCompo:: ; StaticMeshComp:sm_chandelier:M_Chandelier ; BillboardCompo::
+TG_Fog_T_03_0 | StaticMeshActor | loc -16465,19707,10508 | half 1370,3045,1578 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+TG_Fog_T_03_1 | StaticMeshActor | loc -17130,20618,10758 | half 2250,3605,2009 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+TG_Fog_T_03_2 | StaticMeshActor | loc -17881,20517,11008 | half 5150,331,2439 | hidden False | StaticMeshComp:Plane:M_TentacleFog
+TG_Rock_T_03_00 | StaticMeshActor | loc -14594,21858,4129 | half 314,333,214 | hidden False | StaticMeshComp:SM_Rock_07:MI_Rock_07
+TG_Rock_T_03_01 | StaticMeshActor | loc -20387,18392,11203 | half 331,374,238 | hidden False | StaticMeshComp:SM_Rock_01:MI_Rock_01
+TG_Rock_T_03_02 | StaticMeshActor | loc -19896,17854,11448 | half 415,276,155 | hidden False | StaticMeshComp:SM_Rock_06:MI_Rock_06
+TG_Rock_T_03_03 | StaticMeshActor | loc -17582,16596,5752 | half 457,607,226 | hidden False | StaticMeshComp:SM_Rock_06:MI_Rock_06
+TG_Rock_T_03_05 | StaticMeshActor | loc -21181,18941,12599 | half 794,755,446 | hidden False | StaticMeshComp:SM_Rock_04:MI_Rock_04
+TG_Rock_T_03_07 | StaticMeshActor | loc -18650,21337,11935 | half 958,790,738 | hidden False | StaticMeshComp:SM_Rock_08:MI_Rock_08
+TG_Rock_T_03_08 | StaticMeshActor | loc -14646,18930,6090 | half 289,352,200 | hidden False | StaticMeshComp:SM_Rock_06:MI_Rock_06
+TG_Rock_T_03_09 | StaticMeshActor | loc -20925,20186,12930 | half 717,665,468 | hidden False | StaticMeshComp:SM_Rock_01:MI_Rock_01
+TG_Rock_T_03_10 | StaticMeshActor | loc -15070,17782,6466 | half 626,581,402 | hidden False | StaticMeshComp:SM_Rock_08:MI_Rock_08
+TG_Rock_T_03_12 | StaticMeshActor | loc -18947,17368,8587 | half 644,631,395 | hidden False | StaticMeshComp:SM_Rock_08:MI_Rock_08
+TG_Rock_T_03_13 | StaticMeshActor | loc -21139,21382,14019 | half 317,258,236 | hidden False | StaticMeshComp:SM_Rock_03:MI_Rock_03
+TG_Rock_T_5_01 | StaticMeshActor | loc -19329,11271,3193 | half 436,378,278 | hidden False | StaticMeshComp:SM_Rock_02:MI_Rock_02
+TG_Rock_T_5_02 | StaticMeshActor | loc -19883,9344,-1280 | half 317,318,229 | hidden False | StaticMeshComp:SM_Rock_01:MI_Rock_01
+TG_Rock_T_5_03 | StaticMeshActor | loc -20551,9365,-1054 | half 313,270,178 | hidden False | StaticMeshComp:SM_Rock_05:MI_Rock_05
+TG_Rock_T_5_04 | StaticMeshActor | loc -20457,10587,1482 | half 386,386,168 | hidden False | StaticMeshComp:SM_Rock_04:MI_Rock_04
+TG_Rock_T_5_05 | StaticMeshActor | loc -15612,11670,1765 | half 721,662,308 | hidden False | StaticMeshComp:SM_Rock_04:MI_Rock_04
+TG_Rock_T_5_06 | StaticMeshActor | loc -17550,8506,-1193 | half 860,793,418 | hidden False | StaticMeshComp:SM_Rock_03:MI_Rock_03
+TG_Rock_T_5_07 | StaticMeshActor | loc -18947,12578,3208 | half 264,206,118 | hidden False | StaticMeshComp:SM_Rock_06:MI_Rock_06
+TG_Rock_T_5_08 | StaticMeshActor | loc -14696,11704,1894 | half 316,291,200 | hidden False | StaticMeshComp:SM_Rock_02:MI_Rock_02
+TG_Rock_T_5_10 | StaticMeshActor | loc -19797,10609,862 | half 829,874,434 | hidden False | StaticMeshComp:SM_Rock_02:MI_Rock_02
+TG_Rock_T_5_11 | StaticMeshActor | loc -21026,9437,-473 | half 355,324,235 | hidden False | StaticMeshComp:SM_Rock_07:MI_Rock_07
+TG_Rock_T_5_12 | StaticMeshActor | loc -16434,12205,2185 | half 649,612,390 | hidden False | StaticMeshComp:SM_Rock_04:MI_Rock_04
+TG_Rock_T_5_13 | StaticMeshActor | loc -20551,9880,-503 | half 648,640,302 | hidden False | StaticMeshComp:SM_Rock_07:MI_Rock_07
+TentacleHit_Fog1_01 | StaticMeshActor | loc -1913,63,15028 | half 1161,1545,729 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_Fog1_02 | StaticMeshActor | loc -973,-2336,14847 | half 1305,1935,1098 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_Fog1_07 | StaticMeshActor | loc -158,-4579,14033 | half 1306,1851,1590 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_00 | StaticMeshActor | loc -15508,15028,-4393 | half 3817,3195,3504 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_01 | StaticMeshActor | loc -16554,14901,-2412 | half 3767,3475,2854 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_02 | StaticMeshActor | loc -16891,14763,-718 | half 3512,3550,1795 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_03 | StaticMeshActor | loc -16781,14697,1432 | half 3615,3470,2160 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_04 | StaticMeshActor | loc -16570,14736,3652 | half 2863,2836,1818 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_05 | StaticMeshActor | loc -16353,14880,5794 | half 2224,2142,1896 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_06 | StaticMeshActor | loc -16009,15087,7947 | half 1954,1884,1973 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_07 | StaticMeshActor | loc -15509,15455,10045 | half 2068,2064,2029 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_08 | StaticMeshActor | loc -14658,16120,12079 | half 2113,2071,2134 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_09 | StaticMeshActor | loc -13338,17058,13903 | half 2007,1949,1993 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_10 | StaticMeshActor | loc -11774,18082,15283 | half 1736,1713,1665 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_11 | StaticMeshActor | loc -9818,19307,16070 | half 1791,1697,1219 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_03_12 | StaticMeshActor | loc -7673,20574,16245 | half 1570,1347,878 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_00 | StaticMeshActor | loc -17431,9136,-3385 | half 3585,3563,3051 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_01 | StaticMeshActor | loc -17439,10153,-1614 | half 3082,2797,2216 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_02 | StaticMeshActor | loc -17565,10535,-216 | half 3331,3022,1640 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_03 | StaticMeshActor | loc -17650,10490,1611 | half 3092,3094,1849 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_04 | StaticMeshActor | loc -17660,10305,3542 | half 2330,2145,1627 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_05 | StaticMeshActor | loc -17588,10108,5388 | half 1931,1858,1665 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_06 | StaticMeshActor | loc -17483,9796,7253 | half 1675,1657,1671 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_07 | StaticMeshActor | loc -17271,9337,9073 | half 1464,1393,1725 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_08 | StaticMeshActor | loc -16871,8539,10835 | half 1388,1572,1837 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_09 | StaticMeshActor | loc -16281,7292,12431 | half 1349,1616,1712 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_10 | StaticMeshActor | loc -15636,5808,13661 | half 1216,1484,1412 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_11 | StaticMeshActor | loc -14910,4015,14405 | half 1242,1675,1029 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleHit_T_5_12 | StaticMeshActor | loc -14128,1973,14601 | half 998,1334,639 | hidden False | StaticMeshComp:Cylinder:DefaultMaterial
+TentacleVitals_03 | BP_TentacleVitals_C | loc -17087,14671,-5437 | half 128,128,128 | hidden False | BillboardCompo::
+TentacleVitals_5 | BP_TentacleVitals_C | loc -17619,10727,-4130 | half 128,128,128 | hidden False | BillboardCompo::
+TextRenderActor | TextRenderActor | loc 0,1100,-19859 | half 128,710,128 | hidden False | TextRenderComp::DefaultTextMaterialOpaque ; BillboardCompo::
+TopRay_03 | SpotLight | loc -16930,9916,19212 | half 144,195,152 | hidden False | ArrowComponent:: ; BillboardCompo::
+TopRay_04 | SpotLight | loc 146,17292,18263 | half 144,195,152 | hidden False | ArrowComponent:: ; BillboardCompo::
+TopRay_5 | SpotLight | loc -18764,-892,14899 | half 144,195,152 | hidden False | ArrowComponent:: ; BillboardCompo::
+TorchMount_21 | StaticMeshActor | loc 230,1311,325 | half 0,20,37 | hidden False | StaticMeshComp:Plane:M_TorchMountGrime
+TorchMount_29 | StaticMeshActor | loc 230,2237,325 | half 0,20,37 | hidden False | StaticMeshComp:Plane:M_TorchMountGrime
+TorchMount_37 | StaticMeshActor | loc 185,1119,312 | half 20,0,37 | hidden False | StaticMeshComp:Plane:M_TorchMountGrime
+TorchMount_40 | StaticMeshActor | loc 185,2380,312 | half 20,0,37 | hidden False | StaticMeshComp:Plane:M_TorchMountGrime
+TorchSoot_16 | StaticMeshActor | loc 185,2388,473 | half 75,0,145 | hidden False | StaticMeshComp:Plane:M_TorchSoot
+TorchSoot_19 | StaticMeshActor | loc 185,1112,473 | half 75,0,145 | hidden False | StaticMeshComp:Plane:M_TorchSoot
+TorchSoot_32 | StaticMeshActor | loc 238,1311,486 | half 0,75,145 | hidden False | StaticMeshComp:Plane:M_TorchSoot
+TorchSoot_39 | StaticMeshActor | loc 238,2237,486 | half 0,75,145 | hidden False | StaticMeshComp:Plane:M_TorchSoot
+Tower9_A_Drum | StaticMeshActor | loc 50,50,0 | half 606,606,525 | hidden False | StaticMeshComp:SM_Tower09_Drum:MI_Castle_StoneWall_World
+Tower9_A_Floors | StaticMeshActor | loc 50,50,0 | half 597,597,211 | hidden False | StaticMeshComp:SM_Tower09_Floors:MI_Castle_WalkFlag_World
+Tower9_A_Iron | StaticMeshActor | loc 50,50,0 | half 278,163,255 | hidden False | StaticMeshComp:SM_Tower09_Iron:MI_AshenGate_Iron
+Tower9_A_Parapet | StaticMeshActor | loc 50,50,0 | half 602,602,68 | hidden False | StaticMeshComp:SM_Tower09_Parapet:MI_Castle_StoneWall_World
+Tower9_A_Portals | StaticMeshActor | loc 50,50,0 | half 305,305,146 | hidden False | StaticMeshComp:SM_Tower09_Portals:MI_Castle_Trim_World
+Tower9_A_Stairs | StaticMeshActor | loc 50,50,0 | half 210,150,199 | hidden False | StaticMeshComp:SM_Tower09_Stairs:MI_Castle_StoneWall_World
+Tower9_B_Drum | StaticMeshActor | loc 50,3450,0 | half 606,606,525 | hidden False | StaticMeshComp:SM_Tower09_Drum:MI_Castle_StoneWall_World
+Tower9_B_Floors | StaticMeshActor | loc 50,3450,0 | half 597,597,211 | hidden False | StaticMeshComp:SM_Tower09_Floors:MI_Castle_WalkFlag_World
+Tower9_B_Iron | StaticMeshActor | loc 50,3450,0 | half 163,278,255 | hidden False | StaticMeshComp:SM_Tower09_Iron:MI_AshenGate_Iron
+Tower9_B_Parapet | StaticMeshActor | loc 50,3450,0 | half 602,602,68 | hidden False | StaticMeshComp:SM_Tower09_Parapet:MI_Castle_StoneWall_World
+Tower9_B_Portals | StaticMeshActor | loc 50,3450,0 | half 305,305,146 | hidden False | StaticMeshComp:SM_Tower09_Portals:MI_Castle_Trim_World
+Tower9_B_Stairs | StaticMeshActor | loc 50,3450,0 | half 150,210,199 | hidden False | StaticMeshComp:SM_Tower09_Stairs:MI_Castle_StoneWall_World
+Tower9_GateStep_A1_Cube | StaticMeshActor | loc 65,742,719 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Tower9_GateStep_A1_SM | StaticMeshActor | loc 65,742,340 | half 92,14,360 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+Tower9_GateStep_A1_SMTread | StaticMeshActor | loc 65,742,710 | half 99,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+Tower9_GateStep_A2_Cube | StaticMeshActor | loc 65,714,699 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Tower9_GateStep_A2_SM | StaticMeshActor | loc 65,714,320 | half 92,14,360 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+Tower9_GateStep_A2_SMTread | StaticMeshActor | loc 65,714,690 | half 99,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+Tower9_GateStep_B1_Cube | StaticMeshActor | loc 65,2757,719 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Tower9_GateStep_B1_SM | StaticMeshActor | loc 65,2757,340 | half 92,14,360 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+Tower9_GateStep_B1_SMTread | StaticMeshActor | loc 65,2757,710 | half 99,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+Tower9_GateStep_B2_Cube | StaticMeshActor | loc 65,2785,699 | half 100,14,0 | hidden False | StaticMeshComp:Cube:MI_Castle_StepCap
+Tower9_GateStep_B2_SM | StaticMeshActor | loc 65,2785,320 | half 92,14,360 | hidden False | StaticMeshComp:SM_StoneModule:MI_Castle_Trim_World
+Tower9_GateStep_B2_SMTread | StaticMeshActor | loc 65,2785,690 | half 99,14,10 | hidden False | StaticMeshComp:SM_StairTread:MI_Castle_StoneWall_World
+Tower9_Grime_A_06 | StaticMeshActor | loc 418,558,3 | half 66,62,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_07 | StaticMeshActor | loc 334,609,3 | half 65,58,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_08 | StaticMeshActor | loc 223,653,3 | half 63,52,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_09 | StaticMeshActor | loc 150,685,3 | half 59,45,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_10 | StaticMeshActor | loc 50,693,91 | half 54,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_11 | StaticMeshActor | loc -50,685,1 | half 59,45,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_12 | StaticMeshActor | loc -148,662,1 | half 63,52,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_13 | StaticMeshActor | loc -242,623,-53 | half 65,58,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_14 | StaticMeshActor | loc -328,570,-61 | half 66,62,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_15 | StaticMeshActor | loc -405,505,-71 | half 65,65,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_16 | StaticMeshActor | loc -470,428,-83 | half 62,66,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_17 | StaticMeshActor | loc -523,342,-92 | half 58,65,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_18 | StaticMeshActor | loc -562,248,-98 | half 52,63,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_19 | StaticMeshActor | loc -585,150,-100 | half 45,59,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_20 | StaticMeshActor | loc -593,50,-100 | half 37,54,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_21 | StaticMeshActor | loc -585,-50,-95 | half 45,59,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_22 | StaticMeshActor | loc -562,-148,-86 | half 52,63,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_23 | StaticMeshActor | loc -523,-242,-71 | half 58,65,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_24 | StaticMeshActor | loc -470,-328,-58 | half 62,66,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_25 | StaticMeshActor | loc -405,-405,-45 | half 65,65,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_26 | StaticMeshActor | loc -328,-470,-37 | half 66,62,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_27 | StaticMeshActor | loc -242,-523,-33 | half 65,58,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_28 | StaticMeshActor | loc -148,-562,-32 | half 63,52,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_29 | StaticMeshActor | loc -50,-585,-42 | half 59,45,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_30 | StaticMeshActor | loc 49,-593,-60 | half 54,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_31 | StaticMeshActor | loc 150,-585,-80 | half 59,45,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_32 | StaticMeshActor | loc 248,-562,-91 | half 63,52,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_A_33 | StaticMeshActor | loc 342,-523,-88 | half 65,58,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_07 | StaticMeshActor | loc 342,4023,-88 | half 65,58,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_08 | StaticMeshActor | loc 248,4062,-96 | half 63,52,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_09 | StaticMeshActor | loc 150,4085,-100 | half 59,45,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_10 | StaticMeshActor | loc 50,4093,-101 | half 54,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_11 | StaticMeshActor | loc -50,4085,-100 | half 59,45,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_12 | StaticMeshActor | loc -148,4062,-96 | half 63,52,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_13 | StaticMeshActor | loc -242,4023,-89 | half 65,58,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_14 | StaticMeshActor | loc -328,3970,-84 | half 66,62,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_15 | StaticMeshActor | loc -405,3905,-82 | half 65,65,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_16 | StaticMeshActor | loc -470,3828,-84 | half 62,66,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_17 | StaticMeshActor | loc -523,3742,-89 | half 58,65,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_18 | StaticMeshActor | loc -562,3648,-96 | half 52,63,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_19 | StaticMeshActor | loc -585,3550,-101 | half 45,59,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_20 | StaticMeshActor | loc -593,3450,-102 | half 37,54,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_21 | StaticMeshActor | loc -585,3349,-100 | half 45,59,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_22 | StaticMeshActor | loc -562,3251,-95 | half 52,63,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_23 | StaticMeshActor | loc -523,3157,-88 | half 58,65,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_24 | StaticMeshActor | loc -470,3071,-78 | half 62,66,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_25 | StaticMeshActor | loc -405,2994,-66 | half 65,65,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_26 | StaticMeshActor | loc -328,2929,-56 | half 66,62,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_27 | StaticMeshActor | loc -242,2876,-50 | half 65,58,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_28 | StaticMeshActor | loc -148,2837,1 | half 63,52,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_29 | StaticMeshActor | loc -50,2814,1 | half 59,45,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_30 | StaticMeshActor | loc 49,2806,91 | half 54,37,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_31 | StaticMeshActor | loc 150,2814,4 | half 59,45,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_32 | StaticMeshActor | loc 241,2852,4 | half 63,52,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Grime_B_33 | StaticMeshActor | loc 332,2891,3 | half 65,58,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_09 | StaticMeshActor | loc 402,525,18 | half 29,24,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_10 | StaticMeshActor | loc 354,558,18 | half 30,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_11 | StaticMeshActor | loc 303,585,18 | half 31,20,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_12 | StaticMeshActor | loc 249,607,18 | half 31,17,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_13 | StaticMeshActor | loc 193,624,18 | half 31,15,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_14 | StaticMeshActor | loc 136,636,18 | half 31,12,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_15 | StaticMeshActor | loc 79,641,18 | half 31,9,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_16 | StaticMeshActor | loc 20,641,18 | half 31,9,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_17 | StaticMeshActor | loc -36,636,18 | half 31,12,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_18 | StaticMeshActor | loc -93,624,18 | half 31,15,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_19 | StaticMeshActor | loc -149,607,18 | half 31,17,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_20 | StaticMeshActor | loc -203,585,18 | half 31,20,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_21 | StaticMeshActor | loc -254,558,18 | half 30,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_22 | StaticMeshActor | loc -302,525,18 | half 29,24,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_23 | StaticMeshActor | loc -347,489,18 | half 28,26,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_24 | StaticMeshActor | loc -389,447,18 | half 26,28,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_25 | StaticMeshActor | loc -425,402,18 | half 24,29,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_26 | StaticMeshActor | loc -458,354,18 | half 22,30,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_27 | StaticMeshActor | loc -485,303,18 | half 20,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_28 | StaticMeshActor | loc -507,249,18 | half 17,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_29 | StaticMeshActor | loc -524,193,18 | half 15,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_30 | StaticMeshActor | loc -536,136,18 | half 12,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_31 | StaticMeshActor | loc -541,79,18 | half 9,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_32 | StaticMeshActor | loc -541,20,18 | half 9,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_33 | StaticMeshActor | loc -536,-36,18 | half 12,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_34 | StaticMeshActor | loc -524,-93,18 | half 15,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_35 | StaticMeshActor | loc -507,-149,18 | half 17,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_36 | StaticMeshActor | loc -485,-203,18 | half 20,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_37 | StaticMeshActor | loc -458,-254,18 | half 22,30,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_38 | StaticMeshActor | loc -425,-302,18 | half 24,29,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_39 | StaticMeshActor | loc -389,-347,18 | half 26,28,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_40 | StaticMeshActor | loc -347,-389,18 | half 28,26,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_41 | StaticMeshActor | loc -302,-425,18 | half 29,24,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_42 | StaticMeshActor | loc -254,-458,18 | half 30,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_43 | StaticMeshActor | loc -203,-485,18 | half 31,20,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_44 | StaticMeshActor | loc -149,-507,18 | half 31,17,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_45 | StaticMeshActor | loc -93,-524,18 | half 31,15,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_46 | StaticMeshActor | loc -36,-536,18 | half 31,12,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_47 | StaticMeshActor | loc 20,-541,18 | half 31,9,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_48 | StaticMeshActor | loc 79,-541,18 | half 31,9,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_49 | StaticMeshActor | loc 136,-536,18 | half 31,12,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_50 | StaticMeshActor | loc 193,-524,18 | half 31,15,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_51 | StaticMeshActor | loc 249,-507,18 | half 31,17,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_52 | StaticMeshActor | loc 303,-485,18 | half 31,20,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_53 | StaticMeshActor | loc 354,-458,18 | half 30,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_A_54 | StaticMeshActor | loc 402,-425,18 | half 29,24,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_09 | StaticMeshActor | loc 402,3925,18 | half 29,24,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_10 | StaticMeshActor | loc 354,3958,18 | half 30,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_11 | StaticMeshActor | loc 303,3985,18 | half 31,20,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_12 | StaticMeshActor | loc 249,4007,18 | half 31,17,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_13 | StaticMeshActor | loc 193,4024,18 | half 31,15,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_14 | StaticMeshActor | loc 136,4036,18 | half 31,12,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_15 | StaticMeshActor | loc 79,4041,18 | half 31,9,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_16 | StaticMeshActor | loc 20,4041,18 | half 31,9,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_17 | StaticMeshActor | loc -36,4036,18 | half 31,12,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_18 | StaticMeshActor | loc -93,4024,18 | half 31,15,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_19 | StaticMeshActor | loc -149,4007,18 | half 31,17,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_20 | StaticMeshActor | loc -203,3985,18 | half 31,20,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_21 | StaticMeshActor | loc -254,3958,18 | half 30,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_22 | StaticMeshActor | loc -302,3925,18 | half 29,24,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_23 | StaticMeshActor | loc -347,3889,18 | half 28,26,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_24 | StaticMeshActor | loc -389,3847,18 | half 26,28,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_25 | StaticMeshActor | loc -425,3802,18 | half 24,29,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_26 | StaticMeshActor | loc -458,3754,18 | half 22,30,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_27 | StaticMeshActor | loc -485,3703,18 | half 20,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_28 | StaticMeshActor | loc -507,3649,18 | half 17,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_29 | StaticMeshActor | loc -524,3593,18 | half 15,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_30 | StaticMeshActor | loc -536,3536,18 | half 12,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_31 | StaticMeshActor | loc -541,3479,18 | half 9,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_32 | StaticMeshActor | loc -541,3420,18 | half 9,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_33 | StaticMeshActor | loc -536,3363,18 | half 12,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_34 | StaticMeshActor | loc -524,3306,18 | half 15,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_35 | StaticMeshActor | loc -507,3250,18 | half 17,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_36 | StaticMeshActor | loc -485,3196,18 | half 20,31,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_37 | StaticMeshActor | loc -458,3145,18 | half 22,30,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_38 | StaticMeshActor | loc -425,3097,18 | half 24,29,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_39 | StaticMeshActor | loc -389,3052,18 | half 26,28,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_40 | StaticMeshActor | loc -347,3010,18 | half 28,26,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_41 | StaticMeshActor | loc -302,2974,18 | half 29,24,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_42 | StaticMeshActor | loc -254,2941,18 | half 30,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_43 | StaticMeshActor | loc -203,2914,18 | half 31,20,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_44 | StaticMeshActor | loc -149,2892,18 | half 31,17,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_45 | StaticMeshActor | loc -93,2875,18 | half 31,15,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_46 | StaticMeshActor | loc -36,2863,18 | half 31,12,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_47 | StaticMeshActor | loc 20,2858,18 | half 31,9,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_48 | StaticMeshActor | loc 79,2858,18 | half 31,9,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_49 | StaticMeshActor | loc 136,2863,18 | half 31,12,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_50 | StaticMeshActor | loc 193,2875,18 | half 31,15,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_51 | StaticMeshActor | loc 249,2892,18 | half 31,17,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_52 | StaticMeshActor | loc 303,2914,18 | half 31,20,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_53 | StaticMeshActor | loc 354,2941,18 | half 30,22,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_LedgeGrime_B_54 | StaticMeshActor | loc 402,2974,18 | half 29,24,0 | hidden False | StaticMeshComp:Plane:MI_EdgeGrime_StairContact
+Tower9_Moss_A_10 | DecalActor | loc -563,-47,-90 | half 128,128,183 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_A_11 | DecalActor | loc -503,-231,-66 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_A_12 | DecalActor | loc -389,-389,-40 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_A_13 | DecalActor | loc -231,-503,-28 | half 128,128,183 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_A_14 | DecalActor | loc -47,-563,-36 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_A_15 | DecalActor | loc 147,-563,-75 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_A_16 | DecalActor | loc 331,-503,-83 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_A_3 | DecalActor | loc 331,603,10 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_A_4 | DecalActor | loc 147,663,10 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_A_5 | DecalActor | loc -47,663,7 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_A_6 | DecalActor | loc -231,603,-47 | half 128,128,183 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_A_7 | DecalActor | loc -389,489,-65 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_A_8 | DecalActor | loc -503,331,-87 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_A_9 | DecalActor | loc -563,147,-95 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_A_F01 | DecalActor | loc 388,635,12 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F02 | DecalActor | loc 120,722,100 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F03 | DecalActor | loc -158,692,9 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F04 | DecalActor | loc -402,552,-62 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F05 | DecalActor | loc -567,324,-90 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F06 | DecalActor | loc -626,50,-97 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F07 | DecalActor | loc -567,-224,-75 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F08 | DecalActor | loc -402,-452,-40 | half 128,128,183 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F09 | DecalActor | loc -158,-592,-29 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F10 | DecalActor | loc 120,-622,-70 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_A_F11 | DecalActor | loc 388,-535,-82 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_0 | DecalActor | loc 147,2836,11 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_B_1 | DecalActor | loc 331,2896,10 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_B_10 | DecalActor | loc -47,4063,-95 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_B_11 | DecalActor | loc -231,4003,-84 | half 128,127,183 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_B_12 | DecalActor | loc -389,3889,-77 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_B_13 | DecalActor | loc -503,3731,-83 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_B_14 | DecalActor | loc -563,3547,-96 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_B_15 | DecalActor | loc -563,3352,-95 | half 128,128,183 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_B_16 | DecalActor | loc -503,3168,-83 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_B_17 | DecalActor | loc -389,3010,-61 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_B_18 | DecalActor | loc -231,2896,-44 | half 128,128,183 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_B_19 | DecalActor | loc -47,2836,7 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_B_8 | DecalActor | loc 331,4003,-83 | half 128,127,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_01
+Tower9_Moss_B_9 | DecalActor | loc 147,4063,-95 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Moss_WallBase_02
+Tower9_Moss_B_F02 | DecalActor | loc 388,4035,-82 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F03 | DecalActor | loc 120,4122,-98 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F04 | DecalActor | loc -158,4092,-93 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F05 | DecalActor | loc -402,3952,-79 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F06 | DecalActor | loc -567,3724,-89 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F07 | DecalActor | loc -626,3450,-99 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F08 | DecalActor | loc -567,3175,-88 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F09 | DecalActor | loc -402,2947,-57 | half 128,128,183 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F10 | DecalActor | loc -158,2807,9 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F11 | DecalActor | loc 120,2777,100 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_Moss_B_F12 | DecalActor | loc 388,2864,12 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:M_AshenGate_DecalMoss
+Tower9_StairRamp_A_A | StaticMeshActor | loc 41,-286,770 | half 221,66,98 | hidden False | StaticMeshComp:Cube:BasicShapeMaterial
+Tower9_StairRamp_A_B | StaticMeshActor | loc 58,-124,965 | half 221,66,103 | hidden False | StaticMeshComp:Cube:BasicShapeMaterial
+Tower9_StairRamp_B_A | StaticMeshActor | loc -286,3458,770 | half 66,221,98 | hidden False | StaticMeshComp:Cube:BasicShapeMaterial
+Tower9_StairRamp_B_B | StaticMeshActor | loc -124,3441,965 | half 66,221,103 | hidden False | StaticMeshComp:Cube:BasicShapeMaterial
+Tower9_Torch_A0_Flame | Emitter | loc 377,377,973 | half 146,146,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Tower9_Torch_A0_Light | PointLight | loc 345,345,1010 | half 128,128,128 | hidden False | BillboardCompo::
+Tower9_Torch_A0_TorchMount | StaticMeshActor | loc 381,381,927 | half 14,14,37 | hidden False | StaticMeshComp:Plane:M_TorchMountGrime
+Tower9_Torch_A0_TorchSoot | StaticMeshActor | loc 374,374,1018 | half 42,42,87 | hidden False | StaticMeshComp:Plane:M_TorchSoot
+Tower9_Torch_A0_WallTorch | StaticMeshActor | loc 388,388,905 | half 9,9,30 | hidden False | StaticMeshComp:SM_IronTorch:Iron_Torch___Baked_PBR_1K
+Tower9_Torch_A1_Flame | Emitter | loc -350,281,973 | half 131,155,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Tower9_Torch_A1_Light | PointLight | loc -312,259,1010 | half 128,128,128 | hidden False | BillboardCompo::
+Tower9_Torch_A1_TorchMount | StaticMeshActor | loc -355,284,927 | half 10,17,37 | hidden False | StaticMeshComp:Plane:M_TorchMountGrime
+Tower9_Torch_A1_TorchSoot | StaticMeshActor | loc -346,279,1018 | half 30,51,87 | hidden False | StaticMeshComp:Plane:M_TorchSoot
+Tower9_Torch_A1_WallTorch | StaticMeshActor | loc -364,289,905 | half 9,7,30 | hidden False | StaticMeshComp:SM_IronTorch:Iron_Torch___Baked_PBR_1K
+Tower9_Torch_B0_Flame | Emitter | loc 377,3122,973 | half 146,146,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Tower9_Torch_B0_Light | PointLight | loc 345,3154,1010 | half 128,128,128 | hidden False | BillboardCompo::
+Tower9_Torch_B0_TorchMount | StaticMeshActor | loc 381,3118,927 | half 14,14,37 | hidden False | StaticMeshComp:Plane:M_TorchMountGrime
+Tower9_Torch_B0_TorchSoot | StaticMeshActor | loc 374,3125,1018 | half 42,42,87 | hidden False | StaticMeshComp:Plane:M_TorchSoot
+Tower9_Torch_B0_WallTorch | StaticMeshActor | loc 388,3111,905 | half 9,9,30 | hidden False | StaticMeshComp:SM_IronTorch:Iron_Torch___Baked_PBR_1K
+Tower9_Torch_B1_Flame | Emitter | loc 281,3850,973 | half 155,131,244 | hidden False | ParticleSystem::M_Fire_SubUV ; BillboardCompo:: ; ArrowComponent::
+Tower9_Torch_B1_Light | PointLight | loc 259,3812,1010 | half 128,128,128 | hidden False | BillboardCompo::
+Tower9_Torch_B1_TorchMount | StaticMeshActor | loc 284,3855,927 | half 17,10,37 | hidden False | StaticMeshComp:Plane:M_TorchMountGrime
+Tower9_Torch_B1_TorchSoot | StaticMeshActor | loc 279,3846,1018 | half 51,30,87 | hidden False | StaticMeshComp:Plane:M_TorchSoot
+Tower9_Torch_B1_WallTorch | StaticMeshActor | loc 289,3864,905 | half 7,9,30 | hidden False | StaticMeshComp:SM_IronTorch:Iron_Torch___Baked_PBR_1K
+Tower9_WallGrime_A_07_0 | StaticMeshActor | loc 381,545,29 | half 33,22,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_07_1 | StaticMeshActor | loc 369,527,102 | half 32,21,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_08_0 | StaticMeshActor | loc 313,584,29 | half 36,17,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_08_1 | StaticMeshActor | loc 304,565,102 | half 35,17,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_09_0 | StaticMeshActor | loc 241,614,29 | half 38,13,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_09_1 | StaticMeshActor | loc 234,594,102 | half 37,12,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_10_0 | StaticMeshActor | loc 166,635,29 | half 39,7,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_10_1 | StaticMeshActor | loc 162,613,102 | half 38,7,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_11_0 | StaticMeshActor | loc 89,645,117 | half 40,2,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Z90
+Tower9_WallGrime_A_11_1 | StaticMeshActor | loc 87,623,190 | half 38,2,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Z90
+Tower9_WallGrime_A_12_0 | StaticMeshActor | loc 10,645,117 | half 40,2,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Z90
+Tower9_WallGrime_A_12_1 | StaticMeshActor | loc 12,623,190 | half 38,2,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Z90
+Tower9_WallGrime_A_13_0 | StaticMeshActor | loc -66,635,27 | half 39,7,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_13_1 | StaticMeshActor | loc -62,613,99 | half 38,7,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_14_0 | StaticMeshActor | loc -141,614,27 | half 38,13,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_14_1 | StaticMeshActor | loc -134,594,99 | half 37,12,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_A_15_0 | StaticMeshActor | loc -213,584,-27 | half 36,17,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm50
+Tower9_WallGrime_A_15_1 | StaticMeshActor | loc -204,565,45 | half 35,17,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm50
+Tower9_WallGrime_A_16_0 | StaticMeshActor | loc -281,545,-32 | half 33,22,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm60
+Tower9_WallGrime_A_16_1 | StaticMeshActor | loc -269,527,39 | half 32,21,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm60
+Tower9_WallGrime_A_17_0 | StaticMeshActor | loc -343,498,-41 | half 30,26,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm70
+Tower9_WallGrime_A_17_1 | StaticMeshActor | loc -328,481,30 | half 29,25,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm70
+Tower9_WallGrime_A_18_0 | StaticMeshActor | loc -398,443,-51 | half 26,30,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_A_18_1 | StaticMeshActor | loc -381,428,20 | half 25,29,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_A_19_0 | StaticMeshActor | loc -445,381,-61 | half 22,33,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_19_1 | StaticMeshActor | loc -427,369,11 | half 21,32,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_20_0 | StaticMeshActor | loc -484,313,-68 | half 17,36,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_20_1 | StaticMeshActor | loc -465,304,4 | half 17,35,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_21_0 | StaticMeshActor | loc -514,241,-72 | half 13,38,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_21_1 | StaticMeshActor | loc -494,234,0 | half 12,37,44 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_22_0 | StaticMeshActor | loc -535,166,-75 | half 7,39,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_22_1 | StaticMeshActor | loc -513,162,-2 | half 7,38,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_23_0 | StaticMeshActor | loc -545,89,-76 | half 2,40,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_23_1 | StaticMeshActor | loc -523,87,-3 | half 2,38,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_24_0 | StaticMeshActor | loc -545,10,-74 | half 2,40,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_24_1 | StaticMeshActor | loc -523,12,-1 | half 2,38,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_25_0 | StaticMeshActor | loc -535,-66,-68 | half 7,39,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_25_1 | StaticMeshActor | loc -513,-62,3 | half 7,38,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_A_26_0 | StaticMeshActor | loc -514,-141,-60 | half 13,38,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_26_1 | StaticMeshActor | loc -494,-134,12 | half 12,37,44 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_27_0 | StaticMeshActor | loc -484,-213,-48 | half 17,36,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_A_27_1 | StaticMeshActor | loc -465,-204,24 | half 17,35,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_A_28_0 | StaticMeshActor | loc -445,-281,-37 | half 22,33,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm60
+Tower9_WallGrime_A_28_1 | StaticMeshActor | loc -427,-269,35 | half 21,32,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm60
+Tower9_WallGrime_A_29_0 | StaticMeshActor | loc -398,-343,-25 | half 26,30,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm50
+Tower9_WallGrime_A_29_1 | StaticMeshActor | loc -381,-328,47 | half 25,29,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm50
+Tower9_WallGrime_A_30_0 | StaticMeshActor | loc -343,-398,-17 | half 30,26,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_30_1 | StaticMeshActor | loc -328,-381,55 | half 29,25,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_31_0 | StaticMeshActor | loc -281,-445,-11 | half 33,22,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_31_1 | StaticMeshActor | loc -269,-427,61 | half 32,21,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_32_0 | StaticMeshActor | loc -213,-484,-8 | half 36,17,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_32_1 | StaticMeshActor | loc -204,-465,64 | half 35,17,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_33_0 | StaticMeshActor | loc -141,-514,-7 | half 38,13,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_33_1 | StaticMeshActor | loc -134,-494,64 | half 37,12,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_34_0 | StaticMeshActor | loc -66,-535,-13 | half 39,7,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_34_1 | StaticMeshActor | loc -62,-513,59 | half 38,7,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm40
+Tower9_WallGrime_A_35_0 | StaticMeshActor | loc 10,-545,-26 | half 40,2,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm50
+Tower9_WallGrime_A_35_1 | StaticMeshActor | loc 12,-523,46 | half 38,2,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm50
+Tower9_WallGrime_A_36_0 | StaticMeshActor | loc 89,-545,-44 | half 40,2,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm70
+Tower9_WallGrime_A_36_1 | StaticMeshActor | loc 87,-523,27 | half 38,2,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm70
+Tower9_WallGrime_A_37_0 | StaticMeshActor | loc 166,-535,-59 | half 39,7,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_37_1 | StaticMeshActor | loc 162,-513,12 | half 38,7,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_38_0 | StaticMeshActor | loc 241,-514,-66 | half 38,13,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_38_1 | StaticMeshActor | loc 234,-494,6 | half 37,12,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_39_0 | StaticMeshActor | loc 313,-484,-64 | half 36,17,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_39_1 | StaticMeshActor | loc 304,-465,7 | half 35,17,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_A_40_0 | StaticMeshActor | loc 381,-445,-56 | half 33,22,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_A_40_1 | StaticMeshActor | loc 369,-427,15 | half 32,21,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_B_07_0 | StaticMeshActor | loc 381,3945,-56 | half 33,22,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_B_07_1 | StaticMeshActor | loc 369,3927,15 | half 32,21,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_B_08_0 | StaticMeshActor | loc 313,3984,-64 | half 36,17,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_08_1 | StaticMeshActor | loc 304,3965,7 | half 35,17,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_09_0 | StaticMeshActor | loc 241,4014,-70 | half 38,13,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_09_1 | StaticMeshActor | loc 234,3994,1 | half 37,12,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_10_0 | StaticMeshActor | loc 166,4035,-74 | half 39,7,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_10_1 | StaticMeshActor | loc 162,4013,-2 | half 38,7,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_11_0 | StaticMeshActor | loc 89,4045,-76 | half 40,2,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_11_1 | StaticMeshActor | loc 87,4023,-4 | half 38,2,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_12_0 | StaticMeshActor | loc 10,4045,-76 | half 40,2,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_12_1 | StaticMeshActor | loc 12,4023,-4 | half 38,2,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_13_0 | StaticMeshActor | loc -66,4035,-74 | half 39,7,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_13_1 | StaticMeshActor | loc -62,4013,-2 | half 38,7,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_14_0 | StaticMeshActor | loc -141,4014,-70 | half 38,13,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_14_1 | StaticMeshActor | loc -134,3994,1 | half 37,12,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_15_0 | StaticMeshActor | loc -213,3984,-65 | half 36,17,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_15_1 | StaticMeshActor | loc -204,3965,7 | half 35,17,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_16_0 | StaticMeshActor | loc -281,3945,-60 | half 33,22,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_16_1 | StaticMeshActor | loc -269,3927,12 | half 32,21,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_17_0 | StaticMeshActor | loc -343,3898,-57 | half 30,26,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_17_1 | StaticMeshActor | loc -328,3881,14 | half 29,25,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_18_0 | StaticMeshActor | loc -398,3843,-58 | half 26,30,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_18_1 | StaticMeshActor | loc -381,3828,14 | half 25,29,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_19_0 | StaticMeshActor | loc -445,3781,-60 | half 22,33,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_19_1 | StaticMeshActor | loc -427,3769,11 | half 21,32,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_20_0 | StaticMeshActor | loc -484,3713,-64 | half 17,36,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_20_1 | StaticMeshActor | loc -465,3704,7 | half 17,35,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_21_0 | StaticMeshActor | loc -514,3641,-71 | half 13,38,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_21_1 | StaticMeshActor | loc -494,3634,1 | half 12,37,44 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_22_0 | StaticMeshActor | loc -535,3566,-75 | half 7,39,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_22_1 | StaticMeshActor | loc -513,3562,-3 | half 7,38,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_23_0 | StaticMeshActor | loc -545,3489,-77 | half 2,40,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm110
+Tower9_WallGrime_B_23_1 | StaticMeshActor | loc -523,3487,-5 | half 2,38,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm110
+Tower9_WallGrime_B_24_0 | StaticMeshActor | loc -545,3410,-77 | half 2,40,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm110
+Tower9_WallGrime_B_24_1 | StaticMeshActor | loc -523,3412,-5 | half 2,38,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm110
+Tower9_WallGrime_B_25_0 | StaticMeshActor | loc -535,3333,-74 | half 7,39,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_25_1 | StaticMeshActor | loc -513,3337,-2 | half 7,38,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_26_0 | StaticMeshActor | loc -514,3258,-70 | half 13,38,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_26_1 | StaticMeshActor | loc -494,3265,2 | half 12,37,44 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm100
+Tower9_WallGrime_B_27_0 | StaticMeshActor | loc -484,3186,-64 | half 17,36,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_27_1 | StaticMeshActor | loc -465,3195,8 | half 17,35,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm90
+Tower9_WallGrime_B_28_0 | StaticMeshActor | loc -445,3118,-56 | half 22,33,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_B_28_1 | StaticMeshActor | loc -427,3130,16 | half 21,32,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm80
+Tower9_WallGrime_B_29_0 | StaticMeshActor | loc -398,3056,-46 | half 26,30,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm70
+Tower9_WallGrime_B_29_1 | StaticMeshActor | loc -381,3071,25 | half 25,29,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm70
+Tower9_WallGrime_B_30_0 | StaticMeshActor | loc -343,3001,-37 | half 30,26,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm60
+Tower9_WallGrime_B_30_1 | StaticMeshActor | loc -328,3018,35 | half 29,25,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm60
+Tower9_WallGrime_B_31_0 | StaticMeshActor | loc -281,2954,-28 | half 33,22,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm60
+Tower9_WallGrime_B_31_1 | StaticMeshActor | loc -269,2972,43 | half 32,21,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm60
+Tower9_WallGrime_B_32_0 | StaticMeshActor | loc -213,2915,-24 | half 36,17,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm50
+Tower9_WallGrime_B_32_1 | StaticMeshActor | loc -204,2934,48 | half 35,17,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Zm50
+Tower9_WallGrime_B_33_0 | StaticMeshActor | loc -141,2885,27 | half 38,13,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_33_1 | StaticMeshActor | loc -134,2905,99 | half 37,12,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_34_0 | StaticMeshActor | loc -66,2864,27 | half 39,7,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_34_1 | StaticMeshActor | loc -62,2886,99 | half 38,7,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_35_0 | StaticMeshActor | loc 10,2854,117 | half 40,2,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Z90
+Tower9_WallGrime_B_35_1 | StaticMeshActor | loc 12,2876,190 | half 38,2,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Z90
+Tower9_WallGrime_B_36_0 | StaticMeshActor | loc 89,2854,117 | half 40,2,27 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Z90
+Tower9_WallGrime_B_36_1 | StaticMeshActor | loc 87,2876,190 | half 38,2,45 | hidden False | StaticMeshComp:Plane:MI_Tower9_WallBaseGrime_Z90
+Tower9_WallGrime_B_37_0 | StaticMeshActor | loc 166,2864,30 | half 39,7,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_37_1 | StaticMeshActor | loc 162,2886,103 | half 38,7,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_38_0 | StaticMeshActor | loc 241,2885,30 | half 38,13,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_38_1 | StaticMeshActor | loc 234,2905,103 | half 37,12,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_39_0 | StaticMeshActor | loc 313,2915,29 | half 36,17,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_39_1 | StaticMeshActor | loc 304,2934,102 | half 35,17,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_40_0 | StaticMeshActor | loc 381,2954,29 | half 33,22,27 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+Tower9_WallGrime_B_40_1 | StaticMeshActor | loc 369,2972,102 | half 32,21,45 | hidden False | StaticMeshComp:Plane:M_WallBaseGrime
+TradeShowcase | BP_TradeShowcase_C | loc 0,0,40000 | half 1000,1000,1000 | hidden False | BillboardCompo:: ; StaticMeshComp:Noble_Crossbow_LowPoly:Crossbow___Baked_PBR_1K ; StaticMeshComp:gold_armor:wire_143224087 ; StaticMeshComp:Golden_Sovereign_LowPoly:Golden_Sovereign___Baked_PBR_1K
+UndergroundFog | BP_UndergroundFog_C | loc 0,0,0 | half 128,128,128 | hidden False | BillboardCompo::
+V3_Crack_12 | DecalActor | loc -144,1817,748 | half 184,128,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_Decal_WallCrackB
+V3_Crack_20 | DecalActor | loc 130,3182,408 | half 183,128,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_Decal_WallCrackA
+V3_Crack_58 | DecalActor | loc -30,455,260 | half 184,128,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_Decal_WallCrackA
+V3_Impact_17 | DecalActor | loc 260,130,443 | half 128,184,128 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_Decal_WallImpact
+VolumetricCloud | VolumetricCloud | loc 0,0,820 | half 128,128,128 | hidden False | BillboardCompo::
+WallTorch_Iron_01 | StaticMeshActor | loc 220,1311,303 | half 8,4,30 | hidden False | StaticMeshComp:SM_IronTorch:Iron_Torch___Baked_PBR_1K
+WallTorch_Iron_09 | StaticMeshActor | loc 220,2237,303 | half 8,4,30 | hidden False | StaticMeshComp:SM_IronTorch:Iron_Torch___Baked_PBR_1K
+WallTorch_Iron_18 | StaticMeshActor | loc 185,1129,290 | half 4,8,30 | hidden False | StaticMeshComp:SM_IronTorch:Iron_Torch___Baked_PBR_1K
+WallTorch_Iron_21 | StaticMeshActor | loc 185,2370,290 | half 4,8,30 | hidden False | StaticMeshComp:SM_IronTorch:Iron_Torch___Baked_PBR_1K
+WorldDataLayers | WorldDataLayers | loc 0,0,0 | half 0,0,0 | hidden False | 
+WorldPartitionMiniMap0 | WorldPartitionMiniMap | loc 0,0,0 | half 0,0,0 | hidden False | 
+WornPlate | BP_WornPlate_C | loc 0,0,-500 | half 128,128,128 | hidden False | BillboardCompo:: ; StaticMeshComp:gold_armor:wire_143224087
+YW_Blood_GateDrag_A | DecalActor | loc 270,1635,8 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Blood_GateDrag_A
+YW_Blood_GateDrag_B | DecalActor | loc 370,1935,8 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Blood_GateDrag_B
+YW_Mud_GateSpillLeft | DecalActor | loc 240,1470,8 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Mud_GateSpillLeft
+YW_Mud_GateSpillRight | DecalActor | loc 220,2050,8 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Mud_GateSpillRight
+YW_Scorch_Cannon_A | DecalActor | loc 180,1430,8 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Scorch_Cannon_A
+YW_Scrapes_GateThreshold | DecalActor | loc 230,1750,8 | half 128,128,184 | hidden False | ArrowComponent:: ; BillboardCompo:: ; Decal:MI_YW_Scrapes_GateThreshold
+ZombieCharge | BP_ZombieCharge_C | loc 0,0,300 | half 128,128,128 | hidden False | BillboardCompo::
+ZombieWaveManager | BP_ZombieWaveManager_C | loc -7996,1750,-80 | half 128,128,128 | hidden False | BillboardCompo::
+ZombieWaveManager_Far | BP_ZombieWaveManager_C | loc -13200,1750,-519 | half 128,128,128 | hidden False | BillboardCompo::
+vimrfjsaw_tier_0 | StaticMeshActor | loc -2195,1342,-134 | half 29,43,31 | hidden False | StaticMeshComp:vimrfjsaw_tier_0:MI_vimrfjsaw
+vimrfjsaw_tier_1 | StaticMeshActor | loc -1670,2656,-97 | half 61,55,46 | hidden False | StaticMeshComp:vimrfjsaw_tier_0:MI_vimrfjsaw

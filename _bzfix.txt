@@ -1,0 +1,8 @@
+M_BerserkAura blend <BlendMode.BLEND_ADDITIVE: 3> shading <MaterialShadingModel.MSM_UNLIT: 0> before {'used_with_niagara_sprites': False, 'used_with_niagara_mesh_particles': False, 'used_with_niagara_ribbons': False, 'used_with_skeletal_mesh': True, 'used_with_static_lighting': False} nexpr 79
+  saved True
+M_BerserkEmber blend <BlendMode.BLEND_ADDITIVE: 3> shading <MaterialShadingModel.MSM_UNLIT: 0> before {'used_with_niagara_sprites': True, 'used_with_niagara_mesh_particles': False, 'used_with_niagara_ribbons': False, 'used_with_skeletal_mesh': False, 'used_with_static_lighting': False} nexpr 9
+  saved True
+M_BerserkGround blend <BlendMode.BLEND_ADDITIVE: 3> shading <MaterialShadingModel.MSM_UNLIT: 0> before {'used_with_niagara_sprites': True, 'used_with_niagara_mesh_particles': False, 'used_with_niagara_ribbons': False, 'used_with_skeletal_mesh': False, 'used_with_static_lighting': False} nexpr 25
+  saved True
+M_BerserkWisp blend <BlendMode.BLEND_ADDITIVE: 3> shading <MaterialShadingModel.MSM_UNLIT: 0> before {'used_with_niagara_sprites': True, 'used_with_niagara_mesh_particles': False, 'used_with_niagara_ribbons': False, 'used_with_skeletal_mesh': False, 'used_with_static_lighting': False} nexpr 27
+  saved True

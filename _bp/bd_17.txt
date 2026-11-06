@@ -1,0 +1,1 @@
+BPVar(VarName="FeintDelay",VarGuid=276E0A11B2C34D5E8F90A1B2C3D4E011,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FeintDelay",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="20.0")

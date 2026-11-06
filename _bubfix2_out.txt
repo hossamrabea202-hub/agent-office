@@ -1,0 +1,2 @@
+old F node MaterialExpressionFresnel exp 3.0 base 0.03999999910593033
+built /Game/CastleDefender/Realm/MI_RealmBubble3_Rim2S, F -> Fresnel2Sided; preview on bubble

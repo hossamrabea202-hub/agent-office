@@ -1,0 +1,4 @@
+#381 realm vision v2 --check
+PPV PPV_Realm: unbound False, priority 0.0, weight 1.0, exposure bias -, gain -, saturation -, vignette -, tint -, blendables 1
+bubble material 0: /Game/CastleDefender/Realm/MI_RealmBubble3.MI_RealmBubble3 (root /Game/CastleDefender/Realm/M_RealmBubble3.M_RealmBubble3)
+Realm_Vision Vision: exposure bias -0.3499999940395355, gain <Struct 'Vector4' (0x000005DABA2BC3A0) {x: 0.920000, y: 1.040000, z: 0.940000, w: 1.000000}>

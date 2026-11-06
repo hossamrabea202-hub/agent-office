@@ -478,5 +478,9 @@
 "/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCABEE0B03_1860308647": {
 "label": "Cube_35",
 "coll": "NO_COLLISION"
+},
+"/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB1D1103_1451770891": {
+"label": "Cube_125",
+"coll": "NO_COLLISION"
 }
 }

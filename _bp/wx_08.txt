@@ -1,0 +1,1 @@
+BPVar(VarName="CurRain",VarGuid=9BB98CB3815B5D2CBEC9F48787B40B97,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="CurRain",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

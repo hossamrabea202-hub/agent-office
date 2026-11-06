@@ -1,0 +1,1 @@
+BPVar(VarName="MaxSevers",VarGuid=C107E567D14E55079B99EA3C5758AEC2,VarType=(PinCategory="int"),FriendlyName="MaxSevers",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2")

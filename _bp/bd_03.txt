@@ -1,0 +1,1 @@
+BPVar(VarName="Stagger",VarGuid=0E2698E5D84A53508C791C0227704154,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Stagger",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="9.0")

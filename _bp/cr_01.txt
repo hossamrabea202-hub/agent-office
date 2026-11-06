@@ -1,0 +1,1 @@
+BPVar(VarName="HingeRef",VarGuid=967CABFC4B795842BCDF0C32592B8886,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'"),FriendlyName="HingeRef",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

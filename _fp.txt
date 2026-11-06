@@ -1,0 +1,3 @@
+["Lump", "VeinCm", "Rot", "WetAmt", "Bump", "Pulse", "PulseHz", "Danger"]
+[]
+<MaterialShadingModel.MSM_SUBSURFACE: 2> <BlendMode.BLEND_OPAQUE: 0>

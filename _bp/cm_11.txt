@@ -1,0 +1,1 @@
+BPVar(VarName="MapCap",VarGuid=114E52081A385BA99995C38CBA0FF849,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'"),FriendlyName="MapCap",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

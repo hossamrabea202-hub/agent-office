@@ -1,0 +1,1 @@
+BPVar(VarName="RaysMID",VarGuid=78E9418AEB9756A489CC27E1AB1585DA,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.MaterialInstanceDynamic'"),FriendlyName="RaysMID",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

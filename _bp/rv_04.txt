@@ -1,0 +1,1 @@
+BPVar(VarName="RvBagPend",VarGuid=06A3D806B7E3503AAFB9C80012F7A145,VarType=(PinCategory="bool"),FriendlyName="RvBagPend",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

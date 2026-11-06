@@ -1,0 +1,1 @@
+BPVar(VarName="LastLoc",VarGuid=9A9F15FC9E195118B7BE1E46D8F91111,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="LastLoc",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

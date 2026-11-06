@@ -1,0 +1,1 @@
+BPVar(VarName="MaxMedics",VarGuid=814043F40C8A5CC3B7B7CF1A1814D0C4,VarType=(PinCategory="int"),FriendlyName="MaxMedics",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="4")

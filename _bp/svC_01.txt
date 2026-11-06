@@ -1,0 +1,1 @@
+BPVar(VarName="MinGap",VarGuid=6520FC41F8EF5102BF3F68231FDEC189,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="MinGap",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="150.0")

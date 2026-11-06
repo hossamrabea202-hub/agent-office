@@ -1,0 +1,5 @@
+BP_CastleMainGate template comps fixed: 2
+BP_GateBreachLeaf template comps fixed: 1
+  placed Castle_GateLever_NATIVE.TRASH_BoxComponent_44 pawn=<CollisionResponseType.ECR_IGNORE: 0>
+placed comps fixed: 1
+nav rebuild started, saved

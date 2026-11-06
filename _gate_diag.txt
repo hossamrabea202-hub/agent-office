@@ -1,0 +1,473 @@
+GATE Castle_GateLanding [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -254.000000, y: 1750.000000, z: -34.500000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 78.000000, y: 270.000000, z: 35.500000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_6 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1484.000000, z: 560.444686}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 40.400000, y: 8.000000, z: 139.555314}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_04 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -1100.005092, y: 2085.010161, z: -6.170175}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 84.093322, y: 85.839945, z: 56.061210}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_15 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1628.000000, z: 616.287222}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 40.400000, y: 8.000000, z: 83.712778}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerLeft [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 1310.000000, z: 430.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 180.000000, y: 180.000061, z: 430.000061}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE AshenGate [StaticMeshActor] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48560) {x: -46879.300503, y: -3219.862989, z: -1389.187556}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 371.073667, y: 468.733626, z: 411.249983}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Nav_GateLink_0 [NavLinkProxy] folder=None loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1650.000000, z: 30.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 215.000000, y: 0.000000, z: 10.000000}>
+   EdRenderComp [NavLinkRenderingComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Realm_Gate_Torch_1 [StaticMeshActor] folder=Gameplay/Realm loc=<Struct 'Vector' (0x0000020387F48560) {x: -14607.568434, y: 1975.572168, z: 13201.894914}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 15.648359, y: 9.286154, z: 99.579386}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_8 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1516.000000, z: 579.218463}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 120.781537}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_9 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1532.000000, z: 586.771009}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 40.400000, y: 8.000000, z: 113.228991}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerLeft_Cornice [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F48600) {x: 40.000000, y: 1310.000000, z: 45.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 215.000015, y: 215.000015, z: 45.000034}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Tower9_GateStep_A1_SMTread [StaticMeshActor] folder=Castle/Restored/SM_StairTread loc=<Struct 'Vector' (0x0000020387F48560) {x: 65.000000, y: 742.107756, z: 710.000000}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 99.999975, y: 14.035928, z: 10.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE GatePassage_WallBase_L [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 150.000000, y: 1595.000000, z: -31.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE JellyBubble_Gate_09 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -820.002689, y: 2124.994502, z: 3.659996}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 46.367682, y: 46.439726, z: 31.557475}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Grime_GateEntrance [StaticMeshActor] folder=CastleDefender/FloorDressing loc=<Struct 'Vector' (0x0000020387F48600) {x: 30.000000, y: 1750.000000, z: 22.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 180.000000, y: 180.000000, z: 0.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_33 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1916.000000, z: 605.557126}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 40.400000, y: 8.000000, z: 94.442874}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GatehouseCoping [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 1750.000000, z: 945.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 215.000015, y: 325.000000, z: 32.500053}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GatehouseBridge [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48560) {x: 40.000000, y: 1750.000000, z: 755.000000}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 185.000000, y: 285.000031, z: 165.000046}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_03 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -1255.000000, y: 1440.000000, z: -87.829315}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_08 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -700.005909, y: 1394.994804, z: -14.736855}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 62.378894, y: 62.264341, z: 37.550377}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_38 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1996.000000, z: 572.831228}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 127.168772}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_16 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1644.000000, z: 619.239379}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 40.400000, y: 8.000000, z: 80.760621}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_26 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -100.600000, y: 1804.000000, z: 625.771813}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.400000, y: 8.000000, z: 74.228187}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_37 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1980.000000, z: 581.202884}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 40.400000, y: 8.000000, z: 118.797116}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_11 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1564.000000, z: 599.230460}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 100.769540}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateLever_NATIVE [BP_CastleMainGate_C] folder=CastleArena/Gameplay/Gates loc=<Struct 'Vector' (0x0000020387F48560) {x: 86.500000, y: 1881.000000, z: 270.072807}> ext=<Struct 'Vector' (0x0000020318EDCB00) {x: 291.500000, y: 417.000000, z: 270.072807}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   DoorLeftWood [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   DoorLeftIron [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   DoorRightWood [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   DoorRightIron [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   LeverPedestal [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   LeverHousing [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   LeverArm [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   LeverGrip [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   InteractionPrompt [TextRenderComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   RepairPrompt [TextRenderComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ZombieStop [BoxComponent] coll=<CollisionEnabled.QUERY_ONLY: 1> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   LeafColL [BoxComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   LeafColR [BoxComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Tower9_GateStep_B2_SM [StaticMeshActor] folder=Castle/Restored/SM_StoneModule loc=<Struct 'Vector' (0x0000020387F48600) {x: 65.000000, y: 2785.964076, z: 320.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 92.000053, y: 14.035917, z: 360.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_46 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 2124.000000, z: 530.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 110.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateJamb [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -155.000000, y: 1485.000000, z: 170.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 30.000002, y: 50.000027, z: 170.000015}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_02 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -1015.000000, y: 1300.000000, z: -58.196160}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_ArrowSlit [StaticMeshActor] folder=CastleArena/Details loc=<Struct 'Vector' (0x0000020387F48600) {x: 40.000000, y: 2009.000000, z: 720.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 17.500000, y: 1.500000, z: 75.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateLanding_Cap [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x0000020387F48560) {x: -254.000000, y: 1750.000000, z: 1.600000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 78.000000, y: 270.000000, z: 0.600000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_21 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1724.000000, z: 627.486144}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 72.513856}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Tower9_GateStep_A2_SM [StaticMeshActor] folder=Castle/Restored/SM_StoneModule loc=<Struct 'Vector' (0x00000203226BBE70) {x: 65.000000, y: 714.035924, z: 320.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 92.000053, y: 14.035917, z: 360.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateJamb [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 2015.000000, z: 170.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000002, y: 50.000027, z: 170.000015}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_41 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 2044.000000, z: 537.577116}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 162.422884}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Blend_GateKerbOuter_Corner [StaticMeshActor] folder=CastleDefender/FloorDressing loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.000000, y: 1750.000000, z: 21.600000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.000000, y: 235.000000, z: 0.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_05 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -1029.996582, y: 2175.003383, z: -38.016139}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 39.749202, y: 39.723418, z: 23.164665}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1531.909276, z: 490.537158}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000004, y: 62.451623, z: 59.265135}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_10 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1548.000000, z: 593.396464}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 106.603536}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_09 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -820.000000, y: 2125.000000, z: 13.726164}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_30 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -100.600000, y: 1868.000000, z: 617.069600}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 40.400000, y: 8.000000, z: 82.930400}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerLeft_Cornice [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F48600) {x: 40.000000, y: 1310.000000, z: 795.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 209.999985, y: 210.000000, z: 30.000034}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_1 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1404.000000, z: 530.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 110.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Blend_GateKerb_FloorContact [StaticMeshActor] folder=CastleDefender/FloorDressing loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 316.000000, y: 1750.000000, z: 3.450000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 60.000000, y: 235.000000, z: 0.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x00000203226BBE70) {x: -155.000000, y: 1925.727504, z: 538.355348}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 30.000004, y: 61.225288, z: 62.292640}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1813.418651, z: 597.299582}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000004, y: 48.376105, z: 57.521429}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_00 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -1080.000000, y: 1400.000000, z: -21.017222}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_Torch_0_Light [PointLight] folder=Gameplay/Realm loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -15366.451145, y: 1934.377138, z: -633.961185}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE JellyMine_Gate_07 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -1150.000000, y: 2005.000000, z: -26.446141}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_Torch_0_Fire [Emitter] folder=Gameplay/Realm loc=<Struct 'Vector' (0x0000020387F48600) {x: -15250.451145, y: 1934.377138, z: -658.961185}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 244.000000, y: 128.000000, z: 128.000000}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateSpandrel_31 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1884.000000, z: 613.756273}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 86.243727}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerLeft_ArrowSlit [StaticMeshActor] folder=CastleArena/Details loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 1129.000000, z: 720.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 17.500000, y: 1.500000, z: 75.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_23 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -100.600000, y: 1756.000000, z: 627.972675}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 40.400000, y: 8.000000, z: 72.027325}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE YW_Mud_GateRoad [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x0000020387F48600) {x: 445.000000, y: 1750.000000, z: -48.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Tower9_GateStep_B1_SM [StaticMeshActor] folder=Castle/Restored/SM_StoneModule loc=<Struct 'Vector' (0x0000020387F48560) {x: 65.000000, y: 2757.892244, z: 340.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 92.000053, y: 14.035917, z: 360.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_ArrowSlit [StaticMeshActor] folder=CastleArena/Details loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 2371.000000, z: 380.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 17.500000, y: 1.500000, z: 75.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerLeft_ArrowSlit [StaticMeshActor] folder=CastleArena/Details loc=<Struct 'Vector' (0x00000203226BBE70) {x: 40.000000, y: 1129.000000, z: 380.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 17.500000, y: 1.500000, z: 75.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1486.932148, z: 371.942220}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000004, y: 54.155572, z: 43.253423}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Tower9_GateStep_B2_SMTread [StaticMeshActor] folder=Castle/Restored/SM_StairTread loc=<Struct 'Vector' (0x0000020387F48560) {x: 65.000000, y: 2785.964076, z: 690.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 99.999975, y: 14.035928, z: 10.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_08 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -700.000000, y: 1395.000000, z: -0.266350}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_25 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -100.600000, y: 1788.000000, z: 626.900397}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 40.400000, y: 8.000000, z: 73.099603}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_35 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -100.600000, y: 1948.000000, z: 594.924808}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.400000, y: 8.000000, z: 105.075192}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_Cornice [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F48560) {x: 40.000000, y: 2190.000000, z: 795.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 209.999985, y: 210.000000, z: 30.000034}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_01 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -1165.000000, y: 1325.000000, z: -82.931446}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_04 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -1100.000000, y: 2085.000000, z: 13.194268}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_27 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -100.600000, y: 1820.000000, z: 624.238156}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.400000, y: 8.000000, z: 75.761844}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_4 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1452.000000, z: 533.478985}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 166.521015}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_03 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -1255.005986, y: 1439.997323, z: -99.403637}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 48.805219, y: 47.579139, z: 32.377231}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_12 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -100.600000, y: 1580.000000, z: 604.371223}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 40.400000, y: 8.000000, z: 95.628777}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_0 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -100.600000, y: 1388.000000, z: 530.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.400000, y: 8.000000, z: 110.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_43 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 2076.000000, z: 486.902754}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 213.097246}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_Cornice_Skirt [StaticMeshActor] folder=Fix_WallSkirts loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 2190.000000, z: -71.999966}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 215.000015, y: 215.000015, z: 162.000034}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Blend_GateKerbOuter_Bridge [StaticMeshActor] folder=CastleDefender/FloorDressing loc=<Struct 'Vector' (0x00000203226BBE70) {x: -236.000000, y: 1750.000000, z: 2.700000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 60.000000, y: 235.000000, z: 0.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_22 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -100.600000, y: 1740.000000, z: 627.924087}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.400000, y: 8.000000, z: 72.075913}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_40 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 2028.000000, z: 551.646420}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 148.353580}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateLever_Left [BP_CastleGateLever_C] folder=CastleArena/Gameplay/Gates loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 220.300001, y: 1330.000000, z: 134.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   LeverHandle [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   InteractionPrompt [TextRenderComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   LeverMount [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   PromptWidget [WidgetComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_3 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -100.600000, y: 1436.000000, z: 513.070373}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 40.400000, y: 8.000000, z: 186.929627}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1750.000000, z: 605.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000004, y: 37.500004, z: 50.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_Frame [StaticMeshActor] folder=Gameplay/Realm loc=<Struct 'Vector' (0x0000020387F48560) {x: -14982.763131, y: 2074.464490, z: -611.432684}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 351.515166, y: 129.830857, z: 257.652273}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerLeft_Cornice [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 1310.000000, z: 870.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 225.000000, y: 225.000000, z: 37.500034}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_Tower_1 [StaticMeshActor] folder=Gameplay/Realm loc=<Struct 'Vector' (0x00000203226BBE70) {x: -14386.143355, y: 2395.895847, z: 13663.925406}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 251.386396, y: 286.406592, z: 476.209133}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_06 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -1214.994516, y: 2144.995658, z: -84.404657}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 57.192714, y: 57.554378, z: 35.109561}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_Cornice [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F48560) {x: 40.000000, y: 2190.000000, z: 870.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 225.000000, y: 225.000000, z: 37.500034}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_13 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1596.000000, z: 608.892204}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 91.107796}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_45 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -100.600000, y: 2108.000000, z: 530.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 40.400000, y: 8.000000, z: 110.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_28 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -100.600000, y: 1836.000000, z: 622.287704}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.400000, y: 8.000000, z: 77.712296}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Tower9_GateStep_B1_Cube [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x0000020387F48560) {x: 65.000000, y: 2757.892244, z: 719.450000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 100.000000, y: 14.035900, z: 0.600000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE YW_Path_GateToFountain [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 652.500000, y: 1750.000000, z: -48.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE YW_Blood_GateDrag_B [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x00000203226BBE70) {x: 370.000000, y: 1935.000000, z: -48.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE YW_Mud_GateSpillRight [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x0000020387F48600) {x: 220.000000, y: 2050.000000, z: -48.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Tower9_GateStep_B2_Cube [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x0000020387F48560) {x: 65.000000, y: 2785.964076, z: 699.450000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 100.000000, y: 14.035900, z: 0.600000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_Cornice [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 2190.000000, z: 45.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 215.000015, y: 215.000015, z: 45.000034}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE GatePassage_WallBase_R [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x00000203226BBE70) {x: 150.000000, y: 1905.000000, z: -31.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateTowerLeft_ArrowSlit [StaticMeshActor] folder=CastleArena/Details loc=<Struct 'Vector' (0x0000020387F48600) {x: -141.000000, y: 1310.000000, z: 720.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 1.500000, y: 17.500000, z: 75.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_29 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1852.000000, z: 619.904885}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 80.095115}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_00 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -1080.005764, y: 1399.992302, z: -37.888741}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 76.984744, y: 76.924708, z: 46.882615}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_Torch_1_Fire [Emitter] folder=Gameplay/Realm loc=<Struct 'Vector' (0x00000203226BBE70) {x: -14491.568434, y: 1975.572168, z: -595.571885}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 244.000000, y: 128.000000, z: 128.000000}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateSpandrel_17 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -100.600000, y: 1660.000000, z: 621.733235}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.400000, y: 8.000000, z: 78.266765}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_Torch_0 [StaticMeshActor] folder=Gameplay/Realm loc=<Struct 'Vector' (0x0000020387F48560) {x: -15366.451145, y: 1934.377138, z: -746.540572}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 15.648359, y: 9.286154, z: 99.579386}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_19 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1692.000000, z: 625.426771}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 74.573229}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerLeft_ArrowSlit [StaticMeshActor] folder=CastleArena/Details loc=<Struct 'Vector' (0x00000203226BBE70) {x: 40.000000, y: 1491.000000, z: 720.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 17.500000, y: 1.500000, z: 75.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Nav_GateLink_2 [NavLinkProxy] folder=None loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1850.000000, z: 30.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 215.000000, y: 0.000000, z: 10.000000}>
+   EdRenderComp [NavLinkRenderingComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Grime_GateEntrance_Out [StaticMeshActor] folder=CastleDefender/FloorDressing loc=<Struct 'Vector' (0x0000020387F48560) {x: 520.000000, y: 1755.000000, z: 3.400002}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 185.679712, y: 137.985531, z: 0.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_32 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1900.000000, z: 609.932500}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 90.067500}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x00000203226BBE70) {x: -155.000000, y: 1686.581349, z: 597.299582}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 30.000004, y: 48.376105, z: 57.521429}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE YW_Scrapes_GateThreshold [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x0000020387F48600) {x: 230.000000, y: 1750.000000, z: -48.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateThreshold_Kerb [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x0000020387F48560) {x: 238.000000, y: 1750.000000, z: 12.300000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 18.000000, y: 225.000000, z: 9.700000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_42 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 2060.000000, z: 518.987431}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 181.012569}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateThreshold_KerbOuter [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x00000203226BBE70) {x: -158.000000, y: 1750.000000, z: 12.300000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 18.000000, y: 225.000000, z: 9.700000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_InteractiveGate_Right [Actor] folder=CastleArena/Gameplay/Gates loc=<Struct 'Vector' (0x0000020387F48600) {x: -110.000000, y: 1922.175000, z: 206.072807}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 170.825000, z: 334.072807}>
+   InstancedStaticMesh [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   InstancedStaticMesh1 [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateSpandrel_44 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 2092.000000, z: 530.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 110.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_BP [BP_CastleGateControl_C] folder=Gameplay/Realm loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -15016.292729, y: 1933.757256, z: -148.731273}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 388.029581, y: 420.484531, z: 1335.193058}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   DoorLeftWood [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   DoorLeftIron [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   DoorRightWood [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   DoorRightIron [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   LeverPedestal [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   LeverHousing [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   LeverArm [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   LeverGrip [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   InteractionPrompt [TextRenderComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   RepairPrompt [TextRenderComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ZombieStop [BoxComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Tower9_GateStep_A2_SMTread [StaticMeshActor] folder=Castle/Restored/SM_StairTread loc=<Struct 'Vector' (0x00000203226BBE70) {x: 65.000000, y: 714.035924, z: 690.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 99.999975, y: 14.035928, z: 10.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE GateMudPath [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x0000020387F48600) {x: -170.000000, y: 1750.000000, z: -16.000000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Blend_GateKerb_CornerDust [StaticMeshActor] folder=CastleDefender/FloorDressing loc=<Struct 'Vector' (0x0000020387F48560) {x: 180.000000, y: 1750.000000, z: 21.600000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.000000, y: 235.000000, z: 0.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -155.000000, y: 2013.067852, z: 371.942220}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 30.000004, y: 54.155572, z: 43.253423}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_02 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -1014.996504, y: 1300.000100, z: -65.286459}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 20.845841, y: 19.417538, z: 16.516538}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_5 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -100.600000, y: 1468.000000, z: 548.418094}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.400000, y: 8.000000, z: 151.581906}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE YW_Mud_GateSpillLeft [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x0000020387F48560) {x: 240.000000, y: 1470.000000, z: -48.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateTowerLeft_Cornice_Skirt [StaticMeshActor] folder=Fix_WallSkirts loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 1310.000000, z: -71.999966}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 215.000015, y: 215.000015, z: 162.000034}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE AP_Fire_AshenGate [AmbientSound] folder=Audio loc=<Struct 'Vector' (0x00000203226BBE70) {x: -46845.000000, y: -3235.000000, z: -1623.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1626.848359, z: 574.645847}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000004, y: 56.440763, z: 61.699922}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_18 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1676.000000, z: 623.790155}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 76.209845}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_ArrowSlit [StaticMeshActor] folder=CastleArena/Details loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -141.000000, y: 2190.000000, z: 720.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 1.500000, y: 17.500000, z: 75.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Nav_GateLink_1 [NavLinkProxy] folder=None loc=<Struct 'Vector' (0x00000203226BBE70) {x: -155.000000, y: 1750.000000, z: 30.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 215.000000, y: 0.000000, z: 10.000000}>
+   EdRenderComp [NavLinkRenderingComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1997.779304, z: 433.970295}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000004, y: 60.048498, z: 52.793359}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_14 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1612.000000, z: 612.849624}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 87.150376}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_InteractiveGate_Left [Actor] folder=CastleArena/Gameplay/Gates loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -110.000000, y: 1577.825000, z: 206.072807}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 170.825000, z: 334.072807}>
+   InstancedStaticMesh [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   InstancedStaticMesh1 [InstancedStaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=BlockAllDynamic pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x00000203226BBE70) {x: -155.000000, y: 1968.090724, z: 490.537158}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 30.000004, y: 62.451623, z: 59.265135}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1574.272496, z: 538.355348}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000004, y: 61.225288, z: 62.292640}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE YW_Blood_GateDrag_A [DecalActor] folder=Props/Courtyard/YardDecals loc=<Struct 'Vector' (0x0000020387F48560) {x: 270.000000, y: 1635.000000, z: -48.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateSpandrel_2 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1420.000000, z: 530.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 110.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_34 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -100.600000, y: 1932.000000, z: 600.577420}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 40.400000, y: 8.000000, z: 99.422580}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_01 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -1164.994866, y: 1325.001075, z: -93.040990}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 35.736763, y: 35.008437, z: 24.818121}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateThreshold [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x0000020387F48560) {x: 48.500000, y: 1750.000000, z: 11.900000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 188.500000, y: 247.500037, z: 9.300000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Tower9_GateStep_A2_Cube [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 65.000000, y: 714.035924, z: 699.450000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 100.000000, y: 14.035900, z: 0.600000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Tower9_GateStep_A1_Cube [StaticMeshActor] folder=Castle/Restored/Cube loc=<Struct 'Vector' (0x00000203226BBE70) {x: 65.000000, y: 742.107756, z: 719.450000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 100.000000, y: 14.035900, z: 0.600000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_06 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -1215.000000, y: 2145.000000, z: -72.469844}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_Torch_1_Light [PointLight] folder=Gameplay/Realm loc=<Struct 'Vector' (0x0000020387F48560) {x: -14607.568434, y: 1975.572168, z: -570.571885}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Tower9_GateStep_B1_SMTread [StaticMeshActor] folder=Castle/Restored/SM_StairTread loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 65.000000, y: 2757.892244, z: 710.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 99.999975, y: 14.035928, z: 10.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Tower9_GateStep_A1_SM [StaticMeshActor] folder=Castle/Restored/SM_StoneModule loc=<Struct 'Vector' (0x00000203226BBE70) {x: 65.000000, y: 742.107756, z: 340.000000}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 92.000053, y: 14.035917, z: 360.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1502.220696, z: 433.970295}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 30.000004, y: 60.048498, z: 52.793359}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyMine_Gate_05 [BP_JellyMine_C] folder=CastleDefender/JellyMines_Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -1030.000000, y: 2175.000000, z: -28.914571}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_1 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Body [SphereComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=Custom pawn=<CollisionResponseType.ECR_IGNORE: 0> nav=True
+   Blob [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+   Crust [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_39 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 2012.000000, z: 563.125297}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 136.874703}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateArch [StaticMeshActor] folder=CastleArena/Architecture loc=<Struct 'Vector' (0x00000203226BBE70) {x: -155.000000, y: 1873.151641, z: 574.645847}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 30.000004, y: 56.440763, z: 61.699922}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE JellyBubble_Gate_07 [StaticMeshActor] folder=CastleDefender/JellyBubbles_Gate loc=<Struct 'Vector' (0x0000020387F48600) {x: -1150.001883, y: 2005.002412, z: -32.787208}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 24.045932, y: 24.154256, z: 14.431992}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_24 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1772.000000, z: 627.632255}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 72.367745}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_36 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -100.600000, y: 1964.000000, z: 588.508187}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 40.400000, y: 8.000000, z: 111.491813}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Realm_Gate_Trigger [TargetPoint] folder=Gameplay/Realm loc=<Struct 'Vector' (0x00000203226BBE70) {x: -14975.663017, y: 1928.170003, z: -693.924332}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Arrow [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE Castle_GateTowerLeft_Cornice [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F48600) {x: 40.000000, y: 1310.000000, z: 447.200000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 195.000000, y: 195.000015, z: 22.500031}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_7 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x0000020387F48560) {x: -100.600000, y: 1500.000000, z: 570.543135}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 40.400000, y: 8.000000, z: 129.456865}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_ArrowSlit [StaticMeshActor] folder=CastleArena/Details loc=<Struct 'Vector' (0x0000020387F4AB00) {x: 40.000000, y: 2371.000000, z: 720.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 17.500000, y: 1.500000, z: 75.000000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateSpandrel_20 [StaticMeshActor] folder=Castle/Gate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -100.600000, y: 1708.000000, z: 626.655716}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 40.400000, y: 8.000000, z: 73.344284}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight_Cornice [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F48600) {x: 40.000000, y: 2190.000000, z: 447.200000}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 195.000000, y: 195.000015, z: 22.500031}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE Castle_GateTowerRight [StaticMeshActor] folder=CastleArena/Towers loc=<Struct 'Vector' (0x0000020387F48560) {x: 40.000000, y: 2190.000000, z: 430.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 180.000000, y: 180.000061, z: 430.000061}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE AshenGate_PortalLight_Steps [PointLight] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -46848.080041, y: -3233.327097, z: -1700.937573}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalSmoke_Top [Emitter] folder=AshenGate/PortalSmoke loc=<Struct 'Vector' (0x00000203226BBE70) {x: -46639.386795, y: -3313.919152, z: -1177.220576}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 539.521086, y: 498.664947, z: 506.743529}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalLight_InR [PointLight] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48600) {x: -46936.204052, y: -3298.780583, z: -1600.937573}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Fire_R [Emitter] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48560) {x: -46820.279802, y: -3449.414064, z: -1501.944859}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 244.000000, y: 180.701050, z: 276.335594}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Portal [StaticMeshActor] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -46923.284808, y: -3218.318824, z: -1499.937573}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 98.901868, y: 229.332736, z: 344.250000}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE AshenGate_BrazierLight_R [PointLight] folder=AshenGate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -46936.279802, y: -3447.944902, z: -1555.937573}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalSmoke_L1 [Emitter] folder=AshenGate/PortalSmoke loc=<Struct 'Vector' (0x0000020387F48600) {x: -46709.983254, y: -2909.938754, z: -1550.561571}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 552.193808, y: 599.992914, z: 545.128416}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalLight_F [PointLight] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48560) {x: -46854.416093, y: -3248.019083, z: -1510.937573}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalLight_B [PointLight] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -46992.153458, y: -3188.618593, z: -1510.937573}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Decal_Scratches [DecalActor] folder=AshenGate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -46937.657538, y: -3201.196656, z: -1340.937573}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 190.030024, y: 148.250343, z: 128.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_BrazierLight_L [PointLight] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48600) {x: -46752.534287, y: -3021.877319, z: -1555.937573}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalSmoke_L2 [Emitter] folder=AshenGate/PortalSmoke loc=<Struct 'Vector' (0x0000020387F48560) {x: -46717.749939, y: -2960.844119, z: -1407.229048}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 532.766815, y: 555.515116, z: 512.049768}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Decal_Scratches2 [DecalActor] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -46813.597491, y: -3241.697355, z: -1340.937573}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 190.030023, y: 148.250356, z: 128.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Fire_L [Emitter] folder=AshenGate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -46636.534287, y: -3023.346481, z: -1501.944859}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 244.000000, y: 180.701050, z: 276.335594}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalSmoke_R1 [Emitter] folder=AshenGate/PortalSmoke loc=<Struct 'Vector' (0x0000020387F48600) {x: -46945.863481, y: -3562.226124, z: -1524.390719}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 545.013951, y: 552.073996, z: 584.002988}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalSmoke_R2 [Emitter] folder=AshenGate/PortalSmoke loc=<Struct 'Vector' (0x0000020387F48560) {x: -46939.443576, y: -3534.055705, z: -1380.530049}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 494.429948, y: 583.831286, z: 528.044266}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalSmoke_SillR [Emitter] folder=AshenGate/PortalSmoke loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -46877.313153, y: -3578.614097, z: -1633.950290}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 527.630503, y: 586.683589, z: 566.062176}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Firewood [StaticMeshActor] folder=AshenGate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -46841.031825, y: -3236.869610, z: -1680.044436}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 169.920605, y: 301.341823, z: 92.339667}>
+   StaticMeshComponent0 [StaticMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAll pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=True
+GATE AshenGate_Decal_Moss [DecalActor] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48600) {x: -46893.992496, y: -3213.526934, z: -1306.937573}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Decal_Veins2 [DecalActor] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48560) {x: -46813.597491, y: -3241.697355, z: -1390.937573}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 190.030023, y: 148.250356, z: 128.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalSmoke_Sill [Emitter] folder=AshenGate/PortalSmoke loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -46571.815440, y: -2968.194015, z: -1581.871503}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 615.093006, y: 566.861082, z: 570.069949}>
+   ParticleSystemComponent0 [ParticleSystemComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_PortalLight_InL [PointLight] folder=AshenGate loc=<Struct 'Vector' (0x00000203226BBE70) {x: -46860.963431, y: -3124.313253, z: -1600.937573}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 128.000000, y: 128.000000, z: 128.000000}>
+   BillboardComponent_0 [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Decal_StairWear [DecalActor] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48600) {x: -46792.985095, y: -3257.087293, z: -1766.937573}> ext=<Struct 'Vector' (0x0000020387F4AB00) {x: 128.000000, y: 128.000000, z: 184.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE AshenGate_Decal_Veins [DecalActor] folder=AshenGate loc=<Struct 'Vector' (0x0000020387F48560) {x: -46937.657538, y: -3201.196656, z: -1390.937573}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 190.030024, y: 148.250343, z: 128.000000}>
+   ArrowComponent0 [ArrowComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+   Sprite [BillboardComponent] coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE BP_GateBreachLeaf [BP_GateBreachLeaf_C] folder=None loc=<Struct 'Vector' (0x0000020387F4AB00) {x: -109.099994, y: 1638.841640, z: 280.822796}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 20.099998, y: 109.841695, z: 259.322834}>
+   SkeletalMeshComponent0 [SkeletalMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=PhysicsActor pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+GATE BP_GateBreachLeaf [BP_GateBreachLeaf_C] folder=None loc=<Struct 'Vector' (0x00000203226BBE70) {x: -109.099994, y: 1861.158360, z: 280.822796}> ext=<Struct 'Vector' (0x0000020387F48560) {x: 20.099998, y: 109.841695, z: 259.322834}>
+   SkeletalMeshComponent0 [SkeletalMeshComponent] coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=PhysicsActor pawn=<CollisionResponseType.ECR_BLOCK: 2> nav=False
+--- volumes / nav near gate (15 m)
+   Nav_GateLink_0 [NavLinkProxy] loc=<Struct 'Vector' (0x0000020387F48600) {x: -155.000000, y: 1650.000000, z: 30.000000}> ext=<Struct 'Vector' (0x0000020318EDCB50) {x: 215.000000, y: 0.000000, z: 10.000000}>
+   NavMeshBounds_Arena [NavMeshBoundsVolume] loc=<Struct 'Vector' (0x0000020318EDCB00) {x: -500.000000, y: 1750.000000, z: 600.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 6500.000000, y: 5500.000000, z: 1200.000000}>
+   Nav_GateLink_2 [NavLinkProxy] loc=<Struct 'Vector' (0x0000020318EDCB50) {x: -155.000000, y: 1850.000000, z: 30.000000}> ext=<Struct 'Vector' (0x0000020387F48600) {x: 215.000000, y: 0.000000, z: 10.000000}>
+   Nav_GateLink_1 [NavLinkProxy] loc=<Struct 'Vector' (0x0000020318EDCB00) {x: -155.000000, y: 1750.000000, z: 30.000000}> ext=<Struct 'Vector' (0x00000203226BBE70) {x: 215.000000, y: 0.000000, z: 10.000000}>

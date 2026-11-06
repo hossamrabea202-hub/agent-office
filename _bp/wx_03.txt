@@ -1,0 +1,1 @@
+BPVar(VarName="Wind",VarGuid=6B4A8601EA6C579EA9747659D6A77DF9,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.WindDirectionalSource'"),FriendlyName="Wind",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

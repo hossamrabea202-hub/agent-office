@@ -1,0 +1,1 @@
+BPVar(VarName="BoneBase",VarGuid=886ADA7005AB5B7B9FE0AE5C4EED0438,VarType=(PinCategory="string",ContainerType=Array),FriendlyName="BoneBase",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="(\"ForeArm\",\"Arm\",\"Leg\",\"Neck\")")

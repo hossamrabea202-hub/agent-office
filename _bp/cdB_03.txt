@@ -1,0 +1,1 @@
+BPVar(VarName="ExitDist",VarGuid=73D258AB4BA95F6C98DB2C8EA7E4A022,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ExitDist",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="150.0")

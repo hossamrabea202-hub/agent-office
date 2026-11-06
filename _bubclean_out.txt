@@ -1,0 +1,5 @@
+ERR Traceback (most recent call last):
+  File "<string>", line 16, in <module>
+AttributeError: module 'unreal' has no attribute 'GeometryScriptCopyMeshFromAssetOptions'
+
+copy at /Game/CastleDefender/Realm/SM_RealmBubbleHi_Clean

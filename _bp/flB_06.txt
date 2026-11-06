@@ -1,0 +1,1 @@
+BPVar(VarName="FlareCd",VarGuid=E2681EBE420E54F7BC45C33169C837BC,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FlareCd",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="3500.0")

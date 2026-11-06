@@ -1,0 +1,1 @@
+BPVar(VarName="FirstDelay",VarGuid=07A695A164E755CF8C7E28C4D4A77CBF,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FirstDelay",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="120.0")

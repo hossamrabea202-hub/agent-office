@@ -1,0 +1,5 @@
+BP_ArmoryHUD True
+BP_ZombieHUD True
+BP_SkillTreeHUD True
+BP_QueueHUD True
+BP_BarracksHUD True

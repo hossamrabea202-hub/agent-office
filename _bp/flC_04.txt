@@ -1,0 +1,1 @@
+BPVar(VarName="DN",VarGuid=AEEAC85790F65297838D1D045DB296E6,VarType=(PinCategory="object",PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/CastleDefender/Environment/DayNight/BP_DayNight.BP_DayNight_C'"),FriendlyName="DN",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

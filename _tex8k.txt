@@ -1,0 +1,6 @@
+2K: /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_B
+2K: /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_N
+2K: /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_ORM
+2K: /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wild_Grass_sfknaeoa/Raw/T_sfknaeoa_8K_B
+2K: /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wild_Grass_sfknaeoa/Raw/T_sfknaeoa_8K_N
+DONE capped 5

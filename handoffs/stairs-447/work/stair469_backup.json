@@ -1,0 +1,110 @@
+{
+ "Stair279_08": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N13.SM_StairBaked451_N13",
+  "scale": [
+   1.0000000000000004,
+   0.9357275753775912,
+   1.1111110992216922
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N13_Tread.MI_StairBaked451_N13_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N13_Body.MI_StairBaked451_N13_Body"
+  ]
+ },
+ "Stair279_01": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N20.SM_StairBaked451_N20",
+  "scale": [
+   0.95,
+   1.299999867757175,
+   1.0833333146769009
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Tread.MI_StairBaked451_N20_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Body.MI_StairBaked451_N20_Body"
+  ]
+ },
+ "Stair279_02": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N31.SM_StairBaked451_N31",
+  "scale": [
+   1.15,
+   1.0666665266577244,
+   1.1111111740128259
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N31_Tread.MI_StairBaked451_N31_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N31_Body.MI_StairBaked451_N31_Body"
+  ]
+ },
+ "Stair279_03": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N13.SM_StairBaked451_N13",
+  "scale": [
+   1.0000000000000004,
+   0.9357275753775912,
+   1.1111110992216922
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N13_Tread.MI_StairBaked451_N13_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N13_Body.MI_StairBaked451_N13_Body"
+  ]
+ },
+ "Stair279_09": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N20.SM_StairBaked451_N20",
+  "scale": [
+   0.95,
+   1.299999867757175,
+   1.0833333146769009
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Tread.MI_StairBaked451_N20_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Body.MI_StairBaked451_N20_Body"
+  ]
+ },
+ "Stair279_04": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N20.SM_StairBaked451_N20",
+  "scale": [
+   0.9500000499999999,
+   1.2999998677571747,
+   1.0833333146769009
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Tread.MI_StairBaked451_N20_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Body.MI_StairBaked451_N20_Body"
+  ]
+ },
+ "Stair279_05": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N20.SM_StairBaked451_N20",
+  "scale": [
+   0.9500000000000006,
+   1.299999867757175,
+   1.0833333146769009
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Tread.MI_StairBaked451_N20_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Body.MI_StairBaked451_N20_Body"
+  ]
+ },
+ "Stair279_06": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N31.SM_StairBaked451_N31",
+  "scale": [
+   1.15,
+   1.0666665266577244,
+   1.1111111740128259
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N31_Tread.MI_StairBaked451_N31_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N31_Body.MI_StairBaked451_N31_Body"
+  ]
+ },
+ "Stair279_07": {
+  "mesh": "/Game/CastleDefender/Environment/Castle/StairsBaked451/SM_StairBaked451_N20.SM_StairBaked451_N20",
+  "scale": [
+   0.9500000000000006,
+   1.299999867757175,
+   1.0833333146769009
+  ],
+  "mats": [
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Tread.MI_StairBaked451_N20_Tread",
+   "/Game/CastleDefender/Environment/Castle/StairsBaked451/MI_StairBaked451_N20_Body.MI_StairBaked451_N20_Body"
+  ]
+ }
+}

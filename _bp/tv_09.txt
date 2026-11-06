@@ -1,0 +1,1 @@
+BPVar(VarName="GroundZ",VarGuid=A19514AFC8FD54DDBE5E200F9D7E7C2F,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="GroundZ",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

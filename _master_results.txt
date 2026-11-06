@@ -1,0 +1,43 @@
+172 OK 27s
+233 OK 77s
+240 OK 66s
+242 OK 18s
+243 OK 8s
+244 OK 10s
+245 OK 11s
+246 OK 8s
+247 OK 10s
+248 FAIL )), run_name='__main__')
+  File "C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\ThirdParty\Python3\Win64\lib\runpy.py", line 267, in run_path
+    code, fname = _get_code_from_file(run_name, path_name)
+  File "C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\ThirdParty\Python3\Win64\lib\runpy.py", line 242, in _get_code_from_file
+    code = compile(f.read(), fname, 'exec')
+  File "C:\Users\hossa\Documents\agent-office\_latest\assets\tga\MedicGear\import_medicgear_ue.py", line 73
+    sub.remove_collisions(sm); if n == 'SM_BandageRoll': sub.add_simple_collisions(sm, unreal.ScriptingCollisionShapeType.BOX)   # usable as a pickup
+                               ^
+SyntaxError: invalid syntax
+
+249 OK 8s
+250 OK 11s
+251 FAIL ath
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\ThirdParty\Python3\Win64\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\ThirdParty\Python3\Win64\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\hossa\Documents\agent-office\_latest\assets\tga\SiegeEngines\import_siege_ue.py", line 87, in <module>
+    for s in list(sm.get_editor_property('sockets') or []): sm.remove_socket(s)
+Exception: StaticMesh: Property 'Sockets' for attribute 'sockets' on 'StaticMesh' is protected and cannot be read
+
+252 OK 25s
+253 FAIL n run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\ThirdParty\Python3\Win64\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\ThirdParty\Python3\Win64\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\hossa\Documents\agent-office\_latest\assets\tga\Feast\import_feast_ue.py", line 81, in <module>
+    for s in list(sm.get_editor_property('sockets') or []): sm.remove_socket(s)
+Exception: StaticMesh: Property 'Sockets' for attribute 'sockets' on 'StaticMesh' is protected and cannot be read
+
+SAVED

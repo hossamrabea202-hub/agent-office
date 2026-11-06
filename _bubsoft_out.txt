@@ -1,0 +1,1 @@
+made /Game/CastleDefender/Realm/M_RealmBubble3_Soft + /Game/CastleDefender/Realm/MI_RealmBubble3_Soft, ContactFade 600 cm

@@ -1,0 +1,1 @@
+BPVar(VarName="HealT0",VarGuid=0E6821CADEA35C748B43E1D6F3DAA05D,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="HealT0",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

@@ -1,0 +1,4 @@
+SM_Flower_Daisy_A <Struct 'Vector' (0x0000089F7BD99618) {x: 14.158596, y: 19.981606, z: 59.259708}> LODs 4
+SM_Flower_Poppy_B <Struct 'Vector' (0x0000089F7BD97258) {x: 20.729034, y: 20.570105, z: 63.703156}> LODs 4
+SM_Bush_Hawthorn_A <Struct 'Vector' (0x0000089F7BD9C798) {x: 48.646999, y: 46.083908, z: 76.343887}> LODs 4
+SM_Fern_Bracken_A <Struct 'Vector' (0x0000089F7BD9F0D8) {x: 117.651680, y: 114.653442, z: 72.184837}> LODs 4

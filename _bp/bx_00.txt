@@ -1,0 +1,1 @@
+BPVar(VarName="HideRubble",VarGuid=9502ADEF2B905FDEA4FF82518D9CD490,VarType=(PinCategory="bool"),FriendlyName="HideRubble",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="true")

@@ -1,0 +1,1 @@
+BPVar(VarName="GrowEvery",VarGuid=0D6B3B535F5557E0B29C9B7DA529F4D2,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="GrowEvery",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1.8")

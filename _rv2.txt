@@ -1,0 +1,38 @@
+#269 reveal diagnostic (+ replay)
+hero: BP_ThirdPersonCharacter_C
+BPC_MotionFX on hero: True
+  RvStage     BP_RevealStage_C_0
+  RvCap       Capture
+  RvPivot     Pivot
+  RvBook      RevealBook
+  RvBag       RevealBag
+  RvItemMID   MaterialInstanceDynamic_47
+  RvBackMID   MaterialInstanceDynamic_48
+  RvFrontMID  MaterialInstanceDynamic_49
+  RvKind      0
+  RvT0        0.0
+  RvBookPend  False
+  RvBagPend   False
+  BookOpened  False
+  BagOpened   False
+  RvR         20.0
+  RvFlat      False
+  capture target RT: <Object '/Game/CastleDefender/UI/Reveal/RT_Reveal.RT_Reveal' (0x000005D9F593DE00) Class 'TextureRenderTarget2D'>
+BP_RevealStage class loaded: True | stages in world: 1
+  stage at <Struct 'Vector' (0x00000218059C6240) {x: 0.000000, y: 0.000000, z: 200000.000000}>
+   comp DefaultSceneRoot tags=[]
+   comp Pivot        tags=['RevealPivot']
+   comp RevealBook   tags=['RevealBook']
+   comp RevealBag    tags=['RevealBag']
+   comp Capture      tags=['RevealCapture']
+   comp StaticMeshComponent_0 tags=[]
+   comp DrawFrustumComponent_0 tags=[]
+   comp KeyLight     tags=[]
+   comp RimLight     tags=[]
+   comp FillLight    tags=[]
+MPC_SkillTree.BookAge = -1.0
+MPC_SkillTree.BagAge = -1.0
+MPC_Reveal.Blur = 0.0
+HUD class: BP_NoticeHUD_C
+REPLAY: BookOpened = false, BookAge = 0.1 -> the book reveal should start on the next HUD frame.
+  If it does not: DrawReveal is not being called (the ArmoryHUD hook HookReveal is missing or not linked).

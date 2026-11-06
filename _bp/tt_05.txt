@@ -1,0 +1,1 @@
+BPVar(VarName="CannonsFull",VarGuid=42BF1284DEF1523E9CC5C4CB09D356F5,VarType=(PinCategory="bool"),FriendlyName="CannonsFull",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

@@ -1,0 +1,7 @@
+STEP1 imported WallCrackA, WallCrackB, WallImpact, StairWear
+STEP2 CrackAmount -> 0 on 6 castle MIs (old values in _crackamount_before.json)
+STEP3 walls: 148 candidate wall meshes, 161 cracks, 53 impacts
+STEP3 stairs: 238 stair actors, 426 tread wear decals
+STEP3 base grime decals: 723
+STEP4 lights: 135 local lights, shadows off on 8 small ones (radius < 9 m); draw distance 70 m on 211 small props
+SAVED. Actors now: 6170

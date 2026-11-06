@@ -1,0 +1,3 @@
+anti-tile on /Game/CastleDefender/Shared/Materials/Castle/M_Castle_GateArch_Stone (input link True)
+anti-tile on /Game/CastleDefender/Shared/Materials/Castle/M_Castle_Paving_POM (input link True)
+anti-tile on /Game/CastleDefender/Shared/Materials/Castle/M_Castle_StoneWall_World (input link True)

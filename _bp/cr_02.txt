@@ -1,0 +1,1 @@
+BPVar(VarName="GlowRef",VarGuid=4977E1504CC952BF8281107009C8088B,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.PointLightComponent'"),FriendlyName="GlowRef",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

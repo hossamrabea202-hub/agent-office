@@ -1,0 +1,1 @@
+BPVar(VarName="RvPivot",VarGuid=94127B19814A5279B0CC559247981699,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'"),FriendlyName="RvPivot",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

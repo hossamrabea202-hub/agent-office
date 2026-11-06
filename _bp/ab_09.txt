@@ -1,0 +1,1 @@
+BPVar(VarName="Alpha",VarGuid=126D1C49E7745021AAA79720799772C4,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Alpha",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

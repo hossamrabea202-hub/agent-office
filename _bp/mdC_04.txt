@@ -1,0 +1,1 @@
+BPVar(VarName="MWas",VarGuid=09459909E5F05710A1B99A1930C09296,VarType=(PinCategory="bool"),FriendlyName="MWas",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

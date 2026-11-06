@@ -1,0 +1,7 @@
+253 FAIL s\Epic Games\UE_5.3\Engine\Binaries\ThirdParty\Python3\Win64\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\hossa\Documents\agent-office\_latest\assets\tga\Feast\import_feast_ue_fixed.py", line 80, in <module>
+    sub.remove_collisions(sm); sub.add_simple_collisions(sm, unreal.ScriptingCollisionShapeType.NDOP10 if n.endswith('Torch') else unreal.ScriptingCollisionShapeType.BOX)
+AttributeError: type object 'ScriptingCollisionShapeType' has no attribute 'NDOP10'
+
+SAVED

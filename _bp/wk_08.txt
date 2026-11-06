@@ -1,0 +1,1 @@
+BPVar(VarName="Speed",VarGuid=3949DF7EABF5456D8AA14957FEA6C134,VarType=(PinCategory="real",PinSubCategory="double",ContainerType=Array),PropertyFlags=5,DefaultValue="")

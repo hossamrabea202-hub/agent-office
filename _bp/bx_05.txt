@@ -1,0 +1,1 @@
+BPVar(VarName="FxAt",VarGuid=AB0B7879B2425BF3B5C72803B31DAD3E,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="FxAt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")

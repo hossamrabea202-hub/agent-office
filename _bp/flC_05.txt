@@ -1,0 +1,1 @@
+BPVar(VarName="NextFlare",VarGuid=D2C65DD749845057952247E92D52AA76,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="NextFlare",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

@@ -1,0 +1,1 @@
+BPVar(VarName="Prompt",VarGuid=EF7684DB995856E186162C591DA547D9,VarType=(PinCategory="string"),FriendlyName="Prompt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="[E] Go down into the mine")

@@ -1,0 +1,1 @@
+BPVar(VarName="DepthZ",VarGuid=7DE5B0B985685A69BA1D61E11DD2C102,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="DepthZ",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="-2500.0")

@@ -1,0 +1,1 @@
+BPVar(VarName="FallT0",VarGuid=41F3C2ED14E85DA89A859F4E192EAF68,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FallT0",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

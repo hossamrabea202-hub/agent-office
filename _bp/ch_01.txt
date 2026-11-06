@@ -1,0 +1,1 @@
+BPVar(VarName="Reward",VarGuid=A03379BFDB635D05BF8B51502B27B12A,VarType=(PinCategory="int"),FriendlyName="Reward",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1500")

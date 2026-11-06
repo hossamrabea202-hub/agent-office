@@ -1,0 +1,1 @@
+BPVar(VarName="FromWave",VarGuid=C1A59ACAB3245E24B5C7C71B6AF195C9,VarType=(PinCategory="int"),FriendlyName="FromWave",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="3")

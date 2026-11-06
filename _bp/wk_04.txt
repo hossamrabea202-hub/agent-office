@@ -1,0 +1,1 @@
+BPVar(VarName="WeaponRot",VarGuid=DAE2E40FC075442D95612E9B0660BD8C,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Rotator'"),PropertyFlags=5,DefaultValue="0,0,0")

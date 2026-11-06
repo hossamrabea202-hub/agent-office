@@ -1,0 +1,1 @@
+BPVar(VarName="Prices",VarGuid=48D09866D2C145C78468DE9120F5877D,VarType=(PinCategory="int",ContainerType=Array),PropertyFlags=5,DefaultValue="")

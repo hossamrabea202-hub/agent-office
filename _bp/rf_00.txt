@@ -1,0 +1,1 @@
+BPVar(VarName="Sum",VarGuid=E27ADAD8401B5B6C9913DDE7429E688D,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="Sum",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")

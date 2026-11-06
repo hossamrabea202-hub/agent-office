@@ -1,0 +1,1 @@
+BPVar(VarName="PRain",VarGuid=BB88387D16435F70934BF0415C8AF86B,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="PRain",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.7")

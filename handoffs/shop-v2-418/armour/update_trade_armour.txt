@@ -1,0 +1,15 @@
+#418 shop v2, armour step
+DRY_RUN = True
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Icons.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_UpperArms.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Forearms.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Waist.png
+ok       C:\Users\hossa\Documents\agent-office\assets\tga\VesnaTrade\textures\T_VT_Turn_Thighs.png
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_VesnaTrade
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet
+ok       id 16 UpperArms meshes: ['SM_ObsidianSovereign_UpperArms_L', 'SM_ObsidianSovereign_UpperArms_R']
+ok       id 17 Forearms meshes: ['SM_ObsidianSovereign_Forearms_L', 'SM_ObsidianSovereign_Forearms_R']
+ok       id 18 Waist meshes: ['SM_ObsidianSovereign_Waist']
+ok       id 19 Thighs meshes: ['SM_ObsidianSovereign_Thighs_L', 'SM_ObsidianSovereign_Thighs_R']
+AvailMask 991: {16: True, 17: True, 18: True, 19: True}
+DRY RUN only. If nothing above says MISSING, set DRY_RUN = False and run again.

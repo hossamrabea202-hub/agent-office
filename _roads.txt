@@ -1,0 +1,16 @@
+Env_WornGround_Decal <Struct 'Vector' (0x000002180556D5B0) {x: -850.000000, y: 1750.000000, z: 0.000000}> <Struct 'Rotator' (0x000002180556D7E0) {pitch: -90.000000, yaw: 0.000000, roll: 0.000000}> <Struct 'Vector' (0x000002180556D3D0) {x: 1.000000, y: 1.000000, z: 1.000000}> <Struct 'Vector' (0x000005DA338B2998) {x: 400.000000, y: 3600.000000, z: 5700.000000}> /Game/CastleDefender/Shared/Materials/Castle/M_Castle_WornGround_Decal.M_Castle_WornGround_Decal
+   dep /Game/CastleDefender/AssetPacks/StarterContent/Textures/T_Perlin_Noise_M
+     src C:/Users/jordan.walker/Desktop/T_ChannelPackedNoise.tga 1024 1024
+   dep /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_B
+     src C:/Users/hossa/AppData/Local/Temp/FabLibrary/88799a6d-17b6-4f49-a5a6-2b7d5454045f/rocky_soil_ground_vb2qdgwew_8k_ue_raw_extracted/Textures/T_vb2qdgwew_8K_B.png 2048 2048
+   dep /Game/CastleDefender/Shared/Materials/Imported/textures/forrest_ground_01_nor_dx_4k
+     src C:/Users/hossa/Downloads/School/MAT/forrest_ground_01_4k/forrest_ground_01_4k/textures/forrest_ground_01_nor_dx_4k.jpg 1024 1024
+   dep /Game/CastleDefender/Shared/Materials/Imported/textures/forrest_ground_01_diff_4k
+     src C:/Users/hossa/Downloads/School/MAT/forrest_ground_01_4k/forrest_ground_01_4k/textures/forrest_ground_01_diff_4k.jpg 1024 1024
+   dep /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_N
+     src C:/Users/hossa/AppData/Local/Temp/FabLibrary/88799a6d-17b6-4f49-a5a6-2b7d5454045f/rocky_soil_ground_vb2qdgwew_8k_ue_raw_extracted/Textures/T_vb2qdgwew_8K_N.png 2048 2048
+   dep /Game/CastleDefender/Shared/Materials/Imported/textures/forrest_ground_01_rough_4k
+     src C:/Users/hossa/Downloads/School/MAT/forrest_ground_01_4k/forrest_ground_01_4k/textures/forrest_ground_01_rough_4k.jpg 1024 1024
+YW_Mud_GateRoad <Struct 'Vector' (0x000002180556D5B0) {x: 445.000000, y: 1750.000000, z: 8.000000}> <Struct 'Rotator' (0x000002180556D7E0) {pitch: -90.000000, yaw: -165.963757, roll: 75.963757}> <Struct 'Vector' (0x000002180556D3D0) {x: 1.000000, y: 1.000000, z: 1.000000}> <Struct 'Vector' (0x000005DA3F49B598) {x: 22.000000, y: 505.000000, z: 150.000000}> /Game/CastleDefender/Props/CourtyardProps/YardDecals/Instances/MI_YW_Mud_GateRoad.MI_YW_Mud_GateRoad
+   dep /Game/CastleDefender/Props/CourtyardProps/YardDecals/M_YardWear_Decal
+GateMudPath <Struct 'Vector' (0x000002180556D5B0) {x: -170.000000, y: 1750.000000, z: 40.000000}> <Struct 'Rotator' (0x000002180556D7E0) {pitch: -90.000000, yaw: 0.000000, roll: 0.000000}> <Struct 'Vector' (0x000002180556D3D0) {x: 1.000000, y: 1.000000, z: 1.000000}> <Struct 'Vector' (0x000005DA491CCA98) {x: 200.000000, y: 1020.000000, z: 1210.000000}> /Game/CastleDefender/Props/CourtyardProps/YardDecals/M_GateMudPath.M_GateMudPath

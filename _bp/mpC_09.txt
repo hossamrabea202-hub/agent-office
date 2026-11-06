@@ -1,0 +1,1 @@
+BPVar(VarName="PrintMat",VarGuid=1922C55C3AD95B2391BCB41FBA783758,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.MaterialInterface'"),FriendlyName="PrintMat",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="/Game/CastleDefender/Environment/Mud/MI_MudPrint.MI_MudPrint")

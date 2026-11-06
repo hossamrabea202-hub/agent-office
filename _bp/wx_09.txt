@@ -1,0 +1,1 @@
+BPVar(VarName="CurFog",VarGuid=B0581C39FFC3593C9159218C8070DBEC,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="CurFog",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

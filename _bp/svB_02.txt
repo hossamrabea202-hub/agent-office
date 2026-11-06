@@ -1,0 +1,1 @@
+BPVar(VarName="HealSpot",VarGuid=54674FF9861D584E95E36EE94C0F2FDE,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),FriendlyName="HealSpot",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0,0,0")

@@ -1,0 +1,1 @@
+BPVar(VarName="RvBook",VarGuid=90D593CA2C9E52DF960A172C1406137A,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.PrimitiveComponent'"),FriendlyName="RvBook",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

@@ -1,0 +1,1 @@
+BPVar(VarName="GatherRadius",VarGuid=CAE4744138F657EBAED8D149B5381EB9,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="GatherRadius",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="700.0")

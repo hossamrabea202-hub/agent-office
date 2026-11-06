@@ -1,0 +1,1 @@
+BPVar(VarName="HP",VarGuid=8DA25B34D3CE4ED4A354D3E4D6FB0513,VarType=(PinCategory="real",PinSubCategory="double"),PropertyFlags=5,DefaultValue="400.0")

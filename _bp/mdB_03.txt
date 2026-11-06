@@ -1,0 +1,1 @@
+BPVar(VarName="Worst",VarGuid=9DF7F8FBE200552E96EE509E6CEF31AF,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Worst",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

@@ -1,0 +1,1 @@
+BPVar(VarName="SwayDeg",VarGuid=1BADEEAA89585290A29316E6CAE1FBFA,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="SwayDeg",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="4.0")

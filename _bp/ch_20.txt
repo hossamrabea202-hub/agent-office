@@ -1,0 +1,1 @@
+BPVar(VarName="Glint",VarGuid=F1748A2DE1035A67B7A4FDD5E259F95D,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'"),FriendlyName="Glint",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

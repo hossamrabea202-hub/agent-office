@@ -1,0 +1,1 @@
+BPVar(VarName="Spacing",VarGuid=35FA4ACD18325B47895F8E00157E955E,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Spacing",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="180.0")

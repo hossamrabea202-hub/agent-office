@@ -1,0 +1,1 @@
+BPVar(VarName="LitRadius",VarGuid=1AEEBD16032D5DC5B979951C6D8F2D69,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="LitRadius",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2500.0")

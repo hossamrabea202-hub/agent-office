@@ -1,0 +1,1 @@
+BPVar(VarName="CannonReach",VarGuid=8932F39BFC705C15ABDD91A4927AC5E1,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="CannonReach",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="500.0")

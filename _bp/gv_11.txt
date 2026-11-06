@@ -1,0 +1,1 @@
+BPVar(VarName="DecalMat",VarGuid=8D9DF40FC4E0538FAB0DD16890D6DC5C,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.MaterialInterface'"),FriendlyName="DecalMat",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

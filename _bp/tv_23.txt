@@ -1,0 +1,1 @@
+BPVar(VarName="Landed",VarGuid=49457FA2D272567A96A0817702C3F7B4,VarType=(PinCategory="bool"),FriendlyName="Landed",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

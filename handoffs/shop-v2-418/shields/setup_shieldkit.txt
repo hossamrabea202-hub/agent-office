@@ -1,0 +1,9 @@
+#418 shields setup
+DRY_RUN = False
+ok       /Game/CastleDefender/Weapons/RoundShield/SM_RoundShield  (Round Shield, 180 g, block 12 %, x0.50)
+ok       /Game/CastleDefender/Weapons/HeaterShield/SM_HeaterShield  (Knight's Heater Shield, 250 g, block 15 %, x0.50)
+ok       /Game/CastleDefender/Equipment/Weapons/Shield/SM_Shield  (Gilded Shield, 450 g, block 20 %, x0.45)
+ok       /Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter
+existing: BPC_ShieldKit True, SG_ShieldKit True
+BPC_ShieldKit defaults: ['Round Shield', "Knight's Heater Shield", 'Gilded Shield']
+Next: README shields step 2 (paste BPC_ShieldKit_graph.txt into BPC_ShieldKit, Compile, Save).

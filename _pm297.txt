@@ -1,0 +1,51 @@
+#297 part 3 mine dungeon
+dungeon origin <Struct 'Vector' (0x000001FBB4E002E0) {x: -1106.000000, y: -2401.000000, z: -5122.000000}> (box <Struct 'Vector' (0x000001FBB4E10EC0) {x: -2106.000000, y: -3301.000000, z: -5222.000000}> .. <Struct 'Vector' (0x000001FBB4E10F60) {x: 1594.000000, y: -1501.000000, z: -4422.000000}>)
+  (ignored big/nav actor in box: Env_CorruptedTentacle_Fog1 ext <Struct 'Vector' (0x000001FBB4E16B50) {x: 8672.848185, y: 13391.579939, z: 15082.799978}>)
+  (ignored big/nav actor in box: RecastNavMesh-Default ext <Struct 'Vector' (0x000001FBB4E16B50) {x: 30134.000000, y: 20748.000000, z: 3615.000000}>)
+  (ignored big/nav actor in box: MB_Forest ext <Struct 'Vector' (0x000001FBB4E16B50) {x: 45603.218750, y: 49735.146484, z: 7350.089844}>)
+  (ignored big/nav actor in box: EF_FogRoadComp ext <Struct 'Vector' (0x000001FBB4E16B50) {x: 51000.000000, y: 51000.000000, z: 12000.000000}>)
+  (ignored big/nav actor in box: ShockRider_Fog1_14 ext <Struct 'Vector' (0x000001FBB4E16B50) {x: 1089.000000, y: 5461.000000, z: 3789.842987}>)
+  (ignored big/nav actor in box: ShockRider_01 ext <Struct 'Vector' (0x000001FBB4E16B50) {x: 14338.043456, y: 8985.805324, z: 3234.749954}>)
+Kill Z -20000
+BP_CaveDoor.Door: SM_Mine_Door -> SM_Mine_Door
+BP_CaveDoor.Door: SM_Mine_Door -> SM_Mine_Door
+art (sub-level):
+  Mine297_Chamber_00       <Struct 'Vector' (0x000001FBB4E16330) {x: -1106.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Tunnel_Straight_01 <Struct 'Vector' (0x000001FBB4E10E20) {x: 294.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Tunnel_T_02      <Struct 'Vector' (0x000001FBB4E16330) {x: 694.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Tunnel_DeadEnd_03 <Struct 'Vector' (0x000001FBB4E10F10) {x: 1094.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Tunnel_Straight_04 <Struct 'Vector' (0x000001FBB4E16330) {x: -1506.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Tunnel_Turn_05   <Struct 'Vector' (0x000001FBB4E10E20) {x: -1506.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_TimberSet_06     <Struct 'Vector' (0x000001FBB4E16330) {x: 394.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_TimberSet_07     <Struct 'Vector' (0x000001FBB4E10F10) {x: 594.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_TimberSet_08     <Struct 'Vector' (0x000001FBB4E16330) {x: 794.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_TimberSet_09     <Struct 'Vector' (0x000001FBB4E10E20) {x: 994.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_TimberSet_10     <Struct 'Vector' (0x000001FBB4E16330) {x: -1256.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_TimberSet_11     <Struct 'Vector' (0x000001FBB4E10F10) {x: -1456.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Rail_4m_12       <Struct 'Vector' (0x000001FBB4E16330) {x: -1306.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Rail_4m_13       <Struct 'Vector' (0x000001FBB4E10E20) {x: -906.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Rail_4m_14       <Struct 'Vector' (0x000001FBB4E16330) {x: -506.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Rail_4m_15       <Struct 'Vector' (0x000001FBB4E10F10) {x: -106.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Rail_4m_16       <Struct 'Vector' (0x000001FBB4E16330) {x: 294.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Rail_4m_17       <Struct 'Vector' (0x000001FBB4E10E20) {x: 694.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Cart_18          <Struct 'Vector' (0x000001FBB4E10F10) {x: -256.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_OreVein_19       <Struct 'Vector' (0x000001FBB4E10F10) {x: -456.000000, y: -1926.000000, z: -5122.000000}>
+  Mine297_OreVein_20       <Struct 'Vector' (0x000001FBB4E16330) {x: -746.000000, y: -1931.000000, z: -5102.000000}>
+  Mine297_SpoilHeap_21     <Struct 'Vector' (0x000001FBB4E10E20) {x: -56.000000, y: -2721.000000, z: -5122.000000}>
+  Mine297_DoorFrame_22     <Struct 'Vector' (0x000001FBB4E16330) {x: 1334.000000, y: -2401.000000, z: -5122.000000}>
+  Mine297_Lantern_0        <Struct 'Vector' (0x000001FBB4E10F10) {x: -756.000000, y: -2041.000000, z: -4862.000000}>
+  Mine297_LanternLight_0   <Struct 'Vector' (0x000001FBB4E161F0) {x: -756.000000, y: -2041.000000, z: -4842.000000}>
+  Mine297_Lantern_1        <Struct 'Vector' (0x000001FBB4E16330) {x: -56.000000, y: -2791.000000, z: -4882.000000}>
+  Mine297_LanternLight_1   <Struct 'Vector' (0x000001FBB4E16330) {x: -56.000000, y: -2791.000000, z: -4862.000000}>
+  Mine297_Lantern_2        <Struct 'Vector' (0x000001FBB4E161F0) {x: 394.000000, y: -2276.000000, z: -4932.000000}>
+  Mine297_LanternLight_2   <Struct 'Vector' (0x000001FBB4E161F0) {x: 394.000000, y: -2276.000000, z: -4912.000000}>
+  Mine297_Lantern_3        <Struct 'Vector' (0x000001FBB4E16330) {x: 984.000000, y: -2526.000000, z: -4932.000000}>
+  Mine297_LanternLight_3   <Struct 'Vector' (0x000001FBB4E16330) {x: 984.000000, y: -2526.000000, z: -4912.000000}>
+  Mine297_Lantern_4        <Struct 'Vector' (0x000001FBB4E161F0) {x: -406.000000, y: -2821.000000, z: -4872.000000}>
+  Mine297_LanternLight_4   <Struct 'Vector' (0x000001FBB4E161F0) {x: -406.000000, y: -2821.000000, z: -4852.000000}>
+  Mine297_NavBounds        <Struct 'Vector' (0x000001FBB4E10F10) {x: -256.000000, y: -2401.000000, z: -4822.000000}>
+  tunnel trace +1: open
+  tunnel trace -1: rock at 323 cm
+doors: MineDoor_Up <Struct 'Vector' (0x000001FBB4E16560) {x: 359.091267, y: -2502.441654, z: -95.737013}> yaw 160 | MineDoor_Down <Struct 'Vector' (0x000001FBB4E16D80) {x: 1334.000000, y: -2401.000000, z: -5122.000000}> yaw 180
+  MineDoor_Up              <Struct 'Vector' (0x000001FBB4E16DD0) {x: 359.091267, y: -2502.441654, z: -95.737013}>
+  MineDoor_Down            <Struct 'Vector' (0x000001FBB4E16DD0) {x: 1334.000000, y: -2401.000000, z: -5122.000000}>

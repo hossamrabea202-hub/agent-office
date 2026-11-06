@@ -1,0 +1,1 @@
+BPVar(VarName="Target",VarGuid=C774175568D84C88B93A7FED96E70226,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),PropertyFlags=5,DefaultValue="0,0,0")

@@ -1,0 +1,14 @@
+zombie mesh: /Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie.SK_Zombie
+zombie skeleton: /Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie_Skeleton.SK_Zombie_Skeleton
+zombie anims: 37, anim BPs: []
+IK rigs made
+retargeter made
+Traceback (most recent call last):
+  File "C:\Users\hossa\Documents\agent-office\_latest\_fbrt2.py", line 77, in <module>
+    out = unreal.IKRetargetBatchOperation.duplicate_and_retarget(todo, zmesh, FB, rtg, '', '', 'FB_', '', True)
+TypeError: IKRetargetBatchOperation: Failed to convert parameter 'assets_to_retarget' when calling function 'IKRetargetBatchOperation.DuplicateAndRetarget' on 'Default__IKRetargetBatchOperation'
+  TypeError: NativizeProperty: Cannot nativize 'list' as 'AssetsToRetarget' (ArrayProperty)
+    TypeError: NativizeProperty: Cannot nativize 'AnimSequence' as 'TransientPythonProperty' (StructProperty)
+      TypeError: NativizeStructInstance: Cannot nativize 'AnimSequence' as 'AssetData'
+
+SAVED

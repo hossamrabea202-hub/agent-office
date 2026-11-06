@@ -1,0 +1,1 @@
+BPVar(VarName="CoalsRef",VarGuid=5D39EC75320A536DACEDBA2B40B25188,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.PointLightComponent'"),FriendlyName="Coals",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

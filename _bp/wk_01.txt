@@ -1,0 +1,1 @@
+BPVar(VarName="Equipped",VarGuid=8C9ECE5B03E64AF4899C8B0D67C8F843,VarType=(PinCategory="int"),PropertyFlags=5,DefaultValue="-1")

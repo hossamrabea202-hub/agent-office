@@ -1,0 +1,9 @@
+slots: [('part_01', None), ('part_02', None)]
+materials in folder: ['/Game/CastleDefender/Characters/Enemies/FleshBrute/M_FleshBrute', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Bloody_P01', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Bloody_P02', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Charred_P01', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Charred_P02', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Clean_P01', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Clean_P02', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Drowned_P01', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Drowned_P02', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Rotten_P01', '/Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Rotten_P02']
+slot 0 part_01 -> /Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Rotten_P01.MI_FleshBrute_Rotten_P01
+slot 1 part_02 -> /Game/CastleDefender/Characters/Enemies/FleshBrute/MI_FleshBrute_Rotten_P02.MI_FleshBrute_Rotten_P02
+spawn points: [('BreachSpot_B', "<Struct 'Vector' (0x000001EAAD72ECE0) {x: 1500.000000, y: 7050.000000, z: 0.000000}>"), ('BreachSpot_A', "<Struct 'Vector' (0x000001EAAD736420) {x: 1500.000000, y: -3550.000000, z: 0.000000}>"), ('BreachSpot_C', "<Struct 'Vector' (0x000001EAAD736CE0) {x: 8200.000000, y: 2110.000000, z: 0.000000}>")]
+FleshBrute_0 -> <Struct 'Vector' (0x000001EAAD72ED30) {x: 1500.000000, y: 7050.000000, z: 140.000000}> (BreachSpot_B)
+FleshBrute_1 -> <Struct 'Vector' (0x000001EAAD72ED30) {x: 1500.000000, y: -3550.000000, z: 140.000000}> (BreachSpot_A)
+FleshBrute_2 -> <Struct 'Vector' (0x000001EAAD72ED30) {x: 8200.000000, y: 2110.000000, z: 140.000000}> (BreachSpot_C)
+DONE

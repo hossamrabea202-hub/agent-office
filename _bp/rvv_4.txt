@@ -1,0 +1,1 @@
+BPVar(VarName="BreathAmt",VarGuid=9CFB2CE853A259C5AA27AAB03901947E,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="BreathAmt",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="0.08")

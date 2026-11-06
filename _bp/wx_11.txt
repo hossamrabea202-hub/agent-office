@@ -1,0 +1,1 @@
+BPVar(VarName="Wet",VarGuid=C7B669FAE2E05EFF8C24EF1EB9BB1A74,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Wet",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

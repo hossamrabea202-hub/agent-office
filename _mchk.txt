@@ -1,0 +1,7 @@
+MineDoor_Up lvl=/Game/ThirdPerson/Maps/ThirdPersonMap hidden=False mesh=None ext=<Struct 'Vector' (0x000001FBB4E4AC90) {x: 302.954890, y: 184.853356, z: 128.000000}> mats=[]
+MineDoor_Down lvl=/Game/ThirdPerson/Maps/ThirdPersonMap hidden=False mesh=None ext=<Struct 'Vector' (0x000001FBB4E4A380) {x: 304.000000, y: 128.000000, z: 128.000000}> mats=[]
+Mine297_Chamber_00 lvl=/Game/ThirdPerson/Maps/ThirdPersonMap_MineDungeon hidden=False mesh=SM_Mine_Chamber ext=<Struct 'Vector' (0x000001FBB4E4A290) {x: 7.000042, y: 6.000000, z: 3.500001}> mats=['MI_MineRock']
+Mine297_Tunnel_Straight_01 lvl=/Game/ThirdPerson/Maps/ThirdPersonMap_MineDungeon hidden=False mesh=SM_Mine_Tunnel_Straight ext=<Struct 'Vector' (0x000001FBB4E4A5B0) {x: 2.000027, y: 2.000001, z: 2.100002}> mats=['MI_MineRock']
+Mine297_Tunnel_Straight_04 lvl=/Game/ThirdPerson/Maps/ThirdPersonMap_MineDungeon hidden=False mesh=SM_Mine_Tunnel_Straight ext=<Struct 'Vector' (0x000001FBB4E4AC90) {x: 2.000027, y: 2.000001, z: 2.100002}> mats=['MI_MineRock']
+level /Game/ThirdPerson/Maps/ThirdPersonMap
+level /Game/ThirdPerson/Maps/ThirdPersonMap_MineDungeon

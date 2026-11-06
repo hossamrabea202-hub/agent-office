@@ -1,0 +1,1 @@
+BPVar(VarName="RainAudio",VarGuid=2ED04FB3043857F588F376F9A68291CD,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.AudioComponent'"),FriendlyName="RainAudio",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

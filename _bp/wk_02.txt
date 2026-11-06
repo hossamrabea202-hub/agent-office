@@ -1,0 +1,1 @@
+BPVar(VarName="MsgUntil",VarGuid=2E08426837EC4141BA284C6D7C989CD2,VarType=(PinCategory="real",PinSubCategory="double"),PropertyFlags=5,DefaultValue="0.0")

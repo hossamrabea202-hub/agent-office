@@ -1,0 +1,1 @@
+BPVar(VarName="Label",VarGuid=B35D9B46671A5450A8726B8894B399D2,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.TextRenderComponent'"),FriendlyName="Label",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

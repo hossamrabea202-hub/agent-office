@@ -1,0 +1,65 @@
+#424 Obsidian bundles setup
+DRY_RUN = False
+bundles: Obsidian Helm mask 32 cost 150, Obsidian Torso mask 1091 cost 690, Obsidian Gauntlets mask 132 cost 160, Obsidian Legs mask 792 cost 400
+masks cover all 11 parts once: True
+list rows: [0, 1, 2, 3, 27, 28, 29]
+ok       C:\Users\hossa\Documents\agent-office\handoffs\obsidian-bundles-424\textures\T_VT_Atlas_424.png
+ok       C:\Users\hossa\Documents\agent-office\handoffs\obsidian-bundles-424\textures\T_VT_Frame_424.png
+ok       C:\Users\hossa\Documents\agent-office\handoffs\obsidian-bundles-424\textures\T_VT_Bundles_424.png
+ok       C:\Users\hossa\Documents\agent-office\handoffs\obsidian-bundles-424\BPC_ObsidianSet_v3_graph.txt
+ok       C:\Users\hossa\Documents\agent-office\handoffs\obsidian-bundles-424\BPC_VesnaTrade_bd_graph.txt
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_VesnaTrade
+ok       /Game/CastleDefender/Gameplay/Castle/BPC_ShieldKit
+ok       /Game/CastleDefender/UI/Trade/Vesna/T_VT_Icons
+ok       /Game/CastleDefender/UI/Trade/Vesna/T_VT_Turn_Chest
+ok       /Game/CastleDefender/UI/Trade/Vesna/T_VT_Turn_Gauntlets
+ok       /Game/CastleDefender/UI/Trade/Vesna/T_VT_Turn_Shins
+ok       /Game/CastleDefender/UI/Trade/Vesna/T_VT_Turn_RoundShield
+ok       /Game/CastleDefender/UI/Trade/Vesna/T_VT_Turn_HeaterShield
+ok       BPC_ObsidianSet.ObsOwned
+ok       BPC_ObsidianSet.ObsWorn
+ok       BPC_ObsidianSet.WornEff
+ok       BPC_ObsidianSet.AvailMask
+ok       BPC_ObsidianSet.TierAt
+ok       BPC_ObsidianSet.TierDR
+ok       BPC_ObsidianSet.Tier
+ok       BPC_ObsidianSet.NextPrice
+ok       BPC_ObsidianSet.ShieldLevel
+ok       BPC_VesnaTrade.Set
+ok       BPC_VesnaTrade.Kit
+ok       BPC_VesnaTrade.PieceIds
+ok       BPC_VesnaTrade.PieceDef
+ok       BPC_VesnaTrade.NameUV
+ok       BPC_VesnaTrade.DefUV
+ok       BPC_VesnaTrade.TitleUV
+ok       BPC_VesnaTrade.TagUV
+ok       BPC_VesnaTrade.IconUV
+ok       BPC_VesnaTrade.IconFromAtlas
+ok       BPC_VesnaTrade.TurnTex
+ok       BPC_VesnaTrade.ShieldUV
+ok       BPC_VesnaTrade.AtlasTex
+ok       BPC_VesnaTrade.FrameTex
+ok       BPC_VesnaTrade.IconsTex
+ok       BPC_VesnaTrade.Sel
+ok       BPC_VesnaTrade.Scroll
+backup: /Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet_v2_backup
+backup: /Game/CastleDefender/Gameplay/Castle/BPC_VesnaTrade_v2_backup
+texture /Game/CastleDefender/UI/Trade/Vesna/T_VT_Atlas_424
+texture /Game/CastleDefender/UI/Trade/Vesna/T_VT_Frame_424
+texture /Game/CastleDefender/UI/Trade/Vesna/T_VT_Bundles_424
+  + BPC_ObsidianSet.BundleMask
+  + BPC_ObsidianSet.PartPrice
+  + BPC_ObsidianSet.PartBundle
+  + BPC_ObsidianSet.BundleCost
+  + BPC_ObsidianSet.BundleNames
+  + BPC_ObsidianSet.BundleOwned
+  + BPC_ObsidianSet.BundleWorn
+  + BPC_ObsidianSet.BundleAvail
+  + BPC_ObsidianSet.BundleCount
+BPC_ObsidianSet: BundleMask [32, 1091, 132, 792], PartPrice [450, 120, 80, 80, 100, 150, 80, 80, 100, 120, 40], PartBundle [1, 1, 2, 3, 3, 0, 1, 2, 3, 3, 1], TierAt [1, 2, 3, 4], TierDR [0.03, 0.06, 0.1, 0.15]
+  + BPC_VesnaTrade.BundleTex
+  + BPC_VesnaTrade.IconFromBundle
+BPC_VesnaTrade: 7 rows (4 bundles + 3 shields), atlas/frame/bundle textures set
+Next, right away: paste BPC_ObsidianSet_v3_graph.txt into BPC_ObsidianSet, compile, save; then
+BPC_VesnaTrade_bd_graph.txt into BPC_VesnaTrade, compile, save (README steps 3-4).

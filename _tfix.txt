@@ -1,0 +1,11 @@
+Env_CorruptedTentacle_Fog1 scale <Struct 'Vector' (0x0000021805552920) {x: 3.000000, y: 3.000000, z: 3.000000}>
+Env_CorruptedTentacle_02 scale <Struct 'Vector' (0x0000021805552510) {x: -2.300000, y: 2.300000, z: 2.300000}>
+Env_CorruptedTentacle_03 scale <Struct 'Vector' (0x00000218055525B0) {x: -2.900000, y: 2.900000, z: 2.900000}>
+Env_CorruptedTentacle_5 scale <Struct 'Vector' (0x0000021805552470) {x: -2.250000, y: 2.750000, z: 2.250000}>
+Env_CorruptedTentacle_4 scale <Struct 'Vector' (0x0000021805552060) {x: -3.500000, y: 4.000000, z: 3.500000}>
+Env_CorruptedTentacle_Fog3 scale <Struct 'Vector' (0x0000021805552880) {x: 3.000000, y: 3.000000, z: 3.000000}>
+Env_CorruptedTentacle_Fog2 scale <Struct 'Vector' (0x00000218055523D0) {x: 3.000000, y: 3.000000, z: 3.000000}>
+Env_CorruptedTentacle_04 scale <Struct 'Vector' (0x00000218055522E0) {x: 2.500000, y: 2.500000, z: 2.500000}>
+Env_CorruptedTentacle_01 scale <Struct 'Vector' (0x000002180556D880) {x: -2.700000, y: 2.700000, z: 2.700000}>
+Env_CorruptedTentacle_05 scale <Struct 'Vector' (0x000002180556DAB0) {x: 2.400000, y: 2.400000, z: 2.400000}>
+set 10 LenBase 650.0 LenTip 170.0 saved True

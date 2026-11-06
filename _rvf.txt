@@ -1,0 +1,4 @@
+tick 2 RvKind 1 RvT0 51.31507796421647 BookOpened True Blur 0.0
+tick 10 RvKind 1 RvT0 51.31507796421647 BookOpened True Blur 0.0
+tick 40 RvKind 1 RvT0 51.31507796421647 BookOpened True Blur 0.0
+tick 120 RvKind 0 RvT0 51.31507796421647 BookOpened True Blur 0.0

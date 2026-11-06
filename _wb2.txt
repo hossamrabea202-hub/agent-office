@@ -1,0 +1,3 @@
+[collapse] SK_WallBreach True, A_WallBreach_Collapse True
+[collapse] BreachFX.CollapseClass set
+[collapse] done

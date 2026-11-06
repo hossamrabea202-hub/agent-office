@@ -1,0 +1,5 @@
+asset mats now: ['MI_FleshBrute_Rotten_P01', 'MI_FleshBrute_Rotten_P02']
+FleshBrute_0: ['MI_FleshBrute_Rotten_P01', 'MI_FleshBrute_Rotten_P02']
+FleshBrute_1: ['MI_FleshBrute_Rotten_P01', 'MI_FleshBrute_Rotten_P02']
+FleshBrute_2: ['MI_FleshBrute_Rotten_P01', 'MI_FleshBrute_Rotten_P02']
+DONE

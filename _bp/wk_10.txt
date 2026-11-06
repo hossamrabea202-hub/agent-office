@@ -1,0 +1,1 @@
+BPVar(VarName="Knight",VarGuid=F3717173327F40E7B7DB543655952434,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SkeletalMeshComponent'"),PropertyFlags=5,DefaultValue="")

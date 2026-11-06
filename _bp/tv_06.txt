@@ -1,0 +1,1 @@
+BPVar(VarName="LeanPerLayer",VarGuid=EEABDB80965B56C0A5F84C3FF0CE0376,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="LeanPerLayer",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="25.0")

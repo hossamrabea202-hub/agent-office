@@ -1,0 +1,1 @@
+BPVar(VarName="Names",VarGuid=29558852FB5546599086B15332D16F39,VarType=(PinCategory="string",ContainerType=Array),PropertyFlags=5,DefaultValue="")

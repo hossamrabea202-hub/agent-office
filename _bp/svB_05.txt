@@ -1,0 +1,1 @@
+BPVar(VarName="FullUntil",VarGuid=35930094B6A85682B591CA25CD8758BF,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FullUntil",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

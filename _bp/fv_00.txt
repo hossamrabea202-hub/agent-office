@@ -1,0 +1,1 @@
+BPVar(VarName="Fog",VarGuid=979ADC2883BF5B3CBD5996ED8A491F50,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.ExponentialHeightFogComponent'"),FriendlyName="Fog",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

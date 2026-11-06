@@ -1,0 +1,1 @@
+BPVar(VarName="Spear",VarGuid=F2A241FCFB8E5F7F9302F996791E981E,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'"),FriendlyName="Spear",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

@@ -1,0 +1,855 @@
+{
+ "report": {
+  "FB_ZA_Attack_A": {
+   "cat": "attack",
+   "frames": 101,
+   "depop_frames": [],
+   "strike": 16,
+   "plants": [
+    52
+   ],
+   "jaw_sign": -1,
+   "jaw_min": 2.2,
+   "jaw_max": 63.0,
+   "flesh_max_cm": 6.0,
+   "flesh_p90_cm": {
+    "belly_C": 5.94,
+    "breast_L": 4.49,
+    "butt_L": 3.4
+   },
+   "flesh_maxframe": {
+    "belly_C": 24
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.7,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Attack_B": {
+   "cat": "attack",
+   "frames": 91,
+   "depop_frames": [],
+   "strike": 25,
+   "plants": [
+    0
+   ],
+   "jaw_sign": -1,
+   "jaw_min": 2.2,
+   "jaw_max": 62.4,
+   "flesh_max_cm": 5.95,
+   "flesh_p90_cm": {
+    "belly_C": 5.38,
+    "breast_L": 4.36,
+    "butt_L": 2.26
+   },
+   "flesh_maxframe": {
+    "belly_C": 28
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.7,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Attack_C": {
+   "cat": "attack",
+   "frames": 118,
+   "depop_frames": [],
+   "strike": 19,
+   "plants": [
+    38,
+    59,
+    77,
+    105
+   ],
+   "jaw_sign": -1,
+   "jaw_min": 2.2,
+   "jaw_max": 61.5,
+   "flesh_max_cm": 6.0,
+   "flesh_p90_cm": {
+    "belly_C": 5.99,
+    "breast_L": 4.5,
+    "butt_L": 3.35
+   },
+   "flesh_maxframe": {
+    "belly_C": 63
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.9,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Belly_Crawling_A": {
+   "cat": "crawl",
+   "frames": 91,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [
+    4,
+    20,
+    34,
+    50,
+    64,
+    80
+   ],
+   "jaw_sign": -1,
+   "jaw_min": 5.0,
+   "jaw_max": 16.3,
+   "flesh_max_cm": 3.96,
+   "flesh_p90_cm": {
+    "belly_C": 3.46,
+    "breast_L": 3.45,
+    "butt_L": 1.13
+   },
+   "flesh_maxframe": {
+    "belly_C": 81
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Belly_Crawling_B": {
+   "cat": "crawl",
+   "frames": 181,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [
+    44,
+    134
+   ],
+   "jaw_sign": -1,
+   "jaw_min": 5.0,
+   "jaw_max": 16.6,
+   "flesh_max_cm": 4.8,
+   "flesh_p90_cm": {
+    "belly_C": 4.05,
+    "breast_L": 3.62,
+    "butt_L": 2.06
+   },
+   "flesh_maxframe": {
+    "belly_C": 149
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.9,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Burst_A": {
+   "cat": "burst",
+   "frames": 31,
+   "depop_frames": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.2,
+   "jaw_max": 67.5,
+   "flesh_max_cm": 5.97,
+   "flesh_p90_cm": {
+    "belly_C": 5.91,
+    "breast_L": 4.5,
+    "butt_L": 3.36
+   },
+   "flesh_maxframe": {
+    "belly_C": 12
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.2,
+   "readback_jaw_err": 1.83228
+  },
+  "FB_ZA_Burst_B": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.1,
+   "jaw_max": 67.9,
+   "flesh_max_cm": 5.98,
+   "flesh_p90_cm": {
+    "belly_C": 4.93,
+    "breast_L": 4.22,
+    "butt_L": 2.09
+   },
+   "flesh_maxframe": {
+    "belly_C": 7
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": 1.83724
+  },
+  "FB_ZA_Burst_C": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [
+    8,
+    9,
+    10
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.2,
+   "jaw_max": 68.0,
+   "flesh_max_cm": 5.98,
+   "flesh_p90_cm": {
+    "belly_C": 5.63,
+    "breast_L": 4.46,
+    "butt_L": 3.05
+   },
+   "flesh_maxframe": {
+    "belly_C": 4
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": 1.83769
+  },
+  "FB_ZA_Burst_D": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [
+    1,
+    2
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.3,
+   "jaw_max": 67.7,
+   "flesh_max_cm": 5.9,
+   "flesh_p90_cm": {
+    "belly_C": 5.02,
+    "breast_L": 4.14,
+    "butt_L": 2.03
+   },
+   "flesh_maxframe": {
+    "belly_C": 15
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": 1.81963
+  },
+  "FB_ZA_Burst_E": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.3,
+   "jaw_max": 67.7,
+   "flesh_max_cm": 6.0,
+   "flesh_p90_cm": {
+    "belly_C": 5.94,
+    "breast_L": 4.47,
+    "butt_L": 3.03
+   },
+   "flesh_maxframe": {
+    "belly_C": 5
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": 1.83838
+  },
+  "FB_ZA_Burst_F": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.3,
+   "jaw_max": 67.7,
+   "flesh_max_cm": 6.0,
+   "flesh_p90_cm": {
+    "belly_C": 5.94,
+    "breast_L": 4.47,
+    "butt_L": 3.03
+   },
+   "flesh_maxframe": {
+    "belly_C": 5
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": 1.81935
+  },
+  "FB_ZA_Burst_G": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.2,
+   "jaw_max": 67.9,
+   "flesh_max_cm": 5.98,
+   "flesh_p90_cm": {
+    "belly_C": 4.59,
+    "breast_L": 3.92,
+    "butt_L": 2.38
+   },
+   "flesh_maxframe": {
+    "belly_C": 5
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": 1.83045
+  },
+  "FB_ZA_Burst_H": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.2,
+   "jaw_max": 68.0,
+   "flesh_max_cm": 6.0,
+   "flesh_p90_cm": {
+    "belly_C": 4.84,
+    "breast_L": 4.07,
+    "butt_L": 3.02
+   },
+   "flesh_maxframe": {
+    "belly_C": 4
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.4,
+   "readback_jaw_err": 1.81743
+  },
+  "FB_ZA_Burst_I": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.2,
+   "jaw_max": 67.9,
+   "flesh_max_cm": 6.0,
+   "flesh_p90_cm": {
+    "belly_C": 5.87,
+    "breast_L": 4.46,
+    "butt_L": 2.47
+   },
+   "flesh_maxframe": {
+    "belly_C": 5
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": 1.83606
+  },
+  "FB_ZA_Burst_K": {
+   "cat": "burst",
+   "frames": 91,
+   "depop_frames": [
+    1,
+    2,
+    12,
+    13
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 2.1,
+   "jaw_max": 68.0,
+   "flesh_max_cm": 5.96,
+   "flesh_p90_cm": {
+    "belly_C": 5.15,
+    "breast_L": 4.19,
+    "butt_L": 2.79
+   },
+   "flesh_maxframe": {
+    "belly_C": 17
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.5,
+   "readback_jaw_err": 1.82528
+  },
+  "FB_ZA_Idle_B": {
+   "cat": "idle",
+   "frames": 61,
+   "depop_frames": [
+    16,
+    17,
+    18,
+    19,
+    36,
+    37,
+    38,
+    39
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 5.0,
+   "jaw_max": 14.2,
+   "flesh_max_cm": 5.99,
+   "flesh_p90_cm": {
+    "belly_C": 5.86,
+    "breast_L": 4.49,
+    "butt_L": 2.8
+   },
+   "flesh_maxframe": {
+    "belly_C": 20
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.3,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Impaled_A": {
+   "cat": "laying",
+   "frames": 181,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 6.0,
+   "jaw_max": 12.0,
+   "flesh_max_cm": 2.89,
+   "flesh_p90_cm": {
+    "belly_C": 0.44,
+    "breast_L": 0.63,
+    "butt_L": 0.19
+   },
+   "flesh_maxframe": {
+    "belly_C": 65
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.9,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Impaled_B": {
+   "cat": "laying",
+   "frames": 181,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 6.0,
+   "jaw_max": 12.0,
+   "flesh_max_cm": 2.06,
+   "flesh_p90_cm": {
+    "belly_C": 1.3,
+    "breast_L": 0.94,
+    "butt_L": 0.48
+   },
+   "flesh_maxframe": {
+    "belly_C": 113
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.9,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Laying_Idle_A": {
+   "cat": "laying",
+   "frames": 181,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 6.0,
+   "jaw_max": 12.0,
+   "flesh_max_cm": 4.39,
+   "flesh_p90_cm": {
+    "belly_C": 1.3,
+    "breast_L": 1.15,
+    "butt_L": 0.52
+   },
+   "flesh_maxframe": {
+    "belly_C": 3
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.9,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Laying_Idle_B": {
+   "cat": "laying",
+   "frames": 181,
+   "depop_frames": [
+    130,
+    131
+   ],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 6.0,
+   "jaw_max": 12.0,
+   "flesh_max_cm": 4.27,
+   "flesh_p90_cm": {
+    "belly_C": 1.56,
+    "breast_L": 1.13,
+    "butt_L": 0.54
+   },
+   "flesh_maxframe": {
+    "belly_C": 3
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.9,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Run_A": {
+   "cat": "loco",
+   "frames": 81,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [
+    12,
+    19,
+    32,
+    40,
+    52,
+    59,
+    72
+   ],
+   "jaw_sign": -1,
+   "jaw_min": 4.9,
+   "jaw_max": 16.4,
+   "flesh_max_cm": 4.06,
+   "flesh_p90_cm": {
+    "belly_C": 2.71,
+    "breast_L": 3.45,
+    "butt_L": 1.17
+   },
+   "flesh_maxframe": {
+    "belly_C": 44
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.4,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Walk_A": {
+   "cat": "loco",
+   "frames": 120,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 5.0,
+   "jaw_max": 14.4,
+   "flesh_max_cm": 1.45,
+   "flesh_p90_cm": {
+    "belly_C": 0.73,
+    "breast_L": 1.04,
+    "butt_L": 0.24
+   },
+   "flesh_maxframe": {
+    "belly_C": 34
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.6,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Walk_B": {
+   "cat": "loco",
+   "frames": 120,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [],
+   "jaw_sign": -1,
+   "jaw_min": 5.0,
+   "jaw_max": 14.3,
+   "flesh_max_cm": 1.49,
+   "flesh_p90_cm": {
+    "belly_C": 0.64,
+    "breast_L": 1.12,
+    "butt_L": 0.19
+   },
+   "flesh_maxframe": {
+    "belly_C": 96
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.6,
+   "readback_jaw_err": -1
+  },
+  "FB_ZA_Walk_C": {
+   "cat": "loco",
+   "frames": 120,
+   "depop_frames": [],
+   "strike": -1,
+   "plants": [
+    62,
+    89
+   ],
+   "jaw_sign": -1,
+   "jaw_min": 5.0,
+   "jaw_max": 16.6,
+   "flesh_max_cm": 1.69,
+   "flesh_p90_cm": {
+    "belly_C": 0.67,
+    "breast_L": 1.35,
+    "butt_L": 0.18
+   },
+   "flesh_maxframe": {
+    "belly_C": 38
+   },
+   "fk_err_cm": 0.0,
+   "secs": 0.6,
+   "readback_jaw_err": -1
+  }
+ },
+ "log": [
+  "mode APPLY clips 37 strength 1.0",
+  "skip FB_A_Attack (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_A_Death (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_A_Hit (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_A_Run (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_A_Walk (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "FB_ZA_Attack_A {\"cat\": \"attack\", \"frames\": 101, \"depop_frames\": [], \"strike\": 16, \"plants\": [52], \"jaw_sign\": -1, \"jaw_min\": 2.2, \"jaw_max\": 63.0, \"flesh_max_cm\": 6.0, \"flesh_p90_cm\": {\"belly_C\": 5.94, \"breast_L\": 4.49, \"butt_L\": 3.4}, \"flesh_maxframe\": {\"belly_C\": 24}, \"fk_err_cm\": 0.0, \"secs\": 0.7, \"readback_jaw_err\": -1}",
+  "FB_ZA_Attack_B {\"cat\": \"attack\", \"frames\": 91, \"depop_frames\": [], \"strike\": 25, \"plants\": [0], \"jaw_sign\": -1, \"jaw_min\": 2.2, \"jaw_max\": 62.4, \"flesh_max_cm\": 5.95, \"flesh_p90_cm\": {\"belly_C\": 5.38, \"breast_L\": 4.36, \"butt_L\": 2.26}, \"flesh_maxframe\": {\"belly_C\": 28}, \"fk_err_cm\": 0.0, \"secs\": 0.7, \"readback_jaw_err\": -1}",
+  "FB_ZA_Attack_C {\"cat\": \"attack\", \"frames\": 118, \"depop_frames\": [], \"strike\": 19, \"plants\": [38, 59, 77, 105], \"jaw_sign\": -1, \"jaw_min\": 2.2, \"jaw_max\": 61.5, \"flesh_max_cm\": 6.0, \"flesh_p90_cm\": {\"belly_C\": 5.99, \"breast_L\": 4.5, \"butt_L\": 3.35}, \"flesh_maxframe\": {\"belly_C\": 63}, \"fk_err_cm\": 0.0, \"secs\": 0.9, \"readback_jaw_err\": -1}",
+  "skip FB_ZA_Attack_D (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "FB_ZA_Belly_Crawling_A {\"cat\": \"crawl\", \"frames\": 91, \"depop_frames\": [], \"strike\": -1, \"plants\": [4, 20, 34, 50, 64, 80], \"jaw_sign\": -1, \"jaw_min\": 5.0, \"jaw_max\": 16.3, \"flesh_max_cm\": 3.96, \"flesh_p90_cm\": {\"belly_C\": 3.46, \"breast_L\": 3.45, \"butt_L\": 1.13}, \"flesh_maxframe\": {\"belly_C\": 81}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": -1}",
+  "FB_ZA_Belly_Crawling_B {\"cat\": \"crawl\", \"frames\": 181, \"depop_frames\": [], \"strike\": -1, \"plants\": [44, 134], \"jaw_sign\": -1, \"jaw_min\": 5.0, \"jaw_max\": 16.6, \"flesh_max_cm\": 4.8, \"flesh_p90_cm\": {\"belly_C\": 4.05, \"breast_L\": 3.62, \"butt_L\": 2.06}, \"flesh_maxframe\": {\"belly_C\": 149}, \"fk_err_cm\": 0.0, \"secs\": 0.9, \"readback_jaw_err\": -1}",
+  "FB_ZA_Burst_A {\"cat\": \"burst\", \"frames\": 31, \"depop_frames\": [7, 8, 9, 10, 11, 12, 13], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.2, \"jaw_max\": 67.5, \"flesh_max_cm\": 5.97, \"flesh_p90_cm\": {\"belly_C\": 5.91, \"breast_L\": 4.5, \"butt_L\": 3.36}, \"flesh_maxframe\": {\"belly_C\": 12}, \"fk_err_cm\": 0.0, \"secs\": 0.2, \"readback_jaw_err\": 1.83228}",
+  "FB_ZA_Burst_B {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [6, 7, 8, 9, 10, 11, 12, 13, 14], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.1, \"jaw_max\": 67.9, \"flesh_max_cm\": 5.98, \"flesh_p90_cm\": {\"belly_C\": 4.93, \"breast_L\": 4.22, \"butt_L\": 2.09}, \"flesh_maxframe\": {\"belly_C\": 7}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": 1.83724}",
+  "FB_ZA_Burst_C {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [8, 9, 10], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.2, \"jaw_max\": 68.0, \"flesh_max_cm\": 5.98, \"flesh_p90_cm\": {\"belly_C\": 5.63, \"breast_L\": 4.46, \"butt_L\": 3.05}, \"flesh_maxframe\": {\"belly_C\": 4}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": 1.83769}",
+  "FB_ZA_Burst_D {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [1, 2], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.3, \"jaw_max\": 67.7, \"flesh_max_cm\": 5.9, \"flesh_p90_cm\": {\"belly_C\": 5.02, \"breast_L\": 4.14, \"butt_L\": 2.03}, \"flesh_maxframe\": {\"belly_C\": 15}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": 1.81963}",
+  "FB_ZA_Burst_E {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [1, 2, 3, 4, 5, 6, 7], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.3, \"jaw_max\": 67.7, \"flesh_max_cm\": 6.0, \"flesh_p90_cm\": {\"belly_C\": 5.94, \"breast_L\": 4.47, \"butt_L\": 3.03}, \"flesh_maxframe\": {\"belly_C\": 5}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": 1.83838}",
+  "FB_ZA_Burst_F {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [1, 2, 3, 4, 5, 6, 7], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.3, \"jaw_max\": 67.7, \"flesh_max_cm\": 6.0, \"flesh_p90_cm\": {\"belly_C\": 5.94, \"breast_L\": 4.47, \"butt_L\": 3.03}, \"flesh_maxframe\": {\"belly_C\": 5}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": 1.81935}",
+  "FB_ZA_Burst_G {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [1, 2, 3, 4, 5, 6, 7], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.2, \"jaw_max\": 67.9, \"flesh_max_cm\": 5.98, \"flesh_p90_cm\": {\"belly_C\": 4.59, \"breast_L\": 3.92, \"butt_L\": 2.38}, \"flesh_maxframe\": {\"belly_C\": 5}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": 1.83045}",
+  "FB_ZA_Burst_H {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.2, \"jaw_max\": 68.0, \"flesh_max_cm\": 6.0, \"flesh_p90_cm\": {\"belly_C\": 4.84, \"breast_L\": 4.07, \"butt_L\": 3.02}, \"flesh_maxframe\": {\"belly_C\": 4}, \"fk_err_cm\": 0.0, \"secs\": 0.4, \"readback_jaw_err\": 1.81743}",
+  "FB_ZA_Burst_I {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [1, 2, 3, 4, 5, 6], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.2, \"jaw_max\": 67.9, \"flesh_max_cm\": 6.0, \"flesh_p90_cm\": {\"belly_C\": 5.87, \"breast_L\": 4.46, \"butt_L\": 2.47}, \"flesh_maxframe\": {\"belly_C\": 5}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": 1.83606}",
+  "FB_ZA_Burst_K {\"cat\": \"burst\", \"frames\": 91, \"depop_frames\": [1, 2, 12, 13], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 2.1, \"jaw_max\": 68.0, \"flesh_max_cm\": 5.96, \"flesh_p90_cm\": {\"belly_C\": 5.15, \"breast_L\": 4.19, \"butt_L\": 2.79}, \"flesh_maxframe\": {\"belly_C\": 17}, \"fk_err_cm\": 0.0, \"secs\": 0.5, \"readback_jaw_err\": 1.82528}",
+  "skip FB_ZA_Idle_A (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "FB_ZA_Idle_B {\"cat\": \"idle\", \"frames\": 61, \"depop_frames\": [16, 17, 18, 19, 36, 37, 38, 39], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 5.0, \"jaw_max\": 14.2, \"flesh_max_cm\": 5.99, \"flesh_p90_cm\": {\"belly_C\": 5.86, \"breast_L\": 4.49, \"butt_L\": 2.8}, \"flesh_maxframe\": {\"belly_C\": 20}, \"fk_err_cm\": 0.0, \"secs\": 0.3, \"readback_jaw_err\": -1}",
+  "FB_ZA_Impaled_A {\"cat\": \"laying\", \"frames\": 181, \"depop_frames\": [], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 6.0, \"jaw_max\": 12.0, \"flesh_max_cm\": 2.89, \"flesh_p90_cm\": {\"belly_C\": 0.44, \"breast_L\": 0.63, \"butt_L\": 0.19}, \"flesh_maxframe\": {\"belly_C\": 65}, \"fk_err_cm\": 0.0, \"secs\": 0.9, \"readback_jaw_err\": -1}",
+  "FB_ZA_Impaled_B {\"cat\": \"laying\", \"frames\": 181, \"depop_frames\": [], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 6.0, \"jaw_max\": 12.0, \"flesh_max_cm\": 2.06, \"flesh_p90_cm\": {\"belly_C\": 1.3, \"breast_L\": 0.94, \"butt_L\": 0.48}, \"flesh_maxframe\": {\"belly_C\": 113}, \"fk_err_cm\": 0.0, \"secs\": 0.9, \"readback_jaw_err\": -1}",
+  "FB_ZA_Laying_Idle_A {\"cat\": \"laying\", \"frames\": 181, \"depop_frames\": [], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 6.0, \"jaw_max\": 12.0, \"flesh_max_cm\": 4.39, \"flesh_p90_cm\": {\"belly_C\": 1.3, \"breast_L\": 1.15, \"butt_L\": 0.52}, \"flesh_maxframe\": {\"belly_C\": 3}, \"fk_err_cm\": 0.0, \"secs\": 0.9, \"readback_jaw_err\": -1}",
+  "FB_ZA_Laying_Idle_B {\"cat\": \"laying\", \"frames\": 181, \"depop_frames\": [130, 131], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 6.0, \"jaw_max\": 12.0, \"flesh_max_cm\": 4.27, \"flesh_p90_cm\": {\"belly_C\": 1.56, \"breast_L\": 1.13, \"butt_L\": 0.54}, \"flesh_maxframe\": {\"belly_C\": 3}, \"fk_err_cm\": 0.0, \"secs\": 0.9, \"readback_jaw_err\": -1}",
+  "FB_ZA_Run_A {\"cat\": \"loco\", \"frames\": 81, \"depop_frames\": [], \"strike\": -1, \"plants\": [12, 19, 32, 40, 52, 59, 72], \"jaw_sign\": -1, \"jaw_min\": 4.9, \"jaw_max\": 16.4, \"flesh_max_cm\": 4.06, \"flesh_p90_cm\": {\"belly_C\": 2.71, \"breast_L\": 3.45, \"butt_L\": 1.17}, \"flesh_maxframe\": {\"belly_C\": 44}, \"fk_err_cm\": 0.0, \"secs\": 0.4, \"readback_jaw_err\": -1}",
+  "skip FB_ZA_Taking_Damage_A (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_ZA_Taking_Damage_B (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_ZA_Taking_Damage_C (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_ZA_Taking_Damage_D (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_ZA_Taking_Damage_E (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "skip FB_ZA_Taking_Damage_F (holds a stage-2 creature clip; its layer is already in it - use --force to override)",
+  "FB_ZA_Walk_A {\"cat\": \"loco\", \"frames\": 120, \"depop_frames\": [], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 5.0, \"jaw_max\": 14.4, \"flesh_max_cm\": 1.45, \"flesh_p90_cm\": {\"belly_C\": 0.73, \"breast_L\": 1.04, \"butt_L\": 0.24}, \"flesh_maxframe\": {\"belly_C\": 34}, \"fk_err_cm\": 0.0, \"secs\": 0.6, \"readback_jaw_err\": -1}",
+  "FB_ZA_Walk_B {\"cat\": \"loco\", \"frames\": 120, \"depop_frames\": [], \"strike\": -1, \"plants\": [], \"jaw_sign\": -1, \"jaw_min\": 5.0, \"jaw_max\": 14.3, \"flesh_max_cm\": 1.49, \"flesh_p90_cm\": {\"belly_C\": 0.64, \"breast_L\": 1.12, \"butt_L\": 0.19}, \"flesh_maxframe\": {\"belly_C\": 96}, \"fk_err_cm\": 0.0, \"secs\": 0.6, \"readback_jaw_err\": -1}",
+  "FB_ZA_Walk_C {\"cat\": \"loco\", \"frames\": 120, \"depop_frames\": [], \"strike\": -1, \"plants\": [62, 89], \"jaw_sign\": -1, \"jaw_min\": 5.0, \"jaw_max\": 16.6, \"flesh_max_cm\": 1.69, \"flesh_p90_cm\": {\"belly_C\": 0.67, \"breast_L\": 1.35, \"butt_L\": 0.18}, \"flesh_maxframe\": {\"belly_C\": 38}, \"fk_err_cm\": 0.0, \"secs\": 0.6, \"readback_jaw_err\": -1}",
+  "BS run sample 170.0 rate 1.0 -> 79, 0.8",
+  "BS saved"
+ ],
+ "bones": [
+  "Monster_001",
+  "root",
+  "spine_01",
+  "spine_02",
+  "spine_03",
+  "spine_04",
+  "neck",
+  "head",
+  "jaw",
+  "tongue_03",
+  "tongue_02",
+  "tongue_01",
+  "shoulder_L",
+  "upper_arm_01_L",
+  "upper_arm_02_L",
+  "upper_arm_03_L",
+  "forearm_01_L",
+  "forearm_02_L",
+  "forearm_03_L",
+  "hand_L",
+  "f_index_01_L",
+  "f_index_02_L",
+  "f_index_03_L",
+  "thumb_01_L",
+  "thumb_02_L",
+  "thumb_03_L",
+  "palm_01_L",
+  "f_middle_01_L",
+  "f_middle_02_L",
+  "f_middle_03_L",
+  "palm_02_L",
+  "f_ring_01_L",
+  "f_ring_02_L",
+  "f_ring_03_L",
+  "palm_03_L",
+  "f_pinky_01_L",
+  "f_pinky_02_L",
+  "f_pinky_03_L",
+  "palm_04_L",
+  "shoulder_R",
+  "upper_arm_01_R",
+  "upper_arm_02_R",
+  "upper_arm_03_R",
+  "forearm_01_R",
+  "forearm_02_R",
+  "forearm_03_R",
+  "hand_R",
+  "f_index_01_R",
+  "f_index_02_R",
+  "f_index_03_R",
+  "thumb_01_R",
+  "thumb_02_R",
+  "thumb_03_R",
+  "palm_01_R",
+  "f_middle_01_R",
+  "f_middle_02_R",
+  "f_middle_03_R",
+  "palm_02_R",
+  "f_ring_01_R",
+  "f_ring_02_R",
+  "f_ring_03_R",
+  "palm_03_R",
+  "f_pinky_01_R",
+  "f_pinky_02_R",
+  "f_pinky_03_R",
+  "palm_04_R",
+  "breast_L",
+  "breast_R",
+  "side_L",
+  "side_R",
+  "belly_C",
+  "belly_L",
+  "belly_R",
+  "butt_L",
+  "butt_R",
+  "thigh_01_L",
+  "thigh_02_L",
+  "shin_01_L",
+  "shin_02_L",
+  "foot_L",
+  "toe_L",
+  "thigh_01_R",
+  "thigh_02_R",
+  "shin_01_R",
+  "shin_02_R",
+  "foot_R",
+  "toe_R"
+ ],
+ "parents": [
+  -1,
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  5,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  19,
+  23,
+  24,
+  19,
+  19,
+  27,
+  28,
+  19,
+  19,
+  31,
+  32,
+  19,
+  19,
+  35,
+  36,
+  19,
+  5,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47,
+  48,
+  46,
+  50,
+  51,
+  46,
+  46,
+  54,
+  55,
+  46,
+  46,
+  58,
+  59,
+  46,
+  46,
+  62,
+  63,
+  46,
+  5,
+  5,
+  2,
+  2,
+  2,
+  2,
+  2,
+  2,
+  2,
+  2,
+  75,
+  76,
+  77,
+  78,
+  79,
+  2,
+  81,
+  82,
+  83,
+  84,
+  85
+ ]
+}

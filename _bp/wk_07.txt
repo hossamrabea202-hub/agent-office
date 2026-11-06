@@ -1,0 +1,1 @@
+BPVar(VarName="Damage",VarGuid=155CC2FB3347489CA022AA72AFAE0374,VarType=(PinCategory="int",ContainerType=Array),PropertyFlags=5,DefaultValue="")

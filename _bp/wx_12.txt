@@ -1,0 +1,1 @@
+BPVar(VarName="BlendSec",VarGuid=0BE5B0EAAA86524CB7C03A13607FFDD3,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="BlendSec",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="20.0")

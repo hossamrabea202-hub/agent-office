@@ -1,0 +1,23 @@
+248 OK
+251 OK
+253 FAIL s\Epic Games\UE_5.3\Engine\Binaries\ThirdParty\Python3\Win64\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\hossa\Documents\agent-office\_latest\assets\tga\Feast\import_feast_ue_fixed.py", line 80, in <module>
+    sub.remove_collisions(sm); sub.add_simple_collisions(sm, unreal.ScriptingCollisionShapeType.NDOP10 if n.endswith('Torch') else unreal.ScriptingCollisionShapeType.BOX)
+AttributeError: type object 'ScriptingCollisionShapeType' has no attribute 'NDOP10'
+
+173 OK
+260 OK
+BUDGET:
+Texture budget
+/Game/CastleDefender/Characters/Hero/Armor           18 textures  ~   240 MB saved
+/Game/CastleDefender/Weapons/CK                      75 textures  ~   250 MB saved
+/Game/CastleDefender/Weapons                         20 textures  ~   240 MB saved
+/Game/CastleDefender/Characters/Enemies              10 textures  ~   112 MB saved
+/Game/CastleDefender/Characters/NPC                   7 textures  ~    18 MB saved
+/Game/CastleDefender/Characters/Knight               25 textures  ~    60 MB saved
+/Game/CastleDefender/Props                           44 textures  ~   254 MB saved
+/Game/CastleDefender/Environment/Barracks            12 textures  ~    40 MB saved
+/Game/CastleDefender/Environment/Rocks                0 textures  ~     0 MB saved
+TOTAL ~1214 MB GPU/disk saved  (applied)
+SAVED

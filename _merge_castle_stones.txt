@@ -1,0 +1,17 @@
+Castle stones merge
+stone actors found: 3019 in 13 sections (>= 8 stones each); after merge: 13 actors
+  section (-1,0): 105 stones -> CastleStones_-1_0_0
+  section (-1,1): 57 stones -> CastleStones_-1_1_1
+  section (0,-1): 102 stones -> CastleStones_0_-1_2
+  section (0,0): 220 stones -> CastleStones_0_0_3
+  section (0,0): 14 stones -> CastleStones_0_0_4
+  section (0,1): 280 stones -> CastleStones_0_1_5
+  section (0,1): 14 stones -> CastleStones_0_1_6
+  section (1,-1): 236 stones -> CastleStones_1_-1_7
+  section (1,0): 341 stones -> CastleStones_1_0_8
+  section (1,1): 523 stones -> CastleStones_1_1_9
+  section (2,-1): 108 stones -> CastleStones_2_-1_10
+  section (2,0): 557 stones -> CastleStones_2_0_11
+  section (2,1): 462 stones -> CastleStones_2_1_12
+Done: save the level (Ctrl+S). Undo = reopen the backup map.
+SAVED

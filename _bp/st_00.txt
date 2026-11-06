@@ -1,0 +1,1 @@
+BPVar(VarName="StuckTicks",VarGuid=0247D26639984A3A83379A0E9D40D416,VarType=(PinCategory="int"),FriendlyName="StuckTicks",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")

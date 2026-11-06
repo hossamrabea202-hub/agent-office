@@ -1,0 +1,10 @@
+M_BerserkAura exprs 49 fixed 0
+M_BerserkEmber mask MaterialExpressionComponentMask_2 rgba [False, False, False, True]
+M_BerserkEmber mask MaterialExpressionComponentMask_1 rgba [True, True, True, False]
+M_BerserkEmber exprs 9 fixed 1
+M_BerserkGround mask MaterialExpressionComponentMask_5 rgba [False, False, False, True]
+M_BerserkGround mask MaterialExpressionComponentMask_4 rgba [True, True, True, False]
+M_BerserkGround exprs 25 fixed 1
+M_BerserkWisp mask MaterialExpressionComponentMask_3 rgba [False, False, False, True]
+M_BerserkWisp mask MaterialExpressionComponentMask_4 rgba [True, True, True, False]
+M_BerserkWisp exprs 27 fixed 1

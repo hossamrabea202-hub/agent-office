@@ -1,0 +1,1 @@
+BPVar(VarName="MaxLimbs",VarGuid=7764B7D9148B54B5B74F9F51CBD10478,VarType=(PinCategory="int"),FriendlyName="MaxLimbs",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="8")

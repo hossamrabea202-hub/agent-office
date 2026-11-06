@@ -1,0 +1,1 @@
+BPVar(VarName="GatherMin",VarGuid=A64FB8A09B265A738ED6FF467292EAF9,VarType=(PinCategory="int"),FriendlyName="GatherMin",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="6")

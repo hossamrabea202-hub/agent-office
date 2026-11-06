@@ -1,0 +1,1 @@
+BPVar(VarName="Owned",VarGuid=4D3193AFB5284AE1BA2E3EAECEF081B7,VarType=(PinCategory="int"),PropertyFlags=5,DefaultValue="0")

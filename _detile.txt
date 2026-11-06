@@ -1,0 +1,13 @@
+targets: 4 ['WorldAlignedTexture', 'WorldAlignedTexture', 'WorldAlignedTexture', 'WorldAlignedNormal']
+  WorldAlignedTexture -> MaterialExpressionMultiply.A : True
+target 0 hooked 1
+  WorldAlignedTexture -> MaterialExpressionComponentMask.None : True
+target 1 hooked 1
+  WorldAlignedTexture -> MaterialExpressionComponentMask.None : True
+  WorldAlignedTexture -> MaterialExpressionComponentMask.None : True
+  WorldAlignedTexture -> MaterialExpressionComponentMask.None : True
+  WorldAlignedTexture -> MaterialExpressionComponentMask.None : True
+target 2 hooked 4
+  -> property <MaterialProperty.MP_NORMAL: 10>
+target 3 hooked 1
+DONE saved

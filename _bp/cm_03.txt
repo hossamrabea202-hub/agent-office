@@ -1,0 +1,1 @@
+BPVar(VarName="HasMark",VarGuid=B9F42F72E3695C0186000C43431021FC,VarType=(PinCategory="bool"),FriendlyName="HasMark",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

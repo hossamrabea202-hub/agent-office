@@ -1,0 +1,1 @@
+BPVar(VarName="Stride",VarGuid=1813A79820925533BEA33AA5E2AD79F3,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Stride",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="80.0")

@@ -1,0 +1,189 @@
+=== MaterialExpressionCustom_40 inputs [Name("HC"), Name("M"), Name("N"), Name("T"), Name("OldN"), Name("VeinCol"), Name("VeinGlow"), Name("Tile"), Name("LenBase"), Name("LenTip"), Name("NStr"), Name("OldNStr"), Name("Bright"), Name("Bub"), Name("FinK"), Name("Fn")]
+// HideSurface: corrupted tentacle hide. Charred, overlapping horn plates with ashy raised tops, bruised violet
+// patches, wet crimson flesh in the seams with slow dim vein glow climbing the body, slime runs, ash at the base.
+// Main output = base colour; extra outputs Nw (WORLD normal), Rough, AO, Glow.
+float s = HC.x;
+float2 cr = HC.yz;
+float a = atan2(cr.y, cr.x) * 0.15915494 + 0.5;                 // 0..1 around the spine (no interpolated seam)
+float L = lerp(LenBase, LenTip, pow(saturate(s / 10800.0), 0.8)); // plates get smaller toward the tip
+float2 uv = float2(a * Tile, s / L);
+float2 uvB = float2(frac(a + 0.5) * Tile, uv.y);
+float2 dx = ddx(uv), dy = ddy(uv);
+float2 dxB = ddx(uvB), dyB = ddy(uvB);
+if (abs(dxB.x) + abs(dyB.x) < abs(dx.x) + abs(dy.x)) { dx.x = dxB.x; dy.x = dyB.x; }   // wrap seam: no mip pop
+
+float4 m  = M.SampleGrad(MSampler, uv, dx, dy);
+float4 m2 = M.SampleGrad(MSampler, uv * 2.93 + float2(0.37, 0.61), dx * 2.93, dy * 2.93);
+float4 mL = M.SampleGrad(MSampler, uv * 0.27 + float2(0.13, 0.71), dx * 0.27, dy * 0.27);
+float  drip = M.SampleGrad(MSampler, float2(uv.x * 1.7, uv.y * 0.16) + float2(0.5, 0.2), dx * float2(1.7, 0.16), dy * float2(1.7, 0.16)).g;
+
+float2 n1 = N.SampleGrad(NSampler, uv, dx, dy).xy * 2.0 - 1.0;
+float2 n2 = N.SampleGrad(NSampler, uv * 2.93 + float2(0.37, 0.61), dx * 2.93, dy * 2.93).xy * 2.0 - 1.0;
+float2 nxy = (n1 + n2 * 0.35) * NStr;
+float3 nt = float3(nxy, sqrt(saturate(1.0 - dot(nxy, nxy))));
+
+// world normal: per-pixel cotangent frame of the procedural uv, on top of the sculpt's own normal map
+float3 Nv = normalize(Parameters.TangentToWorld[2]);
+float3 On = normalize(float3(OldN.xy * OldNStr, OldN.z));
+float3 Nb = normalize(TransformTangentVectorToWorld(Parameters.TangentToWorld, On));
+float3 wp = Parameters.WorldPosition_CamRelative;
+float3 dp1 = ddx(wp), dp2 = ddy(wp);
+float3 dp2p = cross(dp2, Nv), dp1p = cross(Nv, dp1);
+float3 Tt = dp2p * dx.x + dp1p * dy.x;
+float3 Bt = dp2p * dx.y + dp1p * dy.y;
+float im = rsqrt(max(max(dot(Tt, Tt), dot(Bt, Bt)), 1e-20));
+Nw = normalize(Tt * im * nt.x - Bt * im * nt.y + Nb * nt.z);
+
+// ---- subdermal bubbles. BIG = same cells as BubbleVS (the vertex shader displaces those), SMALL = blisters,
+// pixel only. Heights and gradients are analytic (no ddx of the height -> no blocky 2x2 highlights).
+float rr = max(length(cr), 1.0);
+float Rs = lerp(700.0, 200.0, pow(saturate(s / 10836.0), 0.7));
+float bT = T * Bub.z;
+float bh = 0.0; float2 bgr = 0.0; float bring = 0.0;   // height 0..~1, gradient (per cell), base-crease mask
+float sh = 0.0; float2 sgr = 0.0;
+float det = 0.0; float3 dp2q = 0.0, dp1q = 0.0;
+{
+    float3 dq1 = ddx(wp), dq2 = ddy(wp);
+    dp2q = cross(dq2, Nv); dp1q = cross(Nv, dq1);
+    det = dot(dq1, dp2q);
+}
+[unroll] for (int LY = 0; LY < 2; LY++)
+{
+    float NC = (LY == 0) ? 7.0 : 23.0;
+    float cellcm = 6.2831853 * Rs / NC;
+    float2 g = float2(a * NC, s / cellcm);
+    float2 gB = float2(frac(a + 0.5) * NC, g.y);
+    float2 gi = floor(g);
+    float acc = 0.0; float2 grd = 0.0; float rim = 0.0;
+    [unroll] for (int j = -1; j <= 1; j++)
+    [unroll] for (int k = -1; k <= 1; k++)
+    {
+        float2 id2 = gi + float2(j, k);
+        float idu = id2.x - NC * floor(id2.x / NC);
+        float seed = LY * 17.13;
+        float r1 = frac(sin(dot(float2(idu, id2.y), float2(127.1, 311.7)) + seed) * 43758.5453);
+        float r2 = frac(sin(dot(float2(idu, id2.y), float2(269.5, 183.3)) + seed) * 43758.5453);
+        float r3 = frac(sin(dot(float2(idu, id2.y), float2(419.2, 371.9)) + seed) * 43758.5453);
+        float r4 = frac(sin(dot(float2(idu, id2.y), float2(91.7, 57.3)) + seed) * 43758.5453);
+        if (r4 > (LY == 0 ? 0.78 : 0.6)) continue;
+        float per = (LY == 0) ? (7.0 + r1 * 7.0) : (3.0 + r1 * 4.0);
+        float x = frac(bT / per + r2);
+        float up = smoothstep(0.0, 0.42, x); up = up * up * (3.0 - 2.0 * up);
+        float dn = smoothstep(0.58, 0.88, x); dn = dn * dn * (3.0 - 2.0 * dn);
+        float env = up * (1.0 - dn) * (1.0 + 0.06 * sin(bT * 9.0 + r3 * 40.0) * step(0.42, x) * (1.0 - dn));
+        float2 c = id2 + 0.5 + (float2(r2, r3) - 0.5) * 0.5;
+        c.y += (x - 0.5) * 0.35 * (r1 > 0.5 ? 1.0 : -1.0) * (LY == 0 ? 1.0 : 0.4);
+        float rad = (LY == 0) ? (0.30 + 0.14 * r3) : (0.22 + 0.16 * r3);
+        float2 dv = g - c; dv.x -= NC * round(dv.x / NC);
+        float dl = length(dv);
+        float q = saturate(dl / rad);
+        float om = 1.0 - q * q;
+        float amp = env * (0.8 + 0.4 * r1);
+        acc += amp * om * om;
+        // d/dg of (1-q^2)^2 = -4 (1-q^2) q / rad * dir
+        grd += (dl > 1e-4 && q < 1.0) ? amp * (-4.0 * om * q / rad) * (dv / dl) : 0.0;
+        rim += env * exp(-pow((q - 0.97) / 0.08, 2.0));           // pinched crease where the dome meets the skin
+    }
+    float2 dxg = ddx(g), dyg = ddy(g); float2 dxB = ddx(gB), dyB = ddy(gB);
+    if (abs(dxB.x) + abs(dyB.x) < abs(dxg.x) + abs(dyg.x)) { dxg.x = dxB.x; dyg.x = dyB.x; }
+    // surface gradient of the height in world space: grad(gu), grad(gv) from screen derivatives of the (smooth) coords
+    float3 gu = (dp2q * dxg.x + dp1q * dyg.x) / det;
+    float3 gv = (dp2q * dxg.y + dp1q * dyg.y) / det;
+    float hcm = (LY == 0) ? Rs * 0.16 * Bub.x : Rs * 0.016 * Bub.x;   // small blisters are shallow but sharp
+    float3 gw = (gu * grd.x + gv * grd.y) * hcm * 2.5;   // ~actor scale of the tentacles
+    Nw = normalize(Nw - gw * (LY == 0 ? 1.0 : 1.6));
+    if (LY == 0) { bh = acc; bring = rim; } else { sh = acc; }
+}
+bh *= smoothstep(300.0, 1200.0, s); sh *= smoothstep(300.0, 1200.0, s);
+float bubm = saturate(bh); float blis = saturate(sh);
+
+float h = m.r, crev = m.g, id = m.b;
+// stretched skin: the plates part over a swelling, the gaps open into thin wet membrane
+crev = saturate(max(crev, smoothstep(0.25, 0.85, bubm) * 0.55 + crev * bubm * 0.8));
+float tops = saturate(h * 1.3 - 0.3);
+float cv = smoothstep(0.30, 0.85, crev);
+float ground = 1.0 - smoothstep(250.0, 2300.0, s + (mL.b - 0.5) * 1200.0);
+
+float3 cDark   = float3(0.020, 0.016, 0.019);
+float3 cAsh    = float3(0.090, 0.080, 0.076);
+float3 cBruise = float3(0.050, 0.018, 0.038);
+float3 cFlesh  = float3(0.150, 0.022, 0.030);
+float3 plate = lerp(cDark, cAsh, tops * (0.45 + 0.55 * id));
+plate = lerp(plate, cBruise, saturate((mL.b - 0.45) * 2.5) * (1.0 - tops) * 0.85);
+plate *= 0.72 + 0.56 * m2.r;
+float3 col = lerp(plate, cFlesh * (0.7 + 0.6 * m2.g), cv);
+col = lerp(col, float3(0.072, 0.064, 0.056) * (0.7 + 0.6 * m2.r), ground * 0.75 * (1.0 - cv * 0.5));
+float slime = smoothstep(0.55, 0.85, drip) * (1.0 - tops * 0.6) * (1.0 - ground);
+col *= 1.0 - slime * 0.35;                                          // wet = darker
+// membrane over a swelling: thin, blood-dark, veins showing through, sickly pale at the very top
+float3 cMem  = float3(0.20, 0.035, 0.035);
+float3 cVein = float3(0.035, 0.004, 0.008);
+float3 cPale = float3(0.30, 0.20, 0.13);
+float vthru = smoothstep(0.35, 0.75, m2.g) * 0.9;
+float3 mem = lerp(cMem, cVein, vthru);
+mem = lerp(mem, cPale, smoothstep(0.75, 1.0, bubm) * 0.35 * (1.0 - vthru));
+col = lerp(col, mem, smoothstep(0.15, 0.7, bubm) * 0.85);
+col = lerp(col, cMem * 0.8, blis * 0.6);
+col *= 1.0 - saturate(bring) * 0.55;                                 // dark pinched crease around each dome
+
+Rough = lerp(0.74 - 0.18 * m2.a, 0.14, cv);
+Rough = lerp(Rough, 0.22, slime);
+Rough = lerp(Rough, 0.88, ground * 0.8);
+Rough = lerp(Rough, 0.12, smoothstep(0.1, 0.6, max(bubm, blis * 0.8)));   // taut wet sheen sells the shape
+AO = lerp(1.0, 0.22, cv) * (0.8 + 0.2 * h);
+AO *= 1.0 - saturate(bring) * 0.6;
+
+float vein = smoothstep(0.62, 0.97, crev) * (1.0 - ground);
+float flow = pow(0.5 + 0.5 * sin(s * 0.0018 - T * 0.9 + id * 6.0), 3.0);
+float beat = 0.75 + 0.25 * sin(T * 1.7 + s * 0.0004);
+Glow = VeinCol * vein * (0.2 + 1.5 * flow) * beat * VeinGlow;
+// something alive inside: a dim ember glow through the stretched membrane, strongest at the crest
+Glow += float3(0.6, 0.08, 0.035) * smoothstep(0.35, 1.0, bubm) * (0.75 + 0.25 * sin(T * 1.3 + s * 0.004)) * Bub.y;
+// seam mask for the older emissive layers (idle crack pulse, electric flow, shock ring) so they follow these plates
+// sparse: only the deepest seams, in drifting patches, and dim -> the old layers glow in places, not everywhere
+float patchy = smoothstep(0.55, 0.8, mL.r) * (0.6 + 0.4 * sin(s * 0.0011 + T * 0.25));
+float seam = smoothstep(0.82, 0.98, crev) * patchy * (1.0 - ground) * 0.45;
+Seam = float3(seam, seam, seam);
+// stretched-triangle cut: the mesh has a sheet whose skinning stretches it into a flat blade in the air.
+// world size of a pixel step vs its size in the reference pose; healthy skin ~ actor scale (2.2..3).
+float3 hq1 = ddx(float3(HC.x, HC.y, HC.z)), hq2 = ddy(float3(HC.x, HC.y, HC.z));
+float3 wq1 = ddx(wp), wq2 = ddy(wp);
+float stretch = max(length(wq1) / max(length(hq1), 1e-3), length(wq2) / max(length(hq2), 1e-3));
+// the mesh also carries a flat fin far outside the body (reads as a slab floating in the sky): cut anything much
+// farther from the spine than the body radius at that height (hitbox radius table 800 -> 220 cm), except the base flare
+float bodyR = lerp(800.0, 220.0, saturate(s / 10836.0));
+float fin = ((length(cr) > FinK * bodyR) || (Fn.x < 0.5 && Fn.y > 0.8)) && s > 1400.0 ? 1.0 : 0.0;
+Clip = 1.0;   // cut disabled: the 'fins' were hole edges / the curl seen edge-on (stretch + fin kept for reference)
+return col * Bright;
+
+
+
+=== MaterialExpressionCustom_39 inputs []
+// HideCoordVS: (s along the spine, radial vector in a twist-free frame around the spine). Goes through a
+// VertexInterpolator; the pixel shader takes atan2 of yz, so the wrap seam never gets interpolated across.
+float3 P = Parameters.PreSkinnedPosition;
+const float3 B[14] = {float3(-746.9, -307.7, -79.4), float3(-307.5, -60.6, 799.1), float3(-88.3, 0.2, 1287.0), float3(-59.8, -18.0, 1967.4), float3(-129.0, -78.9, 2770.5), float3(-197.2, -72.2, 3498.2), float3(-308.6, -73.9, 4247.9), float3(-474.2, -77.1, 4983.2), float3(-735.3, -40.9, 5694.3), float3(-1215.2, 0.3, 6386.1), float3(-1850.2, 25.4, 6952.4), float3(-2504.0, 27.8, 7337.8), float3(-3441.4, 26.9, 7494.8), float3(-4221.9, -14.6, 7458.4)};
+const float  SV[14] = {518.1, 1045.1, 1357.6, 2015.2, 2873.7, 3656.0, 4494.8, 5362.6, 6282.5, 7358.3, 8432.6, 9341.0, 10247.9, 10835.9};
+float best = 1e20; float s = SV[0]; float3 Q = B[0]; float3 Tg = float3(0, 0, 1);
+[unroll] for (int i = 0; i < 13; i++)
+{
+    float3 a = B[i]; float3 ab = B[i + 1] - a;
+    float t = dot(P - a, ab) / dot(ab, ab);
+    t = (i == 0) ? min(t, 1.0) : ((i == 12) ? max(t, 0.0) : saturate(t));
+    float3 q = a + ab * t;
+    float d2 = dot(P - q, P - q);
+    if (d2 < best) { best = d2; s = lerp(SV[i], SV[i + 1], t); Q = q; Tg = normalize(ab); }
+}
+// the spine bends in the x-z plane, so local Y stays perpendicular to it: a frame that never flips or twists
+float3 U = normalize(cross(float3(0.0, 1.0, 0.0), Tg));
+float3 W = cross(Tg, U);
+float3 R = P - Q;
+// fin detector for the pixel shader: how radially the surface faces, and distance from the spine vs body radius
+float3 Nn = normalize(Parameters.PreSkinnedNormal);
+float rl = max(length(R), 1.0);
+Fn = float3(abs(dot(Nn, R / rl)), rl / lerp(800.0, 220.0, saturate(s / 10836.0)), 0.0);
+return float3(s, dot(R, U), dot(R, W));
+
+=== MaterialExpressionCustom_11 inputs [Name("Base"), Name("Det"), Name("Depth"), Name("Strength"), Name("Bump")]
+float k = Strength * (1.0 - saturate((Depth - 600.0) / 5000.0));
+return normalize(float3(Base.xy * Bump + Det.xy * k, Base.z));

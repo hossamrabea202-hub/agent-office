@@ -1,0 +1,1 @@
+BPVar(VarName="NearShop",VarGuid=900E483565E05457B8989856966CFBFB,VarType=(PinCategory="bool"),FriendlyName="NearShop",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

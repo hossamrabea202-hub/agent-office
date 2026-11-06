@@ -1,0 +1,1 @@
+BPVar(VarName="ThunderAt",VarGuid=34143F8659155B8C86118FB98E221E35,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ThunderAt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

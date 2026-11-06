@@ -1,0 +1,1 @@
+BPVar(VarName="CurStorm",VarGuid=E47C66848EF053D994CD161DF483704D,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="CurStorm",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

@@ -1,0 +1,1 @@
+BPVar(VarName="PullMax",VarGuid=F0B1AEF759035D89A9AA8FB889C38FA0,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="PullMax",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="0.35")

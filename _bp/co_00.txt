@@ -1,0 +1,1 @@
+BPVar(VarName="InRange",VarGuid=CDB32E34417E4A369627F1B524448148,VarType=(PinCategory="bool"),PropertyFlags=5,DefaultValue="false")

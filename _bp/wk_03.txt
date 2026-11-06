@@ -1,0 +1,1 @@
+BPVar(VarName="Held",VarGuid=26AABDA418CD48F38FBE78ECD9C881E4,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.StaticMeshComponent'"),PropertyFlags=5,DefaultValue="")

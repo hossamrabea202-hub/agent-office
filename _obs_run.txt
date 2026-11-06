@@ -1,0 +1,2 @@
+backup src C:/Unreal Backups/Castle Defender/Content/CastleDefender\Gameplay\Castle\BPC_ObsidianSet.uasset exists True
+setup ran

@@ -1,0 +1,1 @@
+BPVar(VarName="Absorbed",VarGuid=075B44ED7069574F842E5F6C9689DAD9,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",ContainerType=Array),FriendlyName="Absorbed",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

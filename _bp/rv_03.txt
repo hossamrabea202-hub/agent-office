@@ -1,0 +1,1 @@
+BPVar(VarName="RvBookPend",VarGuid=6B5346D287875152BCB78D29620B24D9,VarType=(PinCategory="bool"),FriendlyName="RvBookPend",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

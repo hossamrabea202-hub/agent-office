@@ -1,0 +1,1 @@
+BPVar(VarName="PullDist",VarGuid=702C68CE0A7F5D0BB80E573B3C31DF05,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="PullDist",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="1000.0")

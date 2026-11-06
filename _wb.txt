@@ -1,0 +1,16 @@
+/Game/CastleDefender/Gameplay/Siege/Breach/A_WallBreach_Collapse.A_WallBreach_Collapse
+/Game/CastleDefender/Gameplay/Siege/Breach/BP_BreachFX.BP_BreachFX
+/Game/CastleDefender/Gameplay/Siege/Breach/M_BreachFracture.M_BreachFracture
+/Game/CastleDefender/Gameplay/Siege/Breach/MI_BreachFracture.MI_BreachFracture
+/Game/CastleDefender/Gameplay/Siege/Breach/SFX_WallBreach.SFX_WallBreach
+/Game/CastleDefender/Gameplay/Siege/Breach/SK_WallBreach.SK_WallBreach
+/Game/CastleDefender/Gameplay/Siege/Breach/SK_WallBreach_Skeleton.SK_WallBreach_Skeleton
+/Game/CastleDefender/Gameplay/Siege/Breach/SM_Rubble_Masonry_01.SM_Rubble_Masonry_01
+/Game/CastleDefender/Gameplay/Siege/Breach/SM_Rubble_Masonry_02.SM_Rubble_Masonry_02
+/Game/CastleDefender/Gameplay/Siege/Breach/SM_Rubble_Masonry_03.SM_Rubble_Masonry_03
+/Game/CastleDefender/Gameplay/Siege/Breach/SM_Rubble_Masonry_04.SM_Rubble_Masonry_04
+/Game/CastleDefender/Gameplay/Siege/Breach/SM_Rubble_Masonry_05.SM_Rubble_Masonry_05
+/Game/CastleDefender/Gameplay/Siege/Breach/SM_Rubble_Masonry_06.SM_Rubble_Masonry_06
+/Game/CastleDefender/Gameplay/Siege/Breach/T_BreachFracture_BC.T_BreachFracture_BC
+/Game/CastleDefender/Gameplay/Siege/Breach/T_BreachFracture_N.T_BreachFracture_N
+/Game/CastleDefender/Gameplay/Siege/Breach/T_BreachFracture_ORM.T_BreachFracture_ORM

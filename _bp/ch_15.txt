@@ -1,0 +1,1 @@
+BPVar(VarName="CashPlayed",VarGuid=5F1D924E7E0C50D2B0196DE36C52ADDB,VarType=(PinCategory="bool"),FriendlyName="CashPlayed",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

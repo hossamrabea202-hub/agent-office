@@ -1,0 +1,1 @@
+BPVar(VarName="OpenT",VarGuid=52AB8B91723158EBABDAF7D13CCCF34A,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="OpenT",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

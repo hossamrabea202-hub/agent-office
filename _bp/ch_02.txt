@@ -1,0 +1,1 @@
+BPVar(VarName="Prompt",VarGuid=F0138E3A3D125B7D84AF4019A8C0926A,VarType=(PinCategory="string"),FriendlyName="Prompt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="[E] Open the chest")

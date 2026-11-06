@@ -1,0 +1,1 @@
+BPVar(VarName="Managers",VarGuid=EAD1A0C51D685E53B7E7AE60A022B938,VarType=(PinCategory="object",PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/CastleDefender/Gameplay/Castle/BP_ZombieWaveManager.BP_ZombieWaveManager_C'",ContainerType=Array),FriendlyName="Managers",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

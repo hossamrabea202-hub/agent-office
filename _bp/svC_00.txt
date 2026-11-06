@@ -1,0 +1,1 @@
+BPVar(VarName="LastArrival",VarGuid=9D00BD1C537F58ECA18720B18F90AE7D,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="LastArrival",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="-1000.0")

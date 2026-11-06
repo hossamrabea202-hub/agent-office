@@ -1,0 +1,1 @@
+BPVar(VarName="PatientIsHero",VarGuid=F4CC2BF1FC335EBF89D5B78DB6860852,VarType=(PinCategory="bool"),FriendlyName="PatientIsHero",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

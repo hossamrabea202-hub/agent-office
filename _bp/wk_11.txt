@@ -1,0 +1,1 @@
+BPVar(VarName="Meshes",VarGuid=97163106D8CF4C78B32260D1D4878678,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.StaticMesh'",ContainerType=Array),PropertyFlags=5,DefaultValue="")

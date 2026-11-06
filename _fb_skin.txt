@@ -1,0 +1,33 @@
+textures: 22 ['T_FleshBrute_Bloody_P01_BC', 'T_FleshBrute_Bloody_P01_ORM', 'T_FleshBrute_Bloody_P02_BC', 'T_FleshBrute_Bloody_P02_ORM', 'T_FleshBrute_Charred_P01_BC', 'T_FleshBrute_Charred_P01_ORM', 'T_FleshBrute_Charred_P02_BC', 'T_FleshBrute_Charred_P02_ORM', 'T_FleshBrute_Clean_P01_BC', 'T_FleshBrute_Clean_P01_ORM', 'T_FleshBrute_Clean_P02_BC', 'T_FleshBrute_Clean_P02_ORM', 'T_FleshBrute_Drowned_P01_BC', 'T_FleshBrute_Drowned_P01_ORM', 'T_FleshBrute_Drowned_P02_BC', 'T_FleshBrute_Drowned_P02_ORM', 'T_FleshBrute_P01_N', 'T_FleshBrute_P02_N', 'T_FleshBrute_Rotten_P01_BC', 'T_FleshBrute_Rotten_P01_ORM', 'T_FleshBrute_Rotten_P02_BC', 'T_FleshBrute_Rotten_P02_ORM']
+M params tex: ['BaseColor', 'ORM', 'Normal']
+MI_FleshBrute_Bloody_P01.BaseColor = T_FleshBrute_Bloody_P01_BC
+MI_FleshBrute_Bloody_P01.ORM = T_FleshBrute_Bloody_P01_ORM
+MI_FleshBrute_Bloody_P01.Normal = T_FleshBrute_P01_N
+MI_FleshBrute_Bloody_P02.BaseColor = T_FleshBrute_Bloody_P02_BC
+MI_FleshBrute_Bloody_P02.ORM = T_FleshBrute_Bloody_P02_ORM
+MI_FleshBrute_Bloody_P02.Normal = T_FleshBrute_P02_N
+MI_FleshBrute_Charred_P01.BaseColor = T_FleshBrute_Charred_P01_BC
+MI_FleshBrute_Charred_P01.ORM = T_FleshBrute_Charred_P01_ORM
+MI_FleshBrute_Charred_P01.Normal = T_FleshBrute_P01_N
+MI_FleshBrute_Charred_P02.BaseColor = T_FleshBrute_Charred_P02_BC
+MI_FleshBrute_Charred_P02.ORM = T_FleshBrute_Charred_P02_ORM
+MI_FleshBrute_Charred_P02.Normal = T_FleshBrute_P02_N
+MI_FleshBrute_Clean_P01.BaseColor = T_FleshBrute_Clean_P01_BC
+MI_FleshBrute_Clean_P01.ORM = T_FleshBrute_Clean_P01_ORM
+MI_FleshBrute_Clean_P01.Normal = T_FleshBrute_P01_N
+MI_FleshBrute_Clean_P02.BaseColor = T_FleshBrute_Clean_P02_BC
+MI_FleshBrute_Clean_P02.ORM = T_FleshBrute_Clean_P02_ORM
+MI_FleshBrute_Clean_P02.Normal = T_FleshBrute_P02_N
+MI_FleshBrute_Drowned_P01.BaseColor = T_FleshBrute_Drowned_P01_BC
+MI_FleshBrute_Drowned_P01.ORM = T_FleshBrute_Drowned_P01_ORM
+MI_FleshBrute_Drowned_P01.Normal = T_FleshBrute_P01_N
+MI_FleshBrute_Drowned_P02.BaseColor = T_FleshBrute_Drowned_P02_BC
+MI_FleshBrute_Drowned_P02.ORM = T_FleshBrute_Drowned_P02_ORM
+MI_FleshBrute_Drowned_P02.Normal = T_FleshBrute_P02_N
+MI_FleshBrute_Rotten_P01.BaseColor = T_FleshBrute_Rotten_P01_BC
+MI_FleshBrute_Rotten_P01.ORM = T_FleshBrute_Rotten_P01_ORM
+MI_FleshBrute_Rotten_P01.Normal = T_FleshBrute_P01_N
+MI_FleshBrute_Rotten_P02.BaseColor = T_FleshBrute_Rotten_P02_BC
+MI_FleshBrute_Rotten_P02.ORM = T_FleshBrute_Rotten_P02_ORM
+MI_FleshBrute_Rotten_P02.Normal = T_FleshBrute_P02_N
+DONE

@@ -1,0 +1,7 @@
+== /Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/MI_Decal_WallCrackA parent=/Game/CastleDefender/Environment/Decals/M_LP2Decal.M_LP2Decal
+Traceback (most recent call last):
+  File "C:\Users\hossa\Documents\agent-office\_latest\_decdiag.py", line 19, in <module>
+    for n in ('WallCrackA', 'WallCrackB', 'WallImpact', 'StairWear'): dump('%s/Castle2/%s/MI_Decal_%s' % (R, n, n))
+  File "C:\Users\hossa\Documents\agent-office\_latest\_decdiag.py", line 12, in dump
+    log('   base domain=%s blend=%s decalblend=%s' % (base.get_editor_property('material_domain'), base.get_editor_property('blend_mode'), base.get_editor_property('decal_blend_mode') if hasattr(base, 'decal_blend_mode') or True else ''))
+Exception: Material: Property 'DecalBlendMode' for attribute 'decal_blend_mode' on 'Material' is protected and cannot be read

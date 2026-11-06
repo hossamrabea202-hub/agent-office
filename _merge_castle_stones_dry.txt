@@ -1,0 +1,3 @@
+Castle stones merge
+stone actors found: 3019 in 13 sections (>= 8 stones each); after merge: 13 actors
+DRY RUN: nothing changed

@@ -1,0 +1,1 @@
+BPVar(VarName="Move",VarGuid=5B1B8B74B5745973843A2F56AD252492,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.CharacterMovementComponent'"),FriendlyName="Move",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

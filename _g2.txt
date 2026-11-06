@@ -1,0 +1,10 @@
+#337 gore setup
+create /Game/CastleDefender/VFX/Blood337/BPC_Gore337
+create /Game/CastleDefender/VFX/Blood337/BP_SeveredLimb337
+  + BP_SeveredLimb337.Body
+  MANUAL: BP_SeveredLimb337: drag Body onto DefaultSceneRoot so Body is the root
+  + BP_SeveredLimb337.Limb
+  + BP_SeveredLimb337.LimbCap
+create /Game/CastleDefender/VFX/Blood337/BP_WoundCap337
+  + BP_WoundCap337.Cap
+Next: README step 2 (BPVar lines + 3 graph pastes), then --finish

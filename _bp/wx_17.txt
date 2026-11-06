@@ -1,0 +1,1 @@
+BPVar(VarName="FlashT0",VarGuid=65B7AFC7B6AD514ABDEAA74BC98A72BA,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FlashT0",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="-100.0")

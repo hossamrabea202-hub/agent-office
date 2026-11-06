@@ -1,0 +1,1 @@
+BPVar(VarName="SeqA",VarGuid=909F89B4EEC95080ABBA4C9B9AE523C6,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.AnimSequenceBase'"),FriendlyName="SeqA",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="/Game/CastleDefender/Characters/Enemies/FleshBrute/Anims/FB_ZA_Idle_A.FB_ZA_Idle_A")

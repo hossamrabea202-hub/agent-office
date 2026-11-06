@@ -1,0 +1,10 @@
+obs /Game/CastleDefender/Gameplay/Castle/BPC_ObsidianSet armory /Game/CastleDefender/Gameplay/Castle/BP_ArmoryHUD
+referencers of BPC_ObsidianSet: ['/Game/CastleDefender/Gameplay/Castle/BP_ArmoryHUD', '/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonCharacter']
+funcs []
+AvailMask 991
+WornMask - ActorComponent: Failed to find property 'WornMask' for attribute 'WornMask' on 'BPC_ObsidianSet_C'
+OwnedMask - ActorComponent: Failed to find property 'OwnedMask' for attribute 'OwnedMask' on 'BPC_ObsidianSet_C'
+PieceId [11, 11, 12, 12, 13, 13, 14, 14, 16, 16, 17, 17, 18, 19, 19]
+Price - ActorComponent: Failed to find property 'Price' for attribute 'Price' on 'BPC_ObsidianSet_C'
+world gamemode <Object '/Game/CastleDefender/Gameplay/ThirdPerson/Blueprints/BP_ThirdPersonGameMode.BP_ThirdPersonGameMode_C' (0x0000089F1C280700) Class 'BlueprintGeneratedClass'>
+HUD class <Object '/Game/CastleDefender/Gameplay/Castle/BP_NoticeHUD.BP_NoticeHUD_C' (0x0000089EFF5EF500) Class 'BlueprintGeneratedClass'>

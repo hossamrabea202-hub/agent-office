@@ -1,0 +1,4 @@
+['/Game/CastleDefender/Environment/Mud/BPC_MudPrints', '/Game/CastleDefender/Environment/Mud/BP_MudPad']
+pads ['BP_MudPad3', 'BP_MudPad2', 'BP_MudPad']
+hero refs True
+slime ['BP_JellyMine_C', 'BP_JellyShieldAll_C', 'BP_JellyTrailManager_C', 'DecalActor', 'StaticMeshActor']

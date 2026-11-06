@@ -1,0 +1,1 @@
+BPVar(VarName="CrossDir",VarGuid=4A96E585F787518892D9A5BC716CFC33,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="CrossDir",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=65540,DefaultValue="1.0")

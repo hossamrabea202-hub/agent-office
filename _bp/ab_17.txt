@@ -1,0 +1,1 @@
+BPVar(VarName="BlendTime",VarGuid=315C94EF449F531EAECD181E45539F91,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="BlendTime",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.25")

@@ -1,0 +1,1 @@
+BPVar(VarName="CollapseClass",VarGuid=819DE1DC49885568BA120B7E5906AD11,VarType=(PinCategory="class",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'"),FriendlyName="CollapseClass",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

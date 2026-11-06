@@ -1,0 +1,10 @@
+Env_CorruptedTentacle_Fog1 JellyShell MI_TentacleJellyShell_Fog1 world scale <Struct 'Vector' (0x000002180214ADD0) {x: 3.000000, y: 3.000000, z: 3.000000}> TentScale 3.0 -> 3.0
+Env_CorruptedTentacle_02 JellyShell MI_TentacleJellyShell_02 world scale <Struct 'Vector' (0x000002180214ACE0) {x: -2.300000, y: 2.300000, z: 2.300000}> TentScale 2.3 -> 2.3
+Env_CorruptedTentacle_03 JellyShell MI_TentacleJellyShell_03 world scale <Struct 'Vector' (0x000002180214AC40) {x: -2.900000, y: 2.900000, z: 2.900000}> TentScale 2.9 -> 2.9
+Env_CorruptedTentacle_5 JellyShell MI_TentacleJellyShell_5 world scale <Struct 'Vector' (0x000002180214ABA0) {x: -2.500000, y: 2.500000, z: 2.500000}> TentScale 2.5 -> 2.5
+Env_CorruptedTentacle_4 JellyShell MI_TentacleJellyShell_4 world scale <Struct 'Vector' (0x000002180214AB00) {x: -3.750000, y: 3.750000, z: 3.750000}> TentScale 3.75 -> 3.75
+Env_CorruptedTentacle_Fog3 JellyShell MI_TentacleJellyShell_Fog3 world scale <Struct 'Vector' (0x000002180214AA60) {x: 3.000000, y: 3.000000, z: 3.000000}> TentScale 3.0 -> 3.0
+Env_CorruptedTentacle_Fog2 JellyShell MI_TentacleJellyShell_Fog2 world scale <Struct 'Vector' (0x000002180214A9C0) {x: 3.000000, y: 3.000000, z: 3.000000}> TentScale 3.0 -> 3.0
+Env_CorruptedTentacle_04 JellyShell MI_TentacleJellyShell_04 world scale <Struct 'Vector' (0x000002180214A920) {x: 2.500000, y: 2.500000, z: 2.500000}> TentScale 2.5 -> 2.5
+Env_CorruptedTentacle_01 JellyShell MI_TentacleJellyShell_01 world scale <Struct 'Vector' (0x000002180214A880) {x: -2.700000, y: 2.700000, z: 2.700000}> TentScale 2.7 -> 2.7
+Env_CorruptedTentacle_05 JellyShell MI_TentacleJellyShell_05 world scale <Struct 'Vector' (0x000002180214A7E0) {x: 2.400000, y: 2.400000, z: 2.400000}> TentScale 2.4 -> 2.4

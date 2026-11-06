@@ -1,0 +1,56 @@
+== /Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/MI_Decal_WallCrackA parent=/Game/CastleDefender/Environment/Decals/M_LP2Decal.M_LP2Decal
+   base domain=<MaterialDomain.MD_DEFERRED_DECAL: 1> blend=<BlendMode.BLEND_TRANSLUCENT: 2>
+   <MaterialProperty.MP_BASE_COLOR: 5> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_OPACITY: 1> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_NORMAL: 10> <- MaterialExpressionMaterialFunctionCall
+   tex BaseColor = /Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/T_Decal_WallCrackA_BaseColor.T_Decal_WallCrackA_BaseColor srgb=True comp=<TextureCompressionSettings.TC_DEFAULT: 0>
+   tex ORM = /Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/T_Decal_WallCrackA_ORM.T_Decal_WallCrackA_ORM srgb=False comp=<TextureCompressionSettings.TC_MASKS: 2>
+   tex Normal = /Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/T_Decal_WallCrackA_Normal_DirectX.T_Decal_WallCrackA_Normal_DirectX srgb=False comp=<TextureCompressionSettings.TC_NORMALMAP: 1>
+   sc Opacity = 1.0
+   sc NormalStrength = 1.0
+   vec Tint = <Struct 'LinearColor' (0x00000282CF2D2F20) {r: 1.000000, g: 1.000000, b: 1.000000, a: 1.000000}>
+== /Game/CastleDefender/Environment/Decals/Castle2/WallCrackB/MI_Decal_WallCrackB parent=/Game/CastleDefender/Environment/Decals/M_LP2Decal.M_LP2Decal
+   base domain=<MaterialDomain.MD_DEFERRED_DECAL: 1> blend=<BlendMode.BLEND_TRANSLUCENT: 2>
+   <MaterialProperty.MP_BASE_COLOR: 5> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_OPACITY: 1> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_NORMAL: 10> <- MaterialExpressionMaterialFunctionCall
+   tex BaseColor = /Game/CastleDefender/Environment/Decals/Castle2/WallCrackB/T_Decal_WallCrackB_BaseColor.T_Decal_WallCrackB_BaseColor srgb=True comp=<TextureCompressionSettings.TC_DEFAULT: 0>
+   tex ORM = /Game/CastleDefender/Environment/Decals/Castle2/WallCrackB/T_Decal_WallCrackB_ORM.T_Decal_WallCrackB_ORM srgb=False comp=<TextureCompressionSettings.TC_MASKS: 2>
+   tex Normal = /Game/CastleDefender/Environment/Decals/Castle2/WallCrackB/T_Decal_WallCrackB_Normal_DirectX.T_Decal_WallCrackB_Normal_DirectX srgb=False comp=<TextureCompressionSettings.TC_NORMALMAP: 1>
+   sc Opacity = 1.0
+   sc NormalStrength = 1.0
+   vec Tint = <Struct 'LinearColor' (0x00000282CF2D2F20) {r: 1.000000, g: 1.000000, b: 1.000000, a: 1.000000}>
+== /Game/CastleDefender/Environment/Decals/Castle2/WallImpact/MI_Decal_WallImpact parent=/Game/CastleDefender/Environment/Decals/M_LP2Decal.M_LP2Decal
+   base domain=<MaterialDomain.MD_DEFERRED_DECAL: 1> blend=<BlendMode.BLEND_TRANSLUCENT: 2>
+   <MaterialProperty.MP_BASE_COLOR: 5> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_OPACITY: 1> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_NORMAL: 10> <- MaterialExpressionMaterialFunctionCall
+   tex BaseColor = /Game/CastleDefender/Environment/Decals/Castle2/WallImpact/T_Decal_WallImpact_BaseColor.T_Decal_WallImpact_BaseColor srgb=True comp=<TextureCompressionSettings.TC_DEFAULT: 0>
+   tex ORM = /Game/CastleDefender/Environment/Decals/Castle2/WallImpact/T_Decal_WallImpact_ORM.T_Decal_WallImpact_ORM srgb=False comp=<TextureCompressionSettings.TC_MASKS: 2>
+   tex Normal = /Game/CastleDefender/Environment/Decals/Castle2/WallImpact/T_Decal_WallImpact_Normal_DirectX.T_Decal_WallImpact_Normal_DirectX srgb=False comp=<TextureCompressionSettings.TC_NORMALMAP: 1>
+   sc Opacity = 1.0
+   sc NormalStrength = 1.0
+   vec Tint = <Struct 'LinearColor' (0x00000282CF2D2F20) {r: 1.000000, g: 1.000000, b: 1.000000, a: 1.000000}>
+== /Game/CastleDefender/Environment/Decals/Castle2/StairWear/MI_Decal_StairWear parent=/Game/CastleDefender/Environment/Decals/M_LP2Decal.M_LP2Decal
+   base domain=<MaterialDomain.MD_DEFERRED_DECAL: 1> blend=<BlendMode.BLEND_TRANSLUCENT: 2>
+   <MaterialProperty.MP_BASE_COLOR: 5> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_OPACITY: 1> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_NORMAL: 10> <- MaterialExpressionMaterialFunctionCall
+   tex BaseColor = /Game/CastleDefender/Environment/Decals/Castle2/StairWear/T_Decal_StairWear_BaseColor.T_Decal_StairWear_BaseColor srgb=True comp=<TextureCompressionSettings.TC_DEFAULT: 0>
+   tex ORM = /Game/CastleDefender/Environment/Decals/Castle2/StairWear/T_Decal_StairWear_ORM.T_Decal_StairWear_ORM srgb=False comp=<TextureCompressionSettings.TC_MASKS: 2>
+   tex Normal = /Game/CastleDefender/Environment/Decals/Castle2/StairWear/T_Decal_StairWear_Normal_DirectX.T_Decal_StairWear_Normal_DirectX srgb=False comp=<TextureCompressionSettings.TC_NORMALMAP: 1>
+   sc Opacity = 1.0
+   sc NormalStrength = 0.6000000238418579
+   vec Tint = <Struct 'LinearColor' (0x00000282CF2D2F20) {r: 1.000000, g: 1.000000, b: 1.000000, a: 1.000000}>
+== /Game/CastleDefender/Environment/Decals/MudSplashA/MI_Decal_MudSplashA parent=/Game/CastleDefender/Environment/Decals/M_LP2Decal.M_LP2Decal
+   base domain=<MaterialDomain.MD_DEFERRED_DECAL: 1> blend=<BlendMode.BLEND_TRANSLUCENT: 2>
+   <MaterialProperty.MP_BASE_COLOR: 5> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_OPACITY: 1> <- MaterialExpressionMultiply
+   <MaterialProperty.MP_NORMAL: 10> <- MaterialExpressionMaterialFunctionCall
+   tex BaseColor = /Game/CastleDefender/Environment/Decals/MudSplashA/T_Decal_MudSplashA_BaseColor.T_Decal_MudSplashA_BaseColor srgb=True comp=<TextureCompressionSettings.TC_DEFAULT: 0>
+   tex ORM = /Game/CastleDefender/Environment/Decals/MudSplashA/T_Decal_MudSplashA_ORM.T_Decal_MudSplashA_ORM srgb=False comp=<TextureCompressionSettings.TC_MASKS: 2>
+   tex Normal = /Game/CastleDefender/Environment/Decals/MudSplashA/T_Decal_MudSplashA_Normal_DirectX.T_Decal_MudSplashA_Normal_DirectX srgb=False comp=<TextureCompressionSettings.TC_NORMALMAP: 1>
+   sc Opacity = 1.0
+   sc NormalStrength = 1.0
+   vec Tint = <Struct 'LinearColor' (0x00000282CF2D2F20) {r: 1.000000, g: 1.000000, b: 1.000000, a: 1.000000}>
+castle2 assets: ['MI_Decal_StairWear', 'T_Decal_StairWear_BaseColor', 'T_Decal_StairWear_Normal_DirectX', 'T_Decal_StairWear_ORM', 'MI_Decal_WallCrackA', 'T_Decal_WallCrackA_BaseColor', 'T_Decal_WallCrackA_Normal_DirectX', 'T_Decal_WallCrackA_ORM', 'MI_Decal_WallCrackB', 'T_Decal_WallCrackB_BaseColor', 'T_Decal_WallCrackB_Normal_DirectX', 'T_Decal_WallCrackB_ORM', 'MI_Decal_WallImpact', 'T_Decal_WallImpact_BaseColor', 'T_Decal_WallImpact_Normal_DirectX', 'T_Decal_WallImpact_ORM']

@@ -1,0 +1,1 @@
+BPVar(VarName="Inside",VarGuid=F6EE4E2A365F5F96BDAB42293328F799,VarType=(PinCategory="bool"),FriendlyName="Inside",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=65540,DefaultValue="false")

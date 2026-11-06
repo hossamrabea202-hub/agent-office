@@ -1,0 +1,1 @@
+BPVar(VarName="NextAbsorb",VarGuid=373B0DD76EBD51F69BB9BCA8DA892328,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="NextAbsorb",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

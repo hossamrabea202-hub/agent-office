@@ -1,0 +1,1 @@
+BPVar(VarName="Shown",VarGuid=3A7D4C9858065395A70983745836F340,VarType=(PinCategory="bool"),FriendlyName="Shown",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

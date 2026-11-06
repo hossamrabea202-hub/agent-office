@@ -1,0 +1,2 @@
+Mine_01 <Struct 'Vector' (0x00000282D1724790) {x: 94.000000, y: -2401.000000, z: -122.000000}>  lookdev <Struct 'Vector' (0x00000282D17247E0) {x: -286.033429, y: -3432.884158, z: -150.101184}>
+cam <Struct 'Vector' (0x00000282D1724970) {x: -1592.848177, y: -2362.657034, z: 472.933603}>, forward <Struct 'Vector' (0x00000282D1724880) {x: -0.935520, y: 0.346428, z: -0.069213}>, sep 1100; shot requested; level saved

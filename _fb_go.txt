@@ -1,0 +1,13 @@
+BP_Zombie: ['/Game/CastleDefender/Characters/Enemies/Zombie/BP_Zombie']
+zombie anim class: None
+to retarget: 37
+retargeted: 37
+FB anim BP: None
+mesh set, capsule 55/118, speed 110 -> 72
+  MaxHP 0.0 -> 0.0
+  AttackDamage 0.0 -> 0.0
+BP_FleshBrute saved
+placed FleshBrute_0 at <Struct 'Vector' (0x000001EAAD7286F0) {x: 2400.000000, y: -250.000000, z: 200.000000}>
+placed FleshBrute_1 at <Struct 'Vector' (0x000001EAAD7285B0) {x: 2600.000000, y: 50.000000, z: 200.000000}>
+placed FleshBrute_2 at <Struct 'Vector' (0x000001EAAD72EA10) {x: 2400.000000, y: 350.000000, z: 200.000000}>
+DONE

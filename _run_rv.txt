@@ -1,0 +1,25 @@
+OK
+---
+#268 reveal setup
+create /Game/CastleDefender/UI/Reveal/RT_Reveal
+create /Game/CastleDefender/UI/Reveal/MPC_Reveal
+create /Game/CastleDefender/UI/Reveal/M_RevealItem
+create /Game/CastleDefender/UI/Reveal/M_RevealScreen
+create /Game/CastleDefender/UI/Reveal/M_RevealBlur
+import SFX_Reveal_Whoosh
+import SFX_Reveal_Hit
+import SFX_Reveal_Shimmer
+create /Game/CastleDefender/UI/Reveal/BP_RevealStage
+  BP_SkillBookPickup: StaticMeshComponent /Engine/BasicShapes/Plane.Plane (radius 169.7 cm)
+  BP_BagPickup: StaticMeshComponent /Engine/BasicShapes/Plane.Plane (radius 169.7 cm)
+  stage + Pivot
+  stage + RevealBook
+  stage + RevealBag
+  stage + Capture
+  stage + KeyLight
+  stage + RimLight
+  stage + FillLight
+hero cameras: ['CameraComponent_0__CCE3C0B4', 'CameraComponent_0__CCE3C0B4']
+  CameraComponent_0__CCE3C0B4 + M_RevealBlur blendable
+  CameraComponent_0__CCE3C0B4 already has M_RevealBlur
+Next: README step 3 (BPVar lines on BPC_MotionFX, then the graph paste).

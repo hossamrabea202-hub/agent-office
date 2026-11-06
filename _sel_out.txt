@@ -1,0 +1,10 @@
+Env_CorruptedTentacle_Fog3 | SkeletalMeshActor | loc 2000,15250,-2680 | scale 3.000,3.000,3.000
+  SkeletalMeshComponent SkeletalMeshComponent0 mesh SK_CorruptedTentacle_01 wscale 3.00,3.00,3.00
+    slot 0 /Game/CastleDefender/Environment/Tentacles/MI_CorruptedTentacle_NoStretch.MI_CorruptedTentacle_NoStretch  parent /Game/CastleDefender/Environment/Tentacles/M_CorruptedTentacle_Ripple2.M_CorruptedTentacle_Ripple2
+  SkeletalMeshComponent JellyShell mesh SK_CorruptedTentacle_01 wscale 3.00,3.00,3.00
+    slot 0 /Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_Fog3.MI_TentacleJellyShell_Fog3  parent /Game/CastleDefender/VFX/JellyBubble/M_TentacleJellyShell_NoStretch.M_TentacleJellyShell_NoStretch
+Env_CorruptedTentacle_Fog2 | SkeletalMeshActor | loc 11500,7250,-2075 | scale 3.000,3.000,3.000
+  SkeletalMeshComponent SkeletalMeshComponent0 mesh SK_CorruptedTentacle_01 wscale 3.00,3.00,3.00
+    slot 0 /Game/CastleDefender/Environment/Tentacles/MI_CorruptedTentacle_NoStretch.MI_CorruptedTentacle_NoStretch  parent /Game/CastleDefender/Environment/Tentacles/M_CorruptedTentacle_Ripple2.M_CorruptedTentacle_Ripple2
+  SkeletalMeshComponent JellyShell mesh SK_CorruptedTentacle_01 wscale 3.00,3.00,3.00
+    slot 0 /Game/CastleDefender/VFX/JellyBubble/MI_TentacleJellyShell_Fog2.MI_TentacleJellyShell_Fog2  parent /Game/CastleDefender/VFX/JellyBubble/M_TentacleJellyShell_NoStretch.M_TentacleJellyShell_NoStretch

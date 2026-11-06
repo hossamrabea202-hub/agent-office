@@ -1,0 +1,1 @@
+BPVar(VarName="Radius",VarGuid=4BE39155BC21586EA2FECFE3C719EE9B,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Radius",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

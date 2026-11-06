@@ -1,0 +1,1 @@
+BPVar(VarName="NextFireAt",VarGuid=DC2A8DFF65AF463E84616B5190CF03EE,VarType=(PinCategory="real",PinSubCategory="double"),PropertyFlags=5,DefaultValue="0.0")

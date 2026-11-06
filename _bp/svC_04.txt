@@ -1,0 +1,1 @@
+BPVar(VarName="MaxWaiting",VarGuid=51862C9158125157B1D33813D15756B8,VarType=(PinCategory="int"),FriendlyName="MaxWaiting",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2")

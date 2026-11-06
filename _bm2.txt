@@ -1,0 +1,1 @@
+ContactAO <Object '/Game/CastleDefender/Environment/Flora/BlobMine/M_BlobMineContactAO.M_BlobMineContactAO' (0x0000089FC7DE6200) Class 'Material'> <Struct 'Vector' (0x0000089FBE78C718) {x: 40.000000, y: 110.000000, z: 110.000000}> <Struct 'Rotator' (0x000001FBB4E501A0) {pitch: -90.000000, yaw: 165.963757, roll: -45.083775}> True

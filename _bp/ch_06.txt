@@ -1,0 +1,1 @@
+BPVar(VarName="BruteToo",VarGuid=306C360207BF5ADB905F61B3423BEB0C,VarType=(PinCategory="bool"),FriendlyName="BruteToo",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="true")

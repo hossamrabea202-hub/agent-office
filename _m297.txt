@@ -1,0 +1,1 @@
+36 tagged, chamber ['Mine297_Chamber_00'] ext [<Struct 'Vector' (0x000002180555B510) {x: 7.000042, y: 6.000000, z: 3.500001}>]

@@ -1,0 +1,8 @@
+Castle_GateLever_NATIVE.ZombieStop pos=(-195,1750,150) yaw=0 ext=<Struct 'Vector' (0x0000020386DDC5B0) {x: 10.000000, y: 260.000000, z: 150.000000}> profile=Custom sk=None anim=
+Castle_GateLever_NATIVE.LeafColL pos=(-89,1608,275) yaw=0 ext=<Struct 'Vector' (0x0000020386DDC560) {x: 29.000000, y: 144.000000, z: 222.000000}> profile=BlockAllDynamic sk=None anim=
+Castle_GateLever_NATIVE.LeafColR pos=(-97,1838,255) yaw=0 ext=<Struct 'Vector' (0x0000020387F48600) {x: 15.000000, y: 136.000000, z: 247.000000}> profile=BlockAllDynamic sk=None anim=
+  class /Game/CastleDefender/Gameplay/Castle/BP_CastleMainGate.BP_CastleMainGate_C
+BP_GateBreachLeaf.SkeletalMeshComponent0 pos=(-110,1535,0) yaw=0 ext=None profile=PhysicsActor sk=SK_GateLeaf_L anim=<AnimationMode.ANIMATION_BLUEPRINT: 0>
+  class /Game/CastleDefender/Props/GateBreach/BP_GateBreachLeaf.BP_GateBreachLeaf_C
+BP_GateBreachLeaf.SkeletalMeshComponent0 pos=(-110,1965,0) yaw=0 ext=None profile=PhysicsActor sk=SK_GateLeaf_L anim=<AnimationMode.ANIMATION_BLUEPRINT: 0>
+  class /Game/CastleDefender/Props/GateBreach/BP_GateBreachLeaf.BP_GateBreachLeaf_C

@@ -1,0 +1,3 @@
+BreachSpot_B: 8 rocks hidden
+BreachSpot_A: 8 rocks hidden
+BreachSpot_C: 8 rocks hidden

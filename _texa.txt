@@ -1,0 +1,4 @@
+Castle2/WallCrackA/T_Decal_WallCrackA_BaseColor noalpha=False comp=<TextureCompressionSettings.TC_DEFAULT: 0> size=1024x1024 hasalpha=
+MudSplashA/T_Decal_MudSplashA_BaseColor noalpha=False comp=<TextureCompressionSettings.TC_DEFAULT: 0> size=1024x1024 hasalpha=
+Castle2/WallCrackA/T_Decal_WallCrackA_ORM noalpha=False comp=<TextureCompressionSettings.TC_MASKS: 2> size=1024x1024 hasalpha=
+MudSplashA/T_Decal_MudSplashA_ORM noalpha=False comp=<TextureCompressionSettings.TC_MASKS: 2> size=1024x1024 hasalpha=

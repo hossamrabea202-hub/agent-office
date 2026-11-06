@@ -1,0 +1,1 @@
+BPVar(VarName="ClimbEvery",VarGuid=5E1B7482107C597399E8DB615F95C038,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ClimbEvery",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="2.0")

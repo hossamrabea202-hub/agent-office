@@ -1,0 +1,1 @@
+BPVar(VarName="EnterTime",VarGuid=299F50B374FD55BFBA4BFA135D6CC050,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="EnterTime",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="1.5")

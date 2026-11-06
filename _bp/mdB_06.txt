@@ -1,0 +1,1 @@
+BPVar(VarName="Known",VarGuid=A03B70E24D1F52EDA17E788965B0AAD4,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",ContainerType=Array),FriendlyName="Known",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

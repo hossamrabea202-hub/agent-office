@@ -1,0 +1,326 @@
+{
+ "flights": [
+  {
+   "label": "Stair279_01",
+   "mesh": "SM_Stair_W200_Solid_N16",
+   "steps": 16,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 90.0,
+   "loc": [
+    1910,
+    -15,
+    680
+   ],
+   "old": 63
+  },
+  {
+   "label": "Stair279_02",
+   "mesh": "SM_Stair_W200_Solid_N04",
+   "steps": 4,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 90.0,
+   "loc": [
+    2534,
+    -15,
+    992
+   ],
+   "old": 63
+  },
+  {
+   "label": "Stair279_03",
+   "mesh": "SM_Stair_W200_Solid_N16",
+   "steps": 16,
+   "rise": 20.0,
+   "going": 32.0,
+   "width": 230.0,
+   "scale": [
+    1.15,
+    1.067,
+    1.111
+   ],
+   "yaw": 90.0,
+   "loc": [
+    1346,
+    495,
+    60
+   ],
+   "old": 79
+  },
+  {
+   "label": "Stair279_04",
+   "mesh": "SM_Stair_W200_Solid_N15",
+   "steps": 15,
+   "rise": 20.0,
+   "going": 32.0,
+   "width": 230.0,
+   "scale": [
+    1.15,
+    1.067,
+    1.111
+   ],
+   "yaw": 90.0,
+   "loc": [
+    1858,
+    495,
+    380
+   ],
+   "old": 79
+  },
+  {
+   "label": "Stair279_05",
+   "mesh": "SM_Stair_W200_Solid_N13",
+   "steps": 13,
+   "rise": 20.0,
+   "going": 28.1,
+   "width": 200.0,
+   "scale": [
+    1.0,
+    0.936,
+    1.111
+   ],
+   "yaw": 180.0,
+   "loc": [
+    165,
+    756,
+    720
+   ],
+   "old": 40
+  },
+  {
+   "label": "Stair279_06",
+   "mesh": "SM_Stair_W200_Solid_N16",
+   "steps": 16,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 90.0,
+   "loc": [
+    3577,
+    3285,
+    680
+   ],
+   "old": 63
+  },
+  {
+   "label": "Stair279_07",
+   "mesh": "SM_Stair_W200_Solid_N04",
+   "steps": 4,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 90.0,
+   "loc": [
+    4201,
+    3285,
+    992
+   ],
+   "old": 63
+  },
+  {
+   "label": "Stair279_08",
+   "mesh": "SM_Stair_W200_Solid_N16",
+   "steps": 16,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 0.0,
+   "loc": [
+    2985,
+    1090,
+    680
+   ],
+   "old": 59
+  },
+  {
+   "label": "Stair279_09",
+   "mesh": "SM_Stair_W200_Solid_N04",
+   "steps": 4,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 0.0,
+   "loc": [
+    2985,
+    466,
+    992
+   ],
+   "old": 59
+  },
+  {
+   "label": "Stair279_10",
+   "mesh": "SM_Stair_W200_Solid_N16",
+   "steps": 16,
+   "rise": 20.0,
+   "going": 32.0,
+   "width": 230.0,
+   "scale": [
+    1.15,
+    1.067,
+    1.111
+   ],
+   "yaw": 90.0,
+   "loc": [
+    1346,
+    2775,
+    60
+   ],
+   "old": 75
+  },
+  {
+   "label": "Stair279_11",
+   "mesh": "SM_Stair_W200_Solid_N15",
+   "steps": 15,
+   "rise": 20.0,
+   "going": 32.0,
+   "width": 230.0,
+   "scale": [
+    1.15,
+    1.067,
+    1.111
+   ],
+   "yaw": 90.0,
+   "loc": [
+    1858,
+    2775,
+    380
+   ],
+   "old": 75
+  },
+  {
+   "label": "Stair279_12",
+   "mesh": "SM_Stair_W200_Solid_N16",
+   "steps": 16,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 180.0,
+   "loc": [
+    3175,
+    2410,
+    680
+   ],
+   "old": 64
+  },
+  {
+   "label": "Stair279_13",
+   "mesh": "SM_Stair_W200_Solid_N04",
+   "steps": 4,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 180.0,
+   "loc": [
+    3175,
+    3034,
+    992
+   ],
+   "old": 64
+  },
+  {
+   "label": "Stair279_14",
+   "mesh": "SM_Stair_W200_Solid_N13",
+   "steps": 13,
+   "rise": 20.0,
+   "going": 28.1,
+   "width": 200.0,
+   "scale": [
+    1.0,
+    0.936,
+    1.111
+   ],
+   "yaw": 0.0,
+   "loc": [
+    -35,
+    2744,
+    720
+   ],
+   "old": 40
+  },
+  {
+   "label": "Stair279_15",
+   "mesh": "SM_Stair_W200_Solid_N16",
+   "steps": 16,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 90.0,
+   "loc": [
+    1910,
+    3325,
+    680
+   ],
+   "old": 63
+  },
+  {
+   "label": "Stair279_16",
+   "mesh": "SM_Stair_W200_Solid_N04",
+   "steps": 4,
+   "rise": 19.5,
+   "going": 39.0,
+   "width": 190.0,
+   "scale": [
+    0.95,
+    1.3,
+    1.083
+   ],
+   "yaw": 90.0,
+   "loc": [
+    2534,
+    3325,
+    992
+   ],
+   "old": 63
+  }
+ ],
+ "treads": 189,
+ "chained": 188
+}

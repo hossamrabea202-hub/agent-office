@@ -1,0 +1,1 @@
+template rubble 16, placed rubble 3, saved

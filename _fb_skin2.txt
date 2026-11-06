@@ -1,0 +1,9 @@
+BP override mats: []
+FleshBrute_0 before: [None, None]
+FleshBrute_0 after: [None, None]
+FleshBrute_1 before: [None, None]
+FleshBrute_1 after: [None, None]
+FleshBrute_2 before: [None, None]
+FleshBrute_2 after: [None, None]
+M_FleshBrute basecolor input: MaterialExpressionLinearInterpolate
+DONE

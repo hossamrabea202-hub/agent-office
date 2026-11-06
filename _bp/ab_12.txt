@@ -1,0 +1,1 @@
+BPVar(VarName="JitterMin",VarGuid=0001727E57A154CD92283C0ED179167B,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="JitterMin",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.9")

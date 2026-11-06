@@ -1,0 +1,5 @@
+flesh -> DefaultLit
+made /Game/CastleDefender/Environment/Flora/BlobMine/M_BlobMineContactAO
+ContactAO set
+ContactAO set
+saved True

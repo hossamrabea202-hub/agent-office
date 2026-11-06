@@ -1,0 +1,1 @@
+BPVar(VarName="KnownMax",VarGuid=9122CAD9B49057609DEC651EE0B7EF4A,VarType=(PinCategory="real",PinSubCategory="double",ContainerType=Array),FriendlyName="KnownMax",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

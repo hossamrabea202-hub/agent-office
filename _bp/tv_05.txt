@@ -1,0 +1,1 @@
+BPVar(VarName="AbsorbRadius",VarGuid=19F9B63F1B885C2C849D1D1CBADE98FE,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="AbsorbRadius",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1200.0")

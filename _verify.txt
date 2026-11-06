@@ -1,0 +1,5 @@
+Infection MaxHP 250.0
+Obs AvailMask 991 PieceId [11, 11, 12, 12, 13, 13, 14, 14, 16, 16, 17, 17, 18, 19, 19]
+Aura exists False
+hero Obs comps ['Obs_Boots_R', 'Obs_Gauntlets_R', 'Obs_Gauntlets_R', 'Obs_Boots_L', 'Obs_Boots_L', 'Obs_Shins_L', 'Obs_Boots_R', 'Obs_Gauntlets_L', 'Obs_Shins_R', 'Obs_Shins_R', 'Obs_Gauntlets_L', 'Obs_UpperArms_L', 'Obs_Shoulders_L', 'Obs_Shoulders_L', 'Obs_Shoulders_R', 'Obs_Shoulders_R', 'Obs_Shins_L', 'Obs_UpperArms_L', 'Obs_Forearms_R', 'Obs_Thighs_R', 'Obs_UpperArms_R', 'Obs_Forearms_L', 'Obs_Forearms_L', 'Obs_UpperArms_R', 'Obs_Forearms_R', 'Obs_Waist', 'Obs_Waist', 'Obs_Thighs_L', 'Obs_Thighs_R', 'Obs_Thighs_L']
+ballistas 0, cannonpads 3

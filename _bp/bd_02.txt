@@ -1,0 +1,1 @@
+BPVar(VarName="MaxPerWave",VarGuid=DD322A6C2CCE56C38136870B05198A10,VarType=(PinCategory="int"),FriendlyName="MaxPerWave",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="4")

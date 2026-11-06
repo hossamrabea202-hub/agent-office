@@ -1,0 +1,165 @@
+1) removed V2 grime decals: 190 ; V2 decals left (cracks/impacts): 214
+2) breach actors: 17
+   near Realm_Breach_Point: Realm_Wall_Breach_B (SM_SiegeBarricade_Palisade) -> hidden
+   near Realm_Breach_Point: Realm_Wall_Breach_A (SM_SiegeBarricade_Palisade) -> hidden
+   near Realm_Breach_Point: Realm_Wall_Breached (SM_SiegeBarricade_Breach) -> hidden
+   BreachSpot_B comp Rubble0 mesh SM_Rock_01 visible=False hiddenInGame=False
+   BreachSpot_B comp Rubble1 mesh SM_Rock_02 visible=False hiddenInGame=False
+   BreachSpot_B comp Rubble2 mesh SM_Rock_03 visible=False hiddenInGame=False
+   BreachSpot_B comp Rubble3 mesh SM_Rock_04 visible=False hiddenInGame=False
+   BreachSpot_B comp Rubble4 mesh SM_Rock_05 visible=False hiddenInGame=False
+   BreachSpot_B comp Rubble5 mesh SM_Rock_06 visible=False hiddenInGame=False
+   BreachSpot_B comp Rubble6 mesh SM_Rock_07 visible=False hiddenInGame=False
+   BreachSpot_B comp Rubble7 mesh SM_Rock_08 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris0 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris1 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris2 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris3 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris4 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris5 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris6 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris7 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris8 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris9 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris10 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_B comp Debris11 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk0 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk1 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk2 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk3 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk4 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk5 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk6 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk7 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk8 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk9 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk10 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk11 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk12 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk13 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk14 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk15 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk16 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk17 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk18 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk19 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_B comp Brk20 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   near Nav_BreachC_2: FirePit_Rock_01 (vimrfjsaw_tier_0) -> hidden
+   near Nav_BreachC_2: FirePit_Rock_00 (vimrfjsaw_tier_0) -> hidden
+   near Nav_BreachC_2: FirePit_Rock_11 (vimrfjsaw_tier_0) -> hidden
+   near Nav_BreachC_2: FirePit_Rock_12 (vimrfjsaw_tier_0) -> hidden
+   near Nav_BreachC_2: FirePit_Rock_13 (vimrfjsaw_tier_0) -> hidden
+   near Nav_BreachC_2: FirePit_Rock_14 (vimrfjsaw_tier_0) -> hidden
+   near Nav_BreachC_2: FirePit_Rock_19 (vimrfjsaw_tier_0) -> hidden
+   near Nav_BreachC_2: FirePit_Rock_20 (vimrfjsaw_tier_0) -> hidden
+   BreachSpot_A comp Rubble0 mesh SM_Rock_01 visible=False hiddenInGame=False
+   BreachSpot_A comp Rubble1 mesh SM_Rock_02 visible=False hiddenInGame=False
+   BreachSpot_A comp Rubble2 mesh SM_Rock_03 visible=True hiddenInGame=False
+   BreachSpot_A comp Rubble3 mesh SM_Rock_04 visible=True hiddenInGame=False
+   BreachSpot_A comp Rubble4 mesh SM_Rock_05 visible=True hiddenInGame=False
+   BreachSpot_A comp Rubble5 mesh SM_Rock_06 visible=True hiddenInGame=False
+   BreachSpot_A comp Rubble6 mesh SM_Rock_07 visible=True hiddenInGame=False
+   BreachSpot_A comp Rubble7 mesh SM_Rock_08 visible=True hiddenInGame=False
+   BreachSpot_A comp Debris0 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris1 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris2 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris3 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris4 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris5 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris6 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris7 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris8 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris9 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris10 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_A comp Debris11 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_A comp Brk0 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk1 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk2 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk3 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk4 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk5 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk6 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk7 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk8 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk9 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk10 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk11 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk12 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk13 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk14 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk15 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk16 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk17 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk18 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk19 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_A comp Brk20 mesh SM_Bevel_008 visible=True hiddenInGame=False
+   BreachSpot_C comp Rubble0 mesh SM_Rock_01 visible=False hiddenInGame=False
+   BreachSpot_C comp Rubble1 mesh SM_Rock_02 visible=False hiddenInGame=False
+   BreachSpot_C comp Rubble2 mesh SM_Rock_03 visible=False hiddenInGame=False
+   BreachSpot_C comp Rubble3 mesh SM_Rock_04 visible=False hiddenInGame=False
+   BreachSpot_C comp Rubble4 mesh SM_Rock_05 visible=False hiddenInGame=False
+   BreachSpot_C comp Rubble5 mesh SM_Rock_06 visible=False hiddenInGame=False
+   BreachSpot_C comp Rubble6 mesh SM_Rock_07 visible=False hiddenInGame=False
+   BreachSpot_C comp Rubble7 mesh SM_Rock_08 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris0 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris1 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris2 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris3 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris4 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris5 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris6 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris7 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris8 mesh SM_BlastRock_01 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris9 mesh SM_BlastRock_02 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris10 mesh SM_BlastRock_03 visible=False hiddenInGame=False
+   BreachSpot_C comp Debris11 mesh SM_BlastRock_04 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk0 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk1 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk2 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk3 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk4 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk5 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk6 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk7 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk8 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk9 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk10 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk11 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk12 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk13 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk14 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk15 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk16 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk17 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk18 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk19 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   BreachSpot_C comp Brk20 mesh SM_Bevel_008 visible=False hiddenInGame=False
+   hidden near breach: 11
+3) textures in /Game: 1510 ; >=4096: 368 ; 2048: 700
+   8192x8192 /Game/CastleDefender/Props/GateBreach/Textures/T_GateOak_ORM
+   8192x8192 /Game/CastleDefender/Props/GateBreach/Textures/T_GateOak_N
+   8192x8192 /Game/CastleDefender/Props/GateBreach/Textures/T_GateOak_BC
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wooden_Planks_vcznah3g/Raw/T_vcznah3g_8K_ORM
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wooden_Planks_vcznah3g/Raw/T_vcznah3g_8K_N
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wooden_Planks_vcznah3g/Raw/T_vcznah3g_8K_B
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wild_Grass_sfknaeoa/Raw/T_sfknaeoa_8K_N
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Wild_Grass_sfknaeoa/Raw/T_sfknaeoa_8K_B
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_ORM
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_N
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Rocky_Soil_Ground_vb2qdgwew/Raw/T_vb2qdgwew_8K_B
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Cracked_Wooden_Planks_ui2leaxlw/Raw/T_ui2leaxlw_8K_ORM
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Surfaces/Cracked_Wooden_Planks_ui2leaxlw/Raw/T_ui2leaxlw_8K_B
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Plants/Wild_Grass_vlkhcbxia/Raw/T_vlkhcbxia_8K_ORT
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Plants/Wild_Grass_vlkhcbxia/Raw/T_vlkhcbxia_8K_N
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/Plants/Wild_Grass_vlkhcbxia/Raw/T_vlkhcbxia_8K_B
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Mossy_Forest_Rock_vimrfjsaw/Raw/T_vimrfjsaw_8K_ORM
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Mossy_Forest_Rock_vimrfjsaw/Raw/T_vimrfjsaw_8K_N
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Mossy_Forest_Rock_vimrfjsaw/Raw/T_vimrfjsaw_8K_B
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Massive_Tundra_Rock_Formation_wcrmbiar/Raw/T_wcrmbiar_8K_ORM
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Massive_Tundra_Rock_Formation_wcrmbiar/Raw/T_wcrmbiar_8K_N
+   8192x8192 /Game/CastleDefender/AssetPacks/Fab/Megascans/3D/Massive_Tundra_Rock_Formation_wcrmbiar/Raw/T_wcrmbiar_8K_B
+   4096x4096 /Game/ZombieAnimationPack/Demo/EpicContent/Mannequin_UE5/Textures/Manny/T_Manny_02_Tan
+   4096x4096 /Game/ZombieAnimationPack/Demo/EpicContent/Mannequin_UE5/Textures/Manny/T_Manny_02_N
+   4096x4096 /Game/ZombieAnimationPack/Demo/EpicContent/Mannequin_UE5/Textures/Manny/T_Manny_02_MSR_MSK
+   ini already has PoolSize
+SAVED level

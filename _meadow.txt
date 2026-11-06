@@ -1,0 +1,60 @@
+#351 meadow radius 15000 cm
+grass  20 meshes SM_vlkhcbxia_VarA, SM_vlkhcbxia_VarB, SM_vlkhcbxia_VarC, SM_vlkhcbxia_VarD, SM_vlkhcbxia_VarE, SM_vlkhcbxia_VarF, SM_vlkhcbxia_VarG, SM_vlkhcbxia_VarH
+flower 14 meshes SM_Flora_Daisy, SM_Flower_Yarrow_C, SM_Flower_Yarrow_B, SM_Flower_Yarrow_A, SM_Flower_Poppy_C, SM_Flower_Poppy_B, SM_Flower_Poppy_A, SM_Flower_Daisy_C
+bush   4 meshes SM_Bush_Hazel_B, SM_Bush_Hazel_A, SM_Bush_Hawthorn_B, SM_Bush_Hawthorn_A
+fern   1 meshes SM_Fern_Bracken_A
+dead   8 meshes SM_vdknafgha_VarA, SM_vdknafgha_VarB, SM_vdknafgha_VarC, SM_vdknafgha_VarD, SM_vdknafgha_VarE, SM_vdknafgha_VarF, SM_vdknafgha_VarG, SM_vdknafgha_VarH
+landscape [-48900, -48650] .. [51900, 52150]
+placed grass    3061
+placed flower   7436
+placed bush      295
+placed fern       69
+placed dead      207
+samples 56516
+  grass  SM_vczndjqja_VarH                        155
+  grass  SM_vlkhcbxia_VarH                        144
+  grass  SM_vczndjqja_VarG                        158
+  grass  SM_vczndjqja_VarC                        173
+  grass  SM_vlkhcbxia_VarB                        155
+  grass  SM_vczndjqja_VarF                        150
+  grass  SM_vlkhcbxia_VarA                        157
+  grass  SM_MWAM_GrassD                           154
+  grass  SM_MWAM_GrassB                           152
+  grass  SM_vczndjqja_VarE                        142
+  grass  SM_vczndjqja_VarB                        160
+  grass  SM_vlkhcbxia_VarC                        152
+  grass  SM_vlkhcbxia_VarF                        157
+  grass  SM_vlkhcbxia_VarE                        164
+  grass  SM_MWAM_GrassC                           149
+  grass  SM_vczndjqja_VarA                        159
+  grass  SM_vczndjqja_VarD                        144
+  grass  SM_MWAM_GrassA                           147
+  grass  SM_vlkhcbxia_VarG                        153
+  grass  SM_vlkhcbxia_VarD                        136
+  flower SM_Flower_Yarrow_A                       386
+  flower SM_Flower_Yarrow_B                       574
+  flower SM_Flora_Poppy                           615
+  flower SM_Flower_Poppy_A                        310
+  flower SM_Flower_Cornflower_A                   521
+  flower SM_Flora_Daisy                           556
+  flower SM_Flower_Poppy_C                        400
+  flower SM_Flower_Daisy_C                        627
+  flower SM_Flower_Cornflower_B                   467
+  flower SM_Flower_Daisy_A                        598
+  flower SM_Flower_Poppy_B                        553
+  flower SM_Flower_Yarrow_C                       565
+  flower SM_Flower_Cornflower_C                   710
+  flower SM_Flower_Daisy_B                        554
+  bush   SM_Bush_Hawthorn_B                       73
+  bush   SM_Bush_Hazel_A                          82
+  bush   SM_Bush_Hawthorn_A                       64
+  bush   SM_Bush_Hazel_B                          76
+  fern   SM_Fern_Bracken_A                        69
+  dead   SM_vdknafgha_VarE                        26
+  dead   SM_vdknafgha_VarD                        32
+  dead   SM_vdknafgha_VarB                        27
+  dead   SM_vdknafgha_VarG                        26
+  dead   SM_vdknafgha_VarA                        25
+  dead   SM_vdknafgha_VarH                        23
+  dead   SM_vdknafgha_VarF                        29
+  dead   SM_vdknafgha_VarC                        19

@@ -1,0 +1,7142 @@
+[
+{
+"label": "SM_StairTread_77",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1554.0,
+2890.0,
+190.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1554.0,
+2890.0,
+190.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_161",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2673.6767492596387,
+770.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2673.6767492596387,
+770.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_168",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2477.173927677579,
+910.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2477.173927677579,
+910.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_51",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1929.5,
+80.0,
+689.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+1929.5,
+80.0,
+689.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_101",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2322.0,
+2890.0,
+670.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2322.0,
+2890.0,
+670.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_194",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2507.5,
+728.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2507.5,
+728.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_226",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4103.500000000001,
+3379.999990508988,
+943.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4103.500000000001,
+3379.999990508988,
+943.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_225",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4064.5,
+3379.9999886107857,
+923.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4064.5,
+3379.9999886107857,
+923.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_200",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2741.5,
+845.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2741.5,
+845.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_181",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+719.5,
+865.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+719.5,
+865.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_229",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4220.5,
+3379.999996203596,
+1001.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4220.5,
+3379.999996203596,
+1001.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_23",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2098.0,
+610.0,
+530.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2098.0,
+610.0,
+530.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_190",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+368.5,
+1040.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+368.5,
+1040.75
+],
+"bounds_ext": [
+95.0,
+19.500011622905788,
+9.75
+]
+},
+{
+"label": "SM_StairTread_170",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2421.030264368419,
+950.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2421.030264368419,
+950.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_224",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4025.500000000001,
+3379.999986712583,
+904.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4025.500000000001,
+3379.999986712583,
+904.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_150",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+938.6105773586812,
+850.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+938.6105773586812,
+850.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_133",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2358.5,
+3420.0,
+904.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2358.5,
+3420.0,
+904.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Tower9_StairRamp_A_B",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Castle/Tower9_A",
+"loc": [
+58.400000000000006,
+-124.0,
+965.6047936311152
+],
+"rot": [
+5.820008703875191e-31,
+24.48325729370117,
+180.0
+],
+"scale": [
+4.825936593035594,
+1.32,
+0.08
+],
+"bounds_center": [
+58.400000000000006,
+-124.0,
+965.6047936311152
+],
+"bounds_ext": [
+221.25770995963677,
+66.0,
+103.64032815719997
+]
+},
+{
+"label": "SM_StairTread_160",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2701.7485809142186,
+750.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2701.7485809142186,
+750.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_96",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2162.0,
+2890.0,
+570.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2162.0,
+2890.0,
+570.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_14",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1810.0,
+610.0,
+350.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1810.0,
+610.0,
+350.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Tower9_GateStep_A1_SMTread",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+742.1077557766216,
+710.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000001
+],
+"scale": [
+0.877245,
+0.869565,
+1.0
+],
+"bounds_center": [
+65.0,
+742.1077557766216,
+710.0
+],
+"bounds_ext": [
+99.99997500000003,
+14.035928366060261,
+10.0
+]
+},
+{
+"label": "SM_StairTread_154",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+1050.897903977001,
+930.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+1050.897903977001,
+930.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347682,
+10.0
+]
+},
+{
+"label": "SM_StairTread_193",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2468.5,
+709.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2468.5,
+709.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_11",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1714.0,
+610.0,
+290.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1714.0,
+610.0,
+290.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Tower9_StairRamp_A_A",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Castle/Tower9_A",
+"loc": [
+41.599999999999994,
+-286.0,
+770.6417492362026
+],
+"rot": [
+0.0,
+23.393537521362312,
+0.0
+],
+"scale": [
+4.785359338649502,
+1.32,
+0.08
+],
+"bounds_center": [
+41.599999999999994,
+-286.0,
+770.6417492362026
+],
+"bounds_ext": [
+221.18817751511773,
+66.0,
+98.67119760710102
+]
+},
+{
+"label": "SM_StairTread_87",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1874.0,
+2890.0,
+390.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1874.0,
+2890.0,
+390.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_0",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1362.0,
+610.0,
+70.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1362.0,
+610.0,
+70.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_30",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2322.0,
+610.0,
+670.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2322.0,
+610.0,
+670.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Castle_KeepShell_Step_31",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"folder": "None",
+"loc": [
+2345.0,
+1175.0,
+22.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.1,
+2.1,
+0.6
+],
+"bounds_center": [
+2345.0,
+1175.0,
+22.0
+],
+"bounds_ext": [
+55.0,
+105.0,
+30.0
+]
+},
+{
+"label": "SM_StairTread_65",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2475.5,
+80.0,
+962.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2475.5,
+80.0,
+962.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_195",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2546.5,
+748.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2546.5,
+748.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_91",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2002.0,
+2890.0,
+470.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2002.0,
+2890.0,
+470.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Castle_KeepShell_Step_30",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"folder": "None",
+"loc": [
+2345.0,
+2340.0,
+9.5
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.1,
+2.4,
+0.35
+],
+"bounds_center": [
+2345.0,
+2340.0,
+9.5
+],
+"bounds_ext": [
+55.0,
+120.0,
+17.5
+]
+},
+{
+"label": "SM_StairTread_211",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+3170.5,
+1060.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+3170.5,
+1060.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_221",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3908.5000000000005,
+3379.9999810179756,
+845.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3908.5000000000005,
+3379.9999810179756,
+845.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_144",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+770.1795874312015,
+730.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+770.1795874312015,
+730.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_25",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2162.0,
+610.0,
+570.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2162.0,
+610.0,
+570.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_56",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2124.5,
+80.0,
+787.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2124.5,
+80.0,
+787.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_149",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+910.5387457041013,
+830.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+910.5387457041013,
+830.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_227",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4142.5,
+3379.9999924071903,
+962.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4142.5,
+3379.9999924071903,
+962.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "Tower9_GateStep_B2_SM",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StoneModule.SM_StoneModule",
+"folder": "Castle/Restored/SM_StoneModule",
+"loc": [
+65.0,
+2785.9640758779583,
+320.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.8400009277343041,
+0.28071831654579726,
+7.2
+],
+"bounds_center": [
+65.0,
+2785.9640758779583,
+320.0
+],
+"bounds_ext": [
+92.00005340576172,
+14.035916898145388,
+360.0
+]
+},
+{
+"label": "SM_StairTread_231",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4298.5,
+3380.0,
+1040.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4298.5,
+3380.0,
+1040.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_1",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1394.0,
+610.0,
+90.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1394.0,
+610.0,
+90.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_146",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+826.3232507403615,
+770.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+826.3232507403615,
+770.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_99",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2258.0,
+2890.0,
+630.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2258.0,
+2890.0,
+630.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_152",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+994.754240667841,
+890.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+994.754240667841,
+890.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_141",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2670.5,
+3420.0,
+1060.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2670.5,
+3420.0,
+1060.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_86",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1842.0,
+2890.0,
+370.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1842.0,
+2890.0,
+370.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_176",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+914.5,
+767.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+914.5,
+767.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "Stairs_75",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Stairs",
+"loc": [
+1266.0,
+2890.0,
+10.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1266.0,
+2890.0,
+10.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Stairs_3",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Stairs",
+"loc": [
+1330.0,
+610.0,
+50.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1330.0,
+610.0,
+50.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_165",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2561.389422641319,
+850.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2561.389422641319,
+850.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_97",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2194.0,
+2890.0,
+590.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2194.0,
+2890.0,
+590.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_213",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3596.500000000001,
+3379.999965832357,
+689.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3596.500000000001,
+3379.999965832357,
+689.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_70",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2670.5,
+80.0,
+1060.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2670.5,
+80.0,
+1060.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_189",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+407.5,
+1021.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+407.5,
+1021.25
+],
+"bounds_ext": [
+95.0,
+19.500011622905788,
+9.75
+]
+},
+{
+"label": "SM_StairTread_61",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2319.5,
+80.0,
+884.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2319.5,
+80.0,
+884.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Tower9_GateStep_A2_SM",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StoneModule.SM_StoneModule",
+"folder": "Castle/Restored/SM_StoneModule",
+"loc": [
+65.0,
+714.0359241220417,
+320.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.8400009277343041,
+0.28071831654580026,
+7.2
+],
+"bounds_center": [
+65.0,
+714.0359241220417,
+320.0
+],
+"bounds_ext": [
+92.00005340576172,
+14.035916898145388,
+360.0
+]
+},
+{
+"label": "SM_StairTread_72",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1394.0,
+2890.0,
+90.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1394.0,
+2890.0,
+90.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "StairRamp_09",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+65.00000000000001,
+2613.3566007357085,
+823.7332635556772
+],
+"rot": [
+0.0,
+33.622344970703146,
+-90.00000000000004
+],
+"scale": [
+5.656740590968258,
+1.9000000000000017,
+0.08
+],
+"bounds_center": [
+65.00000000000001,
+2613.3566007357085,
+823.7332635556772
+],
+"bounds_ext": [
+95.00000000000028,
+237.7347754144489,
+159.94230649553538
+]
+},
+{
+"label": "SM_StairTread_162",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2645.6049176050587,
+790.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2645.6049176050587,
+790.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_98",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2226.0,
+2890.0,
+610.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2226.0,
+2890.0,
+610.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_131",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2280.5,
+3420.0,
+865.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2280.5,
+3420.0,
+865.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_212",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+279.5,
+1060.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000002,
+0.8260870000000002,
+0.975
+],
+"bounds_center": [
+3080.0,
+279.5,
+1060.25
+],
+"bounds_ext": [
+95.00000499999987,
+19.500011622905788,
+9.75
+]
+},
+{
+"label": "SM_StairTread_175",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+953.5,
+748.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+953.5,
+748.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "Castle_KeepShell_Step_29",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"folder": "None",
+"loc": [
+2345.0,
+1160.0,
+9.5
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.1,
+2.4,
+0.35
+],
+"bounds_center": [
+2345.0,
+1160.0,
+9.5
+],
+"bounds_ext": [
+55.0,
+120.0,
+17.5
+]
+},
+{
+"label": "Castle_BaileyKeepStep_97",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"folder": "None",
+"loc": [
+3192.5,
+1910.0,
+23.5
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+0.25,
+1.2,
+0.57
+],
+"bounds_center": [
+3192.5,
+1910.0,
+23.500000000000004
+],
+"bounds_ext": [
+12.5,
+60.0,
+28.5
+]
+},
+{
+"label": "SM_StairTread_52",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1968.5,
+80.0,
+709.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+1968.5,
+80.0,
+709.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "StairRamp_03",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+3968.716227208241,
+3379.9999839446346,
+885.1368899588173
+],
+"rot": [
+0.0,
+25.407716751098633,
+2.6492573397263195e-06
+],
+"scale": [
+8.635220283679146,
+1.8000001094910203,
+0.08
+],
+"bounds_center": [
+3968.716227208241,
+3379.9999839446346,
+885.1368899588172
+],
+"bounds_ext": [
+391.71624709388243,
+90.00002358682968,
+188.86310621604088
+]
+},
+{
+"label": "SM_StairTread_79",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1618.0,
+2890.0,
+230.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1618.0,
+2890.0,
+230.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_232",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4337.5,
+3380.0000018982023,
+1060.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4337.5,
+3380.0000018982023,
+1060.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_172",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+1070.5,
+689.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+1070.5,
+689.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_2",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1426.0,
+610.0,
+110.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1426.0,
+610.0,
+110.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Stairs_1",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Stairs",
+"loc": [
+1266.0,
+610.0,
+10.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1266.0,
+610.0,
+10.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_207",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+3014.5,
+982.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+3014.5,
+982.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_94",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2098.0,
+2890.0,
+530.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2098.0,
+2890.0,
+530.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Castle_KeepStair",
+"mesh": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_054.SM_Bevel_054",
+"folder": "CastleArena/Courtyard",
+"loc": [
+2175.0,
+1750.0,
+100.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2175.0,
+1750.0,
+100.0
+],
+"bounds_ext": [
+19.000019073486328,
+215.00001525878906,
+100.0
+]
+},
+{
+"label": "SM_StairTread_218",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3791.5000000000027,
+3379.999975323369,
+787.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3791.5000000000027,
+3379.999975323369,
+787.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_68",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2592.5,
+80.0,
+1021.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2592.5,
+80.0,
+1021.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_57",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2163.5,
+80.0,
+806.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2163.5,
+80.0,
+806.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_209",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+3092.5,
+1021.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+3092.5,
+1021.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_173",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+1031.5,
+709.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+1031.5,
+709.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_179",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+797.5,
+826.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+797.5,
+826.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_137",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2514.5,
+3420.0,
+982.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2514.5,
+3420.0,
+982.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_156",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+1107.041567286161,
+970.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+1107.041567286161,
+970.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347682,
+10.0
+]
+},
+{
+"label": "SM_StairTread_127",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2124.5,
+3420.0,
+787.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2124.5,
+3420.0,
+787.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "StairRamp_00",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+1796.0745999498902,
+2890.0,
+350.58005335598415
+],
+"rot": [
+0.0,
+31.24173927307129,
+0.0
+],
+"scale": [
+12.725344952117828,
+2.2,
+0.08
+],
+"bounds_center": [
+1796.0745999498902,
+2890.0,
+350.58005335598415
+],
+"bounds_ext": [
+546.0746069017116,
+110.0,
+333.419950933423
+]
+},
+{
+"label": "SM_StairTread_167",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2505.2457593321587,
+890.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2505.2457593321587,
+890.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_197",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2624.5,
+787.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2624.5,
+787.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "StairRamp_05",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+3080.0,
+698.2837727834586,
+885.1368899627603
+],
+"rot": [
+0.0,
+25.40771675109865,
+-90.00000000000001
+],
+"scale": [
+8.635220241913153,
+1.8,
+0.08
+],
+"bounds_center": [
+3080.0,
+698.2837727834587,
+885.1368899627603
+],
+"bounds_ext": [
+90.0,
+391.716241046125,
+188.86310532004183
+]
+},
+{
+"label": "SM_StairTread_128",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2163.5,
+3420.0,
+806.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2163.5,
+3420.0,
+806.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_182",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+680.5,
+884.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+680.5,
+884.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_64",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2436.5,
+80.0,
+943.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2436.5,
+80.0,
+943.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Grime_StairFoot_1",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"folder": "CastleDefender/FloorDressing",
+"loc": [
+1171.0,
+610.0,
+3.3999990105628966
+],
+"rot": [
+0.0,
+0.0,
+180.0
+],
+"scale": [
+2.1,
+2.185,
+1.0
+],
+"bounds_center": [
+1171.0,
+610.0,
+3.3999990105628966
+],
+"bounds_ext": [
+105.0,
+109.25,
+7.993605777301127e-15
+]
+},
+{
+"label": "SM_StairTread_136",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2475.5,
+3420.0,
+962.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2475.5,
+3420.0,
+962.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_134",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2397.5,
+3420.0,
+923.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2397.5,
+3420.0,
+923.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_185",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+563.5,
+943.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+563.5,
+943.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_135",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2436.5,
+3420.0,
+943.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2436.5,
+3420.0,
+943.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_13",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1778.0,
+610.0,
+330.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1778.0,
+610.0,
+330.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_54",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2046.5,
+80.0,
+748.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2046.5,
+80.0,
+748.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Tower9_GateStep_B1_SM",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StoneModule.SM_StoneModule",
+"folder": "Castle/Restored/SM_StoneModule",
+"loc": [
+65.0,
+2757.8922442233784,
+340.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.8400009277343041,
+0.28071831654579726,
+7.2
+],
+"bounds_center": [
+65.0,
+2757.8922442233784,
+340.0
+],
+"bounds_ext": [
+92.00005340576172,
+14.035916898145388,
+360.0
+]
+},
+{
+"label": "SM_StairTread_58",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2202.5,
+80.0,
+826.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2202.5,
+80.0,
+826.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_8",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1618.0,
+610.0,
+230.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1618.0,
+610.0,
+230.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_63",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2397.5,
+80.0,
+923.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2397.5,
+80.0,
+923.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Tower9_GateStep_B2_SMTread",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2785.9640758779583,
+690.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000001
+],
+"scale": [
+0.877245,
+0.869565,
+1.0
+],
+"bounds_center": [
+65.0,
+2785.9640758779583,
+690.0
+],
+"bounds_ext": [
+99.99997500000003,
+14.035928366060489,
+10.0
+]
+},
+{
+"label": "StairRamp_08",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+2301.7162272165415,
+3420.0,
+885.1368899627603
+],
+"rot": [
+0.0,
+25.40771675109865,
+0.0
+],
+"scale": [
+8.635220241913153,
+1.8,
+0.08
+],
+"bounds_center": [
+2301.7162272165415,
+3420.0,
+885.1368899627603
+],
+"bounds_ext": [
+391.71624104612465,
+90.0,
+188.86310532004183
+]
+},
+{
+"label": "SM_StairTread_187",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+485.5,
+982.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+485.5,
+982.25
+],
+"bounds_ext": [
+95.0,
+19.500011622905788,
+9.75
+]
+},
+{
+"label": "SM_StairTread_71",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1362.0,
+2890.0,
+70.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1362.0,
+2890.0,
+70.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_126",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2085.5,
+3420.0,
+767.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2085.5,
+3420.0,
+767.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Tower9_B_Stairs",
+"mesh": "/Game/CastleDefender/Environment/Castle/Tower9/SM_Tower09_Stairs.SM_Tower09_Stairs",
+"folder": "Castle/Tower9_B",
+"loc": [
+50.0,
+3450.0,
+0.0
+],
+"rot": [
+0.0,
+0.0,
+-90.00000000000001
+],
+"scale": [
+1.2,
+1.2,
+1.0
+],
+"bounds_center": [
+-205.00000915527346,
+3449.9999908447267,
+870.5
+],
+"bounds_ext": [
+150.00002746582038,
+210.90002746582059,
+199.5
+]
+},
+{
+"label": "SM_StairTread_163",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2617.533085950479,
+810.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2617.533085950479,
+810.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_192",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2429.5,
+689.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2429.5,
+689.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_10",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1682.0,
+610.0,
+270.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1682.0,
+610.0,
+270.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_180",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+758.5,
+845.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+758.5,
+845.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_166",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2533.3175909867387,
+870.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2533.3175909867387,
+870.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "Castle_KeepStair",
+"mesh": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_047.SM_Bevel_047",
+"folder": "CastleArena/Courtyard",
+"loc": [
+1930.0,
+1750.0,
+12.5
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1930.0,
+1750.0,
+12.5
+],
+"bounds_ext": [
+19.000019073486328,
+215.00001525878906,
+12.5
+]
+},
+{
+"label": "SM_StairTread_82",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1714.0,
+2890.0,
+290.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1714.0,
+2890.0,
+290.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_7",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1586.0,
+610.0,
+210.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1586.0,
+610.0,
+210.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_210",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+3131.5,
+1040.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+3131.5,
+1040.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_66",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2514.5,
+80.0,
+982.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2514.5,
+80.0,
+982.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_138",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2553.5,
+3420.0,
+1001.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2553.5,
+3420.0,
+1001.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_29",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2290.0,
+610.0,
+650.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2290.0,
+610.0,
+650.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_81",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1682.0,
+2890.0,
+270.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1682.0,
+2890.0,
+270.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_148",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+882.4669140495213,
+810.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+882.4669140495213,
+810.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_85",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1810.0,
+2890.0,
+350.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1810.0,
+2890.0,
+350.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_130",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2241.5,
+3420.0,
+845.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2241.5,
+3420.0,
+845.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_222",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3947.5,
+3379.9999829161784,
+865.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3947.5,
+3379.9999829161784,
+865.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_220",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3869.5000000000005,
+3379.999979119774,
+826.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3869.5000000000005,
+3379.999979119774,
+826.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_100",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2290.0,
+2890.0,
+650.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2290.0,
+2890.0,
+650.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_183",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+641.5,
+904.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+641.5,
+904.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_59",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2241.5,
+80.0,
+845.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2241.5,
+80.0,
+845.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_174",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+992.5,
+728.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+992.5,
+728.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "StairRamp_10",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+65.00000000000003,
+886.6433992642914,
+823.7332635556772
+],
+"rot": [
+0.0,
+33.62234497070315,
+90.00000000000006
+],
+"scale": [
+5.656740590968262,
+1.9000000000000017,
+0.08
+],
+"bounds_center": [
+65.00000000000003,
+886.6433992642914,
+823.7332635556772
+],
+"bounds_ext": [
+95.00000000000034,
+237.73477541444902,
+159.9423064955355
+]
+},
+{
+"label": "SM_StairTread_95",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2130.0,
+2890.0,
+550.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2130.0,
+2890.0,
+550.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_60",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2280.5,
+80.0,
+865.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2280.5,
+80.0,
+865.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Tower9_GateStep_B1_Cube",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Castle/Restored/Cube",
+"loc": [
+65.0,
+2757.8922442233784,
+719.4499999999999
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+2.0,
+0.280718,
+0.012
+],
+"bounds_center": [
+65.0,
+2757.8922442233784,
+719.4499999999999
+],
+"bounds_ext": [
+100.0,
+14.035899999999856,
+0.6000000000000227
+]
+},
+{
+"label": "SM_StairTread_145",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+798.2514190857814,
+750.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+798.2514190857814,
+750.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_204",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2897.5,
+923.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2897.5,
+923.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_153",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+1022.826072322421,
+910.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+1022.826072322421,
+910.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "Stairs_76",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Stairs",
+"loc": [
+1298.0,
+2890.0,
+30.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1298.0,
+2890.0,
+30.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Castle_KeepStair",
+"mesh": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_051.SM_Bevel_051",
+"folder": "CastleArena/Courtyard",
+"loc": [
+2070.0,
+1750.0,
+62.5
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2070.0,
+1750.0,
+62.5
+],
+"bounds_ext": [
+19.000019073486328,
+215.00001525878906,
+62.5
+]
+},
+{
+"label": "SM_StairTread_83",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1746.0,
+2890.0,
+310.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1746.0,
+2890.0,
+310.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_67",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2553.5,
+80.0,
+1001.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2553.5,
+80.0,
+1001.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "StairRamp_01",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+1796.0745999498902,
+610.0,
+350.58005335598415
+],
+"rot": [
+0.0,
+31.24173927307129,
+0.0
+],
+"scale": [
+12.725344952117828,
+2.2,
+0.08
+],
+"bounds_center": [
+1796.0745999498902,
+610.0,
+350.58005335598415
+],
+"bounds_ext": [
+546.0746069017116,
+110.0,
+333.419950933423
+]
+},
+{
+"label": "Tower9_GateStep_B2_Cube",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Castle/Restored/Cube",
+"loc": [
+65.0,
+2785.9640758779583,
+699.4499999999999
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+2.0,
+0.280718,
+0.012
+],
+"bounds_center": [
+65.0,
+2785.9640758779583,
+699.4499999999999
+],
+"bounds_ext": [
+100.0,
+14.035899999999856,
+0.6000000000000227
+]
+},
+{
+"label": "SM_StairTread_74",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1458.0,
+2890.0,
+130.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1458.0,
+2890.0,
+130.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_201",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2780.5,
+865.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2780.5,
+865.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_53",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2007.5,
+80.0,
+728.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2007.5,
+80.0,
+728.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_219",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3830.500000000001,
+3379.9999772215706,
+806.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3830.500000000001,
+3379.9999772215706,
+806.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_196",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2585.5,
+767.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2585.5,
+767.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_205",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2936.5,
+943.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2936.5,
+943.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_3",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1458.0,
+610.0,
+130.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1458.0,
+610.0,
+130.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_159",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2729.8204125687985,
+730.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2729.8204125687985,
+730.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "Castle_KeepShell_Step_32",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"folder": "None",
+"loc": [
+2345.0,
+2325.0,
+22.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.1,
+2.1,
+0.6
+],
+"bounds_center": [
+2345.0,
+2325.0,
+22.0
+],
+"bounds_ext": [
+55.0,
+105.0,
+30.0
+]
+},
+{
+"label": "SM_StairTread_73",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1426.0,
+2890.0,
+110.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1426.0,
+2890.0,
+110.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_4",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1490.0,
+610.0,
+150.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1490.0,
+610.0,
+150.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Grime_StairFoot_0",
+"mesh": "/Engine/BasicShapes/Plane.Plane",
+"folder": "CastleDefender/FloorDressing",
+"loc": [
+1171.0,
+2890.0,
+3.3999990105628966
+],
+"rot": [
+0.0,
+0.0,
+180.0
+],
+"scale": [
+2.1,
+2.185,
+1.0
+],
+"bounds_center": [
+1171.0,
+2890.0,
+3.3999990105628966
+],
+"bounds_ext": [
+105.0,
+109.25,
+7.993605777301127e-15
+]
+},
+{
+"label": "SM_StairTread_214",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3635.500000000001,
+3379.9999677305586,
+709.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3635.500000000001,
+3379.9999677305586,
+709.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_55",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2085.5,
+80.0,
+767.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2085.5,
+80.0,
+767.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_202",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2819.5,
+884.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2819.5,
+884.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_203",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2858.5,
+904.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2858.5,
+904.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_132",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2319.5,
+3420.0,
+884.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2319.5,
+3420.0,
+884.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_208",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+3053.5,
+1001.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+3053.5,
+1001.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_184",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+602.5,
+923.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+602.5,
+923.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_199",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2702.5,
+826.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2702.5,
+826.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_228",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4181.5,
+3379.9999943053926,
+982.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4181.5,
+3379.9999943053926,
+982.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_76",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1522.0,
+2890.0,
+170.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1522.0,
+2890.0,
+170.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_169",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2449.102096022999,
+930.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2449.102096022999,
+930.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "SM_StairTread_129",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2202.5,
+3420.0,
+826.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2202.5,
+3420.0,
+826.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Castle_KeepStair",
+"mesh": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_052.SM_Bevel_052",
+"folder": "CastleArena/Courtyard",
+"loc": [
+2105.0,
+1750.0,
+75.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2105.0,
+1750.0,
+75.0
+],
+"bounds_ext": [
+19.000019073486328,
+215.00001525878906,
+75.0
+]
+},
+{
+"label": "SM_StairTread_230",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+4259.5,
+3379.9999981017977,
+1021.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+4259.5,
+3379.9999981017977,
+1021.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "Tower9_GateStep_A2_SMTread",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+714.0359241220417,
+690.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000001
+],
+"scale": [
+0.877245,
+0.869565,
+1.0
+],
+"bounds_center": [
+65.0,
+714.0359241220417,
+690.0
+],
+"bounds_ext": [
+99.99997500000003,
+14.035928366060261,
+10.0
+]
+},
+{
+"label": "SM_StairTread_26",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2194.0,
+610.0,
+590.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2194.0,
+610.0,
+590.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_27",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2226.0,
+610.0,
+610.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2226.0,
+610.0,
+610.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_19",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1970.0,
+610.0,
+450.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1970.0,
+610.0,
+450.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_177",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+875.5,
+787.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+875.5,
+787.25
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_206",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2975.5,
+962.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2975.5,
+962.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_186",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+524.5,
+962.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+524.5,
+962.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290576,
+9.75
+]
+},
+{
+"label": "StairRamp_02",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+2301.7162272165415,
+80.0,
+885.1368899627603
+],
+"rot": [
+0.0,
+25.40771675109865,
+0.0
+],
+"scale": [
+8.635220241913153,
+1.8,
+0.08
+],
+"bounds_center": [
+2301.7162272165415,
+80.0,
+885.1368899627603
+],
+"bounds_ext": [
+391.71624104612465,
+90.0,
+188.86310532004183
+]
+},
+{
+"label": "SM_StairTread_84",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1778.0,
+2890.0,
+330.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1778.0,
+2890.0,
+330.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_12",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1746.0,
+610.0,
+310.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1746.0,
+610.0,
+310.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Castle_KeepStair",
+"mesh": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_049.SM_Bevel_049",
+"folder": "CastleArena/Courtyard",
+"loc": [
+2000.0,
+1750.0,
+37.5
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2000.0,
+1750.0,
+37.5
+],
+"bounds_ext": [
+19.000019073486328,
+215.00001525878906,
+37.5
+]
+},
+{
+"label": "Castle_KeepStair",
+"mesh": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_048.SM_Bevel_048",
+"folder": "CastleArena/Courtyard",
+"loc": [
+1965.0,
+1750.0,
+25.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1965.0,
+1750.0,
+25.0
+],
+"bounds_ext": [
+19.000019073486328,
+215.00001525878906,
+25.0
+]
+},
+{
+"label": "Stairs_2",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Stairs",
+"loc": [
+1298.0,
+610.0,
+30.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1298.0,
+610.0,
+30.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_217",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3752.5,
+3379.9999734251664,
+767.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3752.5,
+3379.9999734251664,
+767.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_92",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2034.0,
+2890.0,
+490.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2034.0,
+2890.0,
+490.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_9",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1650.0,
+610.0,
+250.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1650.0,
+610.0,
+250.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_155",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+1078.969735631581,
+950.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+1078.969735631581,
+950.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347682,
+10.0
+]
+},
+{
+"label": "SM_StairTread_80",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1650.0,
+2890.0,
+250.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1650.0,
+2890.0,
+250.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_62",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2358.5,
+80.0,
+904.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2358.5,
+80.0,
+904.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_223",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3986.5000000000005,
+3379.999984814381,
+884.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3986.5000000000005,
+3379.999984814381,
+884.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_164",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2589.461254295899,
+830.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2589.461254295899,
+830.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "Castle_BaileyKeepStep_98",
+"mesh": "/Game/CastleDefender/Environment/Castle/Optimized/SM_Cube_Nanite.SM_Cube_Nanite",
+"folder": "None",
+"loc": [
+3217.5,
+1910.0,
+11.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+0.25,
+1.2,
+0.32
+],
+"bounds_center": [
+3217.5,
+1910.0,
+11.0
+],
+"bounds_ext": [
+12.5,
+60.0,
+16.0
+]
+},
+{
+"label": "SM_StairTread_69",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2631.5,
+80.0,
+1040.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2631.5,
+80.0,
+1040.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_178",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+836.5,
+806.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+836.5,
+806.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_16",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1874.0,
+610.0,
+390.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1874.0,
+610.0,
+390.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_6",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1554.0,
+610.0,
+190.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1554.0,
+610.0,
+190.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_17",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1906.0,
+610.0,
+410.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1906.0,
+610.0,
+410.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Tower9_StairRamp_B_B",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Castle/Tower9_B",
+"loc": [
+-124.0,
+3441.6,
+965.6047936311152
+],
+"rot": [
+0.0,
+24.483257293701186,
+90.00000000000001
+],
+"scale": [
+4.825936593035594,
+1.32,
+0.08
+],
+"bounds_center": [
+-124.0,
+3441.6,
+965.6047936311152
+],
+"bounds_ext": [
+66.00000000000011,
+221.25770995963694,
+103.64032815720014
+]
+},
+{
+"label": "SM_StairTread_215",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3674.500000000001,
+3379.999969628761,
+728.75
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3674.500000000001,
+3379.999969628761,
+728.75
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_151",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+966.6824090132611,
+870.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+966.6824090132611,
+870.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_216",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3713.5,
+3379.999971526964,
+748.25
+],
+"rot": [
+0.0,
+0.0,
+-179.9999986056539
+],
+"scale": [
+1.21875,
+0.8260869999999999,
+0.975
+],
+"bounds_center": [
+3713.5,
+3379.999971526964,
+748.25
+],
+"bounds_ext": [
+19.500013934819435,
+95.00000547455102,
+9.75
+]
+},
+{
+"label": "SM_StairTread_93",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2066.0,
+2890.0,
+510.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2066.0,
+2890.0,
+510.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_171",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2392.958432713839,
+970.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056236,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+2392.958432713839,
+970.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.03592419334791,
+10.0
+]
+},
+{
+"label": "Tower9_StairRamp_B_A",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Castle/Tower9_B",
+"loc": [
+-286.0,
+3458.4,
+770.6417492362026
+],
+"rot": [
+0.0,
+23.39353752136232,
+-90.00000000000003
+],
+"scale": [
+4.785359338649502,
+1.32,
+0.08
+],
+"bounds_center": [
+-286.0,
+3458.4,
+770.6417492362026
+],
+"bounds_ext": [
+66.00000000000013,
+221.1881775151178,
+98.67119760710113
+]
+},
+{
+"label": "SM_StairTread_15",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1842.0,
+610.0,
+370.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1842.0,
+610.0,
+370.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_18",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1938.0,
+610.0,
+430.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1938.0,
+610.0,
+430.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_90",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1970.0,
+2890.0,
+450.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1970.0,
+2890.0,
+450.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_88",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1906.0,
+2890.0,
+410.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1906.0,
+2890.0,
+410.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_139",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2592.5,
+3420.0,
+1021.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2592.5,
+3420.0,
+1021.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_78",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1586.0,
+2890.0,
+210.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1586.0,
+2890.0,
+210.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_124",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2007.5,
+3420.0,
+728.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2007.5,
+3420.0,
+728.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_125",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2046.5,
+3420.0,
+748.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2046.5,
+3420.0,
+748.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_22",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2066.0,
+610.0,
+510.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2066.0,
+610.0,
+510.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_24",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2130.0,
+610.0,
+550.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2130.0,
+610.0,
+550.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Tower9_A_Stairs",
+"mesh": "/Game/CastleDefender/Environment/Castle/Tower9/SM_Tower09_Stairs.SM_Tower09_Stairs",
+"folder": "Castle/Tower9_A",
+"loc": [
+50.0,
+50.0,
+0.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.2,
+1.2,
+1.0
+],
+"bounds_center": [
+50.00000915527343,
+-205.00000915527343,
+870.5
+],
+"bounds_ext": [
+210.9000274658203,
+150.0000274658203,
+199.5
+]
+},
+{
+"label": "SM_StairTread_123",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1968.5,
+3420.0,
+709.25
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+1968.5,
+3420.0,
+709.25
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "Tower9_GateStep_A2_Cube",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Castle/Restored/Cube",
+"loc": [
+65.0,
+714.0359241220417,
+699.4499999999999
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+2.0,
+0.280718,
+0.012
+],
+"bounds_center": [
+65.0,
+714.0359241220417,
+699.4499999999999
+],
+"bounds_ext": [
+100.0,
+14.03589999999997,
+0.6000000000000227
+]
+},
+{
+"label": "Tower9_GateStep_A1_Cube",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Castle/Restored/Cube",
+"loc": [
+65.0,
+742.1077557766216,
+719.4499999999999
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+2.0,
+0.280718,
+0.012
+],
+"bounds_center": [
+65.0,
+742.1077557766216,
+719.4499999999999
+],
+"bounds_ext": [
+100.0,
+14.03589999999997,
+0.6000000000000227
+]
+},
+{
+"label": "SM_StairTread_191",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+329.5,
+1060.25
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+329.5,
+1060.25
+],
+"bounds_ext": [
+95.0,
+19.500011622905788,
+9.75
+]
+},
+{
+"label": "SM_StairTread_20",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2002.0,
+610.0,
+470.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2002.0,
+610.0,
+470.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_188",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+446.5,
+1001.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+446.5,
+1001.75
+],
+"bounds_ext": [
+95.0,
+19.500011622905788,
+9.75
+]
+},
+{
+"label": "Stairs_77",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Stairs",
+"loc": [
+1330.0,
+2890.0,
+50.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1330.0,
+2890.0,
+50.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "Castle_KeepStair",
+"mesh": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_053.SM_Bevel_053",
+"folder": "CastleArena/Courtyard",
+"loc": [
+2140.0,
+1750.0,
+87.5
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2140.0,
+1750.0,
+87.5
+],
+"bounds_ext": [
+19.000019073486328,
+215.00001525878906,
+87.5
+]
+},
+{
+"label": "Tower9_GateStep_B1_SMTread",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+2757.8922442233784,
+710.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000001
+],
+"scale": [
+0.877245,
+0.869565,
+1.0
+],
+"bounds_center": [
+65.0,
+2757.8922442233784,
+710.0
+],
+"bounds_ext": [
+99.99997500000003,
+14.035928366060489,
+10.0
+]
+},
+{
+"label": "Tower9_GateStep_A1_SM",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StoneModule.SM_StoneModule",
+"folder": "Castle/Restored/SM_StoneModule",
+"loc": [
+65.0,
+742.1077557766216,
+340.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.8400009277343041,
+0.28071831654580026,
+7.2
+],
+"bounds_center": [
+65.0,
+742.1077557766216,
+340.0
+],
+"bounds_ext": [
+92.00005340576172,
+14.035916898145388,
+360.0
+]
+},
+{
+"label": "Castle_KeepStair",
+"mesh": "/Game/CastleDefender/Environment/Castle/Beveled/SM_Bevel_050.SM_Bevel_050",
+"folder": "CastleArena/Courtyard",
+"loc": [
+2035.0,
+1750.0,
+50.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2035.0,
+1750.0,
+50.0
+],
+"bounds_ext": [
+19.000019073486328,
+215.00001525878906,
+50.0
+]
+},
+{
+"label": "SM_StairTread_5",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1522.0,
+610.0,
+170.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1522.0,
+610.0,
+170.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_147",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+65.0,
+854.3950823949414,
+790.0
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+0.8772447392056234,
+0.8695652173913048,
+1.0
+],
+"bounds_center": [
+64.99999999999999,
+854.3950823949414,
+790.0
+],
+"bounds_ext": [
+100.00000000000006,
+14.035924193347796,
+10.0
+]
+},
+{
+"label": "SM_StairTread_21",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2034.0,
+610.0,
+490.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2034.0,
+610.0,
+490.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_89",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1938.0,
+2890.0,
+430.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1938.0,
+2890.0,
+430.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "StairRamp_06",
+"mesh": "/Engine/BasicShapes/Cube.Cube",
+"folder": "Collision/StairRamps",
+"loc": [
+3080.0,
+2801.7162272165415,
+885.1368899627603
+],
+"rot": [
+0.0,
+25.40771675109865,
+90.00000000000001
+],
+"scale": [
+8.635220241913153,
+1.8,
+0.08
+],
+"bounds_center": [
+3080.0,
+2801.7162272165415,
+885.1368899627603
+],
+"bounds_ext": [
+90.0,
+391.7162410461251,
+188.86310532004183
+]
+},
+{
+"label": "SM_StairTread_122",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1929.5,
+3420.0,
+689.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+1929.5,
+3420.0,
+689.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_75",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+1490.0,
+2890.0,
+150.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+1490.0,
+2890.0,
+150.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+},
+{
+"label": "SM_StairTread_198",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+3080.0,
+2663.5,
+806.75
+],
+"rot": [
+0.0,
+0.0,
+90.00000000000003
+],
+"scale": [
+1.2187500000000004,
+0.8260869565217396,
+0.975
+],
+"bounds_center": [
+3080.0,
+2663.5,
+806.75
+],
+"bounds_ext": [
+95.0,
+19.50001162290573,
+9.75
+]
+},
+{
+"label": "SM_StairTread_140",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2631.5,
+3420.0,
+1040.75
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.21875,
+0.8260869565217391,
+0.975
+],
+"bounds_center": [
+2631.5,
+3420.0,
+1040.75
+],
+"bounds_ext": [
+19.50001162290573,
+95.0,
+9.75
+]
+},
+{
+"label": "SM_StairTread_28",
+"mesh": "/Game/CastleDefender/Environment/Castle/Battlements/SM_StairTread.SM_StairTread",
+"folder": "Castle/Restored/SM_StairTread",
+"loc": [
+2258.0,
+610.0,
+630.0
+],
+"rot": [
+-0.0,
+0.0,
+0.0
+],
+"scale": [
+1.0,
+1.0,
+1.0
+],
+"bounds_center": [
+2258.0,
+610.0,
+630.0
+],
+"bounds_ext": [
+16.000009536743164,
+115.0,
+10.0
+]
+}
+]

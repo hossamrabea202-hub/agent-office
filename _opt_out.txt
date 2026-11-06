@@ -1,0 +1,5 @@
+vortex early-out
+layers guarded
+cells 2x2x2
+save True
+polish values set

@@ -1,0 +1,1 @@
+BPVar(VarName="ChildBase",VarGuid=44806BA9840D5054A415FD70F952BE45,VarType=(PinCategory="string",ContainerType=Array),FriendlyName="ChildBase",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="(\"Hand\",\"ForeArm\",\"Foot\",\"Head\")")

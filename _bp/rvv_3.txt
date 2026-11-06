@@ -1,0 +1,1 @@
+BPVar(VarName="BreathHz",VarGuid=4F1F49947833546CAC334A4CCA97DDEB,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="BreathHz",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="0.25")

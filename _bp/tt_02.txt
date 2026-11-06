@@ -1,0 +1,1 @@
+BPVar(VarName="ToastDur",VarGuid=5B6E37A3BF995BB9A6FBD38BBD477148,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="ToastDur",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="3.0")

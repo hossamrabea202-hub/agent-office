@@ -1,0 +1,3 @@
+exists src True size 163156
+imported ['/Game/CastleDefender/UI/T_Item_Potion_Antidote.T_Item_Potion_Antidote']
+OK /Game/CastleDefender/UI/T_Item_Antidote

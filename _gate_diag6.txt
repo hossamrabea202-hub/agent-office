@@ -1,0 +1,70 @@
+== BP_CastleMainGate
+   DoorLeftIron [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorLeft [SceneComponent] parent=None inherited=False
+   DoorRight [SceneComponent] parent=None inherited=False
+   DoorRightWood [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRightWood [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRightIron [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRightIron [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRight [SceneComponent] parent=None inherited=False
+   DoorLeftIron [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorLeftWood [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorLeftWood [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorLeft [SceneComponent] parent=None inherited=False
+   GateRoot [SceneComponent] parent=None inherited=False
+   LeafL [ChildActorComponent] parent=None inherited=False
+   LeafR [ChildActorComponent] parent=None inherited=False
+   LeafColL [BoxComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   LeafColR [BoxComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   LeverPedestal [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   InteractionPrompt [TextRenderComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision
+   DefaultSceneRoot [SceneComponent] parent=None inherited=False
+   ZombieStop [BoxComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_ONLY: 1> prof=Custom
+   ZombieStop [BoxComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_ONLY: 1> prof=Custom
+   RepairPrompt [TextRenderComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision
+   RepairPrompt [TextRenderComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision
+   GateRoot [SceneComponent] parent=None inherited=False
+   InteractionPrompt [TextRenderComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision
+   LeverPivot [SceneComponent] parent=None inherited=False
+   LeverPedestal [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   LeverGrip [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom
+   LeverGrip [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom
+   LeverArm [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom
+   LeverArm [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom
+   LeverPivot [SceneComponent] parent=None inherited=False
+   LeverHousing [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   LeverHousing [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+== BP_CastleGateControl
+   LeverPedestal [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   LeverPedestal [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRight [SceneComponent] parent=None inherited=False
+   DoorRightIron [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRightIron [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRightWood [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRightWood [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorRight [SceneComponent] parent=None inherited=False
+   DoorLeft [SceneComponent] parent=None inherited=False
+   DoorLeftIron [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorLeftIron [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorLeftWood [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorLeftWood [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   DoorLeft [SceneComponent] parent=None inherited=False
+   GateRoot [SceneComponent] parent=None inherited=False
+   LeverHousing [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   InteractionPrompt [TextRenderComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision
+   DefaultSceneRoot [SceneComponent] parent=None inherited=False
+   ZombieStop [BoxComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_ONLY: 1> prof=Custom
+   ZombieStop [BoxComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_ONLY: 1> prof=Custom
+   RepairPrompt [TextRenderComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision
+   RepairPrompt [TextRenderComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision
+   GateRoot [SceneComponent] parent=None inherited=False
+   InteractionPrompt [TextRenderComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=NoCollision
+   LeverHousing [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=BlockAllDynamic
+   LeverPivot [SceneComponent] parent=None inherited=False
+   LeverGrip [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom
+   LeverGrip [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom
+   LeverArm [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom
+   LeverArm [InstancedStaticMeshComponent] parent=None inherited=False coll=<CollisionEnabled.NO_COLLISION: 0> prof=Custom
+   LeverPivot [SceneComponent] parent=None inherited=False
+== BP_GateBreachLeaf
+   SkeletalMeshComponent [SkeletalMeshComponent] parent=None inherited=True coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> prof=PhysicsActor

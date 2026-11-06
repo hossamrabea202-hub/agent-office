@@ -1,0 +1,1 @@
+BPVar(VarName="StarterCannons",VarGuid=7EBA2C6AFEF654E088B75A110F7141A6,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",ContainerType=Array),FriendlyName="StarterCannons",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

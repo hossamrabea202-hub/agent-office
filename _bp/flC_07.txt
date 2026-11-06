@@ -1,0 +1,1 @@
+BPVar(VarName="MaxFlares",VarGuid=07E866EB673158718DCD3AF0AE98E316,VarType=(PinCategory="int"),FriendlyName="MaxFlares",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="3")

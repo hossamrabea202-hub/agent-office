@@ -1,0 +1,7 @@
+CDO comp CharacterMesh0 mode=<AnimationMode.ANIMATION_SINGLE_NODE: 1> anim=None asset=None
+SCS comp CharacterMesh0 mesh=<Object '/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie.SK_Zombie' (0x00000733B9E90A00) Class 'SkeletalMesh'> mode=<AnimationMode.ANIMATION_SINGLE_NODE: 1> anim=None
+FB_ assets: 37 e.g. ['/Game/FB_A_Attack', '/Game/FB_A_Death', '/Game/FB_A_Hit', '/Game/FB_A_Run', '/Game/FB_A_Walk']
+moved to Anims: 37
+no zombie ABP; walk anims: ['/Game/CastleDefender/Characters/Enemies/FleshBrute/Anims/FB_A_Walk.FB_A_Walk', '/Game/CastleDefender/Characters/Enemies/FleshBrute/Anims/FB_ZA_Walk_A.FB_ZA_Walk_A', '/Game/CastleDefender/Characters/Enemies/FleshBrute/Anims/FB_ZA_Walk_B.FB_ZA_Walk_B', '/Game/CastleDefender/Characters/Enemies/FleshBrute/Anims/FB_ZA_Walk_C.FB_ZA_Walk_C']
+single-node walk set: /Game/CastleDefender/Characters/Enemies/FleshBrute/Anims/FB_A_Walk.FB_A_Walk
+DONE

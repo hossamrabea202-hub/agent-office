@@ -1,0 +1,1 @@
+BPVar(VarName="ScrollMID",VarGuid=882D2D44BA875E02A14932B60E668262,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.MaterialInstanceDynamic'"),FriendlyName="ScrollMID",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

@@ -1,0 +1,1 @@
+BPVar(VarName="Tomorrow",VarGuid=1D755B345A2B56BDAC43B95D4262D644,VarType=(PinCategory="int"),FriendlyName="Tomorrow",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")

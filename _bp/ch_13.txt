@@ -1,0 +1,1 @@
+BPVar(VarName="PressNow",VarGuid=1FEAF82F8B8F5A119A2C42643106B96E,VarType=(PinCategory="bool"),FriendlyName="PressNow",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

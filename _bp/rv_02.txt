@@ -1,0 +1,1 @@
+BPVar(VarName="RvSnd",VarGuid=D800B391C909516B9596617984AEE7A0,VarType=(PinCategory="int"),FriendlyName="RvSnd",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")

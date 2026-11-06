@@ -1,0 +1,1 @@
+BPVar(VarName="Towers",VarGuid=3EB5B5B4F36B52E992CD0BFE996EA57A,VarType=(PinCategory="int"),FriendlyName="Towers",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0")

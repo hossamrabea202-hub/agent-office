@@ -1,0 +1,24 @@
+APPLIED realm actors sitting on tentacle/fog: 6 moved 6
+Realm_Gate_Torch_1           on TentacleHit_T_5_12           drop 13870
+Realm_Wall_015               on TentacleHit_T_5_12           drop 13432
+Realm_BlobMine_10            on TentacleHit_T_5_10           drop 13398
+Realm_BlobMine_08            on Realm_Bubble_Owner           drop 7327
+Realm_Gate_Tower_1           on TentacleHit_T_5_12           drop 13984
+Realm_Wall_014               on TentacleHit_T_5_12           drop 13367
+saved True
+Env_CorruptedTentacle_Fog1 scale <Struct 'Vector' (0x0000021805556B00) {x: 3.000000, y: 3.000000, z: 3.000000}>
+Env_CorruptedTentacle_02 scale <Struct 'Vector' (0x0000021805A82FB0) {x: -2.300000, y: 2.300000, z: 2.300000}>
+Env_CorruptedTentacle_03 scale <Struct 'Vector' (0x000002180555B060) {x: -2.900000, y: 2.900000, z: 2.900000}>
+Env_CorruptedTentacle_5 scale <Struct 'Vector' (0x000002180555B0B0) {x: -2.500000, y: 2.500000, z: 2.500000}>
+Env_CorruptedTentacle_4 scale <Struct 'Vector' (0x000002180555B100) {x: -3.750000, y: 3.750000, z: 3.750000}>
+Env_CorruptedTentacle_Fog3 scale <Struct 'Vector' (0x000002180555B150) {x: 3.000000, y: 3.000000, z: 3.000000}>
+Env_CorruptedTentacle_Fog2 scale <Struct 'Vector' (0x000002180555B1A0) {x: 3.000000, y: 3.000000, z: 3.000000}>
+Env_CorruptedTentacle_04 scale <Struct 'Vector' (0x000002180555B1F0) {x: 2.500000, y: 2.500000, z: 2.500000}>
+Env_CorruptedTentacle_01 scale <Struct 'Vector' (0x000002180555B240) {x: -2.700000, y: 2.700000, z: 2.700000}>
+Env_CorruptedTentacle_05 scale <Struct 'Vector' (0x000002180555B290) {x: 2.400000, y: 2.400000, z: 2.400000}>
+set 10 LenBase 650.0 LenTip 170.0 saved True
+instances 11068 removed 182
+saved True
+mines 22
+save_dirty_packages True
+check t5 <Struct 'Vector' (0x000002180560D600) {x: -2.500000, y: 2.500000, z: 2.500000}> bubble OverlapAllDynamic tower1z -743

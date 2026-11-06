@@ -1,0 +1,11 @@
+#381 realm vision v2 setup
+reuse /Game/CastleDefender/Gameplay/Realm/MPC_RealmDream
+rebuild /Game/CastleDefender/Gameplay/Realm/M_RealmDream + MI_RealmDream
+  look + MI_RealmDream on BP_RealmVision.Vision_GEN_VARIABLE
+  look + MI_RealmDream on BP_RealmVision.Vision_GEN_VARIABLE
+  look + MI_RealmDream on Realm_Vision
+jelly: /Game/CastleDefender/Realm/M_RealmBubble3.M_RealmBubble3 -> /Game/CastleDefender/Realm/M_RealmBubble3_Jelly
+  WPO not scriptable in 5.3: wire node Jelly381 -> World Position Offset by hand in /Game/CastleDefender/Realm/M_RealmBubble3_Jelly
+  instance copy /Game/CastleDefender/Realm/MI_RealmBubble3_Jelly (parent M_RealmBubble3_Jelly)
+save True
+Next: 8 BPVar lines (VARIABLES_v2_BPVar.txt), replace the EventGraph with BP_RealmVision_v2_graph.txt, Compile, Save.

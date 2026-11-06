@@ -1,0 +1,17 @@
+{
+ "log": [
+  "mode INSTALL",
+  "import ZW_Death_Back (new)",
+  "import ZW_Death_Side (new)",
+  "import ZW_Death_Crumple (new)",
+  "have ZW_Death_Collapse",
+  "create montage AM_ZDeath_ZW_Back from ZW_Death_Back",
+  "  -> AM_ZDeath_ZW_Back (2.97 s, ZW_Death_Back, slot DefaultSlot)",
+  "create montage AM_ZDeath_ZW_Side from ZW_Death_Side",
+  "  -> AM_ZDeath_ZW_Side (2.97 s, ZW_Death_Side, slot DefaultSlot)",
+  "create montage AM_ZDeath_ZW_Crumple from ZW_Death_Crumple",
+  "  -> AM_ZDeath_ZW_Crumple (2.97 s, ZW_Death_Crumple, slot DefaultSlot)",
+  "create montage AM_ZDeath_ZW_Collapse from ZW_Death_Collapse",
+  "  -> AM_ZDeath_ZW_Collapse (2.97 s, ZW_Death_Collapse, slot DefaultSlot)"
+ ]
+}

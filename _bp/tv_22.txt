@@ -1,0 +1,1 @@
+BPVar(VarName="FallDir",VarGuid=F6729D7D11C5517DBF2D6997E39D965F,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FallDir",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1.0")

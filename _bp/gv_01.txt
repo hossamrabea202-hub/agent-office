@@ -1,0 +1,1 @@
+BPVar(VarName="Severed",VarGuid=8BCFD396CCBF51AFAE970EBB15C44885,VarType=(PinCategory="name",ContainerType=Array),FriendlyName="Severed",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

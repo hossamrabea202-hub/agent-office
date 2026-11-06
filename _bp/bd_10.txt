@@ -1,0 +1,1 @@
+BPVar(VarName="FlankOffset",VarGuid=276E0A11B2C34D5E8F90A1B2C3D4E00A,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FlankOffset",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="1500.0")

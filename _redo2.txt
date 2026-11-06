@@ -1,0 +1,6 @@
+APPLIED realm actors sitting on tentacle/fog: 0 moved 0
+
+saved True
+MI_TentacleJellyShell_5 TentScale 2.4166667461395264 -> 2.5
+MI_TentacleJellyShell_4 TentScale 2.633333444595337 -> 3.75
+save True

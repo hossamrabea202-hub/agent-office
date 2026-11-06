@@ -1,0 +1,8 @@
+APPLIED realm actors sitting on tentacle/fog: 6 moved 6
+Realm_Gate_Torch_1           on TentacleHit_T_5_12           drop 13870
+Realm_Wall_015               on TentacleHit_T_5_12           drop 13432
+Realm_BlobMine_10            on TentacleHit_T_5_10           drop 13398
+Realm_BlobMine_08            on Realm_Bubble_Owner           drop 7327
+Realm_Gate_Tower_1           on TentacleHit_T_5_12           drop 13984
+Realm_Wall_014               on TentacleHit_T_5_12           drop 13367
+saved True

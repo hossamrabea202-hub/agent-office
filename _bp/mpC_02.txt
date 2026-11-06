@@ -1,0 +1,1 @@
+BPVar(VarName="InMud",VarGuid=90AE1D526AE65624BF71B8F3B5C1D381,VarType=(PinCategory="bool"),FriendlyName="InMud",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

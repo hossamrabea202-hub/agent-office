@@ -1,0 +1,1 @@
+BPVar(VarName="TowerYaw",VarGuid=1E8E7C4D59AD5EF6BF577544591DBAC8,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="TowerYaw",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

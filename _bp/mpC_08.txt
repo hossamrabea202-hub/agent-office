@@ -1,0 +1,1 @@
+BPVar(VarName="FootDrop",VarGuid=F435A37876BC56AFB7F2ECA6ACE3C975,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FootDrop",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="92.0")

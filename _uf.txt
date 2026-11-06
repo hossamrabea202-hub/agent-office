@@ -1,0 +1,4 @@
+#341 underground fog
+create /Game/CastleDefender/Environment/Cave/BP_UndergroundFog
+placed UndergroundFog
+Next: 3 BPVar lines (BP_UndergroundFog_BPVar.txt), Compile, paste BP_UndergroundFog_graph.txt, Compile, Save.

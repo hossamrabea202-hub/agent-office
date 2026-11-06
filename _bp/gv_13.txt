@@ -1,0 +1,1 @@
+BPVar(VarName="CutBone",VarGuid=6953B316F9A057C1B232DC84514A1C6B,VarType=(PinCategory="name"),FriendlyName="CutBone",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

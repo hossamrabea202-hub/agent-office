@@ -1,0 +1,1 @@
+BPVar(VarName="BubbleMesh",VarGuid=97FB9F8929345676BD9A72A9CC83B828,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.PrimitiveComponent'"),FriendlyName="BubbleMesh",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=65540,DefaultValue="")

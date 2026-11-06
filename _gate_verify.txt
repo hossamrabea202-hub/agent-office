@@ -1,0 +1,5 @@
+Castle_GateLever_NATIVE.ZombieStop coll=<CollisionEnabled.QUERY_ONLY: 1> pawn=<CollisionResponseType.ECR_BLOCK: 2>
+Castle_GateLever_NATIVE.LeafColL coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> pawn=<CollisionResponseType.ECR_IGNORE: 0>
+Castle_GateLever_NATIVE.LeafColR coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> pawn=<CollisionResponseType.ECR_IGNORE: 0>
+BP_GateBreachLeaf.SkeletalMeshComponent0 coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> pawn=<CollisionResponseType.ECR_IGNORE: 0>
+BP_GateBreachLeaf.SkeletalMeshComponent0 coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> pawn=<CollisionResponseType.ECR_IGNORE: 0>

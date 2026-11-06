@@ -1,0 +1,1 @@
+BPVar(VarName="Pending",VarGuid=6E003ECA096356F3BFC5A38A89DA06A8,VarType=(PinCategory="int",ContainerType=Array),FriendlyName="Pending",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

@@ -1,0 +1,1 @@
+BPVar(VarName="TimeA",VarGuid=432654DE3AA35415859E218D40BDCD8A,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="TimeA",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

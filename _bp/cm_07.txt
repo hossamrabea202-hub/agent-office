@@ -1,0 +1,1 @@
+BPVar(VarName="MsgUntil",VarGuid=999EC0EAC1D751D49BB49D9CFA762E45,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="MsgUntil",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

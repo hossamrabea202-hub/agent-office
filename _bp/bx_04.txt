@@ -1,0 +1,1 @@
+BPVar(VarName="Broken",VarGuid=A701027A65025F41A3F81C53D27CB574,VarType=(PinCategory="bool"),FriendlyName="Broken",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

@@ -1,0 +1,5 @@
+candidates 8
+TowerBallista_0 on Tower9_B_Drum at 50,3450,1281
+TowerBallista_1 on Tower9_A_Drum at 50,50,1070
+TowerBallista_2 on Castle_BaileyTower at 4600,50,1070
+SAVED

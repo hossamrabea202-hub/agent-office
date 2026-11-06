@@ -1,0 +1,4 @@
+import_yellow_eagle_ue (#367) DRY_RUN=True PREVIEW=False
+files: 0 missing
+knight mesh /Game/ShadowKight/Mesh/ShadowknightUE_SK: found
+DRY_RUN: would create /Game/CastleDefender/Characters/Hero/Armor/YellowEagle/M_YellowEagle and, per piece in ['Gauntlets', 'Greaves', 'Sabatons']: 3 textures, MI_Eagle<Piece>, SM_Eagle<Piece>_L/_R with LOD1-3

@@ -1,0 +1,1 @@
+BPVar(VarName="FogBase",VarGuid=EEC7744668535BC48FE7B20002CD368A,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FogBase",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.02")

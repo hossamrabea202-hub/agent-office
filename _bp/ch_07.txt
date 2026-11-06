@@ -1,0 +1,1 @@
+BPVar(VarName="LidPitch",VarGuid=74174B9D59AB5C119CE0DF9454161573,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="LidPitch",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="-105.0")

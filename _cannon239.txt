@@ -1,0 +1,15 @@
+imported CannonCart kit
+cart meshes True True True
+create /Game/CastleDefender/Gameplay/Castle/BP_CannonOrder
+  + BP_CannonOrder.Root
+  + BP_CannonOrder.Trigger
+  + BP_CannonOrder.Forward
+create /Game/CastleDefender/Gameplay/Castle/BP_CannonConvoy
+convoy comps ['None', 'CapsuleComponent', 'ArrowComponent', 'Mesh', 'CharacterMovement']
+  + BP_CannonConvoy.Body
+  + BP_CannonConvoy.WheelL
+  + BP_CannonConvoy.WheelR
+BPs saved
+CannonOrder_1 at <Struct 'Vector' (0x00000282D172A100) {x: 2533.333333, y: 1870.000000, z: 1046.499755}> yaw -173 (gate GatePassage_WallBase_L)
+CannonPad_0 at <Struct 'Vector' (0x00000282D172A330) {x: 4522.566077, y: 2054.567987, z: 662.600042}>
+LEVEL SAVED

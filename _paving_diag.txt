@@ -1,0 +1,3 @@
+Castle_CourtyardFloor_Single | SM_Bevel_001 | slot 0 WorldGridMaterial | MI_Castle_Paving_POM | loc <Struct 'Vector' (0x0000020386DD5E70) {x: 1500.000000, y: 1740.000000, z: -7.500000}>
+Tower9_A_Floors | SM_Tower09_Floors | slot 0 Dressed_limestone | MI_Castle_Paving_Walk | loc <Struct 'Vector' (0x0000020386DD5E70) {x: 50.000000, y: 50.000000, z: 0.000000}>
+Tower9_B_Floors | SM_Tower09_Floors | slot 0 Dressed_limestone | MI_Castle_Paving_Walk | loc <Struct 'Vector' (0x0000020386DD5E70) {x: 50.000000, y: 3450.000000, z: 0.000000}>

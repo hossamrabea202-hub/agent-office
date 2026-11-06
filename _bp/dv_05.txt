@@ -1,0 +1,1 @@
+BPVar(VarName="NextTowerAt",VarGuid=64584D22949854F4A8F00ADB9582357A,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="NextTowerAt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

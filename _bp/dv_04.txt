@@ -1,0 +1,1 @@
+BPVar(VarName="Cooldown",VarGuid=9A3473DD758A5F439D5C82638542B449,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="Cooldown",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="40.0")

@@ -1,0 +1,1 @@
+BPVar(VarName="TwoSided",VarGuid=734AF7AC488950AC98D2318D62291A22,VarType=(PinCategory="bool"),FriendlyName="TwoSided",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="false")

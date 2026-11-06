@@ -1,0 +1,30 @@
+Nav_GateLink_0 [NavLinkProxy] hidden=False
+   EdRenderComp [NavLinkRenderingComponent] vis=True coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   Sprite [BillboardComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+Castle_GateLever_NATIVE [BP_CastleMainGate_C] hidden=False
+   BillboardComponent_1 [BillboardComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   DoorLeftWood [InstancedStaticMeshComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   DoorLeftIron [InstancedStaticMeshComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   DoorRightWood [InstancedStaticMeshComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   DoorRightIron [InstancedStaticMeshComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   LeverPedestal [InstancedStaticMeshComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   LeverHousing [InstancedStaticMeshComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   LeverArm [InstancedStaticMeshComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   LeverGrip [InstancedStaticMeshComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   InteractionPrompt [TextRenderComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   RepairPrompt [TextRenderComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   ZombieStop [BoxComponent] vis=False coll=<CollisionEnabled.QUERY_ONLY: 1> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0) boxext=<Struct 'Vector' (0x0000020386DDC8D0) {x: 10.000000, y: 260.000000, z: 150.000000}>
+   LeafColL [BoxComponent] vis=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0) boxext=<Struct 'Vector' (0x0000020386DDC8D0) {x: 29.000000, y: 144.000000, z: 222.000000}>
+   LeafColR [BoxComponent] vis=False coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0) boxext=<Struct 'Vector' (0x0000020386DDC8D0) {x: 15.000000, y: 136.000000, z: 247.000000}>
+Nav_GateLink_2 [NavLinkProxy] hidden=False
+   EdRenderComp [NavLinkRenderingComponent] vis=True coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   Sprite [BillboardComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+Nav_GateLink_1 [NavLinkProxy] hidden=False
+   EdRenderComp [NavLinkRenderingComponent] vis=True coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+   Sprite [BillboardComponent] vis=False coll=<CollisionEnabled.NO_COLLISION: 0> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+BP_GateBreachLeaf [BP_GateBreachLeaf_C] hidden=False
+   SkeletalMeshComponent0 [SkeletalMeshComponent] vis=True coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+BP_GateBreachLeaf [BP_GateBreachLeaf_C] hidden=False
+   SkeletalMeshComponent0 [SkeletalMeshComponent] vis=True coll=<CollisionEnabled.QUERY_AND_PHYSICS: 3> pawn=<CollisionResponseType.ECR_BLOCK: 2> origin=(0,0,0) ext=(0,0,0)
+NAV runtime: <RuntimeGenerationType.STATIC: 0>
+NAV actor RecastNavMesh-Default RecastNavMesh: Failed to find property 'agent_max_step_height' for attribute 'agent_max_step_height' on 'RecastNavMesh'

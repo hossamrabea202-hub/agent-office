@@ -1,0 +1,1 @@
+BPVar(VarName="MaxHP",VarGuid=225E0A11B2C34D5E8F90A1B2C3D4E001,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="MaxHP",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="900.0")

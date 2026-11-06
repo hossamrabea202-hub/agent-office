@@ -1,0 +1,15 @@
+SM_StoneModule_38 | sm_stonemodule | dist 1932 | nearest barrel 777 | halfH 324
+SM_StoneModule_10 | sm_stonemodule | dist 1932 | nearest barrel 944 | halfH 324
+SM_StoneModule_170 | sm_stonemodule | dist 1308 | nearest barrel 1356 | halfH 29
+SM_StoneModule_171 | sm_stonemodule | dist 1308 | nearest barrel 1267 | halfH 29
+SM_StoneModule_191 | sm_stonemodule | dist 2581 | nearest barrel 600 | halfH 525
+SM_StoneModule_211 | sm_stonemodule | dist 2581 | nearest barrel 484 | halfH 525
+SM_StoneModule_139 | sm_stonemodule | dist 2422 | nearest barrel 759 | halfH 525
+SM_StoneModule_69 | sm_stonemodule | dist 2422 | nearest barrel 894 | halfH 525
+SM_StoneModule_228 | sm_stonemodule | dist 3733 | nearest barrel 1219 | halfH 516
+SM_StoneModule_190 | sm_stonemodule | dist 2558 | nearest barrel 599 | halfH 516
+SM_StoneModule_210 | sm_stonemodule | dist 2558 | nearest barrel 473 | halfH 516
+SM_StoneModule_227 | sm_stonemodule | dist 3697 | nearest barrel 1180 | halfH 506
+SM_StoneModule_189 | sm_stonemodule | dist 2535 | nearest barrel 602 | halfH 506
+SM_StoneModule_209 | sm_stonemodule | dist 2535 | nearest barrel 466 | halfH 506
+SM_StoneModule_137 | sm_stonemodule | dist 2364 | nearest barrel 803 | halfH 506

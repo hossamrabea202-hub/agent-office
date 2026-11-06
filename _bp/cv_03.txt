@@ -1,0 +1,1 @@
+BPVar(VarName="LastLoc",VarGuid=57FBEE3C2F6747049AB2CBCDAC6C56B6,VarType=(PinCategory="struct",PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'"),PropertyFlags=5,DefaultValue="0,0,0")

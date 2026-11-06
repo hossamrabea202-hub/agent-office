@@ -1,0 +1,1 @@
+BPVar(VarName="Cap",VarGuid=F0F348D2E02E50D58F7E66664AED251D,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SceneCaptureComponent2D'"),FriendlyName="Cap",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

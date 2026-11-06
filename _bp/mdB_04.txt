@@ -1,0 +1,1 @@
+BPVar(VarName="PatientMax",VarGuid=F012D7B7F2975311930BFBA00673A2D5,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="PatientMax",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="0.0")

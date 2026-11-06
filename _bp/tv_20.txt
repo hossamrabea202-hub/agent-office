@@ -1,0 +1,1 @@
+BPVar(VarName="Falling",VarGuid=5B37AC02D28A574FB20D792751BA7D02,VarType=(PinCategory="bool"),FriendlyName="Falling",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

@@ -1,0 +1,1 @@
+BPVar(VarName="HealFX",VarGuid=4CB31ECDB2F955079806673D0292C558,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.TextRenderComponent'"),FriendlyName="HealFX",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

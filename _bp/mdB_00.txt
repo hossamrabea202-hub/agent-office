@@ -1,0 +1,1 @@
+BPVar(VarName="Danger",VarGuid=4A13D327DF7F589C8EEC80AC6B63EE85,VarType=(PinCategory="bool"),FriendlyName="Danger",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")

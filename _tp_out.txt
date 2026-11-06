@@ -1,0 +1,7 @@
+pawn <Struct 'Vector' (0x00000218059C0BA0) {x: -12470.575413, y: 4719.592151, z: -485.828267}> cam <Struct 'Vector' (0x0000021808E521A0) {x: -11695.509077, y: 5114.082253, z: -429.474397}>
+Bubble=<Object '/Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB101003_1385130891' (0x000005DA84707D00) Class 'StaticMeshActor'>; BubbleMesh=<Object '/Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap.ThirdPersonMap:PersistentLevel.StaticMeshActor_UAID_040E3C90CCAB101003_1385130891.StaticMeshComponent0' (0x000005DA94026800) Class 'StaticMeshComponent'>; Inside=True; W=0.0; Dist=2405.0727732789155; TwoSided=False; CrossT0=23.239942245185375; CrossDir=1.0; PullDist=1000.0; DeepDist=800.0; PullMax=0.35; EnterTime=1.5; ExitTime=0.8; FadeSpeed=1.2; 
+pp weight 0.0 unbound True enabled True blendables [('MI_RealmDream', 1.0)]
+MPC Amount=0.0
+MPC Cross=0.0
+MPC CrossDir=1.0
+MPC BreathHz=0.25

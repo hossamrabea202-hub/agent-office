@@ -1,0 +1,1 @@
+built /Game/CastleDefender/Realm/MI_RealmBubble3_Soft (graze fade, contact fade, rock seam); preview on bubble (unsaved)

@@ -1,0 +1,1 @@
+BPVar(VarName="FadeSpeed",VarGuid=C4529D434A89571382F5CC0F5CB9615F,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="FadeSpeed",Category=NSLOCTEXT("KismetSchema", "Default", "Realm Vision"),PropertyFlags=5,DefaultValue="5.0")

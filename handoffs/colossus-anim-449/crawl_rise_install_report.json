@@ -1,0 +1,35 @@
+{
+ "report": {
+  "ZA_Belly_Crawling_A": {
+   "from": "ZW_Crawl_A",
+   "frames": 60,
+   "max_diff_deg": 0.0
+  },
+  "ZA_Belly_Crawling_B": {
+   "from": "ZW_Crawl_B",
+   "frames": 66,
+   "max_diff_deg": 0.0
+  },
+  "ZA_Burst_H": {
+   "from": "ZW_Rise",
+   "frames": 90,
+   "max_diff_deg": 0.0
+  },
+  "ZA_Laying_Idle_A": {
+   "from": "ZW_Laying_Stunned",
+   "frames": 180,
+   "max_diff_deg": 0.0
+  }
+ },
+ "log": [
+  "mode INSTALL",
+  "import ZW_Crawl_A (new)",
+  "import ZW_Crawl_B (new)",
+  "import ZW_Rise (new)",
+  "import ZW_Laying_Stunned (new)",
+  "ZA_Belly_Crawling_A <- ZW_Crawl_A {\"from\": \"ZW_Crawl_A\", \"frames\": 60, \"max_diff_deg\": 0.0}",
+  "ZA_Belly_Crawling_B <- ZW_Crawl_B {\"from\": \"ZW_Crawl_B\", \"frames\": 66, \"max_diff_deg\": 0.0}",
+  "ZA_Burst_H <- ZW_Rise {\"from\": \"ZW_Rise\", \"frames\": 90, \"max_diff_deg\": 0.0}",
+  "ZA_Laying_Idle_A <- ZW_Laying_Stunned {\"from\": \"ZW_Laying_Stunned\", \"frames\": 180, \"max_diff_deg\": 0.0}"
+ ]
+}

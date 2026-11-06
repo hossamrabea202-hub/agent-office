@@ -1,0 +1,1 @@
+BPVar(VarName="Frame",VarGuid=BF5A93D17265519889C4B89F215D45A1,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.SceneComponent'"),FriendlyName="Frame",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="")

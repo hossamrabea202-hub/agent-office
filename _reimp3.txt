@@ -1,0 +1,10 @@
+T_Decal_WallCrackA_BaseColor.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/T_Decal_WallCrackA_BaseColor.T_Decal_WallCrackA_BaseColor']
+T_Decal_WallCrackA_Normal_DirectX.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/T_Decal_WallCrackA_Normal_DirectX.T_Decal_WallCrackA_Normal_DirectX']
+T_Decal_WallCrackA_ORM.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallCrackA/T_Decal_WallCrackA_ORM.T_Decal_WallCrackA_ORM']
+T_Decal_WallCrackB_BaseColor.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallCrackB/T_Decal_WallCrackB_BaseColor.T_Decal_WallCrackB_BaseColor']
+T_Decal_WallCrackB_Normal_DirectX.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallCrackB/T_Decal_WallCrackB_Normal_DirectX.T_Decal_WallCrackB_Normal_DirectX']
+T_Decal_WallCrackB_ORM.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallCrackB/T_Decal_WallCrackB_ORM.T_Decal_WallCrackB_ORM']
+T_Decal_WallImpact_BaseColor.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallImpact/T_Decal_WallImpact_BaseColor.T_Decal_WallImpact_BaseColor']
+T_Decal_WallImpact_Normal_DirectX.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallImpact/T_Decal_WallImpact_Normal_DirectX.T_Decal_WallImpact_Normal_DirectX']
+T_Decal_WallImpact_ORM.png -> ['/Game/CastleDefender/Environment/Decals/Castle2/WallImpact/T_Decal_WallImpact_ORM.T_Decal_WallImpact_ORM']
+DONE
