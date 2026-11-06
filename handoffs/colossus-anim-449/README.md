@@ -139,6 +139,28 @@ compile, save. Pre-checked on #518: 11 pasted `Montage_Play` nodes, 33 rewires, 
 expected. Rollback: paste the `live.t3d` you copied (the 4 new montages can stay). Test: kill 10 zombies, see four
 different real deaths and never a blob rise; the candle melt still runs on top.
 
+## Stage 5: crawlers, the spawn rise, the knock-down (`zw_crawl_rise_ue.py`, no paste)
+
+**What was wrong (measured):** the two crawl loops slide (planted hands at about 50 cm/s against `MaxWalkSpeed` 45) and
+pop. The spawn "rise" `ZA_Burst_H` is a 5-frame pop from the rest pose onto the ground followed by 85 motionless frames,
+played at rate 0.5 while the BP waits 5.4 s: the dead pause the owner rejected on #164 (the blob VFX is Codex's part;
+this is the body). `ZA_Laying_Idle_A` (after a knock-down) pops 124 deg.
+
+| Game clip | Now holds | Frames | What |
+|---|---|---|---|
+| `ZA_Belly_Crawling_A` | `ZW_Crawl_A` | 60 (2 s loop) | belly crawl, both arms alternate, hands placed by IK and matched to **45 cm/s (0.00 skate)**, legs trail and kick a little, head up and searching |
+| `ZA_Belly_Crawling_B` | `ZW_Crawl_B` | 66 | the one-arm drag variant (the right arm barely pulls), more roll |
+| `ZA_Burst_H` | `ZW_Rise` | 90 | **continuous**: a heap on the ground -> the head lifts with a shudder -> pushes the chest up -> onto one knee, the foot plants and catches the weight -> hauls up into the walking stance by frame 78 (in game x0.5 = 5.2 s, inside the 5.4 s wait) |
+| `ZA_Laying_Idle_A` | `ZW_Laying_Stunned` | 180 | lies stunned, a twitch, rolls flat, a weak push that sags, then up on the hands ready to rise |
+
+Previews: `preview/ZW_Crawl_A|ZW_Crawl_B|ZW_Rise|ZW_Laying_Stunned_before_after.mp4`. Note: `ZA_Burst_H` is also wrapped
+by the death montage `AM_ZDeath_ZA_Burst_H`; after stage 4's paste that montage is no longer picked.
+
+Steps (Master, any time after #521): `py ".../zw_crawl_rise_ue.py" --dry-run` (4 import + 4 `would back up` lines), then
+`py ".../zw_crawl_rise_ue.py"` (every `<-` line `"max_diff_deg": 0.0`). Rollback `--restore` (tested exact). Tests: a
+crawler keeps its hands planted at 45; a spawning zombie rises in one continuous motion with no pause and no pop; a
+zombie knocked flat by a cannon or a charge lies stunned and gets up without a snap.
+
 ## Rules applied
 
 INDUSTRY_SECRETS §0 rule 8, §3.4 #2 (speed match, no play-rate hack), #5 (no pops). RESEARCH.md: Gilman's retime-don't-stretch

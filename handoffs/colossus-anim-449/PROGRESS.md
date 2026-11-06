@@ -118,3 +118,13 @@ strikes, knees never ~180) -> `ue_import_anims.py` (into `Anims_Colossus`) -> `e
   that bypasses the 11 old nodes with new ones (manifest_zd519.json: 11 nodes, 33 rewires; merge on the #518 EventGraph
   via `t3d_eventgraph.js`: Validation OK, +44 entries as expected, `merged_zd519.t3d`). Lab: montages built from the right
   clips (2.97 s each). Handed off.
+- **11:40 Stage 5: crawlers, the spawn rise, the knock-down** (owner: "fix 1"). Measured: the crawl loops' planted hands
+  move about 50 cm/s against MaxWalkSpeed 45 (CX_320), and pop 21-27 deg; the spawn rise is `ZA_Burst_H` played by
+  Ps_CX_428 / Ps_CX_446 at GlobalAnimRateScale 0.5 with a 5.4 s / 2.8 s wait: the clip pops from the rest pose onto the
+  ground in 5 frames and then lies MOTIONLESS for 85 (the "dead pause" of #164). The other bursts (A-K) are only death
+  montages. `ZA_Laying_Idle_A` (after LaunchCharacter) pops 124 deg. `zpose.py` got `arm_ik` / `chain_ik`; `zcrawl.py`
+  places the hands by IK and matches 45 cm/s exactly (0.00 skate; REACH 0.84 keeps the IK inside the arm's reach);
+  `ZW_Crawl_B` is a one-arm-drag variant. `ZW_Rise` (90 f, pose-to-pose from a PRONE base): head lifts -> push-up ->
+  one knee, the foot plants -> standing by frame 78 (x0.5 in game = 5.2 s). `ZW_Laying_Stunned` (180 f). Install
+  `zw_crawl_rise_ue.py` writes the 4 clips into ZA_Belly_Crawling_A/B, ZA_Burst_H, ZA_Laying_Idle_A (lab: 4 x 0.0 deg,
+  restore 0.00004 deg). No paste. Handed off.

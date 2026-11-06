@@ -145,3 +145,37 @@ DEATH_CRUMPLE = dict(name='ZW_Death_Crumple', length=89/30.0, keys=[    # the st
     (89/30.0, 'linear', {}),
 ])
 ALL.update({'death_back': DEATH_BACK, 'death_side': DEATH_SIDE, 'death_crumple': DEATH_CRUMPLE})
+
+# ---- the spawn rise (replaces ZA_Burst_H: 90 frames played at rate 0.5 = 6 s; the BP waits 5.4 s) and the stunned laying
+# (replaces ZA_Laying_Idle_A: 180 frames, played once after a knock-down). Both start on the ground. ----
+PRONE = dict(BASE_W, pel_z=-1.00, pel_pitch=84, pel_y=0.30, spine=4, spine1=2, spine2=0, neck=-6, head=-4, head_yaw=10, head_roll=12,
+             arm_sw_L=70, arm_sw_R=55, arm_in_L=40, arm_in_R=48, elbow_L=60, elbow_R=70, claw_L=22, claw_R=22,
+             foot_free=1.0, foot_L_y=-0.42, foot_R_y=-0.36, foot_L_z=G+0.06, foot_R_z=G+0.03)
+RISE = dict(name='ZW_Rise', length=90/30.0, keys=[        # a heap on the ground -> the head lifts -> pushes to the knees -> hauls up to standing (continuous)
+    (0.00, 'smooth', dict(PRONE)),
+    (0.35, 'out', W(tremble=0.6, neck=-24, head=-16, head_roll=4, spine1=-4, spine2=-8)),                      # the head lifts first, a shudder
+    (0.70, 'inout', W(tremble=0.3, pel_z=-0.86, pel_pitch=70, pel_y=0.26, spine=12, spine1=8, spine2=2, neck=-28, head=-20, head_yaw=-6,
+                      arm_sw_L=85, arm_sw_R=80, arm_in_L=55, arm_in_R=58, elbow_L=35, elbow_R=40)),               # pushes the chest up on the hands
+    (1.15, 'inout', W(tremble=0.2, pel_z=-0.56, pel_pitch=30, pel_y=0.10, spine=18, spine1=14, spine2=8, neck=-14, head=-6, head_roll=-4,
+                      foot_L_y=0.12, foot_L_z=G+0.10, foot_R_y=-0.22, foot_R_z=G, foot_free=0.5,
+                      arm_sw_L=40, arm_sw_R=30, arm_in_L=62, arm_in_R=66, elbow_L=20, elbow_R=25)),               # onto one knee, the other foot comes forward
+    (1.40, 'snap', W(foot_L_y=0.16, foot_L_z=G, tremble=0.5, pel_z=-0.58)),                                         # the foot plants, the weight catches
+    (1.95, 'inout', W(tremble=0.1, pel_z=-0.30, pel_pitch=14, pel_y=0.04, spine=16, spine1=12, spine2=9, neck=-4, head=2, head_yaw=0, head_roll=0,
+                      foot_R_y=-0.06, foot_R_z=G+0.05, foot_free=0.0, arm_sw_L=26, arm_sw_R=24, arm_in_L=70, arm_in_R=70, elbow_L=30, elbow_R=30)),   # hauls up
+    (2.25, 'smooth', W(foot_R_y=0.0, foot_R_z=G, pel_z=-0.20, pel_pitch=4, pel_y=0.0)),
+    (2.60, 'out', dict(BASE_W, tremble=0.0)),
+    (90/30.0, 'linear', dict(BASE_W)),
+])
+LAYING = dict(name='ZW_Laying_Stunned', length=180/30.0, keys=[   # knocked down: lies stunned, twitches, a weak push, rolls onto the hands ready to rise
+    (0.00, 'smooth', dict(PRONE, pel_roll=-30, head_roll=22, arm_sw_L=50, arm_in_L=30, arm_sw_R=20, arm_in_R=60)),
+    (0.60, 'smooth', W(tremble=0.5)), (0.95, 'smooth', W(tremble=0.0, claw_L=30, claw_R=28)),
+    (1.60, 'smooth', W(head_yaw=-8, head=-10, neck=-10, claw_L=10, claw_R=12)),
+    (2.30, 'snap', W(tremble=0.7, arm_sw_L=62, elbow_L=50)),                                                        # a twitch
+    (2.60, 'out', W(tremble=0.0)),
+    (3.40, 'inout', W(pel_roll=-8, pel_pitch=80, head_roll=6, neck=-22, head=-14, arm_sw_L=78, arm_sw_R=72, arm_in_L=48, arm_in_R=52, elbow_L=55, elbow_R=62)),   # rolls flat, hands under the chest
+    (4.20, 'inout', W(pel_z=-0.90, spine1=-2, spine2=-6, neck=-30, head=-18, elbow_L=40, elbow_R=45, tremble=0.3)),  # a weak push, the head comes up
+    (4.60, 'smooth', W(pel_z=-0.96, tremble=0.0, neck=-20, head=-10)),                                             # sags back
+    (5.40, 'inout', W(pel_z=-0.86, pel_pitch=72, spine=10, spine1=6, spine2=0, neck=-28, head=-18, elbow_L=32, elbow_R=36, arm_sw_L=84, arm_sw_R=80)),   # up on the hands: ready to rise
+    (180/30.0, 'smooth', W(tremble=0.2)),
+])
+ALL.update({'rise': RISE, 'laying': LAYING})

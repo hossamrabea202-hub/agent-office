@@ -65,10 +65,19 @@ def _rot_q(arm, bone, q, pivot):
 def leg_ik(arm, side, target, knee_dir=None, n_hint=None, prebend=12.0):
     """move the ankle (Foot head) of `side` to world `target`. Two-bone chain UpLeg -> Leg -> Foot. The knee plane normal
     is +X for a forward-bending knee; a straight leg is pre-bent forward first so the solve never flips backwards."""
-    t1, s1, ft, toe, toe_end = LEGS[side]
+    return chain_ik(arm, LEGS[side][:3], target, knee_dir, n_hint, prebend, LEFT)
+
+def arm_ik(arm, side, target, elbow_dir=None, n_hint=None, prebend=12.0):
+    """move the wrist (Hand head) of `side` to world `target`. Chain Arm -> ForeArm -> Hand. elbow_dir = where the
+    elbow should point (world); n_hint = the elbow plane normal (a straight arm is pre-bent about it first)."""
+    sh, ua, fa, hd = ARMS[side]
+    return chain_ik(arm, (ua, fa, hd), target, elbow_dir, n_hint if n_hint is not None else UP, prebend, n_hint if n_hint is not None else UP)
+
+def chain_ik(arm, bones, target, knee_dir=None, n_hint=None, prebend=12.0, prebend_axis=None):
+    t1, s1, ft = bones
     H = wpos(arm, t1); K = wpos(arm, s1); A = wpos(arm, ft)
-    if math.degrees((H - K).angle(A - K)) > 170.0 and prebend:    # straight: bend forward a little first
-        rot(arm, s1, LEFT, prebend, K); K = wpos(arm, s1); A = wpos(arm, ft)
+    if math.degrees((H - K).angle(A - K)) > 170.0 and prebend:    # straight: bend a little first
+        rot(arm, s1, prebend_axis if prebend_axis is not None else LEFT, prebend, K); K = wpos(arm, s1); A = wpos(arm, ft)
     T = Vector(target)
     a = (K - H).length; b = (A - K).length
     d = max(abs(a-b)+1e-4, min(a+b-1e-4, (T - H).length))
