@@ -1,9 +1,10 @@
 {
- "working": "idle: owner play-test (review list A, E-I)",
- "tokens": 900000,
+ "working": "idle: owner play-test",
+ "tokens": 920000,
  "ctx": 1000000,
  "since": "2026-11-06T06:07:33Z",
  "done": [
+  "#460 grass phase A applied + dump pushed [8% tokens left]",
   "i5 batch: F/G/H/J fixes, #501 barricades hidden, #522 colossus wiring, #523 real deaths; fresh exports pushed [10% tokens left]",
   "follow fix built+hooked, visor light off, soldier HP up, 5 i5 hand-offs verified+closed, melt gated [14% tokens left]",
   "#519 colossus + walker animation sets installed; #518 exports [20% tokens left]",
@@ -12,8 +13,7 @@
   "#515 brute layer applied (37 clips); #325 #288 pasted [40% tokens left]",
   "#325 towers + #288 realm pasted and saved, level saved; board cleaned; editor open offline for the owner [44% tokens left]",
   "board cleanup: 28 finished cards closed; editor started offline [53% tokens left]",
-  "hand-offs: #439 #428 #438 #430 #417 already applied (closed), #429 applied + native mirror [58% tokens left]",
-  "BP_Zombie native target pick wired + saved; office post [64% tokens left]"
+  "hand-offs: #439 #428 #438 #430 #417 already applied (closed), #429 applied + native mirror [58% tokens left]"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-11-06T09:03:35Z",
+ "asOf": "2026-11-06T09:09:19Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
