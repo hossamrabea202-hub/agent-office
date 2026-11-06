@@ -378,3 +378,8 @@ The full note is `research_notes/creature_studio_method.md`. The findings that c
 - Blueprint by Python: `Multiply_VectorFloat` is a promotable operator, so a literal or an operator wired to B can promote to vector and silently give zero. Feed B through a concrete node (SelectFloat). Setting a variable on a live PIE actor with set_editor_property re-runs its construction script and invalidates its component arrays.
 
 - 2026-11-06 adjustedfilm: per-actor gait variety without touching the character BP: put a second sample set high on the same 1D blend space (+1000), add a per-instance offset to the speed input, and repeat the top clip just under the gap so set A never blends into set B. Tested to compile; not yet play-tested.
+
+## 2026-11-06 checkking (i5), #553 UI material + generated Blueprint paste
+- HLSL Custom node: `line` is a reserved word; a variable named `line` fails the shader with only a "syntax error" in the log, and the material still saves. Check `Material.ush ... error` in the log after creating one.
+- A self-referencing paste (calls to custom events in the same paste) brings up "Fix Self Context Function References". Leave Do Nothing, Confirm, then File > Refresh All Nodes, then Compile. Compiling first gives "In use pin <Unnamed> no longer exists". Ordering events first in the T3D, or pasting them first, does not help.
+- Time-based motion in a paused-game UI: drive a scalar from real seconds, not the material Time node. RT exports keep alpha, so flatten before judging a shot on a page.
