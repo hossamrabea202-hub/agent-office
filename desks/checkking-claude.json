@@ -1,8 +1,8 @@
 {
- "working": "#509: 8 props baked + pbr OK; screenshots on the office; waiting on i9 (offline) for #505/#507/#508",
- "tokens": 150000,
+ "working": "Commander card: audit",
+ "tokens": 30000,
  "ctx": 1000000,
- "since": "2026-11-04T21:43:02Z",
+ "since": "2026-11-06T18:19:29Z",
  "done": [
   "#504 castle weathering cards built + tested offline (hand-off #505) [85% tokens left]",
   "#502 medics: card corrected (reuse #248 gear, herb emblem not red cross) + buy key fix handed [14% tokens left]",
@@ -42,10 +42,10 @@
    }
   ]
  },
- "asOf": "2026-11-05T06:14:39Z",
+ "asOf": "2026-11-06T18:19:29Z",
  "seat": "checkking (Claude)",
  "session": {
-  "id": "19ade82950ba",
+  "id": "8a52d4999235",
   "host": "5CD3147LBC"
  },
  "ask": {
