@@ -34,6 +34,9 @@ HEAD_STAB = 0.8       # head cancels this much of the body's yaw/roll
 HEAD_UP = 0.0         # deg extra head lift (0 = the maw looks ahead and a little down)
 TOE_OFF = 12.0        # deg heel lift at push-off
 
+import json
+for _k, _v in json.loads(os.environ.get('CR_OVR', '{}')).items(): globals()[_k] = tuple(_v) if isinstance(_v, list) else _v
+NAME = os.environ.get('CR_NAME', 'CR_Walk_Heavy')
 D = SPEED*N/30.0*STANCE/100.0       # m the foot travels back while planted
 arm = bl_rig.load_rig(SK, keep_mesh=bool(BLEND))
 P.rest_all(arm)
@@ -106,7 +109,7 @@ def pose_frame(f):
 
 sc = bpy.context.scene
 arm.animation_data_create()
-act = bpy.data.actions.new('CR_Walk_Heavy'); arm.animation_data.action = act
+act = bpy.data.actions.new(NAME); arm.animation_data.action = act
 for f in range(N+1):
     pose_frame(f % N)
     P.key(arm, frame=f+1)

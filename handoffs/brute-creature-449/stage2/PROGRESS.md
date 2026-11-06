@@ -12,7 +12,7 @@ is handed off as #515.
 | Stage | Clips | State |
 |---|---|---|
 | 1 | Pipeline round-trip; **heavy walk** at the game speed (71.5 cm/s, in place); **living idle** | **done, waiting on the owner's review** |
-| 2 | Threat roar, charge/run, 2 attacks | todo |
+| 2 | Threat roar, charge/run, 2 attacks | **in progress** (owner OK'd stage 1: "Good, do stage 2") |
 | 3 | 3 hits (front / left / right), 2 deaths (forward slam, side collapse) | todo |
 | 4 | Handoff: import script (new assets in `FleshBrute/Anims_Creature/`), blend-space and BP swap with dry-run and backup | todo |
 
@@ -89,3 +89,18 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
   **How to continue stage 2:** copy `author_idle.py` as the template (per-frame `pose_frame(f)` → `P.key`), keep the feet on
   `P.leg_ik`, check with the built-in knee/snap prints, import → layer `--src Anims_Creature` → `export_fbx.py` → `render_mesh.py`.
   Attacks: keep the strike readable, anticipation ≥ 0.4 s, strike 3–5 frames, a long settle (RESEARCH.md: Gilman).
+- **08:55 Stage 2 started.** New `bl_perform.py`: pose-to-pose authoring with **per-channel curves** (a key only moves
+  the channels it names; the first key is `BASE`, the idle's base pose), eases `smooth / in / in2 / out / inout / snap /
+  linear`, per-group lags for overlap (head 0.09 s, elbows 0.10 s, hands 0.13 s, claws 0.16 s) and a 9–14 Hz tremble channel.
+  `perf_stage2.py` holds the key poses; author with `author_oneshot.py -- <SK.fbx> roar|slam|swipe <out.fbx>`.
+  - **CR_Roar_Threat** (3.0 s): gather (sink, curl, fists) → explode up (chest arched, arms flung wide, claws spread) → a
+    trembling roar hold with a head sweep → settle to the base pose. Worst bone turn 9.3°/frame.
+  - **CR_Attack_Slam** replaces FB_A_Attack: **same length 79 frames, hit at frame 26** (BP damage timing kept). Step in,
+    arms overhead, a held breath, a 6-frame overhead slam, the mass keeps dropping on impact, a shudder, step back. The
+    fastest bone is on the blow (35°/frame).
+  - **CR_Attack_Swipe** replaces FB_ZA_Attack_D: **same length 60 frames, hit at frame 14**. The torso cocks right with
+    the claws spread, a 5-frame whip across, a head lunge (bite), follow-through. 45°/frame on the strike.
+  - Lessons: a cubic ease-in on the strike crams it into one frame (100°/frame = a pop) → use `in2` over 5–6 frames.
+    Keys that did not name a channel used to freeze it (an 80° catch-up jump) → fixed by the per-channel curves.
+  - TODO: the #449 layer must **skip de-pop and retime for CR_ clips** (they are authored; de-pop would flatten the strikes).
+  - Next: CR_Charge (author_walk.py with the `CR_OVR` env JSON overrides + `CR_NAME`), then import all, layer, render.
