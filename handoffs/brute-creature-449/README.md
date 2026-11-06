@@ -33,6 +33,8 @@ with no rewiring.
 | De-pop | Single-frame snaps over 25° are eased into their neighbours |
 | Gait | The blend-space run sample moves 100 → 79 at rate 0.8 (the −20 % rule). It lumbers instead of jogging, and its speed is the same |
 
+> **i9 note (11-06 08:20):** running this stage 1 script AFTER stage 2 still rewrites the blend space run sample to 79 @ 0.8 (stage 2 wants 170 @ 1.0). If you re-run stage 1 after stage 2, re-run stage 2's blend-space step (or set FB_A_Run back to 170 / rate 1.0) afterwards.
+
 ## Steps (Master, i9)
 
 1. `git pull`.
