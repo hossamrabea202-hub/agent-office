@@ -1,6 +1,6 @@
 {
- "working": "#519: five hand-offs with the i9 Master; waiting for play-test results",
- "tokens": 760000,
+ "working": "#519: hit-direction flinches; asked the i9 (paste vs C++ hit vector) before building",
+ "tokens": 770000,
  "ctx": 1000000,
  "since": "2026-11-06T07:24:55Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T09:06:15Z",
+ "asOf": "2026-11-06T09:10:39Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
