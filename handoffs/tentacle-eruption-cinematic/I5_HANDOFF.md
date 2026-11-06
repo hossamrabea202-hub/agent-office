@@ -59,3 +59,9 @@ Lab, headless unless noted:
 ## Rules applied
 
 SPEC_1106 realism rules: each layer has a physical cause; nothing glows. INDUSTRY_SECRETS 0.8, 3.4. Knowledge base 1, 3. `creature_studio_method.md`: driver + damped followers, snap, hold, slow recovery.
+
+## Added 2026-11-06 evening (your BP_TentacleEruption needs these)
+
+- Give each runtime base actor the tag `SporeBase`. The tentacle death finds its base by that tag and darkens it (#551).
+- Spawn the ground skirt with the base: a DecalActor, material `M_SporeSkirt`, rotation (0, -90, yaw), `decal_size (350, R, R)` with R = 12500 x base scale, base component `receives_decals = False`. Same as `sporebase_ue.py`.
+- Rerun `sporebase_ue.py --reimport` and `eruption_assets_ue.py`: new crust, skirt textures, `Dead` value on `M_TentacleSporeBase`, crack roughness fixed (pbr_check OK).
