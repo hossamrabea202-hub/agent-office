@@ -4,15 +4,15 @@
 #   py sporebase_ue.py --only Env_CorruptedTentacle_02,Env_CorruptedTentacle_05     try on some first
 #   py sporebase_ue.py --revert              remove the placed bases (the assets stay). Then save the level
 # Placement: a trace finds the ground under each tentacle; the arm's real thickness at that height (table below, rig metres) sizes the base, so the throat hugs the arm, mirrored actors included.
-# Collision is off: the player and soldiers walk through it on the terrain. Bases do not affect navigation.
+# Two shapes, A and B: each tentacle always gets the same one. Big slabs and the mound block the player and soldiers through an invisible low-poly collision mesh placed with each base; rubble, roots and pods do not. Bases do not affect navigation.
 import bisect, os, sys, zlib, unreal
 HERE = os.path.dirname(os.path.abspath(__file__)); A = sys.argv[1:] + os.environ.get('ST_ARGS', '').split()
 DRY, REV = '--dry-run' in A, '--revert' in A; ONLY = A[A.index('--only') + 1].split(',') if '--only' in A else None
-D_ = '/Game/CastleDefender/Environment/Tentacles/SporeBase'; SM = D_ + '/SM_TentacleSporeBase_A'; MAT = D_ + '/M_TentacleSporeBase'
+D_ = '/Game/CastleDefender/Environment/Tentacles/SporeBase'; SMS = [D_ + '/SM_TentacleSporeBase_A', D_ + '/SM_TentacleSporeBase_B']; MAT = D_ + '/M_TentacleSporeBase'
 TD, TN = '/Game/CastleDefender/AssetPacks/StarterContent/Textures/T_Rock_Slate_D', '/Game/CastleDefender/AssetPacks/StarterContent/Textures/T_Rock_Slate_N'
 PREFIX = 'TentacleSporeBase_'; NOMINAL_R = 30.0; SINK_CM = 60.0
-# height above the rig's base, centre x, y, trunk radius: rig metres, measured from SK_CorruptedTentacle_01 (r95)
-TAB = [(0, -4.06, 1.92, 12.8), (3, -1.16, 0.81, 11.85), (6, -1.1, 1.07, 11.69), (9, 0.5, -0.1, 11.2), (12, 0.56, 0.11, 11.07), (15, -0.75, 0.6, 9.93), (18, -1.16, 0.69, 10.23), (21, -1.11, 1.12, 9.77), (24, -2.1, 1.38, 9.58), (27, -1.73, 0.85, 9.06), (30, -1.91, 1.4, 8.89), (33, -2.0, 0.92, 8.08), (36, -2.37, 1.13, 7.99), (39, -2.94, 1.02, 8.38)]
+# height above the rig's base, centre x, y, trunk radius: rig metres, measured from SK_CorruptedTentacle_01 (70th percentile of the ring, so spikes do not count). The top curl starts above 63.
+TAB = [(0, -2.06, 2.12, 12.17), (3, -0.13, 0.1, 10.66), (6, 1.51, -0.79, 11.34), (9, -2.58, 2.24, 10.96), (12, -0.86, 0.39, 9.87), (15, -0.95, 2.29, 10.65), (18, -1.21, 0.57, 9.33), (21, -1.41, 0.69, 9.02), (24, -1.56, 0.77, 8.78), (27, -1.75, 0.89, 8.52), (30, -1.86, 0.91, 8.18), (33, -2.07, 1.01, 7.9), (36, -2.52, 1.08, 7.63), (39, -2.92, 1.08, 7.35), (42, -3.17, 1.07, 7.01), (45, -3.99, 1.02, 6.71), (48, -4.63, 0.98, 6.51), (51, -5.64, 0.9, 6.26), (54, -7.36, 0.76, 6.27), (57, -8.13, 0.39, 6.0), (60, -9.56, 0.52, 5.82), (63, -12.26, 0.41, 5.75)]
 EAL, AT, MEL = unreal.EditorAssetLibrary, unreal.AssetToolsHelpers.get_asset_tools(), unreal.MaterialEditingLibrary
 ES = unreal.get_editor_subsystem(unreal.EditorActorSubsystem); world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
 def say(*a): print('SPORE539', ' '.join(str(x) for x in a))
@@ -43,18 +43,28 @@ for a in actors:
     tents.append(a)
 say('tentacles', len(tents), 'already placed', len(placed))
 if not DRY:
-    if not EAL.does_asset_exist(SM):
-        f = os.path.join(HERE, 'fbx', 'SM_TentacleSporeBase_A.fbx')
-        if not os.path.exists(f): raise SystemExit('SPORE539 missing FBX (git pull?): ' + f)
-        ui = unreal.FbxImportUI(); ui.set_editor_property('import_mesh', True); ui.set_editor_property('import_as_skeletal', False); ui.set_editor_property('import_materials', False); ui.set_editor_property('import_textures', False); ui.set_editor_property('import_animations', False); ui.set_editor_property('mesh_type_to_import', unreal.FBXImportType.FBXIT_STATIC_MESH)
-        d = ui.get_editor_property('static_mesh_import_data'); d.set_editor_property('import_uniform_scale', 0.01); d.set_editor_property('vertex_color_import_option', unreal.VertexColorImportOption.REPLACE); d.set_editor_property('auto_generate_collision', False); d.set_editor_property('generate_lightmap_u_vs', False); d.set_editor_property('combine_meshes', True); d.set_editor_property('normal_import_method', unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS)
-        try: d.set_editor_property('build_nanite', True)
-        except Exception as e: say('note: no build_nanite option', e)
-        t = unreal.AssetImportTask(); t.filename = f; t.destination_path = D_; t.destination_name = 'SM_TentacleSporeBase_A'; t.automated = True; t.replace_existing = True; t.save = True; t.options = ui; AT.import_asset_tasks([t])
-        if not EAL.does_asset_exist(SM): raise SystemExit('SPORE539 import failed; nothing placed')
-    mesh = unreal.load_asset(SM); ns = mesh.get_editor_property('nanite_settings')
-    if not ns.enabled: ns.enabled = True; mesh.set_editor_property('nanite_settings', ns); EAL.save_loaded_asset(mesh)
-    b = mesh.get_bounds(); say('mesh extent cm', round(b.box_extent.x), round(b.box_extent.y), round(b.box_extent.z), 'nanite', mesh.get_editor_property('nanite_settings').enabled)
+    for SM in SMS:
+        nm = SM.rsplit('/', 1)[1]
+        if not EAL.does_asset_exist(SM):
+            f = os.path.join(HERE, 'fbx', nm + '.fbx')
+            if not os.path.exists(f): raise SystemExit('SPORE539 missing FBX (git pull?): ' + f)
+            ui = unreal.FbxImportUI(); ui.set_editor_property('import_mesh', True); ui.set_editor_property('import_as_skeletal', False); ui.set_editor_property('import_materials', False); ui.set_editor_property('import_textures', False); ui.set_editor_property('import_animations', False); ui.set_editor_property('mesh_type_to_import', unreal.FBXImportType.FBXIT_STATIC_MESH)
+            d = ui.get_editor_property('static_mesh_import_data'); d.set_editor_property('import_uniform_scale', 0.01); d.set_editor_property('vertex_color_import_option', unreal.VertexColorImportOption.REPLACE); d.set_editor_property('auto_generate_collision', False); d.set_editor_property('generate_lightmap_u_vs', False); d.set_editor_property('combine_meshes', True); d.set_editor_property('normal_import_method', unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS)
+            try: d.set_editor_property('build_nanite', True)
+            except Exception as e: say('note: no build_nanite option', e)
+            t = unreal.AssetImportTask(); t.filename = f; t.destination_path = D_; t.destination_name = nm; t.automated = True; t.replace_existing = True; t.save = True; t.options = ui; AT.import_asset_tasks([t])
+            if not EAL.does_asset_exist(SM): raise SystemExit('SPORE539 import failed; nothing placed')
+        mesh = unreal.load_asset(SM); ns = mesh.get_editor_property('nanite_settings')
+        if not ns.enabled: ns.enabled = True; mesh.set_editor_property('nanite_settings', ns); EAL.save_loaded_asset(mesh)
+        b = mesh.get_bounds(); say(nm, 'extent cm', round(b.box_extent.x), round(b.box_extent.y), round(b.box_extent.z), 'nanite', mesh.get_editor_property('nanite_settings').enabled)
+    for SM in SMS:
+        CM = SM + '_Col'; nm = CM.rsplit('/', 1)[1]
+        if not EAL.does_asset_exist(CM):
+            ui = unreal.FbxImportUI(); ui.set_editor_property('import_mesh', True); ui.set_editor_property('import_as_skeletal', False); ui.set_editor_property('import_materials', False); ui.set_editor_property('import_textures', False); ui.set_editor_property('import_animations', False); ui.set_editor_property('mesh_type_to_import', unreal.FBXImportType.FBXIT_STATIC_MESH)
+            d = ui.get_editor_property('static_mesh_import_data'); d.set_editor_property('import_uniform_scale', 0.01); d.set_editor_property('auto_generate_collision', False); d.set_editor_property('generate_lightmap_u_vs', False); d.set_editor_property('combine_meshes', True)
+            t = unreal.AssetImportTask(); t.filename = os.path.join(HERE, 'fbx', nm + '.fbx'); t.destination_path = D_; t.destination_name = nm; t.automated = True; t.replace_existing = True; t.save = True; t.options = ui; AT.import_asset_tasks([t])
+            if not EAL.does_asset_exist(CM): raise SystemExit('SPORE539 collision import failed; nothing placed')
+        cmesh = unreal.load_asset(CM); cmesh.get_editor_property('body_setup').set_editor_property('collision_trace_flag', unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE); EAL.save_loaded_asset(cmesh)
     if not EAL.does_asset_exist(MAT):
         m = AT.create_asset('M_TentacleSporeBase', D_, unreal.Material, unreal.MaterialFactoryNew()); E = MEL.create_material_expression
         vc = E(m, unreal.MaterialExpressionVertexColor, -1000, -100); pw = E(m, unreal.MaterialExpressionPower, -800, -100); ce = E(m, unreal.MaterialExpressionConstant, -1000, 40); ce.set_editor_property('r', 2.2); MEL.connect_material_expressions(vc, '', pw, 'Base'); MEL.connect_material_expressions(ce, '', pw, 'Exponent')   # the vertex bytes are sRGB
@@ -68,18 +78,20 @@ if not DRY:
         MEL.connect_material_property(vc, 'A', unreal.MaterialProperty.MP_ROUGHNESS)
         tn = E(m, unreal.MaterialExpressionTextureSample, -500, 500); tn.set_editor_property('texture', unreal.load_asset(TN)); tn.set_editor_property('sampler_type', unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL); MEL.connect_material_expressions(mu, '', tn, 'UVs'); MEL.connect_material_property(tn, 'RGB', unreal.MaterialProperty.MP_NORMAL)
         MEL.recompile_material(m); EAL.save_loaded_asset(m); say('material built')
-    mesh.set_material(0, unreal.load_asset(MAT)); EAL.save_loaded_asset(mesh)
+    for SM in SMS: mesh = unreal.load_asset(SM); mesh.set_material(0, unreal.load_asset(MAT)); EAL.save_loaded_asset(mesh)
 n_done = 0
 for a in tents:
     lab = a.get_actor_label(); g = ground(a); s = abs(a.get_actor_scale3d().z); z = a.get_actor_location().z
     if not g: say('SKIP', lab, 'no ground under it'); continue
     loc, nrm, what = g; h = (loc.z - z) / s / 100.0
-    if h < -1 or h > 42: say('SKIP', lab, 'ground is %.0f rig m up the arm, outside the table' % h); continue
+    if h < -1 or h > 63: say('SKIP', lab, 'ground is %.0f rig m up the arm, outside the table' % h); continue
     cx, cy, r = interp(h); c = a.get_actor_transform().transform_location(unreal.Vector(cx * 100.0, cy * 100.0, h * 100.0)) if hasattr(a.get_actor_transform(), 'transform_location') else unreal.MathLibrary.transform_location(a.get_actor_transform(), unreal.Vector(cx * 100.0, cy * 100.0, h * 100.0))
-    size = r * s / NOMINAL_R; yaw = zlib.crc32(lab.encode()) % 360
-    say(lab, 'on', what, 'ground z', round(loc.z), 'height', round(h, 1), 'trunk radius m', round(r * s, 1), 'base scale', round(size, 2), 'width m', round(190 * size), 'centre', round(c.x), round(c.y), "slope normal z", round(nrm.z, 2))
+    size = r * s / NOMINAL_R; yaw = zlib.crc32(lab.encode()) % 360; SM = SMS[zlib.crc32(lab.encode()) // 7 % 2]
+    say(lab, 'on', what, 'ground z', round(loc.z), 'height', round(h, 1), 'trunk radius m', round(r * s, 1), 'base scale', round(size, 2), 'width m', round(190 * size), 'shape', SM[-1], 'centre', round(c.x), round(c.y), "slope normal z", round(nrm.z, 2))
     if DRY: continue
-    for old in [p for p in placed if p.get_actor_label() == PREFIX + lab]: ES.destroy_actor(old)
+    for old in [p for p in placed if p.get_actor_label() in (PREFIX + lab, PREFIX + 'Col_' + lab)]: ES.destroy_actor(old)
     b = ES.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(c.x, c.y, loc.z - SINK_CM), unreal.Rotator(0, 0, yaw)); b.set_actor_label(PREFIX + lab); b.set_folder_path('TentacleSporeBase'); b.set_actor_scale3d(unreal.Vector(size, size, size))
-    sm = b.static_mesh_component; sm.set_static_mesh(unreal.load_asset(SM)); sm.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION); sm.set_editor_property('can_ever_affect_navigation', False); n_done += 1
+    sm = b.static_mesh_component; sm.set_static_mesh(unreal.load_asset(SM)); sm.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION); sm.set_editor_property('can_ever_affect_navigation', False)
+    k = ES.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(c.x, c.y, loc.z - SINK_CM), unreal.Rotator(0, 0, yaw)); k.set_actor_label(PREFIX + 'Col_' + lab); k.set_folder_path('TentacleSporeBase'); k.set_actor_scale3d(unreal.Vector(size, size, size))
+    km = k.static_mesh_component; km.set_static_mesh(unreal.load_asset(SM + '_Col')); km.set_collision_profile_name('BlockAll'); km.set_editor_property('can_ever_affect_navigation', False); k.set_actor_hidden_in_game(True); km.set_editor_property('cast_shadow', False); n_done += 1
 say('DONE', 'dry-run' if DRY else 'placed %d; save the level' % n_done)

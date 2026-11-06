@@ -6,7 +6,8 @@ a = sys.argv[sys.argv.index('--') + 1:]; BL, MESH, CLIP, OUT, NAME, VIEW = a[:6]
 if BL != '-': bpy.ops.wm.open_mainfile(filepath=BL)
 else: bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene
-base = next((o for o in bpy.data.objects if o.type == 'MESH'), None)
+base = next((o for o in bpy.data.objects if o.type == 'MESH' and not o.name.startswith('UCX_')), None)
+for o in [o for o in bpy.data.objects if o.name.startswith('UCX_')]: bpy.data.objects.remove(o, do_unlink=True)
 if base:
     base.scale = (0.01, 0.01, 0.01); m = bpy.data.materials.new('base'); m.use_nodes = True; nt = m.node_tree; b = nt.nodes['Principled BSDF']
     at = nt.nodes.new('ShaderNodeVertexColor'); at.layer_name = 'Col'; nt.links.new(at.outputs['Color'], b.inputs['Base Color']); nt.links.new(at.outputs['Alpha'], b.inputs['Roughness']); base.data.materials.append(m)

@@ -2,9 +2,10 @@
 # spore pods growing from the fractures. Nominal size in metres: trunk radius 30, outer radius 95; the placement script scales it to each tentacle. Nanite mesh, no UVs baked:
 # vertex colour = albedo (RGB) and roughness (A), UV0 = box projection for the tiling detail textures.
 #   blender -b --factory-startup -P gen_sporebase.py -- <out.fbx> <seed> [preview.blend]
+# Collision: a second small FBX, <out>_Col.fbx: one box per big slab and a ring of low wedges over the mound, walkable. Rubble, roots and pods have none. It is placed invisible with the base.
 # Layers in physical order (knowledge base rule 3): base rock and soil -> strata -> fresh fractures -> cavities -> up-facing dust -> wet ooze near the wound -> spore stain.
 import bpy, sys, math, numpy as np
-a = sys.argv[sys.argv.index('--') + 1:]; OUT, SEED = a[0], int(a[1]); BLEND = a[2] if len(a) > 2 else None
+a = sys.argv[sys.argv.index('--') + 1:]; OUT, SEED = a[0], int(a[1]); NAME = __import__('os').path.splitext(__import__('os').path.basename(OUT))[0]; BLEND = a[2] if len(a) > 2 else None
 rng = np.random.default_rng(SEED); R0, ROUT = 30.0, 95.0
 def s2l(c): c = np.asarray(c, float) / 255.0; return np.where(c <= 0.04045, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
 PERM = rng.permutation(4096); GRAD = rng.random(4096)
@@ -64,6 +65,7 @@ stain = sstep(0.05, 0.55, fbm(X * 0.04, Y * 0.04, 11.0, 4) + 0.55 * (1 - U) - 0.
 C = C * (1 - stain) + (C * 0.45 + stainc * 0.55) * stain; C = C * (1 - wm) + wetc * wm
 RO = np.clip(0.92 - 0.65 * wm[..., 0] - 0.12 * m_rock[..., 0] + 0.08 * n2, 0.22, 1.0)
 add(V, F, C.reshape(-1, 3), RO.ravel())
+def mound_at(r_): return float(np.median(H[np.clip(np.searchsorted(rr, r_), 0, NR - 1)]))
 def height(x, y):       # sample the crust
     r_ = np.hypot(x, y); i_ = np.clip(np.searchsorted(rr, r_), 0, NR - 1); j_ = int((math.atan2(y, x) % (2 * math.pi)) / (2 * math.pi) * NA) % NA
     return float(H[i_, j_])
@@ -86,17 +88,19 @@ def slab(L, W, T, seed, S=22):
 def rot(ax, an):
     c_, s_ = math.cos(an), math.sin(an); x, y, z = ax
     return np.array([[c_ + x * x * (1 - c_), x * y * (1 - c_) - z * s_, x * z * (1 - c_) + y * s_], [y * x * (1 - c_) + z * s_, c_ + y * y * (1 - c_), y * z * (1 - c_) - x * s_], [z * x * (1 - c_) - y * s_, z * y * (1 - c_) + x * s_, c_ + z * z * (1 - c_)]])
-SLABS = []
+SLABS = []; HULLS = []
 for k_ in range(58):
     t_ = rng.random() * 2 * math.pi; rad = R0 + 2 + (ROUT * 0.62 - R0) * rng.random() ** 1.7; nearw = 1 - (rad - R0) / (ROUT * 0.62 - R0)
     L, W, T = (8 + 34 * nearw * rng.random() + 6 * rng.random()), (5 + 15 * rng.random() * (0.4 + nearw)), (1.6 + 5.5 * rng.random())
-    P, Fq = slab(L, W, T, k_); strat = P[:, 2] / T
+    P, Fq = slab(L, W, T, k_); strat = P[:, 2] / T; lo_, hi_ = P.min(0) * 0.86, P.max(0) * 0.86
+    box = np.array([[x_, y_, z_] for x_ in (lo_[0], hi_[0]) for y_ in (lo_[1], hi_[1]) for z_ in (lo_[2], hi_[2])])
     out = np.array([math.cos(t_), math.sin(t_), 0.0]); side = np.array([-out[1], out[0], 0.0])
-    P = P @ np.array([[0, 0, 1.0], [0, 1.0, 0], [-1.0, 0, 0]]).T if False else P
+
     lean = math.radians(18 + 58 * nearw * rng.random() + 8 * rng.random())       # long axis lies radial; the inner end is lifted by the eruption
-    Rm = rot(side, -lean) @ np.column_stack([out, side, [0, 0, 1.0]]) @ rot((0, 0, 1.0), rng.normal(0, 0.35)); P = P @ Rm.T
-    c = np.array([rad * math.cos(t_), rad * math.sin(t_), height(rad * math.cos(t_), rad * math.sin(t_)) + 0.12 * L * math.sin(lean)]); P = P + c
+    Rm = rot(side, -lean) @ np.column_stack([out, side, [0, 0, 1.0]]) @ rot((0, 0, 1.0), rng.normal(0, 0.35)); P = P @ Rm.T; box = box @ Rm.T
+    c = np.array([rad * math.cos(t_), rad * math.sin(t_), height(rad * math.cos(t_), rad * math.sin(t_)) + 0.12 * L * math.sin(lean)]); P = P + c; box = box + c
     SLABS.append(c)
+    if L > 13: HULLS.append(box)
     n3 = fbm(P[:, 0] * 0.3, P[:, 1] * 0.3, P[:, 2] * 0.3, 4); band = 0.5 + 0.5 * np.sin(strat * 19 + 2.0 * n3)
     Cc = s2l([112, 104, 93]) * (1 + 0.32 * n3 + (0.25 * band - 0.12))[:, None]
     nz = np.clip((P[:, 2] - P[:, 2].min()) / max(1.0, np.ptp(P[:, 2])), 0, 1)
@@ -153,13 +157,20 @@ for k_ in range(64):
         low_ = (1 - sstep(0.0, 0.3, u))[:, None]; Cc = Cc * (1 - low_) + s2l([66, 54, 42]) * low_; rg_ = 0.55 + 0.2 * n3 + 0.3 * low_[:, 0]
         if burst: hol = sstep(0.8, 0.9, u)[:, None]; Cc = Cc * (1 - hol) + s2l([48, 30, 28]) * hol; rg_ = rg_ * (1 - 0.35 * hol[:, 0])
         add(P, Fq, Cc, np.clip(rg_, 0.2, 1.0))
+# ---------- collision: a ring of wedges following the mound (from the throat to where the crust dives under)
+for k_ in range(28):
+    a0, a1 = 2 * math.pi * k_ / 28, 2 * math.pi * (k_ + 1) / 28; ri, ro_ = R0 - 3.0, R0 + 20.0; pts = []
+    for an in (a0, a1):
+        for r_, top in ((ri, True), (ro_, True), (ri, False), (ro_, False)):
+            x_, y_ = r_ * math.cos(an), r_ * math.sin(an); z_ = (mound_at(r_) if top else -4.0); pts.append((x_, y_, z_))
+    HULLS.append(np.array(pts))
 # ---------- build
 vs, fs, cs, ro, ofs = [], [], [], [], 0
 for v_, f_, c_, r_ in PARTS:
     vs.append(v_); fs.append(np.asarray(f_) + ofs); cs.append(np.clip(c_, 0, 1)); ro.append(np.broadcast_to(r_, (len(v_),))); ofs += len(v_)
 V = np.concatenate(vs); Fq = np.concatenate(fs); C = np.concatenate(cs); RG = np.concatenate(ro)
 bpy.ops.wm.read_factory_settings(use_empty=True)
-me = bpy.data.meshes.new('SM_TentacleSporeBase'); me.vertices.add(len(V)); me.vertices.foreach_set('co', (V * 100.0).astype(np.float32).ravel())   # centimetres
+me = bpy.data.meshes.new(NAME); me.vertices.add(len(V)); me.vertices.foreach_set('co', (V * 100.0).astype(np.float32).ravel())   # centimetres
 me.loops.add(len(Fq) * 4); me.polygons.add(len(Fq)); me.loops.foreach_set('vertex_index', Fq.astype(np.int32).ravel()); me.polygons.foreach_set('loop_start', np.arange(len(Fq), dtype=np.int32) * 4)
 me.update(); me.validate(verbose=False)
 col = me.color_attributes.new('Col', 'BYTE_COLOR', 'POINT'); col.data.foreach_set('color', np.column_stack([C, RG]).astype(np.float32).ravel())   # linear values; Blender stores them as sRGB bytes on export
@@ -169,8 +180,19 @@ fn = np.empty(len(me.polygons) * 3, np.float32); me.polygons.foreach_get('normal
 uv = np.where(dom[:, None] == 2, P_[:, [0, 1]], np.where(dom[:, None] == 0, P_[:, [1, 2]], P_[:, [0, 2]])) / 5.0                                 # 1 tile = 5 m, nominal
 uvl.data.foreach_set('uv', uv.astype(np.float32).ravel())
 me.polygons.foreach_set('use_smooth', np.ones(len(me.polygons), bool)); me.set_sharp_from_angle(angle=math.radians(52)) if hasattr(me, 'set_sharp_from_angle') else None; me.update()
-ob = bpy.data.objects.new('SM_TentacleSporeBase', me); bpy.context.scene.collection.objects.link(ob); bpy.context.view_layer.objects.active = ob; ob.select_set(True)
+ob = bpy.data.objects.new(NAME, me); bpy.context.scene.collection.objects.link(ob); bpy.context.view_layer.objects.active = ob; ob.select_set(True)
 bpy.ops.export_scene.fbx(filepath=OUT, use_selection=True, global_scale=1.0, apply_unit_scale=True, apply_scale_options='FBX_SCALE_NONE', mesh_smooth_type='FACE', use_tspace=False, bake_anim=False, add_leaf_bones=False, colors_type='SRGB')
 if BLEND: bpy.ops.wm.save_as_mainfile(filepath=BLEND)
+import bmesh
+bm = bmesh.new()
+for pts in HULLS:
+    vs_ = [bm.verts.new((q[0] * 100.0, q[1] * 100.0, q[2] * 100.0)) for q in pts]
+    r_ = bmesh.ops.convex_hull(bm, input=vs_, use_existing_faces=False)
+    for v_ in [v_ for v_ in r_['geom_interior'] + r_['geom_unused'] if isinstance(v_, bmesh.types.BMVert)]: bm.verts.remove(v_)
+cm = bpy.data.meshes.new(NAME + '_Col'); bm.to_mesh(cm); bm.free(); co = bpy.data.objects.new(NAME + '_Col', cm); bpy.context.scene.collection.objects.link(co)
+bpy.ops.object.select_all(action='DESELECT'); co.select_set(True); bpy.context.view_layer.objects.active = co
+bpy.ops.export_scene.fbx(filepath=OUT.replace('.fbx', '_Col.fbx'), use_selection=True, global_scale=1.0, apply_unit_scale=True, apply_scale_options='FBX_SCALE_NONE', mesh_smooth_type='FACE', bake_anim=False, add_leaf_bones=False)
+print('COL tris', sum(len(f.vertices) - 2 for f in cm.polygons))
 lum = (C @ np.array([0.2126, 0.7152, 0.0722])); sr_ = np.where(lum <= 0.0031308, 12.92 * lum, 1.055 * lum ** (1 / 2.4) - 0.055) * 255
+print('HULLS', len(HULLS))
 print('SPORE seed %d | verts %d quads %d | albedo sRGB luminance p1 %.0f p50 %.0f p99 %.0f, below 30: %.2f%%, above 240: %.2f%% | roughness %.2f..%.2f std %.2f | size %.0f m' % (SEED, len(V), len(Fq), np.percentile(sr_, 1), np.percentile(sr_, 50), np.percentile(sr_, 99), (sr_ < 30).mean() * 100, (sr_ > 240).mean() * 100, RG.min(), RG.max(), RG.std(), np.ptp(V[:, 0])))
