@@ -1,9 +1,10 @@
 {
- "working": "BP_Zombie native target pick wiring + verify dump, then office post",
- "tokens": 330000,
+ "working": "verify dump, then idle (owner review list in Downloads)",
+ "tokens": 360000,
  "ctx": 1000000,
  "since": "2026-11-06T06:07:33Z",
  "done": [
+  "BP_Zombie native target pick wired + saved; office post [64% tokens left]",
   "DLL rebuilt (timer pause persisted), medic #502 imported, 8 export requests closed, soldier NearZombies prune built+wired [67% tokens left]",
   "#311 kit, #341 placement",
   "#311 mine kit imported",
@@ -12,8 +13,7 @@
   "#354 hero part pasted, HUD part reverted",
   "#318 toasts pasted",
   "#319 Vesna A/D pasted",
-  "#324 brute waves pasted",
-  "#320 colossus fix pasted"
+  "#324 brute waves pasted"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-11-06T06:24:16Z",
+ "asOf": "2026-11-06T06:28:15Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
