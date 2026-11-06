@@ -9,7 +9,7 @@
 import bisect, os, sys, zlib, unreal
 HERE = os.path.dirname(os.path.abspath(__file__)); A = sys.argv[1:] + os.environ.get('ST_ARGS', '').split()
 DRY, REV, REIMP = '--dry-run' in A, '--revert' in A, '--reimport' in A; ONLY = A[A.index('--only') + 1].split(',') if '--only' in A else None
-D_ = '/Game/CastleDefender/Environment/Tentacles/SporeBase'; SMS = [D_ + '/SM_TentacleSporeBase_A', D_ + '/SM_TentacleSporeBase_B']; MAT = D_ + '/M_TentacleSporeBase'
+D_ = '/Game/CastleDefender/Environment/Tentacles/SporeBase'; SMS = [D_ + '/SM_TentacleSporeBase_A', D_ + '/SM_TentacleSporeBase_B']; MAT = D_ + '/M_TentacleSporeBase_v2'
 TD, TN = '/Game/CastleDefender/AssetPacks/StarterContent/Textures/T_Rock_Slate_D', '/Game/CastleDefender/AssetPacks/StarterContent/Textures/T_Rock_Slate_N'
 SK_BC, SK_MASK, SK_MAT = D_ + '/T_SporeSkirt_BC', D_ + '/T_SporeSkirt_Mask', D_ + '/M_SporeSkirt'; PREFIX = 'TentacleSporeBase_'; NOMINAL_R = 30.0; SINK_CM = 60.0
 # height above the rig's base, centre x, y, trunk radius: rig metres, measured from SK_CorruptedTentacle_01 (70th percentile of the ring, so spikes do not count). The top curl starts above 63.
@@ -29,9 +29,9 @@ def interp(h):
     hs = [r[0] for r in TAB]; i = min(max(bisect.bisect_right(hs, h), 1), len(TAB) - 1); a, b = TAB[i - 1], TAB[i]; t = min(max((h - a[0]) / float(b[0] - a[0]), 0.0), 1.0)
     return [a[k] + (b[k] - a[k]) * t for k in (1, 2, 3)]
 def ground(actor):
-    p = actor.get_actor_location(); hits = unreal.SystemLibrary.line_trace_multi(world, unreal.Vector(p.x, p.y, p.z + 150000.0), unreal.Vector(p.x, p.y, p.z - 20000.0), unreal.TraceTypeQuery.TRACE_TYPE_QUERY1, True, [], unreal.DrawDebugTrace.NONE, True)
+    p = actor.get_actor_location(); hits = unreal.SystemLibrary.line_trace_multi(world, unreal.Vector(p.x, p.y, p.z + 150000.0), unreal.Vector(p.x, p.y, p.z - 20000.0), unreal.TraceTypeQuery.TRACE_TYPE_QUERY1, True, placed, unreal.DrawDebugTrace.NONE, True)   # ignores bases already placed: their blocking collision would stop the trace
     best = None
-    for h in hits:
+    for h in (hits or []):
         t = h.to_tuple(); hit_actor = next((v for v in t if isinstance(v, unreal.Actor)), None); vecs = [v for v in t if isinstance(v, unreal.Vector)]
         if hit_actor is None or len(vecs) < 3: continue
         name = type(hit_actor).__name__; loc, nrm = vecs[0], vecs[2]
@@ -67,8 +67,8 @@ if not DRY:
             t = unreal.AssetImportTask(); t.filename = os.path.join(HERE, 'fbx', nm + '.fbx'); t.destination_path = D_; t.destination_name = nm; t.automated = True; t.replace_existing = True; t.save = True; t.options = ui; AT.import_asset_tasks([t])
             if not EAL.does_asset_exist(CM): raise SystemExit('SPORE539 collision import failed; nothing placed')
         cmesh = unreal.load_asset(CM); cmesh.get_editor_property('body_setup').set_editor_property('collision_trace_flag', unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE); EAL.save_loaded_asset(cmesh)
-    if REIMP or not EAL.does_asset_exist(MAT):
-        m = unreal.load_asset(MAT) if EAL.does_asset_exist(MAT) else AT.create_asset('M_TentacleSporeBase', D_, unreal.Material, unreal.MaterialFactoryNew()); MEL.delete_all_material_expressions(m); E = MEL.create_material_expression
+    if not EAL.does_asset_exist(MAT):   # a new material: never delete expressions of the live one, it is rooted and asserts (i9 crash, 11-06)
+        m = AT.create_asset('M_TentacleSporeBase_v2', D_, unreal.Material, unreal.MaterialFactoryNew()); E = MEL.create_material_expression
         vc = E(m, unreal.MaterialExpressionVertexColor, -1000, -100); pw = E(m, unreal.MaterialExpressionPower, -800, -100); ce = E(m, unreal.MaterialExpressionConstant, -1000, 40); ce.set_editor_property('r', 2.2); MEL.connect_material_expressions(vc, '', pw, 'Base'); MEL.connect_material_expressions(ce, '', pw, 'Exponent')   # the vertex bytes are sRGB
         tc = E(m, unreal.MaterialExpressionTextureCoordinate, -1400, 300); tile = E(m, unreal.MaterialExpressionScalarParameter, -1400, 420); tile.set_editor_property('parameter_name', 'DetailTile'); tile.set_editor_property('default_value', 1.0); mu = E(m, unreal.MaterialExpressionMultiply, -1200, 300); MEL.connect_material_expressions(tc, '', mu, 'A'); MEL.connect_material_expressions(tile, '', mu, 'B')
         td = E(m, unreal.MaterialExpressionTextureSample, -1000, 240); td.set_editor_property('texture', unreal.load_asset(TD)); MEL.connect_material_expressions(mu, '', td, 'UVs')
