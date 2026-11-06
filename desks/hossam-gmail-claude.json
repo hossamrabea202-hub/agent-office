@@ -1,9 +1,10 @@
 {
- "working": "i5 perf/polish hand-offs: F, GHJ, #501 barricades, #460 grass dry runs",
- "tokens": 860000,
+ "working": "idle: owner play-test (review list A, E-I)",
+ "tokens": 900000,
  "ctx": 1000000,
  "since": "2026-11-06T06:07:33Z",
  "done": [
+  "i5 batch: F/G/H/J fixes, #501 barricades hidden, #522 colossus wiring, #523 real deaths; fresh exports pushed [10% tokens left]",
   "follow fix built+hooked, visor light off, soldier HP up, 5 i5 hand-offs verified+closed, melt gated [14% tokens left]",
   "#519 colossus + walker animation sets installed; #518 exports [20% tokens left]",
   "#449 stages 1-3 live; brute sand dissolve + zombie candle melt built [24% tokens left]",
@@ -12,8 +13,7 @@
   "#325 towers + #288 realm pasted and saved, level saved; board cleaned; editor open offline for the owner [44% tokens left]",
   "board cleanup: 28 finished cards closed; editor started offline [53% tokens left]",
   "hand-offs: #439 #428 #438 #430 #417 already applied (closed), #429 applied + native mirror [58% tokens left]",
-  "BP_Zombie native target pick wired + saved; office post [64% tokens left]",
-  "DLL rebuilt (timer pause persisted), medic #502 imported, 8 export requests closed, soldier NearZombies prune built+wired [67% tokens left]"
+  "BP_Zombie native target pick wired + saved; office post [64% tokens left]"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-11-06T08:47:02Z",
+ "asOf": "2026-11-06T09:03:35Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
