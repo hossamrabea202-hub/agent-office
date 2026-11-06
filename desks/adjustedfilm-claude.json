@@ -1,6 +1,6 @@
 {
- "working": "chained zombie: card, room, melt check",
- "tokens": 30000,
+ "working": "chained zombie: clips authored, melt material + BP next",
+ "tokens": 150000,
  "ctx": 1000000,
  "since": "2026-11-06T15:30:05Z",
  "done": [
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T15:30:05Z",
+ "asOf": "2026-11-06T15:45:58Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
