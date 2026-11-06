@@ -1,8 +1,8 @@
 {
- "working": "",
- "tokens": 1090000,
+ "working": "chained zombie: card, room, melt check",
+ "tokens": 30000,
  "ctx": 1000000,
- "since": "2026-11-06T07:24:55Z",
+ "since": "2026-11-06T15:30:05Z",
  "done": [
   "#519 directional hit clips for the i9 C++ flinch [0% tokens left]",
   "#450 cannon reactions handed off [0% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T10:18:36Z",
+ "asOf": "2026-11-06T15:30:05Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "d203ac7e4df0",
+  "id": "33ac865f3833",
   "host": "5CD3147LBC"
  },
  "ask": {
