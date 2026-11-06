@@ -1,0 +1,9 @@
+# #543 BP_MineFind - paste one line at a time on the VARIABLES header of My Blueprint, then Compile
+BPVar(VarName="Prompt",VarGuid=E484304C80125F598597A2160AF54151,VarType=(PinCategory="string"),FriendlyName="Prompt",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="[E] Take the sword")
+BPVar(VarName="FoundText",VarGuid=A3D75BF525045BBAA89662134CBA09AF,VarType=(PinCategory="string"),FriendlyName="FoundText",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="You found the Ulfberht sword")
+BPVar(VarName="UseRange",VarGuid=268238F970A956A4BEA30317F5590523,VarType=(PinCategory="real",PinSubCategory="double"),FriendlyName="UseRange",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="220.0")
+BPVar(VarName="Taken",VarGuid=15977F8DD8AD58AEB23B2F87EDE27912,VarType=(PinCategory="bool"),FriendlyName="Taken",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="CardOn",VarGuid=5142D0CC218454A7A6464FB3250129AC,VarType=(PinCategory="bool"),FriendlyName="CardOn",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="EWas",VarGuid=35E2CB88F9FC54C7863770DE0121BE42,VarType=(PinCategory="bool"),FriendlyName="EWas",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="PressNow",VarGuid=6D47F7A3CEE256FC8B31898971F99F5F,VarType=(PinCategory="bool"),FriendlyName="PressNow",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
+BPVar(VarName="Shown",VarGuid=D3C45828F4A3508991E3336B80CAF42A,VarType=(PinCategory="bool"),FriendlyName="Shown",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=5,DefaultValue="false")
