@@ -358,3 +358,11 @@ The full note is `research_notes/creature_studio_method.md`. The findings that c
   game speed. That is one reason the wasps weren't "seen flying", along with a dark body on a dark sky.
 - **Game readability:** check close (1 m), mid (8 m) and gameplay distance (25-40 m). Use value contrast and one
   restrained signature emissive (spore tips).
+
+## #530 tentacle style pass: tool traps (adjustedfilm, 2026-11-06)
+
+- **UE 5.8 `set_bone_track_keys` drops the write silently when the clip has no track for that bone.** Clips with frozen bones often have none. Call `controller.add_bone_curve(bone)` first, then compare the result against the source: this showed up only as a 2 deg difference.
+- **Blender 4.4+:** an action assigned to another armature does not play until `animation_data.action_slot` is set.
+- **Blender `frame_set` does not restore a channel whose keyed value did not change.** Anything you edited by script on a flat curve stays edited. For IK previews, sample `fcurve.evaluate(frame)` yourself.
+- **UE-exported FBX clips hold empty fcurves.** `evaluate` returns 0 on them, which zeroes bone scale. Skip curves with no keyframes.
+- **Judge a clip under FABRIK together with the IK, not alone.** The input pose changes the arc the solver finds, so a coil or a curve in the clip survives into the strike shape.
