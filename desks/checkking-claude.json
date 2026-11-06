@@ -1,9 +1,10 @@
 {
- "working": "Commander card: audit",
- "tokens": 30000,
+ "working": "waiting on i9: #553 paste and C++ hooks",
+ "tokens": 215000,
  "ctx": 1000000,
  "since": "2026-11-06T18:19:29Z",
  "done": [
+  "#553 commander card handed off, not played [78% tokens left]",
   "#504 castle weathering cards built + tested offline (hand-off #505) [85% tokens left]",
   "#502 medics: card corrected (reuse #248 gear, herb emblem not red cross) + buy key fix handed [14% tokens left]",
   "#500 C++ round 2 HUD written (ACDHudBase, swap + reparent scripts) [24% tokens left]",
@@ -12,8 +13,7 @@
   "#500 C++ kit rev 2: all external review fixes [36% tokens left]",
   "#501 render count + SiegeKit removal script handed to i9 [44% tokens left]",
   "#500 C++ transition kit for the 8 points written (not compiled) [50% tokens left]",
-  "#500 C++ step 1 written ahead (AZombieBase, UCrowdSubsystem, reparent script), not compiled [56% tokens left]",
-  "#493 C7 BarracksHUD scans handed; anim settings checked [59% tokens left]"
+  "#500 C++ step 1 written ahead (AZombieBase, UCrowdSubsystem, reparent script), not compiled [56% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -42,7 +42,7 @@
    }
   ]
  },
- "asOf": "2026-11-06T18:19:29Z",
+ "asOf": "2026-11-06T19:03:55Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "8a52d4999235",
