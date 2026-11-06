@@ -144,3 +144,9 @@ strikes, knees never ~180) -> `ue_import_anims.py` (into `Anims_Colossus`) -> `e
   and rendered on the knight mesh: normal neck, no twist (handoffs/risen-334/preview). Script
   `handoffs/risen-334/rt334_risen_fix_ue.py` (dry-run / apply) handed off. Tools: `tools/zretarget_knight.py`,
   `zretarget_batch.py`, `zprobe_knight2.py` (chains, bones, heights).
+- **13:20 Directional hits for the i9's C++ flinch** (i9 took hit direction into C++: front/back/left/right + stagger >= 40 %
+  MaxHP + heavy for cannon/charge, cd.Zombie.DirectionalFlinch; it asked for a back flinch and a right-side twist in free
+  slots). `ZW_Hit_Back` (20 f: shoved forward, head whips back, arms fling back) and `ZW_Hit_SideRight` (30 f, mirror of
+  HIT_SIDE) -> `zw_hits2_ue.py` writes them into ZA_Taking_Damage_B and _C (both were copies of the front flinch since
+  #521; the #521 backups are the originals). Sets: FRONT = A, BACK = B, LEFT = F, RIGHT = C, STAGGER = D/E, HEAVY = A_Hit.
+  Lab: 2 x 0.0 deg. Handed to the i9.

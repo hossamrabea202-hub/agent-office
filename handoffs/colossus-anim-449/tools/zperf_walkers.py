@@ -179,3 +179,20 @@ LAYING = dict(name='ZW_Laying_Stunned', length=180/30.0, keys=[   # knocked down
     (180/30.0, 'smooth', W(tremble=0.2)),
 ])
 ALL.update({'rise': RISE, 'laying': LAYING})
+
+# ---- directional hits for the i9's C++ flinch (2026-11-06): BACK (hit from behind) and RIGHT (mirror of HIT_SIDE) ----
+HIT_BACK = dict(name='ZW_Hit_Back', length=20/30.0, keys=[      # struck from behind: shoved forward, chest out, the head whips back, arms fling back
+    (0.00, 'smooth', dict(BASE_W)),
+    (0.10, 'snap', W(pel_y=0.06, pel_z=-0.18, pel_pitch=8, spine=-4, spine1=-10, spine2=-6, neck=-20, head=-14,
+                     arm_sw_L=-28, arm_sw_R=-24, arm_in_L=58, arm_in_R=60, elbow_L=20, elbow_R=24, claw_L=-8, claw_R=-8, shoulder_L=-6, shoulder_R=-6)),
+    (0.30, 'out', W(pel_y=0.03, pel_z=-0.20, pel_pitch=3, spine=10, spine1=6, spine2=4, neck=-6, head=-4, arm_sw_L=10, arm_sw_R=12, claw_L=20, claw_R=20)),
+    (20/30.0, 'out', dict(BASE_W)),
+])
+HIT_SIDE_RIGHT = dict(name='ZW_Hit_SideRight', length=30/30.0, keys=[   # struck on its right: twists left (mirror of HIT_SIDE)
+    (0.00, 'smooth', dict(BASE_W)),
+    (0.10, 'snap', W(pel_x=0.06, pel_z=-0.19, pel_roll=6, side=-18, twist=22, head_yaw=18, head_roll=-12, neck_yaw=8,
+                     arm_in_R=50, arm_sw_R=35, elbow_R=45, claw_R=-10, arm_sw_L=5, shoulder_R=8)),
+    (0.32, 'out', W(pel_x=0.03, pel_z=-0.21, pel_roll=2, side=-6, twist=8, head_yaw=6, head_roll=-4, neck_yaw=2, claw_R=20, arm_in_R=68, arm_sw_R=24)),
+    (30/30.0, 'out', dict(BASE_W)),
+])
+ALL.update({'hit_back': HIT_BACK, 'hit_side_right': HIT_SIDE_RIGHT})
