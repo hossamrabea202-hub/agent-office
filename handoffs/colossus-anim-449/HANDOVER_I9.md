@@ -48,3 +48,28 @@ which a `PlayAnimation` breaker cannot run, so I need the current graph, not the
 wants them out, say so: I remove them and Taildrop them to the i9 instead.
 
 Full detail: [README.md](README.md), [PROGRESS.md](PROGRESS.md). Previews: `preview/*.mp4` (real mesh, before | after).
+
+## 5. Hit direction + stagger by weapon: yours to finish (owner, 2026-11-06 12:20)
+
+**What the graph does today (BP_Zombie, export #518 / fresh-1106):** `ReceiveAnyDamage` (K2Node_Event_ZB60) -> gore,
+HP, hit-stop -> `K2Node_VariableSet_6` (LastFlinchAt) -> `K2Node_IfThenElse_15` (condition `K2Node_PromotableOperator_17`
+<- `K2Node_CallFunction_58`, a front/back test) -> `Montage_Play` `AM_ZFlinch_Back` (K2Node_CallFunction_59) or
+`AM_ZFlinch_Front` (K2Node_CallFunction_60), both at **InPlayRate 3.0**. Deaths: 12 picks, now the ZW montages (#523).
+
+**Clips you can use (already in the game since #521, written into the old assets):**
+`ZA_Taking_Damage_A/B/C` = `ZW_Hit_Flinch` (chest, 20 f), `ZA_Taking_Damage_D/E` = `ZW_Hit_Stagger` (heavy, a step back,
+40 f), `ZA_Taking_Damage_F` = `ZW_Hit_Side` (struck on its LEFT, twists right, 30 f), `A_Hit` = `ZW_Hit_Heavy` (knocked
+to a knee, 60 f), `ZA_Laying_Idle_A` = `ZW_Laying_Stunned` (flat, 180 f, after LaunchCharacter). Missing: a RIGHT-side
+twist and a back flinch; say the word and I author them in 10 minutes (`tools/zperf_walkers.py`: HIT_SIDE mirrored).
+
+**Two ways to get the side:** (a) BP: dot/cross of (DamageCauser location - zombie location) with the actor forward
+and right vectors -> front / back / left / right (wrong for bolts and cannon when the causer is the shooter or the
+projectile); (b) C++: `AZombieBase::TakeDamage` already has the hit point for the candle melt; expose the local-space
+hit direction (or an enum) to BP and branch on it. Stagger by weapon: branch on the causer class / damage amount:
+sword -> flinch (A-C), bolt -> flinch, cannon or charge -> `ZW_Hit_Heavy` or the knock-down path (LaunchCharacter +
+`ZA_Laying_Idle_A`), >= 40 % MaxHP in one hit -> stagger (D-E).
+
+**Tools (handoffs/colossus-anim-449):** `tools/t3d_nodes.js <export> <words>` lists any export's nodes with their
+links (I used it for every trace above); `t3d_eventgraph.js <whole-BP export> <out>` flattens your whole-BP export into
+the clipboard layout applyall reads and drops the duplicate unlinked copies your post-10:00 exporter writes;
+`gen_cz519.py` / `gen_zd519.py` show the bpkit paste pattern (nodes + manifest rewires, `fix_impure`, `applyall merge`).
