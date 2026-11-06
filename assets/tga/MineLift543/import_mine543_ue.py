@@ -185,7 +185,9 @@ def add_comp(bp, cls, name, parent=None, socket=None):
     h, reason = SDS.add_new_subobject(unreal.AddNewSubobjectParams(parent_handle=ph, new_class=cls, blueprint_context=bp))
     if not LIB.is_handle_valid(h): raise RuntimeError('%s.%s failed: %s' % (bp.get_name(), name, reason))
     SDS.rename_subobject(h, unreal.Text(name)); c = LIB.get_object(SDS.k2_find_subobject_data_from_handle(h))
-    if socket: c.set_editor_property('attach_socket_name', socket)
+    if socket:   # Master: the template socket is not settable from Python in 5.8; the C++ editor tool does it (SetComponentSocket)
+        try: say('  socket %s.%s -> %s: %s' % (bp.get_name(), name, socket, unreal.CDEditorTools.set_component_socket(bp.get_path_name().split('.')[0], name, socket)))
+        except Exception as e_: say('  socket %s.%s -> %s FAILED %s' % (bp.get_name(), name, socket, str(e_)[:120]))
     say('  + %s.%s' % (bp.get_name(), name)); return c
 def new_bp(name):
     path = GP + '/' + name
@@ -276,7 +278,9 @@ def apply_assets():
                 sub.remove_collisions(sm); sub.add_simple_collisions(sm, unreal.ScriptingCollisionShapeType.NDOP26)
             else: say('  StaticMeshEditorSubsystem is None (headless): %s keeps no simple collision, add one by hand if the hero should bump it' % n)
             if n == 'SM_MineBucket':                                          # where the rope hooks on, the hero stands, the lamp hangs
-                for s_ in list(sm.get_editor_property('sockets') or []): sm.remove_socket(s_)
+                for nm_ in ('Rope', 'Stand', 'Lamp'):   # Master: 'sockets' is protected in 5.8; remove by name instead
+                    s_ = sm.find_socket(nm_)
+                    if s_: sm.remove_socket(s_)
                 for nm, loc in (('Rope', (0, 0, 183)), ('Stand', (30, 0, 97)), ('Lamp', (0, -42, 150))):   # Stand = floor 7 + capsule half-height 90
                     so = unreal.StaticMeshSocket(sm); so.set_editor_property('socket_name', nm); so.set_editor_property('relative_location', unreal.Vector(*loc)); sm.add_socket(so)
             EAL.save_loaded_asset(sm)
@@ -385,7 +389,7 @@ def place():
              (top, 'IsTop', True), (bot, 'IsTop', False), (top, 'RopeTop', 115.0), (bot, 'RopeTop', 1450.0)]
     for a, prop, v in links:
         try: a.set_editor_property(prop, v)                                   # these exist once the variable lines are pasted
-        except Exception: say('  could not set %s.%s (paste VARIABLES_BP_MineLift_BPVar.txt first, then re-run --place)' % (a.get_actor_label(), prop))
+        except Exception as e_: say('  could not set %s.%s: %s' % (a.get_actor_label(), prop, str(e_)[:160]))
     open(STATE, 'w').write('\n'.join(state)); LES.save_all_dirty_levels()
     say('Partner / Lift links are set if the logic paste is in; otherwise set them by hand (README).')
 

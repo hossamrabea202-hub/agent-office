@@ -1,0 +1,41 @@
+#543 mine lift + find (--place)
+winding room origin <Struct 'Vector' (0x000001F5F0F07620) {x: 94.000000, y: -2401.000000, z: -2122.000000}> (20 m under Mine_01)
+  ground over room corner (-350, -350): hit at z -39 (room roof -1702)
+  ground over room corner (950, -350): hit at z -135 (room roof -1702)
+  ground over room corner (-350, 350): hit at z -135 (room roof -1702)
+  ground over room corner (950, 350): hit at z -135 (room roof -1702)
+top (winding room):
+  Mine543_ShaftTop           <Struct 'Vector' (0x000001F6ECCC75D0) {x: 94.000000, y: -2401.000000, z: -2122.000000}>
+  Mine543_CribTop            <Struct 'Vector' (0x000001F6ECCC75D0) {x: 484.000000, y: -2401.000000, z: -2122.000000}>
+  Mine543_Collar             <Struct 'Vector' (0x000001F6ECCC75D0) {x: 484.000000, y: -2401.000000, z: -2122.000000}>
+  Mine543_Bulkhead           <Struct 'Vector' (0x000001F6ECCC75D0) {x: 214.000000, y: -2401.000000, z: -2122.000000}>
+  Mine543_RoomFrame          <Struct 'Vector' (0x000001F5F0F06590) {x: 214.000000, y: -2401.000000, z: -2122.000000}>
+  Mine543_RoomDoor           <Struct 'Vector' (0x000001F6ECCC75D0) {x: 214.000000, y: -2339.000000, z: -2122.000000}>
+  Mine543_RoomLantern_0      <Struct 'Vector' (0x000001F5F0F07670) {x: 304.000000, y: -2251.000000, z: -1902.000000}>
+  Mine543_RoomLantern_0Light <Struct 'Vector' (0x000001F5F0F07670) {x: 304.000000, y: -2251.000000, z: 98.000000}>
+  Mine543_RoomLantern_1      <Struct 'Vector' (0x000001F6ECCC75D0) {x: 644.000000, y: -2541.000000, z: -1902.000000}>
+  Mine543_RoomLantern_1Light <Struct 'Vector' (0x000001F5F0F07670) {x: 644.000000, y: -2541.000000, z: 98.000000}>
+  Mine543_ShaftLantern_T     <Struct 'Vector' (0x000001F6ECCC75D0) {x: 384.000000, y: -2501.000000, z: -2422.000000}>
+  Mine543_ShaftLantern_TLight <Struct 'Vector' (0x000001F5F0F07670) {x: 384.000000, y: -2501.000000, z: -422.000000}>
+  MineLift_Top               <Struct 'Vector' (0x000001F6ECCC75D0) {x: 484.000000, y: -2401.000000, z: -2122.000000}>
+  Mine543_ShaftGuard         <Struct 'Vector' (0x000001F6ECCC7530) {x: 484.000000, y: -2401.000000, z: -2012.000000}>
+door (replaces the teleport at MineDoor_Up):
+  MineGate_Up                <Struct 'Vector' (0x000001F6ECCC7530) {x: 359.091267, y: -2502.441654, z: -95.737013}>
+bottom (landing, replaces Mine297_Tunnel_DeadEnd_03):
+  Mine543_CribBottom         <Struct 'Vector' (0x000001F5F0F06590) {x: 1419.000000, y: -2401.000000, z: -3672.000000}>
+  Mine543_LandingLantern     <Struct 'Vector' (0x000001F5F0F06590) {x: 1294.000000, y: -2521.000000, z: -4902.000000}>
+  Mine543_LandingLanternLight <Struct 'Vector' (0x000001F6ECCFF580) {x: 1294.000000, y: -2521.000000, z: -2902.000000}>
+  Mine543_ShaftLantern_B     <Struct 'Vector' (0x000001F5F0F06590) {x: 1319.000000, y: -2501.000000, z: -4722.000000}>
+  Mine543_ShaftLantern_BLight <Struct 'Vector' (0x000001F6ECCFF580) {x: 1319.000000, y: -2501.000000, z: -2722.000000}>
+  MineLift_Bottom            <Struct 'Vector' (0x000001F5F0F06590) {x: 1419.000000, y: -2401.000000, z: -5122.000000}>
+find (replaces the mesh of Mine297_OreVein_19):
+  MineFind_Ulfberht          <Struct 'Vector' (0x000001F6ECCFF7B0) {x: -456.000000, y: -2026.000000, z: -5122.000000}>
+  could not set MineLift_Top.Partner: Actor: Property 'Partner' for attribute 'Partner' on 'BP_MineLift_C' cannot be edited on instances
+  could not set MineLift_Bottom.Partner: Actor: Property 'Partner' for attribute 'Partner' on 'BP_MineLift_C' cannot be edited on instances
+  could not set MineLift_Top.Gate: Actor: Property 'Gate' for attribute 'Gate' on 'BP_MineLift_C' cannot be edited on instances
+  could not set MineLift_Bottom.Gate: Actor: Property 'Gate' for attribute 'Gate' on 'BP_MineLift_C' cannot be edited on instances
+  could not set MineLift_Top.IsTop: Actor: Property 'IsTop' for attribute 'IsTop' on 'BP_MineLift_C' cannot be edited on instances
+  could not set MineLift_Bottom.IsTop: Actor: Property 'IsTop' for attribute 'IsTop' on 'BP_MineLift_C' cannot be edited on instances
+  could not set MineLift_Top.RopeTop: Actor: Property 'RopeTop' for attribute 'RopeTop' on 'BP_MineLift_C' cannot be edited on instances
+  could not set MineLift_Bottom.RopeTop: Actor: Property 'RopeTop' for attribute 'RopeTop' on 'BP_MineLift_C' cannot be edited on instances
+Partner / Lift links are set if the logic paste is in; otherwise set them by hand (README).
