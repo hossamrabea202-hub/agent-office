@@ -15,7 +15,7 @@ import os
 #   ANCHORS   tie-rod plates, in pairs 4 m apart, ~4.5 m up on a few long faces: the period repair that holds a bulging wall.
 import math, random, sys, unreal
 args = sys.argv[1:]
-HERE = os.path.dirname(os.path.abspath(__file__))   # Master: was i5's absolute path
+HERE = 'C:/Users/hossa/Documents/agent-office/handoffs/castle-props-509'   # Master: this PC's repo (scripts exec each other without __file__)
 TAG = 'FX509'
 ONLY = set(args[args.index('--only') + 1].split(',')) if '--only' in args else {'hoarding', 'spouts', 'rings', 'brackets', 'anchors'}
 CAMP = '/Game/_i5tmpWS509/' if '--temp' in args else '/Game/CastleDefender/Environment/Camp/'

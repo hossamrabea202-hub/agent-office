@@ -23,7 +23,7 @@ import os
 import math, os, random, sys, unreal
 
 D = '/Game/_i5tmpCW504/' if '--temp' in sys.argv else '/Game/CastleDefender/Environment/CastleWeather504/'
-HERE = os.path.dirname(os.path.abspath(__file__))   # Master: was i5's absolute path
+HERE = 'C:/Users/hossa/Documents/agent-office/handoffs/castle-weather-504'   # Master: this PC's repo (scripts exec each other without __file__)
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 W = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
 SL = unreal.SystemLibrary

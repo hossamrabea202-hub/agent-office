@@ -12,13 +12,13 @@ import os
 # or wears base-grime cards (Tower9) gets weeds only, no card.
 import math, random, sys, unreal
 args = sys.argv[1:]
-SRC = 'C:/Users/hossam.rabea/agent-office/handoffs/castle-weather-504/place_weather504_ue.py'
+SRC = 'C:/Users/hossa/Documents/agent-office/handoffs/castle-weather-504/place_weather504_ue.py'
 code = open(SRC, encoding='utf-8').read()
 g = {'__name__': 'foot509'}; sys_argv = sys.argv; sys.argv = ['x']
 exec(compile(code[:code.index("if '--remove' in args:")], SRC, 'exec'), g); sys.argv = sys_argv     # #504's stone filter, traces, card frames
 V, trace, EAS = g['V'], g['trace'], g['EAS']
 TAG = 'FW509'
-HERE = os.path.dirname(os.path.abspath(__file__))   # Master: was i5's absolute path
+HERE = 'C:/Users/hossa/Documents/agent-office/handoffs/castle-props-509'   # Master: this PC's repo (scripts exec each other without __file__)
 MID = '/Game/_i5tmpWS509/' if '--temp' in args else '/Game/CastleDefender/Environment/CastleWeather504/'
 MS = '/Game/CastleDefender/AssetPacks/Fab/Megascans/Plants/'
 WEEDS = ([('grass', MS + 'Wild_Grass_vczndjqja/Raw/SM_vczndjqja_Var' + c, 0.55, 1.0) for c in 'ABCDEFGH'] +

@@ -7,7 +7,7 @@
 # Physical order (KB rule 3): soil splash first, moss over it. Values: wet soil ~0.10 (INDUSTRY_SECRETS 1.1 soil 0.15 dry,
 # splash is damp), moss 0.05-0.16 green (campmat moss). Restraint: only on stone that has NO base band of its own (see the placer).
 import sys, unreal
-SRC = 'C:/Users/hossam.rabea/agent-office/handoffs/castle-weather-504/build_weather504_ue.py'
+SRC = 'C:/Users/hossa/Documents/agent-office/handoffs/castle-weather-504/build_weather504_ue.py'
 code = open(SRC, encoding='utf-8').read()
 g = {'__name__': 'foot509'}
 exec(compile(code[:code.index('if not DRY and not TEMP and not EAL.does_directory_exist(DST)')], SRC, 'exec'), g)   # #504's helpers + noise
