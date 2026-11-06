@@ -57,3 +57,16 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
 - **07:32** Round-trip proven: UE FBX → Blender (`bl_rig`) → FBX → UE import. Worst error over every bone and frame is
   **0.0005° / 0.0004 cm**. Blender exports one more frame than UE had, so loops are authored with the last frame = the first.
   Next: the IK leg rig and body-space posing helpers in `bl_rig.py`, then the heavy walk.
+- **07:58** Rig facts: the leg is a **dog-leg** chain (hip = thigh_01 head, knee = shin_01 head, a second lower segment
+  shin_02, ankle = foot head 18 cm up and behind, toe on the ground). The FBX bone tails point back toward their parents, so
+  **Blender's IK constraint is unusable (≈40 cm error)**. `bl_pose.leg_ik()` is an analytic two-bone IK on the real joints:
+  0.0 cm error, zero toe drift, knees forward. `bl_pose.rot()` rotates a bone about a world axis; `+X` is the brute's left,
+  `-Y` forward, `+Z` up. A positive rotation about `+X` leans forward.
+- **08:05** `author_walk.py` → **CR_Walk_Heavy**: 46 frames = 1.53 s, in place, matched to 71.5 cm/s (planted-toe speed
+  error 0.00 cm/s, so no skating). Stance 65 %, 12 cm lift, 9 cm crouch, 5.5 cm impact dip with a slow recovery, 5.5 cm sway,
+  pelvis yaw 6° and roll 4°, chest counter-turn, lean 29°, heavy late arm swing, head stabilised. The jaw stays at rest on
+  purpose, because the #449 layer drives it later. Imported into `fblab` `Anims_Creature/CR_Walk_Heavy` OK.
+- **Preview gotcha:** a Blender-written FBX re-imported into Blender does NOT drive the UE-exported mesh correctly
+  (different rest orientations). Preview only from a **UE re-export** (`export_fbx.py` with `FB_CLIPS=Anims_Creature/<clip>`
+  `FB_OUT=...`), then `render_mesh.py`. `preview/walk_v1_sideq_006.png` is the first good frame.
+- Next: an mp4 of the walk for the owner, then `author_idle.py` (the living idle), the same way.

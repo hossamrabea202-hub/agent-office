@@ -8,6 +8,10 @@ os.makedirs(OUT, exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene
 
+def bl_fcurves(act):
+    try: return list(act.fcurves)
+    except Exception: return [fc for l in act.layers for st in l.strips for cb in st.channelbags for fc in cb.fcurves]
+
 def load(anim, x, label):
     before = set(bpy.data.objects)
     bpy.ops.import_scene.fbx(filepath=SK, automatic_bone_orientation=False, ignore_leaf_bones=False)
@@ -37,11 +41,17 @@ def load(anim, x, label):
                 if s.material: s.material.diffuse_color = (0.58, 0.43, 0.38, 1)
     return arm, act
 
-ab, act = load(BEFORE, 0.0, 'before'); aa, _ = load(AFTER, 2.2, 'after')
-f0, f1 = int(act.frame_range[0]), int(act.frame_range[1])
+ab, act = load(BEFORE, 0.0, 'before'); aa, act2 = load(AFTER, 2.2, 'after')
+f0 = int(act.frame_range[0]); f1 = max(int(act.frame_range[1]), int(act2.frame_range[1]))
+for ob, ac in ((ab, act), (aa, act2)):
+    ob.animation_data.action.use_cyclic = True if hasattr(ob.animation_data.action, 'use_cyclic') else None
+    try:
+        for fc in bl_fcurves(ac):
+            if not any(m.type == 'CYCLES' for m in fc.modifiers): fc.modifiers.new('CYCLES')
+    except Exception as e: print('cyc', e)
 sc.frame_start, sc.frame_end = f0, f1; sc.render.fps = 30
 SOUTH = VIEW.endswith('S'); ty = 0.6 if SOUTH else -0.6; rz = 0 if SOUTH else math.radians(180); dx = -0.6 if SOUTH else 0.6
-for txt, x in (('BEFORE', 0.0), ('AFTER  #449 creature layer', 2.2)):
+for txt, x in ((os.environ.get('LABEL_BEFORE', 'BEFORE'), 0.0), (os.environ.get('LABEL_AFTER', 'AFTER  #449 creature layer'), 2.2)):
     bpy.ops.object.text_add(location=(x+dx*(-1 if SOUTH else 1)-0.0, ty, 2.45)); t = bpy.context.object; t.data.body = txt; t.data.size = 0.15
     t.rotation_euler = (math.radians(90), 0, rz)
 bpy.ops.object.text_add(location=(-0.6 if SOUTH else 0.6, ty, 2.65)); t = bpy.context.object; t.data.body = CLIP; t.data.size = 0.11; t.rotation_euler = (math.radians(90), 0, rz)
@@ -49,7 +59,7 @@ bpy.ops.mesh.primitive_plane_add(size=14, location=(1.1, 0, 0))
 # camera: the brute faces -Y in this import; frame both
 sc.frame_set(f0)
 c = Vector((1.1, 0, 1.75 if VIEW.startswith('face') else 1.2))
-off = {'front': Vector((0, 6.2, 0.35)), 'side': Vector((6.5, 0.0, 0.3)), 'threeq': Vector((-2.2, 5.8, 0.5)), 'face': Vector((-1.6, 4.4, 0.25)), 'faceS': Vector((0.0, -4.8, 0.15)), 'frontS': Vector((0.4, -6.6, 0.35))}[VIEW]
+off = {'front': Vector((0, 6.2, 0.35)), 'side': Vector((6.5, 0.0, 0.3)), 'threeq': Vector((-2.2, 5.8, 0.5)), 'face': Vector((-1.6, 4.4, 0.25)), 'faceS': Vector((0.0, -4.8, 0.15)), 'sideq': Vector((5.0, -4.2, 0.3)), 'frontS': Vector((0.4, -6.6, 0.35))}[VIEW]
 bpy.ops.object.camera_add(location=c+off); cam = bpy.context.object; sc.camera = cam
 cam.rotation_euler = (c - cam.location).to_track_quat('-Z', 'Y').to_euler(); cam.data.lens = 50 if VIEW.startswith('face') else 35
 sc.render.engine = 'BLENDER_WORKBENCH'; sc.display.shading.light = 'STUDIO'; sc.display.shading.color_type = 'MATERIAL'
