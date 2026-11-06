@@ -104,3 +104,11 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
     Keys that did not name a channel used to freeze it (an 80° catch-up jump) → fixed by the per-channel curves.
   - TODO: the #449 layer must **skip de-pop and retime for CR_ clips** (they are authored; de-pop would flatten the strikes).
   - Next: CR_Charge (author_walk.py with the `CR_OVR` env JSON overrides + `CR_NAME`), then import all, layer, render.
+- **09:10** **CR_Charge** (`CR_NAME=CR_Charge CR_OVR='{"SPEED":170,"N":32,"STANCE":0.42,"LIFT":0.15,"CROUCH":0.14,"FWD_BIAS":0.17,"DIP":0.08,"RISE":0.03,"SWAY":0.04,"YAW":9,"ROLL":5,"LEAN":[16,14,10],"COUNTER":0.6,"NOD":5,"ARM_IN":18,"ELBOW":38,"ARM_SWING":28,"ARM_LAG":0.08,"FORE_SWING":14,"FORE_LAG":0.13,"TOE_OFF":16}' author_walk.py`):
+  1.07 s cycle at 170 cm/s, zero skate, knees 60–152°, worst 17°/frame (normal for a running knee).
+- The layer now knows the new clips (`fb2_layer.classify`: roar → the roar jaw, charge → loco). **CR_ clips skip de-pop and
+  retime.** All 6 CR clips imported into `fblab` `Anims_Creature/` and the layer run with `--src Anims_Creature`. Strike
+  frames found: slam **26**, swipe **15** (as designed), so the jaw snaps on the blows. Footfalls found in the charge (13, 29)
+  and the walk (5, 31).
+- Note: `Anims_Creature/RT_Idle_A` is the round-trip test clip; **leave it out of the handoff**.
+- Rendering the mp4s (slam, swipe, roar, charge) into `preview/`. Next: stage 3 (3 hits, 2 deaths) after the owner's review.

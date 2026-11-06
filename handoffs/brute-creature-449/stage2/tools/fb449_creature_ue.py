@@ -89,7 +89,7 @@ for idx, n in enumerate(names):
     for b in ('head', 'hand_L', 'foot_R', 'jaw', 'belly_C'):
         u = unreal.AnimPoseExtensions.get_bone_pose(p0, b, WLD).translation
         err = max(err, L.vlen(L.vsub(w[rig.i(b)][0], (u.x, u.y, u.z))))
-    if cat == 'attack':   # retime around the strike, keeping the strike frame and the length
+    if cat == 'attack' and not n.startswith('CR_'):   # retime around the strike (authored CR_ clips are already timed)
         world = [L.fk(p, rig.parents) for p in poses]
         sf = L.strike_frame(world, rig, nf, dt)
         poses = sample(L.retime_times(nf, dt, sf, 0.45*STRENGTH))
