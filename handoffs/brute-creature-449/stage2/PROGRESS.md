@@ -14,7 +14,7 @@ is handed off as #515.
 | 1 | Pipeline round-trip; **heavy walk** at the game speed (71.5 cm/s, in place); **living idle** | **done, waiting on the owner's review** |
 | 2 | Threat roar, charge/run, 2 attacks | **done** (owner: "Good, do stage 3") |
 | 3 | 3 hits (front / left / right), 2 deaths (forward slam, side collapse) | **done, waiting on the owner's review** |
-| 4 | Handoff: import script (new assets in `FleshBrute/Anims_Creature/`), blend-space and BP swap with dry-run and backup | todo |
+| 4 | Handoff: install script, blend space, swaps with dry-run and backup | **handed off as #516**; BP wiring export requested as #517 |
 
 After the import, the #449 layer (`../fb449_creature_ue.py`) can run on the new clips too (jaw, flesh, heft).
 
@@ -144,3 +144,4 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
   write n + 1 keys and set the length. Stage 1 also gets a guard: it skips clips tagged `FB449S2` unless `--force`.
 - Open: wiring CR_Roar_Threat (roar on first sight), CR_Death_Side (random death) and directional hits needs the
   BP_FleshBrute export (request filed).
+- **10:30** Posted: handoff **#516** (stage 2 install), request **#517** (BP_FleshBrute EventGraph export for the roar / side death / hit-direction wiring), and a fix note on #515. Next agent: when #517's export lands in `handoffs/exports/adjustedfilm/brute-449s2/`, build the wiring paste (roar on first sight, random death, hit side → CR_Hit_Front/Left/Right).
