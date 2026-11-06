@@ -137,3 +137,10 @@ strikes, knees never ~180) -> `ue_import_anims.py` (into `Anims_Colossus`) -> `e
   rate 3.0 (K2Node_IfThenElse_15). Waiting for the answer. Found: the Master's exports after 10:00 list every node twice
   (unlinked copies, same NodeGuid); `t3d_eventgraph.js` now dedupes (95 / 843 dropped = the Master's own counts).
   #520 and #521 are in the game (closed), #522 and #523 applied 10:03; nothing play-tested yet.
+- **12:50 Risen soldiers (#334, owner: "they look so silly").** Cause found in the lab: RTG_Zombie_to_Knight mapped a 6-chain
+  zombie rig onto the knight's 18 chains with an unverified map and no alignment. Lab (`ckw/zlab` + the ShadowKight pack
+  and Knight/Retarget copied in): IKR_Zombie_Src given the 18 chains, FUZZY map + auto-align both sides -> 18/18; the ZW
+  clips batch-retargeted onto the knight (`IKRetargetBatchOperation.duplicate_and_retarget`, needs an Array[AssetData])
+  and rendered on the knight mesh: normal neck, no twist (handoffs/risen-334/preview). Script
+  `handoffs/risen-334/rt334_risen_fix_ue.py` (dry-run / apply) handed off. Tools: `tools/zretarget_knight.py`,
+  `zretarget_batch.py`, `zprobe_knight2.py` (chains, bones, heights).
