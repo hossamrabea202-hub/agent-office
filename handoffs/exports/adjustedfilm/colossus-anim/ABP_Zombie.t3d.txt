@@ -1,0 +1,208 @@
+Begin Object Class=/Script/Engine.AnimBlueprint Name="ABP_Zombie" ExportPath="/Script/Engine.AnimBlueprint'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie'"
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EventGraph'"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_Event Name="K2Node_Event_0" ExportPath="/Script/BlueprintGraph.K2Node_Event'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EventGraph.K2Node_Event_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EventGraph.K2Node_CallFunction_0'"
+      End Object
+   End Object
+   Begin Object Class=/Script/AnimGraph.AnimationGraph Name="AnimGraph" ExportPath="/Script/AnimGraph.AnimationGraph'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph'"
+      Begin Object Class=/Script/AnimGraph.AnimGraphNode_Root Name="AnimGraphNode_Root_0" ExportPath="/Script/AnimGraph.AnimGraphNode_Root'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.AnimGraphNode_Root_0'"
+         Begin Object Class=/Script/AnimGraph.AnimGraphNodeBinding_Base Name="AnimGraphNodeBinding_Base_0" ExportPath="/Script/AnimGraph.AnimGraphNodeBinding_Base'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.AnimGraphNode_Root_0.AnimGraphNodeBinding_Base_0'"
+         End Object
+      End Object
+      Begin Object Class=/Script/AnimGraph.AnimGraphNode_BlendSpacePlayer Name="ZbBS" ExportPath="/Script/AnimGraph.AnimGraphNode_BlendSpacePlayer'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZbBS'"
+         Begin Object Class=/Script/AnimGraph.AnimGraphNodeBinding_Base Name="AnimGraphNodeBinding_Base_0" ExportPath="/Script/AnimGraph.AnimGraphNodeBinding_Base'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZbBS.AnimGraphNodeBinding_Base_0'"
+         End Object
+      End Object
+      Begin Object Class=/Script/AnimGraph.AnimGraphNode_Slot Name="ZbSlot" ExportPath="/Script/AnimGraph.AnimGraphNode_Slot'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZbSlot'"
+         Begin Object Class=/Script/AnimGraph.AnimGraphNodeBinding_Base Name="AnimGraphNodeBinding_Base_0" ExportPath="/Script/AnimGraph.AnimGraphNodeBinding_Base'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZbSlot.AnimGraphNodeBinding_Base_0'"
+         End Object
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="ZgOwner" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZgOwner'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="ZgVel" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZgVel'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="ZgLen" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZgLen'"
+      End Object
+   End Object
+   Begin Object Class=/Script/AnimGraph.AnimBlueprintExtension_Base Name="AnimBlueprintExtension_Base_0" ExportPath="/Script/AnimGraph.AnimBlueprintExtension_Base'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimBlueprintExtension_Base_0'"
+   End Object
+   Begin Object Class=/Script/AnimGraph.AnimBlueprintExtension_Attributes Name="AnimBlueprintExtension_Attributes_0" ExportPath="/Script/AnimGraph.AnimBlueprintExtension_Attributes'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimBlueprintExtension_Attributes_0'"
+   End Object
+   Begin Object Class=/Script/AnimGraph.AnimBlueprintExtension_PropertyAccess Name="AnimBlueprintExtension_PropertyAccess_0" ExportPath="/Script/AnimGraph.AnimBlueprintExtension_PropertyAccess'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimBlueprintExtension_PropertyAccess_0'"
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D'"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionEntry Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D.K2Node_FunctionEntry_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D.K2Node_CallFunction_0'"
+      End Object
+   End Object
+   Begin Object Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EventGraph'"
+      Begin Object Name="K2Node_Event_0" ExportPath="/Script/BlueprintGraph.K2Node_Event'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EventGraph.K2Node_Event_0'"
+         EventReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",MemberName="BlueprintUpdateAnimation")
+         bOverrideFunction=True
+         EnabledState=Disabled
+         bCommentBubblePinned=True
+         bCommentBubbleVisible=True
+         NodeComment="This node is disabled and will not be called.\nDrag off pins to build functionality."
+         NodeGuid=1243BE31473943CE238FE7A3FA24E8CF
+         CustomProperties Pin (PinId=09F498204CE3E92A39C40D98225F2133,PinName="OutputDelegate",Direction="EGPD_Output",PinType.PinCategory="delegate",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",MemberName="BlueprintUpdateAnimation"),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=B0B2159D49110B42AB7A9B9B66C953FE,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=966EA3A84A08D5AFD3A70D8E2CD727B0,PinName="DeltaTimeX",PinToolTip="Delta Time X\nFloat (single-precision)",Direction="EGPD_Output",PinType.PinCategory="real",PinType.PinSubCategory="float",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_0" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EventGraph.K2Node_CallFunction_0'"
+         bDefaultsToPureFunc=True
+         FunctionReference=(MemberName="TryGetPawnOwner",bSelfContext=True)
+         NodePosY=100
+         EnabledState=Disabled
+         NodeComment="This node is disabled and will not be called.\nDrag off pins to build functionality."
+         NodeGuid=66ACA11C4B9D97406D6E3EA5D2253CD4
+         CustomProperties Pin (PinId=67DE85F24584056563DDEDBF188B9999,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=5FB03A234FD22820F01086932C2490FF,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Pawn'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      Nodes(0)="/Script/BlueprintGraph.K2Node_Event'K2Node_Event_0'"
+      Nodes(1)="/Script/BlueprintGraph.K2Node_CallFunction'K2Node_CallFunction_0'"
+      bAllowDeletion=False
+      GraphGuid=3977CDD2497DFC02BC4ABCACAAD3B52E
+   End Object
+   Begin Object Name="AnimGraph" ExportPath="/Script/AnimGraph.AnimationGraph'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph'"
+      Begin Object Name="AnimGraphNode_Root_0" ExportPath="/Script/AnimGraph.AnimGraphNode_Root'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.AnimGraphNode_Root_0'"
+         Begin Object Name="AnimGraphNodeBinding_Base_0" ExportPath="/Script/AnimGraph.AnimGraphNodeBinding_Base'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.AnimGraphNode_Root_0.AnimGraphNodeBinding_Base_0'"
+         End Object
+         ShowPinForProperties(0)=(PropertyName="Result",PropertyFriendlyName="Result",CategoryName="Links",bShowPin=True)
+         Binding="/Script/AnimGraph.AnimGraphNodeBinding_Base'AnimGraphNodeBinding_Base_0'"
+         ErrorType=4
+         NodeGuid=3AEA66FE410DCD649B26F0B414372170
+         CustomProperties Pin (PinId=318A8F81452565B07C540F90E362A899,PinName="Result",PinFriendlyName=INVTEXT("Result"),PinToolTip="Result\nPose Link Structure",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/Engine.PoseLink'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="(LinkID=-1,SourceLinkID=-1)",AutogeneratedDefaultValue="(LinkID=-1,SourceLinkID=-1)",LinkedTo=(ZbSlot DB0008F040FFEECF1523DBB4EAA55113,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="ZbBS" ExportPath="/Script/AnimGraph.AnimGraphNode_BlendSpacePlayer'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZbBS'"
+         Begin Object Name="AnimGraphNodeBinding_Base_0" ExportPath="/Script/AnimGraph.AnimGraphNodeBinding_Base'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZbBS.AnimGraphNodeBinding_Base_0'"
+         End Object
+         Node=(BlendSpace="/Script/Engine.BlendSpace1D'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/BS_Zombie_Locomotion.BS_Zombie_Locomotion'")
+         ShowPinForProperties(0)=(PropertyName="BlendWeight",PropertyFriendlyName="Blend Weight",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_AssetPlayerBase:BlendWeight", "Last encountered blendweight for this node"),CategoryName="DoNotEdit")
+         ShowPinForProperties(1)=(PropertyName="InternalTimeAccumulator",PropertyFriendlyName="Internal Time Accumulator",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_AssetPlayerBase:InternalTimeAccumulator", "Accumulated time used to reference the asset in this node"),CategoryName="DoNotEdit")
+         ShowPinForProperties(2)=(PropertyName="GroupName",PropertyFriendlyName="Group Name",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:GroupName", "The group name that we synchronize with (NAME_None if it is not part of any group). Note that\nthis is the name of the group used to sync the output of this node - it will not force\nsyncing of animations contained by it."),CategoryName="Sync")
+         ShowPinForProperties(3)=(PropertyName="GroupRole",PropertyFriendlyName="Group Role",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:GroupRole", "The role this node can assume within the group (ignored if GroupName is not set). Note\nthat this is the role of the output of this node, not of animations contained by it."),CategoryName="Sync")
+         ShowPinForProperties(4)=(PropertyName="bOverridePositionWhenJoiningSyncGroupAsLeader",PropertyFriendlyName="Override Position when Joining Sync Group as Leader",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:bOverridePositionWhenJoiningSyncGroupAsLeader", "When enabled, acting as the leader, and using marker-based sync, this asset player will not sync to the previous leader\'s sync position when joining a sync group and before becoming the leader but instead force everyone else to match its position."),CategoryName="Sync")
+         ShowPinForProperties(5)=(PropertyName="Method",PropertyFriendlyName="Method",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:Method", "How this node will synchronize with other animations. Note that this determines how the output\nof this node is used for synchronization, not of animations contained by it."),CategoryName="Sync")
+         ShowPinForProperties(6)=(PropertyName="bIgnoreForRelevancyTest",PropertyFriendlyName="Ignore for Relevancy Test",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:bIgnoreForRelevancyTest", "If true, \"Relevant anim\" nodes that look for the highest weighted animation in a state will ignore this node"),CategoryName="Relevancy",bCanToggleVisibility=True)
+         ShowPinForProperties(7)=(PropertyName="X",PropertyFriendlyName="X",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:X", "The X coordinate to sample in the blendspace"),CategoryName="Coordinates",bShowPin=True,bCanToggleVisibility=True)
+         ShowPinForProperties(8)=(PropertyName="Y",PropertyFriendlyName="Y",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:Y", "The Y coordinate to sample in the blendspace"),CategoryName="Coordinates",bShowPin=True,bCanToggleVisibility=True)
+         ShowPinForProperties(9)=(PropertyName="PlayRate",PropertyFriendlyName="Play Rate",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:PlayRate", "The play rate multiplier. Can be negative, which will cause the animation to play in reverse."),CategoryName="Settings",bCanToggleVisibility=True)
+         ShowPinForProperties(10)=(PropertyName="bLoop",PropertyFriendlyName="Loop",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:bLoop", "Should the animation loop back to the start when it reaches the end?"),CategoryName="Settings",bCanToggleVisibility=True)
+         ShowPinForProperties(11)=(PropertyName="bResetPlayTimeWhenBlendSpaceChanges",PropertyFriendlyName="Reset Play Time when Blend Space Changes",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:bResetPlayTimeWhenBlendSpaceChanges", "Whether we should reset the current play time when the blend space changes"),CategoryName="Settings",bCanToggleVisibility=True)
+         ShowPinForProperties(12)=(PropertyName="StartPosition",PropertyFriendlyName="Start Position",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:StartPosition", "The start position in [0, 1] to use when initializing. When looping, play will still jump back to the beginning when reaching the end."),CategoryName="Settings",bCanToggleVisibility=True)
+         ShowPinForProperties(13)=(PropertyName="BlendSpace",PropertyFriendlyName="Blend Space",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_BlendSpacePlayer:BlendSpace", "The blendspace asset to play"),CategoryName="Settings",bCanToggleVisibility=True)
+         Binding="/Script/AnimGraph.AnimGraphNodeBinding_Base'AnimGraphNodeBinding_Base_0'"
+         NodePosX=240
+         NodePosY=192
+         bHasCompilerMessage=True
+         ErrorType=3
+         ErrorMsg="Node  Blendspace Player \'BS_Zombie_Locomotion\'  uses potentially thread-unsafe call  TryGetPawnOwner . Disable threaded update or use a thread-safe call. Function may need BlueprintThreadSafe metadata adding.\nNode  Blendspace Player \'BS_Zombie_Locomotion\'  uses potentially thread-unsafe call  TryGetPawnOwner . Disable threaded update or use a thread-safe call. Function may need BlueprintThreadSafe metadata adding."
+         NodeGuid=9C3D5470404ADEA3734DF493866B167D
+         CustomProperties Pin (PinId=CBF55607499AB66B3A9EF280B5D09380,PinName="X",PinFriendlyName="Speed",PinToolTip="X\nFloat (single-precision)\n\nThe X coordinate to sample in the blendspace",PinType.PinCategory="real",PinType.PinSubCategory="float",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0.000000",AutogeneratedDefaultValue="0.000000",LinkedTo=(ZgLen A074614E4A85BBAF205CD5B1C763A034,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=E4F97A31462F047462EB1195B9EF5A6B,PinName="Y",PinFriendlyName="None",PinToolTip="Y\nFloat (single-precision)\n\nThe Y coordinate to sample in the blendspace",PinType.PinCategory="real",PinType.PinSubCategory="float",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0.000000",AutogeneratedDefaultValue="0.000000",PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=B824072344D1CDFE0E5ADD95667CE8CA,PinName="Pose",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/Engine.PoseLink'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(ZbSlot F3BBB2014DABD1F896A1928B001DE9DA,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="ZbSlot" ExportPath="/Script/AnimGraph.AnimGraphNode_Slot'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZbSlot'"
+         Begin Object Name="AnimGraphNodeBinding_Base_0" ExportPath="/Script/AnimGraph.AnimGraphNodeBinding_Base'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZbSlot.AnimGraphNodeBinding_Base_0'"
+         End Object
+         ShowPinForProperties(0)=(PropertyName="Source",PropertyFriendlyName="Source",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_Slot:Source", "The source input, passed thru to the output unless a montage or slot animation is currently playing"),CategoryName="Links",bShowPin=True)
+         ShowPinForProperties(1)=(PropertyName="SlotName",PropertyFriendlyName="Slot Name",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_Slot:SlotName", "The name of this slot, exposed to gameplay code, etc..."),CategoryName="Settings",bPropertyIsCustomized=True)
+         ShowPinForProperties(2)=(PropertyName="bAlwaysUpdateSourcePose",PropertyFriendlyName="Always Update Source Pose",PropertyTooltip=NSLOCTEXT("UObjectToolTips", "AnimNode_Slot:bAlwaysUpdateSourcePose", "Whether we should continue to update the source pose regardless of whether it would be used."),CategoryName="Settings")
+         Binding="/Script/AnimGraph.AnimGraphNodeBinding_Base'AnimGraphNodeBinding_Base_0'"
+         NodePosX=592
+         NodePosY=192
+         NodeGuid=859E0874435F59235BEC32B4A70E03FC
+         CustomProperties Pin (PinId=F3BBB2014DABD1F896A1928B001DE9DA,PinName="Source",PinFriendlyName=INVTEXT("Source"),PinToolTip="Source\nPose Link Structure\n\nThe source input, passed thru to the output unless a montage or slot animation is currently playing",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/Engine.PoseLink'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="(LinkID=-1,SourceLinkID=-1)",AutogeneratedDefaultValue="(LinkID=-1,SourceLinkID=-1)",LinkedTo=(ZbBS B824072344D1CDFE0E5ADD95667CE8CA,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=DB0008F040FFEECF1523DBB4EAA55113,PinName="Pose",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/Engine.PoseLink'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(AnimGraphNode_Root_0 318A8F81452565B07C540F90E362A899,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="ZgOwner" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZgOwner'"
+         bDefaultsToPureFunc=True
+         FunctionReference=(MemberName="TryGetPawnOwner",bSelfContext=True)
+         NodePosX=-560
+         NodePosY=288
+         bHasCompilerMessage=True
+         ErrorType=3
+         ErrorMsg="Node  Blendspace Player \'BS_Zombie_Locomotion\'  uses potentially thread-unsafe call  TryGetPawnOwner . Disable threaded update or use a thread-safe call. Function may need BlueprintThreadSafe metadata adding.\nNode  Blendspace Player \'BS_Zombie_Locomotion\'  uses potentially thread-unsafe call  TryGetPawnOwner . Disable threaded update or use a thread-safe call. Function may need BlueprintThreadSafe metadata adding."
+         NodeGuid=E99C23B748ADC524F2153AB1938E084A
+         CustomProperties Pin (PinId=6380A84644E463BE12AD4A9A0B807F43,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=561A5088422780E1B16587BCDC35B73F,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Pawn'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(ZgVel DC7584FC49F79A3E18DCF18111AF9027,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="ZgVel" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZgVel'"
+         bDefaultsToPureFunc=True
+         FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.Actor'",MemberName="GetVelocity")
+         NodePosX=-304
+         NodePosY=288
+         NodeGuid=1B8F201147172D39F376A8A233D19250
+         CustomProperties Pin (PinId=DC7584FC49F79A3E18DCF18111AF9027,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Actor'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(ZgOwner 561A5088422780E1B16587BCDC35B73F,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=8745B63E427DC5B74C9C9797511B659C,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0, 0, 0",AutogeneratedDefaultValue="0, 0, 0",LinkedTo=(ZgLen F7C6274E43D318C627F0A68D3F5A0099,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="ZgLen" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph.ZgLen'"
+         bDefaultsToPureFunc=True
+         FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.KismetMathLibrary'",MemberName="VSizeXY")
+         NodePosX=-64
+         NodePosY=288
+         NodeGuid=2A14BAC34FD8C354B86826B631132E76
+         CustomProperties Pin (PinId=A41874F84CE0D3C41BF671874FDB90C9,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.KismetMathLibrary'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultObject="/Script/Engine.Default__KismetMathLibrary",PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=F7C6274E43D318C627F0A68D3F5A0099,PinName="A",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/CoreUObject.Vector'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0, 0, 0",AutogeneratedDefaultValue="0, 0, 0",LinkedTo=(ZgVel 8745B63E427DC5B74C9C9797511B659C,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=A074614E4A85BBAF205CD5B1C763A034,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="real",PinType.PinSubCategory="double",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(ZbBS CBF55607499AB66B3A9EF280B5D09380,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema="/Script/CoreUObject.Class'/Script/AnimGraph.AnimationGraphSchema'"
+      Nodes(0)="/Script/AnimGraph.AnimGraphNode_Root'AnimGraphNode_Root_0'"
+      Nodes(1)="/Script/AnimGraph.AnimGraphNode_BlendSpacePlayer'ZbBS'"
+      Nodes(2)="/Script/AnimGraph.AnimGraphNode_Slot'ZbSlot'"
+      Nodes(3)="/Script/BlueprintGraph.K2Node_CallFunction'ZgOwner'"
+      Nodes(4)="/Script/BlueprintGraph.K2Node_CallFunction'ZgVel'"
+      Nodes(5)="/Script/BlueprintGraph.K2Node_CallFunction'ZgLen'"
+      bAllowDeletion=False
+      GraphGuid=6CFBABCA4574B866D1E1A79C1E318779
+   End Object
+   Begin Object Name="AnimBlueprintExtension_Base_0" ExportPath="/Script/AnimGraph.AnimBlueprintExtension_Base'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimBlueprintExtension_Base_0'"
+   End Object
+   Begin Object Name="AnimBlueprintExtension_Attributes_0" ExportPath="/Script/AnimGraph.AnimBlueprintExtension_Attributes'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimBlueprintExtension_Attributes_0'"
+   End Object
+   Begin Object Name="AnimBlueprintExtension_PropertyAccess_0" ExportPath="/Script/AnimGraph.AnimBlueprintExtension_PropertyAccess'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimBlueprintExtension_PropertyAccess_0'"
+   End Object
+   Begin Object Name="EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D" ExportPath="/Script/Engine.EdGraph'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D'"
+      Begin Object Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D.K2Node_FunctionEntry_0'"
+         CustomGeneratedFunctionName="EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D"
+         NodePosX=-200
+         NodePosY=-2000
+         bIsIntermediateNode=True
+         NodeGuid=A41D25110DC935C4AF5D9FC6C55CAB06
+         CustomProperties Pin (PinId=944F20B1406A4E64C888E8A0B9EAB981,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_CallFunction_0 2072B3204D2514F887EED5BE1FD0E0A5,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_0" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EvaluateGraphExposedInputs_ExecuteUbergraph_ABP_Zombie_AnimGraphNode_BlendSpacePlayer_9C3D5470404ADEA3734DF493866B167D.K2Node_CallFunction_0'"
+         FunctionReference=(MemberName="ExecuteUbergraph_ABP_Zombie",bSelfContext=True)
+         NodePosX=300
+         NodePosY=-2000
+         bIsIntermediateNode=True
+         NodeGuid=05CD45350A9C359296FCE535EB4D1C76
+         CustomProperties Pin (PinId=2072B3204D2514F887EED5BE1FD0E0A5,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_FunctionEntry_0 944F20B1406A4E64C888E8A0B9EAB981,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=6A6CD6F241ADAD1DCBCA61BC8AEB1A5A,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=23971CC64CE729F08749618CE8111827,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="self",PinType.PinSubCategoryObject="/Script/Engine.AnimBlueprintGeneratedClass'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.SKEL_ABP_Zombie_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=4493E9C547C12765B98E648CFB95005C,PinName="EntryPoint",PinType.PinCategory="int",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0",AutogeneratedDefaultValue="0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      Nodes(0)="/Script/BlueprintGraph.K2Node_FunctionEntry'K2Node_FunctionEntry_0'"
+      Nodes(1)="/Script/BlueprintGraph.K2Node_CallFunction'K2Node_CallFunction_0'"
+      GraphGuid=BE29FBC54522B5BF0EB1D097B1F1FF94
+   End Object
+   TargetSkeleton="/Script/Engine.Skeleton'/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie_Skeleton.SK_Zombie_Skeleton'"
+   ParentClass="/Script/CoreUObject.Class'/Script/Engine.AnimInstance'"
+   BlueprintSystemVersion=2
+   UbergraphPages(0)="/Script/Engine.EdGraph'EventGraph'"
+   FunctionGraphs(0)="/Script/AnimGraph.AnimationGraph'AnimGraph'"
+   CategorySorting(0)=""
+   CategorySorting(1)="Event Graph"
+   LastEditedDocuments(0)=(EditedObjectPath="/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:EventGraph",SavedZoomAmount=1.000000)
+   LastEditedDocuments(1)=(EditedObjectPath="/Game/CastleDefender/Characters/Enemies/Zombie/Anim/ABP_Zombie.ABP_Zombie:AnimGraph",SavedViewOffset=(X=-265.750000,Y=-148.804993),SavedZoomAmount=1.000000)
+   Extensions(0)="/Script/AnimGraph.AnimBlueprintExtension_Base'AnimBlueprintExtension_Base_0'"
+   Extensions(1)="/Script/AnimGraph.AnimBlueprintExtension_Attributes'AnimBlueprintExtension_Attributes_0'"
+   Extensions(2)="/Script/AnimGraph.AnimBlueprintExtension_PropertyAccess'AnimBlueprintExtension_PropertyAccess_0'"
+   GeneratedClass="/Script/Engine.AnimBlueprintGeneratedClass'ABP_Zombie_C'"
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=35DD3B8949E38DE4D44441A38067C17D
+End Object

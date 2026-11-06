@@ -1,0 +1,10 @@
+Begin Object Class=/Script/Engine.BlendSpace1D Name="BS_Zombie_Locomotion" ExportPath="/Script/Engine.BlendSpace1D'/Game/CastleDefender/Characters/Enemies/Zombie/Anim/BS_Zombie_Locomotion.BS_Zombie_Locomotion'"
+   AnimLength=3.966667
+   SampleData(0)=(Animation="/Script/Engine.AnimSequence'/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Idle_A.ZA_Idle_A'")
+   SampleData(1)=(Animation="/Script/Engine.AnimSequence'/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Walk_A.ZA_Walk_A'",SampleValue=(X=113.000000,Y=0.000000,Z=0.000000))
+   SampleData(2)=(Animation="/Script/Engine.AnimSequence'/Game/CastleDefender/Characters/Enemies/Zombie/AnimsPack/ZA_Run_A.ZA_Run_A'",SampleValue=(X=249.000000,Y=0.000000,Z=0.000000))
+   SampleData(3)=(Animation="/Script/Engine.AnimSequence'/Game/CastleDefender/Characters/Enemies/Zombie/Anims/A_Run.A_Run'",SampleValue=(X=350.000000,Y=0.000000,Z=0.000000))
+   BlendSpaceData=(Segments=((SampleIndices[0]=0,SampleIndices[1]=1,Vertices[1]=0.282500),(SampleIndices[0]=1,SampleIndices[1]=2,Vertices[0]=0.282500,Vertices[1]=0.622500),(SampleIndices[0]=2,SampleIndices[1]=3,Vertices[0]=0.622500,Vertices[1]=0.875000)))
+   BlendParameters(0)=(DisplayName="Speed",Max=400.000000,GridNum=8)
+   Skeleton="/Script/Engine.Skeleton'/Game/CastleDefender/Characters/Enemies/Zombie/SK_Zombie_Skeleton.SK_Zombie_Skeleton'"
+End Object
