@@ -1,4 +1,5 @@
 # #504 castle weathering, step 2 (i5 checkking, 2026-11-04): find where weathering physically happens on the castle
+import os
 # stone and put instanced stain cards there.
 #   py place_weather504_ue.py                     DRY RUN (default): probes the stone, writes place_report504.txt
 #   py place_weather504_ue.py --probe             only lists the stone components found (materials, counts)
@@ -22,7 +23,7 @@
 import math, os, random, sys, unreal
 
 D = '/Game/_i5tmpCW504/' if '--temp' in sys.argv else '/Game/CastleDefender/Environment/CastleWeather504/'
-HERE = 'C:/Users/hossam.rabea/agent-office/handoffs/castle-weather-504'
+HERE = os.path.dirname(os.path.abspath(__file__))   # Master: was i5's absolute path
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 W = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
 SL = unreal.SystemLibrary
@@ -148,6 +149,7 @@ def plan():
     comps = stone_components()
 
     def add(mi, loc, nrm, w, h, roll=0.0, horizontal=False):
+        if -450 <= loc.x <= 650 and 1400 <= loc.y <= 2100: return   # Master 11-06: owner's rule, nothing at the castle entrance (gate passage + plinths)
         k = (mi, int(loc.x // 60), int(loc.y // 60), int(loc.z // 60))
         if k in taken: return
         taken.add(k); cards.append((mi, loc, nrm, w, h, roll, horizontal))

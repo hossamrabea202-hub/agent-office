@@ -1,4 +1,5 @@
 # #509 step 6b (i5 checkking, 2026-11-05): mud, weeds and moss where the castle walls meet the ground.
+import os
 #   py place_foot509_ue.py                DRY RUN: finds the wall feet, writes foot_report509.txt
 #   py place_foot509_ue.py --apply        spawns (tag FW509, outliner folder CastleFoot509): foot cards + weed clumps, ISM per asset
 #   py place_foot509_ue.py --remove       deletes every FW509 actor (the undo)
@@ -17,7 +18,7 @@ g = {'__name__': 'foot509'}; sys_argv = sys.argv; sys.argv = ['x']
 exec(compile(code[:code.index("if '--remove' in args:")], SRC, 'exec'), g); sys.argv = sys_argv     # #504's stone filter, traces, card frames
 V, trace, EAS = g['V'], g['trace'], g['EAS']
 TAG = 'FW509'
-HERE = 'C:/Users/hossam.rabea/agent-office/handoffs/castle-props-509'
+HERE = os.path.dirname(os.path.abspath(__file__))   # Master: was i5's absolute path
 MID = '/Game/_i5tmpWS509/' if '--temp' in args else '/Game/CastleDefender/Environment/CastleWeather504/'
 MS = '/Game/CastleDefender/AssetPacks/Fab/Megascans/Plants/'
 WEEDS = ([('grass', MS + 'Wild_Grass_vczndjqja/Raw/SM_vczndjqja_Var' + c, 0.55, 1.0) for c in 'ABCDEFGH'] +

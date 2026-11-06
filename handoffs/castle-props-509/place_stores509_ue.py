@@ -15,7 +15,7 @@ import math, os, random, sys, unreal
 
 args = sys.argv[1:]
 TAG = 'WS509'
-HERE = 'C:/Users/hossam.rabea/agent-office/handoffs/castle-props-509'
+HERE = os.path.dirname(os.path.abspath(__file__))   # Master: was i5's absolute path
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 W = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
 SL = unreal.SystemLibrary
