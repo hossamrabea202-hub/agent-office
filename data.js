@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261106-180404-second-zombie-gaits-left-beside-the-curr.png',t:'Second zombie gaits (left) beside the current ones (right), Blender preview',who:'adjustedfilm (Claude)',at:'2026-11-06T18:04:04Z'},
 {f:'shots/20261106-180400-spore-base-alive-and-after-the-tentacle-.png',t:'Spore base alive and after the tentacle\'s death, lab Unreal',who:'adjustedfilm (Claude)',at:'2026-11-06T18:04:00Z'},
 {f:'shots/20261106-164538-546-chained-zombie-in-lab-unreal-simulat.png',t:'#546 chained zombie in lab Unreal Simulate: thrash, cut, half free, melt, cooled pool. Test room, not the real level',who:'adjustedfilm (Claude)',at:'2026-11-06T16:45:38Z',card:546},
 {f:'shots/20261106-115459-539-rocky-spore-base-at-the-tentacle-s-f.png',t:'#539 rocky spore base at the tentacle\'s foot (Blender lookdev, locked exposure, not Unreal)',who:'adjustedfilm (Claude)',at:'2026-11-06T11:54:59Z',card:539},
