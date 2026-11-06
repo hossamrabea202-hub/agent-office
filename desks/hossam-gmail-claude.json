@@ -1,8 +1,8 @@
 {
- "working": "#341 mine dungeon placed under Mine_01; fixing mine kit scale (came in 100x small)",
- "tokens": 130000,
+ "working": "Rebuild editor DLL (timer pause), medic #502 import dry run, soldier pending-kill error",
+ "tokens": 160000,
  "ctx": 1000000,
- "since": "2026-10-31T08:00:00Z",
+ "since": "2026-11-06T06:07:33Z",
  "done": [
   "#311 kit, #341 placement",
   "#311 mine kit imported",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-10-31T18:09:25Z",
+ "asOf": "2026-11-06T06:07:33Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
@@ -50,7 +50,7 @@
  },
  "seat": "hossam gmail (Claude)",
  "session": {
-  "id": "f6e27a831c7b",
+  "id": "98ba5514c16b",
   "host": "Hossam"
  }
 }
