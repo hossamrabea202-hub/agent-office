@@ -1,0 +1,119 @@
+{
+ "report": {
+  "ZA_Idle_A": {
+   "from": "ZW_Idle_Shamble",
+   "frames": 119,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "ZA_Walk_A": {
+   "from": "ZW_Walk_Shamble",
+   "frames": 30,
+   "max_diff_deg": 0.0,
+   "notifies": [
+    "AN_ColossusStomp",
+    "AN_ColossusStomp"
+   ]
+  },
+  "ZA_Run_A": {
+   "from": "ZW_Run_Lurch",
+   "frames": 20,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "A_Run": {
+   "from": "ZW_Sprint",
+   "frames": 16,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "ZA_Taking_Damage_A": {
+   "from": "ZW_Hit_Flinch",
+   "frames": 20,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "ZA_Taking_Damage_B": {
+   "from": "ZW_Hit_Flinch",
+   "frames": 20,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "ZA_Taking_Damage_C": {
+   "from": "ZW_Hit_Flinch",
+   "frames": 20,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "ZA_Taking_Damage_D": {
+   "from": "ZW_Hit_Stagger",
+   "frames": 40,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "ZA_Taking_Damage_E": {
+   "from": "ZW_Hit_Stagger",
+   "frames": 40,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "ZA_Taking_Damage_F": {
+   "from": "ZW_Hit_Side",
+   "frames": 30,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "A_Hit": {
+   "from": "ZW_Hit_Heavy",
+   "frames": 60,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "A_Death": {
+   "from": "ZW_Death_Collapse",
+   "frames": 89,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "A_Attack": {
+   "from": "ZW_Attack_Claw",
+   "frames": 79,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  },
+  "ZA_Attack_D": {
+   "from": "ZW_Attack_Bite",
+   "frames": 60,
+   "max_diff_deg": 0.0,
+   "notifies": []
+  }
+ },
+ "log": [
+  "mode INSTALL",
+  "import ZW_Idle_Shamble (replace)",
+  "import ZW_Walk_Shamble (replace)",
+  "import ZW_Run_Lurch (replace)",
+  "import ZW_Sprint (replace)",
+  "import ZW_Hit_Flinch (replace)",
+  "import ZW_Hit_Stagger (replace)",
+  "import ZW_Hit_Side (replace)",
+  "import ZW_Hit_Heavy (replace)",
+  "import ZW_Death_Collapse (replace)",
+  "import ZW_Attack_Claw (replace)",
+  "import ZW_Attack_Bite (replace)",
+  "ZA_Idle_A <- ZW_Idle_Shamble {\"from\": \"ZW_Idle_Shamble\", \"frames\": 119, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "ZA_Walk_A <- ZW_Walk_Shamble {\"from\": \"ZW_Walk_Shamble\", \"frames\": 30, \"max_diff_deg\": 0.0, \"notifies\": [\"AN_ColossusStomp\", \"AN_ColossusStomp\"]}",
+  "ZA_Run_A <- ZW_Run_Lurch {\"from\": \"ZW_Run_Lurch\", \"frames\": 20, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "A_Run <- ZW_Sprint {\"from\": \"ZW_Sprint\", \"frames\": 16, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "ZA_Taking_Damage_A <- ZW_Hit_Flinch {\"from\": \"ZW_Hit_Flinch\", \"frames\": 20, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "ZA_Taking_Damage_B <- ZW_Hit_Flinch {\"from\": \"ZW_Hit_Flinch\", \"frames\": 20, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "ZA_Taking_Damage_C <- ZW_Hit_Flinch {\"from\": \"ZW_Hit_Flinch\", \"frames\": 20, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "ZA_Taking_Damage_D <- ZW_Hit_Stagger {\"from\": \"ZW_Hit_Stagger\", \"frames\": 40, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "ZA_Taking_Damage_E <- ZW_Hit_Stagger {\"from\": \"ZW_Hit_Stagger\", \"frames\": 40, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "ZA_Taking_Damage_F <- ZW_Hit_Side {\"from\": \"ZW_Hit_Side\", \"frames\": 30, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "A_Hit <- ZW_Hit_Heavy {\"from\": \"ZW_Hit_Heavy\", \"frames\": 60, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "A_Death <- ZW_Death_Collapse {\"from\": \"ZW_Death_Collapse\", \"frames\": 89, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "A_Attack <- ZW_Attack_Claw {\"from\": \"ZW_Attack_Claw\", \"frames\": 79, \"max_diff_deg\": 0.0, \"notifies\": []}",
+  "ZA_Attack_D <- ZW_Attack_Bite {\"from\": \"ZW_Attack_Bite\", \"frames\": 60, \"max_diff_deg\": 0.0, \"notifies\": []}"
+ ]
+}

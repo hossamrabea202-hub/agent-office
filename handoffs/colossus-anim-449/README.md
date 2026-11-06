@@ -4,7 +4,8 @@ By `adjustedfilm (Claude)`, 2026-11-06. Owner: *"i want to enhance zombies anima
 (accordingly = the #449 brute method: new motion authored for the body itself, Stranger Things quality).
 How it was made, with every number: [PROGRESS.md](PROGRESS.md). The brute's research notes still apply: `../brute-creature-449/RESEARCH.md`.
 
-**Kind:** one editor Python script + one pin change in BP_ZombieWallBreaker. The death wiring follows when export #518 lands.
+**Kind:** two editor Python scripts (`cz_colossus_ue.py` = the colossus, hand-off #520; `zw_walkers_ue.py` = the ordinary
+walkers, stage 3 below) + one pin change in BP_ZombieWallBreaker. The giant death wiring follows when export #518 lands.
 
 ## What was wrong (measured on the i5 copy of the project)
 
@@ -62,6 +63,42 @@ if the owner prefers them out of the public repo, Taildrop them to the i9).
 | Install in the lab | see PROGRESS.md (dry-run, install, restore) |
 
 Not done: Play-testing in the game; the death wiring; the ordinary walkers (next, same pipeline).
+
+## Stage 3: the ordinary walkers (`zw_walkers_ue.py`, run AFTER the colossus script)
+
+**What was wrong (measured):** the six retargeted hit clips (`ZA_Taking_Damage_A-F`) pop 90-173 deg in one frame on
+38-43 bones in their first 3 frames (retarget pops); `ZA_Run_A` and `A_Run` pop their toes 37-39 deg with the feet
+13 cm under the ground; `A_Death` pops 45 deg; `ZA_Attack_D` pops 46 bones. The blend space speeds (0 / 113 / 249 / 350)
+were already matched by the Master, so the walkers do not skate: the problem is the motion itself.
+
+11 clips, same pipeline, written INTO the clips the game plays (lengths and strike frames kept, so the ABP, the
+`AM_ZFlinch_*` / `AM_ZDeath_A_Death` montages and the BP timers need no change):
+
+| Game clip | Now holds | Frames | What |
+|---|---|---|---|
+| `ZA_Idle_A` (blend space 0) | `ZW_Idle_Shamble` | 119 (4 s loop) | sway on planted feet, ragged breathing (3 per loop), a lolling scan, a head twitch, a double sniff, claw flex |
+| `ZA_Walk_A` (113) | `ZW_Walk_Shamble` | 30 (1.0 s) | shamble matched to 113 cm/s (0 skate), the right leg drags (limp 0.6: shorter lift, a hitch, a bigger drop), arms reaching 28 deg, lolling head. Keeps 2 `AN_ColossusStomp` notifies on the footfalls |
+| `ZA_Run_A` (249) | `ZW_Run_Lurch` | 20 (0.67 s) | lurching run at 249, arms reaching 45 deg, lean 18 deg, a slight limp |
+| `A_Run` (350) | `ZW_Sprint` | 16 (0.53 s) | full sprint at 350, lean 22 deg, arms grasping ahead |
+| `ZA_Taking_Damage_A/B/C` | `ZW_Hit_Flinch` | 20 | a chest hit: 3-frame snap back, arms thrown up, heavy recovery |
+| `ZA_Taking_Damage_D/E` | `ZW_Hit_Stagger` | 40 | a heavy hit: thrown back, a step back that catches the weight, recovery |
+| `ZA_Taking_Damage_F` | `ZW_Hit_Side` | 30 | struck on its left: the torso twists right, the head whips |
+| `A_Hit` | `ZW_Hit_Heavy` | 60 | knocked down onto a knee, a beat, climbs back up |
+| `A_Death` (montage `AM_ZDeath_A_Death`) | `ZW_Death_Collapse` | 89 | head snaps back, the legs fold, a kneeling beat, topples face-down with a slam, the claws close, an arm drags; holds |
+| `A_Attack` (strike frame 26) | `ZW_Attack_Claw` | 79 | the left arm winds up behind, the body twists into a rake to 0.9 m ahead, the other arm low |
+| `ZA_Attack_D` (strike frame 16) | `ZW_Attack_Bite` | 60 | both hands grab forward at chest height, the head lunges and the bite clamps with a shudder |
+
+Previews: `preview/ZW_*_before_after.mp4` (11). Not written: `ZA_Walk_B/C` (unused by the blend space), the 11 other
+death picks (they are `ZA_Burst_*` blob-rise clips and `ZA_Laying_Idle_B`, used as deaths by the `AM_ZDeath_*` montages: a
+later BP change could point them at `ZW_Death_Collapse` and variants), crawls, bursts, impaled, laying.
+
+Steps (Master): `git pull`; `py ".../zw_walkers_ue.py" --dry-run` (11 import lines, 14 `would back up` lines);
+`py ".../zw_walkers_ue.py"` (about 40 s; every `<-` line `"max_diff_deg": 0.0`; `ZA_Walk_A` shows 2 stomp notifies); compile
+`ABP_Zombie` (nothing to change); Play. Rollback: `--restore` (tested: exact). Backups: `Zombie/Anims_BAKZW/` (14 clips).
+
+Tests (Play, wave 1+): idle zombies sway, breathe and twitch; walkers limp at 113 with planted feet; runners lurch with their
+arms out; a hit snaps the zombie back and it recovers without a pop; a heavy hit drops it to a knee; a death folds and
+falls face down and stays; the claw rake and the bite land at the old moments (the damage timing is untouched).
 
 ## Rules applied
 

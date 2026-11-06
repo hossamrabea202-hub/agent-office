@@ -1,9 +1,11 @@
-# zwalk.py - in-place gait for the SK_Zombie rig; defaults = the COLOSSUS walk (adjustedfilm, #449 follow-up).
+# zwalk.py - in-place gait for the SK_Zombie rig; defaults = the COLOSSUS walk (adjustedfilm, #519).
 # blender -b -P zwalk.py -- <clip_rig.fbx> <out.fbx>     env Z_OVR = JSON overrides, Z_NAME = clip name
 # The colossus is the zombie rig scaled x3.9-5.8 (GiantScale) with MaxWalkSpeed 90. In-place at scale 1 the feet must
 # move at 90 / GiantScale cm/s, and a 9 m body steps at about sqrt(5) = 2.2x a human's period. Design (RESEARCH.md):
 # ponderous cadence, long double support, a fast impact drop and a slow recovery on each footfall, wide sway, late heavy
 # arms, counter-rotating chest, stabilised head. A looping clip: last frame = first.
+# Walker presets (Z_OVR): GROUND lowers the feet (the retargeted ZA clips sit 5 cm under z = 0), ARM_SW_BASE is a constant
+# forward reach, LIMP makes the right leg drag (shorter lift, bigger drop, a hip hitch), LOLL rolls the head.
 import bpy, sys, os, math, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import zrig, zpose as P
@@ -11,7 +13,7 @@ from mathutils import Vector, Quaternion
 a = sys.argv[sys.argv.index('--')+1:]; RIG, OUT = a[0], a[1]
 
 # ---------------- PARAMS (scale-1 metres / degrees) ----------------
-GIANT = 4.85          # design scale (midpoint of 3.9..5.8)
+GIANT = 4.85          # design scale (midpoint of 3.9..5.8); 1.0 for the walkers
 SPEED = 90.0/GIANT    # cm/s at scale 1 = 18.6
 N = 78                # frames per cycle (2.6 s: a step every 1.3 s)
 STANCE = 0.66
@@ -30,21 +32,27 @@ ARM_IN = 70.0
 ELBOW = 32.0
 ARM_SWING, ARM_LAG = 10.0, 0.12
 FORE_SWING, FORE_LAG = 8.0, 0.18
+ARM_SW_BASE = 0.0     # constant forward reach of the arms (zombies reach)
 HEAD_STAB = 0.7
 HEAD_UP = -6.0
 TOE_OFF = 10.0
 CLAW = 18.0
+GROUND = 0.0          # m, feet target offset (negative = lower)
+LIMP = 0.0            # 0..1: the right leg drags
+LOLL = 0.0            # deg, head roll that sways with the cycle
 IMPACT_FAST, IMPACT_SLOW = 0.12, 0.30   # s: the drop, the recovery
 for _k, _v in json.loads(os.environ.get('Z_OVR', '{}')).items(): globals()[_k] = tuple(_v) if isinstance(_v, list) else _v
 NAME = os.environ.get('Z_NAME', 'CZ_Walk_Colossus')
 D = SPEED*N/30.0*STANCE/100.0
 
 arm = zrig.load_rig(RIG); P.rest_all(arm)
-home = {s: P.wpos(arm, P.LEGS[s][2]) for s in 'LR'}
-toe_rest = {s: P.wpos(arm, P.LEGS[s][3]) for s in 'LR'}
+home = {s: P.wpos(arm, P.LEGS[s][2]) + Vector((0, 0, GROUND)) for s in 'LR'}
+toe_rest = {s: P.wpos(arm, P.LEGS[s][3]) + Vector((0, 0, GROUND)) for s in 'LR'}
 frot = {s: P.world_rot(arm, P.LEGS[s][2]) for s in 'LR'}
 REST_HEAD = P.wpos(arm, 'Head'); REST_PEL = P.pel_pos(arm)
 OFF = {'L': 0.0, 'R': 0.5}; SIDE = {'L': 1.0, 'R': -1.0}
+LIFT_S = {'L': LIFT, 'R': LIFT*(1.0 - 0.75*LIMP)}
+DIP_S = {'L': 1.0, 'R': 1.0 + 1.2*LIMP}
 
 def impact(u):
     t = u*N/30.0
@@ -60,19 +68,20 @@ def foot(side, p):
         heel = TOE_OFF*P.ease((s-0.6)/0.4) if s > 0.6 else 0.0
     else:
         s = (u-STANCE)/(1-STANCE)
-        fwd = D*(-0.5 + (0.5-0.5*math.cos(math.pi*s))) + FWD_BIAS; z = h.z + LIFT*math.sin(math.pi*s)**1.2
+        fwd = D*(-0.5 + (0.5-0.5*math.cos(math.pi*s))) + FWD_BIAS; z = h.z + LIFT_S[side]*math.sin(math.pi*s)**1.2
         heel = TOE_OFF*(1-P.ease(s/0.7)) - 4.0*math.sin(math.pi*s)
+        if side == 'R' and LIMP > 0: heel = heel*(1-LIMP) - 6.0*LIMP*math.sin(math.pi*s)   # the dragged toe stays down
     return Vector((x, h.y - fwd, z)), heel
 
 def pose_frame(f):
     p = f/float(N); P.rest_all(arm)
-    dip = sum(impact(P.wrap(p - OFF[s])) for s in 'LR')
+    dip = sum(impact(P.wrap(p - OFF[s]))*DIP_S[s] for s in 'LR')
     rise = RISE*math.cos(2*math.pi*(2*p - 0.6))
     sway = SWAY*math.cos(2*math.pi*(p - 0.30))
-    P.pel_move(arm, (sway, 0.0, -CROUCH - DIP*dip + rise))
-    yaw = -YAW*math.cos(2*math.pi*p); roll = ROLL*math.cos(2*math.pi*(p - 0.30))
+    P.pel_move(arm, (sway, 0.0, -CROUCH - DIP*dip + rise + GROUND))
+    yaw = -YAW*math.cos(2*math.pi*p); roll = ROLL*math.cos(2*math.pi*(p - 0.30)) + 4.0*LIMP*impact(P.wrap(p - OFF['R']))
     P.pel_rot(arm, P.UP, yaw); P.pel_rot(arm, P.FWD, roll)
-    nod = sum(impact(P.wrap(p - OFF[s] - 2.0/N)) for s in 'LR')
+    nod = sum(impact(P.wrap(p - OFF[s] - 2.0/N))*DIP_S[s] for s in 'LR')
     for b, lean, k in zip(P.SPINE, LEAN, (0.2, 0.35, 0.45)):
         P.rot(arm, b, P.LEFT, lean + NOD*nod*k)
         P.rot(arm, b, P.UP, -yaw*COUNTER*k*1.4)
@@ -80,21 +89,21 @@ def pose_frame(f):
     hb = sum(impact(P.wrap(p - OFF[s] - 4.0/N)) for s in 'LR')
     P.rot(arm, 'Neck', P.LEFT, -HEAD_UP*0.6 + NOD*0.6*hb)
     P.rot(arm, 'Head', P.LEFT, -HEAD_UP*0.4 - sum(LEAN)*0.30 + NOD*0.5*hb)
-    P.rot(arm, 'Head', P.UP, -yaw*HEAD_STAB*(1-COUNTER)); P.rot(arm, 'Head', P.FWD, -roll*HEAD_STAB*0.65)
+    P.rot(arm, 'Head', P.UP, -yaw*HEAD_STAB*(1-COUNTER)); P.rot(arm, 'Head', P.FWD, -roll*HEAD_STAB*0.65 + LOLL*math.sin(2*math.pi*(p - 0.4)))
     for s in 'LR':
         sg = SIDE[s]; sh, ua, fa, hd = P.ARMS[s]
         sw = -ARM_SWING*math.cos(2*math.pi*(p - OFF[s] - 0.5 - ARM_LAG))
         fs = -FORE_SWING*math.cos(2*math.pi*(p - OFF[s] - 0.5 - FORE_LAG))
         P.rot(arm, sh, P.LEFT, 0.3*sw)
         P.rot(arm, ua, P.FWD, -sg*ARM_IN)
-        P.rot(arm, ua, P.LEFT, sw)
+        P.rot(arm, ua, P.LEFT, -(ARM_SW_BASE + sw))
         P.rot(arm, fa, P.LEFT, -ELBOW + fs*0.6)
         P.rot(arm, hd, P.LEFT, fs*0.5)
         for fb in P.FINGERS[s]:
             if fb in arm.pose.bones: P.rot_local(arm, fb, 0, CLAW*(0.6 if 'Thumb' in fb else 1.0))
     for s in 'LR':
         tgt, heel = foot(s, p)
-        if heel > 0.01:
+        if abs(heel) > 0.01:
             toe = Vector((tgt.x, toe_rest[s].y + (tgt.y - home[s].y), toe_rest[s].z + (tgt.z - home[s].z)))
             v = home[s] - toe_rest[s]; v = Quaternion(P.LEFT, -math.radians(heel)) @ v
             tgt = toe + v

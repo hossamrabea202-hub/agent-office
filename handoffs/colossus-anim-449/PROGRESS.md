@@ -79,3 +79,18 @@ strikes, knees never ~180) -> `ue_import_anims.py` (into `Anims_Colossus`) -> `e
   back); a second install matches the authored clip to 0.00006 deg. **Handed off** (script + README + 3 FBX + 3 mp4).
 - Next: stage 3, the walkers (probe `BS_Zombie_Locomotion` speeds vs the clips' natural speeds, then author idle / walk /
   run / hits / death the same way), and the smash + death wiring when #518 lands.
+- **09:15 Stage 3 started (the walkers).** Pops measured in UE (`tools/zpops_all.py`): ZA_Taking_Damage_A-F pop 90-173 deg/frame
+  on 38-43 bones in frames 1-3; ZA_Run_A / A_Run pop the toes 37-39 deg with the feet 13 cm under z = 0; A_Death 45 deg;
+  ZA_Attack_D 46 bones. The blend space samples (0 / 113 / 249 / 350) already match the clips natural speeds (i9, 11-02).
+  Strike frames: A_Attack 26, ZA_Attack_D 16 (hands fastest). Ground for the walkers = -0.05 (the ZA idle's toes).
+- **09:30** `zwalk.py` got GROUND, ARM_SW_BASE (constant reach), LIMP (the right leg drags: 25 % lift, 2.2x drop, a hip
+  hitch, the toe stays down) and LOLL. `zidle.py` = the walkers' idle. v1 of the walk/run/sprint used a too-long stride
+  (the cadence was too slow for the speed: D = speed x cycle x stance must stay under about 0.7 m or the knee locks at 178):
+  v2 cadences 1.0 / 0.67 / 0.53 s -> knees 100-140 / 83-156 / 76-152, 0.00 cm/s skate, worst turn 11.5 / 21 / 29.
+- **09:40** `zperf_walkers.py` (hits x4, death, attacks x2) authored with `zoneshot.py` (lag scale 1.0 for a human body).
+  Renders: the claw rake first spread both arms sideways at the blow (the chest twist takes the trailing arm out); made it a
+  deliberate one-arm rake (left arm winds up behind, 0.92 m ahead at frame 30, the right arm low). The bite first raised the
+  hands overhead (arm_sw 78 in world with the torso bent 60 deg forward points up): 55 / arm_in 84 grabs at chest height.
+- **09:50 STAGE 3 DONE.** 11 clips in `fbx/`, 11 mp4s in `preview/`. `zw_walkers_ue.py` tested in the lab: dry-run, install
+  (14 targets written, every `max_diff_deg` 0.0, `ZA_Walk_A` with 2 stomps), restore (0.00005 deg vs the backups), reinstall.
+  Handed off. Open: the smash pin + death wiring for the breaker (export #518 not landed yet); the 11 burst-based death picks.
