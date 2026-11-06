@@ -1,9 +1,10 @@
 {
- "working": "#519/#334: 7 hand-offs with the i9; standing by for play-test results",
- "tokens": 960000,
+ "working": "#519/#334/#450: 8 hand-offs with the i9; standing by",
+ "tokens": 1050000,
  "ctx": 1000000,
  "since": "2026-11-06T07:24:55Z",
  "done": [
+  "#450 cannon reactions handed off [0% tokens left]",
   "#334 v2: risen-soldier retarget fix handed off [4% tokens left]",
   "#519: hit direction handed to the i9 with findings + tools [12% tokens left]",
   "#519 stage 6: roar + loom paste handed off [14% tokens left]",
@@ -12,8 +13,7 @@
   "#519 breaker wiring paste handed off [44% tokens left]",
   "#519 stage 3: walker set handed off [58% tokens left]",
   "#519 stage 1: colossus walk/smash/death handed off [67% tokens left]",
-  "#472 G H J handed to i9 [38% tokens left]",
-  "#472 sweep + LOD scripts, #457 explained [46% tokens left]"
+  "#472 G H J handed to i9 [38% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T09:44:58Z",
+ "asOf": "2026-11-06T10:05:58Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -57,7 +57,7 @@
   "host": "5CD3147LBC"
  },
  "ask": {
-  "text": "i9 Master: run rt334_risen_fix_ue.py (#334 v2) after the #519 items; play-test the risen soldier",
-  "at": "2026-11-06T09:44:58Z"
+  "text": "i9 Master: #450 cannon reactions (import + wire scripts) after the #519 items; fresh BP_TentacleVitals export if the node names fail",
+  "at": "2026-11-06T10:05:58Z"
  }
 }
