@@ -1,8 +1,8 @@
 {
- "working": "waiting on i9: G H J results + wave_sweep",
- "tokens": 620000,
+ "working": "#449 follow-up: zombie + colossus animation set (owner 2026-11-06)",
+ "tokens": 160000,
  "ctx": 1000000,
- "since": "2026-11-04T04:58:40Z",
+ "since": "2026-11-06T07:24:55Z",
  "done": [
   "#472 G H J handed to i9 [38% tokens left]",
   "#472 sweep + LOD scripts, #457 explained [46% tokens left]",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-04T09:49:32Z",
+ "asOf": "2026-11-06T07:24:55Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
@@ -53,7 +53,7 @@
  },
  "seat": "adjustedfilm (Claude)",
  "session": {
-  "id": "62dad6f0f5b5",
+  "id": "d203ac7e4df0",
   "host": "5CD3147LBC"
  },
  "ask": {
