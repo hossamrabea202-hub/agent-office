@@ -1,0 +1,7 @@
+hidden|MineDoor_Up|False
+target|MineDoor_Up|MineDoor_Down
+target|MineDoor_Down|MineDoor_Up
+mesh|Mine297_Tunnel_DeadEnd_03|/Game/CastleDefender/Environment/Mine/SM_Mine_Tunnel_DeadEnd.SM_Mine_Tunnel_DeadEnd
+hidden|Mine297_DoorFrame_22|False
+hidden|MineDoor_Down|False
+mesh|Mine297_OreVein_19|/Game/CastleDefender/Environment/Mine/SM_Mine_OreVein.SM_Mine_OreVein
