@@ -11,7 +11,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); A = sys.argv[1:] + os.environ
 DRY, REV, REIMP = '--dry-run' in A, '--revert' in A, '--reimport' in A; ONLY = A[A.index('--only') + 1].split(',') if '--only' in A else None
 D_ = '/Game/CastleDefender/Environment/Tentacles/SporeBase'; SMS = [D_ + '/SM_TentacleSporeBase_A', D_ + '/SM_TentacleSporeBase_B']; MAT = D_ + '/M_TentacleSporeBase'
 TD, TN = '/Game/CastleDefender/AssetPacks/StarterContent/Textures/T_Rock_Slate_D', '/Game/CastleDefender/AssetPacks/StarterContent/Textures/T_Rock_Slate_N'
-PREFIX = 'TentacleSporeBase_'; NOMINAL_R = 30.0; SINK_CM = 60.0
+SK_BC, SK_MASK, SK_MAT = D_ + '/T_SporeSkirt_BC', D_ + '/T_SporeSkirt_Mask', D_ + '/M_SporeSkirt'; PREFIX = 'TentacleSporeBase_'; NOMINAL_R = 30.0; SINK_CM = 60.0
 # height above the rig's base, centre x, y, trunk radius: rig metres, measured from SK_CorruptedTentacle_01 (70th percentile of the ring, so spikes do not count). The top curl starts above 63.
 TAB = [(0, -2.06, 2.12, 12.17), (3, -0.13, 0.1, 10.66), (6, 1.51, -0.79, 11.34), (9, -2.58, 2.24, 10.96), (12, -0.86, 0.39, 9.87), (15, -0.95, 2.29, 10.65), (18, -1.21, 0.57, 9.33), (21, -1.41, 0.69, 9.02), (24, -1.56, 0.77, 8.78), (27, -1.75, 0.89, 8.52), (30, -1.86, 0.91, 8.18), (33, -2.07, 1.01, 7.9), (36, -2.52, 1.08, 7.63), (39, -2.92, 1.08, 7.35), (42, -3.17, 1.07, 7.01), (45, -3.99, 1.02, 6.71), (48, -4.63, 0.98, 6.51), (51, -5.64, 0.9, 6.26), (54, -7.36, 0.76, 6.27), (57, -8.13, 0.39, 6.0), (60, -9.56, 0.52, 5.82), (63, -12.26, 0.41, 5.75)]
 EAL, AT, MEL = unreal.EditorAssetLibrary, unreal.AssetToolsHelpers.get_asset_tools(), unreal.MaterialEditingLibrary
@@ -67,8 +67,8 @@ if not DRY:
             t = unreal.AssetImportTask(); t.filename = os.path.join(HERE, 'fbx', nm + '.fbx'); t.destination_path = D_; t.destination_name = nm; t.automated = True; t.replace_existing = True; t.save = True; t.options = ui; AT.import_asset_tasks([t])
             if not EAL.does_asset_exist(CM): raise SystemExit('SPORE539 collision import failed; nothing placed')
         cmesh = unreal.load_asset(CM); cmesh.get_editor_property('body_setup').set_editor_property('collision_trace_flag', unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE); EAL.save_loaded_asset(cmesh)
-    if not EAL.does_asset_exist(MAT):
-        m = AT.create_asset('M_TentacleSporeBase', D_, unreal.Material, unreal.MaterialFactoryNew()); E = MEL.create_material_expression
+    if REIMP or not EAL.does_asset_exist(MAT):
+        m = unreal.load_asset(MAT) if EAL.does_asset_exist(MAT) else AT.create_asset('M_TentacleSporeBase', D_, unreal.Material, unreal.MaterialFactoryNew()); MEL.delete_all_material_expressions(m); E = MEL.create_material_expression
         vc = E(m, unreal.MaterialExpressionVertexColor, -1000, -100); pw = E(m, unreal.MaterialExpressionPower, -800, -100); ce = E(m, unreal.MaterialExpressionConstant, -1000, 40); ce.set_editor_property('r', 2.2); MEL.connect_material_expressions(vc, '', pw, 'Base'); MEL.connect_material_expressions(ce, '', pw, 'Exponent')   # the vertex bytes are sRGB
         tc = E(m, unreal.MaterialExpressionTextureCoordinate, -1400, 300); tile = E(m, unreal.MaterialExpressionScalarParameter, -1400, 420); tile.set_editor_property('parameter_name', 'DetailTile'); tile.set_editor_property('default_value', 1.0); mu = E(m, unreal.MaterialExpressionMultiply, -1200, 300); MEL.connect_material_expressions(tc, '', mu, 'A'); MEL.connect_material_expressions(tile, '', mu, 'B')
         td = E(m, unreal.MaterialExpressionTextureSample, -1000, 240); td.set_editor_property('texture', unreal.load_asset(TD)); MEL.connect_material_expressions(mu, '', td, 'UVs')
@@ -76,11 +76,25 @@ if not DRY:
         mean = E(m, unreal.MaterialExpressionScalarParameter, -800, 400); mean.set_editor_property('parameter_name', 'DetailMean'); mean.set_editor_property('default_value', 0.3); dv = E(m, unreal.MaterialExpressionDivide, -600, 240); MEL.connect_material_expressions(ds, '', dv, 'A'); MEL.connect_material_expressions(mean, '', dv, 'B')
         amt = E(m, unreal.MaterialExpressionScalarParameter, -600, 400); amt.set_editor_property('parameter_name', 'DetailAmount'); amt.set_editor_property('default_value', 0.6); one = E(m, unreal.MaterialExpressionConstant, -600, 130); one.set_editor_property('r', 1.0)
         lp = E(m, unreal.MaterialExpressionLinearInterpolate, -400, 200); MEL.connect_material_expressions(one, '', lp, 'A'); MEL.connect_material_expressions(dv, '', lp, 'B'); MEL.connect_material_expressions(amt, '', lp, 'Alpha')
-        bc = E(m, unreal.MaterialExpressionMultiply, -250, -50); MEL.connect_material_expressions(pw, '', bc, 'A'); MEL.connect_material_expressions(lp, '', bc, 'B'); MEL.connect_material_property(bc, '', unreal.MaterialProperty.MP_BASE_COLOR)
-        MEL.connect_material_property(vc, 'A', unreal.MaterialProperty.MP_ROUGHNESS)
+        bc = E(m, unreal.MaterialExpressionMultiply, -250, -50); MEL.connect_material_expressions(pw, '', bc, 'A'); MEL.connect_material_expressions(lp, '', bc, 'B')
+        dead = E(m, unreal.MaterialExpressionScalarParameter, -250, 80); dead.set_editor_property('parameter_name', 'Dead'); dead.set_editor_property('default_value', 0.0)
+        ds2 = E(m, unreal.MaterialExpressionDesaturation, -250, 180); MEL.connect_material_expressions(bc, '', ds2, ''); k3 = E(m, unreal.MaterialExpressionConstant, -250, 280); k3.set_editor_property('r', 0.3); dk = E(m, unreal.MaterialExpressionMultiply, -80, 200); MEL.connect_material_expressions(ds2, '', dk, 'A'); MEL.connect_material_expressions(k3, '', dk, 'B')
+        l2 = E(m, unreal.MaterialExpressionLinearInterpolate, 60, 0); MEL.connect_material_expressions(bc, '', l2, 'A'); MEL.connect_material_expressions(dk, '', l2, 'B'); MEL.connect_material_expressions(dead, '', l2, 'Alpha'); MEL.connect_material_property(l2, '', unreal.MaterialProperty.MP_BASE_COLOR)
+        k4 = E(m, unreal.MaterialExpressionConstant, -80, 400); k4.set_editor_property('r', 0.97); l3 = E(m, unreal.MaterialExpressionLinearInterpolate, 60, 300); MEL.connect_material_expressions(vc, 'A', l3, 'A'); MEL.connect_material_expressions(k4, '', l3, 'B'); MEL.connect_material_expressions(dead, '', l3, 'Alpha'); MEL.connect_material_property(l3, '', unreal.MaterialProperty.MP_ROUGHNESS)
         tn = E(m, unreal.MaterialExpressionTextureSample, -500, 500); tn.set_editor_property('texture', unreal.load_asset(TN)); tn.set_editor_property('sampler_type', unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL); MEL.connect_material_expressions(mu, '', tn, 'UVs'); MEL.connect_material_property(tn, 'RGB', unreal.MaterialProperty.MP_NORMAL)
         MEL.recompile_material(m); EAL.save_loaded_asset(m); say('material built')
     for SM in SMS: mesh = unreal.load_asset(SM); mesh.set_material(0, unreal.load_asset(MAT)); EAL.save_loaded_asset(mesh)
+    # the ejecta skirt: a new decal that bleeds the base's soil onto the real terrain and hides the mesh edge
+    for nm, srgb, comp in (('BC', True, unreal.TextureCompressionSettings.TC_DEFAULT), ('Mask', False, unreal.TextureCompressionSettings.TC_MASKS)):
+        p_ = D_ + '/T_SporeSkirt_' + nm
+        if REIMP or not EAL.does_asset_exist(p_):
+            t = unreal.AssetImportTask(); t.filename = os.path.join(HERE, 'tex', 'T_SporeSkirt_%s.png' % nm); t.destination_path = D_; t.destination_name = 'T_SporeSkirt_' + nm; t.automated = True; t.replace_existing = True; t.save = True; AT.import_asset_tasks([t]); tx = unreal.load_asset(p_)
+            if not tx: raise SystemExit('SPORE539 import failed ' + p_)
+            tx.set_editor_property('srgb', srgb); tx.set_editor_property('compression_settings', comp); EAL.save_loaded_asset(tx)
+    if not EAL.does_asset_exist(SK_MAT):
+        m = AT.create_asset('M_SporeSkirt', D_, unreal.Material, unreal.MaterialFactoryNew()); E = MEL.create_material_expression; m.set_editor_property('material_domain', unreal.MaterialDomain.MD_DEFERRED_DECAL); m.set_editor_property('blend_mode', unreal.BlendMode.BLEND_TRANSLUCENT)
+        b_ = E(m, unreal.MaterialExpressionTextureSample, -500, -100); b_.set_editor_property('texture', unreal.load_asset(SK_BC)); MEL.connect_material_property(b_, 'RGB', unreal.MaterialProperty.MP_BASE_COLOR)
+        k_ = E(m, unreal.MaterialExpressionTextureSample, -500, 200); k_.set_editor_property('texture', unreal.load_asset(SK_MASK)); k_.set_editor_property('sampler_type', unreal.MaterialSamplerType.SAMPLERTYPE_MASKS); MEL.connect_material_property(k_, 'R', unreal.MaterialProperty.MP_OPACITY); MEL.connect_material_property(k_, 'G', unreal.MaterialProperty.MP_ROUGHNESS); MEL.recompile_material(m); EAL.save_loaded_asset(m); say('skirt decal material built')
 n_done = 0
 for a in tents:
     lab = a.get_actor_label(); g = ground(a); s = abs(a.get_actor_scale3d().z); z = a.get_actor_location().z
@@ -91,9 +105,10 @@ for a in tents:
     size = r * s / NOMINAL_R; yaw = zlib.crc32(lab.encode()) % 360; SM = SMS[zlib.crc32(lab.encode()) // 7 % 2]
     say(lab, 'on', what, 'ground z', round(loc.z), 'height', round(h, 1), 'trunk radius m', round(r * s, 1), 'base scale', round(size, 2), 'width m', round(190 * size), 'shape', SM[-1], 'centre', round(c.x), round(c.y), "slope normal z", round(nrm.z, 2))
     if DRY: continue
-    for old in [p for p in placed if p.get_actor_label() in (PREFIX + lab, PREFIX + 'Col_' + lab)]: ES.destroy_actor(old)
-    b = ES.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(c.x, c.y, loc.z - SINK_CM), unreal.Rotator(0, 0, yaw)); b.set_actor_label(PREFIX + lab); b.set_folder_path('TentacleSporeBase'); b.set_actor_scale3d(unreal.Vector(size, size, size))
-    sm = b.static_mesh_component; sm.set_static_mesh(unreal.load_asset(SM)); sm.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION); sm.set_editor_property('can_ever_affect_navigation', False)
+    for old in [p for p in placed if p.get_actor_label() in (PREFIX + lab, PREFIX + 'Col_' + lab, PREFIX + 'Skirt_' + lab)]: ES.destroy_actor(old)
+    b = ES.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(c.x, c.y, loc.z - SINK_CM), unreal.Rotator(0, 0, yaw)); b.set_actor_label(PREFIX + lab); b.set_folder_path('TentacleSporeBase'); b.tags = ['SporeBase']; b.set_actor_scale3d(unreal.Vector(size, size, size))
+    sm = b.static_mesh_component; sm.set_static_mesh(unreal.load_asset(SM)); sm.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION); sm.set_editor_property('can_ever_affect_navigation', False); sm.set_editor_property('receives_decals', False)
     k = ES.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(c.x, c.y, loc.z - SINK_CM), unreal.Rotator(0, 0, yaw)); k.set_actor_label(PREFIX + 'Col_' + lab); k.set_folder_path('TentacleSporeBase'); k.set_actor_scale3d(unreal.Vector(size, size, size))
     km = k.static_mesh_component; km.set_static_mesh(unreal.load_asset(SM + '_Col')); km.set_collision_profile_name('BlockAll'); km.set_editor_property('can_ever_affect_navigation', False); km.set_visibility(False, True); km.set_editor_property('visible', False); km.set_editor_property('hidden_in_game', True); km.set_editor_property('cast_shadow', False); k.set_actor_hidden_in_game(True); n_done += 1
+    dc = ES.spawn_actor_from_class(unreal.DecalActor, unreal.Vector(c.x, c.y, loc.z), unreal.Rotator(0, -90, yaw)); dc.set_actor_label(PREFIX + 'Skirt_' + lab); dc.set_folder_path('TentacleSporeBase'); dcc = dc.decal; dcc.set_decal_material(unreal.load_asset(SK_MAT)); R_ = 12500.0 * size; dcc.set_editor_property('decal_size', unreal.Vector(350.0, R_, R_))      # shallow: it must lie on the ground, not climb the arm
 say('DONE', 'dry-run' if DRY else 'placed %d; save the level' % n_done)

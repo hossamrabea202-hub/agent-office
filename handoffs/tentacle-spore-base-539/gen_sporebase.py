@@ -99,7 +99,7 @@ for k_ in range(58):
     lean = math.radians(18 + 58 * nearw * rng.random() + 8 * rng.random())       # long axis lies radial; the inner end is lifted by the eruption
     Rm = rot(side, -lean) @ np.column_stack([out, side, [0, 0, 1.0]]) @ rot((0, 0, 1.0), rng.normal(0, 0.35)); P = P @ Rm.T; box = box @ Rm.T
     c = np.array([rad * math.cos(t_), rad * math.sin(t_), height(rad * math.cos(t_), rad * math.sin(t_)) + 0.12 * L * math.sin(lean)]); P = P + c; box = box + c
-    SLABS.append(c)
+    SLABS.append((c, L))
     if L > 13: HULLS.append(box)
     n3 = fbm(P[:, 0] * 0.3, P[:, 1] * 0.3, P[:, 2] * 0.3, 4); band = 0.5 + 0.5 * np.sin(strat * 19 + 2.0 * n3)
     Cc = s2l([112, 104, 93]) * (1 + 0.32 * n3 + (0.25 * band - 0.12))[:, None]
@@ -115,6 +115,15 @@ for k_ in range(240):
     ang = rng.random() * math.pi; ax = rng.normal(size=3); ax /= np.linalg.norm(ax); P = P @ rot(ax, ang).T
     x_, y_ = rad * math.cos(t_), rad * math.sin(t_); P = P + np.array([x_, y_, height(x_, y_) + 0.15 * s_]); n3 = fbm(P[:, 0] * 0.4, P[:, 1] * 0.4, P[:, 2] * 0.4, 3)
     add(P, Fq, s2l([100, 92, 82]) * (1 + 0.35 * n3)[:, None], np.clip(0.88 + 0.1 * n3, 0.5, 1.0))
+# ---------- 3b ground blend: fine stones thinning out past the crust edge, and contact grime where slabs sit on the crust
+for k_ in range(420):
+    t_ = rng.random() * 2 * math.pi; rad = ROUT * (0.5 + 0.45 * rng.random() ** 1.5); s_ = (0.2 + 0.85 * rng.random() ** 2.2) * (1.15 - rad / ROUT)
+    P, Fq = slab(s_ * (1 + rng.random()), s_, s_ * (0.5 + 0.6 * rng.random()), 900 + k_, S=4); ax = rng.normal(size=3); ax /= np.linalg.norm(ax); P = P @ rot(ax, rng.random() * math.pi).T
+    x_, y_ = rad * math.cos(t_), rad * math.sin(t_); P = P + np.array([x_, y_, max(height(x_, y_), -0.15) + 0.1 * s_]); n3 = fbm(P[:, 0] * 0.6, P[:, 1] * 0.6, P[:, 2] * 0.6, 2)
+    add(P, Fq, s2l([96, 86, 72]) * (1 + 0.35 * n3)[:, None], np.clip(0.9 + 0.08 * n3, 0.5, 1.0))
+cV, cF, cC, cR = PARTS[0]; cC = cC.copy(); gr = np.ones(len(cV))
+for c_, L_ in SLABS: gr = gr * (1 - 0.42 * np.exp(-(np.hypot(cV[:, 0] - c_[0], cV[:, 1] - c_[1]) / (0.5 * L_)) ** 2))
+PARTS[0] = (cV, cF, cC * np.maximum(gr, 0.55)[:, None], cR)
 # ---------- 4 roots: the arm gripping the rubble
 def tube(pts, r0, r1, seg=9):
     pts = np.asarray(pts); n_ = len(pts); tan = np.gradient(pts, axis=0); tan /= np.linalg.norm(tan, axis=1, keepdims=True); up = np.array([0, 0, 1.0])
