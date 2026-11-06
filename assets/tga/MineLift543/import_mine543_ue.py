@@ -51,7 +51,7 @@ def fbx(path):
     f = unreal.FbxImportUI(); f.import_mesh = True; f.import_as_skeletal = False; f.mesh_type_to_import = unreal.FBXImportType.FBXIT_STATIC_MESH
     f.import_materials = False; f.import_textures = False
     d = f.static_mesh_import_data; d.combine_meshes = True; d.auto_generate_collision = False
-    d.import_uniform_scale = 100.0                       # same FBX scale fix as the #309 kit (Master, #341)
+    d.import_uniform_scale = 1.0                         # Master 11-06: these FBX are already in cm; 100 made the shaft 900 m (owner saw it over the castle)
     d.vertex_color_import_option = unreal.VertexColorImportOption.REPLACE        # rock wet/soot/puddle, vein glow, mote phase
     d.normal_import_method = unreal.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS_AND_TANGENTS
     t.options = f; return t
