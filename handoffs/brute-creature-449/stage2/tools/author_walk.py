@@ -13,11 +13,12 @@ SK, OUT = a[0], a[1]; BLEND = a[2] if len(a) > 2 else None
 
 # ---------------- PARAMS ----------------
 SPEED = 71.5          # cm/s, BP_FleshBrute MaxWalkSpeed
-N = 46                # frames per cycle at 30 fps (1.53 s, two steps)
-STANCE = 0.65         # fraction of the cycle each foot is planted (heavy = long stance)
-LIFT = 0.12           # m, foot clearance (heavy creatures shuffle low)
+N = 52                # frames per cycle at 30 fps (1.73 s, two steps: a slower, heavier cadence)
+STANCE = 0.60         # fraction of the cycle each foot is planted (heavy = long stance)
+LIFT = 0.10           # m, foot clearance (heavy creatures shuffle low)
 WIDTH = 0.03          # m, wider stance than rest
-CROUCH = 0.09         # m, pelvis lowered (bent knees)
+CROUCH = 0.12         # m, pelvis lowered (bent knees)
+FWD_BIAS = 0.15       # m, stride centred ahead of the rest ankle so the leg never locks straight
 DIP = 0.055           # m, impact compression on each footfall
 RISE = 0.018          # m, mid-stance rise
 SWAY = 0.055          # m, lateral pelvis shift toward the stance foot
@@ -31,7 +32,7 @@ ARM_SWING, ARM_LAG = 13.0, 0.10      # deg, cycle fraction
 FORE_SWING, FORE_LAG = 9.0, 0.16
 HEAD_STAB = 0.8       # head cancels this much of the body's yaw/roll
 HEAD_UP = 0.0         # deg extra head lift (0 = the maw looks ahead and a little down)
-TOE_OFF = 22.0        # deg heel lift at push-off
+TOE_OFF = 12.0        # deg heel lift at push-off
 
 D = SPEED*N/30.0*STANCE/100.0       # m the foot travels back while planted
 arm = bl_rig.load_rig(SK, keep_mesh=bool(BLEND))
@@ -54,12 +55,12 @@ def foot(side, p):
     u = P.wrap(p - OFF[side]); h = home[side]
     x = h.x + SIDE[side]*WIDTH
     if u < STANCE:
-        s = u/STANCE; fwd = D*(0.5 - s); z = h.z; lift = 0.0
-        heel = TOE_OFF*P.ease((s-0.72)/0.28) if s > 0.72 else 0.0
+        s = u/STANCE; fwd = D*(0.5 - s) + FWD_BIAS; z = h.z; lift = 0.0
+        heel = TOE_OFF*P.ease((s-0.6)/0.4) if s > 0.6 else 0.0
     else:
         s = (u-STANCE)/(1-STANCE)
-        fwd = D*(-0.5 + P.ease(s)); lift = LIFT*math.sin(math.pi*min(1.0, s**0.85)); z = h.z + lift
-        heel = TOE_OFF*(1-P.ease(s/0.45)) - 6.0*math.sin(math.pi*s)    # toe swings through, slight toe-up before the slap
+        fwd = D*(-0.5 + (0.5-0.5*math.cos(math.pi*s))) + FWD_BIAS; lift = LIFT*math.sin(math.pi*s)**1.2; z = h.z + lift
+        heel = TOE_OFF*(1-P.ease(s/0.7)) - 4.0*math.sin(math.pi*s)     # toe swings through, slight toe-up before the slap
     return Vector((x, h.y - fwd, z)), heel      # forward is -Y
 
 def pose_frame(f):
@@ -120,6 +121,19 @@ for f in range(1, N+1):
         if 0.05 < u < STANCE*0.7: sk.append(abs((a1[s].y - a0[s].y)*30*100 - SPEED))
 sc.frame_set(1); hp = P.wpos(arm, 'head'); pp = P.wpos(arm, 'spine_01')
 print('WALK lean: head is %.2f m ahead of the pelvis (rest %.2f)' % (-(hp.y-pp.y), -(REST_HEAD.y-REST_PEL.y)))
+pops = []
+prev = None
+for f in range(1, N+2):
+    sc.frame_set(f); cur = {pb.name: pb.matrix_basis.to_quaternion() for pb in arm.pose.bones}
+    if prev: pops.append(max((math.degrees(cur[b].rotation_difference(prev[b]).angle), b, f) for b in cur))
+    prev = cur
+kn = []
+for f in range(1, N+1):
+    sc.frame_set(f)
+    for sd in 'LR':
+        H = P.wpos(arm, 'thigh_01_'+sd); K = P.wpos(arm, 'shin_01_'+sd); A = P.wpos(arm, 'foot_'+sd); kn.append(math.degrees((H-K).angle(A-K)))
+print('WALK knee interior angle min %.1f max %.1f (max must stay < 170: never locked)' % (min(kn), max(kn)))
+print('WALK snap check: worst bone turn per frame %.1f deg (%s @%d), target < 15' % max(pops))
 print('WALK check: planted-toe speed error cm/s max %.2f (0 = no skate); stride D %.2f m' % (max(sk), D))
 bl_rig.export_anim(arm, OUT, 1, N+1)
 if BLEND: bpy.ops.wm.save_as_mainfile(filepath=BLEND)

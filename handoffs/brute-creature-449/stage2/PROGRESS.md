@@ -70,3 +70,15 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
   (different rest orientations). Preview only from a **UE re-export** (`export_fbx.py` with `FB_CLIPS=Anims_Creature/<clip>`
   `FB_OUT=...`), then `render_mesh.py`. `preview/walk_v1_sideq_006.png` is the first good frame.
 - Next: an mp4 of the walk for the owner, then `author_idle.py` (the living idle), the same way.
+- **08:20** `author_idle.py` → **CR_Idle_Hunt** (4 s loop): heavy 2 s breaths, a weight shift on planted feet, a slow scan, a
+  head-tilt twitch (fast in, hold, slow out), a double sniff and a claw flex. v2 has a deeper crouch (35°) and the head
+  levelled. Imported OK.
+- `fb449_creature_ue.py` now takes `--src Anims_Creature`, so the #449 layer (jaw, tongue, flesh, heft) runs on the new
+  clips too. Its blend-space edit only runs for the original `Anims` set. **For previews, run the layer first**: the rest
+  pose is the showcase gape, so raw clips look like the brute screams at the sky. When re-authoring, delete
+  `Anims_Creature_BAK449` first, or the layer bakes from the stale backup.
+- **08:28** Walk v1 bug, found by the layer's de-pop and `ue_pops.py`: the knees snapped 34°/frame because the trailing
+  leg locked straight (178°) in late stance. Fixed in **walk v2**: cycle 52 frames (1.73 s), stance 60 %, stride centred
+  15 cm forward, crouch 12 cm, heel lift 12°. Checks printed by the script: knee angle 82–134° (never locked), worst bone
+  turn **7.8°/frame** (target < 15), planted-toe speed error **0.00 cm/s**.
+- Next: import walk v2 + idle v2, run the layer (`--src Anims_Creature`), re-export from UE, render the mp4s for the owner.
