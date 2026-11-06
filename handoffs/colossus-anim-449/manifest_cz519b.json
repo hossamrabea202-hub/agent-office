@@ -1,0 +1,51 @@
+{
+ "blueprint": "BP_ZombieWallBreaker",
+ "pastes": [
+  "BP_ZombieWallBreaker_CZ519b_graph.txt"
+ ],
+ "rewires": [
+  {
+   "from": "BP_XP.then",
+   "to": "crRoar3.execute",
+   "replace": true,
+   "note": "spawn: roar first (was -> BP_Walk)"
+  },
+  {
+   "from": "crRoarWait4.then",
+   "to": "BP_Walk.execute",
+   "note": "after the roar: the old walk + timer"
+  },
+  {
+   "from": "czSetStuckTicks9.then",
+   "to": "crIfJustStuck7.execute",
+   "replace": true,
+   "note": "stuck watchdog: after StuckTicks += 1 (was -> czIfStuck12)"
+  },
+  {
+   "from": "crLoom10.then",
+   "to": "czIfStuck12.execute",
+   "note": "just stuck: loom, then the old check"
+  },
+  {
+   "from": "crIfJustStuck7.else",
+   "to": "czIfStuck12.execute",
+   "note": "already looming: the old check"
+  },
+  {
+   "from": "czIfSlow6.else",
+   "to": "crIfWasStuck13.execute",
+   "replace": true,
+   "note": "moving: was it looming? (was -> czSetStuckTicks24)"
+  },
+  {
+   "from": "crWalkAgain16.then",
+   "to": "czSetStuckTicks24.execute",
+   "note": "back to the walk, then the old reset"
+  },
+  {
+   "from": "crIfWasStuck13.else",
+   "to": "czSetStuckTicks24.execute",
+   "note": "was walking: the old reset"
+  }
+ ]
+}

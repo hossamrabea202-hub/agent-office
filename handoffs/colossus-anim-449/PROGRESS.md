@@ -128,3 +128,12 @@ strikes, knees never ~180) -> `ue_import_anims.py` (into `Anims_Colossus`) -> `e
   one knee, the foot plants -> standing by frame 78 (x0.5 in game = 5.2 s). `ZW_Laying_Stunned` (180 f). Install
   `zw_crawl_rise_ue.py` writes the 4 clips into ZA_Belly_Crawling_A/B, ZA_Burst_H, ZA_Laying_Idle_A (lab: 4 x 0.0 deg,
   restore 0.00004 deg). No paste. Handed off.
+- **12:10 Stage 6 (owner: "do 1, 2, 3").** (3) `CZ_Roar` (3 s) and `CZ_Idle_Loom` (4 s loop) authored (giant lags), paste 2
+  `gen_cz519b.py`: roar at spawn before the walk, loom idle while the #317 watchdog counts it stuck, walk again when it
+  moves. Merged on the fresh 10:05 export that already holds #522: OK, +36. (2) Crowd desync: `BPC_ZombieDesync` (exported
+  from the lab with `zexport_bp.py`) already randomises the anim rate 0.82-1.18 and the yaw at BeginPlay: no change
+  needed; noted a possible blend-space start offset. (1) Stagger by weapon / hit direction: asked the i9 (paste on
+  DamageCauser vs a C++ hit vector from AZombieBase::TakeDamage); the parent today picks AM_ZFlinch_Front/_Back at play
+  rate 3.0 (K2Node_IfThenElse_15). Waiting for the answer. Found: the Master's exports after 10:00 list every node twice
+  (unlinked copies, same NodeGuid); `t3d_eventgraph.js` now dedupes (95 / 843 dropped = the Master's own counts).
+  #520 and #521 are in the game (closed), #522 and #523 applied 10:03; nothing play-tested yet.

@@ -161,6 +161,34 @@ Steps (Master, any time after #521): `py ".../zw_crawl_rise_ue.py" --dry-run` (4
 crawler keeps its hands planted at 45; a spawning zombie rises in one continuous motion with no pause and no pop; a
 zombie knocked flat by a cannon or a charge lies stunned and gets up without a snap.
 
+## Stage 6: the colossus roars at spawn and looms when stuck (paste 2: `manifest_cz519b.json`)
+
+Two more colossus clips (imported by the updated `cz_colossus_ue.py`, so re-run it or import them by hand):
+
+| Clip | Frames | What |
+|---|---|---|
+| `CZ_Roar` | 90 (3 s) | gathers (sinks, curls, fists), explodes up and open with a trembling roar and a head sweep, settles |
+| `CZ_Idle_Loom` | 120 (4 s loop) | a heavy breath, the head swings left then right searching, a twitch, the claws flex |
+
+The paste (`gen_cz519b.py` -> `BP_ZombieWallBreaker_CZ519b_graph.txt` + `manifest_cz519b.json`, 16 nodes, 8 rewires) goes
+ON TOP of paste 1: it was merged on the fresh 10:05 export (which already holds #522): `Validation: OK`, +36 link
+entries as expected, `merged_cz519b.t3d`. (a) BeginPlay: after the stats, PlayAnimation(CZ_Roar) -> Delay 3 s -> the
+old walk and the BreakerThink timer: the giant roars once before it moves. (b) The #317 stuck watchdog: when
+`StuckTicks` becomes 1 it plays the loom idle (loop) instead of walking in place; when it moves again it plays the
+walk again, then the old reset. Steps: EventGraph > Ctrl+A, Ctrl+C -> `live.t3d`; `applyall merge --live live.t3d
+--manifest handoffs/colossus-anim-449/manifest_cz519b.json --out merged.t3d` (or paste `merged_cz519b.t3d` if the graph is
+still the 10:05 one); Ctrl+A, Delete, Ctrl+V, Refresh All Nodes, compile, save. Tests: a spawning colossus roars for
+3 s, then walks; one wedged against a wall looms and breathes instead of treadmilling, and walks on when freed.
+
+Note on the whole-BP exports made after 10:00: they list every EventGraph node twice (a generic-named, unlinked copy
+with the same NodeGuid). `t3d_eventgraph.js` drops the copies (95 on the breaker, 843 on the zombie, which is exactly
+what the Master counted), so applyall sees the real graph.
+
+**Crowd desync (checked, no change needed):** `BPC_ZombieDesync` already sets each zombie's `GlobalAnimRateScale` to a
+random 0.82-1.18 and yaws it +-15 deg at BeginPlay, and the wave manager staggers spawns, so walkers drift out of step
+within a cycle or two. A per-instance start offset in the blend space would remove the first second of lock-step; not
+worth an ABP edit now.
+
 ## Rules applied
 
 INDUSTRY_SECRETS §0 rule 8, §3.4 #2 (speed match, no play-rate hack), #5 (no pops). RESEARCH.md: Gilman's retime-don't-stretch

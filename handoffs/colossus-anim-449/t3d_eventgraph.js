@@ -29,7 +29,20 @@ for (const line of lines) {
   }
   if (cur) props[cur].push(line.replace(/^ {6}/, ''));
 }
+// a whole-BP export can list a node twice (a generic-named, unlinked copy with the same NodeGuid): keep the linked, named one
+const guidOf = n => ((props[n] || []).join('\n').match(/NodeGuid=([0-9A-F]+)/) || [])[1];
+const linked = n => (props[n] || []).some(l => /LinkedTo=\(/.test(l));
+const generic = n => /^K2Node_[A-Za-z]+_\d+$/.test(n);
+const best = {};
+for (const n of order) {
+  const g = guidOf(n); if (!g) continue;
+  const b = best[g];
+  if (!b || (linked(n) && !linked(b)) || (linked(n) === linked(b) && generic(b) && !generic(n))) best[g] = n;
+}
+const keep = new Set(Object.values(best));
+const dropped = order.filter(n => guidOf(n) && !keep.has(n));
+if (dropped.length) console.log(`dropped ${dropped.length} duplicate nodes (same NodeGuid, unlinked copies)`);
 const outLines = [];
-for (const n of order) { outLines.push(decl[n]); for (const l of (props[n] || [])) outLines.push(l); outLines.push('End Object'); }
+for (const n of order) { if (guidOf(n) && !keep.has(n)) continue; outLines.push(decl[n]); for (const l of (props[n] || [])) outLines.push(l); outLines.push('End Object'); }
 fs.writeFileSync(out, outLines.join('\r\n') + '\r\n');
 console.log(`${out}: ${order.length} nodes`);

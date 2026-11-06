@@ -49,3 +49,30 @@ DEATH = dict(name='CZ_Death_Colossus', length=4.0, keys=[
 ])
 
 ALL = {'smash': SMASH, 'death': DEATH}
+
+# ---- colossus idle (looms while stuck; 4 s loop) and roar (at spawn, before it walks; 3 s). Giant lags (zoneshot x1.6). ----
+IDLE_LOOM = dict(name='CZ_Idle_Loom', length=4.0, keys=[
+    (0.00, 'smooth', dict(BASE)),
+    (1.00, 'inout', {'pel_z': -0.13, 'pel_x': 0.03, 'pel_roll': 2, 'spine': 15, 'spine1': 12, 'spine2': 9, 'neck': -4, 'head': 4, 'head_yaw': -12, 'neck_yaw': -6,
+                     'shoulder_L': 3, 'shoulder_R': 3, 'arm_sw_L': 24, 'arm_sw_R': 20, 'claw_L': 26, 'claw_R': 22}),   # a heavy inhale, the head swings left
+    (1.30, 'linear', {'head_yaw': -14}),
+    (2.10, 'inout', {'pel_z': -0.09, 'pel_x': -0.03, 'pel_roll': -2, 'spine': 11, 'spine1': 9, 'spine2': 6, 'neck': 0, 'head': 0, 'head_yaw': 10, 'neck_yaw': 5,
+                     'shoulder_L': 0, 'shoulder_R': 0, 'arm_sw_L': 20, 'arm_sw_R': 24, 'claw_L': 18, 'claw_R': 24}),    # the exhale, the head swings right
+    (2.40, 'snap', {'head': 6, 'head_roll': 6, 'tremble': 0.4}),                                                   # a twitch
+    (2.70, 'out', {'tremble': 0.0, 'head_roll': 2}),
+    (4.00, 'smooth', dict(BASE)),
+])
+ROAR = dict(name='CZ_Roar', length=3.0, keys=[
+    (0.00, 'smooth', dict(BASE)),
+    (0.70, 'inout', {'pel_z': -0.18, 'pel_pitch': 5, 'spine': 20, 'spine1': 18, 'spine2': 15, 'neck': 6, 'head': 10,
+                     'arm_in_L': 76, 'arm_in_R': 76, 'arm_sw_L': 10, 'arm_sw_R': 10, 'elbow_L': 50, 'elbow_R': 50, 'claw_L': 34, 'claw_R': 34,
+                     'shoulder_L': 8, 'shoulder_R': 8}),                                                            # gathers: sinks, curls, fists
+    (1.15, 'out', {'pel_z': -0.04, 'pel_pitch': -8, 'spine': -4, 'spine1': -10, 'spine2': -14, 'neck': -18, 'head': -16,
+                   'arm_in_L': 30, 'arm_in_R': 30, 'arm_sw_L': 45, 'arm_sw_R': 45, 'elbow_L': 30, 'elbow_R': 30, 'claw_L': -24, 'claw_R': -24,
+                   'hand_L': -14, 'hand_R': -14, 'shoulder_L': -8, 'shoulder_R': -8}),                               # explodes up and open
+    (1.30, 'smooth', {'tremble': 1.0, 'head': -12}),
+    (2.10, 'linear', {'tremble': 1.0, 'head_yaw': 8, 'neck_yaw': 5}),                                              # the roar, head sweeps
+    (2.35, 'smooth', {'tremble': 0.0}),
+    (3.00, 'out', dict(BASE)),
+])
+ALL.update({'idle_loom': IDLE_LOOM, 'roar': ROAR})

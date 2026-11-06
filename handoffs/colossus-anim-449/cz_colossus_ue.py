@@ -19,7 +19,7 @@ R = '/Game/CastleDefender/Characters/Enemies/Zombie'
 CZ = R + '/Anims_Colossus'; BAK = R + '/Anims_BAKCZ'
 WALK = R + '/Anims/A_Walk'
 EAL = unreal.EditorAssetLibrary
-CLIPS = ['CZ_Walk_Colossus', 'CZ_Attack_Smash', 'CZ_Death_Colossus']
+CLIPS = ['CZ_Walk_Colossus', 'CZ_Attack_Smash', 'CZ_Death_Colossus', 'CZ_Idle_Loom', 'CZ_Roar']   # the last two: paste 2 (#519 stage 6)
 STOMP = R + '/AN_ColossusStomp'
 STOMP_TIMES = [0.0, 39/30.0]       # the footfalls of CZ_Walk_Colossus (frames 1 and 40 of 79; 2.6 s loop)
 log = []
