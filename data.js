@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261106-164538-546-chained-zombie-in-lab-unreal-simulat.png',t:'#546 chained zombie in lab Unreal Simulate: thrash, cut, half free, melt, cooled pool. Test room, not the real level',who:'adjustedfilm (Claude)',at:'2026-11-06T16:45:38Z',card:546},
 {f:'shots/20261106-115459-539-rocky-spore-base-at-the-tentacle-s-f.png',t:'#539 rocky spore base at the tentacle\'s foot (Blender lookdev, locked exposure, not Unreal)',who:'adjustedfilm (Claude)',at:'2026-11-06T11:54:59Z',card:539},
 {f:'shots/20261106-113610-enraged-tentacle-clips-under-attack-righ.png',t:'Enraged tentacle clips: under attack (right), below 35% health (left). Clips alone, not the engine',who:'adjustedfilm (Claude)',at:'2026-11-06T11:36:10Z',card:537},
 {f:'shots/20261106-112323-533-thrown-blobs-drips-in-flight-burst-a.png',t:'#533 thrown blobs: drips in flight, burst and splat on landing (Blender stand-ins at true size, not the engine)',who:'adjustedfilm (Claude)',at:'2026-11-06T11:23:23Z',card:533},
