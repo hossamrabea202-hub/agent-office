@@ -30,7 +30,7 @@ STATICS = ['SM_ChainLink', 'SM_ChainCuff', 'SM_ChainAnchor', 'SM_MeltPool']
 SND = {'metal1': '/Game/Audio/Kenney/SFX_impactMetal_heavy_001', 'metal2': '/Game/Audio/Kenney/SFX_impactMetal_heavy_003', 'plate': '/Game/Audio/Kenney/SFX_impactPlate_heavy_002', 'flesh': '/Game/Audio/SFX_FleshHit',
        'growl1': '/Game/MonsterRoarsAndGrowls/cues/16_Feral_Growl_Cue', 'growl2': '/Game/MonsterRoarsAndGrowls/cues/17_Bloodthirsty_Growl_Cue', 'growl3': '/Game/MonsterRoarsAndGrowls/cues/12_Ambush_Growl_Cue',
        'sizzle': '/Game/Free_Sounds_Pack/cue/Fire_Burning_Loop_2_Cue', 'att': '/Game/CastleDefender/Audio/ATT_FireLoop'}
-FXP = {'sparks': '/Game/Particles/P_Sparks', 'smoke': '/Game/Particles/P_Smoke'}
+FXP = {'sparks': '/Game/CastleDefender/AssetPacks/StarterContent/Particles/P_Sparks', 'smoke': '/Game/CastleDefender/AssetPacks/StarterContent/Particles/P_Smoke'}
 def opt(p):
     if EAL.does_asset_exist(p):
         o = unreal.load_asset(p); return o.get_path_name() if o else ''
