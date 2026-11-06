@@ -1,9 +1,10 @@
 {
- "working": "idle: owner play-test (brute wave 3 + review list)",
- "tokens": 640000,
+ "working": "idle: owner play-test of review list sections A, E, F",
+ "tokens": 760000,
  "ctx": 1000000,
  "since": "2026-11-06T06:07:33Z",
  "done": [
+  "#449 stages 1-3 live; brute sand dissolve + zombie candle melt built [24% tokens left]",
   "#449 stages 1-3 in the game (#515 layer, #516 install), #517 export filed [36% tokens left]",
   "#515 brute layer applied (37 clips); #325 #288 pasted [40% tokens left]",
   "#325 towers + #288 realm pasted and saved, level saved; board cleaned; editor open offline for the owner [44% tokens left]",
@@ -12,8 +13,7 @@
   "BP_Zombie native target pick wired + saved; office post [64% tokens left]",
   "DLL rebuilt (timer pause persisted), medic #502 imported, 8 export requests closed, soldier NearZombies prune built+wired [67% tokens left]",
   "#311 kit, #341 placement",
-  "#311 mine kit imported",
-  "#330 breach collapse pasted"
+  "#311 mine kit imported"
  ],
  "todo": [
   "#6 Skill Upgrade HUD: better icons, louder level-up arrow",
@@ -26,7 +26,7 @@
   "#17 Logo + banner colour picker at game start",
   "#24 Upon Death text: next up, ~45-60 min"
  ],
- "asOf": "2026-11-06T07:20:42Z",
+ "asOf": "2026-11-06T08:20:40Z",
  "usage": {
   "who": "hossam gmail (Claude)",
   "plan": "Max",
