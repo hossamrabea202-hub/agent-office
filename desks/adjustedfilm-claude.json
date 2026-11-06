@@ -1,9 +1,10 @@
 {
- "working": "chained zombie: BP compiles and ticks in lab Simulate; polishing melt + iron",
- "tokens": 330000,
+ "working": "",
+ "tokens": 400000,
  "ctx": 1000000,
  "since": "2026-11-06T15:30:05Z",
  "done": [
+  "#546 chained zombie handed off to i9, lab only [60% tokens left · 5h plan 50% left]",
   "#519 directional hit clips for the i9 C++ flinch [0% tokens left]",
   "#450 cannon reactions handed off [0% tokens left]",
   "#334 v2: risen-soldier retarget fix handed off [4% tokens left]",
@@ -12,8 +13,7 @@
   "#519 stage 5: crawl / rise / laying handed off [24% tokens left]",
   "#519 stage 4: deaths handed off [36% tokens left]",
   "#519 breaker wiring paste handed off [44% tokens left]",
-  "#519 stage 3: walker set handed off [58% tokens left]",
-  "#519 stage 1: colossus walk/smash/death handed off [67% tokens left]"
+  "#519 stage 3: walker set handed off [58% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,16 +29,16 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T16:21:31Z",
+ "asOf": "2026-11-06T16:45:51Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-03T07:00:38Z",
+  "asOf": "2026-11-06T16:45:51Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 68,
+    "pct": 50,
     "resetsAt": "2026-10-31T15:29:59Z",
     "color": "#59bda5"
    },
