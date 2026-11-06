@@ -1,9 +1,10 @@
 {
- "working": "#519/#334/#450: 8 hand-offs with the i9; standing by",
- "tokens": 1050000,
+ "working": "standing by: 9 hand-offs with the i9, play-test results pending",
+ "tokens": 1080000,
  "ctx": 1000000,
  "since": "2026-11-06T07:24:55Z",
  "done": [
+  "#519 directional hit clips for the i9 C++ flinch [0% tokens left]",
   "#450 cannon reactions handed off [0% tokens left]",
   "#334 v2: risen-soldier retarget fix handed off [4% tokens left]",
   "#519: hit direction handed to the i9 with findings + tools [12% tokens left]",
@@ -12,8 +13,7 @@
   "#519 stage 4: deaths handed off [36% tokens left]",
   "#519 breaker wiring paste handed off [44% tokens left]",
   "#519 stage 3: walker set handed off [58% tokens left]",
-  "#519 stage 1: colossus walk/smash/death handed off [67% tokens left]",
-  "#472 G H J handed to i9 [38% tokens left]"
+  "#519 stage 1: colossus walk/smash/death handed off [67% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T10:05:58Z",
+ "asOf": "2026-11-06T10:10:06Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
