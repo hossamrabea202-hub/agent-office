@@ -127,3 +127,10 @@ The import log must print live vs AAA bounds within ~1 cm per weapon; if one dif
 - OK on the 5 perks and the numbers above (edit the JSON, the C++ table is the same rows).
 - OK on TGA's AAA look (sheet on #397) before the mesh swap.
 - Whether the Ulfberht (#543) should become a sellable weapon later.
+
+## Status 2026-11-06 18:17 (Master seat, this session)
+- A import: 5 AAA meshes in `/Game/CastleDefender/Weapons/CK_AAA`, re-imported at scale 0.01 to match the live kit (`reimport_aaa_scale_ue.py`, boxes match within 0.1 cm).
+- B swap: `BPC_WeaponKit.Meshes[0/6/10/14/23]` on CK_AAA, saved (`swap_aaa_backup.json` for `--revert`).
+- C C++: `CDWeaponPerks.h/.cpp` + 3 hooks built, Succeeded (DLL 18:14). Fix vs the first draft: `GLog` -> `GPerkLog` (name clash with Unreal's global).
+- D hero pin filters: 6 insertions OK, no errors, saved; export `handoffs/exports/master/2026-11-06c`; hero backup `Saved/Backup_HeroPerks_1106`.
+- NOT play-tested (owner skipped steps 3-4). Rollback: `cd.Weapon.Perks 0` (perks off), `swap_aaa_weapons_ue.py --revert` (old meshes), hero BP from the backup.

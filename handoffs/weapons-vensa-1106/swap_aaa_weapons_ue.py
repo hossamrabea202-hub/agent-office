@@ -44,5 +44,5 @@ else:
 if mode != 'dry':
     cdo.set_editor_property('Meshes', meshes); BEL.compile_blueprint(bp); EAL.save_asset(KIT); log.append('saved ' + KIT + ' (an equipped weapon re-reads Meshes on the next ApplyEquip: put it away and take it again, or restart Play)')
 else:
-    log.append('dry run: nothing changed. Bounds live vs AAA must match within ~1 cm (same pivot) before --apply.')
+    log.append('dry run: nothing changed. Full bounds (all three axes) live vs AAA must match before --apply: the live kit is 0.01 scale, run reimport_aaa_scale_ue.py --apply first.')
 out = '\n'.join(log); open(os.path.join(HERE, 'swap_aaa_weapons.txt'), 'w').write(out); unreal.log(out)

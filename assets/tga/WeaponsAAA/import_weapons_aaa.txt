@@ -1,0 +1,18 @@
+Weapon kit AAA import (#397)
+DRY_RUN = False
+master /Game/CastleDefender/Weapons/CK/M_CK_Weapon: ok
+ArmingSword    live mesh ok, new folder /Game/CastleDefender/Weapons/CK_AAA/ArmingSword
+FlangedMace    live mesh ok, new folder /Game/CastleDefender/Weapons/CK_AAA/FlangedMace
+Halberd        live mesh ok, new folder /Game/CastleDefender/Weapons/CK_AAA/Halberd
+Longsword      live mesh ok, new folder /Game/CastleDefender/Weapons/CK_AAA/Longsword
+WarAxe         live mesh ok, new folder /Game/CastleDefender/Weapons/CK_AAA/WarAxe
+ArmingSword: imported, 4460 tris, bounds z -9.0..84.0 cm
+   live bounds z -0.1..0.8 cm (pivot / length check: should match within ~1 cm)
+FlangedMace: imported, 6088 tris, bounds z -30.0..41.3 cm
+   live bounds z -0.3..0.4 cm (pivot / length check: should match within ~1 cm)
+Halberd: imported, 4204 tris, bounds z -129.0..104.0 cm
+   live bounds z -1.3..0.9 cm (pivot / length check: should match within ~1 cm)
+Longsword: imported, 5532 tris, bounds z -23.0..99.0 cm
+   live bounds z -0.2..1.0 cm (pivot / length check: should match within ~1 cm)
+WarAxe: imported, 5852 tris, bounds z -30.0..29.0 cm
+   live bounds z -0.3..0.3 cm (pivot / length check: should match within ~1 cm)

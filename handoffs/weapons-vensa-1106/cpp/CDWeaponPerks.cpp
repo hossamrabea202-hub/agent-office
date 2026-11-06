@@ -20,9 +20,9 @@
 namespace CDWeaponPerks
 {
 	static int32 GEnable = 1;
-	static int32 GLog = 0;
+	static int32 GPerkLog = 0;
 	static FAutoConsoleVariableRef CVarEnable(TEXT("cd.Weapon.Perks"), GEnable, TEXT("1 = TGA weapon perks and upgrade levels apply (default). 0 = pass-through, the old game."));
-	static FAutoConsoleVariableRef CVarLog(TEXT("cd.Weapon.PerkLog"), GLog, TEXT("1 = log every perk roll."));
+	static FAutoConsoleVariableRef CVarLog(TEXT("cd.Weapon.PerkLog"), GPerkLog, TEXT("1 = log every perk roll."));
 	static const float DamagePerLevel = 0.12f;
 
 	// The sheet. KitIndex = row in BPC_WeaponKit (10-31 order: 0 Arming Sword ... 25 Emberoath).
@@ -65,7 +65,7 @@ namespace CDWeaponPerks
 	static void Flash(const FString& S)
 	{
 		GFlashText = S; GFlashUntil = FPlatformTime::Seconds() + 0.6;
-		if (GLog) { UE_LOG(LogTemp, Display, TEXT("[CD] weapon perk: %s"), *S); }
+		if (GPerkLog) { UE_LOG(LogTemp, Display, TEXT("[CD] weapon perk: %s"), *S); }
 	}
 }
 using namespace CDWeaponPerks;

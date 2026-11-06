@@ -1,0 +1,9 @@
+swap AAA weapons: apply
+BPC_WeaponKit rows: 26 names, 26 meshes
+row  0 Arming Sword   live /Game/CastleDefender/Weapons/CK/ArmingSword/SM_CK_ArmingSword.SM_CK_ArmingSword [z -0.1..0.8 cm, 504 tris]  aaa /Game/CastleDefender/Weapons/CK_AAA/ArmingSword/SM_CK_ArmingSword [z -0.1..0.8 cm, 4460 tris]
+row  6 Longsword      live /Game/CastleDefender/Weapons/CK/Longsword/SM_CK_Longsword.SM_CK_Longsword [z -0.2..1.0 cm, 622 tris]  aaa /Game/CastleDefender/Weapons/CK_AAA/Longsword/SM_CK_Longsword [z -0.2..1.0 cm, 5532 tris]
+row 10 War Axe        live /Game/CastleDefender/Weapons/CK/WarAxe/SM_CK_WarAxe.SM_CK_WarAxe [z -0.3..0.3 cm, 244 tris]  aaa /Game/CastleDefender/Weapons/CK_AAA/WarAxe/SM_CK_WarAxe [z -0.3..0.3 cm, 5852 tris]
+row 14 Flanged Mace   live /Game/CastleDefender/Weapons/CK/FlangedMace/SM_CK_FlangedMace.SM_CK_FlangedMace [z -0.3..0.4 cm, 290 tris]  aaa /Game/CastleDefender/Weapons/CK_AAA/FlangedMace/SM_CK_FlangedMace [z -0.3..0.4 cm, 6088 tris]
+row 23 Halberd        live /Game/CastleDefender/Weapons/CK/Halberd/SM_CK_Halberd.SM_CK_Halberd [z -1.3..0.9 cm, 334 tris]  aaa /Game/CastleDefender/Weapons/CK_AAA/Halberd/SM_CK_Halberd [z -1.3..1.0 cm, 4204 tris]
+backup -> C:\Users\hossa\Documents\agent-office\handoffs\weapons-vensa-1106\swap_aaa_backup.json
+saved /Game/CastleDefender/Gameplay/Castle/BPC_WeaponKit (an equipped weapon re-reads Meshes on the next ApplyEquip: put it away and take it again, or restart Play)
