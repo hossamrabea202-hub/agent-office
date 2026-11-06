@@ -47,8 +47,8 @@ Built on: `handoffs/exports/checkking/gate-506` (gate, 11-06), `exports/checkkin
 | Check | Result |
 |---|---|
 | `fix_impure.py` | No changes |
-| `applyall check` | **Validation: OK**, 1992 nodes, 3736 links |
-| Real paste + Refresh All Nodes + compile, in the lab (`BP_CastleGateControl` and `BP_ZombieWaveManager` as stubs there) | **Compiled: 0 errors, 0 warnings** |
+| `applyall check` | **Validation: OK**, 1990 nodes, 3733 links |
+| Real paste + Refresh All Nodes + compile, in the lab (`BP_CastleGateControl` and `BP_ZombieWaveManager` as stubs there) | **Compiled: 0 errors, 0 warnings** (on the build just before the last change, a smaller order-button font; not recompiled after it) |
 | `wire_gate_ue.py --apply` on a copy of the real gate (i5 project copy, 11-01 file) | All links true, compiled, 0 error nodes. All 4 needed nodes are also in the 11-06 export |
 | Card logic, called directly in the lab with real soldier classes (no Play): free counts, crew left out, 1 crossbow + 2 swords gather the nearest, Follow = 1, Attack = 6, Defend = 4 / 5 and tag on, Hold = 5 and tag off, Disband clears tags and orders | **All as expected** |
 | Stroke material compiled, 6 frames rendered | `shots/` |
