@@ -1,9 +1,10 @@
 {
  "working": "",
- "tokens": 400000,
+ "tokens": 420000,
  "ctx": 1000000,
  "since": "2026-11-06T15:30:05Z",
  "done": [
+  "cleanup of my cards: 20 closed [58% tokens left · 5h plan 50% left]",
   "#546 chained zombie handed off to i9, lab only [60% tokens left · 5h plan 50% left]",
   "#519 directional hit clips for the i9 C++ flinch [0% tokens left]",
   "#450 cannon reactions handed off [0% tokens left]",
@@ -12,8 +13,7 @@
   "#519 stage 6: roar + loom paste handed off [14% tokens left]",
   "#519 stage 5: crawl / rise / laying handed off [24% tokens left]",
   "#519 stage 4: deaths handed off [36% tokens left]",
-  "#519 breaker wiring paste handed off [44% tokens left]",
-  "#519 stage 3: walker set handed off [58% tokens left]"
+  "#519 breaker wiring paste handed off [44% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,11 +29,11 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-06T16:45:51Z",
+ "asOf": "2026-11-06T17:43:31Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
-  "asOf": "2026-11-06T16:45:51Z",
+  "asOf": "2026-11-06T17:43:31Z",
   "meters": [
    {
     "k": "5h",
