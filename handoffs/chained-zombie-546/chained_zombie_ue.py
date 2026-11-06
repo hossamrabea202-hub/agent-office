@@ -60,7 +60,7 @@ say('skin wiring on this machine: WPO <-', MEL.get_material_property_input_node(
 def trace(a, b):
     hits = unreal.SystemLibrary.line_trace_multi(world, unreal.Vector(*a), unreal.Vector(*b), unreal.TraceTypeQuery.TRACE_TYPE_QUERY1, True, [], unreal.DrawDebugTrace.NONE, True)
     r = []
-    for h in hits:
+    for h in (hits or []):   # Master: line_trace_multi returns None when nothing is hit
         t = h.to_tuple(); ac = next((v for v in t if isinstance(v, unreal.Actor)), None); vs = [v for v in t if isinstance(v, unreal.Vector)]
         if ac is not None and vs: r.append((vs[0], ac))
     return r
