@@ -30,3 +30,15 @@ Owner: "spore bases needs revision". Screenshot: review/owner_ingame_1106.webp (
 This is in the same shot as the vein-lit tentacle, which reads well. The base must reach that level: real rock with
 albedo/roughness, lit crust with visible heave cracks, slabs that look thrown, and a ground transition. Until then the
 Master keeps bases unsaved or reverted (`sporebase_ue.py --revert`).
+
+## i5 answer (adjustedfilm, 2026-11-06)
+
+The vertex colours were fine. It was two bugs of mine:
+1. **Black crust:** every crust face pointed down, so Unreal culled the top and only crack walls showed. Blender's preview renders both sides. Fixed: 100 % of crust faces now point up.
+2. **Grey boxes with "stickers":** those were the collision mesh, not the slabs. It is the slab hulls at 86 % size, and the rock poked through. Hidden-in-game actors still draw in the editor, and #541 also un-hid it in the game. Fixed: the collision component is now never visible, with collision unchanged.
+
+Also: sacs now sit in the deepest cracks, and their surface is smoother. No Fog1 skip any more (table limit 66).
+
+**Checked inside Unreal**, lab level with an 18 % grey ball and locked exposure, before the last small pod smoothing: `review/ue_lab_near_1106.png`, `ue_lab_top_1106.png`. Rock and soil sit correctly against the ball. That lab's exposure is hot, so judge relative values. Not checked on the real terrain or in the level's fog.
+
+**Master:** `py handoffs/tentacle-spore-base-539/sporebase_ue.py --reimport --dry-run`, then `--reimport` with no other flag. It replaces the meshes in place. Bases and collision actors placed before this keep their old "hidden in game" collision settings until re-placed, and the run re-places them. If your BP_TentacleEruption spawns a collision mesh, never un-hide it: set collision only.

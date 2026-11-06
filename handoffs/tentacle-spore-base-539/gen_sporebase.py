@@ -52,7 +52,7 @@ fade = sstep(EDGE - 0.28, EDGE, U); H = H * (1 - fade) - 2.6 * sstep(EDGE - 0.06
 H = np.where(RR < R0 + 3, H - (R0 + 3 - RR) * 1.5, H)                          # the throat falls away under the arm
 V = np.stack([X, Y, H], -1).reshape(-1, 3); ii = np.arange(NR * NA).reshape(NR, NA); F = []
 a0, b0, c0, d0 = ii[:-1, :].ravel(), ii[:-1, np.r_[1:NA, 0]].ravel(), ii[1:, np.r_[1:NA, 0]].ravel(), ii[1:, :].ravel()
-F = np.stack([a0, b0, c0, d0], 1)
+F = np.stack([d0, c0, b0, a0], 1)      # counter-clockwise from above: the crust must face up
 # albedo: soil, strata in the cracks' walls, dust on the plates, wet at the wound
 n1, n2 = fbm(X * 0.11, Y * 0.11, 7.0, 5), fbm(X * 0.9, Y * 0.9, 8.0, 3)
 soil = s2l([72, 60, 47]) * (1 + 0.35 * n1 + 0.2 * n2)[..., None]; rockc = s2l([104, 96, 86]) * (1 + 0.4 * n1 + 0.22 * n2)[..., None]
@@ -135,12 +135,12 @@ for k_ in range(26):
     add(P, Fq, s2l([70, 30, 33]) * (1 + 0.45 * n3)[:, None], np.clip(0.5 + 0.25 * n3, 0.25, 1.0))
 # ---------- 5 spore pods: clusters in the fractures and on the rim, ripe ones pale at the tip with a dark pore
 def pod(hgt, rad, seed, burst):
-    SU, SV = 18, 15; u = np.linspace(0, 1, SV)[:, None]; v = np.linspace(0, 2 * math.pi, SU, endpoint=False)[None, :]
+    SU, SV = 22, 17; u = np.linspace(0, 1, SV)[:, None]; v = np.linspace(0, 2 * math.pi, SU, endpoint=False)[None, :]
     prof = np.sin(np.pi * np.clip(u, 0, 1) ** 0.85) ** 0.62
     if burst: prof = np.where(u > 0.62, prof * (0.72 + 0.5 * (u - 0.62)), prof)
     cx, cy = rad * np.cos(v), rad * np.sin(v); ph = seed * 1.7
     cxx, cyy = np.broadcast_to(cx, (SV, SU)), np.broadcast_to(cy, (SV, SU)); uu = np.broadcast_to(u, (SV, SU))
-    lump = 1 + 0.32 * (vnoise(cxx * 1.4 + ph, cyy * 1.4, uu * 3.0) - 0.5) + 0.12 * (vnoise(cxx * 5 + ph, cyy * 5, uu * 11.0) - 0.5)
+    lump = 1 + 0.32 * (vnoise(cxx * 1.4 + ph, cyy * 1.4, uu * 3.0) - 0.5) + 0.05 * (vnoise(cxx * 5 + ph, cyy * 5, uu * 11.0) - 0.5)
     x_, y_ = prof * cx * lump, prof * cy * lump; z_ = hgt * u * np.ones_like(v)
     if burst:                                                                   # the top tears open: jagged lips and a sunken hollow
         vv = np.broadcast_to(v, (SV, SU)); tear = 0.82 + 0.16 * vnoise(np.cos(vv) * 3 + ph, np.sin(vv) * 3, 2.0); inner = uu > 0.8; d_ = (uu - 0.8) / 0.2
@@ -148,10 +148,14 @@ def pod(hgt, rad, seed, burst):
     q = np.arange(SU * SV).reshape(SV, SU); f = np.stack([q[:-1, :].ravel(), q[:-1, np.r_[1:SU, 0]].ravel(), q[1:, np.r_[1:SU, 0]].ravel(), q[1:, :].ravel()], 1)
     return np.stack([x_, y_, z_], -1).reshape(-1, 3), f, uu.ravel()
 for k_ in range(64):
-    t_ = rng.random() * 2 * math.pi; rad = R0 + 2 + (ROUT * 0.56 - R0) * rng.random() ** 1.5; n_p = 9 + int(rng.random() * 22); spread = 2.0 + 3.6 * rng.random(); ripe = rng.random()
+    best_c = -1.0
+    for _try in range(14):
+        tc = rng.random() * 2 * math.pi; rc = R0 + 2 + (ROUT * 0.56 - R0) * rng.random() ** 1.5; ic = min(np.searchsorted(rr, rc), NR - 1); jc = int(tc / (2 * math.pi) * NA) % NA
+        if crack[ic, jc] > best_c: best_c, t_, rad = float(crack[ic, jc]), tc, rc
+    n_p = 9 + int(rng.random() * 22); spread = 2.0 + 3.6 * rng.random(); ripe = rng.random()
     for j_ in range(n_p):
         s_ = 0.45 + 2.3 * rng.random() ** 1.8; dx, dy = rng.normal(0, spread, 2); x_, y_ = rad * math.cos(t_) + dx, rad * math.sin(t_) + dy; burst = rng.random() < 0.18 + 0.3 * ripe
-        P, Fq, u = pod(s_ * (1.2 + 1.0 * rng.random()), s_, 300 + k_ * 40 + j_, burst); ax = rng.normal(size=3); ax[2] = 0; ax /= np.linalg.norm(ax); P = P @ rot(ax, rng.normal(0, 0.3)).T + np.array([x_, y_, height(x_, y_) - 0.25 * s_])
+        P, Fq, u = pod(s_ * (1.2 + 1.0 * rng.random()), s_, 300 + k_ * 40 + j_, burst); ax = rng.normal(size=3); ax[2] = 0; ax /= np.linalg.norm(ax); P = P @ rot(ax, rng.normal(0, 0.3)).T + np.array([x_, y_, height(x_, y_) - 0.45 * s_])
         n3 = fbm(P[:, 0] * 0.8, P[:, 1] * 0.8, P[:, 2] * 0.8, 4); spots = sstep(0.2, 0.34, fbm(P[:, 0] * 8.0, P[:, 1] * 8.0, P[:, 2] * 8.0, 2)); veins = 1 - sstep(0.0, 0.1, np.abs(fbm(P[:, 0] * 1.5, P[:, 1] * 1.5, P[:, 2] * 1.5, 3)))
         Cc = s2l([104, 74, 62]) * (1 + 0.35 * n3)[:, None]; Cc = Cc * (1 - 0.8 * spots[:, None]) + s2l([168, 150, 112]) * 0.8 * spots[:, None]; Cc = Cc * (1 - 0.35 * veins)[:, None]
         low_ = (1 - sstep(0.0, 0.3, u))[:, None]; Cc = Cc * (1 - low_) + s2l([66, 54, 42]) * low_; rg_ = 0.55 + 0.2 * n3 + 0.3 * low_[:, 0]
