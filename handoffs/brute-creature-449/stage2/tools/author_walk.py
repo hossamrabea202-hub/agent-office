@@ -128,7 +128,7 @@ pops = []
 prev = None
 for f in range(1, N+2):
     sc.frame_set(f); cur = {pb.name: pb.matrix_basis.to_quaternion() for pb in arm.pose.bones}
-    if prev: pops.append(max((math.degrees(cur[b].rotation_difference(prev[b]).angle), b, f) for b in cur))
+    if prev: pops.append(max(((lambda _a: min(_a, 360-_a))(math.degrees(cur[b].rotation_difference(prev[b]).angle)), b, f) for b in cur))
     prev = cur
 kn = []
 for f in range(1, N+1):

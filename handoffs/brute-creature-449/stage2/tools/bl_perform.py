@@ -14,7 +14,7 @@ BASE = {  # the idle's base pose (CR_Idle_Hunt frame 0, close enough to blend in
     'arm_in_L': 22.0, 'arm_in_R': 22.0, 'arm_sw_L': 0.0, 'arm_sw_R': 0.0, 'arm_tw_L': 0.0, 'arm_tw_R': 0.0,
     'elbow_L': 16.0, 'elbow_R': 16.0, 'hand_L': 0.0, 'hand_R': 0.0, 'claw_L': 0.0, 'claw_R': 0.0,
     'foot_L_x': 0.05, 'foot_L_y': 0.0, 'foot_L_z': 0.0, 'foot_R_x': -0.05, 'foot_R_y': 0.0, 'foot_R_z': 0.0,
-    'tremble': 0.0,
+    'tremble': 0.0, 'foot_free': 0.0,   # foot_free 1 = the feet go limp and follow the legs (falls)
 }
 GROUP_LAG = {  # seconds each group trails the body (overlap / follow-through)
     'pel': 0.0, 's2': 0.0, 's3': 0.02, 's4': 0.04, 'twist': 0.03, 'side': 0.03, 'neck': 0.06, 'head': 0.09,
@@ -63,6 +63,11 @@ class Body:
         self.arm = arm; P.rest_all(arm)
         self.home = {s: P.wpos(arm, P.LEGS[s][4]) for s in 'LR'}
         self.frot = {s: (arm.matrix_world @ arm.pose.bones[P.LEGS[s][4]].matrix).to_quaternion() for s in 'LR'}
+        self.pel0 = (arm.matrix_world @ arm.pose.bones['spine_01'].matrix).to_quaternion()
+        self.n0 = {}
+        for s_ in 'LR':
+            H = P.wpos(arm, P.LEGS[s_][0]); K = P.wpos(arm, P.LEGS[s_][2]); A = P.wpos(arm, P.LEGS[s_][4])
+            self.n0[s_] = (K - H).cross(A - K).normalized()
         self.fingers = {s: [b.name for b in arm.pose.bones if b.name.startswith(('f_', 'thumb')) and b.name.endswith('_' + s)] for s in 'LR'}
     def apply(self, q, t=0.0):
         arm = self.arm; P.rest_all(arm)
@@ -87,8 +92,12 @@ class Body:
                 P.rot(arm, fb, P.LEFT, q['claw_' + s]*(0.6 if fb.startswith('thumb') else 1.0))
         for s, sg in (('L', 1.0), ('R', -1.0)):
             tgt = self.home[s] + Vector((q['foot_%s_x' % s], -q['foot_%s_y' % s], q['foot_%s_z' % s]))
-            P.leg_ik(arm, s, tgt, knee_dir=P.FWD + P.LEFT*sg*0.2)
-            P.set_world_rot(arm, P.LEGS[s][4], self.frot[s])
+            R = (arm.matrix_world @ arm.pose.bones['spine_01'].matrix).to_quaternion() @ self.pel0.inverted()   # how the hips turned
+            P.leg_ik(arm, s, tgt, knee_dir=R @ (P.FWD + P.LEFT*sg*0.2), n_hint=R @ self.n0[s])
+            ff = max(0.0, min(1.0, q['foot_free']))
+            if ff < 1.0:
+                cur = (arm.matrix_world @ arm.pose.bones[P.LEGS[s][4]].matrix).to_quaternion()
+                P.set_world_rot(arm, P.LEGS[s][4], self.frot[s].slerp(cur, ff))
 
 def author(arm, perf, name, fps=30):
     body = Body(arm); n = int(round(perf.length*fps)) + 1
@@ -100,7 +109,7 @@ def author(arm, perf, name, fps=30):
     pops = []; prev = None; kn = []
     for f in range(1, n+1):
         sc.frame_set(f); cur = {pb.name: pb.matrix_basis.to_quaternion() for pb in arm.pose.bones}
-        if prev: pops.append(max((math.degrees(cur[b].rotation_difference(prev[b]).angle), b, f) for b in cur))
+        if prev: pops.append(max(((lambda _a: min(_a, 360-_a))(math.degrees(cur[b].rotation_difference(prev[b]).angle)), b, f) for b in cur))
         prev = cur
         for sd in 'LR':
             H = P.wpos(arm, 'thigh_01_'+sd); K = P.wpos(arm, 'shin_01_'+sd); A = P.wpos(arm, 'foot_'+sd); kn.append(math.degrees((H-K).angle(A-K)))

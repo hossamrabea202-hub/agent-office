@@ -57,3 +57,51 @@ SWIPE = dict(name='CR_Attack_Swipe', length=60/30.0, strike=14/30.0, keys=[
 ])
 
 ALL = {'roar': ROAR, 'slam': SLAM, 'swipe': SWIPE}
+
+# ---------------- stage 3: hits (react from frame 0: 3-frame snap, buckle, late head/arms, heavy recovery) ----------------
+def _hit(name, length, snap, settle):
+    return dict(name=name, length=length, keys=[(0.00, 'smooth', {}), (0.10, 'snap', snap), (0.24, 'out', settle), (length, 'out', dict(BASE))])
+
+HIT_FRONT = _hit('CR_Hit_Front', 0.9,
+    {'pel_y': -0.07, 'pel_z': -0.13, 'pel_pitch': -6, 's2': 6, 's3': -6, 's4': -12, 'neck': -12, 'head': -10,
+     'arm_sw_L': 30, 'arm_sw_R': 30, 'arm_in_L': 8, 'arm_in_R': 8, 'elbow_L': 30, 'elbow_R': 30, 'claw_L': -20, 'claw_R': -20},
+    {'pel_y': -0.05, 'pel_z': -0.16, 'pel_pitch': -2, 's2': 12, 's3': 6, 's4': 2, 'neck': -4, 'head': -12, 'claw_L': 10, 'claw_R': 10})
+HIT_LEFT = _hit('CR_Hit_Left', 0.9,      # struck on its LEFT side: torso shoved to its right, head whips right
+    {'pel_x': -0.06, 'pel_z': -0.12, 'pel_roll': -5, 'side': 16, 'twist': -18, 'head_yaw': -16, 'head_roll': 10, 'neck_yaw': -8,
+     'arm_in_L': -12, 'arm_sw_L': 25, 'elbow_L': 40, 'claw_L': -24, 'arm_sw_R': -8},
+    {'pel_x': -0.03, 'pel_z': -0.15, 'pel_roll': -2, 'side': 6, 'twist': -6, 'head_yaw': -6, 'head_roll': 3, 'neck_yaw': -2, 'claw_L': 12})
+HIT_RIGHT = _hit('CR_Hit_Right', 0.9,    # mirror
+    {'pel_x': 0.06, 'pel_z': -0.12, 'pel_roll': 5, 'side': -16, 'twist': 18, 'head_yaw': 16, 'head_roll': -10, 'neck_yaw': 8,
+     'arm_in_R': -12, 'arm_sw_R': 25, 'elbow_R': 40, 'claw_R': -24, 'arm_sw_L': -8},
+    {'pel_x': 0.03, 'pel_z': -0.15, 'pel_roll': 2, 'side': -6, 'twist': 6, 'head_yaw': 6, 'head_roll': -3, 'neck_yaw': 2, 'claw_R': 12})
+
+ALL.update({'hit_front': HIT_FRONT, 'hit_left': HIT_LEFT, 'hit_right': HIT_RIGHT})
+
+# ---------------- stage 3: deaths (hold the last frame; the BP keeps a dead brute on its final pose) ----------------
+DEATH_FWD = dict(name='CR_Death_Forward', length=3.0, keys=[   # killing blow, knees buckle, kneel, topple onto the belly, slam, rebound, death twitch
+    (0.00, 'smooth', {}),
+    (0.15, 'snap', {'pel_y': -0.06, 's4': -10, 'neck': -10, 'head': -14, 'arm_sw_L': 25, 'arm_sw_R': 25, 'claw_L': -20, 'claw_R': -20}),
+    (0.55, 'inout', {'pel_z': -0.35, 'pel_y': 0.02, 'pel_pitch': 15, 's2': 18, 's3': 16, 's4': 12, 'neck': 0, 'head': 0,
+                     'arm_sw_L': 5, 'arm_sw_R': 5, 'elbow_L': 10, 'elbow_R': 10, 'claw_L': 15, 'claw_R': 15, 'arm_in_L': 15, 'arm_in_R': 15}),
+    (0.75, 'linear', {'pel_z': -0.42}),
+    (1.30, 'in', {'foot_free': 1.0, 'pel_z': -0.55, 'pel_y': 0.25, 'pel_pitch': 70, 's2': 8, 's3': 6, 's4': 4, 'neck': -25, 'head_yaw': 25, 'head_roll': 20,
+                  'arm_sw_L': 60, 'arm_sw_R': 60, 'arm_in_L': -10, 'arm_in_R': -10, 'elbow_L': 20, 'elbow_R': 20}),
+    (1.40, 'snap', {'pel_z': -0.60, 'pel_pitch': 75, 'tremble': 0.8}),
+    (1.60, 'out', {'pel_z': -0.56, 'tremble': 0.3}),
+    (1.90, 'smooth', {'pel_z': -0.60, 'tremble': 0.0, 'neck': -20, 'claw_L': 25, 'claw_R': 25}),
+    (2.40, 'smooth', {'claw_L': 5, 'claw_R': 5, 'head_roll': 24}),
+    (3.00, 'linear', {}),
+])
+DEATH_SIDE = dict(name='CR_Death_Side', length=2.6, keys=[     # struck from the left, the legs give, it topples onto its RIGHT side
+    (0.00, 'smooth', {}),
+    (0.12, 'snap', {'side': 14, 'twist': -12, 'head_yaw': -14, 'pel_x': -0.04}),
+    (0.50, 'inout', {'pel_z': -0.25, 'pel_x': -0.10, 'pel_roll': 12, 'side': 18, 'foot_L_x': 0.13, 'foot_free': 0.3, 'arm_in_L': -15, 'arm_in_R': -10}),
+    (1.10, 'in', {'pel_z': -0.58, 'pel_x': -0.45, 'pel_roll': 75, 'side': 10, 's2': 10, 'head_roll': 15, 'neck_yaw': 10,
+                  'foot_L_x': -0.05, 'foot_L_z': 0.25, 'foot_L_y': 0.10, 'foot_R_x': -0.50, 'foot_R_z': 0.06, 'foot_R_y': 0.18, 'foot_free': 1.0,
+                  'arm_in_R': -40, 'arm_sw_L': 40, 'arm_in_L': 10}),
+    (1.20, 'snap', {'pel_z': -0.62, 'pel_roll': 80, 'tremble': 0.8, 'foot_L_z': 0.30}),
+    (1.40, 'out', {'pel_z': -0.58, 'tremble': 0.3, 'foot_L_z': 0.33}),
+    (1.75, 'smooth', {'pel_z': -0.62, 'tremble': 0.0, 'foot_L_z': 0.28, 'claw_L': 25, 'claw_R': 25}),
+    (2.60, 'smooth', {'claw_L': 5, 'claw_R': 5}),
+])
+ALL.update({'death_fwd': DEATH_FWD, 'death_side': DEATH_SIDE})

@@ -12,8 +12,8 @@ is handed off as #515.
 | Stage | Clips | State |
 |---|---|---|
 | 1 | Pipeline round-trip; **heavy walk** at the game speed (71.5 cm/s, in place); **living idle** | **done, waiting on the owner's review** |
-| 2 | Threat roar, charge/run, 2 attacks | **done, waiting on the owner's review** |
-| 3 | 3 hits (front / left / right), 2 deaths (forward slam, side collapse) | todo |
+| 2 | Threat roar, charge/run, 2 attacks | **done** (owner: "Good, do stage 3") |
+| 3 | 3 hits (front / left / right), 2 deaths (forward slam, side collapse) | **in progress** |
 | 4 | Handoff: import script (new assets in `FleshBrute/Anims_Creature/`), blend-space and BP swap with dry-run and backup | todo |
 
 After the import, the #449 layer (`../fb449_creature_ue.py`) can run on the new clips too (jaw, flesh, heft).
@@ -112,3 +112,15 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
   and the walk (5, 31).
 - Note: `Anims_Creature/RT_Idle_A` is the round-trip test clip; **leave it out of the handoff**.
 - **09:20 STAGE 2 DONE.** mp4s in `preview/` (slam, swipe, roar, charge), shown to the owner. Next: stage 3 (3 hits, 2 deaths) after the owner's review.
+- **09:35 Stage 3 authored** (`perf_stage2.py`: `hit_front`, `hit_left`, `hit_right`, `death_fwd`, `death_side`; `author_oneshot.py`):
+  - **CR_Hit_Front/Left/Right** (0.9 s): react from frame 0 with a 3-frame snap away from the blow, knees buckling, the
+    head and arms whipping a beat later, and a heavy recovery to `BASE`. Worst 21–27°/frame (the old hit clips: up to 99°).
+  - **CR_Death_Forward** (3.0 s): killing blow → knees buckle → a kneeling beat → topples onto the belly (an accelerating
+    `in`) → slam with a tremble → a small rebound → a death twitch of the claws. It holds the last frame. 14°/frame.
+  - **CR_Death_Side** (2.6 s): struck from the left → the legs give → topples onto its right side; the left leg lifts with
+    the falling body. 35°/frame at the ground impact only.
+  - New `foot_free` channel (1 = the feet go limp and follow the legs in falls). `bl_pose.leg_ik(n_hint=...)` keeps the
+    knee plane turning with the pelvis, so a folded leg never flips.
+  - **Metric fix:** the snap check reported quaternion sign flips as ~300°; it now uses min(a, 360-a).
+- Next: import the 5 clips + run the layer (`--src Anims_Creature`), export from UE, render, push, show the owner; then
+  stage 4 (the Master handoff: import script, BS/BP swaps with dry-run + backup, roar trigger).

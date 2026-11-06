@@ -42,13 +42,14 @@ def _rot_q(arm, bone, q, pivot):
     ax, ang = q.to_axis_angle()
     if abs(ang) > 1e-7: rot(arm, bone, ax, math.degrees(ang), pivot)
 
-def leg_ik(arm, side, target, knee_dir=None):
+def leg_ik(arm, side, target, knee_dir=None, n_hint=None):
     """move the ankle (foot head) of `side` to world `target`; the knee stays in the leg's own bend plane."""
     t1, t2, s1, s2, ft, toe = LEGS[side]
     H = wpos(arm, t1); K = wpos(arm, s1); A = wpos(arm, ft); T = Vector(target)
     a = (K - H).length; b = (A - K).length
     d = max(abs(a-b)+1e-4, min(a+b-1e-4, (T - H).length))
     n = (K - H).cross(A - K)
+    if n_hint is not None and (n.length < 1e-3 or n.dot(Vector(n_hint)) < 0): n = Vector(n_hint)   # never let the knee plane flip
     if n.length < 1e-6: n = LEFT.copy()
     n.normalize()
     # 1) knee angle: rotate the shin about n through K so |A-H| = d
