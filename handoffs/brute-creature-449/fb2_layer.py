@@ -102,7 +102,7 @@ def run_spring(targets, hz, zeta, dt, loop):
 # ---------------- clip classification ----------------
 def classify(name):
     n = name.lower()
-    for k, c in [('attack', 'attack'), ('taking_damage', 'hit'), ('_hit', 'hit'), ('death', 'death'), ('burst', 'burst'),
+    for k, c in [('roar', 'burst'), ('charge', 'loco'), ('attack', 'attack'), ('taking_damage', 'hit'), ('_hit', 'hit'), ('death', 'death'), ('burst', 'burst'),
                  ('laying', 'laying'), ('impaled', 'laying'), ('crawl', 'crawl'), ('run', 'loco'), ('walk', 'loco'), ('idle', 'idle')]:
         if k in n: return c
     return 'idle'
@@ -244,7 +244,8 @@ def bake(name, poses, rig, dt, seed=1.0, strength=1.0, jaw_axis_sign=None):
     """poses: list of frames (each a list of local transforms). Returns (new poses, report dict)."""
     cat = classify(name); n = len(poses); loop = cat in LOOPING
     P = rig.parents
-    poses, popped = depop(poses)
+    authored = name.startswith('CR_')        # the stage-2 creature clips are hand-authored: keep their strikes sharp
+    poses, popped = (poses, []) if authored else depop(poses)
     world = [fk(p, P) for p in poses]
     up = updir(world[0], rig)
     strike = strike_frame(world, rig, n, dt) if cat == 'attack' else -1

@@ -15,7 +15,9 @@ def opt(k, d):
     return args[args.index(k)+1] if k in args and args.index(k)+1 < len(args) else d
 STRENGTH = float(opt('--strength', '1.0')); ONLY = [c for c in opt('--clips', '').split(',') if c]
 R = '/Game/CastleDefender/Characters/Enemies/FleshBrute'
-SRC = R + '/Anims'; BAK = R + '/Anims_BAK449'; BS = R + '/Anim/BS_FleshBrute_Locomotion'
+SRC = R + '/' + opt('--src', 'Anims'); BAK = SRC + '_BAK449'   # --src Anims_Creature runs the layer on the new clip set
+BS = R + '/Anim/BS_FleshBrute_Locomotion'
+ORIG = SRC.endswith('/Anims')   # the blend-space gait fix only belongs to the original clip set
 EAL = unreal.EditorAssetLibrary
 log = []
 def say(*a):
@@ -34,11 +36,12 @@ if RESTORE:
             src = unreal.load_asset(b); dst = unreal.load_asset(SRC + '/' + n)
             copy_from = src
             # copy every bone track back (same length/rate as the backup)
-            nf = unreal.AnimationLibrary.get_num_frames(copy_from)
+            nf = unreal.AnimationLibrary.get_num_frames(copy_from) + 1
             opts = unreal.AnimPoseEvaluationOptions(); opts.set_editor_property('evaluation_type', unreal.AnimDataEvalType.RAW)
             poses = [unreal.AnimPoseExtensions.get_anim_pose_at_frame(copy_from, f, opts) for f in range(nf)]
             bones = [str(x) for x in unreal.AnimPoseExtensions.get_bone_names(poses[0])]
             ctl = dst.controller; ctl.open_bracket(unreal.Text('FB449 restore'))
+            ctl.set_number_of_frames(unreal.FrameNumber(nf - 1))
             for bn in bones:
                 ts = [unreal.AnimPoseExtensions.get_bone_pose(p, bn, unreal.AnimPoseSpaces.LOCAL) for p in poses]
                 ctl.set_bone_track_keys(bn, [t.translation for t in ts], [t.rotation for t in ts], [t.scale3d for t in ts])
@@ -59,7 +62,8 @@ for idx, n in enumerate(names):
     if not DRY and not have_bak:
         EAL.duplicate_asset(dst_path, bak_path); EAL.save_asset(bak_path, only_if_is_dirty=False); have_bak = True
     src = unreal.load_asset(bak_path if have_bak else dst_path)
-    nf = unreal.AnimationLibrary.get_num_frames(src); length = src.get_play_length(); dt = length/max(1, nf-1)
+    nf = unreal.AnimationLibrary.get_num_frames(src) + 1   # KEYS (get_num_frames counts intervals)
+    length = src.get_play_length(); dt = length/max(1, nf-1)
     p0 = unreal.AnimPoseExtensions.get_anim_pose_at_frame(src, 0, opts)
     bones = [str(x) for x in unreal.AnimPoseExtensions.get_bone_names(p0)]
     if rig is None:
@@ -68,12 +72,14 @@ for idx, n in enumerate(names):
             path = [str(x) for x in unreal.AnimationLibrary.find_bone_path_to_root(src, b)]
             par.append(bones.index(path[1]) if len(path) > 1 else -1)
         rig = L.Rig(bones, par)
-        cal_src = unreal.load_asset((BAK if EAL.does_asset_exist(BAK + '/FB_ZA_Idle_A') else SRC) + '/FB_ZA_Idle_A')
+        cal_src = unreal.load_asset(R + ('/Anims_BAK449' if EAL.does_asset_exist(R + '/Anims_BAK449/FB_ZA_Idle_A') else '/Anims') + '/FB_ZA_Idle_A')
         cp = unreal.AnimPoseExtensions.get_anim_pose_at_frame(cal_src, 0, opts)
         rig.calib = [tr(unreal.AnimPoseExtensions.get_bone_pose(cp, b, LOC)) for b in bones]
         L.head_lateral(L.fk(rig.calib, par), rig)   # fix the skull hinge axis on the upright idle pose
     cat = L.classify(n)
     if NOLOCO and cat == 'loco': say('skip (no-loco)', n); continue
+    if EAL.get_metadata_tag(unreal.load_asset(dst_path), 'FB449S2') and '--force' not in args:
+        say('skip', n, '(holds a stage-2 creature clip; its layer is already in it - use --force to override)'); continue
     def sample(times=None):
         out = []
         for f in range(nf):
@@ -87,7 +93,7 @@ for idx, n in enumerate(names):
     for b in ('head', 'hand_L', 'foot_R', 'jaw', 'belly_C'):
         u = unreal.AnimPoseExtensions.get_bone_pose(p0, b, WLD).translation
         err = max(err, L.vlen(L.vsub(w[rig.i(b)][0], (u.x, u.y, u.z))))
-    if cat == 'attack':   # retime around the strike, keeping the strike frame and the length
+    if cat == 'attack' and not n.startswith('CR_'):   # retime around the strike (authored CR_ clips are already timed)
         world = [L.fk(p, rig.parents) for p in poses]
         sf = L.strike_frame(world, rig, nf, dt)
         poses = sample(L.retime_times(nf, dt, sf, 0.45*STRENGTH))
@@ -97,6 +103,7 @@ for idx, n in enumerate(names):
     if not DRY:
         dst = unreal.load_asset(dst_path); ctl = dst.controller
         ctl.open_bracket(unreal.Text('FB449 creature layer'))
+        ctl.set_number_of_frames(unreal.FrameNumber(nf - 1))   # same length as the source (nf = keys)
         for bi, bn in enumerate(bones):
             ctl.set_bone_track_keys(bn, [unreal.Vector(*new[f][bi][0:3]) for f in range(nf)],
                                     [unreal.Quat(*new[f][bi][3:7]) for f in range(nf)],
@@ -114,7 +121,7 @@ for idx, n in enumerate(names):
 # locomotion: the brute jogged (FB_A_Run, a 0.8 s human jog) at its walk speed 71.5. Place the run sample at the speed it
 # covers when played at 0.8 (the -20 % limit), so the brute lumbers with longer, heavier strides instead of jogging.
 bs = unreal.load_asset(BS)
-smp = list(bs.get_editor_property('sample_data')); changed = False
+smp = list(bs.get_editor_property('sample_data')) if ORIG else []; changed = False
 for s in smp:
     a = s.get_editor_property('animation')
     if a and a.get_name() == 'FB_A_Run':

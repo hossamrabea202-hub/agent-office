@@ -1,0 +1,101 @@
+{
+ "report": {
+  "FB_ZA_Idle_A": {
+   "from": "CR_Idle_Hunt",
+   "frames": 120,
+   "max_diff_deg": 0.0
+  },
+  "FB_A_Walk": {
+   "from": "CR_Walk_Heavy",
+   "frames": 52,
+   "max_diff_deg": 0.0
+  },
+  "FB_A_Run": {
+   "from": "CR_Charge",
+   "frames": 32,
+   "max_diff_deg": 0.0
+  },
+  "FB_A_Attack": {
+   "from": "CR_Attack_Slam",
+   "frames": 79,
+   "max_diff_deg": 0.0
+  },
+  "FB_ZA_Attack_D": {
+   "from": "CR_Attack_Swipe",
+   "frames": 60,
+   "max_diff_deg": 0.0
+  },
+  "FB_A_Hit": {
+   "from": "CR_Hit_Front",
+   "frames": 27,
+   "max_diff_deg": 0.0
+  },
+  "FB_ZA_Taking_Damage_A": {
+   "from": "CR_Hit_Front",
+   "frames": 27,
+   "max_diff_deg": 0.0
+  },
+  "FB_ZA_Taking_Damage_B": {
+   "from": "CR_Hit_Left",
+   "frames": 27,
+   "max_diff_deg": 0.0
+  },
+  "FB_ZA_Taking_Damage_C": {
+   "from": "CR_Hit_Right",
+   "frames": 27,
+   "max_diff_deg": 0.0
+  },
+  "FB_ZA_Taking_Damage_D": {
+   "from": "CR_Hit_Front",
+   "frames": 27,
+   "max_diff_deg": 0.0
+  },
+  "FB_ZA_Taking_Damage_E": {
+   "from": "CR_Hit_Left",
+   "frames": 27,
+   "max_diff_deg": 0.0
+  },
+  "FB_ZA_Taking_Damage_F": {
+   "from": "CR_Hit_Right",
+   "frames": 27,
+   "max_diff_deg": 0.0
+  },
+  "FB_A_Death": {
+   "from": "CR_Death_Forward",
+   "frames": 90,
+   "max_diff_deg": 0.0
+  }
+ },
+ "log": [
+  "mode INSTALL",
+  "import CR_Idle_Hunt (replace)",
+  "import CR_Walk_Heavy (replace)",
+  "import CR_Charge (replace)",
+  "import CR_Roar_Threat (replace)",
+  "import CR_Attack_Slam (replace)",
+  "import CR_Attack_Swipe (replace)",
+  "import CR_Hit_Front (replace)",
+  "import CR_Hit_Left (replace)",
+  "import CR_Hit_Right (replace)",
+  "import CR_Death_Forward (replace)",
+  "import CR_Death_Side (replace)",
+  "layer applied to 11 clips",
+  "FB_ZA_Idle_A <- CR_Idle_Hunt {\"from\": \"CR_Idle_Hunt\", \"frames\": 120, \"max_diff_deg\": 0.0}",
+  "FB_A_Walk <- CR_Walk_Heavy {\"from\": \"CR_Walk_Heavy\", \"frames\": 52, \"max_diff_deg\": 0.0}",
+  "FB_A_Run <- CR_Charge {\"from\": \"CR_Charge\", \"frames\": 32, \"max_diff_deg\": 0.0}",
+  "FB_A_Attack <- CR_Attack_Slam {\"from\": \"CR_Attack_Slam\", \"frames\": 79, \"max_diff_deg\": 0.0}",
+  "FB_ZA_Attack_D <- CR_Attack_Swipe {\"from\": \"CR_Attack_Swipe\", \"frames\": 60, \"max_diff_deg\": 0.0}",
+  "FB_A_Hit <- CR_Hit_Front {\"from\": \"CR_Hit_Front\", \"frames\": 27, \"max_diff_deg\": 0.0}",
+  "FB_ZA_Taking_Damage_A <- CR_Hit_Front {\"from\": \"CR_Hit_Front\", \"frames\": 27, \"max_diff_deg\": 0.0}",
+  "FB_ZA_Taking_Damage_B <- CR_Hit_Left {\"from\": \"CR_Hit_Left\", \"frames\": 27, \"max_diff_deg\": 0.0}",
+  "FB_ZA_Taking_Damage_C <- CR_Hit_Right {\"from\": \"CR_Hit_Right\", \"frames\": 27, \"max_diff_deg\": 0.0}",
+  "FB_ZA_Taking_Damage_D <- CR_Hit_Front {\"from\": \"CR_Hit_Front\", \"frames\": 27, \"max_diff_deg\": 0.0}",
+  "FB_ZA_Taking_Damage_E <- CR_Hit_Left {\"from\": \"CR_Hit_Left\", \"frames\": 27, \"max_diff_deg\": 0.0}",
+  "FB_ZA_Taking_Damage_F <- CR_Hit_Right {\"from\": \"CR_Hit_Right\", \"frames\": 27, \"max_diff_deg\": 0.0}",
+  "FB_A_Death <- CR_Death_Forward {\"from\": \"CR_Death_Forward\", \"frames\": 90, \"max_diff_deg\": 0.0}",
+  "BS FB_ZA_Idle_A 0.0 rate 1.0 -> 0.0 rate 1.0",
+  "BS FB_A_Walk 20.0 rate 1.0 -> 71.5 rate 1.0",
+  "BS FB_A_Run 79.0 rate 0.8 -> 170.0 rate 1.0",
+  "BS saved (axis max 180)"
+ ]
+}

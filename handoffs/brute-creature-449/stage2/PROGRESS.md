@@ -136,3 +136,11 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
   `--src Anims_Creature`, rebuilds `BS_FleshBrute_Locomotion` (Idle_Hunt 0 / Walk_Heavy 71.5 / Charge 170, with a backup)
   and swaps the BP's FB_* references to the CR clips (dry-run + backup; BP_FleshBrute EventGraph export needed for the
   hit/death/roar wiring).
+- **10:20 STAGE 4 handoff built:** `stage2/fb449_stage2_ue.py` (dry-run / install / `--restore`) + `README.md` + `fbx/` (11 clips).
+  It imports → layers → writes the CR clips INTO the FB_* clips the BP plays (13 targets, backups in `Anims_BAK449S2`)
+  → blend space idle 0 / walk 71.5 / charge 170 (axis max 180, backup `BS_..._BAK449S2`).
+  Tested in `fblab`: install 13/13 exact; restore exact (lengths too). **Bug found and fixed:** `get_num_frames` counts
+  intervals (keys = n + 1); copies were one frame short and stage 1 never wrote the last key. Both scripts now read and
+  write n + 1 keys and set the length. Stage 1 also gets a guard: it skips clips tagged `FB449S2` unless `--force`.
+- Open: wiring CR_Roar_Threat (roar on first sight), CR_Death_Side (random death) and directional hits needs the
+  BP_FleshBrute export (request filed).
