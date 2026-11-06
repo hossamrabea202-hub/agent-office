@@ -12,7 +12,7 @@ is handed off as #515.
 | Stage | Clips | State |
 |---|---|---|
 | 1 | Pipeline round-trip; **heavy walk** at the game speed (71.5 cm/s, in place); **living idle** | **done, waiting on the owner's review** |
-| 2 | Threat roar, charge/run, 2 attacks | **in progress** (owner OK'd stage 1: "Good, do stage 2") |
+| 2 | Threat roar, charge/run, 2 attacks | **done, waiting on the owner's review** |
 | 3 | 3 hits (front / left / right), 2 deaths (forward slam, side collapse) | todo |
 | 4 | Handoff: import script (new assets in `FleshBrute/Anims_Creature/`), blend-space and BP swap with dry-run and backup | todo |
 
@@ -111,4 +111,4 @@ Tools (copies in `tools/`; the working copies are in `ckw\fbtools\`):
   frames found: slam **26**, swipe **15** (as designed), so the jaw snaps on the blows. Footfalls found in the charge (13, 29)
   and the walk (5, 31).
 - Note: `Anims_Creature/RT_Idle_A` is the round-trip test clip; **leave it out of the handoff**.
-- Rendering the mp4s (slam, swipe, roar, charge) into `preview/`. Next: stage 3 (3 hits, 2 deaths) after the owner's review.
+- **09:20 STAGE 2 DONE.** mp4s in `preview/` (slam, swipe, roar, charge), shown to the owner. Next: stage 3 (3 hits, 2 deaths) after the owner's review.
