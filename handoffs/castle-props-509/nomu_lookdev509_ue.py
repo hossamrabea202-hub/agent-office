@@ -7,8 +7,8 @@
 #   py nomu_lookdev509_ue.py after      same shots -> _after.png (a separate run, so the new shaders have compiled)
 #   py nomu_lookdev509_ue.py clear      removes WS509 / FX509 / FW509 / LD504 actors and deletes /Game/_i5tmpWS509
 import math, os, sys, unreal
-HERE = 'C:/Users/hossam.rabea/agent-office/handoffs/castle-props-509'
-REPO = 'C:/Users/hossam.rabea/agent-office'
+HERE = 'C:/Users/hossa/Documents/agent-office/handoffs/castle-props-509'
+REPO = 'C:/Users/hossa/Documents/agent-office'
 EAS = unreal.get_editor_subsystem(unreal.EditorActorSubsystem); V = unreal.Vector
 step = [a for a in sys.argv[1:] if not a.startswith('--')][0]
 # --real (i9 preview on the live castle): the real asset paths (import / build done by the README steps first), 'after' removes

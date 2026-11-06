@@ -79,5 +79,5 @@ for ad in unreal.AssetRegistryHelpers.get_asset_registry().get_assets_by_class(u
     ft_rows.append('%-6s %-6s cur %6s  %s' % (k[0] if k else 'NOWIND', act, cur, ad.package_name))
 out = ['WPO audit: %d swaying level components, %d swaying foliage types, %s' % (len(rows), len(ft_rows), ('%d CHANGED' % changed) if APPLY else 'dry run')]
 out += ['', '# level components'] + sorted(rows) + ['', '# foliage types'] + sorted(ft_rows)
-open('C:/Users/hossam.rabea/agent-office/handoffs/castle-props-509/wpo_report509.txt', 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+open('C:/Users/hossa/Documents/agent-office/handoffs/castle-props-509/wpo_report509.txt', 'w', encoding='utf-8').write('\n'.join(out) + '\n')
 print(out[0]); print('to change:', sum(1 for r in rows + ft_rows if ' set ' in r))

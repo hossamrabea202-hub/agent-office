@@ -1,6 +1,41 @@
-fittings {'HoardingBay': 3, 'HoardingEnd': 2} | spout streak cards 0 | gate castle_gatelanding
-HoardingBay      -175     2050     983 yaw   90  bay
-HoardingBay      -175     1750     983 yaw   90  bay
-HoardingBay      -175     1450     983 yaw   90  bay
-HoardingEnd      -175     1300     983 yaw   90  end
-HoardingEnd      -175     2200     983 yaw   90  end (mirrored)
+fittings {'DrainSpout': 14, 'TieRing': 12, 'WallBracket': 8, 'AnchorPlate': 6} | spout streak cards 14 | gate castle_gatelanding
+DrainSpout       3700      -71     672 yaw  180  spout
+DrainSpout       4969     1200     672 yaw  -90  spout
+DrainSpout       5093     -293    1062 yaw -128  spout
+DrainSpout        -71      900     669 yaw   90  spout
+DrainSpout       2209     1900    1034 yaw   90  spout
+DrainSpout       -195     2905    1062 yaw  154  spout
+DrainSpout       1600     3571     672 yaw   -0  spout
+DrainSpout       5197     3397    1061 yaw  -78  spout
+DrainSpout       3500     3571     672 yaw    0  spout
+DrainSpout       2400      -71     672 yaw -180  spout
+DrainSpout       3319     2200     672 yaw  -90  spout
+DrainSpout       3319     1000     672 yaw  -90  spout
+DrainSpout        595     -195    1062 yaw -116  spout
+DrainSpout       4969     2100     672 yaw  -90  spout
+TieRing          2190      767     133 yaw    0  ring
+TieRing          4150     1686     132 yaw  -90  ring
+TieRing          1768      767     132 yaw    0  ring
+TieRing          4151     1997     132 yaw  -90  ring
+TieRing          1370     2731     132 yaw  180  ring
+TieRing          1456      130     132 yaw   -0  ring
+TieRing          4697     2563      -5 yaw  -91  ring
+TieRing          4710     3200      -5 yaw  180  ring
+TieRing          4349     3840      74 yaw   23  ring
+TieRing           786     3046     133 yaw -180  ring
+TieRing          3165     3588     196 yaw  -90  ring
+TieRing          3030     1479     132 yaw  -90  ring
+WallBracket       219     1231     203 yaw  -90  bracket
+WallBracket       217     1337     202 yaw  -90  bracket
+WallBracket      -185     1489     120 yaw   90  bracket
+WallBracket      1485     2730     202 yaw -180  bracket
+WallBracket      2735     3360     203 yaw   90  bracket
+WallBracket      2831     3665     150 yaw   -0  bracket
+WallBracket      4560      267      65 yaw  -91  bracket
+WallBracket      2514     1195     203 yaw -179  bracket
+AnchorPlate      4698     2539     315 yaw  -90  anchor
+AnchorPlate      4697     2939     315 yaw  -90  anchor
+AnchorPlate      3030      957     452 yaw  -90  anchor
+AnchorPlate      3030     1357     452 yaw  -90  anchor
+AnchorPlate      1878     2730     452 yaw -180  anchor
+AnchorPlate      2278     2730     452 yaw  180  anchor
