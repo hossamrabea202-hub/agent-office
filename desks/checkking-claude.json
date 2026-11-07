@@ -1,9 +1,10 @@
 {
- "working": "waiting on i9: export #562 for crossbow pass 2",
- "tokens": 180788,
+ "working": "waiting on owner OK + i9 import for #561",
+ "tokens": 263278,
  "ctx": 1000000,
  "since": "2026-11-07T09:20:35Z",
  "done": [
+  "#561 pass 2 handed off: Noble crossbow rebuilt [74% tokens left · 5h plan 96% left]",
   "#561 pass 1 handed off (Noble textures) [82% tokens left · 5h plan 70% left]",
   "#553 commander card handed off, not played [78% tokens left]",
   "#504 castle weathering cards built + tested offline (hand-off #505) [85% tokens left]",
@@ -12,8 +13,7 @@
   "#500 C++ kit rev 4: third review fixes [21% tokens left]",
   "#500 C++ kit rev 3: second review fixes [28% tokens left]",
   "#500 C++ kit rev 2: all external review fixes [36% tokens left]",
-  "#501 render count + SiegeKit removal script handed to i9 [44% tokens left]",
-  "#500 C++ transition kit for the 8 points written (not compiled) [50% tokens left]"
+  "#501 render count + SiegeKit removal script handed to i9 [44% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -24,25 +24,25 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-11-07T09:28:13Z",
+  "asOf": "2026-11-07T11:18:39Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 30,
-    "resetsAt": "2026-11-07T11:00:00Z",
+    "pct": 4,
+    "resetsAt": "2026-11-07T15:59:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 85,
-    "resetsAt": "2026-11-08T06:00:00Z",
+    "pct": 86,
+    "resetsAt": "2026-11-08T05:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-11-07T09:28:13Z",
+ "asOf": "2026-11-07T11:18:39Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "0d43331ff4b6",
