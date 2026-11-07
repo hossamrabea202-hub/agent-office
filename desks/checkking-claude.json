@@ -1,8 +1,8 @@
 {
- "working": "waiting on i9: #553 paste and C++ hooks",
- "tokens": 215000,
+ "working": "#561 crossbow AAA polish",
+ "tokens": 134965,
  "ctx": 1000000,
- "since": "2026-11-06T18:19:29Z",
+ "since": "2026-11-07T09:20:35Z",
  "done": [
   "#553 commander card handed off, not played [78% tokens left]",
   "#504 castle weathering cards built + tested offline (hand-off #505) [85% tokens left]",
@@ -24,28 +24,28 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-11-04T14:14:56Z",
+  "asOf": "2026-11-07T09:20:35Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 14,
-    "resetsAt": "2026-11-04T14:50:00Z",
+    "pct": 25,
+    "resetsAt": "2026-11-07T10:59:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 88,
-    "resetsAt": "2026-11-08T06:00:00Z",
+    "pct": 84,
+    "resetsAt": "2026-11-08T05:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-11-06T19:03:55Z",
+ "asOf": "2026-11-07T09:20:35Z",
  "seat": "checkking (Claude)",
  "session": {
-  "id": "8a52d4999235",
+  "id": "0d43331ff4b6",
   "host": "5CD3147LBC"
  },
  "ask": {
