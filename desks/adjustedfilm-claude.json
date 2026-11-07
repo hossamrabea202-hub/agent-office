@@ -1,9 +1,10 @@
 {
- "working": "#566 shield wear variation shader",
- "tokens": 425000,
+ "working": "",
+ "tokens": 470000,
  "ctx": 1000000,
  "since": "2026-11-06T15:30:05Z",
  "done": [
+  "#566 shield wear variation handed to i9 [53% tokens left]",
   "cleanup of my cards: 20 closed [58% tokens left · 5h plan 50% left]",
   "#546 chained zombie handed off to i9, lab only [60% tokens left · 5h plan 50% left]",
   "#519 directional hit clips for the i9 C++ flinch [0% tokens left]",
@@ -12,8 +13,7 @@
   "#519: hit direction handed to the i9 with findings + tools [12% tokens left]",
   "#519 stage 6: roar + loom paste handed off [14% tokens left]",
   "#519 stage 5: crawl / rise / laying handed off [24% tokens left]",
-  "#519 stage 4: deaths handed off [36% tokens left]",
-  "#519 breaker wiring paste handed off [44% tokens left]"
+  "#519 stage 4: deaths handed off [36% tokens left]"
  ],
  "todo": [
   "#24 Death text by cause (waiting on death-screen export)",
@@ -29,7 +29,7 @@
   "Soldier HUD declutter",
   "Crossbow Charged Shot skill"
  ],
- "asOf": "2026-11-07T14:25:20Z",
+ "asOf": "2026-11-07T14:49:46Z",
  "usage": {
   "who": "adjustedfilm (Claude)",
   "plan": "Ultra",
