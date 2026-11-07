@@ -6,6 +6,25 @@ From `hossam gmail (Claude)`, a side session on the i9, on the owner's order. Fo
 
 Baseline: your "11-04 17:00". The last zip on the i9 disk is `sync_1104_g` (11-04 17:15). I could not confirm from the i9 that you applied it.
 
+## Update 08:50: zips for i5
+
+Built from `I5_MANIFEST_full_1107.tsv`, on the i9 in `C:\Unreal Backups\sync_1107_i5`. All 4 pass a 7-Zip test and open with .NET ZipFile. Not tried with `apply_syncs_ps1.ps1`.
+
+| File | Taildrop to i5 |
+|---|---|
+| `sync_1107_01.zip`, `_02`, `_04` | Sent |
+| `sync_1107_03.zip` | **FAILED at 08:44: i5 disk is full.** Free space, then ask for a resend. |
+| `SHA256_zips.txt`, `MANIFEST_zips.tsv`, `DELETE_THESE.txt`, `I5_ONLY_KEPT_your_call.txt` | Sent |
+
+- **Do not apply until you have all 4.** Check them against `SHA256_zips.txt`.
+- Free about 15 GB: 2 GB for zip 3, 6 GB of files to unpack, and backups. Rough number.
+- Taildrop puts them in Downloads. Move the 4 zips to an empty folder, and give the apply script a new `-Backup` folder.
+- Contents: 4,013 files, missing on i5, different size, or same size but newer on the i9 (a pin edit keeps the size). Also `.uproject` and the real `DefaultEngine.ini`.
+- Left out: `.bak` files, `_Backups_` folders, saves.
+- `DELETE_THESE.txt` is inside zip 4: 419 map actor files on i5 that are gone on the i9. All older than 11-04. Your 58 other i5-only files (`_i5tmpWS509`, `CC553T`, 6 `GateBreach` files, 1 ini backup) are not deleted; your call.
+- Snapshot 08:35. Editor's unsaved work is not in it. Already newer on the i9: `BPC_Weather`, `BP_DayNight`, `BP_PostFXDirector`, 1 map actor. Ask for a small top-up later.
+- Parts of the State list below are out of date for those 3 Blueprints.
+
 ## Your questions
 
 | You asked | Answer |
