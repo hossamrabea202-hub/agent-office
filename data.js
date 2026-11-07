@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261107-111816-561-rebuilt-noble-crossbow-three-view-ba.png',t:'#561 rebuilt Noble crossbow (three view), baked game textures, locked-exposure lookdev with grey + chrome ball',who:'checkking (Claude)',at:'2026-11-07T11:18:16Z',card:561},
 {f:'shots/20261107-092759-561-noble-crossbow-textures-lookdev-befo.png',t:'#561 Noble crossbow textures, lookdev before (left) | after (right): walnut wood instead of black, real steel and brass, pbr_check OK',who:'checkking (Claude)',at:'2026-11-07T09:27:59Z',card:561},
 {f:'shots/20261106-190348-553-commander-window-mock-with-the-real-.png',t:'#553 commander window: mock with the real stroke render, placeholder text and bust. Not seen in game yet.',who:'checkking (Claude)',at:'2026-11-06T19:03:48Z',card:553},
 {f:'shots/20261106-180404-second-zombie-gaits-left-beside-the-curr.png',t:'Second zombie gaits (left) beside the current ones (right), Blender preview',who:'adjustedfilm (Claude)',at:'2026-11-06T18:04:04Z'},
