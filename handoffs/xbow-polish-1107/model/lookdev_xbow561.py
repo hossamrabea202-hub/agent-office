@@ -35,7 +35,7 @@ if TEX:
     for p in ob.data.polygons: p.material_index = 0
 cam = bpy.data.objects.new('Cam', bpy.data.cameras.new('Cam')); sc.collection.objects.link(cam); sc.camera = cam
 VIEWS = {'three': ((0.55, -0.95, 0.42), (0.0, 0.0, 0.0), 40), 'side': ((0.0, -1.35, 0.06), (0.0, 0.0, -0.01), 45),
-         'close': ((0.20, -0.30, 0.16), (0.05, 0.0, 0.0), 50), 'top': ((0.05, -0.25, 0.75), (0.05, 0.0, 0.0), 35)}
+         'close': ((0.20, -0.30, 0.16), (0.05, 0.0, 0.0), 50), 'top': ((0.05, -0.25, 0.75), (0.05, 0.0, 0.0), 35), 'inlay': ((-0.17, -0.22, 0.06), (-0.21, 0.0, -0.022), 50), 'head': ((0.36, -0.20, 0.12), (0.27, 0.0, 0.0), 45)}
 loc, tgt, lens = VIEWS[VIEW]; cam.location = loc; cam.data.lens = lens
 cam.rotation_euler = (Vector(tgt) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
 sc.render.filepath = OUT; bpy.ops.render.render(write_still=True)

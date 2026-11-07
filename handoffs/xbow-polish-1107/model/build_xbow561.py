@@ -143,7 +143,7 @@ fx = _math(nt, 'SUBTRACT', _math(nt, 'FRACT', spx.outputs[0]), 0.5)
 fz = _math(nt, 'SUBTRACT', _math(nt, 'FRACT', _math(nt, 'ADD', spx.outputs[2], 0.5)), 0.5)
 r2 = _math(nt, 'SQRT', _math(nt, 'ADD', _math(nt, 'MULTIPLY', fx, fx), _math(nt, 'MULTIPLY', fz, fz)))
 ang = _math(nt, 'ARCTAN2', fz, fx)
-jit = _maprange(nt, noise(nt, co, 25, 2), 0.3, 0.7, 5.5, 8.5)
+jit = _math(nt, 'ADD', 7.0, _math(nt, 'MULTIPLY', 1.5, _math(nt, 'MULTIPLY', _math(nt, 'SINE', _math(nt, 'MULTIPLY', spx.outputs[0], 1.7)), _math(nt, 'COSINE', _math(nt, 'MULTIPLY', spx.outputs[2], 2.3)))))   # same formula as the carved high poly
 spiral = _math(nt, 'FRACT', _math(nt, 'ADD', _math(nt, 'MULTIPLY', r2, jit), _math(nt, 'MULTIPLY', ang, 0.159)))
 line = _math(nt, 'MULTIPLY', _maprange(nt, _math(nt, 'ABSOLUTE', _math(nt, 'SUBTRACT', spiral, 0.5)), 0.38, 0.45), _maprange(nt, r2, 0.48, 0.40))
 
@@ -161,7 +161,7 @@ def steel(name, oxide_amt=0.55):
     edge, _ = edge_mask(nt, 0.0015); cav, ao = cav_mask(nt, 0.006)
     ham = _n(nt, 'ShaderNodeTexVoronoi', feature='SMOOTH_F1', in_Scale=220.0); nt.links.new(co, ham.inputs['Vector'])
     hm = _maprange(nt, ham.outputs['Distance'], 0.0, 0.7)
-    fil = _n(nt, 'ShaderNodeTexWave', wave_type='BANDS', bands_direction='Y', in_Scale=900.0, in_Distortion=3.0, in_Detail=3.0)
+    fil = _n(nt, 'ShaderNodeTexWave', wave_type='BANDS', bands_direction='Y', in_Scale=400.0, in_Distortion=6.0, in_Detail=3.0)
     nt.links.new(co, fil.inputs['Vector']); fl = _maprange(nt, fil.outputs['Fac'], 0.6, 1.0)
     patch = _maprange(nt, _math(nt, 'ADD', noise(nt, co, 34, 6, 0.6), _math(nt, 'MULTIPLY', noise(nt, co, 120, 4), 0.25)), 0.62, 0.80)
     wipe = _maprange(nt, noise(nt, stretched(nt, co, 1.0, 0.12, 6.0), 6, 4, 0.6), 0.55, 0.75)    # long wipe marks along the span
@@ -172,7 +172,7 @@ def steel(name, oxide_amt=0.55):
     bare = _mix_col(nt, _math(nt, 'MULTIPLY', hm, 0.15), bare, (0.44, 0.445, 0.45))
     film = _mix_col(nt, _math(nt, 'ADD', _math(nt, 'MULTIPLY', noise(nt, co, 260, 3), 0.6), _math(nt, 'MULTIPLY', noise(nt, co, 25, 3), 0.4)), (0.038, 0.036, 0.035), (0.075, 0.069, 0.062))
     col = _mix_col(nt, ox, bare, film); col = _mix_col(nt, rust, col, (0.18, 0.057, 0.017))
-    rg = _mix_f(nt, fl, 0.34, 0.26); rg = _mix_f(nt, _math(nt, 'MULTIPLY', hm, 0.5), rg, 0.36); rg = _mix_f(nt, edge, rg, 0.18)
+    rg = _mix_f(nt, _math(nt, 'MULTIPLY', fl, 0.5), 0.34, 0.26); rg = _mix_f(nt, _math(nt, 'MULTIPLY', hm, 0.5), rg, 0.36); rg = _mix_f(nt, edge, rg, 0.18)
     rg = _mix_f(nt, ox, rg, 0.62); rg = _mix_f(nt, rust, rg, 1.0)
     mt = _math(nt, 'SUBTRACT', 1.0, _math(nt, 'MAXIMUM', ox, rust), True)
     finish(m, col, rg, mt, ao, _math(nt, 'ADD', _math(nt, 'MULTIPLY', hm, 0.6), _math(nt, 'MULTIPLY', fl, 0.1)), 0.00015, True)

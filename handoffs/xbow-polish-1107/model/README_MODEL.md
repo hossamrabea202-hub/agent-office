@@ -1,4 +1,20 @@
-# #561 pass 2: Noble crossbow rebuilt as a real object (checkking, 2026-11-07)
+# #561 pass 3 (current): high poly baked to low poly (checkking, 2026-11-07)
+
+Owner: "more detailed, a couple million polys, then bake it on a low poly ... same quality with minimum tris."
+**Use this version (v2 zip), not the pass-2 v1 zip.** Script: `build_xbow561_hp.py` (`--stage high`, then `--stage bake`).
+- HIGH: 1,718,716 tris. Real geometry for the carved staghorn scrolls (0.45 mm deep), domed brass rivets, hammer marks on
+  the steel, growth-ring relief on the walnut, 3-strand twisted string, 2-strand twisted bridle cords, a 2.5 mm bolt groove.
+- LOW (the game mesh): **6,792 tris**, one slot, 2K BaseColor / ORM / Normal baked from the HIGH (selected-to-active,
+  extrusion 3 mm, ray 9 mm). Inlay, rivets, pins and groove exist only in the bake. `pbr_check` OK (non-metal p50 79 sRGB,
+  metal p50 190, metallic 0/1).
+- Zip for the Master: `http://100.87.149.123:8765/files/124424_xbow561_model_v2.zip` (same file names, same steps below).
+  The HIGH .blend (92 MB) stays on i5: `C:/Users/hossam.rabea/ckw/xbow561/hp/xbow561_high.blend`.
+- Known: spiral lines step a little at extreme close-up (2K texel limit; fine at play distance); steel oxide patches
+  could be finer; bake has a small dark smudge where the crossed bridle meets the stock top.
+
+---
+
+## (pass 2, replaced) Noble crossbow rebuilt as a real object
 
 Owner: "I want it to show in game as if it is a real world object ... do it, and even tweak the design if necessary."
 This **replaces** pass 1 (the texture recalibration in `../README.md`): the old mesh is too simple for close-up realism.
@@ -21,7 +37,7 @@ by AO, grip polish, no global grunge), 4 (detail sized to texel density, importe
 §1.3.1 Composite Texture, §1.3.6 Sharpen4, §1.3.8 Masks/BC5; owner decal rule (new assets only).
 
 ## Master: steps
-1. Download `http://100.87.149.123:8765/files/121738_xbow561_model_v1.zip` (12.5 MB), unzip to e.g.
+1. Download `http://100.87.149.123:8765/files/124424_xbow561_model_v2.zip`, unzip to e.g.
    `C:/Unreal Backups/_claude/xbow561m/`.
 2. `git pull`. Output Log (Python): `py "<repo>/handoffs/xbow-polish-1107/model/import_xbow561_ue.py" --src "C:/Unreal Backups/_claude/xbow561m"`
    → `dry run: files OK`.
