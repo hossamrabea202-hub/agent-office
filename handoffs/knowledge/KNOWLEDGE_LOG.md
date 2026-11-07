@@ -389,3 +389,6 @@ The full note is `research_notes/creature_studio_method.md`. The findings that c
 - No mesh? Use UV-island borders as the edge-wear mask: on hard-surface kits each island ends at a hard edge. Erode the island mask 4 px at 2K (~2-3 mm on a 0.8 m prop) and break it with noise. Good stand-in until the real ray-bevel bake (retex.py).
 - Keep painted wood grain by dividing luminance by its local (12 px) mean, then multiply onto the calibrated wood colour: grain survives, value lands in range. Pores (darker grain) get +0.1 roughness.
 - Swap a licensed material without editing it: duplicate it in UE and re-point its TextureSample nodes (sampler type Masks for the ORM). Keeps the original normal handling and wiring. Script: handoffs/xbow-polish-1107/apply_xbow561_ue.py.
+- (#561 pass 2) Procedural wood detail finer than ~3 texels dies in the bake: at 2K on a 0.9 m prop (~1000 px/m) pores at 1400/m baked as random dots and noisy dents. Keep pore streaks >= 3 mm and bump distance ~0.1 mm; rings carry the grain.
+- Blender Bevel node fed the BUMPED normal turns wood pores into fake "worn edges" (white dashes). Only feed bumped normals to the bevel on metal.
+- Baked metallic blurs at film edges: snap with clip((m-0.45)/0.1) and lift metal texels to >= 180 sRGB after the bake; pbr_check then passes.

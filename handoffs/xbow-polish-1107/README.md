@@ -1,5 +1,7 @@
 # #561 Crossbows AAA polish, pass 1: Noble crossbow textures (checkking, 2026-11-07)
 
+> **Superseded by pass 2 (2026-11-07, owner):** the crossbow is rebuilt as a real model, see [model/README_MODEL.md](model/README_MODEL.md). Apply pass 2, not pass 1.
+
 Owner: "polish the xbow weapons in the game, following realism rules and maximum quality achievable with AAA methods".
 Study: [RESEARCH.md](RESEARCH.md). Built on the live textures exported 11-02 (`Crossbow_1K_BaseColor`,
 `Crossbow_1K_AO-...-Metallic`, same as in the 11-07 i5 sync). The mesh, UVs and normal map are unchanged.
