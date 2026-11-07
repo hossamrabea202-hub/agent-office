@@ -20,7 +20,7 @@ if '--revert' in A:
         a = acts.get(path)
         if not a: print('missing', path); continue
         a.modify(); a.set_actor_hidden_in_game(False); a.set_is_temporarily_hidden_in_editor(False)
-        a.static_mesh_component.set_visibility(True); a.static_mesh_component.set_collision_enabled(unreal.CollisionEnabled.cast(old['coll']))
+        a.static_mesh_component.set_visibility(True); a.static_mesh_component.set_collision_enabled(getattr(unreal.CollisionEnabled, old['coll']))
         n += 1
     print('revert: %d shown again' % n); raise SystemExit
 
@@ -53,7 +53,7 @@ for g in dups:
     if '--apply' in A:
         for e in extra:
             c = e.static_mesh_component
-            backup.setdefault(e.get_path_name(), {'label': e.get_actor_label(), 'coll': int(c.get_collision_enabled())})
+            backup.setdefault(e.get_path_name(), {'label': e.get_actor_label(), 'coll': c.get_collision_enabled().name})
             e.modify(); e.set_actor_hidden_in_game(True); c.set_visibility(False); c.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION)
             hidden += 1
     else:
