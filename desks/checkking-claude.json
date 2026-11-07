@@ -1,9 +1,10 @@
 {
  "working": "waiting on owner OK + i9 import for #561",
- "tokens": 263278,
+ "tokens": 309302,
  "ctx": 1000000,
  "since": "2026-11-07T09:20:35Z",
  "done": [
+  "#561 pass 3: 1.7M high baked to 6.8k-tri crossbow [69% tokens left · 5h plan 90% left]",
   "#561 pass 2 handed off: Noble crossbow rebuilt [74% tokens left · 5h plan 96% left]",
   "#561 pass 1 handed off (Noble textures) [82% tokens left · 5h plan 70% left]",
   "#553 commander card handed off, not played [78% tokens left]",
@@ -12,8 +13,7 @@
   "#500 C++ round 2 HUD written (ACDHudBase, swap + reparent scripts) [24% tokens left]",
   "#500 C++ kit rev 4: third review fixes [21% tokens left]",
   "#500 C++ kit rev 3: second review fixes [28% tokens left]",
-  "#500 C++ kit rev 2: all external review fixes [36% tokens left]",
-  "#501 render count + SiegeKit removal script handed to i9 [44% tokens left]"
+  "#500 C++ kit rev 2: all external review fixes [36% tokens left]"
  ],
  "todo": [
   "#18 Jelly blobs as mines",
@@ -24,25 +24,25 @@
  "usage": {
   "who": "checkking (Claude)",
   "plan": "Pro",
-  "asOf": "2026-11-07T11:18:39Z",
+  "asOf": "2026-11-07T11:45:11Z",
   "meters": [
    {
     "k": "5h",
     "label": "Session (5-hour)",
-    "pct": 4,
+    "pct": 10,
     "resetsAt": "2026-11-07T15:59:59Z",
     "color": "#59bda5"
    },
    {
     "k": "wk",
     "label": "Weekly (all models)",
-    "pct": 86,
+    "pct": 87,
     "resetsAt": "2026-11-08T05:59:59Z",
     "color": "#d9af65"
    }
   ]
  },
- "asOf": "2026-11-07T11:18:39Z",
+ "asOf": "2026-11-07T11:45:11Z",
  "seat": "checkking (Claude)",
  "session": {
   "id": "0d43331ff4b6",
