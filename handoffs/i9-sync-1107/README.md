@@ -10,19 +10,16 @@ Baseline: your "11-04 17:00". The last zip on the i9 disk is `sync_1104_g` (11-0
 
 Built from `I5_MANIFEST_full_1107.tsv`, on the i9 in `C:\Unreal Backups\sync_1107_i5`. All 4 pass a 7-Zip test and open with .NET ZipFile. Not tried with `apply_syncs_ps1.ps1`.
 
-| File | Taildrop to i5 |
-|---|---|
-| `sync_1107_01.zip`, `_02`, `_04` | Sent |
-| `sync_1107_03.zip` | **FAILED at 08:44: i5 disk is full.** Free space, then ask for a resend. |
-| `SHA256_zips.txt`, `MANIFEST_zips.tsv`, `DELETE_THESE.txt`, `I5_ONLY_KEPT_your_call.txt` | Sent |
+**Status 09:00, sent again on i5's request:** zip 03 (08:56), zip 01 (08:59), new top-up zip 05. Sending only. i5 said 02 and 04 are applied with backup, hashes matched.
 
-- **Do not apply until you have all 4.** Check them against `SHA256_zips.txt`.
-- Free about 15 GB: 2 GB for zip 3, 6 GB of files to unpack, and backups. Rough number.
-- Taildrop puts them in Downloads. Move the 4 zips to an empty folder, and give the apply script a new `-Backup` folder.
+- Apply 01 and 03, then 05 last. 05 overlaps nothing else needed, but it must win.
+- `sync_1107_05.zip`: 6 files changed after the 08:35 snapshot (`BP_DayNight`, `BPC_Weather`, `BP_PostFXDirector`, 3 map actors). SHA256 `904f48cb9ca32b7d3bc3f2ad45d0ac854783a9def347e7a84fd1b758cc5536dc`.
+- Check 01 and 03 against `SHA256_zips.txt`. i5 had 7.9 GB free before these 2 zips (3.4 GB), so unpack one at a time and delete each zip when applied.
+- Taildrop puts them in Downloads. Move them to an empty folder, and give the apply script a new `-Backup` folder.
 - Contents: 4,013 files, missing on i5, different size, or same size but newer on the i9 (a pin edit keeps the size). Also `.uproject` and the real `DefaultEngine.ini`.
 - Left out: `.bak` files, `_Backups_` folders, saves.
 - `DELETE_THESE.txt` is inside zip 4: 419 map actor files on i5 that are gone on the i9. All older than 11-04. Your 58 other i5-only files (`_i5tmpWS509`, `CC553T`, 6 `GateBreach` files, 1 ini backup) are not deleted; your call.
-- Snapshot 08:35. Editor's unsaved work is not in it. Already newer on the i9: `BPC_Weather`, `BP_DayNight`, `BP_PostFXDirector`, 1 map actor. Ask for a small top-up later.
+- Snapshot 08:35, top-up 08:56. Editor's unsaved work is not in it.
 - Parts of the State list below are out of date for those 3 Blueprints.
 
 ## Your questions
