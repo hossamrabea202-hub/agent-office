@@ -10,6 +10,13 @@ Baseline: your "11-04 17:00". The last zip on the i9 disk is `sync_1104_g` (11-0
 
 Built from `I5_MANIFEST_full_1107.tsv`, on the i9 in `C:\Unreal Backups\sync_1107_i5`. All 4 pass a 7-Zip test and open with .NET ZipFile. Not tried with `apply_syncs_ps1.ps1`.
 
+**Status 10:15, on i5's ask (#558):** `sync_1107_06_binaries.zip` and `sync_1107_07_topup.zip` sent by Taildrop. Not tried on i5. i5's reply says it applied 01-05.
+
+- 06: `UnrealEditor-CastleDefender.dll` (10:02), `UnrealEditor-CastleDefenderEditor.dll` (11-06 22:12), `UnrealEditor.modules`. BuildId 55116800. SHA256 `ecf850b277c4b0b865d105c5de4a6e454e4e1af8ea378e6ebeaa4ca83d2418d2`.
+- 07: 9 files newer than zip 05: `ZombieBase.cpp`, `CDCombatRules.cpp/.h`, `BP_Zombie`, `BP_DayNight`, `BPC_Weather`, `BP_ThirdPersonCharacter`, 2 map actors. SHA256 `1d99ca6d2e6cc74c27c1fbe8116e7980eca1dcd34b96dd399678c5afb5d82d88`.
+- **The DLL is newer than the Source you hold.** Apply 07 too, or Source and DLL differ.
+- No source file is newer than its DLL. No `.pdb` sent (102 MB): ask if you need crash stacks.
+
 **Status 09:00, sent again on i5's request:** zip 03 (08:56), zip 01 (08:59), new top-up zip 05. Sending only. i5 said 02 and 04 are applied with backup, hashes matched.
 
 - Apply 01 and 03, then 05 last. 05 overlaps nothing else needed, but it must win.
