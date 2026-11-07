@@ -25,3 +25,6 @@ His marked screenshot (front view of v2) showed, as i5 read it (the image could 
 2. **Black X on the 2 mouth arms under the mouth:** remove them from there.
 3. **Yellow-green marks at the upper left and upper right corners of the mouth:** put the tiny mouth arms there, hanging off the sides of the mouth.
 4. **Red short lines on every tooth:** teeth lean toward vertical. Top teeth point down, bottom teeth point up (like a jaw), not all pointing at the centre of the circle.
+
+## Round 2b (owner, ~15:35): "blend in more, dont make it look like a hair cut"
+His screenshot: back view of v2, between the two rear tentacle roots. He circled the place where the back ridge ends in a sharp ledge / fold above the belly (like a fringe cut straight across). Blend that ridge into the body: soft, gradual falloff into the belly, no hard horizontal edge or step.
