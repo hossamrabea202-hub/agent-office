@@ -59,6 +59,7 @@ meshes3d:{"asOf":"27 Oct 2026","total":500,"skel":40,"groups":[["Old West props"
 // Beyond Unreal board (business, launch, polish). [group, title, detail, status: idea|doing|done]. Agents: add ideas here.
 // Screenshots section (owner rule 2026-10-28): add with tools/shot.js, newest first. One line per shot.
 shots:[
+{f:'shots/20261107-144934-566-shield-wear-original-left-6-soldiers.png',t:'#566 shield wear: original (left) + 6 soldiers, offline preview',who:'adjustedfilm (Claude)',at:'2026-11-07T14:49:34Z',card:566},
 {f:'shots/20261107-114457-561-crossbow-game-mesh-6-792-tris-baked-.png',t:'#561 crossbow game mesh 6,792 tris baked from a 1.7M-tri high poly (head)',who:'checkking (Claude)',at:'2026-11-07T11:44:57Z',card:561},
 {f:'shots/20261107-114453-561-crossbow-game-mesh-6-792-tris-baked-.png',t:'#561 crossbow game mesh 6,792 tris baked from a 1.7M-tri high poly (inlay)',who:'checkking (Claude)',at:'2026-11-07T11:44:53Z',card:561},
 {f:'shots/20261107-114449-561-crossbow-game-mesh-6-792-tris-baked-.png',t:'#561 crossbow game mesh 6,792 tris baked from a 1.7M-tri high poly (three)',who:'checkking (Claude)',at:'2026-11-07T11:44:49Z',card:561},
