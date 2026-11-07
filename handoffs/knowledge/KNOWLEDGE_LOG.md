@@ -383,3 +383,9 @@ The full note is `research_notes/creature_studio_method.md`. The findings that c
 - HLSL Custom node: `line` is a reserved word; a variable named `line` fails the shader with only a "syntax error" in the log, and the material still saves. Check `Material.ush ... error` in the log after creating one.
 - A self-referencing paste (calls to custom events in the same paste) brings up "Fix Self Context Function References". Leave Do Nothing, Confirm, then File > Refresh All Nodes, then Compile. Compiling first gives "In use pin <Unnamed> no longer exists". Ordering events first in the T3D, or pasting them first, does not help.
 - Time-based motion in a paused-game UI: drive a scalar from real seconds, not the material Time node. RT exports keep alpha, so flatten before judging a shot on a page.
+
+## 2026-11-07 checkking (i5), #561 crossbow retexture without the mesh (tested: pbr_check + Blender lookdev, not yet in UE)
+- Bought weapon kits can ship a flat metallic (0.88 / 0.82 everywhere) and near-black wood (22 sRGB, 88 % sat): pbr_check catches both. Fix in texture space: snap metallic 0/1, make the designer's dark metal a non-metal oxide film over 190 sRGB steel (patches + AO cavities, rubbed off at edges).
+- No mesh? Use UV-island borders as the edge-wear mask: on hard-surface kits each island ends at a hard edge. Erode the island mask 4 px at 2K (~2-3 mm on a 0.8 m prop) and break it with noise. Good stand-in until the real ray-bevel bake (retex.py).
+- Keep painted wood grain by dividing luminance by its local (12 px) mean, then multiply onto the calibrated wood colour: grain survives, value lands in range. Pores (darker grain) get +0.1 roughness.
+- Swap a licensed material without editing it: duplicate it in UE and re-point its TextureSample nodes (sampler type Masks for the ORM). Keeps the original normal handling and wiring. Script: handoffs/xbow-polish-1107/apply_xbow561_ue.py.
